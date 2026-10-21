@@ -1,0 +1,14 @@
+# Thu vien can thiet khi chay LUO Studio bang Python cai san tren may (Python 3.11 hoac 3.12, 64-bit).
+# Khong can neu mo bang "LUO Studio.bat" (goi da kem san Python trong runtime\).
+fastapi>=0.115
+uvicorn[standard]>=0.32
+pydantic>=2.9
+requests>=2.32
+websocket-client>=1.8
+python-multipart>=0.0.9
+numpy==1.26.4
+pillow
+mediapipe==0.10.21
+opencv-contrib-python==4.11.0.86
+faster-whisper>=1.2
+sounddevice

@@ -1,0 +1,387 @@
+﻿================================================================================
+  LUO STUDIO - HƯỚNG DẪN SỬ DỤNG CHI TIẾT
+================================================================================
+
+MỤC LỤC
+  1. LUO Studio là gì
+  2. Yêu cầu máy
+  3. Cài đặt và mở lần đầu
+  4. Thêm tài khoản Muse (bắt buộc)
+  5. Làm quen giao diện
+  6. Tạo video đầu tiên (từng bước), gồm cả cách nhờ Claude viết kịch bản
+  7. Theo dõi, dừng, chạy tiếp, gen lại cảnh
+  8. Hậu kỳ và xuất video
+  9. Giải thích các mục trong Cài đặt
+ 10. Mẹo tiết kiệm lượt gen Muse
+ 11. Xử lý sự cố thường gặp
+ 12. Dữ liệu, sao lưu, cập nhật, gỡ cài đặt
+ 13. Bảo mật và lưu ý
+
+--------------------------------------------------------------------------------
+1. LUO STUDIO LÀ GÌ
+--------------------------------------------------------------------------------
+LUO Studio giúp bạn tạo hàng loạt video quảng cáo dạng "hội thoại": một nhân vật
+AI (robot dạy học) nói chuyện với một người học. Bạn nhập lời thoại và mô tả nhân
+vật, phần mềm tự gen từng cảnh trên Muse (Meta), nối các cảnh, cắt sát lời nói,
+cân màu, thêm phụ đề, logo, end card, hiệu ứng, rồi xuất video hoàn chỉnh.
+
+Gói này đã gồm cả hai phần, bạn chỉ cần mở một chỗ:
+  - LUO Studio: giao diện làm việc (dự án, hàng đợi, kết quả).
+  - LUO-API: dịch vụ nền nối với Muse bằng tài khoản của bạn (tab "API Muse").
+
+--------------------------------------------------------------------------------
+2. YÊU CẦU MÁY
+--------------------------------------------------------------------------------
+  - Windows 10 hoặc 11, 64-bit.
+  - RAM từ 8GB (khuyến nghị 16GB). Ổ cứng trống ít nhất 10GB (video và file tạm).
+  - Đã cài Microsoft Edge hoặc Google Chrome (Windows có sẵn Edge).
+  - Có Internet ổn định.
+  - Một hoặc nhiều tài khoản Muse (muse.ai) của chính bạn.
+  - Không cần cài Python hay phần mềm nào khác.
+
+--------------------------------------------------------------------------------
+3. CÀI ĐẶT VÀ MỞ LẦN ĐẦU
+--------------------------------------------------------------------------------
+Bước 0. Cho phép Windows Defender (LÀM TRƯỚC KHI GIẢI NÉN)
+  Gói có kèm Python và ffmpeg dạng chạy sẵn, chưa có chữ ký số, nên Windows
+  Defender hoặc SmartScreen có thể báo nhầm là virus và xóa file (thường là
+  runtime\pythonw.exe). Phần mềm không chứa mã độc. Để tránh bị chặn:
+    a. Tạo sẵn một thư mục ngắn, ví dụ D:\LUO-Studio hoặc C:\LUO-Studio.
+    b. Mở "Windows Security" (Bảo mật Windows) > "Virus & threat protection"
+       (Bảo vệ khỏi virus và mối đe dọa).
+    c. Dưới "Virus & threat protection settings" bấm "Manage settings".
+    d. Kéo xuống "Exclusions" (Loại trừ) > "Add or remove exclusions".
+    e. Bấm "Add an exclusion" > "Folder", chọn thư mục ở bước a, bấm "Yes" nếu
+       Windows hỏi quyền quản trị.
+  - Chỉ loại trừ đúng thư mục LUO-Studio, KHÔNG loại trừ cả ổ đĩa.
+  - Nếu trình duyệt chặn lúc tải file .zip: bấm dấu "..." > "Keep" > "Keep anyway".
+  - Nếu máy dùng thêm phần mềm diệt virus khác (Kaspersky, Avast, Bitdefender...),
+    phải thêm loại trừ tương tự trong phần mềm đó.
+
+Bước 1. Giải nén
+  - Nhấp phải file .zip, chọn "Extract All..." (Giải nén tất cả), chọn đúng thư
+    mục đã loại trừ ở Bước 0.
+  - Chọn một thư mục có quyền ghi, ví dụ D:\LUO-Studio. KHÔNG chạy trực tiếp từ
+    bên trong file .zip.
+  - Đường dẫn thư mục giải nén phải NGẮN (không quá khoảng 100 ký tự). Windows giới hạn
+    260 ký tự cho một đường dẫn đầy đủ, và gói có file nằm sâu (dài tới 137 ký tự).
+    Nếu khi giải nén báo "đường dẫn quá dài" hoặc không tìm thấy thư mục, hãy giải
+    nén vào thư mục gốc ổ đĩa như D:\LUO-Studio hoặc C:\LUO-Studio.
+  - Tránh đặt trong "Program Files" hoặc "Desktop" nếu máy bật thư mục được bảo vệ.
+
+Bước 2. Mở ứng dụng
+  - Bấm đúp "LUO Studio.bat". Lần đầu hơi lâu (vài chục giây) vì khởi tạo dữ liệu.
+  - Cửa sổ ứng dụng sẽ tự mở, toàn màn hình. Không có cửa sổ đen kèm theo.
+  - Nếu Windows hiện cảnh báo SmartScreen ("Windows protected your PC"): bấm
+    "More info" rồi "Run anyway". Phần mềm không có chữ ký số nên Windows hỏi.
+  - Nếu phần mềm diệt virus chặn, làm theo Bước 0 (hoặc mục 11).
+
+Bước 3. Mô hình nhận dạng giọng
+  - Lần đầu mở, phần mềm tự tải ở nền mô hình nhận dạng giọng (khoảng 250MB) để
+    dùng cho hậu kỳ (căn phụ đề theo giọng). Cần Internet, mất vài phút.
+  - Hậu kỳ chỉ chạy được sau khi tải xong. Gen video không phụ thuộc vào mô hình này.
+
+Cửa sổ ứng dụng đóng lại là LUO Studio tắt hẳn (kể cả dịch vụ nền).
+
+--------------------------------------------------------------------------------
+4. THÊM TÀI KHOẢN MUSE (BẮT BUỘC, LÀM MỘT LẦN)
+--------------------------------------------------------------------------------
+Khi chưa có tài khoản, màn hình đầu có khung vàng "Bước đầu tiên: thêm tài khoản
+Muse" và góc trên bên phải hiện "Chưa có tài khoản Muse".
+
+4.1 Lấy cookie đăng nhập
+  1) Mở Chrome hoặc Edge, đăng nhập muse.ai bằng tài khoản của bạn.
+  2) Nhấn F12 để mở công cụ, chọn tab "Network" (Mạng).
+  3) Tải lại trang (F5). Bấm vào một dòng bất kỳ gửi tới muse.ai.
+  4) Ở phần "Request Headers", tìm dòng "Cookie" và sao chép TOÀN BỘ giá trị
+     (một chuỗi dài dạng tên=giá trị; tên=giá trị; ...).
+  5) Cookie phải có đủ các mục: hatch_sess, hatch_gw, hatch_vml, hatch_native_au.
+     Nếu thiếu, tài khoản sẽ không gen được.
+
+4.2 Dán vào ứng dụng
+  1) Trong LUO Studio, mở tab "API Muse" (biểu tượng máy chủ, thanh bên trái).
+  2) Bấm "Thêm tài khoản", đặt tên gợi nhớ (ví dụ: tk-chinh), dán cookie, bấm "Lưu".
+  3) Bấm "Kiểm tra phiên" trên thẻ tài khoản. Phần mềm sẽ mở Muse ở nền để xác
+     nhận đăng nhập, có thể mất tới 1 phút. Kết quả "Phiên ổn" là đạt.
+  4) Bấm "Đo hạn mức" để xem tài khoản còn bao nhiêu lượt trong tuần.
+
+4.3 Nhiều tài khoản
+  - Bạn có thể thêm nhiều tài khoản của chính mình. Phần mềm tự luân phiên giữa
+    các tài khoản đang bật và còn hạn mức.
+  - Công tắc ở góc thẻ dùng để bật/tắt từng tài khoản.
+  - "Cập nhật cookie" dùng khi phiên hết hạn (thẻ báo "Lỗi đăng nhập"/401): đăng
+    nhập lại muse.ai, lấy cookie mới, dán vào.
+  - "Giữ phiên tất cả" gia hạn phiên đăng nhập của mọi tài khoản.
+
+4.4 Đọc thẻ tài khoản
+  - Thanh "Tuần: x%": phần trăm hạn mức tuần đã dùng. Khi đỏ (100%) Muse sẽ từ
+    chối gen video cho tới ngày reset ghi bên cạnh.
+  - "Extra": hạn mức bổ sung (nếu có).
+  - "Cookie còn ~N ngày": thời gian phiên còn hiệu lực ước tính.
+  - Khung cảnh báo đỏ ở đầu tab: không còn tài khoản nào dùng được để gen video.
+    Lúc đó task sẽ nằm chờ ở trạng thái "Đang chờ" cho tới khi có tài khoản.
+
+--------------------------------------------------------------------------------
+5. LÀM QUEN GIAO DIỆN
+--------------------------------------------------------------------------------
+Thanh bên trái (từ trên xuống):
+  - Dự án:        danh sách dự án, tạo dự án mới, soạn biến thể và lời thoại.
+  - Hàng đợi:     các video đang chờ/đang chạy, bấm vào để xem từng cảnh.
+  - Kết quả:      các video đã tạo xong, hậu kỳ, xem, xoá.
+  - Loại dự án:   mẫu kịch bản (script) và các trường cần điền.
+  - API Muse:     quản lý tài khoản Muse, hạn mức, các task của API.
+  - Cài đặt:      thiết lập chung (xem mục 9).
+
+Góc trên bên phải có chấm trạng thái API:
+  - Xanh "API sẵn sàng": mọi thứ ổn.
+  - Vàng "Chưa có tài khoản Muse": cần thêm tài khoản (mục 4).
+  - Đỏ "API chưa kết nối": dịch vụ nền chưa chạy, xem mục 11.
+
+--------------------------------------------------------------------------------
+6. TẠO VIDEO ĐẦU TIÊN (TỪNG BƯỚC)
+--------------------------------------------------------------------------------
+6.1 Tạo dự án
+  1) Vào "Dự án", bấm "Dự án mới".
+  2) Đặt tên (ví dụ: Talka - làm vườn).
+  3) Chọn "Loại dự án":
+       - "Điện thoại + người học": người học làm việc nhà/vườn, nói chuyện với AI
+         hiện trong màn hình điện thoại bên cạnh.
+       - "Chia đôi 2 nhân vật": hai nhân vật chia đôi khung hình.
+     Loại dự án KHÔNG đổi được sau khi tạo.
+  4) Bấm tạo. Dự án có sẵn một biến thể mẫu.
+
+6.2 Soạn một biến thể (mỗi biến thể = một video)
+  Danh sách biến thể nằm ở cột trái. Biểu tượng bên dưới: thêm biến thể, nhân bản,
+  điền từ file/bảng (CSV, Excel), tạo nhiều khuôn mặt, xoá.
+
+  Phần mô tả nhân vật (hai khối: bên AI/dạy và bên người học):
+    - Ngoại hình: mô tả chi tiết bằng tiếng Anh (tuổi, tóc, quần áo, dụng cụ...).
+    - Gọi ngắn: tên gọi ngắn dùng trong prompt (ví dụ "the AI robot tutor").
+    - Giọng: mô tả giọng nói. Nên chọn hai giọng KHÁC HẲN nhau (cao/sáng/nhanh
+      và trầm/khàn/chậm) để Muse không lẫn giọng.
+  Phần bối cảnh: mô tả phòng/vườn, nền màn hình điện thoại.
+  Dưới mỗi ô có nút "Ảnh / mp3": đính kèm ảnh tham chiếu (cho mặt, trang phục) hoặc
+  file mp3 mẫu giọng. Muse có thể bỏ qua tham chiếu, không đảm bảo.
+
+6.3 Lời thoại
+  - Mỗi dòng là một lượt nói, chọn người nói bằng nút "Dạy" (AI) hoặc "Học".
+  - Ô thứ hai là cảm xúc của người nói (ví dụ: surprised, warm, doubtful).
+  - Ô "Hiệu ứng" (chọn: tự động / không / sai / đúng) dùng cho hậu kỳ, xem mục 8.
+  - Số lượt tuỳ ý. Mỗi lượt là một cảnh, ước lượng độ dài ghi cạnh tiêu đề (khoảng
+    5 đến 6 giây mỗi lượt). Script mẫu thiếu cảnh sẽ tự nhân bản cảnh cuối.
+  - Nên viết lời thoại ngắn gọn, tự nhiên. Câu quá dài làm clip dài và tốn thêm lượt.
+
+6.4 Tạo nhiều khuôn mặt khác nhau từ một biến thể
+  - Bấm biểu tượng "người" dưới danh sách biến thể.
+  - Chọn số khuôn mặt (2 đến 8) và giới tính. Phần mềm nhân bản biến thể, giữ mô tả
+    chung (tuổi, tóc, quần áo) và thêm đặc điểm khuôn mặt riêng cho từng bản.
+  - Muse quyết định kết quả cuối; nếu các mặt vẫn giống nhau, sửa tay mô tả mặt
+    hoặc đính kèm ảnh khuôn mặt tham chiếu riêng cho từng biến thể.
+
+6.5 Điền hàng loạt từ file
+  - Bấm biểu tượng mũi tên lên ("Từ file"), chọn CSV/Excel hoặc dán bảng.
+  - Ghép cột trong file với trường cần điền, xem trước, rồi áp dụng. Có "Tải bảng
+    mẫu" để biết định dạng.
+
+6.5b Nhờ Claude viết kịch bản và biến thể mới (thư mục SAMPLE)
+  Trong gói có thư mục "SAMPLE" gồm 3 file:
+    - 1-KICH-BAN-MAU.txt     kịch bản mẫu (cấu trúc cảnh và các token {{...}}).
+    - 2-BIEN-THE-MAU.json    ví dụ file biến thể (nhân vật + lời thoại) đúng định dạng.
+    - 3-PROMPT-CHO-CLAUDE.txt prompt mẫu, có hướng dẫn dùng từng bước.
+  Cách làm nhanh: đính kèm file 1 và 2 vào Claude, dán prompt trong file 3 (sửa chủ đề,
+  số biến thể, số lượt thoại), nhận về file JSON, lưu thành .json rồi nhập vào dự án
+  (Dự án mới -> chọn file biến thể, hoặc trong dự án bấm "Từ file"). Chạy thử MỘT biến
+  thể trước khi chạy cả nhóm. Muốn bố cục khác hẳn thì dùng Phần B trong file 3 để Claude
+  viết kịch bản mới, rồi nhập ở tab "Loại dự án" -> "Loại mới".
+
+6.6 Đưa vào hàng đợi và chạy
+  1) Tick các biến thể muốn gen (ô vuông cạnh tên).
+  2) Bấm "Thêm vào hàng đợi" (góc trên bên phải).
+  3) Mở tab "Hàng đợi". Chọn các video muốn chạy (tick từng thẻ hoặc tick cả nhóm),
+     chọn "Song song" (số video chạy cùng lúc) rồi bấm "Bắt đầu".
+  4) Trong lúc chạy vẫn tick thêm và bấm "Chạy thêm". Nếu còn luồng trống thì chạy
+     ngay, hết luồng thì xếp hàng chờ.
+
+Gợi ý số "Song song": 1 đến 2 là hợp lý. Chạy nhiều hơn dễ bị Muse giới hạn lượt và
+làm các task xếp hàng lâu trong API.
+
+--------------------------------------------------------------------------------
+7. THEO DÕI, DỪNG, CHẠY TIẾP, GEN LẠI CẢNH
+--------------------------------------------------------------------------------
+  - Thẻ video trong "Hàng đợi" hiện trạng thái, số cảnh xong, thời gian chạy. Bấm
+    vào thẻ để xem chi tiết từng cảnh (ảnh khung cuối, câu thoại, tiến độ, nhật ký).
+  - Dòng "Tổng", "TB/cảnh", "Còn": thời gian đã chạy, trung bình mỗi cảnh, ước
+    tính còn lại.
+  - Dừng: nút vuông đỏ trên thẻ hoặc nút "Dừng" trong chi tiết dừng riêng video
+    đó; nút "Dừng" ở thanh trên dừng tất cả. Dừng chỉ dừng ở phía app; task đã gửi
+    lên API có thể vẫn chạy ngầm và tốn lượt.
+  - Chạy tiếp: bấm "Chạy tiếp" ở video đã dừng. Phần mềm giữ các cảnh đã xong và
+    gen lại cảnh đang dở.
+  - Gen lại một cảnh: bấm nút mũi tên vòng ở thẻ cảnh. Hộp thoại cho phép viết
+    "yêu cầu sửa" (ví dụ: "người học ngậm miệng hoàn toàn, không mấp máy theo").
+    Cảnh đó và các cảnh sau sẽ được gen lại; yêu cầu sửa được đặt đầu prompt.
+    Nếu video đang chạy, nó sẽ được dừng trước rồi gen lại từ cảnh đó.
+  - Nhật ký ở cuối trang chi tiết ghi từng bước: gen, đo miệng, cân màu, cắt,
+    tăng tốc, lỗi.
+  - Khi Muse báo hết hạn mức (giới hạn 24 giờ), phần mềm dừng cả hàng đợi để không
+    tốn thêm. Khi hạn mức trở lại, bấm "Chạy tiếp".
+
+--------------------------------------------------------------------------------
+8. HẬU KỲ VÀ XUẤT VIDEO
+--------------------------------------------------------------------------------
+Video gen xong ở dạng "thô". Vào tab "Kết quả" (hoặc nút "Hậu kỳ" trong chi tiết):
+  - Bấm "Hậu kỳ": phần mềm nhận dạng giọng để căn phụ đề đúng thời điểm, thêm logo,
+    end card, phụ đề và hiệu ứng, rồi ra video hoàn thiện. Có thể hậu kỳ nhiều video
+    khi video khác đang gen.
+  - Thẻ hiện "Đang hậu kỳ..." cho tới khi xong, sau đó thành "Hoàn thiện" và nút
+    "Xuất lại" (hậu kỳ lại nếu đổi cài đặt).
+  - Tên file xuất: tên biến thể, ví dụ nam-latin-30-40-mat3.mp4.
+  - Vị trí file: userdata\studio\exports\<tên dự án>\<tên biến thể>.mp4 và một
+    bản cạnh final.mp4 trong thư mục chạy. Có thể đổi thư mục xuất trong Cài đặt.
+    Nút "Mở thư mục" mở Explorer và chọn sẵn file.
+  - Hiệu ứng sai/đúng (video gọi điện): người học nói sai thì viền đỏ nháy + tiếng
+    "tè tè"; AI sửa thì viền xanh lá nháy + tiếng "tinh tinh". Mặc định tự nhận câu
+    đầu của người học là sai và câu đầu của AI ngay sau là đúng; chỉnh tay ở ô
+    "Hiệu ứng" của từng lượt thoại.
+
+--------------------------------------------------------------------------------
+9. GIẢI THÍCH CÁC MỤC TRONG CÀI ĐẶT
+--------------------------------------------------------------------------------
+LUO-API
+  - Địa chỉ / Khoá API: đã tự thiết lập sẵn, không cần đổi.
+  - "Kiểm tra kết nối": xác nhận Studio nói chuyện được với dịch vụ nền.
+
+Gen video
+  - Chờ tối đa mỗi bước (giây): thời gian chờ một clip. Gợi ý 300. Nếu hay báo "Hết
+    thời gian chờ" ở clip 10 giây, nâng lên 360-420.
+  - Số lần thử lại: số lần tự gửi lại khi lỗi. Mỗi lần là một lượt Muse.
+  - Cắt đuôi tự động: bỏ phần thừa sau khi nói xong.
+  - Cắt sát lời nói: dùng nhận dạng giọng để cắt đúng từ đầu tới từ cuối của lời
+    thoại, bỏ tiếng cười/ồn/im lặng thừa.
+  - Chừa lại sau từ cuối: 0,15 đến 0,7 giây; nhỏ thì gọn, lớn thì tự nhiên. Nếu bị
+    cụt chữ cuối, tăng lên.
+  - Tăng tốc lời nói bị kéo chậm + Tốc độ tăng tối đa: Muse hay kéo giãn lời nói.
+    Phần mềm rút các khoảng ngắt dài; chỉ tăng nhẹ giọng khi nói rất chậm.
+  - Chống 2 nhân vật cùng nói: sau mỗi clip đo miệng của người không nói bằng nhận
+    diện khuôn mặt; nếu mấp máy theo thì báo trong nhật ký.
+  - Độ nhạy khi đo miệng: Cao (bắt cả mấp máy nhẹ) / Vừa / Thấp.
+  - Tự gen lại khi người nghe mấp máy miệng: tối đa 0 đến 5 lần, mỗi lần kèm yêu
+    cầu sửa mạnh dần. Mỗi lần gen lại tốn thêm một lượt Muse; 0 = chỉ cảnh báo.
+  - Mở chat Muse mới: mỗi cảnh một chat mới (mặc định) giúp Muse không bắt chước
+    lỗi các clip trước. Nếu nhân vật bị lệch giữa các cảnh, chọn "Mỗi 2 cảnh",
+    "Mỗi 3 cảnh" hoặc "Cả video một chat".
+  - Tách giọng khi robot và người học cùng giới: tự mô tả hai giọng đối lập
+    (robot cao/sáng/trẻ, người học trầm/khàn/chậm) để Muse khỏi lẫn giọng.
+  - Hiệu ứng sai/đúng ở phần mở đầu: bật/tắt viền đỏ + tè tè và viền xanh + tinh tinh.
+  - Viền xanh nháy + tiếng "tinh tinh" (câu khen), Tiếng "tách" khi hiện phụ đề:
+    hiệu ứng phụ, mặc định tắt.
+
+Hậu kỳ mặc định
+  - Logo, End card: file logo (.mov/.png) và video kết thúc dùng cho mọi video.
+  - Thư mục xuất video cuối: để trống = userdata\studio\exports.
+  - Nhận dạng giọng: Tự chọn / Tiếng Anh (nhanh) / Đa ngôn ngữ (chậm hơn, cho lời
+    có tiếng Tây Ban Nha...). Mô hình đa ngôn ngữ sẽ tự tải khi cần.
+
+--------------------------------------------------------------------------------
+10. MẸO TIẾT KIỆM LƯỢT GEN MUSE
+--------------------------------------------------------------------------------
+  - Chạy thử 1 biến thể trước, hài lòng mới chạy cả nhóm.
+  - Đặt "Tự gen lại" ở 1 đến 3 (không nên 5) và "Số lần thử lại" 1 đến 2.
+  - Viết lời thoại ngắn; bớt cảnh không cần thiết.
+  - Dùng tab "API Muse" xem hạn mức trước khi chạy hàng loạt; khi tất cả tài khoản
+    ở 100% thì chờ ngày reset, đừng bấm chạy lại liên tục.
+  - Tránh bấm Dừng rồi Chạy tiếp nhiều lần khi API đang kẹt: task cũ không bị huỷ và
+    vẫn chiếm lượt.
+  - Cảnh bị lỗi đơn lẻ: dùng "Gen lại cảnh" kèm yêu cầu sửa thay vì chạy lại cả video.
+
+--------------------------------------------------------------------------------
+11. XỬ LÝ SỰ CỐ THƯỜNG GẶP
+--------------------------------------------------------------------------------
+Báo "Windows cannot find 'runtime\pythonw.exe'" hoặc bị Defender báo virus
+  - Defender đã cách ly hoặc xóa file Python đi kèm (báo nhầm). Cách xử lý:
+    1. Mở "Windows Security" > "Virus & threat protection" > "Protection history".
+    2. Bấm vào mục bị chặn (ví dụ pythonw.exe) > "Actions" > "Allow on device"
+       hoặc "Restore".
+    3. Thêm thư mục LUO-Studio vào "Exclusions" (xem Bước 0, mục 3).
+    4. Xóa thư mục LUO-Studio cũ (nhớ sao lưu userdata nếu có), rồi giải nén lại
+       file .zip vào thư mục đã loại trừ. Chỉ khôi phục từng file thường chưa đủ.
+  - Cũng gặp lỗi này nếu bấm "LUO Studio.bat" ngay trong file .zip, hoặc chép riêng
+    file .bat ra nơi khác. Luôn giải nén đầy đủ và chạy tại chỗ.
+
+"API chưa kết nối" (chấm đỏ)
+  - Đóng hẳn cửa sổ rồi mở lại "LUO Studio.bat". Nếu vẫn lỗi, mở
+    "LUO Studio (xem loi).bat" để xem thông báo, và xem userdata\logs\api.log.
+  - Cổng bị chiếm: phần mềm tự chọn cổng khác; nếu không được, tắt chương trình
+    đang dùng cổng 18610 trở lên.
+
+"Chưa có tài khoản Muse"
+  - Thêm tài khoản ở tab "API Muse" (mục 4).
+
+Lỗi khi giải nén ("đường dẫn quá dài") hoặc báo thiếu file khi mở
+  - Giải nén lại vào đường dẫn ngắn như D:\LUO-Studio (xem mục 3).
+
+Thẻ tài khoản "Lỗi đăng nhập" / 401
+  - Phiên hết hạn. Đăng nhập lại muse.ai, lấy cookie mới, bấm "Cập nhật cookie".
+
+"The video budget is still exhausted ... 24-hour limit" / "hết hạn mức"
+  - Muse báo hết hạn mức tạo video của tài khoản (giới hạn theo giờ/ngày/tuần).
+    Phần mềm dừng hàng đợi để khỏi tốn thêm. Đợi ngày reset (xem thẻ tài khoản) hoặc
+    dùng tài khoản khác, rồi bấm "Chạy tiếp".
+
+Task nằm ở trạng thái "Đang chờ", không chạy
+  - Không còn tài khoản dùng được (hết hạn mức, bị tắt, hoặc lỗi đăng nhập), hoặc
+    đang có nhiều task cũ trong API. Xem khung cảnh báo ở tab "API Muse". Đóng và mở
+    lại ứng dụng để xoá các task kẹt.
+
+"Hết thời gian chờ"
+  - Muse chậm. Tăng "Chờ tối đa mỗi bước", kiểm tra mạng, giảm "Song song".
+
+Video bị hai nhân vật cùng mấp máy/nói
+  - Đây là hạn chế của Muse, nhất là khi hai giọng cùng giới. Bật "Chống 2 nhân vật
+    cùng nói" và "Tách giọng khi robot và người học cùng giới", đặt "Tự gen lại"
+    1-3; hoặc gen lại cảnh kèm yêu cầu sửa; chọn hai giọng khác hẳn nhau.
+
+Hậu kỳ báo lỗi hoặc đứng lâu ở lần đầu
+  - Lần đầu phần mềm đang tải mô hình nhận dạng giọng (~250MB) ở nền; đợi vài phút
+    và thử lại. Xem userdata\logs\model.log.
+
+Không thấy file video / không mở được thư mục
+  - File ở userdata\studio\runs\<dự án>\<biến thể> (video thô, các cảnh) và
+    userdata\studio\exports (bản cuối).
+
+Máy báo thiếu ffmpeg
+  - Gói đã có sẵn trong thư mục "bin". Nếu bị xoá, chép lại ffmpeg.exe và ffprobe.exe
+    vào thư mục bin.
+
+--------------------------------------------------------------------------------
+12. DỮ LIỆU, SAO LƯU, CẬP NHẬT, GỠ CÀI ĐẶT
+--------------------------------------------------------------------------------
+Thư mục "userdata" (cạnh ứng dụng) chứa TẤT CẢ dữ liệu của bạn:
+  - userdata\studio\projects: dự án và biến thể.
+  - userdata\studio\runs, exports: video đã gen và bản cuối.
+  - userdata\studio\settings.json: cài đặt.
+  - userdata\api: tài khoản Muse (có cookie), khoá API nội bộ.
+  - userdata\logs: nhật ký.
+
+Sao lưu: chép cả thư mục userdata ra nơi khác.
+Cập nhật: giải nén bản mới, rồi chép đè lên thư mục cũ nhưng GIỮ NGUYÊN "userdata".
+Chuyển sang máy khác: chép cả thư mục ứng dụng và userdata (cookie có thể phải lấy
+lại nếu Muse yêu cầu đăng nhập lại).
+Gỡ cài đặt: đóng ứng dụng, xoá cả thư mục. Muốn giữ video thì chép userdata trước.
+Dọn dung lượng: xoá các thư mục trong userdata\studio\runs của video không cần,
+hoặc dùng nút xoá ở tab "Kết quả".
+
+--------------------------------------------------------------------------------
+13. BẢO MẬT VÀ LƯU Ý
+--------------------------------------------------------------------------------
+  - Cookie là thông tin đăng nhập của bạn. Chỉ dán vào ứng dụng này. Đừng gửi file
+    userdata\api cho người khác. Khoá API nội bộ sinh ngẫu nhiên trên máy bạn.
+  - Dịch vụ nền chỉ nhận kết nối từ chính máy bạn (127.0.0.1), không mở ra mạng.
+  - Hạn mức gen video do Muse/Meta quy định theo từng tài khoản. Phần mềm chỉ hiển thị
+    và quản lý tài khoản, không thay đổi được hạn mức đó.
+  - Chỉ dùng tài khoản của chính bạn và tuân thủ điều khoản sử dụng của Muse/Meta.
+  - Chất lượng kết quả do Muse quyết định; phần mềm cố hạn chế các lỗi thường gặp
+    (nói chồng, lệch màu, khuôn mặt giống nhau) nhưng không thể đảm bảo tuyệt đối.
+  - Phần mềm không liên kết với Meta. Xem NOTICE.txt cho thông tin bản quyền.
+
+================================================================================

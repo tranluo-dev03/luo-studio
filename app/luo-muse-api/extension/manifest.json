@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "LUO-API - Kết nối Muse.ai",
+  "version": "1.0.0",
+  "description": "Chuyển Cookie đăng nhập muse.ai vào dịch vụ LUO-API của bạn.",
+  "permissions": ["cookies", "storage", "activeTab"],
+  "host_permissions": [
+    "https://muse.ai/*",
+    "https://*.muse.ai/*",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "icons": {"16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png"},
+  "action": {
+    "default_title": "Kết nối LUO-API",
+    "default_icon": {"16": "icons/icon16.png", "32": "icons/icon32.png"},
+    "default_popup": "popup.html"
+  }
+}

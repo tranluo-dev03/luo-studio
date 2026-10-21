@@ -1,0 +1,26 @@
+# Du lieu nguoi dung: tai khoan Muse, cookie, khoa API, log, video -> TUYET DOI khong dua len GitHub
+userdata/
+
+# Runtime va file nhi phan duoc tai ve boi setup.ps1
+.venv/
+runtime/
+bin/
+release-tools/*.zip
+release-tools/Output/
+release-tools/SHA256SUMS.txt
+
+# Chung chi ky so
+*.pfx
+*.p12
+*.key
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Khac
+*.log
+Thumbs.db
+.claude/

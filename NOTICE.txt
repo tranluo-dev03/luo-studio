@@ -1,0 +1,14 @@
+﻿LUO Studio - thông báo bản quyền thành phần bên thứ ba
+=====================================================
+
+Gói này chứa các thành phần mã nguồn mở. Giữ nguyên thông báo này khi phân phối lại.
+
+- LUO-API (app/luo-muse-api): dựa trên dự án muse2api, giấy phép MIT (xem app/luo-muse-api/LICENSE).
+- Python (runtime/): Python Software Foundation License.
+- FastAPI, Uvicorn, Pydantic, Requests, websocket-client, python-multipart: giấy phép MIT / BSD.
+- NumPy: BSD. Pillow: HPND. MediaPipe: Apache-2.0. OpenCV: Apache-2.0.
+- faster-whisper và CTranslate2: MIT. Mô hình Whisper của OpenAI: MIT.
+- FFmpeg (bin/ffmpeg.exe, ffprobe.exe): tuỳ bản build có thể theo LGPL hoặc GPL. Nếu phân phối công khai, hãy dùng bản build
+  phù hợp và kèm theo thông tin nguồn theo yêu cầu của FFmpeg (https://ffmpeg.org/legal.html).
+
+Muse và Meta là nhãn hiệu của chủ sở hữu tương ứng. Phần mềm này không liên kết với Meta.

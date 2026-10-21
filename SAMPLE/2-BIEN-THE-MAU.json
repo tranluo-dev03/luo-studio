@@ -1,0 +1,160 @@
+[
+  {
+    "name": "nu-50-60-mat1",
+    "NGUOI_HOC": "FACE (the most important identifying feature, clearly unlike any other person in this series): a long oval face with high cheekbones, pale blue eyes, thin lips, finely lined skin, a feathered silver-blond pixie cut, small silver hoop earrings. an older American woman in her fifties to sixties with short light blond-gray hair, wearing a casual soft cream knit top and a canvas gardening apron with dirt marks, light garden gloves",
+    "TEN_HOC": "the older woman in the garden apron",
+    "GIONG_HOC": "an older American woman's voice, warm, slightly raspy and cheerful, American accent, speaking simple English like a beginner with natural hesitations",
+    "NGUOI_DAY": "a sleek white humanoid AI robot tutor with a glossy white head, a realistic young woman's face with light blue eyes, a black mechanical neck, and a white hexagon-plated armored torso with black joints. Her face and voice are completely natural and human-like: soft, expressive features, lively eyes and eyebrows, a real warm smile, never stiff or mechanical.",
+    "TEN_DAY": "the AI robot tutor on the phone screen",
+    "GIONG_DAY": "a warm, natural, expressive young woman's voice, like a friendly teacher chatting on a video call, with lively, varied intonation and a smile in the voice, clear crisp diction, American accent - completely human-sounding, not robotic, no synthetic or metallic effect",
+    "POS_DAY": "RIGHT",
+    "POS_HOC": "LEFT",
+    "VIEC": "kneeling in a garden planting colorful flowers with a small hand trowel",
+    "DAO_CU": "kneeling at the flower trays, pressing a flower seedling into a pot with one gloved hand and holding a small hand trowel in the other",
+    "DAO_GIU": "the small hand trowel stays in her right hand and she keeps planting slowly with her left hand, the trowel never changes hands or disappears, the same flower pots and trays stay in place",
+    "DAO_NGHI": "one gloved hand resting on a flower pot, the trowel resting on the soil",
+    "NEN_TRAI": "a sunny cottage garden sunlit from behind, a stone wall and lush green bushes in the background, a rustic wooden garden bench on the right where the phone stands upright on a small stand, trays and pots of colorful petunias in the foreground, warm golden light, no other people",
+    "NEN_PHAI": "a soft light blue-white studio background with a faint glowing circular halo behind the robot",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "What are you doing?",
+        "emo": "curious, friendly"
+      },
+      {
+        "who": "hoc",
+        "text": "I pick flowers.",
+        "emo": "confident, a little clumsy"
+      },
+      {
+        "who": "day",
+        "text": "You should say, I'm picking flowers. How good is your English?",
+        "emo": "warm, playful"
+      },
+      {
+        "who": "hoc",
+        "text": "So...hmmm",
+        "emo": "hesitant, embarrassed, "
+      },
+      {
+        "who": "day",
+        "text": "Don't worry. You'll be speaking English like a native with an AI tutor in just one month.",
+        "emo": "reassuring, upbeat"
+      },
+      {
+        "who": "hoc",
+        "text": "AI? Um, I don't have money for that.",
+        "emo": "doubtful, worried"
+      },
+      {
+        "who": "day",
+        "text": "What? You don't need money. It's not like other apps or expensive courses.",
+        "emo": "surprised, enthusiastic"
+      },
+      {
+        "who": "hoc",
+        "text": "For real?",
+        "emo": "surprised, hopeful"
+      },
+      {
+        "who": "day",
+        "text": "Absolutely. No catch. Just real English conversation practice with your AI tutor.",
+        "emo": "confident, cheerful"
+      },
+      {
+        "who": "hoc",
+        "text": "Like a real tutor?",
+        "emo": "curious, impressed"
+      },
+      {
+        "who": "day",
+        "text": "Yes. It corrects your grammar, pronunciation, and helps you speak with confidence.",
+        "emo": "proud, enthusiastic"
+      },
+      {
+        "who": "day",
+        "text": "Great call. Let's learn English together.",
+        "emo": "delighted, warm"
+      }
+    ]
+  },
+  {
+    "name": "nam-latin-30-40-mat1",
+    "NGUOI_HOC": "FACE (the most important identifying feature, clearly unlike any other person in this series): a broad square face with a thick neck, dark-brown eyes, heavy straight eyebrows, a short trimmed black beard, close-cropped hair. a Latino American man in his thirties to forties with short black hair, warm light-brown skin, a stocky heavy-set build, wearing a casual plain gray t-shirt and a canvas gardening apron with dirt marks, light garden gloves",
+    "TEN_HOC": "the stocky Latino man in the garden apron",
+    "GIONG_HOC": "a deep, easygoing Latino American man's voice in his thirties, warm and friendly, American English with a light Latin accent, speaking simple English like a beginner with natural hesitations",
+    "NGUOI_DAY": "a sleek white humanoid AI robot tutor with a glossy white head, a realistic young woman's face with light blue eyes, a black mechanical neck, and a white hexagon-plated armored torso with black joints. Her face and voice are completely natural and human-like: soft, expressive features, lively eyes and eyebrows, a real warm smile, never stiff or mechanical.",
+    "TEN_DAY": "the AI robot tutor on the phone screen",
+    "GIONG_DAY": "a warm, natural, expressive young woman's voice, like a friendly teacher chatting on a video call, with lively, varied intonation and a smile in the voice, clear crisp diction, American accent - completely human-sounding, not robotic, no synthetic or metallic effect",
+    "POS_DAY": "RIGHT",
+    "POS_HOC": "LEFT",
+    "VIEC": "kneeling in a garden planting colorful flowers with a small hand trowel",
+    "DAO_CU": "kneeling at the flower trays, pressing a flower seedling into a pot with one gloved hand and holding a small hand trowel in the other",
+    "DAO_GIU": "the small hand trowel stays in his right hand and he keeps planting slowly with his left hand, the trowel never changes hands or disappears, the same flower pots and trays stay in place",
+    "DAO_NGHI": "one gloved hand resting on a flower pot, the trowel resting on the soil",
+    "NEN_TRAI": "a sunny cottage garden sunlit from behind, a stone wall and lush green bushes in the background, a rustic wooden garden bench on the right where the phone stands upright on a small stand, trays and pots of colorful petunias in the foreground, warm golden light, no other people",
+    "NEN_PHAI": "a soft light blue-white studio background with a faint glowing circular halo behind the robot",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "What are you doing?",
+        "emo": "curious, friendly"
+      },
+      {
+        "who": "hoc",
+        "text": "I pick flowers.",
+        "emo": "confident, a little clumsy"
+      },
+      {
+        "who": "day",
+        "text": "You should say, I'm picking flowers. How good is your English?",
+        "emo": "warm, playful"
+      },
+      {
+        "who": "hoc",
+        "text": "So...hmmm",
+        "emo": "hesitant, embarrassed, "
+      },
+      {
+        "who": "day",
+        "text": "Don't worry. You'll be speaking English like a native with an AI tutor in just one month.",
+        "emo": "reassuring, upbeat"
+      },
+      {
+        "who": "hoc",
+        "text": "AI? Um, I don't have money for that.",
+        "emo": "doubtful, worried"
+      },
+      {
+        "who": "day",
+        "text": "What? You don't need money. It's not like other apps or expensive courses.",
+        "emo": "surprised, enthusiastic"
+      },
+      {
+        "who": "hoc",
+        "text": "For real?",
+        "emo": "surprised, hopeful"
+      },
+      {
+        "who": "day",
+        "text": "Absolutely. No catch. Just real English conversation practice with your AI tutor.",
+        "emo": "confident, cheerful"
+      },
+      {
+        "who": "hoc",
+        "text": "Like a real tutor?",
+        "emo": "curious, impressed"
+      },
+      {
+        "who": "day",
+        "text": "Yes. It corrects your grammar, pronunciation, and helps you speak with confidence.",
+        "emo": "proud, enthusiastic"
+      },
+      {
+        "who": "day",
+        "text": "Great call. Let's learn English together.",
+        "emo": "delighted, warm"
+      }
+    ]
+  }
+]

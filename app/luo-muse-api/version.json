@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-10-15",
+  "repo": "https://github.com/czg86389-hub/muse2api",
+  "highlights": [
+    "LUO-API 1.0.0: bản phát hành đầu tiên đi kèm LUO-AI 1.0.0",
+    "Session: mỗi biến thể dùng chung một chat Muse cho ảnh và video",
+    "Hỗ trợ nhiều ảnh tham chiếu (reference_images) và raw_prompt"
+  ]
+}
