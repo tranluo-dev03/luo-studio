@@ -44,6 +44,8 @@ def jwrite(path, obj):
 def settings():
     s = dict(DEFAULT_SETTINGS)
     s.update(jread(os.path.join(DATA, "settings.json"), {}) or {})
+    if os.environ.get("LUO_API_URL"):  # launcher đã bật LUO-API và chọn cổng thật (cổng 18610 có thể bị chiếm): cổng cũ lưu trong settings.json không được ghi đè
+        s["api_url"] = os.environ["LUO_API_URL"]
     return s
 
 
