@@ -186,6 +186,10 @@ def duration(path):
     return float(sh(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path]).stdout)
 
 
+def has_audio(path):
+    return bool(sh(["ffprobe", "-v", "error", "-select_streams", "a", "-show_entries", "stream=index", "-of", "csv=p=0", path]).stdout.strip())
+
+
 # ------------------------------------------------------------------ API với huỷ + tiến độ
 class Api(G.Api):
     def generate(self, kind, prompt, refs, session, duration=None, timeout=900, on_status=None, cancel=None, audios=None):
@@ -784,6 +788,9 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                     open(img_f, "wb").write(b)
             attempt("image", gi)
             emit("scene", n=n, state="image", pct=100, thumb=os.path.basename(img_f))
+        if os.path.exists(vid_f) and not has_audio(vid_f):  # clip câm còn sót từ lần chạy trước: bỏ đi để gen lại
+            emit("log", msg=f"Cảnh {n}: clip cũ không có tiếng, gen lại", level="warn")
+            os.remove(vid_f)
         if not os.path.exists(vid_f):
             start = img_f if has_img else prev_last
             vrefs = [G.data_url(start)] if start and os.path.exists(start) else []
@@ -799,6 +806,9 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                     tmp = vid_f + ".tail.mp4"
                     sh(["ffmpeg", "-y", "-sseof", f"-{dur}", "-i", vid_f, "-c:v", "libx264", "-crf", "16", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", tmp])
                     os.replace(tmp, vid_f)
+                if not has_audio(vid_f):  # Muse đôi khi trả về clip câm (không có track tiếng): coi như lỗi để gen lại, nếu không bước ghép sẽ hỏng
+                    os.remove(vid_f)
+                    raise RuntimeError("Muse trả về clip không có tiếng (mất lời thoại)")
             tries = 0
             tried = []            # (điểm lỗi = mức mấp máy của người nghe, file) của các lần gen có lỗi, để cuối cùng giữ lần TỐT NHẤT
             base_vid_p = vid_p
@@ -915,7 +925,12 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
     ins, fl = [], ""
     for i, c in enumerate(clips):
         ins += ["-i", c]
-        fl += f"[{i}:v]scale=720:1280:flags=accurate_rnd+full_chroma_int:force_original_aspect_ratio=increase,crop=720:1280,fps=30,setsar=1[v{i}];[{i}:a]aresample=44100[a{i}];"
+        fl += f"[{i}:v]scale=720:1280:flags=accurate_rnd+full_chroma_int:force_original_aspect_ratio=increase,crop=720:1280,fps=30,setsar=1[v{i}];"
+        if has_audio(c):
+            fl += f"[{i}:a]aresample=44100[a{i}];"
+        else:  # không có track tiếng thì chèn im lặng đúng độ dài, để concat không báo "matches no streams"
+            emit("log", msg=f"Cảnh {i + 1}: clip không có tiếng, chèn im lặng khi ghép", level="warn")
+            fl += f"aevalsrc=0:c=stereo:s=44100:d={duration(c):.3f}[a{i}];"
     fl += "".join(f"[v{i}][a{i}]" for i in range(len(clips))) + f"concat=n={len(clips)}:v=1:a=1[v][a]"
     emit("log", msg="Đang ghép clip…")
     sh_enc(["ffmpeg", "-y"] + ins + ["-filter_complex", fl, "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-crf", "17", "-pix_fmt", "yuv420p", "-c:a", "aac", raw])
