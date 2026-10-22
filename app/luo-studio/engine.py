@@ -475,7 +475,7 @@ def word_check(expected, heard):
     return matched / len(exp), extra / len(hrd)
 
 
-ZONES = {"LEFT": (0.03, 0.12, 0.47, 0.52), "RIGHT": (0.53, 0.08, 0.97, 0.50)}   # vùng đầu/mặt mỗi bên (tỉ lệ khung hình)
+ZONES = {"LEFT": (0.03, 0.12, 0.47, 0.52), "RIGHT": (0.53, 0.08, 0.97, 0.50), "TOP": (0.2, 0.02, 0.8, 0.34), "BOTTOM": (0.1, 0.42, 0.8, 0.85)}   # vùng đầu/mặt mỗi bên (tỉ lệ khung hình)
 
 
 def zone_motion(path, side, t_end, fps=15, W=180, H=320):
@@ -496,11 +496,15 @@ def speech_end_of(path):
 
 
 _MP_LOCK = threading.Lock()
-_FACE_BOX = {"LEFT": (0.0, 0.0, 0.62, 0.62), "RIGHT": (0.55, 0.12, 1.0, 0.62)}
+_FACE_BOX = {"LEFT": (0.0, 0.0, 0.62, 0.62), "RIGHT": (0.55, 0.12, 1.0, 0.62),
+             "TOP": (0.12, 0.0, 0.88, 0.38), "BOTTOM": (0.0, 0.40, 0.9, 0.92)}   # TOP/BOTTOM: bố cục khung gia sư ngang ở trên, người học ở dưới
+
+
+OPEN_GAP = 0.15   # khoảng hở môi / bề rộng miệng từ mức này là há miệng thật; hé môi cười thường dưới mức này
 
 
 def mouth_activity(path, side, t_end, fps=12):
-    """(độ lệch chuẩn, cực đại) của độ mở miệng (khoảng hở môi / bề rộng miệng) ở khuôn mặt bên `side` trong [0, t_end]. None nếu không dò được mặt."""
+    """(độ lệch chuẩn, cực đại, tỉ lệ khung hình há miệng rộng, tốc độ mở-khép) của độ mở miệng (khoảng hở môi / bề rộng miệng) ở khuôn mặt bên `side` trong [0, t_end]. None nếu không dò được mặt."""
     import cv2
     import mediapipe as mp
     W, H = 360, 640
@@ -526,7 +530,7 @@ def mouth_activity(path, side, t_end, fps=12):
     if len(vals) < 6:
         return None
     a = np.array(vals)
-    return float(a.std()), float(a.max())
+    return float(a.std()), float(a.max()), float((a > OPEN_GAP).mean()), float(np.abs(np.diff(a)).mean())
 
 
 def mouth_check(path, speaker_side, listener_side, sens="normal"):
@@ -536,8 +540,12 @@ def mouth_check(path, speaker_side, listener_side, sens="normal"):
     if not sp or not li:
         return None
     abs_t, rel_t = {"high": (0.017, 0.35), "low": (0.032, 0.6)}.get(sens, (0.024, 0.45))   # độ nhạy: cao bắt cả mấp máy nhẹ (dễ gen lại thừa), thấp chỉ bắt mấp máy rõ
-    bad = li[0] >= abs_t and li[0] >= rel_t * sp[0]
-    return {"bad": bad, "speaker": round(sp[0], 3), "listener": round(li[0], 3)}
+    open_t = {"high": 0.10, "low": 0.30}.get(sens, 0.18)   # tỉ lệ khung hình người nghe há miệng rộng: mấp máy thật ~0.2-0.35, chỉ cười ~0-0.13
+    # Phải thoả TẤT CẢ: miệng cử động nhiều (std), há rộng thật sự đủ lâu, và mở-khép nhanh gần bằng người nói. Hé môi hoặc cười (kể cả lộ răng) làm tăng std nhưng ít há rộng / giữ yên nên không bị tính là mấp máy.
+    bad = li[0] >= abs_t and li[0] >= rel_t * sp[0] and li[2] >= open_t and li[2] >= 0.4 * sp[2] and li[3] >= 0.55 * sp[3]
+    # Người nghe cử động miệng gần bằng người nói (>= 70%) và có há miệng thật thì chắc chắn là nói theo, kể cả khi nhịp mở-khép chưa đủ nhanh
+    bad = bad or (sens != "low" and li[0] >= 0.7 * sp[0] and li[2] >= 0.12 and li[0] >= abs_t)
+    return {"bad": bad, "speaker": round(sp[0], 3), "listener": round(li[0], 3), "open": round(li[2], 2)}
 
 
 def overlap_check(path, speaker_side, listener_side, expected_text):
@@ -830,14 +838,14 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                     emit("log", msg=f"Cảnh {n}: không dò được khuôn mặt hai bên nên bỏ qua kiểm tra miệng (không gen lại)", level="warn")
                     break
                 if not chk["bad"]:
-                    emit("log", msg=f"Cảnh {n}: đo miệng OK (người nói {chk['speaker']}, người nghe {chk['listener']})" + (f" sau {tries} lần gen lại" if tries else ""))
+                    emit("log", msg=f"Cảnh {n}: đo miệng OK (người nói {chk['speaker']}, người nghe {chk['listener']}, há miệng {chk['open']})" + (f" sau {tries} lần gen lại" if tries else ""))
                     tried = []   # lần này đạt: dùng nó, bỏ các lần lỗi trước
                     break
                 # lỗi: ghi nhận lần này rồi gen lại NGAY (không chờ làm xong cả video), kèm yêu cầu sửa đúng lỗi vừa gặp
                 keep = f"{vid_f}.try{tries}"
                 shutil.copyfile(vid_f, keep)
                 tried.append((chk["listener"], keep))
-                emit("log", msg=f"Cảnh {n}: lần {tries + 1} bị lỗi người nghe mấp máy miệng như người nói (người nói {chk['speaker']}, người nghe {chk['listener']})", level="warn")
+                emit("log", msg=f"Cảnh {n}: lần {tries + 1} bị lỗi người nghe mấp máy miệng như người nói (người nói {chk['speaker']}, người nghe {chk['listener']}, há miệng {chk['open']})", level="warn")
                 if tries < int(opts.get("overlap_retries", 0)):
                     day = turn["who"] == "day"
                     lpos = vdata.get("POS_HOC", "RIGHT") if day else vdata.get("POS_DAY", "LEFT")

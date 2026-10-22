@@ -24,7 +24,7 @@ for d in (PROJ, RUNS, TYPES):
 import engine as E  # noqa: E402
 
 LOCK = threading.RLock()
-DEFAULT_SETTINGS = {"api_url": os.environ.get("LUO_API_URL", "http://127.0.0.1:18610"), "api_key": "", "timeout": 900, "retries": 2, "cut": True, "speedfix": True, "normalize": True, "check_overlap": True, "overlap_retries": 5, "mouth_sens": "normal", "precise_cut": True, "fx_hook": True, "cut_margin": 0.5, "voice_split": True, "export_dir": "", "speed_max": 1.25, "chat_every": 1, "parallel": 1, "fx_ding": False, "fx_pop": False,
+DEFAULT_SETTINGS = {"api_url": os.environ.get("LUO_API_URL", "http://127.0.0.1:18610"), "api_key": "", "timeout": 900, "retries": 2, "cut": True, "speedfix": True, "normalize": True, "check_overlap": True, "overlap_retries": 2, "mouth_sens": "normal", "precise_cut": True, "fx_hook": True, "cut_margin": 0.5, "voice_split": True, "export_dir": "", "speed_max": 1.25, "chat_every": 1, "parallel": 1, "fx_ding": False, "fx_pop": False,
                     "logo": "", "endcard": "", "topbar": "", "whisper": "auto"}
 
 # ------------------------------------------------------------------ lưu trữ
