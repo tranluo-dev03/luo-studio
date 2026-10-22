@@ -1,111 +1,164 @@
 ================================================================================
-  PROMPT MẪU: NHỜ CLAUDE VIẾT KỊCH BẢN / BIẾN THỂ MỚI CHO LUO STUDIO
+  PROMPT MẪU: NHỜ CLAUDE VIẾT KỊCH BẢN RỒI TẠO BIẾN THỂ CHO LUO STUDIO
 ================================================================================
 
-CÁCH DÙNG (3 bước)
+QUY TRÌNH 2 BƯỚC (làm trong CÙNG một cuộc trò chuyện với Claude)
+  BƯỚC 1 - KỊCH BẢN: đưa Claude video tham chiếu + 1-KICH-BAN-MAU.txt
+           -> Claude phân tích video và viết kịch bản mới (.txt) đúng cấu trúc mẫu,
+              kèm danh sách token và lời thoại gốc.
+  BƯỚC 2 - BIẾN THỂ: đưa thêm 2-BIEN-THE-MAU.json
+           -> Claude tạo file biến thể (.json) khớp với token của kịch bản ở bước 1.
+
+CÁCH DÙNG
   1. Mở một cuộc trò chuyện mới với Claude.
-  2. Đính kèm (hoặc dán nội dung) 2 file mẫu trong thư mục này:
-       - 1-KICH-BAN-MAU.txt       (cấu trúc kịch bản/prompt của một "loại dự án")
-       - 2-BIEN-THE-MAU.json      (định dạng file biến thể: nhân vật + lời thoại)
-  3. Copy toàn bộ phần "PROMPT" bên dưới, sửa các chỗ trong [ngoặc vuông], gửi cho Claude.
-     Claude trả về một file JSON. Lưu thành file .json rồi nhập vào LUO Studio
-     (xem mục "NHẬP VÀO LUO STUDIO" ở cuối).
+  2. Gửi PROMPT BƯỚC 1, đính kèm:
+       - Video tham chiếu (.mp4). Nếu Claude không đọc được video, thay bằng:
+           + 6-12 ảnh chụp màn hình các khoảnh khắc chính của video (theo thứ tự), và
+           + lời thoại của video (gõ lại hoặc lấy phụ đề), ghi rõ ai nói câu nào.
+       - 1-KICH-BAN-MAU.txt
+  3. Đọc kết quả bước 1. Sửa nếu cần (nhắn Claude sửa), rồi lưu phần kịch bản thành file .txt.
+  4. Gửi PROMPT BƯỚC 2, đính kèm 2-BIEN-THE-MAU.json. Lưu kết quả thành file .json.
+  5. Nhập cả hai vào LUO Studio (xem mục "NHẬP VÀO LUO STUDIO" ở cuối).
+  Sửa các chỗ trong [ngoặc vuông] trước khi gửi.
 
---------------------------------------------------------------------------------
-PROMPT (copy từ dòng này xuống hết phần cuối)
---------------------------------------------------------------------------------
+================================================================================
+PROMPT BƯỚC 1: VIẾT KỊCH BẢN TỪ VIDEO THAM CHIẾU (copy từ dòng dưới đến hết bước 1)
+================================================================================
 
-Bạn là người viết kịch bản cho công cụ LUO Studio, công cụ tạo video quảng cáo
-dạng "gọi điện": một người học đang làm việc nhà/vườn, nói chuyện bằng tiếng Anh với
-một AI robot dạy học hiện trong màn hình điện thoại đặt bên cạnh. Video do Muse (Meta)
-gen từng cảnh 5-10 giây, mỗi cảnh chỉ MỘT người nói.
+Bạn là người viết kịch bản cho LUO Studio, công cụ tạo video quảng cáo bằng Muse (Meta).
+Muse gen từng cảnh 5-10 giây; mỗi cảnh chỉ MỘT nhân vật nói; cảnh sau bắt đầu từ khung cuối
+của cảnh trước. LUO Studio ghép các cảnh lại, cắt phần im lặng cuối mỗi cảnh, thêm hiệu ứng.
 
-Tôi đính kèm 2 file mẫu:
-  - 1-KICH-BAN-MAU.txt: kịch bản mẫu. Các token dạng {{TEN_TOKEN}} (ví dụ {{NGUOI_HOC}},
-    {{GIONG_DAY}}, {{LUOT_1}}...) sẽ được LUO Studio điền từ file biến thể. KHÔNG sửa cấu trúc
-    này trừ khi tôi yêu cầu viết kịch bản mới ở Phần B.
-  - 2-BIEN-THE-MAU.json: ví dụ định dạng biến thể (2 biến thể mẫu).
+Tôi đính kèm:
+  - Video tham chiếu (hoặc ảnh chụp các khoảnh khắc chính + lời thoại): đây là video tôi muốn
+    làm lại theo cùng phong cách, bố cục và nhịp kể chuyện.
+  - 1-KICH-BAN-MAU.txt: kịch bản mẫu, dùng để lấy CẤU TRÚC và ĐỊNH DẠNG. Các token dạng
+    {{TEN_TOKEN}} được LUO Studio điền từ file biến thể; {{LUOT_n}} là lời thoại của cảnh n.
 
-NHIỆM VỤ (Phần A, luôn làm): viết FILE BIẾN THỂ MỚI
-Chủ đề / sản phẩm: [vd. app học tiếng Anh LangLearn]
-Bối cảnh người học: [vd. đang làm vườn / nấu ăn / rửa bát]
+Thông tin thêm:
+  Sản phẩm / thông điệp: [vd. app học tiếng Anh LangLearn, miễn phí]
+  Điều muốn GIỮ từ video: [vd. bố cục người bên trái + điện thoại bên phải, nhịp sửa lỗi]
+  Điều muốn ĐỔI so với video: [vd. đổi bối cảnh sang làm vườn; bỏ phần nói về giá]
+  Số lượt thoại mong muốn: [vd. giống video / 14]
+
+NHIỆM VỤ
+
+1) PHÂN TÍCH VIDEO (ngắn gọn, tiếng Việt, dạng gạch đầu dòng)
+   - Bố cục khung hình: có mấy nhân vật, ai ở đâu (trái/phải/trong màn hình điện thoại...),
+     khung từ đâu lên, góc máy, máy quay có đứng yên không.
+   - Nhân vật: mỗi người trông thế nào, đang làm gì, cầm gì, giọng nói ra sao.
+   - Bối cảnh và ánh sáng.
+   - Mạch câu chuyện theo từng nhịp (hook, lỗi sai, sửa, giới thiệu, nghi ngờ, thuyết phục, kêu gọi...).
+   - Những chỗ Muse khó làm đúng (chữ trên màn hình, nhiều người nói cùng lúc, máy quay chuyển động...)
+     và cách bạn xử lý trong kịch bản.
+
+2) LỜI THOẠI GỐC (bảng, tiếng Anh)
+   Mỗi dòng một lượt: số lượt | ai nói (day = nhân vật dạy/tư vấn, hoc = người học/khách) | lời thoại | cảm xúc.
+   - Bám theo mạch của video, nhưng viết lại bằng lời của bạn (không chép nguyên văn), đổi theo
+     phần "Điều muốn ĐỔI" ở trên.
+   - Bắt đầu bằng "day" (hook). Xen kẽ day/hoc tự nhiên. Mỗi lượt 3-12 từ, tối đa 20 từ.
+   - Nếu có nhịp sửa lỗi: câu đầu của người học SAI hoặc vụng về, câu ngay sau của AI sửa đúng.
+   - Kết bằng lời kêu gọi hành động ngắn.
+   Số lượt = số cảnh của kịch bản.
+
+3) KỊCH BẢN MỚI (.txt), đặt trong MỘT khối code, cùng cấu trúc với 1-KICH-BAN-MAU.txt:
+   - Các khối khoá ở đầu: [STYLE LOCK], [CHAR LOCK], [SET LOCK], [VIDEO SUFFIX], [NEGATIVE].
+     Viết lại nội dung các khối cho đúng bố cục, nhân vật và bối cảnh của video tham chiếu.
+   - Sau đó là các cảnh, mỗi cảnh bắt đầu bằng dòng 'CẢNH n (m:ss–m:ss): Lượt n' với các trường:
+     Bối cảnh, Voice, Khung đầu, Khung cuối, Diễn biến, Prompt ảnh (chỉ cảnh 1), Prompt video,
+     Audio, Negative prompt.
+   - Chỗ thay đổi theo từng biến thể dùng token chữ HOA dạng {{TEN_TOKEN}}. Lời thoại cảnh n
+     dùng {{LUOT_n}}, KHÔNG viết lời thoại thật vào kịch bản.
+   - Nếu bố cục giống file mẫu (người học + điện thoại có AI dạy), DÙNG LẠI đúng tên token của
+     file mẫu: NGUOI_HOC, TEN_HOC, GIONG_HOC, NGUOI_DAY, TEN_DAY, GIONG_DAY, POS_DAY, POS_HOC,
+     VIEC, DAO_CU, DAO_GIU, DAO_NGHI, NEN_TRAI, NEN_PHAI. Chỉ thêm token mới khi video thật sự
+     cần (ví dụ có thêm nhân vật, thêm đạo cụ), tên token viết HOA, không dấu, nối bằng "_".
+   - Giữ các quy tắc của file mẫu: một khung duy nhất, máy quay đứng yên; chỉ MỘT nhân vật nói
+     mỗi cảnh, người kia im, miệng khép; nói ngay đầu clip, nói xong thì đứng im như ảnh tĩnh
+     đến hết clip; mỗi cảnh bắt đầu từ khung cuối cảnh trước; không có chữ, logo, phụ đề,
+     giao diện app trong khung; không nhạc, không âm thanh môi trường.
+   - Phần prompt gửi Muse (các khối khoá, Prompt ảnh, Prompt video, Negative prompt) viết TIẾNG ANH;
+     tiêu đề các trường và các trường mô tả (Bối cảnh, Khung đầu, Khung cuối, Diễn biến, Audio)
+     viết tiếng Việt như file mẫu.
+
+4) DANH SÁCH TOKEN
+   Liệt kê TẤT CẢ token {{...}} đã dùng trong kịch bản (trừ LUOT_n), mỗi token kèm một dòng giải
+   thích nó mô tả gì. Danh sách này sẽ là danh sách khoá của file biến thể ở bước 2.
+
+KIỂM TRA TRƯỚC KHI TRẢ LỜI
+  - Số cảnh = số lượt thoại; mỗi cảnh có đúng một token {{LUOT_n}} khớp số cảnh.
+  - Mọi token trong kịch bản đều có trong danh sách token, và ngược lại.
+  - Không mô tả người thật có thật, không dùng thương hiệu thật của người khác.
+
+================================================================================
+PROMPT BƯỚC 2: TẠO FILE BIẾN THỂ TỪ KỊCH BẢN BƯỚC 1 (gửi sau khi bước 1 đã ổn)
+================================================================================
+
+Dựa trên kịch bản, lời thoại gốc và danh sách token bạn vừa viết ở bước 1, hãy tạo FILE BIẾN THỂ.
+Tôi đính kèm 2-BIEN-THE-MAU.json làm mẫu định dạng (2 biến thể mẫu).
+
 Số biến thể cần tạo: [vd. 6]
 Nhân vật người học (mỗi biến thể một người KHÁC khuôn mặt, cùng nhóm mô tả chung):
   [vd. nữ 50-60 tuổi người Mỹ, tóc ngắn sáng màu, đồ ở nhà + tạp dề làm vườn]
-Ý chính của câu chuyện: [vd. người học nói sai một câu đơn giản, AI sửa, giới thiệu app miễn phí,
-  người học nghi ngờ rồi bị thuyết phục, kết bằng lời kêu gọi tải app]
-Số lượt thoại: [vd. 14] (mỗi lượt = 1 cảnh khoảng 5-6 giây)
+Nhân vật dạy / nhân vật còn lại: [vd. giữ nguyên robot AI như file mẫu]
+Lời thoại: [vd. giữ nguyên lời thoại gốc ở bước 1 cho mọi biến thể]
 
 YÊU CẦU ĐỊNH DẠNG (rất quan trọng)
   - Chỉ trả về MỘT khối code JSON hợp lệ, là một MẢNG các biến thể. Không thêm chú thích, không
     dùng dấu phẩy thừa, không dùng comment trong JSON.
-  - Mỗi biến thể có ĐỦ các khoá giống file mẫu:
-      name, NGUOI_HOC, TEN_HOC, GIONG_HOC, NGUOI_DAY, TEN_DAY, GIONG_DAY, POS_DAY, POS_HOC,
-      VIEC, DAO_CU, DAO_GIU, DAO_NGHI, NEN_TRAI, NEN_PHAI, LUOT
-  - name: chữ thường không dấu, nối bằng dấu gạch ngang, ví dụ "nu-50-60-mat1". Mỗi biến thể một tên khác nhau.
-  - Mọi mô tả (các khoá viết HOA) viết bằng TIẾNG ANH, chi tiết, cụ thể, nhìn thấy được:
+  - Mỗi biến thể có khoá "name", khoá "LUOT", và ĐỦ mọi token trong danh sách token ở bước 1
+    (không thiếu, không thừa, đúng chính tả chữ HOA).
+  - name: chữ thường không dấu, nối bằng dấu gạch ngang, ví dụ "nu-50-60-mat1". Mỗi biến thể một tên khác.
+  - Mọi giá trị token viết bằng TIẾNG ANH, chi tiết, cụ thể, nhìn thấy được. Với các token
+    giống file mẫu:
       NGUOI_HOC: tuổi, giới tính, quốc tịch, tóc, da, KHUÔN MẶT, quần áo, tạp dề/phụ kiện.
       TEN_HOC / TEN_DAY: tên gọi ngắn dùng trong câu (vd. "the older woman in the garden apron",
         "the AI robot tutor on the phone screen").
       GIONG_HOC / GIONG_DAY: mô tả giọng nói (cao độ, âm sắc, tốc độ, giọng vùng miền, cảm xúc).
-      NGUOI_DAY: mô tả robot AI (giữ nguyên như file mẫu trừ khi tôi đổi).
-      POS_DAY = "RIGHT" (điện thoại bên phải), POS_HOC = "LEFT" (người học bên trái).
-      VIEC: việc người học đang làm (vd. "kneeling in a garden planting colorful flowers with a small hand trowel").
-      DAO_CU: đạo cụ cầm trên tay. DAO_GIU: cách cầm, giữ nguyên đạo cụ trong mọi khung.
-      DAO_NGHI: tư thế tay khi nghỉ. NEN_TRAI: bối cảnh phòng/vườn. NEN_PHAI: nền màn hình điện thoại.
-  - LUOT: mảng các lượt thoại, mỗi lượt là {"who": "day" hoặc "hoc", "text": "...", "emo": "..."}.
-      who "day" = AI robot nói; "hoc" = người học nói.
-      Xen kẽ day/hoc tự nhiên, bắt đầu bằng "day" (câu hỏi mở đầu, hook).
-      text: lời thoại tiếng Anh, câu NGẮN (3 đến 12 từ, tối đa 20 từ). Có thể kèm "..." hoặc "Um," để tự nhiên.
-      emo: 1 đến 3 từ tiếng Anh tả cảm xúc/giọng của NGƯỜI NÓI (vd. "curious, friendly", "hesitant, embarrassed",
-        "proud, enthusiastic"). Không cần cảm xúc cho người nghe.
+      NGUOI_DAY: mô tả nhân vật dạy (giữ nguyên như file mẫu trừ khi tôi đổi).
+      POS_DAY / POS_HOC: vị trí trong khung theo kịch bản (vd. "RIGHT" / "LEFT").
+      VIEC: việc người học đang làm. DAO_CU: đạo cụ cầm trên tay. DAO_GIU: cách cầm, giữ nguyên
+        đạo cụ trong mọi khung. DAO_NGHI: tư thế tay khi nghỉ. NEN_TRAI: bối cảnh phòng/vườn.
+        NEN_PHAI: nền màn hình điện thoại.
+    Token mới thêm ở bước 1: viết theo đúng giải thích trong danh sách token.
+  - LUOT: mảng các lượt thoại lấy từ bảng lời thoại gốc ở bước 1, mỗi lượt là
+      {"who": "day" hoặc "hoc", "text": "...", "emo": "..."}.
+      who "day" = nhân vật dạy nói; "hoc" = người học nói.
+      text: lời thoại tiếng Anh, câu NGẮN (3 đến 12 từ, tối đa 20 từ).
+      emo: 1 đến 3 từ tiếng Anh tả cảm xúc/giọng của NGƯỜI NÓI (vd. "curious, friendly").
+      Số lượt = số cảnh của kịch bản bước 1.
 
 QUY TẮC NỘI DUNG
-  - Câu đầu tiên của người học nên SAI hoặc vụng về (ví dụ "I pick flowers."), câu kế tiếp của AI sửa lại
-    đúng ("You should say, I'm picking flowers."). LUO Studio sẽ tự thêm hiệu ứng: viền đỏ + tiếng "tè tè"
-    khi người học nói sai, viền xanh lá + tiếng "tinh tinh" khi AI sửa.
-  - Lời của AI: thân thiện, khích lệ, rõ ràng. Lời người học: đơn giản như người mới học; có thể nghi ngờ rồi dần bị thuyết phục.
-  - Kết thúc bằng lời kêu gọi hành động ngắn (tải app, luyện mỗi ngày).
-  - Giữ lời thoại giống nhau giữa các biến thể (cùng kịch bản), chỉ khác NHÂN VẬT, trừ khi tôi yêu cầu khác.
+  - Nếu có nhịp sửa lỗi: LUO Studio tự thêm viền đỏ + tiếng "tè tè" khi người học nói sai,
+    viền xanh lá + tiếng "tinh tinh" khi AI sửa. Giữ đúng thứ tự câu sai -> câu sửa.
+  - Giữ lời thoại giống nhau giữa các biến thể, chỉ khác NHÂN VẬT, trừ khi tôi yêu cầu khác.
   - Hai giọng GIONG_DAY và GIONG_HOC phải KHÁC HẲN nhau về cao độ và âm sắc, đặc biệt khi cùng giới
     (ví dụ robot: "bright, youthful, high-pitched, quick, airy"; người học: "low, husky, slow, grounded").
-  - Các biến thể cùng nhóm phải khác nhau rõ về khuôn mặt (hình mặt, mắt, mũi, kính, râu, kiểu tóc, màu áo),
-    nhưng vẫn cùng tuổi/giới/phong cách chung như tôi mô tả.
+  - Các biến thể cùng nhóm phải khác nhau rõ về khuôn mặt (hình mặt, mắt, mũi, kính, râu, kiểu tóc,
+    màu áo), nhưng vẫn cùng tuổi/giới/phong cách chung như tôi mô tả.
   - Không dùng tên thương hiệu thật của người khác, không mô tả người thật có thật.
 
 KIỂM TRA TRƯỚC KHI TRẢ LỜI
   - JSON hợp lệ (đóng đủ ngoặc, dấu phẩy đúng, chuỗi trong dấu ngoặc kép).
-  - Mọi biến thể đủ khoá, đủ [số lượt] lượt thoại.
-
---------------------------------------------------------------------------------
-PHẦN B (tuỳ chọn): viết KỊCH BẢN (LOẠI DỰ ÁN) MỚI
---------------------------------------------------------------------------------
-Chỉ dùng khi bạn muốn bố cục/cách quay khác hẳn file mẫu (ví dụ không dùng điện thoại, hoặc hai
-nhân vật chia đôi màn hình). Thêm đoạn sau vào prompt:
-
-  "Ngoài Phần A, hãy viết thêm kịch bản mới dưới dạng một file .txt có cùng cấu trúc như 1-KICH-BAN-MAU.txt:
-   - Các khối khoá ở đầu: [STYLE LOCK], [CHAR LOCK], [SET LOCK], [VIDEO SUFFIX], [NEGATIVE].
-   - Sau đó là các cảnh, mỗi cảnh bắt đầu bằng dòng 'CẢNH n (m:ss–m:ss): Lượt n' với các trường:
-     Bối cảnh, Voice, Khung đầu, Khung cuối, Diễn biến, Prompt ảnh, Prompt video, Audio, Negative prompt.
-   - Chỗ cần thay đổi theo từng biến thể dùng token chữ HOA dạng {{TEN_TOKEN}}; lời thoại của cảnh n dùng {{LUOT_n}}
-     (mỗi cảnh một token LUOT_1, LUOT_2, ...). Số cảnh = số lượt thoại.
-   - Chỉ MỘT nhân vật nói trong mỗi cảnh; mỗi cảnh bắt đầu từ khung cuối của cảnh trước.
-   - Mô tả bằng tiếng Anh cho phần prompt gửi Muse; các tiêu đề trường giữ tiếng Việt như file mẫu.
-   Sau đó liệt kê TẤT CẢ token {{...}} đã dùng để tôi chắc file biến thể có đủ khoá."
+  - Mọi biến thể đủ khoá theo danh sách token, đủ số lượt thoại bằng số cảnh.
 
 --------------------------------------------------------------------------------
 NHẬP VÀO LUO STUDIO
 --------------------------------------------------------------------------------
-  - Biến thể (JSON):
-      Cách 1: "Dự án mới" -> chọn loại dự án -> mục chọn file biến thể (.json) -> tạo.
-      Cách 2: mở dự án có sẵn -> biểu tượng mũi tên lên ("Từ file") -> chọn file .json.
-  - Kịch bản mới (.txt):
+  - Kịch bản (.txt) từ bước 1, nhập TRƯỚC:
       Tab "Loại dự án" -> "Loại mới" -> tải file kịch bản .txt -> kiểm tra danh sách trường
-      -> đặt tên -> lưu. Loại dự án không đổi được sau khi dự án đã tạo.
+      (phải khớp danh sách token Claude đưa) -> đặt tên -> lưu.
+      Loại dự án không đổi được sau khi dự án đã tạo.
+      Nếu kịch bản dùng lại đúng token và bố cục của file mẫu, có thể dùng luôn loại dự án có sẵn.
+  - Biến thể (.json) từ bước 2:
+      Cách 1: "Dự án mới" -> chọn loại dự án vừa tạo -> mục chọn file biến thể (.json) -> tạo.
+      Cách 2: mở dự án có sẵn -> biểu tượng mũi tên lên ("Từ file") -> chọn file .json.
   - Sau khi nhập, kiểm tra từng biến thể: số lượt thoại, ô "Giọng" của hai bên khác hẳn nhau,
     mô tả ngoại hình khác nhau. Rồi bấm "Thêm vào hàng đợi" và chạy thử MỘT biến thể trước.
 
 LƯU Ý
   - Mô tả càng cụ thể (nhìn thấy được) thì Muse càng làm đúng. Tránh từ trừu tượng ("đẹp", "dễ thương").
   - Câu thoại càng ngắn thì clip càng ngắn và tốn ít lượt Muse.
+  - Video tham chiếu chỉ để lấy phong cách và mạch kể; không chép nguyên lời thoại hay nhân vật
+    của video người khác.
   - Claude có thể viết sai định dạng JSON; luôn dán thử vào LUO Studio và xem thông báo lỗi nếu có.
