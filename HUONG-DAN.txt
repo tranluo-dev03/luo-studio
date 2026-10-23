@@ -330,6 +330,11 @@ Video bị hai nhân vật cùng mấp máy/nói
 Hậu kỳ báo lỗi hoặc đứng lâu ở lần đầu
   - Lần đầu phần mềm đang tải mô hình nhận dạng giọng (~250MB) ở nền; đợi vài phút
     và thử lại. Xem userdata\logs\model.log.
+  - Nhật ký có dòng cảnh báo "pkg_resources is deprecated" là bình thường, không phải lỗi.
+  - Nếu thấy "Nhận dạng giọng lỗi ... mã thoát 0xC0000005" rồi "VAD hỏng trên máy này": Hậu kỳ tự chuyển
+    sang chế độ không VAD và vẫn ra video bình thường (các lần sau bỏ qua VAD).
+  - Nếu thấy "máy này không chạy được nhận dạng giọng": video vẫn ra nhưng phụ đề dùng thời điểm ước
+    lượng nên có thể lệch tiếng nói. Chạy lại setup.ps1 (cài lại thư viện đúng phiên bản) rồi Hậu kỳ lại.
 
 Không thấy file video / không mở được thư mục
   - File ở userdata\studio\runs\<dự án>\<biến thể> (video thô, các cảnh) và

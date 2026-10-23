@@ -9,6 +9,10 @@ Nguồn sự thật của số phiên bản: dòng đầu của `version.txt` (c
 - **Cập nhật không mất dữ liệu:** `update.ps1` và `Cap nhat.bat` (sao lưu nhẹ dữ liệu quan trọng vào `userdata-backup/`, `git pull` hoặc tải ZIP mới rồi chép đè, không đụng `userdata/`, `.venv`, `bin`; chạy lại `setup.ps1`). Có tuỳ chọn `-ZipFile` cho máy không có git hoặc mạng hạn chế.
 - `setup.ps1` tự cài Python 3.11 khi thiếu (winget, nếu không được thì bộ cài chính thức từ python.org).
 
+### Sửa
+- **Hậu kỳ không còn chết khi thư viện nhận dạng giọng hỏng cứng** (lỗi "Hậu kỳ lỗi, xem nhật ký" sau cảnh báo `pkg_resources`, mã thoát `0xC0000005`, gặp trên một số máy): Whisper giờ chạy trong tiến trình con; thử có VAD trước, nếu VAD hỏng thì tự chuyển sang không VAD (nhớ lại để lần sau bỏ qua), nếu cả Whisper hỏng thì vẫn ra video với phụ đề ước lượng kèm cảnh báo. Chất lượng căn phụ đề trên máy chạy được VAD giữ nguyên.
+- Ghim `faster-whisper`, `ctranslate2`, `onnxruntime` đúng phiên bản đã chạy ổn trong `requirements.txt` để máy cài mới không bị trôi phiên bản.
+
 ### Đổi
 - Tài liệu cài đặt (`README.md`, `HUONG-DAN.txt`): cài từ GitHub (ZIP hoặc git) bằng `setup.ps1`; bỏ hướng dẫn tắt/loại trừ chống virus.
 

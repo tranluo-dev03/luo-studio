@@ -1,5 +1,4 @@
-# Thu vien can thiet khi chay LUO Studio bang Python cai san tren may (Python 3.11 hoac 3.12, 64-bit).
-# Khong can neu mo bang "LUO Studio.bat" (goi da kem san Python trong runtime\).
+# Thu vien can thiet (Python 3.11 hoac 3.12, 64-bit); setup.ps1 cai tu file nay vao .venv.
 fastapi>=0.115
 uvicorn[standard]>=0.32
 pydantic>=2.9
@@ -10,6 +9,10 @@ numpy==1.26.4
 pillow
 mediapipe==0.10.21
 opencv-contrib-python==4.11.0.86
-faster-whisper>=1.2
+# Bo ba nhan dang giong: ghim dung phien ban da chay on dinh, de may cai moi khong bi troi sang ban khac
+# (onnxruntime/ctranslate2 la thu vien nhi phan, ban khac co the crash cung tren mot so CPU).
+faster-whisper==1.2.1
+ctranslate2==4.8.3
+onnxruntime==1.31.0
 av>=14
 sounddevice

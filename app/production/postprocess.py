@@ -6,7 +6,7 @@
 
 Cần: ffmpeg trong PATH, `pip install faster-whisper` (model small.en tải lần đầu).
 """
-import argparse, difflib, json, os, re, shutil, subprocess, sys, tempfile
+import argparse, difflib, json, os, re, shutil, subprocess, sys, tempfile, time
 
 for _s in (sys.stdout, sys.stderr):
     try:
@@ -62,15 +62,96 @@ def tighten(src, dst, settle=0.5, lead=0.12):
     return duration(dst)
 
 
-def transcribe(path, model_name="small.en", prompt=None, vad=True):
+def _whisper_child(wav, model_name, prompt_file, vad, compute, out_json):
+    """Chạy trong tiến trình con: nhận dạng giọng rồi ghi các từ (từ, bắt đầu, kết thúc) ra file JSON."""
     from faster_whisper import WhisperModel
+    prompt = open(prompt_file, encoding="utf-8").read() or None
+    model = WhisperModel(model_name, device="cpu", compute_type=compute)
+    segs, _ = model.transcribe(wav, word_timestamps=True, language="en" if model_name.endswith(".en") else None, initial_prompt=prompt,
+                               condition_on_previous_text=False, vad_filter=vad)
+    json.dump([(w.word, w.start, w.end) for s in segs for w in s.words], open(out_json, "w", encoding="utf-8"))
+
+
+def _whisper_cmd(wav, model_name, prompt_file, vad, compute, out_json):
+    # -I: tách khỏi môi trường người dùng; -W: bỏ cảnh báo pkg_resources của ctranslate2 (vô hại nhưng làm nhật ký rối)
+    return [sys.executable, "-I", "-W", "ignore:pkg_resources:UserWarning", os.path.abspath(__file__), "--_whisper",
+            wav, model_name, prompt_file, "1" if vad else "0", compute, out_json]
+
+
+def _transcribe_isolated(wav, model_name, prompt, vad, compute):
+    """Whisper trong tiến trình riêng: nếu thư viện native (ctranslate2, onnxruntime) hỏng cứng (segfault, mã 0xC0000005) thì chỉ tiến trình con chết,
+    Hậu kỳ vẫn chạy tiếp. Trả về (danh sách từ hoặc None, có phải hỏng cứng không)."""
+    prompt_file, out_json = wav + ".prompt.txt", wav + ".words.json"
+    open(prompt_file, "w", encoding="utf-8").write(prompt or "")
+    crashed = False
+    try:
+        r = subprocess.run(_whisper_cmd(wav, model_name, prompt_file, vad, compute, out_json), capture_output=True, text=True,
+                           encoding="utf-8", errors="replace", timeout=3600)
+        if r.returncode == 0 and os.path.exists(out_json):
+            return [tuple(w) for w in json.load(open(out_json, encoding="utf-8"))], False
+        code = r.returncode & 0xFFFFFFFF
+        crashed = r.returncode < 0 or code >= 0xC0000000   # Windows: 0xC0000005 (access violation)...; POSIX: tín hiệu (mã âm)
+        tail = [l for l in (r.stderr or "").splitlines() if l.strip() and "pkg_resources" not in l][-3:]
+        print(f"  Nhận dạng giọng lỗi (compute={compute}, VAD={'bật' if vad else 'tắt'}, mã thoát 0x{code:08X})" + ("; " + " | ".join(tail) if tail else ""))
+    except subprocess.TimeoutExpired:
+        print(f"  Nhận dạng giọng quá thời gian (compute={compute}); bỏ qua.")
+    finally:
+        for f in (prompt_file, out_json):
+            try:
+                os.remove(f)
+            except OSError:
+                pass
+    return None, crashed
+
+
+_VAD_MARK = os.path.join(tempfile.gettempdir(), "luo-studio-vad-crashed")   # đánh dấu "máy này VAD hỏng cứng" để các lần sau khỏi thử lại (hết hạn sau 30 ngày)
+
+
+def _vad_known_bad():
+    try:
+        return time.time() - os.path.getmtime(_VAD_MARK) < 30 * 86400
+    except OSError:
+        return False
+
+
+def transcribe(path, model_name="small.en", prompt=None, vad=True):
+    """Danh sách từ (từ, bắt đầu, kết thúc) của audio trong `path`, hoặc None nếu máy này không chạy được Whisper.
+    vad=True: thử có lọc VAD trước (căn phụ đề dòng đầu chuẩn hơn); VAD dùng onnxruntime, một engine riêng, và đã gây crash cứng trên một số máy,
+    nên chỉ chạy trong tiến trình con và nếu hỏng thì tự chuyển sang không VAD (rồi nhớ lại để lần sau bỏ qua VAD)."""
     wav = path + ".wav"
     run(["ffmpeg", "-y", "-i", path, "-vn", "-ac", "1", "-ar", "16000", wav])
-    model = WhisperModel(model_name, device="cpu", compute_type="int8")
-    segs, _ = model.transcribe(wav, word_timestamps=True, language="en" if model_name.endswith(".en") else None, initial_prompt=prompt, condition_on_previous_text=False, vad_filter=vad)
-    words = [(w.word, w.start, w.end) for s in segs for w in s.words]
-    os.remove(wav)
-    return words
+    try:
+        attempts = ([(True, "int8")] if vad and not _vad_known_bad() else []) + [(False, "int8"), (False, "float32")]   # float32: phòng khi CPU không hỗ trợ int8 đúng
+        for use_vad, compute in attempts:
+            words, crashed = _transcribe_isolated(wav, model_name, prompt, use_vad, compute)
+            if words is not None:
+                return words
+            if use_vad and crashed:
+                try:
+                    open(_VAD_MARK, "w").write(time.strftime("%Y-%m-%d %H:%M:%S"))
+                except OSError:
+                    pass
+                print("  VAD hỏng trên máy này; chuyển sang nhận dạng không VAD (các lần Hậu kỳ sau sẽ bỏ qua VAD).")
+        return None
+    finally:
+        try:
+            os.remove(wav)
+        except OSError:
+            pass
+
+
+def estimate_words(path, units):
+    """Phương án cuối khi không nhận dạng được giọng: rải đều các từ của phụ đề theo độ dài chữ trên toàn video, để Hậu kỳ vẫn ra video (thời điểm phụ đề chỉ là ước lượng)."""
+    total = max(1.0, duration(path))
+    toks = [(t, len(t) + 1) for u in units for t in u["t"].split()]
+    wsum = sum(w for _, w in toks) or 1
+    out, t0 = [], 0.2
+    span = max(0.5, total - 0.6)
+    for t, w in toks:
+        d = span * w / wsum
+        out.append((t, t0, t0 + d * 0.9))
+        t0 += d
+    return out
 
 
 def norm(w):
@@ -291,10 +372,20 @@ def main():
         print("Transcribe + căn phụ đề...")
         prompt = " ".join(u["t"] for u in units)
         raw_units = json.loads(json.dumps(units))
-        units = align(units, transcribe(src, a.model, prompt))
-        if sum(1 for u in units if not u["ok"]) >= 3:  # nhiều phụ đề không khớp: thử lại không lọc VAD
-            print("Nhiều phụ đề không khớp, thử lại không bật VAD...")
-            units = align(raw_units, transcribe(src, a.model, prompt, vad=False))
+        words = transcribe(src, a.model, prompt)
+        if words is None:
+            print("CẢNH BÁO: máy này không chạy được nhận dạng giọng; phụ đề dùng thời điểm ước lượng nên có thể lệch so với tiếng nói.")
+            units = align(units, estimate_words(src, units))
+        else:
+            units = align(units, words)
+            bad = sum(1 for u in units if not u["ok"])
+            if bad >= 3:  # nhiều phụ đề không khớp: thử lại không lọc VAD, giữ kết quả khớp tốt hơn
+                print("Nhiều phụ đề không khớp, thử lại không bật VAD...")
+                w2 = transcribe(src, a.model, prompt, vad=False)
+                if w2:
+                    u2 = align(raw_units, w2)
+                    if sum(1 for u in u2 if not u["ok"]) <= bad:
+                        units = u2
         for u in units:
             print(f"  {u['s']:6.2f}-{u['e']:6.2f}  {u['c']:6}  {u['t']}")
         if a.subs_only:
@@ -360,4 +451,7 @@ def main():
 
 
 if __name__ == "__main__":
+    if len(sys.argv) > 1 and sys.argv[1] == "--_whisper":   # tiến trình con của transcribe(): đối số do _whisper_cmd tạo
+        _whisper_child(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5] == "1", sys.argv[6], sys.argv[7])
+        sys.exit(0)
     main()
