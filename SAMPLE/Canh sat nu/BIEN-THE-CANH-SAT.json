@@ -1,0 +1,146 @@
+[
+  {
+    "name": "canh-sat-nam-goc",
+    "NGUOI_DAY": "FACE (unlike any other person in this series): a man in his thirties, a square jaw, short dark-brown hair, light stubble, brown eyes; light tan skin, athletic broad build; wearing a tan state-trooper uniform with a plain yellow-green high-visibility safety vest, a dark duty belt and a plain metal badge, no lettering, no sunglasses, no hat",
+    "GIONG_DAY": "a calm, firm, clear mid-low American man's voice, polite but authoritative, brisk and natural",
+    "TEN_DAY": "the state trooper",
+    "VAI_DAY": "officer",
+    "POS_DAY": "RIGHT",
+    "NGHE_DAY": "stands in three-quarter view looking up at the driver with a calm attentive face, mouth closed, hands resting on the duty belt unless the clip's action says to reach out or hold something",
+    "TEN_HOC": "the truck driver",
+    "GIONG_HOC": "a low, slightly husky, tired American woman's voice, slow and plain, polite and a little nervous",
+    "VAI_HOC": "driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "leans on the window frame, looking down at the officer with a calm attentive face, mouth closed, one forearm resting on the door unless the clip's action says to hand over or show something",
+    "DAO_GIAY_TO": "a plain driver's license card and a folded white vehicle registration paper, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "DAO_CU": "leaning out of the open cab window with one forearm resting on the window frame",
+    "DAO_GIU": "The driver's forearm stays on the window frame for the whole clip: no hand ever goes to the head, face or hair, no shrugging; only the face and voice show the mood.",
+    "DAO_NGHI": "the driver's forearm on the window frame, the officer's hands resting on the duty belt",
+    "NEN_TRAI": "a big glossy blue semi-truck parked on the shoulder of a highway with the engine off, seen from the front-left so the cab window is in the upper part of the frame",
+    "NEN_PHAI": "an empty highway shoulder, a few distant palm trees and a still orange-pink sunset sky, no moving cars",
+    "NGUOI_HOC": "FACE (unlike any other person in this series): a woman in her fifties, a long oval face, deep-set hazel eyes, thin lips, a chin-length light-brown bob with gray strands; fair weathered skin, slim build, wearing a faded tan work jacket with yellow-green reflective stripes on the sleeves over a navy shirt",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Evening, ma'am. How long have you been driving today?",
+        "emo": "decisive, calm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "About six hours, officer.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And when was the last time you slept?",
+        "emo": "curious, calm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Last night. Only a few hours.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "License and registration, please.",
+        "emo": "decisive",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Of course, officer. Here you go.",
+        "emo": "helpful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Wait, your English is really good!",
+        "emo": "surprised, impressed",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Ten minutes a day with a free AI app. Let me show you!",
+        "emo": "proud, cheerful",
+        "fx": "none"
+      }
+    ]
+  },
+  {
+    "name": "canh-sat-nu",
+    "NGUOI_DAY": "FACE (unlike any other person in this series): a woman in her thirties, an oval face, hazel eyes, a straight nose, light freckles, light-brown hair pulled into a neat low bun; fair skin, athletic build; wearing a tan state-trooper uniform with a plain yellow-green high-visibility safety vest, a dark duty belt and a plain metal badge, no lettering, no sunglasses, no hat",
+    "GIONG_DAY": "a calm, firm, clear mid-pitched American woman's voice, polite but authoritative, brisk and natural",
+    "TEN_DAY": "the state trooper",
+    "VAI_DAY": "officer",
+    "POS_DAY": "RIGHT",
+    "NGHE_DAY": "stands in three-quarter view looking up at the driver with a calm attentive face, mouth closed, hands resting on the duty belt unless the clip's action says to reach out or hold something",
+    "TEN_HOC": "the truck driver",
+    "GIONG_HOC": "a low, slightly husky, tired American woman's voice, slow and plain, polite and a little nervous",
+    "VAI_HOC": "driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "leans on the window frame, looking down at the officer with a calm attentive face, mouth closed, one forearm resting on the door unless the clip's action says to hand over or show something",
+    "DAO_GIAY_TO": "a plain driver's license card and a folded white vehicle registration paper, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "DAO_CU": "leaning out of the open cab window with one forearm resting on the window frame",
+    "DAO_GIU": "The driver's forearm stays on the window frame for the whole clip: no hand ever goes to the head, face or hair, no shrugging; only the face and voice show the mood.",
+    "DAO_NGHI": "the driver's forearm on the window frame, the officer's hands resting on the duty belt",
+    "NEN_TRAI": "a big glossy blue semi-truck parked on the shoulder of a highway with the engine off, seen from the front-left so the cab window is in the upper part of the frame",
+    "NEN_PHAI": "an empty highway shoulder, a few distant palm trees and a still orange-pink sunset sky, no moving cars",
+    "NGUOI_HOC": "FACE (unlike any other person in this series): a woman in her fifties, a long oval face, deep-set hazel eyes, thin lips, a chin-length light-brown bob with gray strands; fair weathered skin, slim build, wearing a faded tan work jacket with yellow-green reflective stripes on the sleeves over a navy shirt",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Evening, ma'am. How long have you been driving today?",
+        "emo": "decisive, calm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "About six hours, officer.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And when was the last time you slept?",
+        "emo": "curious, calm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Last night. Only a few hours.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "License and registration, please.",
+        "emo": "decisive",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Of course, officer. Here you go.",
+        "emo": "helpful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Wait, your English is really good!",
+        "emo": "surprised, impressed",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Ten minutes a day with a free AI app. Let me show you!",
+        "emo": "proud, cheerful",
+        "fx": "none"
+      }
+    ]
+  }
+]

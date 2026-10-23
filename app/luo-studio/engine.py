@@ -14,6 +14,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 PROD = os.path.join(HERE, "..", "production")
 sys.path.insert(0, PROD)
 import gen_video as G  # parse_script, build_prompts, muse_*_prompt, fill_tokens, variant_values, data_url, kind_of, read_key
+import make_variants as MV  # ck/chars_of/cpos/crole: nhân vật tổng quát (khoá bất kỳ, không chỉ day/hoc)
 import numpy as np
 
 ALLOWED = [5, 6, 8, 10]
@@ -307,43 +308,55 @@ def voice_contrast(v, day):
     return "Its voice is clearly the LOWER-pitched, deeper, warmer and slower of the two voices in this video, easy to tell apart from the other character's voice."
 
 
+def role_names(v, day):
+    """(vai người nói, vai người nghe) của hai nhân vật day/hoc; giữ cho tương thích. Vai đặt bằng VAI_DAY / VAI_HOC, mặc định tutor / learner."""
+    rd, rh = MV.crole(v, "DAY"), MV.crole(v, "HOC")
+    return (rd, rh) if day else (rh, rd)
+
+
 def speaker_lock(v, turn):
     """Khối đầu prompt video, viết theo mẫu video call (master-ugc-ai-call): MỘT câu khẳng định ai nói gì + người kia im và đang làm việc riêng.
-    Không liệt kê hàng loạt điều cấm (khiến Muse hiểu người nghe cũng 'có phần' trong lời thoại)."""
-    import make_variants as MV
-    pd, ph = v.get("POS_DAY", "LEFT"), v.get("POS_HOC", "RIGHT")
-    day = turn.get("who") == "day"
-    spk, lis = (v.get("TEN_DAY"), v.get("TEN_HOC")) if day else (v.get("TEN_HOC"), v.get("TEN_DAY"))
-    spos, lpos = (pd, ph) if day else (ph, pd)
-    task = v.get("VIEC", "").strip() if day else ""
-    strong = same_gender(v) and bool(task)   # cùng giới: giấu miệng người nghe ngay từ đầu
-    base = (f"keeps quietly {task} at the same slow, steady pace the whole time, head bowed low over the work, face half hidden by the hat or hair and turned down and away, eyes on the work, lips closed and still" if strong else
-            f"keeps quietly {task} at the same slow, steady pace the whole time, head lowered over the work, eyes on the work, face partly turned away from the phone and the camera" if task
-            else "stays in the calm base pose, still, eyes on the camera, mouth a flat closed line")
-    contrast = voice_contrast(v, day)
-    vs, vl = ("A", "B") if day else ("B", "A")
-    role_s, role_l = ("tutor", "learner") if day else ("learner", "tutor")
-    pd, ph = v.get("POS_DAY", "LEFT"), v.get("POS_HOC", "RIGHT")
-    return (f"SPEAKER MAP: VOICE A belongs to the {pd} character ({v.get('TEN_DAY')}); VOICE B belongs to the {ph} character ({v.get('TEN_HOC')}). "
-            f"In this clip only VOICE {vs} is heard, coming from the mouth of the {spos} character ({spk}). "
+    Không liệt kê hàng loạt điều cấm (khiến Muse hiểu người nghe cũng 'có phần' trong lời thoại).
+    Số nhân vật bất kỳ: mỗi nhân vật có khoá (day, hoc hoặc khoá khác) và các token TEN_/POS_/GIONG_/VAI_/NGHE_<KHOÁ>; một người nói, tất cả còn lại im lặng."""
+    k = MV.ck(turn.get("who"))
+    chars = MV.chars_of(v)
+    letter = {c: chr(65 + i) for i, c in enumerate(chars)}
+    lis = [c for c in chars if c != k]
+    spk, spos, role_s = v.get(f"TEN_{k}"), MV.cpos(v, k), MV.crole(v, k)
+    contrast = voice_contrast(v, k == "DAY") if {k, *lis} == {"DAY", "HOC"} else ""
+    quiet = ""
+    for c in lis:
+        task = v.get("VIEC", "").strip() if (k == "DAY" and c == "HOC") else ""
+        strong = same_gender(v) and bool(task)   # cùng giới: giấu miệng người nghe ngay từ đầu
+        pose = str(v.get(f"NGHE_{c}") or "").strip()   # tuỳ chọn: tư thế khi nghe do biến thể quy định (vd. hai người nhìn nhau, không nhìn ống kính)
+        base = (pose if pose else
+                f"keeps quietly {task} at the same slow, steady pace the whole time, head bowed low over the work, face half hidden by the hat or hair and turned down and away, eyes on the work, lips closed and still" if strong else
+                f"keeps quietly {task} at the same slow, steady pace the whole time, head lowered over the work, eyes on the work, face partly turned away from the phone and the camera" if task
+                else "stays in the calm base pose, still, eyes on the camera, mouth a flat closed line")
+        role_l = MV.crole(v, c)
+        quiet += (f"The {role_l} ({MV.cpos(v, c)}) is quiet for the whole clip: lips gently closed, a calm relaxed face with a faint steady quiet mood, and {base}, "
+                  f"at the {role_l}'s own pace regardless of the dialogue. ")
+    resting = " and ".join(f"VOICE {letter[c]}" for c in lis) + (" is" if len(lis) == 1 else " are") + " resting in this clip."
+    return ("SPEAKER MAP: " + "; ".join(f"VOICE {letter[c]} belongs to the {MV.cpos(v, c)} character ({v.get(f'TEN_{c}')})" for c in chars) + ". "
+            f"In this clip only VOICE {letter[k]} is heard, coming from the mouth of the {spos} character ({spk}). "
             f"The {role_s} ({spos}) says the line once, "
             f"{MV.speaker_how(v, turn['who'], turn.get('text', ''), turn.get('emo', ''))}. "
             f"The {role_s}'s expression grows naturally out of a calm ongoing mood and eases back down gently after the line. "
-            + (f"{contrast} " if contrast else "") +
-            f"The {role_l} ({lpos}) is quiet for the whole clip: lips gently closed, a calm relaxed face with a faint steady quiet mood, and {base}, at the {role_l}'s own pace regardless of the dialogue. "
-            f"VOICE {vl} is resting in this clip.")
+            + (f"{contrast} " if contrast else "") + quiet + (resting if lis else ""))
 
 
 def drop_listener_voice(text, v, turn):
     """Bỏ 'VOICE LOCK' (khoá giọng) của NGƯỜI NGHE khỏi prompt: không có giọng nào được mô tả cho người im lặng thì Muse không có gì để lồng tiếng cho họ."""
-    day = turn.get("who") == "day"
-    voice = (v.get("GIONG_HOC") if day else v.get("GIONG_DAY")) or ""
-    voice = voice.strip()
-    if len(voice) < 12:
-        return text
-    key = re.escape(voice[:40])
-    text = re.sub(r"VOICE LOCK [A-Z ]*: one single voice, " + key + r"[^\n]*?(?:in every clip|every scene)\.\s*", "", text, flags=re.I)
-    text = re.sub(r"VOICE LOCK [A-Z ]*: [^\n]{0,40}" + key + r"[^\n]*?(?:in every clip|every scene)\.\s*", "", text, flags=re.I)
+    k = MV.ck(turn.get("who"))
+    for c in MV.chars_of(v):
+        if c == k:
+            continue
+        voice = str(v.get(f"GIONG_{c}") or "").strip()
+        if len(voice) < 12:
+            continue
+        key = re.escape(voice[:40])
+        text = re.sub(r"VOICE LOCK [A-Z ]*: one single voice, " + key + r"[^\n]*?(?:in every clip|every scene)\.\s*", "", text, flags=re.I)
+        text = re.sub(r"VOICE LOCK [A-Z ]*: [^\n]{0,40}" + key + r"[^\n]*?(?:in every clip|every scene)\.\s*", "", text, flags=re.I)
     return text
 
 
@@ -475,12 +488,29 @@ def word_check(expected, heard):
     return matched / len(exp), extra / len(hrd)
 
 
+def side_box(side, table):
+    """Vùng khuôn mặt của một vị trí: tên có sẵn trong `table` (LEFT/RIGHT/TOP/BOTTOM) hoặc hộp "x0,y0,x1,y1" theo tỉ lệ khung hình (0..1), dùng cho bố cục bất kỳ."""
+    side = str(side or "").strip()
+    if side.upper() in table:
+        return table[side.upper()]
+    try:
+        b = tuple(float(x) for x in side.split(","))
+        if len(b) == 4 and 0 <= b[0] < b[2] <= 1 and 0 <= b[1] < b[3] <= 1:
+            return b
+    except ValueError:
+        pass
+    return None   # nhãn lạ và không có toạ độ: không biết khuôn mặt ở đâu nên không đo (đo nhầm mặt còn tệ hơn bỏ qua)
+
+
 ZONES = {"LEFT": (0.03, 0.12, 0.47, 0.52), "RIGHT": (0.53, 0.08, 0.97, 0.50), "TOP": (0.2, 0.02, 0.8, 0.34), "BOTTOM": (0.1, 0.42, 0.8, 0.85)}   # vùng đầu/mặt mỗi bên (tỉ lệ khung hình)
 
 
 def zone_motion(path, side, t_end, fps=15, W=180, H=320):
     """Mức chuyển động trung bình ở vùng mặt của một bên trong [0, t_end] (người nói thật ~8-12, người nghe đứng yên ~2-4)."""
-    x0, y0, x1, y1 = ZONES.get(side, ZONES["LEFT"])
+    box = side_box(side, ZONES)
+    if box is None:
+        return 0.0
+    x0, y0, x1, y1 = box
     d = crun(["ffmpeg", "-v", "error", "-t", f"{max(0.5, t_end):.2f}", "-i", path, "-vf", f"fps={fps},scale={W}:{H},format=gray", "-f", "rawvideo", "-"], capture_output=True).stdout
     n = len(d) // (W * H)
     if n < 3:
@@ -513,7 +543,9 @@ def mouth_activity(path, side, t_end, fps=12):
     if n < 6:
         return None
     fr = np.frombuffer(d[: n * W * H * 3], np.uint8).reshape(n, H, W, 3)
-    b = _FACE_BOX.get(side, _FACE_BOX["LEFT"])
+    b = side_box(side, _FACE_BOX)
+    if b is None:
+        return None
     x0, y0, x1, y1 = int(b[0] * W), int(b[1] * H), int(b[2] * W), int(b[3] * H)
     vals = []
     with _MP_LOCK:
@@ -534,18 +566,27 @@ def mouth_activity(path, side, t_end, fps=12):
 
 
 def mouth_check(path, speaker_side, listener_side, sens="normal"):
-    """Người NGHE mấp máy miệng như người nói? Đã đối chiếu trên clip thật: người im lặng thật std ≈ 0.008-0.019, người mấp máy ≥ 0.029."""
+    """Người NGHE mấp máy miệng như người nói? Đã đối chiếu trên clip thật: người im lặng thật std ≈ 0.008-0.019, người mấp máy ≥ 0.029.
+    `listener_side` có thể là một vị trí hoặc danh sách (nhiều người nghe): trả về người nghe bị lỗi đầu tiên, nếu không thì người cử động miệng nhiều nhất (`idx` = chỉ số trong danh sách)."""
     t_end = speech_end_of(path)
-    sp, li = mouth_activity(path, speaker_side, t_end), mouth_activity(path, listener_side, t_end)
-    if not sp or not li:
+    sp = mouth_activity(path, speaker_side, t_end)
+    if not sp:
         return None
     abs_t, rel_t = {"high": (0.017, 0.35), "low": (0.032, 0.6)}.get(sens, (0.024, 0.45))   # độ nhạy: cao bắt cả mấp máy nhẹ (dễ gen lại thừa), thấp chỉ bắt mấp máy rõ
     open_t = {"high": 0.10, "low": 0.30}.get(sens, 0.18)   # tỉ lệ khung hình người nghe há miệng rộng: mấp máy thật ~0.2-0.35, chỉ cười ~0-0.13
-    # Phải thoả TẤT CẢ: miệng cử động nhiều (std), há rộng thật sự đủ lâu, và mở-khép nhanh gần bằng người nói. Hé môi hoặc cười (kể cả lộ răng) làm tăng std nhưng ít há rộng / giữ yên nên không bị tính là mấp máy.
-    bad = li[0] >= abs_t and li[0] >= rel_t * sp[0] and li[2] >= open_t and li[2] >= 0.4 * sp[2] and li[3] >= 0.55 * sp[3]
-    # Người nghe cử động miệng gần bằng người nói (>= 70%) và có há miệng thật thì chắc chắn là nói theo, kể cả khi nhịp mở-khép chưa đủ nhanh
-    bad = bad or (sens != "low" and li[0] >= 0.7 * sp[0] and li[2] >= 0.12 and li[0] >= abs_t)
-    return {"bad": bad, "speaker": round(sp[0], 3), "listener": round(li[0], 3), "open": round(li[2], 2)}
+    best = None
+    for idx, side in enumerate(listener_side if isinstance(listener_side, (list, tuple)) else [listener_side]):
+        li = mouth_activity(path, side, t_end)
+        if not li:
+            continue
+        # Phải thoả TẤT CẢ: miệng cử động nhiều (std), há rộng thật sự đủ lâu, và mở-khép nhanh gần bằng người nói. Hé môi hoặc cười (kể cả lộ răng) làm tăng std nhưng ít há rộng / giữ yên nên không bị tính là mấp máy.
+        bad = li[0] >= abs_t and li[0] >= rel_t * sp[0] and li[2] >= open_t and li[2] >= 0.4 * sp[2] and li[3] >= 0.55 * sp[3]
+        # Người nghe cử động miệng gần bằng người nói (>= 70%) và có há miệng thật thì chắc chắn là nói theo, kể cả khi nhịp mở-khép chưa đủ nhanh
+        bad = bad or (sens != "low" and li[0] >= 0.7 * sp[0] and li[2] >= 0.12 and li[0] >= abs_t)
+        r = {"bad": bad, "speaker": round(sp[0], 3), "listener": round(li[0], 3), "open": round(li[2], 2), "idx": idx}
+        if best is None or (r["bad"] and not best["bad"]) or (r["bad"] == best["bad"] and r["listener"] > best["listener"]):
+            best = r
+    return best
 
 
 def overlap_check(path, speaker_side, listener_side, expected_text):
@@ -675,13 +716,14 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
     os.makedirs(out_dir, exist_ok=True)
     n_real = len(vdata.get("LUOT", []))
     risky = same_gender(vdata)   # robot và người học cùng giới: nguy cơ nói chồng cao hơn nhiều
-    if risky and opts.get("voice_split", True):
+    if risky and opts.get("voice_split", True) and not (vdata.get("VAI_DAY") or vdata.get("VAI_HOC")):   # tách giọng kiểu "robot + người học" chỉ cho loại gia sư AI; thể loại khác tự khai vai nên giữ nguyên giọng đã mô tả
         vdata = voice_split(vdata)
         emit("log", msg="Robot và người học cùng giới: tách giọng (robot cao, sáng, trẻ; người học trầm, khàn, chậm) để Muse không lẫn giọng")
     template = expand_script(template, n_real)  # nhiều lượt hơn số cảnh: tự nhân bản cảnh cuối
     want0 = analyze_script(template)["series"].get("LUOT")
     if want0 and 0 < n_real < want0:  # ít lượt hơn script: bù lượt trống cho đủ token rồi chỉ chạy n_real cảnh đầu
-        vdata = dict(vdata, LUOT=list(vdata["LUOT"]) + [{"who": "day", "text": "", "emo": ""}] * (want0 - n_real))
+        pad_who = (MV.chars_of(vdata) or ["DAY"])[0].lower()
+        vdata = dict(vdata, LUOT=list(vdata["LUOT"]) + [{"who": pad_who, "text": "", "emo": ""}] * (want0 - n_real))
         opts = dict(opts, only=min(opts.get("only") or n_real, n_real))
     try:
         text = G.fill_tokens(template, variant_values(vdata))
@@ -735,18 +777,18 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
         turn = luot[n - 1] if n - 1 < len(luot) else None
         syll = G.spoken_syllables(sc["f"].get("Voice", ""))  # đếm âm tiết trước khi sửa prompt
         fix_note = str((opts.get("scene_notes") or {}).get(str(n), "")).strip()
-        if turn and turn.get("who") in ("day", "hoc"):
-            import make_variants as MV
+        spk_key = MV.ck(turn.get("who")) if turn else ""
+        chars = MV.chars_of(vdata)
+        spoken = bool(syll) or bool(turn and str(turn.get("text", "")).strip())   # cảnh không có lời thoại (hành động, chuyển cảnh): không đòi tiếng, không cắt theo lời, không đo miệng
+        if turn and spk_key in chars:
             tt = MV.turn_text(vdata, turn["who"], turn.get("text", ""), turn.get("emo", ""))
-            day = turn["who"] == "day"
-            spos = vdata.get("POS_DAY", "LEFT") if day else vdata.get("POS_HOC", "RIGHT")
-            sname = vdata.get("TEN_DAY") if day else vdata.get("TEN_HOC")
+            spos = MV.cpos(vdata, spk_key)
             said = re.sub(r"\s+", " ", str(turn.get("text", "")).strip().replace('"', "'"))
             if tt in vid_p:  # lượt thoại xuất hiện nhiều lần (CHAR LOCK + Spoken dialogue): giữ MỘT bản đầy đủ ở đầu, các chỗ khác chỉ còn lời nói
                 first = vid_p.index(tt)
-                vs = "A" if day else "B"
+                vs = chr(65 + chars.index(spk_key))
                 vid_p = vid_p[:first] + f"(the line and its delivery are given at the top, voiced by VOICE {vs})" + vid_p[first + len(tt):]
-                vid_p = vid_p.replace(tt, f'VOICE {vs} (the {"tutor" if day else "learner"}, {spos}) says: "{said}"')
+                vid_p = vid_p.replace(tt, f'VOICE {vs} (the {MV.crole(vdata, spk_key)}, {spos}) says: "{said}"')
             vid_p = speaker_lock(vdata, turn) + "\n\n" + scrub_listener_text(drop_listener_voice(vid_p, vdata, turn))
             neg = compact_negative(neg)
         dur = G.auto_duration(syll) if syll else next((d for d in ALLOWED if d >= sc["seconds"]), 10)
@@ -796,7 +838,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                     open(img_f, "wb").write(b)
             attempt("image", gi)
             emit("scene", n=n, state="image", pct=100, thumb=os.path.basename(img_f))
-        if os.path.exists(vid_f) and not has_audio(vid_f):  # clip câm còn sót từ lần chạy trước: bỏ đi để gen lại
+        if spoken and os.path.exists(vid_f) and not has_audio(vid_f):  # clip câm còn sót từ lần chạy trước: bỏ đi để gen lại
             emit("log", msg=f"Cảnh {n}: clip cũ không có tiếng, gen lại", level="warn")
             os.remove(vid_f)
         if not os.path.exists(vid_f):
@@ -814,7 +856,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                     tmp = vid_f + ".tail.mp4"
                     sh(["ffmpeg", "-y", "-sseof", f"-{dur}", "-i", vid_f, "-c:v", "libx264", "-crf", "16", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", tmp])
                     os.replace(tmp, vid_f)
-                if not has_audio(vid_f):  # Muse đôi khi trả về clip câm (không có track tiếng): coi như lỗi để gen lại, nếu không bước ghép sẽ hỏng
+                if spoken and not has_audio(vid_f):  # Muse đôi khi trả về clip câm (không có track tiếng): coi như lỗi để gen lại, nếu không bước ghép sẽ hỏng
                     os.remove(vid_f)
                     raise RuntimeError("Muse trả về clip không có tiếng (mất lời thoại)")
             tries = 0
@@ -822,13 +864,15 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
             base_vid_p = vid_p
             while True:
                 attempt("video", gv)
-                if not (opts.get("check_overlap", True) and turn and turn.get("who") in ("day", "hoc")):
+                if not (opts.get("check_overlap", True) and turn and spoken and spk_key in chars):
                     break
+                spk_side = MV.cbox(vdata, spk_key)
+                lis_keys = [c for c in chars if c != spk_key and MV.cbox(vdata, c)]
+                if not spk_side or not lis_keys:
+                    break   # chỉ một nhân vật trong khung (độc thoại) hoặc chưa khai vị trí: không có "người nghe" để đo
                 emit("scene", n=n, state="cut", pct=100, note="kiểm tra giọng")
-                pd, ph = vdata.get("POS_DAY", "LEFT"), vdata.get("POS_HOC", "RIGHT")
-                spk_side, lis_side = (pd, ph) if turn["who"] == "day" else (ph, pd)
                 try:
-                    chk = interruptible(lambda: mouth_check(vid_f, spk_side, lis_side, opts.get("mouth_sens", "normal")), cancel)
+                    chk = interruptible(lambda: mouth_check(vid_f, spk_side, [MV.cbox(vdata, c) for c in lis_keys], opts.get("mouth_sens", "normal")), cancel)
                 except Cancelled:
                     raise
                 except Exception as ex:  # noqa: BLE001
@@ -847,23 +891,30 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                 tried.append((chk["listener"], keep))
                 emit("log", msg=f"Cảnh {n}: lần {tries + 1} bị lỗi người nghe mấp máy miệng như người nói (người nói {chk['speaker']}, người nghe {chk['listener']}, há miệng {chk['open']})", level="warn")
                 if tries < int(opts.get("overlap_retries", 0)):
-                    day = turn["who"] == "day"
-                    lpos = vdata.get("POS_HOC", "RIGHT") if day else vdata.get("POS_DAY", "LEFT")
-                    lis_is_learner = day
+                    lkey = lis_keys[chk.get("idx", 0)]
+                    lpos = MV.cpos(vdata, lkey)
+                    legacy = {spk_key, lkey} == {"DAY", "HOC"}   # robot/gia sư + người học: các bước gen lại riêng cho hai vai này
+                    lis_is_learner = spk_key == "DAY"
                     steps = [
                         f"in the previous attempt the {lpos} character moved their mouth along with the speaker. This time the {lpos} character's mouth stays shut and perfectly still for the whole clip (lips pressed together); only the speaker's mouth ever moves.",
                         (f"the previous attempts still showed the {lpos} character mouthing along. Now the {lpos} character keeps their head bowed low over their hands and the work, face half hidden, eyes on their hands, lips pressed together, and never lifts their head."
-                         if lis_is_learner else
-                         f"the previous attempts still showed the {lpos} character mouthing along. Now the {lpos} character is a completely still, calm avatar: mouth a thin closed line, eyes on the camera, no lip movement at all, only slow blinking."),
+                         if legacy and lis_is_learner else
+                         f"the previous attempts still showed the {lpos} character mouthing along. Now the {lpos} character is a completely still, calm avatar: mouth a thin closed line, eyes on the camera, no lip movement at all, only slow blinking."
+                         if legacy else
+                         f"the previous attempts still showed the {lpos} character mouthing along. Now the {lpos} character keeps their lips pressed together and their face calm and still, listening, and only blinks."),
                         (f"again the {lpos} character mouthed along. Now the {lpos} character turns their face away to the side, looking down at the work so that the mouth is not visible to the camera, and keeps it closed."
-                         if lis_is_learner else
+                         if legacy and lis_is_learner else
                          f"again the {lpos} character mouthed along. Now the {lpos} character looks calmly aside with a perfectly closed, motionless mouth and does not speak or smile."),
                         (f"the {lpos} character stays almost entirely turned away from the camera, working with the head down and the face in shadow, mouth completely closed and still for the entire clip."
-                         if lis_is_learner else
-                         f"the {lpos} character is shown as a frozen, silent video-call avatar: lips sealed, eyes softly lowered, no mouth movement whatsoever for the entire clip."),
+                         if legacy and lis_is_learner else
+                         f"the {lpos} character is shown as a frozen, silent video-call avatar: lips sealed, eyes softly lowered, no mouth movement whatsoever for the entire clip."
+                         if legacy else
+                         f"the {lpos} character stays almost completely still, like a held photograph: mouth closed, eyes calmly on the speaker, no change of expression for the entire clip."),
                         (f"final attempt: the {lpos} character's lower face is not the focus at all: head lowered, chin tucked, attention fully on the work, lips sealed, absolutely no speaking or mouthing."
-                         if lis_is_learner else
-                         f"final attempt: the {lpos} character is a still image: eyes closed in a calm resting expression, lips sealed, absolutely no speaking or mouthing."),
+                         if legacy and lis_is_learner else
+                         f"final attempt: the {lpos} character is a still image: eyes closed in a calm resting expression, lips sealed, absolutely no speaking or mouthing."
+                         if legacy else
+                         f"final attempt: the {lpos} character's mouth is a thin closed line that does not move at all; they hold a neutral resting face for the whole clip, absolutely no speaking or mouthing."),
                     ]
                     note = steps[min(tries + (1 if same_gender(vdata) else 0), len(steps) - 1)]   # cùng giới: bỏ qua mức nhẹ nhất
                     tries += 1
@@ -907,7 +958,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
             else:
                 emit("log", msg=f"Cảnh {n}: không nhận ra đủ lời để cắt sát, cắt theo cách thường", level="warn")
         info = smart_cut(vid_f, cut_f, last_f, syll=syll, speedfix=opts.get("speedfix", True), vf_extra=vf_fix, max_speed=float(opts.get("speed_max", 1.25)),
-                         span=span, lo=(0.18 if span else 0.15), hi=(max(0.3, margin + 0.05) if span else 0.8), head_margin=margin * 0.7) if opts.get("cut", True) else None
+                         span=span, lo=(0.18 if span else 0.15), hi=(max(0.3, margin + 0.05) if span else 0.8), head_margin=margin * 0.7) if opts.get("cut", True) and spoken else None
         if info is None:
             if vf_fix:
                 sh_enc(["ffmpeg", "-y", "-i", vid_f, "-vf", vf_fix, "-c:v", "libx264", "-crf", "17", "-pix_fmt", "yuv420p", "-c:a", "copy", cut_f])
@@ -1056,7 +1107,7 @@ def suggest_fields(plain, has_luot, existing=None):
     """Gợi ý bảng trường từ các token. `existing` (danh sách trường đã có) được giữ nguyên nhãn/nhóm/loại theo key."""
     old = {f["key"]: f for f in (existing or [])}
     keys = list(plain)
-    if has_luot:
+    if has_luot and not any(re.fullmatch(r"TEN_[A-Z0-9]+", k) for k in keys):   # kịch bản đã khai nhân vật riêng (TEN_<khoá>) thì không thêm day/hoc
         for k in ("TEN_DAY", "TEN_HOC"):
             if k not in keys:
                 keys.append(k)

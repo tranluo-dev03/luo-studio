@@ -27,30 +27,67 @@ EXTRA = ["DAO_CU", "DAO_GIU", "DAO_NGHI", "VIEC"]  # token thêm (dùng với ge
 THOAI_SCENES = 7
 
 
+LEGACY_POS = {"DAY": "LEFT", "HOC": "RIGHT"}
+LEGACY_ROLE = {"DAY": "tutor", "HOC": "learner"}
+
+
+def ck(who):
+    """Khoá nhân vật: "day" -> "DAY", "hoc" -> "HOC", khoá bất kỳ -> chữ HOA không dấu. Một nhân vật có các token TEN_<KHOÁ>, POS_<KHOÁ>, GIONG_<KHOÁ>, NGUOI_<KHOÁ>,
+    và tuỳ chọn VAI_<KHOÁ> (tên vai trong prompt), NGHE_<KHOÁ> (tư thế khi im lặng), EMO_<KHOÁ> (cảm xúc mặc định)."""
+    return re.sub(r"[^A-Z0-9]", "", str(who or "").upper())
+
+
+def chars_of(v):
+    """Danh sách khoá nhân vật của biến thể, theo thứ tự: DAY, HOC (nếu có) rồi các khoá khác theo thứ tự xuất hiện (token TEN_*, rồi các lượt thoại)."""
+    keys = []
+    for k in v:
+        m = re.fullmatch(r"TEN_([A-Z0-9]+)", k) if isinstance(k, str) else None
+        if m and m.group(1) not in keys:
+            keys.append(m.group(1))
+    for t in v.get("LUOT", []) or []:
+        c = ck(t.get("who"))
+        if c and c not in keys:
+            keys.append(c)
+    return sorted(keys, key=lambda c: (("DAY", "HOC").index(c) if c in ("DAY", "HOC") else 2, keys.index(c)))
+
+
+def cpos(v, c):
+    """Nhãn vị trí của nhân vật, đưa vào prompt: POS_<khoá> (chữ bất kỳ, ví dụ LEFT, TOP, "center-right"); DAY/HOC có mặc định cũ."""
+    return str(v.get(f"POS_{c}") or LEGACY_POS.get(c, "")).strip()
+
+
+def cbox(v, c):
+    """Vùng khuôn mặt để đo miệng: BOX_<khoá> ("x0,y0,x1,y1" theo tỉ lệ khung hình 0..1) nếu có, nếu không thì chính nhãn vị trí POS_<khoá> (LEFT/RIGHT/TOP/BOTTOM)."""
+    return str(v.get(f"BOX_{c}") or cpos(v, c)).strip()
+
+
+def crole(v, c):
+    return str(v.get(f"VAI_{c}") or LEGACY_ROLE.get(c, "character")).strip()
+
+
 def speaker_how(v, who, text, emo=""):
     """Cách NGƯỜI NÓI nói: nhịp, cảm xúc (mặt + giọng) và câu nói."""
     text = text.strip().replace('"', "'")
-    # cảm xúc của lượt: "emo" trong từng lượt, nếu không có thì EMO_DAY / EMO_HOC của biến thể, mặc định "lively and expressive"
+    # cảm xúc của lượt: "emo" trong từng lượt, nếu không có thì EMO_<khoá> của biến thể (EMO_DAY / EMO_HOC), mặc định theo dấu câu
     import prompt_parts as PP
-    emo = (emo or v.get("EMO_DAY" if who == "day" else "EMO_HOC") or PP.default_emo(text, who)).strip()
+    emo = (emo or v.get(f"EMO_{ck(who)}") or PP.default_emo(text, who)).strip()
     cues = PP.emo_cues(emo)
     return f'right away, quickly and clearly, in the mood "{emo}" (face and voice)' + (f' - {cues}' if cues else '') + f', and says exactly: "{text}"'
 
 
 def turn_text(v, who, text, emo="", emo2=""):
     """emo2 (phản ứng người nghe) được giữ để tương thích nhưng KHÔNG đưa vào prompt: người nghe không được biểu cảm hay phản ứng theo."""
+    k, chars = ck(who), chars_of(v)
+    if k not in chars:
+        sys.exit(f'who "{who}" không có nhân vật tương ứng (cần token TEN_{k or "<KHOÁ>"}); các nhân vật của biến thể: {", ".join(chars) or "chưa có"}')
     how = speaker_how(v, who, text, emo)
-    pd, ph = v.get("POS_DAY", "LEFT"), v.get("POS_HOC", "RIGHT")
     # NGƯỜI NGHE: không nói, không biểu cảm, không gật, không nhìn theo, không bắt chước; hoặc làm tiếp việc riêng (người học), hoặc đứng yên như ảnh tĩnh (robot)
-    if who == "day":  # người nghe = người học
-        task = v.get("VIEC", "").strip()
-        listener_rule = listener_rule_text(task)
-        return (f'Only the {pd} character ({v["TEN_DAY"]}) speaks in this clip, {how} '
-                f'The {ph} character ({v["TEN_HOC"]}) {listener_rule}.')
-    if who == "hoc":  # người nghe = robot trong điện thoại
-        return (f'Only the {ph} character ({v["TEN_HOC"]}) speaks in this clip, {how} '
-                f'The {pd} character ({v["TEN_DAY"]}) {listener_rule_text("")}.')
-    sys.exit(f'who phải là "day" hoặc "hoc", nhận: {who}')
+    out = f'Only the {cpos(v, k)} character ({v.get(f"TEN_{k}", "")}) speaks in this clip, {how}'
+    for c in chars:
+        if c != k:
+            task = v.get("VIEC", "").strip() if (k == "DAY" and c == "HOC") else ""   # việc riêng chỉ áp cho người học khi người dạy nói
+            out += f' The {cpos(v, c)} character ({v.get(f"TEN_{c}", "")}) {listener_rule_text(task)}.'
+    return out
 
 
 def listener_rule_text(task=""):

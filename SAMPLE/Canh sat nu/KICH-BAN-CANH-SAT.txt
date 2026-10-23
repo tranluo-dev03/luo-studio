@@ -1,0 +1,99 @@
+[STYLE LOCK]:
+Vertical 9:16 photorealistic video, one fixed static camera at roadside chest height, a single frame (no split screen, no overlay, no inset window), warm golden-hour sunset light. {{POS_HOC}} side: the DRIVER ({{TEN_HOC}}) leaning out of the open cab window, looking down at the officer. {{POS_DAY}} side, in the foreground: the OFFICER ({{TEN_DAY}}) standing on the road shoulder in three-quarter view, facing the truck and looking up at the driver. Both characters and the place are described above. Both faces are large, clear and well lit (each face about one sixth of the frame height). Same camera, framing and light in every clip. No text, no letters, no logos, no captions, no icons, no lettering on the uniform, vest, badge or truck anywhere in the frame.
+
+[CHAR LOCK]:
+The {{VAI_HOC}}, {{TEN_HOC}} ({{POS_HOC}}): {{NGUOI_HOC}}. Same face and clothes in every clip. {{DAO_GIU}} VOICE LOCK DRIVER: one single voice, {{GIONG_HOC}}, same timbre and pitch in every clip.
+The {{VAI_DAY}}, {{TEN_DAY}} ({{POS_DAY}}): {{NGUOI_DAY}}. Same face and uniform in every clip. VOICE LOCK OFFICER: one single voice, {{GIONG_DAY}}, same timbre and pitch in every clip.
+When silent, the officer {{NGHE_DAY}}; when silent, the driver {{NGHE_HOC}}.
+RULE: in each clip exactly ONE character speaks, one line, with clear lip-sync and an expressive face. The other character is silent the whole clip: mouth closed, calm face, still. Each voice stays the same in every clip.
+ACTION CLIPS: some clips contain a physical action (handing over documents, showing a phone). The action is done WHILE the line is spoken and is complete by the last word. Props, the same in every clip: the driver's documents ({{DAO_GIAY_TO}}) and the driver's phone ({{DAO_DIEN_THOAI}}); they appear only when a clip's action says so, never duplicated, never with readable text.
+
+[SET LOCK]:
+{{POS_HOC}}: {{NEN_TRAI}}. Behind the officer: {{NEN_PHAI}}. No other people. The truck does not move and everything in the background is completely still: no passing cars, no moving clouds, no swaying trees.
+
+[VIDEO SUFFIX]:
+Static camera, no zoom, no pan, no shake, no cut. The speaker starts talking right away at a fast, natural, energetic conversational pace (about 4.5 to 5 words per second and even faster on short sentences, no pauses between sentences) and finishes the line quickly. After the last word (and the action, if the clip has one) both characters keep a calm closed-mouth face and stay completely still until the end of the clip, in the pose reached at the end of the line (the usual rest pose: {{DAO_NGHI}}). No subtitles, no text, no music, no engine or background noise. 9:16.
+
+[NEGATIVE]:
+text, captions, subtitles, logos, icons, emoji, lettering on uniform, vest, badge or truck; split screen, overlay, inset window; either character looking into the lens; handheld or moving camera, zoom, shake; two voices in one clip; the silent character moving the mouth; other people, moving traffic, passing cars; moving clouds or trees; face, hair or outfit changing; the driver's hand going to the head or face; the officer drawing or pointing a weapon; one character copying the other's movements; background music, engine noise, ambient noise; robotic or text-to-speech voice; silent clip with no speech; movement during the final still; the documents or the phone multiplying, vanishing, changing hands by themselves or appearing in the wrong clip; readable text on the documents or an app screen on the phone; slow, dragged speech.
+
+CẢNH 1 (0:00–0:05): Lượt 1
+Bối cảnh: một khung duy nhất ngoài đường lúc hoàng hôn; phần {{POS_HOC}} là tài xế thò ra cửa sổ cabin xe tải, phần {{POS_DAY}} là cảnh sát đứng trên lề đường nhìn lên; không chia khung, không có chữ; không có người khác.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_1}}
+Khung đầu: Khung hoàn chỉnh: phần {{POS_HOC}}: {{NEN_TRAI}}, tài xế {{NGUOI_HOC}} {{DAO_CU}}; phần {{POS_DAY}}: cảnh sát {{NGUOI_DAY}} đứng nhìn lên tài xế, phía sau {{NEN_PHAI}}. Hai người nhìn nhau, miệng khép, cả hai mặt rõ nét.
+Khung cuối: Nói xong, cả hai giữ nguyên tư thế, miệng khép, đứng im như ảnh tĩnh đến hết clip; khung này là khung đầu của cảnh sau.
+Diễn biến: Người đến lượt nói ngay từ đầu clip, nói nhanh, rõ, có biểu cảm; người kia im, miệng khép, nhìn người nói. Nói xong cả hai đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, photorealistic, a single frame with no split screen: the DRIVER ({{TEN_HOC}}) in the open cab window on the {{POS_HOC}} side {{DAO_CU}}, looking down; the OFFICER ({{TEN_DAY}}) in the {{POS_DAY}} foreground on the road shoulder in three-quarter view, looking up at the driver. Both faces large, clear and well lit, mouths closed, calm expressions, neither looking into the lens. No other people, no text, no logos, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image. CHAR LOCK. In this clip: {{LUOT_1}} Only that character speaks, with clear lip-sync and an expressive face; the other keeps the mouth closed. Fast, natural, energetic everyday pace, about 4.5 to 5 words per second (even faster on short sentences), no long pauses. After the line both stay still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng môi trường, không tiếng động cơ.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; either character looking into the lens; camera movement; moving traffic or scenery; no speech.
+
+CẢNH 2 (0:05–0:10): Lượt 2
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và bối cảnh; không có chữ; không có người khác.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_2}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Nói xong, cả hai giữ nguyên tư thế, miệng khép, đứng im như ảnh tĩnh đến hết clip; khung này là khung đầu của cảnh sau.
+Diễn biến: Người đến lượt nói ngay từ đầu clip, nói nhanh, rõ, có biểu cảm; người kia im, miệng khép, nhìn người nói. Nói xong cả hai đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_2}} Only that character speaks, with clear lip-sync and an expressive face; the other keeps the mouth closed. Fast, natural, energetic everyday pace, about 4.5 to 5 words per second (even faster on short sentences), no long pauses. After the line both stay still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng môi trường, không tiếng động cơ.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; either character looking into the lens; camera movement; moving traffic or scenery; no speech.
+
+CẢNH 3 (0:10–0:15): Lượt 3
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và bối cảnh; không có chữ; không có người khác.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_3}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Nói xong, cả hai giữ nguyên tư thế, miệng khép, đứng im như ảnh tĩnh đến hết clip; khung này là khung đầu của cảnh sau.
+Diễn biến: Người đến lượt nói ngay từ đầu clip, nói nhanh, rõ, có biểu cảm; người kia im, miệng khép, nhìn người nói. Nói xong cả hai đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_3}} Only that character speaks, with clear lip-sync and an expressive face; the other keeps the mouth closed. Fast, natural, energetic everyday pace, about 4.5 to 5 words per second (even faster on short sentences), no long pauses. After the line both stay still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng môi trường, không tiếng động cơ.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; either character looking into the lens; camera movement; moving traffic or scenery; no speech.
+
+CẢNH 4 (0:15–0:20): Lượt 4
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và bối cảnh; không có chữ; không có người khác.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_4}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Nói xong, cả hai giữ nguyên tư thế, miệng khép, đứng im như ảnh tĩnh đến hết clip; khung này là khung đầu của cảnh sau.
+Diễn biến: Người đến lượt nói ngay từ đầu clip, nói nhanh, rõ, có biểu cảm; người kia im, miệng khép, nhìn người nói. Nói xong cả hai đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_4}} Only that character speaks, with clear lip-sync and an expressive face; the other keeps the mouth closed. Fast, natural, energetic everyday pace, about 4.5 to 5 words per second (even faster on short sentences), no long pauses. After the line both stay still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng môi trường, không tiếng động cơ.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; either character looking into the lens; camera movement; moving traffic or scenery; no speech.
+
+CẢNH 5 (0:20–0:25): Lượt 5
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và bối cảnh; không có chữ; không có người khác.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_5}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: cảnh sát vẫn chìa tay ngửa chờ giấy tờ; tài xế nhìn xuống cảnh sát, miệng khép; đây là khung đầu của cảnh sau.
+Diễn biến: Cảnh sát vừa nói vừa đưa một tay về phía tài xế, lòng bàn tay ngửa, và giữ tay chìa ra đến hết clip. Tài xế im, miệng khép, nhìn xuống cảnh sát.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_5}} Only that character speaks, with clear lip-sync and an expressive face; the other keeps the mouth closed. Fast, natural, energetic everyday pace, about 4.5 to 5 words per second (even faster on short sentences), no long pauses. ACTION, done WHILE the line is spoken and complete by the last word: the officer holds one hand out toward the driver, palm up, and keeps it extended waiting. After the line and the action both stay still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng môi trường, không tiếng động cơ.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; either character looking into the lens; camera movement; moving traffic or scenery; no speech.
+
+CẢNH 6 (0:25–0:30): Lượt 6
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và bối cảnh; không có chữ; không có người khác.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_6}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: cảnh sát cầm giấy tờ trong tay, miệng khép; tài xế đã rút tay về, cẳng tay trên khung cửa, miệng khép; đây là khung đầu của cảnh sau.
+Diễn biến: Tài xế vừa nói vừa đưa tay ra ngoài cửa sổ, đặt {{DAO_GIAY_TO}} vào tay cảnh sát; cảnh sát nắm lấy giấy tờ. Hết lời thì tài xế rút tay về, cẳng tay đặt lên khung cửa.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_6}} Only that character speaks, with clear lip-sync and an expressive face; the other keeps the mouth closed. Fast, natural, energetic everyday pace, about 4.5 to 5 words per second (even faster on short sentences), no long pauses. ACTION, done WHILE the line is spoken and complete by the last word: the driver reaches out of the window and puts {{DAO_GIAY_TO}} into the officer's open hand, and the officer closes the hand around them. After the line and the action both stay still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng môi trường, không tiếng động cơ.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; either character looking into the lens; camera movement; moving traffic or scenery; no speech.
+
+CẢNH 7 (0:30–0:36): Lượt 7
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và bối cảnh; không có chữ; không có người khác.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_7}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: cảnh sát cầm giấy tờ, nhìn tài xế, mỉm cười, vai hơi xoay về phía camera; tài xế miệng khép, cẳng tay trên khung cửa; đây là khung đầu của cảnh sau.
+Diễn biến: Cảnh sát vừa nói vừa nhìn xuống giấy tờ đang cầm, rồi nhìn lên tài xế với nụ cười ngạc nhiên, vai xoay nhẹ về phía camera, vẫn cầm giấy tờ. Tài xế im, miệng khép, cẳng tay trên khung cửa.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_7}} Only that character speaks, with clear lip-sync and an expressive face; the other keeps the mouth closed. Fast, natural, energetic everyday pace, about 4.5 to 5 words per second (even faster on short sentences), no long pauses. ACTION, done WHILE the line is spoken and complete by the last word: the officer looks down at the documents in the hand, then looks up at the driver with a surprised, impressed smile, shoulders turning slightly toward the camera, still holding the documents. After the line and the action both stay still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng môi trường, không tiếng động cơ.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; either character looking into the lens; camera movement; moving traffic or scenery; no speech.
+
+CẢNH 8 (0:36–0:42): Lượt 8
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và bối cảnh; không có chữ; không có người khác.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_8}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: tài xế cầm điện thoại trước ngực, nhìn xuống màn hình, miệng khép; cảnh sát mỉm cười nhìn tài xế, miệng khép; kết thúc video.
+Diễn biến: Tài xế vừa nói vừa lấy {{DAO_DIEN_THOAI}} từ túi áo khoác, cầm trước ngực ở cửa sổ và nhìn xuống màn hình, mỉm cười thân thiện (camera thấy mặt sau điện thoại); cảnh sát đứng nhìn, mỉm cười thích thú.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_8}} Only that character speaks, with clear lip-sync and an expressive face; the other keeps the mouth closed. Fast, natural, energetic everyday pace, about 4.5 to 5 words per second (even faster on short sentences), no long pauses. ACTION, done WHILE the line is spoken and complete by the last word: the driver takes {{DAO_DIEN_THOAI}} out of the jacket pocket, holds it in front of the chest at the window and looks down at its screen while speaking with a friendly smile (the camera sees the back of the phone); the officer watches with an amused smile. After the line and the action both stay still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng môi trường, không tiếng động cơ.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; either character looking into the lens; camera movement; moving traffic or scenery; no speech.

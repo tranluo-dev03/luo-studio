@@ -1,0 +1,476 @@
+[
+  {
+    "name": "tai-xe-nu-50-60-mat1",
+    "NGUOI_HOC": "FACE (unlike any other person in this series): a long oval face, deep-set hazel eyes, thin lips, chin-length light-brown bob with gray strands; older white American woman, fifties to sixties, fair skin, slim; tan canvas work jacket with yellow-green reflective stripes on the sleeves over a navy shirt",
+    "TEN_HOC": "the truck driver with the brown bob",
+    "GIONG_HOC": "a low, husky, slow, grounded American woman's voice in her fifties, warm and cheerful, Midwestern accent, simple beginner English",
+    "NGUOI_DAY": "a stylized 3D animated young woman with long wavy blond hair, big brown eyes and friendly eyes, in a plain navy uniform shirt with no lettering, her head upright, resting her chin lightly on one hand",
+    "TEN_DAY": "the animated AI tutor",
+    "GIONG_DAY": "a bright, youthful, high-pitched, quick young woman's voice, playful and warm, American accent, fully human-sounding",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "VIEC": "driving a big truck at sunset, both hands on the steering wheel",
+    "DAO_CU": "in the driver's seat with both hands on the steering wheel, body turned slightly to the side",
+    "DAO_GIU": "Her hands stay on the steering wheel for the whole clip: no hand ever goes to her head, face or hair, and no shrugging; only her face and voice show the mood.",
+    "DAO_NGHI": "hands on the steering wheel",
+    "NEN_TRAI": "inside a big truck cab at sunset, dark gray seat and door, the side window on the right showing a still orange sunset sky over flat fields, warm light on her face",
+    "NEN_PHAI": "a black background with thin glowing white arcs on both sides, like a sound wave",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Hey there! Where are you heading tonight?",
+        "emo": "curious, friendly"
+      },
+      {
+        "who": "hoc",
+        "text": "I drive to home now.",
+        "emo": "confident, a little clumsy"
+      },
+      {
+        "who": "day",
+        "text": "Almost! Say, I'm driving home now.",
+        "emo": "warm, playful"
+      },
+      {
+        "who": "hoc",
+        "text": "Oh, I'm driving home. I am very hurry.",
+        "emo": "embarrassed, rushed"
+      },
+      {
+        "who": "day",
+        "text": "Say, I'm in a hurry. Much more natural!",
+        "emo": "encouraging, cheerful"
+      },
+      {
+        "who": "hoc",
+        "text": "Got it, thanks! Wait... who are you?",
+        "emo": "grateful, then puzzled"
+      },
+      {
+        "who": "day",
+        "text": "I'm your AI tutor. I help you speak English with confidence.",
+        "emo": "proud, warm"
+      },
+      {
+        "who": "hoc",
+        "text": "But I don't have moneys for that.",
+        "emo": "doubtful, worried"
+      },
+      {
+        "who": "day",
+        "text": "Just money, no S. And good news, it's completely free!",
+        "emo": "playful, excited"
+      },
+      {
+        "who": "hoc",
+        "text": "Seriously? Free?",
+        "emo": "surprised, hopeful"
+      },
+      {
+        "who": "day",
+        "text": "Totally! Practice anytime, anywhere. Just download it now!",
+        "emo": "enthusiastic, upbeat"
+      },
+      {
+        "who": "hoc",
+        "text": "Downloading it right now. Thank you so much!",
+        "emo": "delighted, grateful"
+      }
+    ]
+  },
+  {
+    "name": "tai-xe-nu-50-60-mat2",
+    "NGUOI_HOC": "FACE (unlike any other person in this series): a round full face, dimpled cheeks, large dark-brown eyes, broad nose, short gray-black curls; older Black American woman, fifties to sixties, deep brown skin, sturdy build; tan canvas work jacket with yellow-green reflective stripes on the sleeves over a burgundy shirt",
+    "TEN_HOC": "the truck driver with the short gray curls",
+    "GIONG_HOC": "a low, husky, slow, grounded American woman's voice in her fifties, warm and cheerful, Southern accent, simple beginner English",
+    "NGUOI_DAY": "a stylized 3D animated young woman with long wavy blond hair, big brown eyes and friendly eyes, in a plain navy uniform shirt with no lettering, her head upright, resting her chin lightly on one hand",
+    "TEN_DAY": "the animated AI tutor",
+    "GIONG_DAY": "a bright, youthful, high-pitched, quick young woman's voice, playful and warm, American accent, fully human-sounding",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "VIEC": "driving a big truck at sunset, both hands on the steering wheel",
+    "DAO_CU": "in the driver's seat with both hands on the steering wheel, body turned slightly to the side",
+    "DAO_GIU": "Her hands stay on the steering wheel for the whole clip: no hand ever goes to her head, face or hair, and no shrugging; only her face and voice show the mood.",
+    "DAO_NGHI": "hands on the steering wheel",
+    "NEN_TRAI": "inside a big truck cab at sunset, dark gray seat and door, the side window on the right showing a still orange sunset sky over flat fields, warm light on her face",
+    "NEN_PHAI": "a black background with thin glowing white arcs on both sides, like a sound wave",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Hey there! Where are you heading tonight?",
+        "emo": "curious, friendly"
+      },
+      {
+        "who": "hoc",
+        "text": "I drive to home now.",
+        "emo": "confident, a little clumsy"
+      },
+      {
+        "who": "day",
+        "text": "Almost! Say, I'm driving home now.",
+        "emo": "warm, playful"
+      },
+      {
+        "who": "hoc",
+        "text": "Oh, I'm driving home. I am very hurry.",
+        "emo": "embarrassed, rushed"
+      },
+      {
+        "who": "day",
+        "text": "Say, I'm in a hurry. Much more natural!",
+        "emo": "encouraging, cheerful"
+      },
+      {
+        "who": "hoc",
+        "text": "Got it, thanks! Wait... who are you?",
+        "emo": "grateful, then puzzled"
+      },
+      {
+        "who": "day",
+        "text": "I'm your AI tutor. I help you speak English with confidence.",
+        "emo": "proud, warm"
+      },
+      {
+        "who": "hoc",
+        "text": "But I don't have moneys for that.",
+        "emo": "doubtful, worried"
+      },
+      {
+        "who": "day",
+        "text": "Just money, no S. And good news, it's completely free!",
+        "emo": "playful, excited"
+      },
+      {
+        "who": "hoc",
+        "text": "Seriously? Free?",
+        "emo": "surprised, hopeful"
+      },
+      {
+        "who": "day",
+        "text": "Totally! Practice anytime, anywhere. Just download it now!",
+        "emo": "enthusiastic, upbeat"
+      },
+      {
+        "who": "hoc",
+        "text": "Downloading it right now. Thank you so much!",
+        "emo": "delighted, grateful"
+      }
+    ]
+  },
+  {
+    "name": "tai-xe-nu-50-60-mat3",
+    "NGUOI_HOC": "FACE (unlike any other person in this series): a heart-shaped face, high cheekbones, narrow blue eyes behind thin black rectangular glasses, freckles, short silver pixie cut; older white American woman, fifties to sixties, pale skin, lean; tan canvas work jacket with yellow-green reflective stripes on the sleeves over a dark-green shirt",
+    "TEN_HOC": "the truck driver with the glasses",
+    "GIONG_HOC": "a low, husky, slow, grounded American woman's voice in her fifties, warm and cheerful, Northeastern accent, simple beginner English",
+    "NGUOI_DAY": "a stylized 3D animated young woman with long wavy blond hair, big brown eyes and friendly eyes, in a plain navy uniform shirt with no lettering, her head upright, resting her chin lightly on one hand",
+    "TEN_DAY": "the animated AI tutor",
+    "GIONG_DAY": "a bright, youthful, high-pitched, quick young woman's voice, playful and warm, American accent, fully human-sounding",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "VIEC": "driving a big truck at sunset, both hands on the steering wheel",
+    "DAO_CU": "in the driver's seat with both hands on the steering wheel, body turned slightly to the side",
+    "DAO_GIU": "Her hands stay on the steering wheel for the whole clip: no hand ever goes to her head, face or hair, and no shrugging; only her face and voice show the mood.",
+    "DAO_NGHI": "hands on the steering wheel",
+    "NEN_TRAI": "inside a big truck cab at sunset, dark gray seat and door, the side window on the right showing a still orange sunset sky over flat fields, warm light on her face",
+    "NEN_PHAI": "a black background with thin glowing white arcs on both sides, like a sound wave",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Hey there! Where are you heading tonight?",
+        "emo": "curious, friendly"
+      },
+      {
+        "who": "hoc",
+        "text": "I drive to home now.",
+        "emo": "confident, a little clumsy"
+      },
+      {
+        "who": "day",
+        "text": "Almost! Say, I'm driving home now.",
+        "emo": "warm, playful"
+      },
+      {
+        "who": "hoc",
+        "text": "Oh, I'm driving home. I am very hurry.",
+        "emo": "embarrassed, rushed"
+      },
+      {
+        "who": "day",
+        "text": "Say, I'm in a hurry. Much more natural!",
+        "emo": "encouraging, cheerful"
+      },
+      {
+        "who": "hoc",
+        "text": "Got it, thanks! Wait... who are you?",
+        "emo": "grateful, then puzzled"
+      },
+      {
+        "who": "day",
+        "text": "I'm your AI tutor. I help you speak English with confidence.",
+        "emo": "proud, warm"
+      },
+      {
+        "who": "hoc",
+        "text": "But I don't have moneys for that.",
+        "emo": "doubtful, worried"
+      },
+      {
+        "who": "day",
+        "text": "Just money, no S. And good news, it's completely free!",
+        "emo": "playful, excited"
+      },
+      {
+        "who": "hoc",
+        "text": "Seriously? Free?",
+        "emo": "surprised, hopeful"
+      },
+      {
+        "who": "day",
+        "text": "Totally! Practice anytime, anywhere. Just download it now!",
+        "emo": "enthusiastic, upbeat"
+      },
+      {
+        "who": "hoc",
+        "text": "Downloading it right now. Thank you so much!",
+        "emo": "delighted, grateful"
+      }
+    ]
+  },
+  {
+    "name": "tai-xe-nu-50-60-mat4",
+    "NGUOI_HOC": "FACE (unlike any other person in this series): a square face with a strong jaw, dark-brown almond eyes, thick eyebrows, a small mole above the lip, dark hair with gray streaks in a low ponytail; older Latina American woman, fifties to sixties, olive-tan skin, stocky; tan canvas work jacket with yellow-green reflective stripes on the sleeves over a charcoal shirt",
+    "TEN_HOC": "the truck driver with the dark ponytail",
+    "GIONG_HOC": "a low, husky, slow, grounded American woman's voice in her fifties, warm and cheerful, light Mexican-American accent, simple beginner English",
+    "NGUOI_DAY": "a stylized 3D animated young woman with long wavy blond hair, big brown eyes and friendly eyes, in a plain navy uniform shirt with no lettering, her head upright, resting her chin lightly on one hand",
+    "TEN_DAY": "the animated AI tutor",
+    "GIONG_DAY": "a bright, youthful, high-pitched, quick young woman's voice, playful and warm, American accent, fully human-sounding",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "VIEC": "driving a big truck at sunset, both hands on the steering wheel",
+    "DAO_CU": "in the driver's seat with both hands on the steering wheel, body turned slightly to the side",
+    "DAO_GIU": "Her hands stay on the steering wheel for the whole clip: no hand ever goes to her head, face or hair, and no shrugging; only her face and voice show the mood.",
+    "DAO_NGHI": "hands on the steering wheel",
+    "NEN_TRAI": "inside a big truck cab at sunset, dark gray seat and door, the side window on the right showing a still orange sunset sky over flat fields, warm light on her face",
+    "NEN_PHAI": "a black background with thin glowing white arcs on both sides, like a sound wave",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Hey there! Where are you heading tonight?",
+        "emo": "curious, friendly"
+      },
+      {
+        "who": "hoc",
+        "text": "I drive to home now.",
+        "emo": "confident, a little clumsy"
+      },
+      {
+        "who": "day",
+        "text": "Almost! Say, I'm driving home now.",
+        "emo": "warm, playful"
+      },
+      {
+        "who": "hoc",
+        "text": "Oh, I'm driving home. I am very hurry.",
+        "emo": "embarrassed, rushed"
+      },
+      {
+        "who": "day",
+        "text": "Say, I'm in a hurry. Much more natural!",
+        "emo": "encouraging, cheerful"
+      },
+      {
+        "who": "hoc",
+        "text": "Got it, thanks! Wait... who are you?",
+        "emo": "grateful, then puzzled"
+      },
+      {
+        "who": "day",
+        "text": "I'm your AI tutor. I help you speak English with confidence.",
+        "emo": "proud, warm"
+      },
+      {
+        "who": "hoc",
+        "text": "But I don't have moneys for that.",
+        "emo": "doubtful, worried"
+      },
+      {
+        "who": "day",
+        "text": "Just money, no S. And good news, it's completely free!",
+        "emo": "playful, excited"
+      },
+      {
+        "who": "hoc",
+        "text": "Seriously? Free?",
+        "emo": "surprised, hopeful"
+      },
+      {
+        "who": "day",
+        "text": "Totally! Practice anytime, anywhere. Just download it now!",
+        "emo": "enthusiastic, upbeat"
+      },
+      {
+        "who": "hoc",
+        "text": "Downloading it right now. Thank you so much!",
+        "emo": "delighted, grateful"
+      }
+    ]
+  },
+  {
+    "name": "tai-xe-nu-50-60-mat5",
+    "NGUOI_HOC": "FACE (unlike any other person in this series): a wide soft face, monolid dark eyes with crow's feet, small flat nose, straight black-and-gray bob with blunt bangs; older Asian American woman, fifties to sixties, light golden skin, petite; tan canvas work jacket with yellow-green reflective stripes on the sleeves over a light-blue denim shirt",
+    "TEN_HOC": "the truck driver with the black bob and bangs",
+    "GIONG_HOC": "a low, husky, slow, grounded American woman's voice in her fifties, warm and cheerful, West Coast accent, simple beginner English",
+    "NGUOI_DAY": "a stylized 3D animated young woman with long wavy blond hair, big brown eyes and friendly eyes, in a plain navy uniform shirt with no lettering, her head upright, resting her chin lightly on one hand",
+    "TEN_DAY": "the animated AI tutor",
+    "GIONG_DAY": "a bright, youthful, high-pitched, quick young woman's voice, playful and warm, American accent, fully human-sounding",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "VIEC": "driving a big truck at sunset, both hands on the steering wheel",
+    "DAO_CU": "in the driver's seat with both hands on the steering wheel, body turned slightly to the side",
+    "DAO_GIU": "Her hands stay on the steering wheel for the whole clip: no hand ever goes to her head, face or hair, and no shrugging; only her face and voice show the mood.",
+    "DAO_NGHI": "hands on the steering wheel",
+    "NEN_TRAI": "inside a big truck cab at sunset, dark gray seat and door, the side window on the right showing a still orange sunset sky over flat fields, warm light on her face",
+    "NEN_PHAI": "a black background with thin glowing white arcs on both sides, like a sound wave",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Hey there! Where are you heading tonight?",
+        "emo": "curious, friendly"
+      },
+      {
+        "who": "hoc",
+        "text": "I drive to home now.",
+        "emo": "confident, a little clumsy"
+      },
+      {
+        "who": "day",
+        "text": "Almost! Say, I'm driving home now.",
+        "emo": "warm, playful"
+      },
+      {
+        "who": "hoc",
+        "text": "Oh, I'm driving home. I am very hurry.",
+        "emo": "embarrassed, rushed"
+      },
+      {
+        "who": "day",
+        "text": "Say, I'm in a hurry. Much more natural!",
+        "emo": "encouraging, cheerful"
+      },
+      {
+        "who": "hoc",
+        "text": "Got it, thanks! Wait... who are you?",
+        "emo": "grateful, then puzzled"
+      },
+      {
+        "who": "day",
+        "text": "I'm your AI tutor. I help you speak English with confidence.",
+        "emo": "proud, warm"
+      },
+      {
+        "who": "hoc",
+        "text": "But I don't have moneys for that.",
+        "emo": "doubtful, worried"
+      },
+      {
+        "who": "day",
+        "text": "Just money, no S. And good news, it's completely free!",
+        "emo": "playful, excited"
+      },
+      {
+        "who": "hoc",
+        "text": "Seriously? Free?",
+        "emo": "surprised, hopeful"
+      },
+      {
+        "who": "day",
+        "text": "Totally! Practice anytime, anywhere. Just download it now!",
+        "emo": "enthusiastic, upbeat"
+      },
+      {
+        "who": "hoc",
+        "text": "Downloading it right now. Thank you so much!",
+        "emo": "delighted, grateful"
+      }
+    ]
+  },
+  {
+    "name": "tai-xe-nu-50-60-mat6",
+    "NGUOI_HOC": "FACE (unlike any other person in this series): a long narrow face, sharp nose, light-gray eyes, deep sun wrinkles, wide grin, short spiky strawberry-blond hair going white, small gold stud earrings; older white American woman, fifties to sixties, ruddy tanned skin, tall and wiry; tan canvas work jacket with yellow-green reflective stripes on the sleeves over a red-and-black flannel shirt",
+    "TEN_HOC": "the truck driver with the spiky blond hair",
+    "GIONG_HOC": "a low, husky, slow, grounded American woman's voice in her fifties, warm and cheerful, Texan accent, simple beginner English",
+    "NGUOI_DAY": "a stylized 3D animated young woman with long wavy blond hair, big brown eyes and friendly eyes, in a plain navy uniform shirt with no lettering, her head upright, resting her chin lightly on one hand",
+    "TEN_DAY": "the animated AI tutor",
+    "GIONG_DAY": "a bright, youthful, high-pitched, quick young woman's voice, playful and warm, American accent, fully human-sounding",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "VIEC": "driving a big truck at sunset, both hands on the steering wheel",
+    "DAO_CU": "in the driver's seat with both hands on the steering wheel, body turned slightly to the side",
+    "DAO_GIU": "Her hands stay on the steering wheel for the whole clip: no hand ever goes to her head, face or hair, and no shrugging; only her face and voice show the mood.",
+    "DAO_NGHI": "hands on the steering wheel",
+    "NEN_TRAI": "inside a big truck cab at sunset, dark gray seat and door, the side window on the right showing a still orange sunset sky over flat fields, warm light on her face",
+    "NEN_PHAI": "a black background with thin glowing white arcs on both sides, like a sound wave",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Hey there! Where are you heading tonight?",
+        "emo": "curious, friendly"
+      },
+      {
+        "who": "hoc",
+        "text": "I drive to home now.",
+        "emo": "confident, a little clumsy"
+      },
+      {
+        "who": "day",
+        "text": "Almost! Say, I'm driving home now.",
+        "emo": "warm, playful"
+      },
+      {
+        "who": "hoc",
+        "text": "Oh, I'm driving home. I am very hurry.",
+        "emo": "embarrassed, rushed"
+      },
+      {
+        "who": "day",
+        "text": "Say, I'm in a hurry. Much more natural!",
+        "emo": "encouraging, cheerful"
+      },
+      {
+        "who": "hoc",
+        "text": "Got it, thanks! Wait... who are you?",
+        "emo": "grateful, then puzzled"
+      },
+      {
+        "who": "day",
+        "text": "I'm your AI tutor. I help you speak English with confidence.",
+        "emo": "proud, warm"
+      },
+      {
+        "who": "hoc",
+        "text": "But I don't have moneys for that.",
+        "emo": "doubtful, worried"
+      },
+      {
+        "who": "day",
+        "text": "Just money, no S. And good news, it's completely free!",
+        "emo": "playful, excited"
+      },
+      {
+        "who": "hoc",
+        "text": "Seriously? Free?",
+        "emo": "surprised, hopeful"
+      },
+      {
+        "who": "day",
+        "text": "Totally! Practice anytime, anywhere. Just download it now!",
+        "emo": "enthusiastic, upbeat"
+      },
+      {
+        "who": "hoc",
+        "text": "Downloading it right now. Thank you so much!",
+        "emo": "delighted, grateful"
+      }
+    ]
+  }
+]

@@ -1,0 +1,137 @@
+[STYLE LOCK]:
+Vertical 9:16 video call, fixed static camera, warm sunset light. {{POS_DAY}} part of the frame (about one third): one big wide landscape window with rounded corners and a thin white border; inside it the TUTOR, {{NGUOI_DAY}}, chest-up, in front of {{NEN_PHAI}}. {{POS_HOC}} part of the frame (about two thirds, full width): the LEARNER, {{NGUOI_HOC}}, chest-up, {{DAO_CU}}, looking diagonally up toward the tutor window, not into the lens. Place: {{NEN_TRAI}}. Same layout in every clip. No text, no logos, no captions, no icons anywhere.
+
+[CHAR LOCK]:
+LEARNER {{TEN_HOC}} ({{POS_HOC}}): {{NGUOI_HOC}}. Same face, hair and clothes in every clip. {{DAO_GIU}} Voice: {{GIONG_HOC}}.
+TUTOR {{TEN_DAY}} ({{POS_DAY}}, always inside the window): {{NGUOI_DAY}}. Same face, hair and clothes in every clip. Voice: {{GIONG_DAY}}.
+RULE: in each clip exactly ONE character speaks, one line, with clear lip-sync and a lively face. The other character is silent the whole clip: mouth closed, calm face. Each voice stays the same in every clip.
+
+[SET LOCK]:
+{{POS_HOC}}: {{NEN_TRAI}}. {{POS_DAY}} window: {{NEN_PHAI}}. The window keeps the same size and place. No other people. Nothing outside the truck windows moves.
+
+[VIDEO SUFFIX]:
+Static camera, no zoom, no cut. The speaker starts talking right away and finishes the line quickly. After the last word both characters rest with mouths closed ({{DAO_NGHI}}) and stay completely still, like a photo, until the end of the clip. No subtitles, no text, no music, no background noise. 9:16.
+
+[NEGATIVE]:
+text, captions, subtitles, logos, icons, emoji; two voices in one clip; the silent character moving the mouth; the tutor outside the window or on a phone; a small, portrait or moving window; the learner looking into the lens; other people; camera movement, zoom, shake; face, hair or outfit changing; background music, engine noise, ambient noise; robotic or text-to-speech voice; silent clip with no speech; movement during the final still; the learner's hand moving to her head, face or hair, hands leaving the steering wheel, shrugging; the tutor copying the learner's head or hand movements; the words TOP or BOTTOM or any label written in the frame.
+
+CẢNH 1 (0:00–0:05): Lượt 1
+Bối cảnh: phần {{POS_DAY}} là khung ngang to có gia sư AI; phần {{POS_HOC}} là người học đang {{VIEC}}, nhìn chéo lên khung gia sư; không có chữ; không có người khác.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_1}}
+Khung đầu: Phần {{POS_DAY}}: khung ngang to, trong đó {{NGUOI_DAY}} trước {{NEN_PHAI}}. Phần {{POS_HOC}}: {{NGUOI_HOC}} đang {{VIEC}}, khung từ ngực lên, nhìn chéo lên. Bối cảnh {{NEN_TRAI}}. Cả hai khép miệng.
+Khung cuối: Nói xong, cả hai khép miệng và đứng im như ảnh tĩnh đến hết clip; khung này là khung đầu của cảnh sau.
+Diễn biến: Người đến lượt nói ngay từ đầu clip, nói nhanh, rõ, có biểu cảm; người kia im, miệng khép. Nói xong cả hai đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16. {{POS_DAY}} part: one big wide landscape window with rounded corners and a thin white border, inside it the TUTOR, {{NGUOI_DAY}}, chest-up, in front of {{NEN_PHAI}}. {{POS_HOC}} part, full width, photorealistic: the LEARNER, {{NGUOI_HOC}}, {{VIEC}}, chest-up, looking diagonally up toward the window, not into the lens. Place: {{NEN_TRAI}}. Both with mouths closed, soft smile. No phone, no other people, no text, no logos, no icons. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image. CHAR LOCK. In this clip: {{LUOT_1}} Only that character speaks, with clear lip-sync and a lively face; the other keeps the mouth closed. After the line both rest still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng môi trường, không tiếng động cơ.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; the tutor on a phone or in a small window; camera movement; moving scenery; no speech.
+
+CẢNH 2 (0:05–0:10): Lượt 2
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và bối cảnh; không có chữ; không có người khác.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_2}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Nói xong, cả hai khép miệng và đứng im như ảnh tĩnh đến hết clip; khung này là khung đầu của cảnh sau.
+Diễn biến: Người đến lượt nói ngay từ đầu clip, nói nhanh, rõ, có biểu cảm; người kia im, miệng khép. Nói xong cả hai đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_2}} Only that character speaks, with clear lip-sync and a lively face; the other keeps the mouth closed. After the line both rest still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng môi trường, không tiếng động cơ.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; the tutor on a phone or in a small window; camera movement; moving scenery; no speech.
+
+CẢNH 3 (0:10–0:15): Lượt 3
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và bối cảnh; không có chữ; không có người khác.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_3}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Nói xong, cả hai khép miệng và đứng im như ảnh tĩnh đến hết clip; khung này là khung đầu của cảnh sau.
+Diễn biến: Người đến lượt nói ngay từ đầu clip, nói nhanh, rõ, có biểu cảm; người kia im, miệng khép. Nói xong cả hai đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_3}} Only that character speaks, with clear lip-sync and a lively face; the other keeps the mouth closed. After the line both rest still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng môi trường, không tiếng động cơ.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; the tutor on a phone or in a small window; camera movement; moving scenery; no speech.
+
+CẢNH 4 (0:15–0:21): Lượt 4
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và bối cảnh; không có chữ; không có người khác.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_4}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Nói xong, cả hai khép miệng và đứng im như ảnh tĩnh đến hết clip; khung này là khung đầu của cảnh sau.
+Diễn biến: Người đến lượt nói ngay từ đầu clip, nói nhanh, rõ, có biểu cảm; người kia im, miệng khép. Nói xong cả hai đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_4}} Only that character speaks, with clear lip-sync and a lively face; the other keeps the mouth closed. After the line both rest still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng môi trường, không tiếng động cơ.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; the tutor on a phone or in a small window; camera movement; moving scenery; no speech.
+
+CẢNH 5 (0:21–0:26): Lượt 5
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và bối cảnh; không có chữ; không có người khác.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_5}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Nói xong, cả hai khép miệng và đứng im như ảnh tĩnh đến hết clip; khung này là khung đầu của cảnh sau.
+Diễn biến: Người đến lượt nói ngay từ đầu clip, nói nhanh, rõ, có biểu cảm; người kia im, miệng khép. Nói xong cả hai đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_5}} Only that character speaks, with clear lip-sync and a lively face; the other keeps the mouth closed. After the line both rest still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng môi trường, không tiếng động cơ.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; the tutor on a phone or in a small window; camera movement; moving scenery; no speech.
+
+CẢNH 6 (0:26–0:31): Lượt 6
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và bối cảnh; không có chữ; không có người khác.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_6}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Nói xong, cả hai khép miệng và đứng im như ảnh tĩnh đến hết clip; khung này là khung đầu của cảnh sau.
+Diễn biến: Người đến lượt nói ngay từ đầu clip, nói nhanh, rõ, có biểu cảm; người kia im, miệng khép. Nói xong cả hai đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_6}} Only that character speaks, with clear lip-sync and a lively face; the other keeps the mouth closed. After the line both rest still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng môi trường, không tiếng động cơ.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; the tutor on a phone or in a small window; camera movement; moving scenery; no speech.
+
+CẢNH 7 (0:31–0:37): Lượt 7
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và bối cảnh; không có chữ; không có người khác.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_7}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Nói xong, cả hai khép miệng và đứng im như ảnh tĩnh đến hết clip; khung này là khung đầu của cảnh sau.
+Diễn biến: Người đến lượt nói ngay từ đầu clip, nói nhanh, rõ, có biểu cảm; người kia im, miệng khép. Nói xong cả hai đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_7}} Only that character speaks, with clear lip-sync and a lively face; the other keeps the mouth closed. After the line both rest still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng môi trường, không tiếng động cơ.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; the tutor on a phone or in a small window; camera movement; moving scenery; no speech.
+
+CẢNH 8 (0:37–0:42): Lượt 8
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và bối cảnh; không có chữ; không có người khác.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_8}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Nói xong, cả hai khép miệng và đứng im như ảnh tĩnh đến hết clip; khung này là khung đầu của cảnh sau.
+Diễn biến: Người đến lượt nói ngay từ đầu clip, nói nhanh, rõ, có biểu cảm; người kia im, miệng khép. Nói xong cả hai đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_8}} Only that character speaks, with clear lip-sync and a lively face; the other keeps the mouth closed. After the line both rest still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng môi trường, không tiếng động cơ.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; the tutor on a phone or in a small window; camera movement; moving scenery; no speech.
+
+CẢNH 9 (0:42–0:48): Lượt 9
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và bối cảnh; không có chữ; không có người khác.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_9}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Nói xong, cả hai khép miệng và đứng im như ảnh tĩnh đến hết clip; khung này là khung đầu của cảnh sau.
+Diễn biến: Người đến lượt nói ngay từ đầu clip, nói nhanh, rõ, có biểu cảm; người kia im, miệng khép. Nói xong cả hai đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_9}} Only that character speaks, with clear lip-sync and a lively face; the other keeps the mouth closed. After the line both rest still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng môi trường, không tiếng động cơ.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; the tutor on a phone or in a small window; camera movement; moving scenery; no speech.
+
+CẢNH 10 (0:48–0:53): Lượt 10
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và bối cảnh; không có chữ; không có người khác.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_10}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Nói xong, cả hai khép miệng và đứng im như ảnh tĩnh đến hết clip; khung này là khung đầu của cảnh sau.
+Diễn biến: Người đến lượt nói ngay từ đầu clip, nói nhanh, rõ, có biểu cảm; người kia im, miệng khép. Nói xong cả hai đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_10}} Only that character speaks, with clear lip-sync and a lively face; the other keeps the mouth closed. After the line both rest still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng môi trường, không tiếng động cơ.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; the tutor on a phone or in a small window; camera movement; moving scenery; no speech.
+
+CẢNH 11 (0:53–0:59): Lượt 11
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và bối cảnh; không có chữ; không có người khác.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_11}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Nói xong, cả hai khép miệng và đứng im như ảnh tĩnh đến hết clip; khung này là khung đầu của cảnh sau.
+Diễn biến: Người đến lượt nói ngay từ đầu clip, nói nhanh, rõ, có biểu cảm; người kia im, miệng khép. Nói xong cả hai đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_11}} Only that character speaks, with clear lip-sync and a lively face; the other keeps the mouth closed. After the line both rest still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng môi trường, không tiếng động cơ.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; the tutor on a phone or in a small window; camera movement; moving scenery; no speech.
+
+CẢNH 12 (0:59–1:04): Lượt 12
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và bối cảnh; không có chữ; không có người khác.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_12}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Nói xong, cả hai khép miệng và đứng im như ảnh tĩnh đến hết clip; kết thúc video.
+Diễn biến: Người đến lượt nói ngay từ đầu clip, nói nhanh, rõ, có biểu cảm; người kia im, miệng khép. Nói xong cả hai đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_12}} Only that character speaks, with clear lip-sync and a lively face; the other keeps the mouth closed. After the line both rest still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng môi trường, không tiếng động cơ.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; the tutor on a phone or in a small window; camera movement; moving scenery; no speech.
