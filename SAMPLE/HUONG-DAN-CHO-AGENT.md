@@ -112,7 +112,7 @@ Giới hạn của công cụ: không biết ai đang nói (agent điền); chuy
 
 | Hiện tượng | Nguyên nhân thường gặp | Cách xử lý |
 |---|---|---|
-| Hai nhân vật cùng nói/mấp máy | Prompt dài, luật lặp; hai mặt trong một khung | Rút gọn prompt, câu khẳng định; "Gen lại cảnh" kèm yêu cầu sửa; bật "Chống 2 nhân vật cùng nói", "Tự gen lại" 1–2 |
+| Hai nhân vật cùng nói/mấp máy | Prompt dài, luật lặp; hai mặt trong một khung | Rút gọn prompt, câu khẳng định; "Gen lại cảnh" kèm yêu cầu sửa; bật "Kiểm tra miệng người nghe và tự gen lại", "Tự gen lại" 1–2 |
 | Tư thế lạ lặp lại ở mọi cảnh sau | Một cảnh lệch, cảnh sau nối từ khung đó | Gen lại **từ cảnh đầu tiên lệch**; cấm cử chỉ đó trong `DAO_GIU` và `[NEGATIVE]` |
 | Nhân vật này bắt chước nhân vật kia | Cảm xúc dùng cử chỉ lớn | Cảm xúc chỉ bằng mặt và giọng; ghi "giữ đầu thẳng, không bắt chước" |
 | Chữ lạ hiện trong khung | Từ viết hoa trong prompt bị vẽ ra | Thêm vào `[NEGATIVE]` |

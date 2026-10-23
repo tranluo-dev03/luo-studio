@@ -685,9 +685,11 @@ async function pageSettings() {
       <div style="display:flex;gap:10px"><button class="btn sm" id="chk">Kiểm tra kết nối</button>${s.key_set ? '<button class="btn sm ghost" id="clrk">Xoá khoá đã lưu</button>' : ""}</div></div>
     <div class="card sec"><h4>Gen video</h4>
       <div class="lab"><div>Cắt đuôi tự động<br><small>Giữ khung ít chuyển động nhất sau lời nói để nối cảnh liền mạch</small></div><div class="sw2 ${s.cut ? "on" : ""}" id="st-cut"></div></div>
-      <div class="lab"><div>Chống 2 nhân vật cùng nói<br><small>Sau mỗi clip, đo miệng người không nói bằng nhận diện khuôn mặt; nếu mấp máy theo thì báo vào nhật ký. Chọn số lần tự gen lại bên dưới (mỗi lần gen lại tốn thêm lượt Muse).</small></div><div class="sw2 ${s.check_overlap !== false ? "on" : ""}" id="st-overlap"></div></div>
+      <div class="lab"><div>Kiểm tra miệng người nghe và tự gen lại<br><small>Sau mỗi clip, đo miệng người không nói bằng nhận diện khuôn mặt (chống 2 nhân vật cùng nói); nếu mấp máy theo thì ghi vào nhật ký và tự gen lại (mỗi lần gen lại tốn thêm lượt Muse). Khi bật, Studio kiểm tra máy có chạy được không; nếu không thì tự tắt.</small><small id="mouth-note" style="display:${s.mouth_note ? "block" : "none"};color:var(--warn);margin-top:6px">${esc(s.mouth_note ? "Đã tự tắt vì không khả dụng trên máy này: " + s.mouth_note : "")}</small></div><div class="sw2 ${s.check_overlap !== false ? "on" : ""}" id="st-overlap"></div></div>
+      <div id="mouth-sub" style="display:${s.check_overlap !== false ? "block" : "none"}">
       <div class="lab"><div>Độ nhạy khi đo miệng<br><small>Cao = bắt cả mấp máy nhẹ (dễ gen lại thừa). Thấp = chỉ bắt khi mấp máy rõ. Nhật ký mỗi cảnh ghi số đo để bạn chỉnh.</small></div><select id="st-mouth_sens">${[["high", "Cao"], ["normal", "Vừa"], ["low", "Thấp"]].map(([v, t]) => `<option value="${v}" ${(s.mouth_sens || "normal") === v ? "selected" : ""}>${t}</option>`).join("")}</select></div>
-      <div class="lab"><div>Tự gen lại khi người nghe mấp máy miệng<br><small>0 = chỉ cảnh báo, không tốn thêm lượt</small></div><select id="st-overlap_retries">${[0, 1, 2, 3, 4, 5].map(n => `<option value="${n}" ${+(s.overlap_retries || 0) === n ? "selected" : ""}>${n === 0 ? "Không" : "Tối đa " + n + " lần"}</option>`).join("")}</select></div>
+      <div class="lab"><div>Số lần tự gen lại tối đa mỗi cảnh<br><small>0 = chỉ cảnh báo, không tốn thêm lượt</small></div><select id="st-overlap_retries">${[0, 1, 2, 3, 4, 5].map(n => `<option value="${n}" ${+(s.overlap_retries || 0) === n ? "selected" : ""}>${n === 0 ? "Không" : "Tối đa " + n + " lần"}</option>`).join("")}</select></div>
+      </div>
       <div class="lab"><div>Viền xanh nháy + tiếng "tinh tinh"<br><small>Hậu kỳ: ở các câu khen (Great, Perfect, Exactly…) viền màn hình nháy xanh và có tiếng tinh tinh</small></div><div class="sw2 ${s.fx_ding ? "on" : ""}" id="st-ding"></div></div>
       <div class="lab"><div>Tiếng "tách" khi hiện phụ đề<br><small>Âm thanh nhẹ mỗi khi chữ mới xuất hiện</small></div><div class="sw2 ${s.fx_pop ? "on" : ""}" id="st-pop"></div></div>
       <div class="lab"><div>Tách giọng khi robot và người học cùng giới<br><small>Đo thực tế: người học nam lỗi nói chồng ~3%, người học nữ ~38% (vì hai giọng nữ nghe giống nhau). Bật thì tự mô tả robot cao/sáng/trẻ và người học trầm/khàn/chậm khi hai bên cùng giới, và giấu miệng người nghe ngay từ lần đầu</small></div><div class="sw2 ${s.voice_split !== false ? "on" : ""}" id="st-vsplit"></div></div>
@@ -714,7 +716,16 @@ async function pageSettings() {
     if (e.target.closest("#st-hook")) { const el = $("#st-hook"); el.classList.toggle("on"); return put({ fx_hook: el.classList.contains("on") }); }
     if (e.target.closest("#st-vsplit")) { const el = $("#st-vsplit"); el.classList.toggle("on"); return put({ voice_split: el.classList.contains("on") }); }
     if (e.target.closest("#st-precise")) { const el = $("#st-precise"); el.classList.toggle("on"); return put({ precise_cut: el.classList.contains("on") }); }
-    if (e.target.closest("#st-overlap")) { const el = $("#st-overlap"); el.classList.toggle("on"); return put({ check_overlap: el.classList.contains("on") }); }
+    if (e.target.closest("#st-overlap")) {
+      const el = $("#st-overlap"), sub = $("#mouth-sub"), note = $("#mouth-note");
+      if (el.dataset.busy) return;
+      if (el.classList.contains("on")) { el.classList.remove("on"); sub.style.display = "none"; return put({ check_overlap: false, mouth_note: "" }); }
+      el.dataset.busy = "1"; toast("Đang kiểm tra máy có chạy được đo miệng không…");
+      let r; try { r = await api("mouthcheck"); } catch (err) { r = { ok: false, error: err.message }; }
+      delete el.dataset.busy;
+      if (!r.ok) { el.classList.remove("on"); sub.style.display = "none"; note.style.display = "block"; note.textContent = "Đã tự tắt vì không khả dụng trên máy này: " + r.error; await put({ check_overlap: false, mouth_note: r.error }); return toast("Không bật được: tính năng đo miệng không chạy được trên máy này", 1); }
+      el.classList.add("on"); sub.style.display = "block"; note.style.display = "none"; return put({ check_overlap: true, mouth_note: "" });
+    }
     if (e.target.closest("#st-speedfix")) { const el = $("#st-speedfix"); el.classList.toggle("on"); return put({ speedfix: el.classList.contains("on") }); }
     if ((x = e.target.closest("[data-pick]"))) { const r = await api("pick", { body: { kind: "file" } }); if (r.path) { $("#st-" + x.dataset.pick).value = r.path; put({ [x.dataset.pick]: r.path }); } }
     if ((x = e.target.closest("[data-clr]"))) { $("#st-" + x.dataset.clr).value = ""; put({ [x.dataset.clr]: "" }); }

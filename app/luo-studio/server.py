@@ -24,7 +24,7 @@ for d in (PROJ, RUNS, TYPES):
 import engine as E  # noqa: E402
 
 LOCK = threading.RLock()
-DEFAULT_SETTINGS = {"api_url": os.environ.get("LUO_API_URL", "http://127.0.0.1:18610"), "api_key": "", "timeout": 900, "retries": 2, "cut": True, "speedfix": True, "normalize": True, "check_overlap": True, "overlap_retries": 2, "mouth_sens": "normal", "precise_cut": True, "fx_hook": True, "cut_margin": 0.5, "voice_split": True, "export_dir": "", "speed_max": 1.25, "chat_every": 1, "parallel": 1, "fx_ding": False, "fx_pop": False,
+DEFAULT_SETTINGS = {"api_url": os.environ.get("LUO_API_URL", "http://127.0.0.1:18610"), "api_key": "", "timeout": 900, "retries": 2, "cut": True, "speedfix": True, "normalize": True, "check_overlap": True, "mouth_note": "", "overlap_retries": 2, "mouth_sens": "normal", "precise_cut": True, "fx_hook": True, "cut_margin": 0.5, "voice_split": True, "export_dir": "", "speed_max": 1.25, "chat_every": 1, "parallel": 1, "fx_ding": False, "fx_pop": False,
                     "logo": "", "endcard": "", "topbar": "", "whisper": "auto"}
 
 # ------------------------------------------------------------------ lưu trữ
@@ -344,7 +344,7 @@ def gen_item(it, cx):
         v.setdefault(k, val)
     s = settings()
     opts = {"api_url": s["api_url"], "api_key": api_key(), "timeout": int(s["timeout"]), "retries": int(s["retries"]), "cut": bool(s["cut"]),
-            "speedfix": bool(s.get("speedfix", True)), "speed_max": float(s.get("speed_max", 1.25)), "chat_every": int(s.get("chat_every", 1)), "normalize": bool(s.get("normalize", True)), "check_overlap": bool(s.get("check_overlap", True)), "overlap_retries": int(s.get("overlap_retries", 5)), "mouth_sens": str(s.get("mouth_sens", "normal")), "precise_cut": bool(s.get("precise_cut", True)), "voice_split": bool(s.get("voice_split", True)), "cut_margin": float(s.get("cut_margin", 0.5)),
+            "speedfix": bool(s.get("speedfix", True)), "speed_max": float(s.get("speed_max", 1.25)), "chat_every": int(s.get("chat_every", 1)), "normalize": bool(s.get("normalize", True)), "check_overlap": effective_check_overlap(it, s), "overlap_retries": int(s.get("overlap_retries", 5)), "mouth_sens": str(s.get("mouth_sens", "normal")), "precise_cut": bool(s.get("precise_cut", True)), "voice_split": bool(s.get("voice_split", True)), "cut_margin": float(s.get("cut_margin", 0.5)),
             "only": None, "scene_notes": dict(it.get("notes") or {}), "refs": p.get("refs", []), "field_labels": {f["key"]: f.get("label", f["key"]) for f in get_type(p["template"]).get("fields", [])}, "field_groups": {f["key"]: f.get("group", "other") for f in get_type(p["template"]).get("fields", [])}, "assets_dir": os.path.join(DATA, "assets", slug(it["project"]))}
     E.run_variant(v, template_text(p["template"]), run_dir(it["project"], it["variant"]), opts, _emit_for(it), cx)
     it["raw"] = "raw.mp4"
@@ -674,6 +674,56 @@ def app_version():
         return ""
 
 
+_MOUTH = {"t": 0.0, "res": None}
+_MOUTH_PROBE = ("import numpy as np, mediapipe as mp\n"
+                "fm = mp.solutions.face_mesh.FaceMesh(static_image_mode=True, max_num_faces=1)\n"
+                "fm.process(np.zeros((96, 96, 3), np.uint8)); fm.close(); print('ok')")
+
+
+def mouth_status(force=False, _code=None):
+    """Tính năng đo miệng (mediapipe) có chạy được trên máy này không? Thử thật (nạp thư viện + chạy nhận diện mặt trên một ảnh trống) trong TIẾN TRÌNH RIÊNG,
+    nên thư viện nhị phân hỏng cứng (DLL, crash) chỉ làm chết tiến trình thử. Kết quả được nhớ 15 phút (lỗi: 2 phút). Trả về {"ok": bool, "error": str}."""
+    now = time.time()
+    res = _MOUTH["res"]
+    if not force and res is not None and now - _MOUTH["t"] < (900 if res["ok"] else 120):
+        return res
+    try:
+        r = subprocess.run([sys.executable, "-I", "-W", "ignore", "-c", _code or _MOUTH_PROBE], capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        if r.returncode == 0 and "ok" in r.stdout:
+            res = {"ok": True, "error": ""}
+        else:
+            code = r.returncode & 0xFFFFFFFF
+            lines = [l for l in (r.stderr or "").strip().splitlines() if l.strip()]
+            detail = lines[-1] if lines else f"tiến trình thử bị lỗi hoặc crash (mã thoát 0x{code:08X})"
+            res = {"ok": False, "error": E.mouth_unavailable_msg(RuntimeError(detail), True)}
+    except subprocess.TimeoutExpired:
+        res = {"ok": False, "error": "Kiểm tra quá thời gian (120 giây)."}
+    except OSError as ex:
+        res = {"ok": False, "error": f"Không chạy được tiến trình kiểm tra: {ex}"}
+    _MOUTH["t"], _MOUTH["res"] = now, res
+    return res
+
+
+def disable_mouth_check(reason):
+    """Tự tắt tính năng kiểm tra miệng + tự gen lại trong cài đặt và ghi lý do để giao diện hiển thị."""
+    s = settings()
+    s["check_overlap"] = False
+    s["mouth_note"] = reason[:400]
+    jwrite(os.path.join(DATA, "settings.json"), s)
+
+
+def effective_check_overlap(it, s):
+    """Giá trị `check_overlap` thực sự dùng cho lần chạy này: nếu cài đặt đang bật mà máy không chạy được đo miệng thì tự tắt (và lưu lại), không để mỗi cảnh báo lỗi."""
+    if not bool(s.get("check_overlap", True)):
+        return False
+    st = mouth_status()
+    if st["ok"]:
+        return True
+    disable_mouth_check(st["error"])
+    qlog(it, "Tự tắt kiểm tra miệng người nghe và tự gen lại vì không khả dụng trên máy này: " + st["error"], "warn")
+    return False
+
+
 def health():
     s = settings()
     try:
@@ -808,6 +858,8 @@ class H(BaseHTTPRequestHandler):
             if "parallel" in b:
                 schedule()  # tăng số luồng thì chạy ngay mục đang chờ
             return self.send_json({"ok": True})
+        if a == "mouthcheck":
+            return self.send_json(mouth_status(force=True))
         if a == "health":
             return self.send_json(health())
         if a == "muse":

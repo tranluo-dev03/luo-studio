@@ -253,11 +253,16 @@ Gen video
     cụt chữ cuối, tăng lên.
   - Tăng tốc lời nói bị kéo chậm + Tốc độ tăng tối đa: Muse hay kéo giãn lời nói.
     Phần mềm rút các khoảng ngắt dài; chỉ tăng nhẹ giọng khi nói rất chậm.
-  - Chống 2 nhân vật cùng nói: sau mỗi clip đo miệng của người không nói bằng nhận
-    diện khuôn mặt; nếu mấp máy theo thì báo trong nhật ký.
-  - Độ nhạy khi đo miệng: Cao (bắt cả mấp máy nhẹ) / Vừa / Thấp.
-  - Tự gen lại khi người nghe mấp máy miệng: tối đa 0 đến 5 lần, mỗi lần kèm yêu
-    cầu sửa mạnh dần. Mỗi lần gen lại tốn thêm một lượt Muse; 0 = chỉ cảnh báo.
+  - Kiểm tra miệng người nghe và tự gen lại (công tắc): sau mỗi clip, đo miệng của người
+    không nói bằng nhận diện khuôn mặt (chống 2 nhân vật cùng nói); nếu mấp máy theo thì ghi
+    vào nhật ký và tự gen lại. Khi bật công tắc, Studio kiểm tra máy có chạy được tính năng
+    này không (mất vài giây); nếu không chạy được (ví dụ thư viện mediapipe lỗi DLL) thì công
+    tắc TỰ TẮT và hiện lý do ngay bên dưới. Lần chạy video cũng kiểm tra như vậy và tự tắt nếu
+    cần, nên máy không hỗ trợ vẫn gen bình thường, không báo lỗi lặp lại ở từng cảnh. Tắt công
+    tắc thì không đo miệng và không tự gen lại. Khi công tắc bật, hai mục sau hiện ra:
+      + Độ nhạy khi đo miệng: Cao (bắt cả mấp máy nhẹ) / Vừa / Thấp.
+      + Số lần tự gen lại tối đa mỗi cảnh: 0 đến 5, mỗi lần kèm yêu cầu sửa mạnh dần. Mỗi lần
+        gen lại tốn thêm một lượt Muse; 0 = chỉ cảnh báo.
   - Mở chat Muse mới: mỗi cảnh một chat mới (mặc định) giúp Muse không bắt chước
     lỗi các clip trước. Nếu nhân vật bị lệch giữa các cảnh, chọn "Mỗi 2 cảnh",
     "Mỗi 3 cảnh" hoặc "Cả video một chat".
@@ -323,8 +328,8 @@ Task nằm ở trạng thái "Đang chờ", không chạy
   - Muse chậm. Tăng "Chờ tối đa mỗi bước", kiểm tra mạng, giảm "Song song".
 
 Video bị hai nhân vật cùng mấp máy/nói
-  - Đây là hạn chế của Muse, nhất là khi hai giọng cùng giới. Bật "Chống 2 nhân vật
-    cùng nói" và "Tách giọng khi robot và người học cùng giới", đặt "Tự gen lại"
+  - Đây là hạn chế của Muse, nhất là khi hai giọng cùng giới. Bật "Kiểm tra miệng người
+    nghe và tự gen lại" và "Tách giọng khi robot và người học cùng giới", đặt số lần tự gen lại
     1-3; hoặc gen lại cảnh kèm yêu cầu sửa; chọn hai giọng khác hẳn nhau.
 
 Hậu kỳ báo lỗi hoặc đứng lâu ở lần đầu
@@ -336,9 +341,9 @@ Hậu kỳ báo lỗi hoặc đứng lâu ở lần đầu
   - Nếu thấy "máy này không chạy được nhận dạng giọng": video vẫn ra nhưng phụ đề dùng thời điểm ước
     lượng nên có thể lệch tiếng nói. Chạy lại setup.ps1 (cài lại thư viện đúng phiên bản) rồi Hậu kỳ lại.
 
-Nhật ký báo "bỏ qua kiểm tra miệng người nghe (DLL load failed ... _framework_bindings)"
-  - Thư viện mediapipe (đo miệng người nghe) không nạp được trên máy này. Gen video và Hậu kỳ vẫn chạy
-    bình thường, chỉ tắt tính năng chống người nghe mấp máy miệng. Thường do thiếu Microsoft Visual C++
+Công tắc "Kiểm tra miệng người nghe và tự gen lại" tự tắt, hoặc nhật ký báo "tắt kiểm tra miệng người nghe ... DLL load failed"
+  - Thư viện mediapipe (đo miệng người nghe) không nạp được trên máy này, nên Studio tự tắt tính năng
+    (lý do hiện dưới công tắc trong Cài đặt). Gen video và Hậu kỳ vẫn chạy bình thường. Thường do thiếu Microsoft Visual C++
     Redistributable x64 (cài từ https://aka.ms/vs/17/release/vc_redist.x64.exe rồi chạy lại setup.ps1)
     hoặc CPU/máy ảo không hỗ trợ lệnh AVX (máy ảo: bật AVX passthrough / chọn loại CPU "host").
   - Bấm đúp "Chan doan.bat" để kiểm tra máy; kết quả lưu ở userdata\logs\chan-doan.txt, gửi file này

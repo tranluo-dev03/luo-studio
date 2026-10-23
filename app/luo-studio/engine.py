@@ -805,6 +805,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                                 "state": "wait"} for s in scenes])
     prev_last, clips, ref_stats = None, [], None
     mouth_hint_shown = False   # gợi ý nguyên nhân lỗi kiểm tra miệng chỉ hiện một lần mỗi lần chạy
+    mouth_off = False          # kiểm tra miệng lỗi một lần thì bỏ qua cho các cảnh còn lại của video này
     for sc in scenes:
         n = sc["n"]
         if cancel.is_set():
@@ -909,7 +910,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
             base_vid_p = vid_p
             while True:
                 attempt("video", gv)
-                if not (opts.get("check_overlap", True) and turn and spoken and spk_key in chars):
+                if not (opts.get("check_overlap", True) and not mouth_off and turn and spoken and spk_key in chars):
                     break
                 spk_side = MV.cbox(vdata, spk_key)
                 lis_keys = [c for c in chars if c != spk_key and MV.cbox(vdata, c)]
@@ -921,8 +922,9 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                 except Cancelled:
                     raise
                 except Exception as ex:  # noqa: BLE001
-                    emit("log", msg=f"Cảnh {n}: bỏ qua kiểm tra miệng người nghe ({mouth_unavailable_msg(ex, not mouth_hint_shown)})", level="warn")
+                    emit("log", msg=f"Cảnh {n}: tắt kiểm tra miệng người nghe cho phần còn lại của video này ({mouth_unavailable_msg(ex, not mouth_hint_shown)})", level="warn")
                     mouth_hint_shown = True
+                    mouth_off = True
                     break
                 if not chk:
                     emit("log", msg=f"Cảnh {n}: không dò được khuôn mặt hai bên nên bỏ qua kiểm tra miệng (không gen lại)", level="warn")
