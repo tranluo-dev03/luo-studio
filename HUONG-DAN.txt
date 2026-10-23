@@ -37,46 +37,37 @@ Gói này đã gồm cả hai phần, bạn chỉ cần mở một chỗ:
   - Đã cài Microsoft Edge hoặc Google Chrome (Windows có sẵn Edge).
   - Có Internet ổn định.
   - Một hoặc nhiều tài khoản Muse (muse.ai) của chính bạn.
-  - Không cần cài Python hay phần mềm nào khác.
+  - Không cần tự cài Python hay ffmpeg: script cài đặt (setup.ps1) tự cài giúp (xem mục 3).
 
 --------------------------------------------------------------------------------
 3. CÀI ĐẶT VÀ MỞ LẦN ĐẦU
 --------------------------------------------------------------------------------
-Bước 0. Cho phép Windows Defender (LÀM TRƯỚC KHI GIẢI NÉN)
-  Gói có kèm Python và ffmpeg dạng chạy sẵn, chưa có chữ ký số, nên Windows
-  Defender hoặc SmartScreen có thể báo nhầm là virus và xóa file (thường là
-  runtime\pythonw.exe). Phần mềm không chứa mã độc. Để tránh bị chặn:
-    a. Tạo sẵn một thư mục ngắn, ví dụ D:\LUO-Studio hoặc C:\LUO-Studio.
-    b. Mở "Windows Security" (Bảo mật Windows) > "Virus & threat protection"
-       (Bảo vệ khỏi virus và mối đe dọa).
-    c. Dưới "Virus & threat protection settings" bấm "Manage settings".
-    d. Kéo xuống "Exclusions" (Loại trừ) > "Add or remove exclusions".
-    e. Bấm "Add an exclusion" > "Folder", chọn thư mục ở bước a, bấm "Yes" nếu
-       Windows hỏi quyền quản trị.
-  - Chỉ loại trừ đúng thư mục LUO-Studio, KHÔNG loại trừ cả ổ đĩa.
-  - Nếu trình duyệt chặn lúc tải file .zip: bấm dấu "..." > "Keep" > "Keep anyway".
-  - Nếu máy dùng thêm phần mềm diệt virus khác (Kaspersky, Avast, Bitdefender...),
-    phải thêm loại trừ tương tự trong phần mềm đó.
-
-Bước 1. Giải nén
-  - Nhấp phải file .zip, chọn "Extract All..." (Giải nén tất cả), chọn đúng thư
-    mục đã loại trừ ở Bước 0.
-  - Chọn một thư mục có quyền ghi, ví dụ D:\LUO-Studio. KHÔNG chạy trực tiếp từ
-    bên trong file .zip.
-  - Đường dẫn thư mục giải nén phải NGẮN (không quá khoảng 100 ký tự). Windows giới hạn
-    260 ký tự cho một đường dẫn đầy đủ, và gói có file nằm sâu (dài tới 137 ký tự).
-    Nếu khi giải nén báo "đường dẫn quá dài" hoặc không tìm thấy thư mục, hãy giải
-    nén vào thư mục gốc ổ đĩa như D:\LUO-Studio hoặc C:\LUO-Studio.
+Bước 1. Tải mã nguồn
+  - Trên trang GitHub của dự án (tranluo-dev03/luo-studio) bấm "Code" > "Download ZIP"
+    rồi giải nén, hoặc dùng git:  git clone https://github.com/tranluo-dev03/luo-studio.git
+  - Chọn một thư mục có quyền ghi và có đường dẫn NGẮN (không quá khoảng 100 ký tự),
+    ví dụ D:\LUO-Studio hoặc C:\LUO-Studio. Windows giới hạn 260 ký tự cho một đường dẫn
+    đầy đủ; nếu khi giải nén báo "đường dẫn quá dài", hãy giải nén vào thư mục gốc ổ đĩa.
+  - Giải nén đầy đủ rồi mới chạy, KHÔNG chạy trực tiếp từ bên trong file .zip.
   - Tránh đặt trong "Program Files" hoặc "Desktop" nếu máy bật thư mục được bảo vệ.
 
-Bước 2. Mở ứng dụng
+Bước 2. Cài đặt tự động (làm một lần)
+  - Mở PowerShell (Start, gõ PowerShell), vào thư mục vừa tạo rồi chạy:
+        cd D:\LUO-Studio
+        powershell -ExecutionPolicy Bypass -File setup.ps1
+    (thay D:\LUO-Studio bằng thư mục của bạn).
+  - Script tự làm hết, không cần bấm gì thêm: cài Python 3.11 nếu máy chưa có (cài riêng
+    cho người dùng hiện tại, không cần quyền quản trị), tạo môi trường .venv, cài thư viện,
+    tải ffmpeg vào thư mục bin và tạo thư mục userdata.
+  - Cần Internet; mất vài phút đến vài chục phút tùy tốc độ mạng. Chạy lại script lúc nào
+    cũng được, nó bỏ qua những gì đã có.
+
+Bước 3. Mở ứng dụng
   - Bấm đúp "LUO Studio.bat". Lần đầu hơi lâu (vài chục giây) vì khởi tạo dữ liệu.
   - Cửa sổ ứng dụng sẽ tự mở, toàn màn hình. Không có cửa sổ đen kèm theo.
-  - Nếu Windows hiện cảnh báo SmartScreen ("Windows protected your PC"): bấm
-    "More info" rồi "Run anyway". Phần mềm không có chữ ký số nên Windows hỏi.
-  - Nếu phần mềm diệt virus chặn, làm theo Bước 0 (hoặc mục 11).
+  - Nếu hiện thông báo "Chưa cài đặt. Hãy chạy: ... setup.ps1" thì làm Bước 2 trước.
 
-Bước 3. Mô hình nhận dạng giọng
+Bước 4. Mô hình nhận dạng giọng
   - Lần đầu mở, phần mềm tự tải ở nền mô hình nhận dạng giọng (khoảng 250MB) để
     dùng cho hậu kỳ (căn phụ đề theo giọng). Cần Internet, mất vài phút.
   - Hậu kỳ chỉ chạy được sau khi tải xong. Gen video không phụ thuộc vào mô hình này.
@@ -297,16 +288,11 @@ Hậu kỳ mặc định
 --------------------------------------------------------------------------------
 11. XỬ LÝ SỰ CỐ THƯỜNG GẶP
 --------------------------------------------------------------------------------
-Báo "Windows cannot find 'runtime\pythonw.exe'" hoặc bị Defender báo virus
-  - Defender đã cách ly hoặc xóa file Python đi kèm (báo nhầm). Cách xử lý:
-    1. Mở "Windows Security" > "Virus & threat protection" > "Protection history".
-    2. Bấm vào mục bị chặn (ví dụ pythonw.exe) > "Actions" > "Allow on device"
-       hoặc "Restore".
-    3. Thêm thư mục LUO-Studio vào "Exclusions" (xem Bước 0, mục 3).
-    4. Xóa thư mục LUO-Studio cũ (nhớ sao lưu userdata nếu có), rồi giải nén lại
-       file .zip vào thư mục đã loại trừ. Chỉ khôi phục từng file thường chưa đủ.
-  - Cũng gặp lỗi này nếu bấm "LUO Studio.bat" ngay trong file .zip, hoặc chép riêng
-    file .bat ra nơi khác. Luôn giải nén đầy đủ và chạy tại chỗ.
+Bấm "LUO Studio.bat" báo "Chưa cài đặt. Hãy chạy: ... setup.ps1"
+  - Chưa chạy bước cài đặt, hoặc thư mục .venv đã bị xóa. Chạy (hoặc chạy lại) Bước 2 ở mục 3:
+        powershell -ExecutionPolicy Bypass -File setup.ps1
+  - Cũng gặp khi bấm "LUO Studio.bat" ngay trong file .zip, hoặc chép riêng file .bat ra
+    nơi khác. Luôn giải nén đầy đủ và chạy tại chỗ.
 
 "API chưa kết nối" (chấm đỏ)
   - Đóng hẳn cửa sổ rồi mở lại "LUO Studio.bat". Nếu vẫn lỗi, mở
@@ -350,8 +336,7 @@ Không thấy file video / không mở được thư mục
     userdata\studio\exports (bản cuối).
 
 Máy báo thiếu ffmpeg
-  - Gói đã có sẵn trong thư mục "bin". Nếu bị xoá, chép lại ffmpeg.exe và ffprobe.exe
-    vào thư mục bin.
+  - Chạy lại setup.ps1 (xem mục 3): script tải lại ffmpeg.exe và ffprobe.exe vào thư mục bin.
 
 --------------------------------------------------------------------------------
 12. DỮ LIỆU, SAO LƯU, CẬP NHẬT, GỠ CÀI ĐẶT
@@ -364,10 +349,12 @@ Thư mục "userdata" (cạnh ứng dụng) chứa TẤT CẢ dữ liệu của 
   - userdata\logs: nhật ký.
 
 Sao lưu: chép cả thư mục userdata ra nơi khác.
-Cập nhật: giải nén bản mới, rồi chép đè lên thư mục cũ nhưng GIỮ NGUYÊN "userdata".
-Chuyển sang máy khác: chép cả thư mục ứng dụng và userdata (cookie có thể phải lấy
-lại nếu Muse yêu cầu đăng nhập lại).
-Gỡ cài đặt: đóng ứng dụng, xoá cả thư mục. Muốn giữ video thì chép userdata trước.
+Cập nhật: nếu dùng git thì chạy "git pull"; nếu dùng file ZIP thì tải bản mới, giải nén đè
+lên thư mục cũ nhưng GIỮ NGUYÊN "userdata". Sau đó chạy lại setup.ps1 để cập nhật thư viện.
+Chuyển sang máy khác: cài mới trên máy đó (mục 3) rồi chép thư mục userdata sang (cookie có
+thể phải lấy lại nếu Muse yêu cầu đăng nhập lại).
+Gỡ cài đặt: đóng ứng dụng, xoá cả thư mục. Muốn giữ video thì chép userdata trước. Python
+cài bởi setup.ps1 vẫn còn trên máy; nếu không cần, gỡ trong Settings > Apps của Windows.
 Dọn dung lượng: xoá các thư mục trong userdata\studio\runs của video không cần,
 hoặc dùng nút xoá ở tab "Kết quả".
 
