@@ -56,9 +56,15 @@ Bước 2. Cài đặt tự động (làm một lần)
         cd D:\LUO-Studio
         powershell -ExecutionPolicy Bypass -File setup.ps1
     (thay D:\LUO-Studio bằng thư mục của bạn).
-  - Script tự làm hết, không cần bấm gì thêm: cài Python 3.11 nếu máy chưa có (cài riêng
-    cho người dùng hiện tại, không cần quyền quản trị), tạo môi trường .venv, cài thư viện,
-    tải ffmpeg vào thư mục bin và tạo thư mục userdata.
+  - Script tự làm hết, không cần bấm gì thêm: tìm Python 3.11 hoặc 3.12 (64-bit) trên máy
+    (qua py launcher, registry, thư mục mặc định và PATH); nếu chưa có thì tự cài Python 3.11
+    từ python.org, cài SONG SONG với Python đang có (chỉ cho người dùng hiện tại, không cần
+    quyền quản trị, không đổi PATH). Sau đó tạo môi trường .venv, cài thư viện, tải ffmpeg vào
+    thư mục bin và tạo thư mục userdata. Khi cập nhật, nếu .venv đã có và dùng được thì không
+    cần tìm Python hệ thống nữa.
+  - Máy chỉ có Python 3.13/3.14 (hoặc bản 32-bit) thì Studio chưa dùng được các bản đó (thư viện
+    numpy 1.26.4 và mediapipe 0.10.21 chưa có cho 3.13 trở lên); script tự cài thêm 3.11 bên cạnh,
+    không gỡ hay đổi Python hiện có.
   - Cần Internet; mất vài phút đến vài chục phút tùy tốc độ mạng. Chạy lại script lúc nào
     cũng được, nó bỏ qua những gì đã có.
 
@@ -331,6 +337,15 @@ Video bị hai nhân vật cùng mấp máy/nói
   - Đây là hạn chế của Muse, nhất là khi hai giọng cùng giới. Bật "Kiểm tra miệng người
     nghe và tự gen lại" và "Tách giọng khi robot và người học cùng giới", đặt số lần tự gen lại
     1-3; hoặc gen lại cảnh kèm yêu cầu sửa; chọn hai giọng khác hẳn nhau.
+
+setup.ps1 / Cap nhat.bat báo không thấy Python, hoặc "Bo cai Python bao loi (ma 1603)"
+  - Chạy: powershell -ExecutionPolicy Bypass -File setup.ps1 -CheckOnly   để xem script thấy những
+    Python nào trên máy và vì sao từng bản dùng được hay không (cần 3.11 hoặc 3.12, 64-bit).
+  - Lỗi 1603 là lỗi chung của bộ cài Python. Chi tiết ở %TEMP%\luo-python-install.log. Cách xử lý:
+    khởi động lại máy rồi chạy lại; hoặc cài thủ công Python 3.11 (Windows installer 64-bit) từ
+    python.org rồi chạy lại. Máy không ra được python.org: tải sẵn bộ cài rồi chạy
+    setup.ps1 -PythonInstaller "C:\...\python-3.11.9-amd64.exe".
+  - Nếu .venv hiện có bị hỏng (Python gốc đã bị gỡ hoặc đổi chỗ), script báo rõ và tự tạo lại .venv.
 
 Hậu kỳ báo lỗi hoặc đứng lâu ở lần đầu
   - Lần đầu phần mềm đang tải mô hình nhận dạng giọng (~250MB) ở nền; đợi vài phút
