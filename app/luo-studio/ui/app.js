@@ -42,13 +42,13 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal()
 function nav() {
   const r = S.route.page, running = S.q && S.q.busy, queued = S.q ? S.q.items.filter(i => i.state === "queued").length : 0;
   const b = (h, ic, tip, on, dot, badge) => `<a data-go="#/${h}" class="nav-b ${on ? "on" : ""}">${ico(ic)}${dot ? '<span class="dot"></span>' : ""}${badge ? `<span class="nbadge">${badge}</span>` : ""}<span class="tip">${tip}</span></a>`;
-  $("#nav").innerHTML = `<div class="logo"><img src="logo.png" alt="LUO Studio"></div>${b("", "folder", "Dự án", r === "home" || r === "edit")}${b("run", "bolt", "Hàng đợi", r === "run", running, queued)}${b("results", "film", "Kết quả", r === "results")}${b("types", "layers", "Loại dự án", r === "types")}${b("api", "server", "API Muse", r === "api")}<div class="spacer"></div>${b("settings", "gear", "Cài đặt", r === "settings")}`;
+  $("#nav").innerHTML = `<div class="logo"><img src="logo.png" alt="LUO Studio"></div>${b("", "folder", "Dự án", r === "home" || r === "edit")}${b("run", "bolt", "Hàng đợi", r === "run", running, queued)}${b("results", "film", "Kết quả", r === "results")}${b("types", "layers", "Loại dự án", r === "types")}${b("api", "server", "API Muse", r === "api")}<div class="spacer"></div><div class="ver" style="font-size:10px;opacity:.55;padding:4px 0">${S.health && S.health.version ? "v" + S.health.version : ""}</div>${b("settings", "gear", "Cài đặt", r === "settings")}`;
 }
 function setTop(title, extra = "") {
   const h = S.health, cls = h ? (h.ok ? "ok" : "bad") : "";
   $("#top").innerHTML = `${S.route.page === "edit" ? `<a class="ib" data-go="#/" title="Quay lại">${ico("back")}</a>` : ""}<h1>${title}</h1><div class="grow"></div>${extra}<span class="pill ${h && h.status === "no_account" ? "warn" : cls}" title="LUO-API" ${h && h.status === "no_account" ? 'data-go="#/api" style="cursor:pointer"' : ""}><i></i>${h ? (h.ok ? "API sẵn sàng" : h.status === "no_account" ? "Chưa có tài khoản Muse" : "API chưa kết nối") : "…"}</span>`;
 }
-async function refreshHealth() { try { S.health = await api("health"); } catch { S.health = { ok: false }; } const p = $("#top .pill"); if (p) { const na = S.health.status === "no_account"; p.className = "pill " + (S.health.ok ? "ok" : na ? "warn" : "bad"); p.lastChild.textContent = S.health.ok ? "API sẵn sàng" : na ? "Chưa có tài khoản Muse" : "API chưa kết nối"; } }
+async function refreshHealth() { try { S.health = await api("health"); } catch { S.health = { ok: false }; } const p = $("#top .pill"); if (p) { const na = S.health.status === "no_account"; p.className = "pill " + (S.health.ok ? "ok" : na ? "warn" : "bad"); p.lastChild.textContent = S.health.ok ? "API sẵn sàng" : na ? "Chưa có tài khoản Muse" : "API chưa kết nối"; } const vv = $("#nav .ver"); if (vv && S.health.version) vv.textContent = "v" + S.health.version; }
 
 // ---------------------------------------------------------------- router
 async function route() {

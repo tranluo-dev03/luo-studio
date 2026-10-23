@@ -664,6 +664,16 @@ def muse_admin(method, sub, body=None, query=""):
         return 502, {"error": f"Không kết nối được LUO-API: {e}"}
 
 
+def app_version():
+    """Số phiên bản (x.y.z) từ dòng đầu của version.txt ở thư mục gốc; rỗng nếu không đọc được."""
+    try:
+        first = open(os.path.join(HERE, "..", "..", "version.txt"), encoding="utf-8-sig").readline()
+        m = re.search(r"\d+\.\d+\.\d+", first)
+        return m.group(0) if m else ""
+    except OSError:
+        return ""
+
+
 def health():
     s = settings()
     try:
@@ -671,9 +681,9 @@ def health():
         with urllib.request.urlopen(req, timeout=4) as r:
             d = json.loads(r.read().decode())
         ok = d.get("status") == "ready"
-        return {"ok": ok, "accounts": d.get("accounts", 0), "status": d.get("status"), "key": bool(api_key())}
+        return {"ok": ok, "accounts": d.get("accounts", 0), "status": d.get("status"), "key": bool(api_key()), "version": app_version()}
     except Exception as e:  # noqa: BLE001
-        return {"ok": False, "error": str(e)[:120], "key": bool(api_key())}
+        return {"ok": False, "error": str(e)[:120], "key": bool(api_key()), "version": app_version()}
 
 
 # ------------------------------------------------------------------ HTTP

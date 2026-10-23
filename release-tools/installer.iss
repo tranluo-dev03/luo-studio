@@ -2,7 +2,7 @@
 ; Bien dich xong thi ky file Output\LUO-Studio-Setup.exe bang sign-files.ps1.
 ; Chay: ISCC.exe installer.iss
 #define AppName "LUO Studio"
-#define AppVer  "1.0.0"
+#define AppVer  "1.1.0"   ; giữ khớp với dòng đầu của version.txt
 #define Src     ".."
 
 [Setup]
