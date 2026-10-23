@@ -17,6 +17,12 @@ Tao hang loat video quang cao dang hoi thoai (xem `HUONG-DAN.txt` de biet cach d
    ```
 3. Chay: bam `LUO Studio.bat` (hoac `LUO Studio (xem loi).bat` de xem log).
 
-Cap nhat: `git pull` (hoac tai ZIP moi, giai nen de len, giu nguyen `userdata/`), roi chay lai `setup.ps1`.
+## Cap nhat len ban moi (khong mat du lieu)
+
+Dong ung dung roi bam dup `Cap nhat.bat` (hoac chay `powershell -ExecutionPolicy Bypass -File update.ps1`).
+Script tu sao luu nhe du lieu quan trong vao `userdata-backup/`, cap nhat ma nguon (`git pull` neu cai bang git,
+tai ZIP moi neu cai bang ZIP) roi chay lai `setup.ps1`. Thu muc `userdata/` khong bi dung toi.
+May khong co git hoac mang han che: tai ZIP ve roi chay `update.ps1 -ZipFile "duong-dan\luo-studio-main.zip"`.
+Ban cai cu chua co `Cap nhat.bat`: cap nhat tay mot lan (`git pull` hoac giai nen ZIP de len, giu nguyen `userdata/`), tu do ve sau dung `Cap nhat.bat`.
 
 Du lieu nguoi dung nam trong `userdata/` va khong duoc dua len git.

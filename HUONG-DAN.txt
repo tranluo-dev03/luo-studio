@@ -349,8 +349,19 @@ Thư mục "userdata" (cạnh ứng dụng) chứa TẤT CẢ dữ liệu của 
   - userdata\logs: nhật ký.
 
 Sao lưu: chép cả thư mục userdata ra nơi khác.
-Cập nhật: nếu dùng git thì chạy "git pull"; nếu dùng file ZIP thì tải bản mới, giải nén đè
-lên thư mục cũ nhưng GIỮ NGUYÊN "userdata". Sau đó chạy lại setup.ps1 để cập nhật thư viện.
+Cập nhật lên bản mới (KHÔNG mất dữ liệu): đóng ứng dụng, rồi bấm đúp "Cap nhat.bat" (hoặc chạy
+  powershell -ExecutionPolicy Bypass -File update.ps1). Script tự sao lưu nhẹ dữ liệu quan trọng vào
+  userdata-backup\<ngày-giờ>\ (tài khoản Muse, dự án, loại dự án, cài đặt; giữ 3 bản gần nhất), cập nhật
+  mã nguồn (git pull nếu cài bằng git, tải ZIP mới nếu cài bằng ZIP) rồi chạy lại setup.ps1. Thư mục
+  userdata\ không bị đụng tới. Máy không có git hoặc mạng hạn chế: tải file ZIP về rồi chạy
+  update.ps1 -ZipFile "C:\...\luo-studio-main.zip".
+  - Bản cài cũ chưa có "Cap nhat.bat": cập nhật tay một lần (git pull, hoặc tải ZIP giải nén đè lên thư
+    mục cũ, giữ nguyên userdata\, rồi chạy setup.ps1); từ đó về sau dùng Cap nhat.bat.
+  - KHÔNG giải nén ZIP vào một thư mục MỚI rồi bỏ thư mục cũ: dữ liệu nằm trong userdata\ của thư mục
+    cũ. Nếu lỡ làm vậy, chép thư mục userdata\ từ thư mục cũ sang thư mục mới.
+  - Nếu bạn từng sửa file mã nguồn, git pull có thể báo lỗi; dữ liệu vẫn an toàn.
+  - Cài đặt bạn đã lưu được giữ nguyên, kể cả khi bản mới đổi giá trị mặc định (ví dụ "Tự gen lại");
+    muốn dùng mặc định mới thì chỉnh lại trong Cài đặt.
 Chuyển sang máy khác: cài mới trên máy đó (mục 3) rồi chép thư mục userdata sang (cookie có
 thể phải lấy lại nếu Muse yêu cầu đăng nhập lại).
 Gỡ cài đặt: đóng ứng dụng, xoá cả thư mục. Muốn giữ video thì chép userdata trước. Python

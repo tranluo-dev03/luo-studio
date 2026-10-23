@@ -3,6 +3,15 @@
 Số phiên bản theo dạng `x.y.z` (semantic versioning): `x` đổi khi có thay đổi không tương thích, `y` khi thêm tính năng, `z` khi chỉ sửa lỗi.
 Nguồn sự thật của số phiên bản: dòng đầu của `version.txt` (cũng là tag git `vx.y.z` và `AppVer` trong `release-tools/installer.iss`; ba nơi phải khớp nhau khi phát hành).
 
+## [Chưa phát hành]
+
+### Thêm
+- **Cập nhật không mất dữ liệu:** `update.ps1` và `Cap nhat.bat` (sao lưu nhẹ dữ liệu quan trọng vào `userdata-backup/`, `git pull` hoặc tải ZIP mới rồi chép đè, không đụng `userdata/`, `.venv`, `bin`; chạy lại `setup.ps1`). Có tuỳ chọn `-ZipFile` cho máy không có git hoặc mạng hạn chế.
+- `setup.ps1` tự cài Python 3.11 khi thiếu (winget, nếu không được thì bộ cài chính thức từ python.org).
+
+### Đổi
+- Tài liệu cài đặt (`README.md`, `HUONG-DAN.txt`): cài từ GitHub (ZIP hoặc git) bằng `setup.ps1`; bỏ hướng dẫn tắt/loại trừ chống virus.
+
 ## [1.1.0] - 2026-10-23
 
 ### Thêm

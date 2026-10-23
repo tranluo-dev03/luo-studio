@@ -1,5 +1,6 @@
 # Du lieu nguoi dung: tai khoan Muse, cookie, khoa API, log, video -> TUYET DOI khong dua len GitHub
 userdata/
+userdata-backup/
 
 # Runtime va file nhi phan duoc tai ve boi setup.ps1
 .venv/
