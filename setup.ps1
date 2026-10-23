@@ -64,6 +64,12 @@ if (-not $python) {
 }
 Write-Host "  Dung: $python"
 
+# Thu vien nhi phan (onnxruntime, mediapipe, opencv, ctranslate2) can Microsoft Visual C++ Redistributable x64; thieu thi bao loi DLL kho hieu luc chay
+$vc = Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x64" -ErrorAction SilentlyContinue
+if (-not $vc -or $vc.Installed -ne 1) {
+  Write-Host "  CANH BAO: chua thay Microsoft Visual C++ Redistributable x64. Cai tai https://aka.ms/vs/17/release/vc_redist.x64.exe (hoac: winget install Microsoft.VCRedist.2015+.x64) neu sau nay gap loi 'DLL load failed'." -ForegroundColor Yellow
+}
+
 Write-Host "[2/4] Tao .venv va cai thu vien (co the mat vai phut)..." -ForegroundColor Cyan
 if (-not (Test-Path ".venv\Scripts\python.exe")) { & $python -m venv .venv }
 & .venv\Scripts\python.exe -m pip install --upgrade pip

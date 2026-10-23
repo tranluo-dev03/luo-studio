@@ -24,14 +24,49 @@ MAX_SPEED = 1.35
 DEC_VF = "scale=flags=accurate_rnd+full_chroma_int:out_range=pc,format=rgb24"
 
 
+def video_duration(path):
+    """Thời lượng của luồng HÌNH. Có thể ngắn hơn thời lượng cả file khi âm thanh dài hơn hình vài chục mili giây (clip đã cắt/tăng tốc thường như vậy)."""
+    try:
+        v = float(sh(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=duration", "-of", "csv=p=0", path]).stdout.strip())
+        if v > 0:
+            return v
+    except (RuntimeError, ValueError):
+        pass
+    return duration(path)
+
+
 def grab_frame(src, out_png, sseof=None, ss=None):
-    """Lấy một khung hình thành PNG không làm tối/lệch màu."""
-    cmd = ["ffmpeg", "-y"]
-    if sseof is not None:
-        cmd += ["-sseof", str(sseof)]
-    if ss is not None:
-        cmd += ["-ss", str(ss)]
-    sh(cmd + ["-i", src, "-vf", DEC_VF, "-frames:v", "1", "-update", "1", out_png])
+    """Lấy một khung hình thành PNG không làm tối/lệch màu.
+    `sseof` (số âm): lùi từ cuối LUỒNG HÌNH, không phải cuối file. `-sseof` của ffmpeg tính từ cuối file; khi âm thanh dài hơn hình thì mốc rơi sau khung hình cuối,
+    ffmpeg bỏ khung đó và thoát mã 0 mà không ghi file nào ("No filtered frames"), làm bước sau văng [Errno 2] No such file. Vì vậy luôn kiểm tra file có thật sự được ghi,
+    thử lùi dần, và cuối cùng giải mã hết clip rồi giữ khung cuối."""
+    def attempt(pre):
+        try:
+            os.remove(out_png)   # tránh nhầm với file cũ còn sót
+        except OSError:
+            pass
+        sh(["ffmpeg", "-y"] + pre + ["-i", src, "-vf", DEC_VF, "-frames:v", "1", "-update", "1", out_png])
+        return os.path.exists(out_png) and os.path.getsize(out_png) > 0
+    if sseof is None:
+        tries = [["-ss", str(ss)] if ss is not None else []]
+    else:
+        vd = video_duration(src)
+        tries, seen = [], set()
+        for off in (sseof, -0.1, -0.2, -0.4, -0.8):
+            t = round(max(0.0, vd + off), 3)
+            if t not in seen:
+                seen.add(t)
+                tries.append(["-ss", f"{t:.3f}"])
+    for pre in tries:
+        if attempt(pre):
+            return
+    try:
+        os.remove(out_png)
+    except OSError:
+        pass
+    sh(["ffmpeg", "-y", "-i", src, "-vf", DEC_VF, "-update", "1", out_png])   # giải mã hết, ghi đè liên tục: file cuối cùng là khung cuối
+    if not (os.path.exists(out_png) and os.path.getsize(out_png) > 0):
+        raise RuntimeError(f"Không lấy được khung hình từ {os.path.basename(src)}")
 
 
 def luma_stats(path, fps=2):
@@ -565,6 +600,15 @@ def mouth_activity(path, side, t_end, fps=12):
     return float(a.std()), float(a.max()), float((a > OPEN_GAP).mean()), float(np.abs(np.diff(a)).mean())
 
 
+def mouth_unavailable_msg(ex, first=True):
+    """Thông báo khi không chạy được kiểm tra miệng (thường là mediapipe lỗi DLL). Lần đầu trong một lần chạy kèm gợi ý nguyên nhân và cách chẩn đoán."""
+    msg = str(ex)
+    if first and ("DLL" in msg or "dynamic link library" in msg.lower()):
+        return (f"{msg} | Thường do thiếu Microsoft Visual C++ Redistributable x64 (https://aka.ms/vs/17/release/vc_redist.x64.exe) hoặc CPU/máy ảo không hỗ trợ AVX; "
+                "chạy 'Chan doan.bat' để kiểm tra. Gen video và Hậu kỳ vẫn bình thường, chỉ tắt tính năng chống người nghe mấp máy miệng.")
+    return msg
+
+
 def mouth_check(path, speaker_side, listener_side, sens="normal"):
     """Người NGHE mấp máy miệng như người nói? Đã đối chiếu trên clip thật: người im lặng thật std ≈ 0.008-0.019, người mấp máy ≥ 0.029.
     `listener_side` có thể là một vị trí hoặc danh sách (nhiều người nghe): trả về người nghe bị lỗi đầu tiên, nếu không thì người cử động miệng nhiều nhất (`idx` = chỉ số trong danh sách)."""
@@ -760,6 +804,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                                 "text": (luot[s["n"] - 1]["text"] if s["n"] - 1 < len(luot) else s["title"]),
                                 "state": "wait"} for s in scenes])
     prev_last, clips, ref_stats = None, [], None
+    mouth_hint_shown = False   # gợi ý nguyên nhân lỗi kiểm tra miệng chỉ hiện một lần mỗi lần chạy
     for sc in scenes:
         n = sc["n"]
         if cancel.is_set():
@@ -876,7 +921,8 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                 except Cancelled:
                     raise
                 except Exception as ex:  # noqa: BLE001
-                    emit("log", msg=f"Cảnh {n}: bỏ qua kiểm tra miệng người nghe ({ex})", level="warn")
+                    emit("log", msg=f"Cảnh {n}: bỏ qua kiểm tra miệng người nghe ({mouth_unavailable_msg(ex, not mouth_hint_shown)})", level="warn")
+                    mouth_hint_shown = True
                     break
                 if not chk:
                     emit("log", msg=f"Cảnh {n}: không dò được khuôn mặt hai bên nên bỏ qua kiểm tra miệng (không gen lại)", level="warn")

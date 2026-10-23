@@ -336,6 +336,14 @@ Hậu kỳ báo lỗi hoặc đứng lâu ở lần đầu
   - Nếu thấy "máy này không chạy được nhận dạng giọng": video vẫn ra nhưng phụ đề dùng thời điểm ước
     lượng nên có thể lệch tiếng nói. Chạy lại setup.ps1 (cài lại thư viện đúng phiên bản) rồi Hậu kỳ lại.
 
+Nhật ký báo "bỏ qua kiểm tra miệng người nghe (DLL load failed ... _framework_bindings)"
+  - Thư viện mediapipe (đo miệng người nghe) không nạp được trên máy này. Gen video và Hậu kỳ vẫn chạy
+    bình thường, chỉ tắt tính năng chống người nghe mấp máy miệng. Thường do thiếu Microsoft Visual C++
+    Redistributable x64 (cài từ https://aka.ms/vs/17/release/vc_redist.x64.exe rồi chạy lại setup.ps1)
+    hoặc CPU/máy ảo không hỗ trợ lệnh AVX (máy ảo: bật AVX passthrough / chọn loại CPU "host").
+  - Bấm đúp "Chan doan.bat" để kiểm tra máy; kết quả lưu ở userdata\logs\chan-doan.txt, gửi file này
+    khi cần hỗ trợ.
+
 Không thấy file video / không mở được thư mục
   - File ở userdata\studio\runs\<dự án>\<biến thể> (video thô, các cảnh) và
     userdata\studio\exports (bản cuối).
