@@ -156,7 +156,7 @@ if (-not $venvOk) {
   if ($LASTEXITCODE -ne 0 -or -not (Test-Path ".venv\Scripts\python.exe")) { throw "Tao .venv that bai (Python: $python)." }
 }
 & .venv\Scripts\python.exe -m pip install --upgrade pip
-& .venv\Scripts\python.exe -m pip install -r requirements.txt
+& .venv\Scripts\python.exe -m pip install --upgrade -r requirements.txt
 if ($LASTEXITCODE -ne 0) { throw "Cai thu vien that bai." }
 
 Write-Host "[3/4] Kiem tra ffmpeg..." -ForegroundColor Cyan

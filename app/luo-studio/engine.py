@@ -471,6 +471,15 @@ def _whisper():
 _WH_LOCK = threading.Lock()
 
 
+def _read_wav(path):
+    """Đọc wav 16 kHz mono thành mảng float32 để đưa thẳng cho Whisper. Truyền đường dẫn thì faster-whisper tự giải mã bằng PyAV
+    (av.open(..., metadata_errors=...)) và sẽ lỗi trên máy có bản PyAV cũ."""
+    import wave
+    import numpy as np
+    with wave.open(path, "rb") as w:
+        return np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768.0
+
+
 def voice_span(path, expected):
     """(bắt đầu, kết thúc) của phần LỜI THOẠI thật trong clip, theo mốc thời gian từng từ của Whisper. Chỉ tính các từ khớp lời thoại nên tiếng cười, thở, 'ha ha' không bị tính.
     None nếu không nhận ra đủ lời."""
@@ -483,7 +492,7 @@ def voice_span(path, expected):
     sh(["ffmpeg", "-y", "-i", path, "-vn", "-ac", "1", "-ar", "16000", wav])
     try:
         with _WH_LOCK:
-            segs, _ = _whisper().transcribe(wav, language="en", beam_size=1, vad_filter=False, condition_on_previous_text=False, word_timestamps=True)
+            segs, _ = _whisper().transcribe(_read_wav(wav), language="en", beam_size=1, vad_filter=False, condition_on_previous_text=False, word_timestamps=True)
             words = [(norm(w.word), w.start, w.end) for sg in segs for w in (sg.words or [])]
     finally:
         try:
@@ -500,7 +509,7 @@ def heard_words(path):
     wav = path + ".chk.wav"
     sh(["ffmpeg", "-y", "-i", path, "-vn", "-ac", "1", "-ar", "16000", wav])
     try:
-        segs, _ = _whisper().transcribe(wav, language="en", beam_size=1, vad_filter=False, condition_on_previous_text=False)
+        segs, _ = _whisper().transcribe(_read_wav(wav), language="en", beam_size=1, vad_filter=False, condition_on_previous_text=False)
         return [w for sg in segs for w in re.findall(r"[a-z']+", sg.text.lower())]
     finally:
         try:

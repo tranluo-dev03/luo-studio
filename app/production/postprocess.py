@@ -65,9 +65,13 @@ def tighten(src, dst, settle=0.5, lead=0.12):
 def _whisper_child(wav, model_name, prompt_file, vad, compute, out_json):
     """Chạy trong tiến trình con: nhận dạng giọng cả file rồi ghi các từ (từ, bắt đầu, kết thúc) ra file JSON."""
     from faster_whisper import WhisperModel
+    import wave
+    import numpy as np
     prompt = open(prompt_file, encoding="utf-8").read() or None
     model = WhisperModel(model_name, device="cpu", compute_type=compute)
-    segs, _ = model.transcribe(wav, word_timestamps=True, language="en" if model_name.endswith(".en") else None, initial_prompt=prompt,
+    with wave.open(wav, "rb") as w:   # đưa mảng thay vì đường dẫn để khỏi phụ thuộc bản PyAV của máy
+        audio = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768.0
+    segs, _ = model.transcribe(audio, word_timestamps=True, language="en" if model_name.endswith(".en") else None, initial_prompt=prompt,
                                condition_on_previous_text=False, vad_filter=vad)
     json.dump([(w.word, w.start, w.end) for s in segs for w in s.words], open(out_json, "w", encoding="utf-8"))
 
