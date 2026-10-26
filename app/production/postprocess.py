@@ -63,7 +63,7 @@ def tighten(src, dst, settle=0.5, lead=0.12):
 
 
 def _whisper_child(wav, model_name, prompt_file, vad, compute, out_json):
-    """Chạy trong tiến trình con: nhận dạng giọng rồi ghi các từ (từ, bắt đầu, kết thúc) ra file JSON."""
+    """Chạy trong tiến trình con: nhận dạng giọng cả file rồi ghi các từ (từ, bắt đầu, kết thúc) ra file JSON."""
     from faster_whisper import WhisperModel
     prompt = open(prompt_file, encoding="utf-8").read() or None
     model = WhisperModel(model_name, device="cpu", compute_type=compute)
@@ -72,23 +72,80 @@ def _whisper_child(wav, model_name, prompt_file, vad, compute, out_json):
     json.dump([(w.word, w.start, w.end) for s in segs for w in s.words], open(out_json, "w", encoding="utf-8"))
 
 
-def _whisper_cmd(wav, model_name, prompt_file, vad, compute, out_json):
+def speech_onset(chunk, sr):
+    """Giây (tính từ đầu `chunk`) tại đó tiếng nói của cảnh bắt đầu, dò theo năng lượng âm thanh; None nếu không thấy rõ tiếng nói.
+    Cần vì khi nhận dạng một đoạn ngắn, Whisper hay gán từ ĐẦU TIÊN bắt đầu sớm hơn thật (quãng lặng đầu đoạn bị tính vào từ đó).
+    Mốc cảnh tính từ độ dài clip nên có thể lệch ~0,2 giây: nếu đầu đoạn đang còn tiếng nói (đuôi câu của cảnh trước) thì bỏ qua, chờ một quãng lặng rồi mới tính."""
+    import numpy as np
+    if len(chunk) < 2 * 400:
+        return None
+    frames = np.lib.stride_tricks.sliding_window_view(chunk.astype(np.float32), 400)[::160]   # khung 25 ms, bước 10 ms (ở 16 kHz)
+    db = 20 * np.log10(np.sqrt((frames ** 2).mean(axis=1)) + 1e-9)
+    floor, level = np.percentile(db, 10), np.percentile(db, 90)   # nền yên lặng và mức nói thật
+    if level - floor < 15:
+        return None
+    above = db > max(floor + 8, level - 12)   # thấp hơn mức nói 12 dB: bỏ qua dư âm nhỏ ở đầu clip (vài chục dB dưới tiếng nói) nhưng vẫn bắt giọng nói nhỏ
+    n, i = len(above), 0
+    if above[:6].all():   # đuôi tiếng nói của cảnh trước: đi tới quãng lặng đầu tiên (>= 80 ms)
+        quiet = 0
+        while i < n and quiet < 8:
+            quiet = quiet + 1 if not above[i] else 0
+            i += 1
+        if quiet < 8:
+            return None
+    for k in range(i, n - 5):
+        if above[k:k + 6].all():   # giữ liên tục 60 ms để bỏ qua tiếng động ngắn
+            return k * 160 / sr
+    return None
+
+
+def _whisper_windows_child(wav, model_name, jobs_file, vad, compute, out_json):
+    """Tiến trình con, chế độ THEO CẢNH: nạp mô hình một lần rồi nhận dạng riêng từng đoạn [a, b] của file. Mỗi đoạn là MỘT cảnh (một người nói, một ngôn ngữ) nên Whisper tự
+    nhận ngôn ngữ cho từng cảnh thay vì đoán một lần cho cả video (video trộn tiếng Tây Ban Nha + tiếng Anh bị bỏ sót/nhầm câu nếu đoán một lần). Ghi list các list từ (giờ tính từ đầu file)."""
+    import wave
+    import numpy as np
+    from faster_whisper import WhisperModel
+    jobs = json.load(open(jobs_file, encoding="utf-8"))
+    with wave.open(wav, "rb") as w:
+        sr = w.getframerate()
+        audio = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768.0
+    model = WhisperModel(model_name, device="cpu", compute_type=compute)
+    out = []
+    for j in jobs:
+        chunk = audio[int(j["a"] * sr): int(j["b"] * sr)]
+        words = []
+        if len(chunk) > 0.2 * sr:
+            segs, _ = model.transcribe(chunk, word_timestamps=True, language="en" if model_name.endswith(".en") else j.get("lang"),
+                                       initial_prompt=j.get("prompt") or None, condition_on_previous_text=False, vad_filter=vad)
+            words = [(w.word, w.start + j["a"], w.end + j["a"]) for sg in segs for w in sg.words]
+            onset = speech_onset(chunk, sr)
+            if words and onset is not None and onset + j["a"] < words[0][2]:   # từ đầu không được bắt đầu trước khi tiếng nói thật bắt đầu
+                words[0] = (words[0][0], max(words[0][1], onset + j["a"]), words[0][2])
+        out.append(words)
+    json.dump(out, open(out_json, "w", encoding="utf-8"))
+
+
+def _whisper_cmd(wav, model_name, prompt_file, vad, compute, out_json, windows=False):
     # -I: tách khỏi môi trường người dùng; -W: bỏ cảnh báo pkg_resources của ctranslate2 (vô hại nhưng làm nhật ký rối)
-    return [sys.executable, "-I", "-W", "ignore:pkg_resources:UserWarning", os.path.abspath(__file__), "--_whisper",
+    return [sys.executable, "-I", "-W", "ignore:pkg_resources:UserWarning", os.path.abspath(__file__), "--_whisper_windows" if windows else "--_whisper",
             wav, model_name, prompt_file, "1" if vad else "0", compute, out_json]
 
 
-def _transcribe_isolated(wav, model_name, prompt, vad, compute):
+def _transcribe_isolated(wav, model_name, prompt, vad, compute, jobs=None):
     """Whisper trong tiến trình riêng: nếu thư viện native (ctranslate2, onnxruntime) hỏng cứng (segfault, mã 0xC0000005) thì chỉ tiến trình con chết,
-    Hậu kỳ vẫn chạy tiếp. Trả về (danh sách từ hoặc None, có phải hỏng cứng không)."""
+    Hậu kỳ vẫn chạy tiếp. `jobs` (danh sách đoạn theo cảnh) bật chế độ theo cảnh. Trả về (kết quả hoặc None, có phải hỏng cứng không)."""
     prompt_file, out_json = wav + ".prompt.txt", wav + ".words.json"
-    open(prompt_file, "w", encoding="utf-8").write(prompt or "")
+    if jobs is not None:
+        open(prompt_file, "w", encoding="utf-8").write(json.dumps(jobs))
+    else:
+        open(prompt_file, "w", encoding="utf-8").write(prompt or "")
     crashed = False
     try:
-        r = subprocess.run(_whisper_cmd(wav, model_name, prompt_file, vad, compute, out_json), capture_output=True, text=True,
+        r = subprocess.run(_whisper_cmd(wav, model_name, prompt_file, vad, compute, out_json, windows=jobs is not None), capture_output=True, text=True,
                            encoding="utf-8", errors="replace", timeout=3600)
         if r.returncode == 0 and os.path.exists(out_json):
-            return [tuple(w) for w in json.load(open(out_json, encoding="utf-8"))], False
+            data = json.load(open(out_json, encoding="utf-8"))
+            return ([[tuple(w) for w in ws] for ws in data] if jobs is not None else [tuple(w) for w in data]), False
         code = r.returncode & 0xFFFFFFFF
         crashed = r.returncode < 0 or code >= 0xC0000000   # Windows: 0xC0000005 (access violation)...; POSIX: tín hiệu (mã âm)
         tail = [l for l in (r.stderr or "").splitlines() if l.strip() and "pkg_resources" not in l][-3:]
@@ -114,8 +171,8 @@ def _vad_known_bad():
         return False
 
 
-def transcribe(path, model_name="small.en", prompt=None, vad=True):
-    """Danh sách từ (từ, bắt đầu, kết thúc) của audio trong `path`, hoặc None nếu máy này không chạy được Whisper.
+def transcribe(path, model_name="small.en", prompt=None, vad=True, jobs=None):
+    """Danh sách từ (từ, bắt đầu, kết thúc) của audio trong `path` (hoặc, với `jobs`, một danh sách từ cho mỗi đoạn theo cảnh), hoặc None nếu máy này không chạy được Whisper.
     vad=True: thử có lọc VAD trước (căn phụ đề dòng đầu chuẩn hơn); VAD dùng onnxruntime, một engine riêng, và đã gây crash cứng trên một số máy,
     nên chỉ chạy trong tiến trình con và nếu hỏng thì tự chuyển sang không VAD (rồi nhớ lại để lần sau bỏ qua VAD)."""
     wav = path + ".wav"
@@ -123,9 +180,9 @@ def transcribe(path, model_name="small.en", prompt=None, vad=True):
     try:
         attempts = ([(True, "int8")] if vad and not _vad_known_bad() else []) + [(False, "int8"), (False, "float32")]   # float32: phòng khi CPU không hỗ trợ int8 đúng
         for use_vad, compute in attempts:
-            words, crashed = _transcribe_isolated(wav, model_name, prompt, use_vad, compute)
-            if words is not None:
-                return words
+            result, crashed = _transcribe_isolated(wav, model_name, prompt, use_vad, compute, jobs)
+            if result is not None:
+                return result
             if use_vad and crashed:
                 try:
                     open(_VAD_MARK, "w").write(time.strftime("%Y-%m-%d %H:%M:%S"))
@@ -140,25 +197,67 @@ def transcribe(path, model_name="small.en", prompt=None, vad=True):
             pass
 
 
-def estimate_words(path, units):
-    """Phương án cuối khi không nhận dạng được giọng: rải đều các từ của phụ đề theo độ dài chữ trên toàn video, để Hậu kỳ vẫn ra video (thời điểm phụ đề chỉ là ước lượng)."""
-    total = max(1.0, duration(path))
+def estimate_span(units, t0, t1):
+    """Rải đều các từ của phụ đề trong khoảng [t0, t1] theo độ dài chữ: phương án cuối khi không nhận dạng được giọng (thời điểm chỉ là ước lượng)."""
     toks = [(t, len(t) + 1) for u in units for t in u["t"].split()]
     wsum = sum(w for _, w in toks) or 1
-    out, t0 = [], 0.2
-    span = max(0.5, total - 0.6)
+    out, cur = [], t0
+    span = max(0.5, t1 - t0)
     for t, w in toks:
         d = span * w / wsum
-        out.append((t, t0, t0 + d * 0.9))
-        t0 += d
+        out.append((t, cur, cur + d * 0.9))
+        cur += d
     return out
+
+
+def estimate_words(path, units):
+    """Cả video: rải đều từ phụ đề trên toàn bộ độ dài (bỏ 0,2 giây đầu và 0,4 giây cuối)."""
+    return estimate_span(units, 0.2, max(0.7, duration(path) - 0.4))
+
+
+def align_by_scene(src, units, scenes, model_name):
+    """Căn phụ đề THEO TỪNG CẢNH: mỗi cảnh được nhận dạng riêng (tự nhận ngôn ngữ riêng) và chỉ gán cho phụ đề của chính lượt thoại đó, nên một cảnh bị Whisper bỏ sót
+    chỉ làm lệch riêng cảnh ấy (ước lượng trong khoảng của cảnh) chứ không kéo lệch các câu sau. Trả về units đã gán, hoặc None để dùng cách cũ (cả video)."""
+    total = duration(src)
+    turns = {u.get("turn") for u in units}
+    by_turn = {sc["turn"]: sc for sc in scenes}
+    if None in turns or not turns <= set(by_turn):
+        return None   # có phụ đề không thuộc cảnh nào: dùng cách cũ
+    groups, jobs = [], []
+    for t in sorted(turns):
+        sc = by_turn[t]
+        us = [u for u in units if u.get("turn") == t]
+        a, b = max(0.0, sc["start"] - 0.2), min(total, sc["end"] + 0.2)   # đệm nhỏ vì mốc cảnh tính từ độ dài clip, lệch vài chục mili giây
+        text = " ".join(u["t"] for u in us)
+        lang = "es" if re.search(r"[¿¡ñÑ]", text) else None   # chữ chỉ có trong tiếng Tây Ban Nha: chốt ngôn ngữ; còn lại để Whisper tự nhận cho riêng cảnh này
+        groups.append((sc, us))
+        jobs.append({"a": a, "b": b, "prompt": text, "lang": lang})
+    result = transcribe(src, model_name, None, vad=True, jobs=jobs)
+    if result is None:
+        print("CẢNH BÁO: máy này không chạy được nhận dạng giọng; phụ đề dùng thời điểm ước lượng theo từng cảnh nên có thể lệch nhẹ so với tiếng nói.")
+        result = [[] for _ in groups]
+    est = heard = 0
+    for (sc, us), words in zip(groups, result):
+        if not words:
+            words = estimate_span(us, sc["start"] + 0.1, max(sc["start"] + 0.6, sc["end"] - 0.2))
+            est += len(us)
+            align(us, words, t0=sc["start"], t1=sc["end"])
+            continue
+        align(us, words, t0=sc["start"], t1=sc["end"])
+        heard += sum(1 for u in us if u["ok"])
+    ordered = sorted(units, key=lambda u: (u["turn"], units.index(u)))
+    for i in range(len(ordered) - 1):   # ranh giới giữa hai cảnh: phụ đề trước không được lấn vào phụ đề sau
+        if ordered[i]["e"] > ordered[i + 1]["s"] - 0.02:
+            ordered[i]["e"] = max(ordered[i]["s"] + 0.1, ordered[i + 1]["s"] - 0.02)
+    print(f"Căn phụ đề theo từng cảnh: {len(groups)} cảnh, {heard}/{len(units)} dòng khớp giọng nói" + (f", {est} dòng ước lượng theo khoảng của cảnh (Whisper không nghe thấy cảnh đó)" if est else ""))
+    return units
 
 
 def norm(w):
     return re.sub(r"[^a-z0-9]", "", w.lower())
 
 
-def align(units, words, window=7):
+def align(units, words, window=7, t0=0.0, t1=None):
     """Gán (start, end) cho từng đơn vị phụ đề bằng cách khớp mờ tuần tự với các từ Whisper."""
     toks = [(norm(w), s, e) for w, s, e in words if norm(w)]
     p = 0
@@ -187,8 +286,8 @@ def align(units, words, window=7):
             j = i
             while j < n and units[j]["s"] is None:
                 j += 1
-            lo = units[i - 1]["e"] if i > 0 else 0.0
-            hi = units[j]["s"] if j < n else (toks[-1][2] if toks else lo + 1)
+            lo = units[i - 1]["e"] if i > 0 else t0
+            hi = units[j]["s"] if j < n else (toks[-1][2] if toks else (t1 if t1 is not None else lo + 1))
             step = max(0.2, (hi - lo) / (j - i + 1))
             for k in range(i, j):
                 units[k]["s"] = lo + step * (k - i) + 0.05
@@ -357,6 +456,7 @@ def main():
     ap.add_argument("--font", default="Arial")
     ap.add_argument("--ding", action="store_true", help="viền xanh nháy + tiếng tinh tinh ở câu khen (Great, Perfect, Exactly...) hoặc câu có \"fx\":\"ding\" trong file phụ đề")
     ap.add_argument("--pop", action="store_true", help="tiếng tách nhẹ mỗi khi hiện phụ đề mới")
+    ap.add_argument("--scenes", help="file JSON [{turn,start,end}]: mốc từng cảnh trong RAW (giây); có thì căn phụ đề theo từng cảnh (cần phụ đề có khoá \"turn\")")
     ap.add_argument("--hook-fx", action="store_true", help="câu có \"fx\":\"wrong\" -> viền đỏ nháy + tiếng tè tè; \"fx\":\"right\" -> viền xanh lá nháy + tiếng tinh tinh")
     a = ap.parse_args()
     out = a.out or os.path.splitext(a.raw)[0] + "_final.mp4"
@@ -372,8 +472,16 @@ def main():
         print("Transcribe + căn phụ đề...")
         prompt = " ".join(u["t"] for u in units)
         raw_units = json.loads(json.dumps(units))
-        words = transcribe(src, a.model, prompt)
-        if words is None:
+        scene_units = None
+        if a.scenes and os.path.exists(a.scenes) and (a.no_tighten or a.subs_only):   # mốc cảnh chỉ đúng khi chưa cắt khoảng lặng
+            try:
+                scene_units = align_by_scene(src, units, json.load(open(a.scenes, encoding="utf-8")), a.model)
+            except Exception as ex:  # noqa: BLE001 - lỗi bất ngờ ở chế độ theo cảnh: dùng cách cũ, không làm hỏng Hậu kỳ
+                print(f"Căn theo cảnh lỗi ({ex}); dùng cách căn cả video.")
+        words = None if scene_units is not None else transcribe(src, a.model, prompt)
+        if scene_units is not None:
+            units = scene_units
+        elif words is None:
             print("CẢNH BÁO: máy này không chạy được nhận dạng giọng; phụ đề dùng thời điểm ước lượng nên có thể lệch so với tiếng nói.")
             units = align(units, estimate_words(src, units))
         else:
@@ -451,6 +559,9 @@ def main():
 
 
 if __name__ == "__main__":
+    if len(sys.argv) > 1 and sys.argv[1] == "--_whisper_windows":   # tiến trình con của transcribe(jobs=...): đối số do _whisper_cmd tạo
+        _whisper_windows_child(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5] == "1", sys.argv[6], sys.argv[7])
+        sys.exit(0)
     if len(sys.argv) > 1 and sys.argv[1] == "--_whisper":   # tiến trình con của transcribe(): đối số do _whisper_cmd tạo
         _whisper_child(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5] == "1", sys.argv[6], sys.argv[7])
         sys.exit(0)

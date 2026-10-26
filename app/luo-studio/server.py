@@ -375,6 +375,69 @@ def export_final(pid, vname, project_name, final):
     return put(os.path.join(base, safe_name(project_name), fn))
 
 
+def _pcm(path, ss=0.0, t=None):
+    """Âm thanh mono 16 kHz của file (float32 -1..1), tuỳ chọn một đoạn."""
+    import numpy as np
+    cmd = ["ffmpeg", "-v", "error"] + (["-ss", f"{ss:.3f}"] if ss else []) + ["-i", path] + (["-t", f"{t:.3f}"] if t else []) + ["-vn", "-ac", "1", "-ar", "16000", "-f", "s16le", "-"]
+    d = E.crun(cmd, capture_output=True).stdout
+    return np.frombuffer(d[: len(d) // 2 * 2], np.int16).astype(np.float32) / 32768.0
+
+
+def _match_start(ref, sig, expect, span=1.0, sr=16000):
+    """Vị trí (giây) trong `sig` nơi đoạn âm thanh `ref` (đầu một clip) xuất hiện, tìm quanh `expect` ± span bằng tương quan chéo chuẩn hoá. None nếu không khớp rõ."""
+    import numpy as np
+    lo = max(0, int((expect - span) * sr))
+    hi = min(len(sig), int((expect + span) * sr) + len(ref))
+    seg = sig[lo:hi]
+    if len(ref) < sr // 2 or len(seg) < len(ref) or float(np.abs(ref).max()) < 0.01:
+        return None
+    n = 1 << (len(seg) + len(ref)).bit_length()
+    corr = np.fft.irfft(np.fft.rfft(seg, n) * np.conj(np.fft.rfft(ref, n)), n)[: len(seg) - len(ref) + 1]
+    cs = np.concatenate(([0.0], np.cumsum(seg.astype(np.float64) ** 2)))
+    win = cs[len(ref):len(ref) + len(corr)] - cs[:len(corr)]
+    ncc = corr / (np.sqrt(win * float((ref.astype(np.float64) ** 2).sum())) + 1e-9)
+    i = int(np.argmax(ncc))
+    return (lo + i) / sr if ncc[i] > 0.5 else None
+
+
+def scene_marks(d, raw):
+    """Ghi scenes.json = [{turn, start, end}] mốc (giây) của từng cảnh trong raw.mp4. Mốc dự kiến tính từ độ dài các clip scene<N>_cut.mp4 (hiệu chỉnh theo độ dài raw.mp4),
+    rồi tinh chỉnh bằng cách khớp âm thanh đầu mỗi clip với raw.mp4 (độ dài clip chỉ cho mốc lệch tới ~0,7 giây ở vài cảnh, đã đo). Trả về đường dẫn file, hoặc None nếu thiếu clip."""
+    try:
+        clips, durs, n = [], [], 1
+        while os.path.exists(os.path.join(d, f"scene{n}_cut.mp4")):
+            clips.append(os.path.join(d, f"scene{n}_cut.mp4"))
+            durs.append(E.video_duration(clips[-1]))
+            n += 1
+        total = sum(durs)
+        if not durs or total <= 0 or not os.path.exists(raw):
+            return None
+        rawdur = E.duration(raw)
+        k = rawdur / total
+        if not 0.97 <= k <= 1.03:
+            return None   # raw.mp4 không khớp các clip (đã sửa tay?): không dùng mốc theo cảnh
+        starts, t = [], 0.0
+        for du in durs:
+            starts.append(t * k)
+            t += du
+        try:
+            sig = _pcm(raw)
+            for i in range(1, len(clips)):   # cảnh 1 luôn bắt đầu ở 0
+                ref = _pcm(clips[i], t=2.0)
+                m = _match_start(ref, sig, starts[i])
+                if m is not None and abs(m - starts[i]) <= 1.0:
+                    starts[i] = m
+            starts = [starts[0]] + [max(starts[i], starts[i - 1] + 0.3) for i in range(1, len(starts))]   # luôn tăng dần
+        except Exception:  # noqa: BLE001 - khớp âm thanh lỗi: dùng mốc tính từ độ dài clip
+            pass
+        marks = [{"turn": i, "start": round(starts[i], 3), "end": round(starts[i + 1] if i + 1 < len(starts) else rawdur, 3)} for i in range(len(starts))]
+        path = os.path.join(d, "scenes.json")
+        jwrite(path, marks)
+        return path
+    except (OSError, RuntimeError, ValueError):
+        return None
+
+
 def post_item(it, opts, cx):
     s = settings()
     p = load_project(it["project"])
@@ -402,6 +465,9 @@ def post_item(it, opts, cx):
         cmd.append("--pop")
     if s.get("fx_hook", True):
         cmd.append("--hook-fx")
+    sc_file = scene_marks(d, raw)   # mốc từng cảnh trong raw.mp4: căn phụ đề theo từng cảnh (video trộn ngôn ngữ không bị lệch dây chuyền)
+    if sc_file:
+        cmd += ["--scenes", sc_file]
     qlog(it, "Hậu kỳ: " + os.path.basename(final))
     proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace", env=dict(os.environ, PYTHONIOENCODING="utf-8"))
     for line in proc.stdout:

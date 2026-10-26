@@ -1072,7 +1072,7 @@ def subs_from_variant(v, auto_hook=True):
             else:
                 merged.append(p)
         for i, p in enumerate(merged):
-            u = {"t": p, "c": t.get("c") or "white"}
+            u = {"t": p, "c": t.get("c") or "white", "turn": ti}   # "turn": cảnh chứa phụ đề này (căn phụ đề theo từng cảnh)
             if i == 0 and t.get("icon"):
                 u["icon"] = t["icon"]
             fx = t.get("fx") if explicit else marks.get(ti)

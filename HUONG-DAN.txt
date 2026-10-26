@@ -338,6 +338,16 @@ Video bị hai nhân vật cùng mấp máy/nói
     nghe và tự gen lại" và "Tách giọng khi robot và người học cùng giới", đặt số lần tự gen lại
     1-3; hoặc gen lại cảnh kèm yêu cầu sửa; chọn hai giọng khác hẳn nhau.
 
+Phụ đề không chạy khớp tiếng nói (nhất là video trộn tiếng Tây Ban Nha và tiếng Anh)
+  - Hậu kỳ giờ căn phụ đề THEO TỪNG CẢNH: mỗi cảnh được nhận dạng riêng (tự nhận ngôn ngữ của riêng cảnh
+    đó) và chỉ gán cho phụ đề của chính lượt thoại ấy, nên một cảnh Whisper nghe sai không còn kéo lệch
+    các câu sau như trước. Nhật ký ghi "Căn phụ đề theo từng cảnh: N cảnh, x/y dòng khớp giọng nói".
+  - Nếu có "... dòng ước lượng theo khoảng của cảnh (Whisper không nghe thấy cảnh đó)": các dòng ấy
+    có thời điểm ước lượng trong khoảng của cảnh nên chỉ lệch nhẹ; thử Hậu kỳ lại với "Nhận dạng giọng"
+    = "Đa ngôn ngữ" trong Cài đặt (mô hình lớn hơn, nghe tốt hơn nhưng chậm hơn).
+  - Video cũ gen trước khi cập nhật vẫn Hậu kỳ lại được; chỉ cần các file scene<N>_cut.mp4 còn trong thư mục
+    chạy (userdata\studio\runs\...). Thiếu file này, Hậu kỳ tự dùng cách căn cũ (cả video).
+
 setup.ps1 / Cap nhat.bat báo không thấy Python, hoặc "Bo cai Python bao loi (ma 1603)"
   - Chạy: powershell -ExecutionPolicy Bypass -File setup.ps1 -CheckOnly   để xem script thấy những
     Python nào trên máy và vì sao từng bản dùng được hay không (cần 3.11 hoặc 3.12, 64-bit).
