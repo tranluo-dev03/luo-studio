@@ -14,5 +14,5 @@ opencv-contrib-python==4.11.0.86
 faster-whisper==1.2.1
 ctranslate2==4.8.3
 onnxruntime==1.31.0
-av==14.4.0
+av==14.0.0
 sounddevice
