@@ -99,6 +99,22 @@ def kill_tree(proc):
         pass
 
 
+def reap_stale_browsers(profile_root):
+    """Tắt trình duyệt con của LUO-API còn sót từ lần chạy trước (nhận ra qua --user-data-dir nằm trong hồ sơ của API). Nếu không, nó vẫn giữ hồ sơ
+    dùng chung: Chromium mới (cổng CDP khác) chỉ giao việc cho bản cũ rồi thoát, cổng không bao giờ mở và API báo 'Chromium 启动失败'.
+    Chạy SAU already_running(): bản đang chạy thật thì không bị đụng tới. Chrome thường của người dùng dùng hồ sơ khác nên không bị ảnh hưởng."""
+    try:
+        if os.name == "nt":
+            script = ("$p=$env:LUO_PROFILE_ROOT; Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -and $_.Name -match 'chrome|chromium|msedge' "
+                      "-and $_.CommandLine.Contains($p) } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }")
+            subprocess.run(["powershell", "-NoProfile", "-NonInteractive", "-Command", script], capture_output=True, timeout=30,
+                           creationflags=CREATE_NO_WINDOW, env=dict(os.environ, LUO_PROFILE_ROOT=profile_root))
+        else:
+            subprocess.run(["pkill", "-f", "--", "--user-data-dir=" + profile_root], capture_output=True, timeout=10)
+    except Exception:
+        pass
+
+
 def already_running():
     """Chỉ cho một bản chạy: nếu bản trước còn sống thì chỉ mở lại cửa sổ vào đúng máy chủ đó."""
     p = os.path.join(USER, "running.json")
@@ -123,10 +139,6 @@ def main():
     models = os.path.join(ROOT, "models", "hf")
     os.environ.setdefault("HF_HOME", models if os.path.isdir(models) else os.path.join(USER, "hf"))   # mô hình nhận dạng giọng đóng sẵn (nếu có)
     os.environ.setdefault("MUSE2API_PROFILE_ROOT", os.path.join(USER, "profiles"))   # hồ sơ trình duyệt của API nằm trong userdata
-    for p in range(19210, 19250):   # cổng điều khiển trình duyệt (CDP) trống
-        if port_free(p):
-            os.environ.setdefault("MUSE2API_CDP_PORT", str(p))
-            break
     os.environ["LUO_STUDIO_DATA"] = STUDIO_DATA
     os.environ["MUSE2API_HOME"] = API_HOME
     os.environ["MUSE2API_ENV_FILE"] = os.path.join(API_HOME, ".env")
@@ -136,6 +148,12 @@ def main():
         say(f"LUO Studio đang chạy: {again}")
         open_window(again)
         return 0
+
+    reap_stale_browsers(os.environ["MUSE2API_PROFILE_ROOT"])   # trước khi chọn cổng CDP: cổng của trình duyệt sót lại được trả về
+    for p in range(19210, 19250):   # cổng điều khiển trình duyệt (CDP) trống
+        if port_free(p):
+            os.environ.setdefault("MUSE2API_CDP_PORT", str(p))
+            break
 
     # ---- bật LUO-API
     port = pick_port(PREFERRED_PORT)
