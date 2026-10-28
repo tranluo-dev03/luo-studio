@@ -163,14 +163,49 @@ Write-Host "[3/4] Kiem tra ffmpeg..." -ForegroundColor Cyan
 if ((Test-Path "bin\ffmpeg.exe") -and (Test-Path "bin\ffprobe.exe")) {
   Write-Host "  Da co ffmpeg trong bin\"
 } else {
+  # ffmpeg ban essentials nang ~110 MB. Invoke-WebRequest trong Windows PowerShell 5.1 ve thanh tien do cuc cham (nhin nhu treo hang chuc phut)
+  # va khong co timeout, nen dung curl.exe (co san tu Windows 10): co thanh tien do, tu thu lai, bo cuoc neu mang gan nhu dung.
   $tmp = Join-Path $env:TEMP "luo-ffmpeg"
   if (Test-Path $tmp) { Remove-Item $tmp -Recurse -Force }
   New-Item -ItemType Directory -Path $tmp | Out-Null
   $zip = Join-Path $tmp "ffmpeg.zip"
-  Invoke-WebRequest -Uri "https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip" -OutFile $zip
-  Expand-Archive -Path $zip -DestinationPath $tmp -Force
+  $urls = @()
+  try {
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    $rel = Invoke-RestMethod -Uri "https://api.github.com/repos/GyanD/codexffmpeg/releases/latest" -TimeoutSec 20 -UserAgent "luo-studio-setup"
+    $asset = $rel.assets | Where-Object { $_.name -match 'essentials_build\.zip$' } | Select-Object -First 1
+    if ($asset) { $urls += $asset.browser_download_url }   # ban sao chinh thuc cua gyan.dev tren GitHub: thuong nhanh hon nhieu (do thuc te ~16 lan)
+  } catch {}
+  $urls += "https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip"   # nguon goc, du phong khi khong goi duoc GitHub
+  $got = $false
+  foreach ($u in $urls) {
+    Write-Host "  Dang tai ffmpeg (khoang 110 MB) tu $u"
+    if (Test-Path $zip) { Remove-Item $zip -Force }
+    $curl = Join-Path $env:SystemRoot "System32\curl.exe"
+    if (Test-Path $curl) {
+      & $curl -L --fail --retry 3 --retry-delay 3 --connect-timeout 20 --speed-limit 20000 --speed-time 60 -# -o $zip $u
+      $ok = ($LASTEXITCODE -eq 0)
+    } else {
+      $pp = $ProgressPreference; $ProgressPreference = "SilentlyContinue"
+      try { Invoke-WebRequest -Uri $u -OutFile $zip -TimeoutSec 600; $ok = $true } catch { $ok = $false }
+      $ProgressPreference = $pp
+    }
+    if ($ok -and (Test-Path $zip)) { $got = $true; break }
+    Write-Host "  Tai that bai tu nguon nay, thu nguon khac..." -ForegroundColor Yellow
+  }
+  if (-not $got) { throw "Khong tai duoc ffmpeg. Kiem tra mang, hoac tai thu cong ffmpeg-release-essentials.zip tu https://www.gyan.dev/ffmpeg/builds/ roi chep ffmpeg.exe va ffprobe.exe vao thu muc bin\." }
+  Write-Host "  Dang giai nen ffmpeg.exe va ffprobe.exe..."
+  # chi lay hai file can dung (Expand-Archive giai nen ca ~400 MB, rat cham)
+  Add-Type -AssemblyName System.IO.Compression.FileSystem
   New-Item -ItemType Directory -Force -Path "bin" | Out-Null
-  Get-ChildItem $tmp -Recurse -Include ffmpeg.exe, ffprobe.exe | Copy-Item -Destination "bin" -Force
+  $za = [IO.Compression.ZipFile]::OpenRead($zip)
+  try {
+    foreach ($e in $za.Entries) {
+      if (($e.Name -eq "ffmpeg.exe" -or $e.Name -eq "ffprobe.exe") -and $e.FullName -match '(^|/)bin/') {
+        [IO.Compression.ZipFileExtensions]::ExtractToFile($e, (Join-Path (Resolve-Path "bin").Path $e.Name), $true)
+      }
+    }
+  } finally { $za.Dispose() }
   Remove-Item $tmp -Recurse -Force
   if (-not (Test-Path "bin\ffmpeg.exe")) { throw "Khong lay duoc ffmpeg.exe" }
   Write-Host "  Da cai ffmpeg vao bin\"
