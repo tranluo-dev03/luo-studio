@@ -209,6 +209,24 @@ Góc trên bên phải có chấm trạng thái API:
   thể trước khi chạy cả nhóm. Muốn bố cục khác hẳn thì dùng Phần B trong file 3 để Claude
   viết kịch bản mới, rồi nhập ở tab "Loại dự án" -> "Loại mới".
 
+6.5c Loại dự án "Ghép 2 lớp" (chống hai nhân vật cùng nói)
+  - Dành cho bố cục mà mỗi nhân vật ở một vùng riêng (vd. gia sư AI trong khung bo góc phía trên,
+    người học quay selfie phía dưới). Mỗi nhân vật được gen RIÊNG, một mình trong khung, rồi phần mềm
+    tự ghép lại; vì vậy không thể xảy ra chuyện hai người cùng nói hay người nghe mấp máy miệng.
+  - Tạo: tab "Loại dự án" > "Loại mới" > tải file SAMPLE\Ghep hai lop\KICH-BAN-GHEP-HAI-LOP.txt
+    (thẻ hiện "Ghép 2 lớp"); biến thể mẫu: SAMPLE\Ghep hai lop\BIEN-THE-GHEP-HAI-LOP.json.
+  - Mỗi lượt thoại là một cảnh, số lượt tuỳ ý. Mỗi video, trước cảnh 1 phần mềm gen: một ảnh gốc cho
+    từng nhân vật và vài clip "đang nghe" (nhật ký ghi "Chuẩn bị: ..."). Sau đó mỗi cảnh chỉ gen clip của
+    người nói rồi ghép với một đoạn clip nghe của người kia.
+  - Tuỳ chỉnh trong khối [GHEP HAI LOP] của script (sửa loại dự án):
+      + "khung DAY: x, y, rộng, cao": vị trí và tỉ lệ khung (ví dụ cao 0.32 = 32% chiều cao màn hình);
+      + "bo goc", "vien": bo góc và viền khung;
+      + "nghe: dung lai 3" (tiết kiệm lượt, mặc định) hoặc "nghe: moi canh" (gen clip nghe riêng từng
+        cảnh: tự nhiên hơn nhưng tốn gấp đôi lượt).
+  - Số lượt Muse cho video 12 lượt thoại, mỗi nhân vật 3 clip nghe: 2 ảnh gốc + 6 clip nghe + 12 clip nói = 20
+    (chưa kể thử lại).
+  - Gen lại một cảnh chỉ gen lại clip người nói của cảnh đó; Hậu kỳ (phụ đề, sai/đúng, logo) dùng như thường.
+
 6.6 Đưa vào hàng đợi và chạy
   1) Tick các biến thể muốn gen (ô vuông cạnh tên).
   2) Bấm "Thêm vào hàng đợi" (góc trên bên phải).

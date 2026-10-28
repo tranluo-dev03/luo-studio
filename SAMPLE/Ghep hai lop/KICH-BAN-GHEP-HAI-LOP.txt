@@ -1,0 +1,27 @@
+[GHEP HAI LOP]:
+nen: HOC
+khung DAY: 0.02, 0.015, 0.96, 0.32
+bo goc: 0.05
+vien: #FFFFFF, 3
+nghe: dung lai 3
+
+[STYLE LOCK]:
+Vertical short-form social video look, natural light, crisp focus on the face, realistic skin and fabric detail for real people, smooth polished 3D-animated look for animated characters. No text, captions, logos, icons or watermarks anywhere in the frame.
+
+[NHAN VAT DAY]:
+{{TEN_DAY}}: {{NGUOI_DAY}}. Framed for a wide call-window: head and shoulders centred in the middle of the frame, a little empty space on both sides, in front of {{NEN_DAY}}. The camera is locked off and never moves. VOICE: {{GIONG_DAY}}, the same timbre, pitch and loudness in every clip.
+
+[NGHE DAY]:
+{{TEN_DAY}} listens to the person on the other end of the call: soft attentive smile, slow natural blinks, a tiny occasional nod, chin resting lightly on one hand. Lips stay sealed.
+
+[NHAN VAT HOC]:
+{{TEN_HOC}}: {{NGUOI_HOC}}. Selfie-style shot from a phone held at arm's length, chest-up, the face in the lower-middle of the frame and the upper third of the frame left as calm background (it is covered later by a call window), in front of {{NEN_HOC}}. Small natural hand-held sway only, no cuts, no zoom. VOICE: {{GIONG_HOC}}, the same timbre, pitch and loudness in every clip.
+
+[NGHE HOC]:
+{{TEN_HOC}} listens to the AI tutor on the phone screen: eyes glance slightly up toward the top of the phone, friendly attentive expression, slow blinks, a small nod now and then. Lips stay sealed.
+
+[VIDEO SUFFIX]:
+Natural spontaneous conversational delivery, not text-to-speech, brisk and clear (about 4 to 4.5 words per second, short lines faster), light natural breaths, a smile audible in the voice when the line is positive. Clean voice only, no music, no background sound effects, no echo.
+
+[NEGATIVE]:
+text, letters, captions, subtitles, logos, icons, watermark; camera cuts, zoom, push-in, shake; face morphing, outfit change, age or style drift; distorted face; extra or missing fingers; jerky or exaggerated gestures; slow, dragged or stretched speech; flat monotone or robotic voice; background music; echo or reverb

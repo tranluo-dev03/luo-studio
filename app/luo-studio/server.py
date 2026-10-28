@@ -97,8 +97,15 @@ template_text = type_text
 
 def _finish_type(t, script):
     an = E.analyze_script(script)
-    if not an["scenes"]:
+    if an.get("split"):   # ghép 2 lớp: kiểm tra bố cục ngay khi lưu loại dự án
+        import split as SP
+        try:
+            SP.parse(script)
+        except RuntimeError as e:
+            raise ValueError(str(e)) from None
+    elif not an["scenes"]:
         raise ValueError('Script không có cảnh nào (cần các dòng dạng "CẢNH 1 (0:00–0:05): Tiêu đề")')
+    t["split"] = bool(an.get("split"))
     t["scenes"] = an["scenes"]
     t["series"] = an["series"]
     t["fields"] = E.suggest_fields(an["plain"], "LUOT" in an["series"], t.get("fields"))

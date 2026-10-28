@@ -1,0 +1,29 @@
+[
+  {
+    "name": "tai-xe-gia-su-ai",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a stylized 3D-animated young woman in a polished animated-feature style, long wavy golden-blonde hair, big warm brown eyes, a navy police-style uniform shirt with small patches, friendly confident expression",
+    "GIONG_DAY": "a clear, warm, friendly young woman's voice, American accent, bright and upbeat",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a woman in her late fifties with short light-brown hair, sun-tanned skin and kind eyes, wearing a tan work jacket with yellow-grey reflective stripes on the sleeves and a white name patch, over a dark-blue shirt",
+    "GIONG_HOC": "an older American woman's voice, warm and a little husky, relaxed",
+    "NEN_HOC": "the inside of a truck cab at golden hour, sunset sky and a highway visible through the side window",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {"who": "day", "text": "Where are you going?", "emo": "curious"},
+      {"who": "hoc", "text": "I go to home.", "emo": "cheerful"},
+      {"who": "day", "text": "You mean, I'm going home?", "emo": "gentle correction"},
+      {"who": "hoc", "text": "Ah, yes, I'm going home. I am very hurry.", "emo": "cheerful"},
+      {"who": "day", "text": "I'm in a hurry, is the correct way to say that.", "emo": "warm"},
+      {"who": "hoc", "text": "Oh, okay. Thank you. Wait, who are you?", "emo": "surprised"},
+      {"who": "day", "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.", "emo": "warm"},
+      {"who": "hoc", "text": "But I don't have money.", "emo": "worried"},
+      {"who": "day", "text": "It's I have no money. But don't worry, LangLearn is a completely free app.", "emo": "reassuring"},
+      {"who": "hoc", "text": "Seriously?", "emo": "surprised"},
+      {"who": "day", "text": "We can practice English anytime, anywhere. Just download LangLearn.", "emo": "upbeat"},
+      {"who": "hoc", "text": "I will download now. Thank you so much.", "emo": "happy"}
+    ]
+  }
+]

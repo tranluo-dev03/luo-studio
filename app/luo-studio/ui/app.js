@@ -130,7 +130,7 @@ function newProjectModal(presetType) {
   let t = presetType && typeof presetType === "string" ? presetType : (S.boot.types[0] || {}).id, file = null, name = "";
   const draw = () => openModal(`<div class="mbox"><h2>Dự án mới <button class="ib" id="mx">${ico("x")}</button></h2>
     <div class="f"><label>Tên</label><input id="npn" value="${esc(name)}" placeholder="Talka - nấu ăn" autofocus></div>
-    <div class="f"><label>Loại dự án</label></div><div class="tpls">${S.boot.types.map(x => `<div class="tpl ${x.id === t ? "on" : ""}" data-t="${x.id}"><b>${esc(x.name)}</b><small>${x.scenes} cảnh · ${x.fields.length} trường</small></div>`).join("")}<div class="tpl dashed" id="newtype">${ico("plus")}<b>Loại mới</b><small>Thêm script riêng</small></div></div>
+    <div class="f"><label>Loại dự án</label></div><div class="tpls">${S.boot.types.map(x => `<div class="tpl ${x.id === t ? "on" : ""}" data-t="${x.id}"><b>${esc(x.name)}</b><small>${x.split ? "Ghép 2 lớp" : x.scenes + " cảnh"} · ${x.fields.length} trường</small></div>`).join("")}<div class="tpl dashed" id="newtype">${ico("plus")}<b>Loại mới</b><small>Thêm script riêng</small></div></div>
     <div class="f" style="margin-top:14px"><label>Danh sách biến thể (tuỳ chọn)</label><div class="pick"><input class="input" readonly value="${esc(file ? file.name + " · " + file.n + " biến thể" : "")}" placeholder="JSON hoặc CSV"><label class="btn sm" style="cursor:pointer">Chọn<input type="file" id="npf" accept=".json,.csv,.tsv,.txt" hidden></label></div></div>
     <div class="mact"><button class="btn" id="mx2">Huỷ</button><button class="btn primary" id="npok">Tạo</button></div></div>`);
   draw();
@@ -743,7 +743,7 @@ async function pageTypes() {
   const used = t => S.boot.projects.filter(p => p.template === t.id).length;
   $("#view").innerHTML = `<div class="grid">${S.boot.types.map(t => `<div class="card pcard">
       <div style="display:flex;justify-content:space-between;gap:10px"><h3>${esc(t.name)}</h3>${t.builtin ? '<span class="tag mute">Có sẵn</span>' : ""}</div>
-      <div class="meta"><span>${t.scenes} cảnh</span>·<span>${t.fields.length} trường</span>${Object.entries(t.series || {}).map(([k, n]) => `<span class="tag">${esc(k)} ×${n}</span>`).join("")}</div>
+      <div class="meta"><span>${t.split ? "Ghép 2 lớp" : t.scenes + " cảnh"}</span>·<span>${t.fields.length} trường</span>${Object.entries(t.series || {}).map(([k, n]) => `<span class="tag">${esc(k)} ×${n}</span>`).join("")}</div>
       <div class="meta"><span>${used(t)} dự án</span></div>
       <div class="row2" style="margin-top:auto"><button class="btn sm" data-edit="${t.id}">Sửa</button><button class="btn sm" data-dup="${t.id}">Nhân bản</button><span style="flex:1"></span><button class="ib danger" data-deltype="${t.id}" title="Xoá">${ico("trash")}</button></div></div>`).join("")}
   </div>`;
@@ -775,14 +775,14 @@ async function typeWizard(existing, opts = {}) {
   let W;
   if (existing) {
     const t = await api("types/" + existing.id);
-    W = { id: t.id, name: t.name, script: t.script, fields: clone(t.fields), turns: { ...t.turns }, defaults: { ...t.defaults }, analysis: { scenes: t.scenes, series: t.series }, file: null };
+    W = { id: t.id, name: t.name, script: t.script, fields: clone(t.fields), turns: { ...t.turns }, defaults: { ...t.defaults }, analysis: { scenes: t.scenes, series: t.series, split: t.split }, file: null };
   } else {
     W = { id: null, name: "", script: "", fields: [], turns: { day_label: "Người dạy", hoc_label: "Người học" }, defaults: { POS_DAY: "LEFT", POS_HOC: "RIGHT" }, analysis: { scenes: 0, series: {} }, file: null, make: true, pname: opts.fromProject || "" };
   }
   let timer = 0;
   const info = () => {
     const a = W.analysis, el = $("#winfo"); if (!el) return;
-    el.innerHTML = a.scenes ? `<span class="tag ok">${a.scenes} cảnh</span><span class="tag">${W.fields.length} trường</span>${Object.entries(a.series || {}).map(([k, n]) => `<span class="tag">${esc(k)} ×${n}</span>`).join("")}` : `<span class="tag bad">Chưa thấy cảnh nào</span>`;
+    el.innerHTML = a.split ? `<span class="tag ok" title="Mỗi nhân vật gen riêng rồi ghép; mỗi lượt thoại là một cảnh">Ghép 2 lớp</span><span class="tag">${W.fields.length} trường</span>` : a.scenes ? `<span class="tag ok">${a.scenes} cảnh</span><span class="tag">${W.fields.length} trường</span>${Object.entries(a.series || {}).map(([k, n]) => `<span class="tag">${esc(k)} ×${n}</span>`).join("")}` : `<span class="tag bad">Chưa thấy cảnh nào</span>`;
     const tw = $("#wturns"); if (tw) tw.classList.toggle("hidden", !("LUOT" in (a.series || {})));
   };
   const drawFields = () => {
@@ -812,7 +812,7 @@ async function typeWizard(existing, opts = {}) {
   const analyze = async () => {
     try {
       const r = await api("types/analyze", { body: { script: W.script, fields: W.fields } });
-      W.analysis = { scenes: r.scenes, series: r.series }; W.fields = r.fields; drawFields(); info();
+      W.analysis = { scenes: r.scenes, series: r.series, split: r.split }; W.fields = r.fields; drawFields(); info();
     } catch (e) { toast(e.message, 1); }
   };
   draw(); if (W.script) analyze();
@@ -855,7 +855,7 @@ async function typeWizard(existing, opts = {}) {
     if (e.target.closest("#wmk")) { W.make = !W.make; const c = $("#wmk"); c.classList.toggle("on", W.make); c.innerHTML = W.make ? ico("check") : ""; return; }
     if (e.target.closest("#wok")) {
       if (!W.name.trim()) return toast("Đặt tên cho loại dự án", 1);
-      if (!W.analysis.scenes) return toast("Script cần có các dòng CẢNH 1 (0:00–0:05): …", 1);
+      if (!W.analysis.scenes && !W.analysis.split) return toast("Script cần có các dòng CẢNH 1 (0:00–0:05): …", 1);
       const body = { name: W.name.trim(), script: W.script, fields: W.fields, turns: W.turns, defaults: W.defaults };
       try {
         const t = existing ? await api("types/" + existing.id, { method: "PUT", body }) : await api("types", { body });

@@ -228,8 +228,8 @@ def has_audio(path):
 
 # ------------------------------------------------------------------ API với huỷ + tiến độ
 class Api(G.Api):
-    def generate(self, kind, prompt, refs, session, duration=None, timeout=900, on_status=None, cancel=None, audios=None, on_account=None, pin=None, pin_prefer=None):
-        body = {"prompt": prompt, "model": "muse-video" if kind == "video" else "muse-image", "aspect_ratio": "9:16",
+    def generate(self, kind, prompt, refs, session, duration=None, timeout=900, on_status=None, cancel=None, audios=None, on_account=None, pin=None, pin_prefer=None, aspect="9:16"):
+        body = {"prompt": prompt, "model": "muse-video" if kind == "video" else "muse-image", "aspect_ratio": aspect,
                 "raw_prompt": True, "timeout": min(int(timeout), 600), "session": session}  # API nhận tối đa 600s; thời gian chờ phía app (deadline) vẫn theo `timeout`
         if pin:   # mọi cảnh của một video ghim vào MỘT tài khoản Muse (LUO-API không tự đổi tài khoản)
             body["pin"] = pin
@@ -280,23 +280,43 @@ class Api(G.Api):
 
 
 # ------------------------------------------------------------------ tham chiếu đính kèm theo token
-def attachments(vdata, opts):
-    """(ảnh data-url, chú thích ảnh, [(nhóm, audio data-url)]) từ vdata["refs"] = {TOKEN: [{type,file,name}]}."""
+def attachments(vdata, opts, keep=None, offset=0, missing=None):
+    """(ảnh data-url, chú thích ảnh, [(nhóm, audio data-url)]) từ vdata["refs"] = {TOKEN: [{type,file,name}]}.
+    keep(token, nhóm) -> bool: chỉ lấy tệp của các token thoả điều kiện (chế độ ghép 2 lớp: mỗi nhân vật chỉ nhận ảnh của chính nó).
+    offset: số ảnh đã đứng TRƯỚC các ảnh này trong lệnh gửi (ảnh chung của dự án), để số thứ tự trong chú thích khớp thứ tự thật.
+    missing: danh sách nhận tên các tệp được gắn nhưng không còn trên đĩa (trước đây bị bỏ qua âm thầm, video ra sai nhân vật mà không có cảnh báo)."""
     base = opts.get("assets_dir") or ""
     labels, groups = opts.get("field_labels", {}), opts.get("field_groups", {})
     imgs, notes, auds = [], [], []
+    chars = MV.chars_of(vdata)
+
+    def describe(key):
+        """Câu tiếng Anh nói ảnh này là của AI. Tên trường (vd. "Ngoại hình") giống nhau ở mọi nhân vật nên Muse không biết ảnh nào của ai; phải nêu TÊN nhân vật (TEN_<khoá>)."""
+        k = key.upper()
+        c = next((c for c in chars if k.endswith("_" + c)), None)
+        name = str(vdata.get("TEN_" + c) or "").strip()[:70] if c else ""
+        if c and k.startswith("NGUOI"):
+            who = f"{name} (character {c})" if name else f"character {c}"
+            return f"the EXACT look of {who}: copy this person's face, hair, skin tone, age and clothing; it is NOT any other character"
+        if c:
+            return f"{labels.get(key, key)} for {name or 'character ' + c}"
+        return str(labels.get(key, key))
     for key, items in (vdata.get("refs") or {}).items():
+        if keep and not keep(key, groups.get(key, "other")):
+            continue
         for it in items or []:
             p = os.path.join(base, os.path.basename(it.get("file", "")))
             if not os.path.isfile(p):
+                if missing is not None:
+                    missing.append(f"{labels.get(key, key)}: {it.get('name') or it.get('file')}")
                 continue
             if it.get("type") == "audio":
                 auds.append((groups.get(key, "other"), G.data_url(p)))
             else:
                 imgs.append(G.data_url(p))
-                notes.append(f"the attached reference image #{len(imgs)} shows: {labels.get(key, key)}")
+                notes.append(f"reference image #{offset + len(imgs)} is {describe(key)}")
     legend = "; ".join(notes)
-    return imgs, ("(the first images are general references) " + legend if legend else ""), auds
+    return imgs, ((("(the first images are general references) " if offset else "") + legend) if legend else ""), auds
 
 
 # ------------------------------------------------------------------ chống 2 nhân vật cùng nói
@@ -814,6 +834,9 @@ def release_pin(opts, pin):
 def run_variant(vdata, template, out_dir, opts, emit, cancel):
     """emit(event, **kw): scene_init / scene / log / done. Trả về đường dẫn raw.mp4."""
     os.makedirs(out_dir, exist_ok=True)
+    import split as SP
+    if SP.is_split(template):   # loại dự án "ghép 2 lớp": mỗi nhân vật gen riêng rồi ghép (split.py)
+        return SP.run_split(vdata, template, out_dir, opts, emit, cancel)
     n_real = len(vdata.get("LUOT", []))
     risky = same_gender(vdata)   # robot và người học cùng giới: nguy cơ nói chồng cao hơn nhiều
     if risky and opts.get("voice_split", True) and not (vdata.get("VAI_DAY") or vdata.get("VAI_HOC")):   # tách giọng kiểu "robot + người học" chỉ cho loại gia sư AI; thể loại khác tự khai vai nên giữ nguyên giọng đã mô tả
@@ -855,7 +878,12 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
             pass
     refs = [G.data_url(p) for p in opts.get("refs", []) if p and os.path.exists(p)]
     luot = vdata.get("LUOT", [])
-    att_imgs, att_legend, att_auds = attachments(vdata, opts)
+    att_missing = []
+    att_imgs, att_legend, att_auds = attachments(vdata, opts, offset=len(refs), missing=att_missing)
+    if att_missing:
+        emit("log", msg="CẢNH BÁO: các ảnh/âm thanh tham chiếu sau được gắn vào biến thể nhưng KHÔNG tìm thấy file nên không được gửi: " + "; ".join(att_missing[:6]), level="warn")
+    emit("log", msg=f"Tham chiếu: {len(refs) + len(att_imgs)} ảnh ({len(att_imgs)} gắn trong biến thể) sẽ gửi kèm lệnh gen ảnh khung đầu; {len(att_auds)} âm thanh mẫu giọng"
+                    + ("" if att_imgs or refs else " - biến thể chưa gắn ảnh tham chiếu nào"))
     emit("scene_init", scenes=[{"n": s["n"], "who": (luot[s["n"] - 1]["who"] if s["n"] - 1 < len(luot) else ""),
                                 "text": (luot[s["n"] - 1]["text"] if s["n"] - 1 < len(luot) else s["title"]),
                                 "state": "wait"} for s in scenes])
@@ -944,6 +972,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
 
         if has_img and not os.path.exists(img_f):
             emit("scene", n=n, state="image", pct=0)
+            emit("log", msg=f"Cảnh {n}: gen ảnh khung đầu kèm {len(ref_imgs)} ảnh tham chiếu" + (f" (trong đó {len(att_imgs)} ảnh gắn trong biến thể)" if att_imgs else ""))
 
             def gi():
                 b = api.generate("image", G.muse_image_prompt(img_p, neg, len(ref_imgs)), ref_imgs, session, timeout=opts["timeout"],
@@ -1102,6 +1131,11 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
         if info and info["speed"] > 1:
             emit("log", msg=f"Cảnh {n}: lời nói chậm, tăng tốc x{info['speed']}")
     end_session(session)
+    return concat_clips(clips, out_dir, emit)
+
+
+def concat_clips(clips, out_dir, emit):
+    """Ghép các clip cảnh (đã cắt) thành raw.mp4."""
     raw = os.path.join(out_dir, "raw.mp4")
     ins, fl = [], ""
     for i, c in enumerate(clips):
@@ -1211,6 +1245,8 @@ def analyze_script(text):
         if ns == list(range(1, len(ns) + 1)) and (len(ns) >= 2 or pre in ("LUOT", "THOAI")):
             series[pre] = len(ns)
             in_series.update(f"{pre}_{n}" for n in ns)
+    if re.search(r"^\[GHEP HAI LOP\]:\s*$", text, flags=re.M):   # ghép 2 lớp: không có khối CẢNH, mỗi lượt thoại là một cảnh (số lượt tuỳ ý)
+        return {"scenes": 0, "split": True, "plain": [t for t in tokens if t not in in_series], "series": {**series, "LUOT": 0}}
     return {"scenes": len(re.findall(r"^CẢNH \d+ \(", text, flags=re.M)), "plain": [t for t in tokens if t not in in_series], "series": series}
 
 
@@ -1222,6 +1258,7 @@ KNOWN_FIELDS = {
     "NEN_TRAI": ("Nền bên trái", "scene", "long", "a flat chroma-key green background"), "NEN_PHAI": ("Nền bên phải", "scene", "long", "an empty sunny garden, soft bokeh"),
     "VIEC": ("Đang làm gì", "scene", "long", "stirring a pot of pasta"), "DAO_CU": ("Đạo cụ", "scene", "long", "holding a wooden spoon"),
     "DAO_GIU": ("Cách cầm", "scene", "long", "she holds the spoon in her right hand"), "DAO_NGHI": ("Tay khi nghỉ", "scene", "long", "one hand resting on the pot handle"),
+    "NEN_DAY": ("Nền", "day", "long", "a plain pure black background"), "NEN_HOC": ("Nền", "hoc", "long", "the inside of a truck cab at golden hour"),   # ghép 2 lớp: nền riêng của từng nhân vật
 }
 
 

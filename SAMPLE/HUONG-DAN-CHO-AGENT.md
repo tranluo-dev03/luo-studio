@@ -81,6 +81,27 @@ Giới hạn của công cụ: không biết ai đang nói (agent điền); chuy
 6. **Viết kịch bản:** `[STYLE LOCK]`, `[CHAR LOCK]`, `[SET LOCK]`, `[VIDEO SUFFIX]`, `[NEGATIVE]`, rồi các cảnh `CẢNH n (m:ss–m:ss): Lượt n` với: Bối cảnh, Voice, Khung đầu, Khung cuối, Diễn biến, Prompt ảnh (cảnh đầu và cảnh đổi bối cảnh), Prompt video, Audio, Negative prompt. Prompt gửi Muse viết **tiếng Anh**; tiêu đề trường và các trường mô tả viết tiếng Việt.
 7. **Viết biến thể (.json)** theo mục 4, rồi kiểm tra (mục 5).
 
+## 3b. Thể loại "ghép 2 lớp" (nhân vật ở hai vùng tách biệt của khung)
+
+Dùng khi các nhân vật KHÔNG cần đứng chung một khung thật: ví dụ gia sư AI trong khung gọi video bo góc phía trên + người học quay selfie phía dưới,
+hoặc hai người chia đôi màn hình. Studio gen RIÊNG từng nhân vật (mỗi clip chỉ có một người, nên không bao giờ có chuyện hai người cùng nói),
+rồi ghép bằng ffmpeg. Mỗi lượt thoại là một cảnh, số lượt tuỳ ý, KHÔNG viết khối CẢNH. Mẫu: `SAMPLE/Ghep hai lop/`.
+
+Kịch bản gồm các khối:
+- `[GHEP HAI LOP]:` bố cục, mỗi dòng một khoá (có dấu hay không đều được):
+  - `nen: HOC` nhân vật làm nền toàn khung 9:16;
+  - `khung DAY: 0.02, 0.015, 0.96, 0.32` khung của nhân vật khác: x, y, rộng, cao theo tỉ lệ khung hình (0..1). Có thể nhiều dòng `khung <KHOÁ>`.
+    Studio gen nhân vật trong khung ở tỉ lệ Muse hỗ trợ gần nhất (16:9, 1:1 hoặc 9:16) rồi cắt vừa khung;
+  - `bo goc: 0.05` bán kính bo góc (theo bề rộng khung hình); `vien: #FFFFFF, 3` màu và độ dày viền (`vien: khong` = không viền);
+  - `nghe: dung lai 3` mỗi nhân vật có 3 clip "đang nghe" ~10 giây dùng lại cho mọi cảnh (tiết kiệm lượt), hoặc `nghe: moi canh` gen clip nghe riêng từng cảnh (tự nhiên hơn, tốn gấp đôi lượt).
+- `[STYLE LOCK]:` phong cách chung.
+- `[NHAN VAT <KHOÁ>]:` mô tả nhân vật khi đứng MỘT MÌNH trong khung của mình: ngoại hình, nền, cách đặt khung hình (nhân vật trong khung ngang: đầu vai ở giữa; nhân vật nền: chừa trống phần bị khung che), giọng.
+- `[NGHE <KHOÁ>]:` (tuỳ chọn) dáng nghe: ánh mắt nhìn về đâu, nụ cười, gật nhẹ. Luôn kèm "lips stay sealed".
+- `[VIDEO SUFFIX]:` nhịp nói (từ/giây đo được ở mục 0), `[NEGATIVE]:`.
+
+Studio tự lo: ảnh gốc mỗi nhân vật (mọi clip bắt đầu từ ảnh này nên mặt/màu không trôi), câu thoại và cảm xúc lấy từ `LUOT`, cắt sát lời, cân màu,
+ghép theo bố cục, tiếng chỉ từ người nói. Biến thể dùng `TEN_/NGUOI_/GIONG_/NEN_<KHOÁ>` như thường.
+
 ## 4. Biến thể (.json)
 
 ```json

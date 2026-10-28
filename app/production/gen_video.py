@@ -100,7 +100,9 @@ SIZE_NOTE = f"Output aspect ratio: {SIZE}. Match this frame shape exactly. Use a
 
 
 def muse_image_prompt(prompt, neg, n_refs):
-    ref = "\n\nUse the attached reference image" + ("" if n_refs == 1 else "s") + " as visual guidance; follow the prompt while preserving relevant subject details." if n_refs else ""
+    ref = ("\n\nUse the attached reference image" + ("" if n_refs == 1 else "s") + " as visual guidance; follow the prompt while preserving relevant subject details. "
+           "THE REFERENCE IMAGES ARE AUTHORITATIVE FOR APPEARANCE: each person in the picture must have the face, hair, skin tone, age and clothing of THEIR OWN reference image "
+           "(see the reference image notes); if the written description conflicts with a reference image, the reference image wins. Never blend two people's references into one face.") if n_refs else ""
     return ("Create exactly one still image. This is an image-generation request, not a video request. Do not create a video, animation, or sequence of frames. "
             "The text below may mention voice, dialogue, motion, clips or timing — those are notes for a later video step: IGNORE them and only render the single opening frame as a still picture.\n\n"
             f"{prompt}{ref}\n\n{SIZE_NOTE}" + (f"\n\nAvoid the following (negative prompt): {neg}" if neg else "")
