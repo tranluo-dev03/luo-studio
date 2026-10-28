@@ -329,6 +329,8 @@ def _emit_for(it):
                     if st == "done":
                         sc["t1"] = time.time()
                     sc.update({k: val for k, val in kw.items() if k != "n"})
+            elif ev == "item":   # thông tin của cả video (vd. tài khoản Muse đã ghim)
+                it.update(kw)
             elif ev == "log":
                 qlog(it, kw["msg"], kw.get("level", "info"))
     return emit
@@ -347,7 +349,12 @@ def gen_item(it, cx):
     opts = {"api_url": s["api_url"], "api_key": api_key(), "timeout": int(s["timeout"]), "retries": int(s["retries"]), "cut": bool(s["cut"]),
             "speedfix": bool(s.get("speedfix", True)), "speed_max": float(s.get("speed_max", 1.25)), "chat_every": int(s.get("chat_every", 1)), "normalize": bool(s.get("normalize", True)), "check_overlap": effective_check_overlap(it, s), "overlap_retries": int(s.get("overlap_retries", 5)), "mouth_sens": str(s.get("mouth_sens", "normal")), "precise_cut": bool(s.get("precise_cut", True)), "voice_split": bool(s.get("voice_split", True)), "cut_margin": float(s.get("cut_margin", 0.5)),
             "only": None, "scene_notes": dict(it.get("notes") or {}), "refs": p.get("refs", []), "field_labels": {f["key"]: f.get("label", f["key"]) for f in get_type(p["template"]).get("fields", [])}, "field_groups": {f["key"]: f.get("group", "other") for f in get_type(p["template"]).get("fields", [])}, "assets_dir": os.path.join(DATA, "assets", slug(it["project"]))}
-    E.run_variant(v, template_text(p["template"]), run_dir(it["project"], it["variant"]), opts, _emit_for(it), cx)
+    # Một video = một tài khoản Muse: mọi cảnh ghim vào cùng tài khoản; chạy tiếp thì ưu tiên tài khoản cũ
+    opts["pin"], opts["pin_prefer"] = f"video-{it['id']}", it.get("account_id")
+    try:
+        E.run_variant(v, template_text(p["template"]), run_dir(it["project"], it["variant"]), opts, _emit_for(it), cx)
+    finally:
+        E.release_pin(opts, opts["pin"])
     it["raw"] = "raw.mp4"
 
 
@@ -527,12 +534,13 @@ def _run_item(iid):
         it["state"] = "stopped"
         _discard_inflight(it)
     except E.QuotaExceeded as e:
-        it["state"] = "stopped"   # không phải lỗi của video: dừng, giữ nguyên các cảnh đã xong để chạy tiếp khi có lượt trở lại
+        # Mỗi video một tài khoản: chỉ dừng video này, các video khác đang dùng tài khoản khác chạy tiếp. Giữ các cảnh đã xong; Chạy tiếp thì LUO-API
+        # chọn tài khoản khác (tài khoản vừa hết hạn mức bị tránh nếu còn tài khoản khác).
+        it["state"] = "stopped"
         it["error"] = str(e)[:300]
-        qlog(it, f"Dừng vì hết hạn mức Muse: {e}", "error")
+        qlog(it, f"Dừng vì tài khoản {it.get('account') or '?'} hết hạn mức Muse: {e}", "error")
         _discard_inflight(it)
         QUOTA["hit"] = time.time()
-        threading.Thread(target=stop_items, daemon=True).start()   # dừng cả hàng đợi, tránh các video khác lần lượt thất bại
     except Exception as e:  # noqa: BLE001
         it["state"] = "error"
         it["error"] = str(e)[:300]

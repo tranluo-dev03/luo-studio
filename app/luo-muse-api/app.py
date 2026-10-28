@@ -129,7 +129,8 @@ class AccountPoolManager:
 
     def acquire(self, account_id: str | None = None, preferred_id: str | None = None,
                 rotate: bool = True, force_rotate: bool = False,
-                timeout: float = 60.0) -> dict:
+                timeout: float = 60.0, avoid=None) -> dict:
+        """avoid: hàm trả về tập id tài khoản không được chọn (vd. đã ghim cho video khác); gọi lại mỗi vòng chờ vì có thể đổi trong lúc chờ."""
         deadline = time.monotonic() + timeout
         with self.cond:
             while True:
@@ -145,12 +146,13 @@ class AccountPoolManager:
                         self.busy_accounts.add(account_id)
                         return acc
                 else:
-                    pref = preferred_id if preferred_id not in self.busy_accounts else None
+                    blocked = self.busy_accounts | (avoid() if avoid else set())
+                    pref = preferred_id if preferred_id not in blocked else None
                     acc = self.store.pick_account(
                         preferred_id=pref,
                         rotate=rotate,
                         force_rotate=force_rotate,
-                        exclude_ids=self.busy_accounts
+                        exclude_ids=blocked
                     )
                     if acc:
                         self.busy_accounts.add(acc["id"])
@@ -172,6 +174,67 @@ class AccountPoolManager:
 
 GEN_LOCK = ConcurrencyLock(limit=CFG.max_concurrency)
 ACCOUNT_POOL = AccountPoolManager(store)
+QUOTA_RE = re.compile(r"24-hour limit|budget is (?:still )?exhausted|video budget|quota (?:is )?exhausted", re.I)
+
+
+class PinRegistry:
+    """Ghim tài khoản theo `pin` (LUO Studio dùng một pin cho mỗi video): request đầu tiên chọn một tài khoản CHƯA bị video khác ghim, các request sau dùng
+    đúng tài khoản đó và không tự đổi sang tài khoản khác khi lỗi. Tài khoản báo hết hạn mức thì các pin MỚI tránh nó (nếu còn tài khoản khác)."""
+    IDLE = 3 * 3600        # pin không dùng quá lâu (Studio bị tắt ngang) thì tự bỏ
+    EXHAUSTED_FOR = 3 * 3600
+
+    def __init__(self):
+        self._lock = threading.Lock()
+        self._pins: dict[str, dict] = {}         # pin -> {"acc": id, "last": t}
+        self._exhausted: dict[str, float] = {}   # id tài khoản -> lúc báo hết hạn mức
+
+    def _expire(self):
+        now = time.time()
+        for k in [k for k, v in self._pins.items() if now - v["last"] > self.IDLE]:
+            del self._pins[k]
+        for k in [k for k, t in self._exhausted.items() if now - t > self.EXHAUSTED_FOR]:
+            del self._exhausted[k]
+
+    def account_of(self, pin: str) -> str | None:
+        with self._lock:
+            self._expire()
+            e = self._pins.get(pin)
+            if e:
+                e["last"] = time.time()
+                return e["acc"]
+            return None
+
+    def set(self, pin: str, acc_id: str):
+        with self._lock:
+            self._pins[pin] = {"acc": acc_id, "last": time.time()}
+
+    def release(self, pin: str) -> str | None:
+        with self._lock:
+            e = self._pins.pop(pin, None)
+            return e["acc"] if e else None
+
+    def mark_exhausted(self, acc_id: str):
+        with self._lock:
+            self._exhausted[acc_id] = time.time()
+
+    def avoid_for(self, pin: str):
+        """Hàm cho ACCOUNT_POOL.acquire(avoid=...): tránh tài khoản đã ghim cho pin khác (bắt buộc) và tài khoản vừa hết hạn mức (nếu còn lựa chọn khác)."""
+        def f():
+            with self._lock:
+                self._expire()
+                hard = {v["acc"] for k, v in self._pins.items() if k != pin}
+                soft = set(self._exhausted)
+            live = {a["id"] for a in store.accounts if a.get("enabled", True) and a.get("cookies")}
+            return hard | soft if live - hard - soft else hard
+        return f
+
+    def snapshot(self) -> dict:
+        with self._lock:
+            self._expire()
+            return {k: v["acc"] for k, v in self._pins.items()}
+
+
+PINS = PinRegistry()
 IMAGE_TASK_LOCK = threading.Lock()
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -424,6 +487,8 @@ class ImageRequest(BaseModel):
     reference_audios: list[str] | None = None   # tham chiếu âm thanh mp3/wav/..., đính sau video
     raw_prompt: bool = False                    # True: 原样发送 prompt，不套用内置模板
     session: str | None = Field(default=None, max_length=128)  # cùng session = cùng một chat/tab Muse
+    pin: str | None = Field(default=None, max_length=128)       # cùng pin = cùng MỘT tài khoản Muse (vd. mọi cảnh của một video), không tự đổi tài khoản
+    pin_prefer: str | None = Field(default=None, max_length=64)  # tài khoản muốn dùng khi pin chưa có tài khoản (chạy tiếp video cũ)
     async_: bool = Field(False, alias="async")
 
 
@@ -444,6 +509,8 @@ class VideoRequest(BaseModel):
     reference_audios: list[str] | None = None   # tham chiếu âm thanh mp3/wav/..., đính sau video
     raw_prompt: bool = False                    # True: 原样发送 prompt，不套用内置模板
     session: str | None = Field(default=None, max_length=128)  # cùng session = cùng một chat/tab Muse
+    pin: str | None = Field(default=None, max_length=128)       # cùng pin = cùng MỘT tài khoản Muse (vd. mọi cảnh của một video), không tự đổi tài khoản
+    pin_prefer: str | None = Field(default=None, max_length=64)  # tài khoản muốn dùng khi pin chưa có tài khoản (chạy tiếp video cũ)
 
 
 class ChatMessage(BaseModel):
@@ -902,7 +969,8 @@ def _run_generation(prompt: str, kind: str, timeout: int,
                     account_id: str | None = None, on_progress=None,
                     reference_image: str | None = None,
                     on_acquired=None, session: str | None = None,
-                    on_account=None) -> tuple[dict, str | None]:
+                    on_account=None, pin: str | None = None,
+                    pin_prefer: str | None = None) -> tuple[dict, str | None]:
     # Browser ownership covers account selection, retry and cleanup, not just generate().
     deadline = time.monotonic() + max(1, timeout)
     if not GEN_LOCK.acquire(timeout=max(1, timeout)):
@@ -915,7 +983,8 @@ def _run_generation(prompt: str, kind: str, timeout: int,
                 pass
         return _run_generation_locked(prompt, kind, timeout, account_id,
                                       on_progress, reference_image, deadline=deadline,
-                                      session=session, on_account=on_account)
+                                      session=session, on_account=on_account,
+                                      pin=pin, pin_prefer=pin_prefer)
     finally:
         GEN_LOCK.release()
 
@@ -923,7 +992,8 @@ def _run_generation(prompt: str, kind: str, timeout: int,
 def _run_generation_locked(prompt: str, kind: str, timeout: int,
                     account_id: str | None = None, on_progress=None,
                     reference_image: str | None = None, deadline=None,
-                    session: str | None = None, on_account=None) -> tuple[dict, str | None]:
+                    session: str | None = None, on_account=None,
+                    pin: str | None = None, pin_prefer: str | None = None) -> tuple[dict, str | None]:
     def _notify(a):
         # báo tài khoản đang gen cho task (chỉ id + nhãn, không lộ cookie)
         if on_account and a:
@@ -934,11 +1004,20 @@ def _run_generation_locked(prompt: str, kind: str, timeout: int,
     remaining_wait = int(deadline - time.monotonic()) if deadline is not None else timeout
     keep_session = False
     same_acc_retry = False
+    if pin and not account_id:
+        account_id = PINS.account_of(pin)   # video đã có tài khoản: dùng đúng tài khoản đó
     if session and not account_id:
         account_id = engine.session_account(session)  # giữ session trên đúng tài khoản đã mở chat
-    acc = ACCOUNT_POOL.acquire(account_id=account_id,
-                               preferred_id=getattr(engine, "current_acc_id", None),
-                               timeout=max(1, remaining_wait))
+    if pin and not account_id:
+        # cảnh đầu của video: chọn tài khoản chưa bị video khác ghim (ưu tiên tài khoản cũ khi chạy tiếp) rồi ghim lại
+        acc = ACCOUNT_POOL.acquire(preferred_id=pin_prefer, rotate=False, timeout=max(1, remaining_wait),
+                                   avoid=PINS.avoid_for(pin))
+        PINS.set(pin, acc["id"])
+        log.info("【pin】%s 固定使用账号 %s (%s)", pin, acc.get("label"), acc["id"])
+    else:
+        acc = ACCOUNT_POOL.acquire(account_id=account_id,
+                                   preferred_id=getattr(engine, "current_acc_id", None),
+                                   timeout=max(1, remaining_wait))
     cur_acc = acc
     _notify(cur_acc)
     last_exc = None
@@ -952,7 +1031,10 @@ def _run_generation_locked(prompt: str, kind: str, timeout: int,
                 rem = int(deadline - time.monotonic()) if deadline is not None else timeout
                 if rem <= 0:
                     break
-                if same_acc_retry:
+                if last_exc and QUOTA_RE.search(str(last_exc)):
+                    break   # hết hạn mức: thử lại hay đổi tài khoản đều vô ích / trái với ghim
+                if same_acc_retry or pin:
+                    # pin: video đã ghim tài khoản -> thử lại trên CHÍNH tài khoản đó, không đổi sang tài khoản khác
                     # Lỗi công cụ của Muse (media handle hỏng) trong chat dùng chung: thử lại một lần trên
                     # cùng tài khoản nhưng ở chat mới (session đã bị bỏ); ảnh tham chiếu được đính lại.
                     log.info("【session】media handle 异常，在新对话中重试一次 (session %s)", session)
@@ -995,6 +1077,8 @@ def _run_generation_locked(prompt: str, kind: str, timeout: int,
             except MuseGenerationError as exc:
                 last_exc = exc
                 store.mark(cur_acc["id"], True, f"任务异常: {str(exc)[:60]}")
+                if QUOTA_RE.search(str(exc)):
+                    PINS.mark_exhausted(cur_acc["id"])
                 if session:
                     engine.finish_session(session, keep=False)  # chat lỗi: bỏ, lần sau mở chat mới
                     same_acc_retry = attempt == 0 and bool(re.search(r"media handle|invalid media", str(exc), re.I))
@@ -1091,6 +1175,7 @@ def _queue_image(req: ImageRequest, prompt: str, reference_image: str | None,
                 reference_image=reference_image,
                 on_progress=lambda p: store.update_task(tid, progress=p),
                 on_acquired=_on_acquired, session=req.session,
+                pin=req.pin, pin_prefer=req.pin_prefer,
                 on_account=lambda a: store.update_task(
                     tid, account=a["id"], account_label=a.get("label") or a["id"]))
             # Store only media metadata, not large base64 payloads or reference credentials.
@@ -1254,6 +1339,7 @@ async def create_video(req: VideoRequest, _=Depends(auth)):
             res, acc_id = _run_generation(prompt, "video", timeout, on_progress=prog_cb,
                                           reference_image=ref_img, on_acquired=_on_acquired,
                                           session=req.session,
+                                          pin=req.pin, pin_prefer=req.pin_prefer,
                                           on_account=lambda a: store.update_task(
                                               task["id"], account=a["id"],
                                               account_label=a.get("label") or a["id"]))
@@ -1272,6 +1358,12 @@ async def create_video(req: VideoRequest, _=Depends(auth)):
     threading.Thread(target=worker, daemon=True).start()
     return {"id": task["id"], "task_id": task["id"], "object": "video.task", "status": "queued",
             "progress": 10, "created_at": task["created_at"]}
+
+
+@app.delete("/v1/pins/{pin}")
+def release_pin(pin: str, _=Depends(auth)):
+    """Bỏ ghim tài khoản của một video (gọi khi video xong / dừng) để video khác dùng được tài khoản đó."""
+    return {"pin": pin, "account": PINS.release(pin)}
 
 
 @app.delete("/v1/sessions/{sid}")

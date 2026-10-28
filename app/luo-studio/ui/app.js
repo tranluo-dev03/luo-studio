@@ -490,7 +490,7 @@ function drawQueue() {
         ${busyState(it.state) ? `<button class="ib qrm qstp" data-qstp="${it.id}" title="${it.state === "waiting" ? "Bỏ chờ" : "Dừng video này"}" ${it.stopping ? "disabled" : ""}>${ico("stop")}</button>` : `<button class="ib qrm" data-qrm="${it.id}" title="Xoá khỏi hàng đợi">${ico("x")}</button>`}</div>
       <div class="qbd"><div class="qnm" title="${esc(it.variant)}">${it.kind === "post" ? "Hậu kỳ · " : ""}${esc(it.variant)}</div>
         <div class="mini"><div style="width:${pct}%"></div></div>
-        ${(() => { const cur = [...it.scenes].reverse().find(s => s.account && ["image", "video", "cut"].includes(s.state)) || (it.state === "running" ? [...it.scenes].reverse().find(s => s.account) : null); return cur ? `<div class="acc" title="Tài khoản Muse đang gen cảnh ${cur.n}">${ico("user")}${esc(cur.account)}</div>` : ""; })()}
+        ${it.account ? `<div class="acc" title="Tài khoản Muse của video này (mọi cảnh gen bằng tài khoản này)">${ico("user")}${esc(it.account)}</div>` : ""}
         <div class="st"><span>${it.kind === "post" ? "" : done + "/" + tot + " cảnh"}</span><span class="tm">${ico("clock")}<b data-tm="item:${it.id}">${it.started ? fmtDur(itemSecs(it)) : "0:00"}</b></span></div></div></div>`;
   };
   const par = (S.boot.settings && S.boot.settings.parallel) || 1;

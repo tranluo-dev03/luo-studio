@@ -117,8 +117,12 @@ Muse" và góc trên bên phải hiện "Chưa có tài khoản Muse".
   4) Bấm "Đo hạn mức" để xem tài khoản còn bao nhiêu lượt trong tuần.
 
 4.3 Nhiều tài khoản
-  - Bạn có thể thêm nhiều tài khoản của chính mình. Phần mềm tự luân phiên giữa
-    các tài khoản đang bật và còn hạn mức.
+  - Bạn có thể thêm nhiều tài khoản của chính mình. MỖI VIDEO CHỈ DÙNG MỘT TÀI KHOẢN: cảnh
+    đầu tiên chọn một tài khoản đang bật, chưa bị video khác giữ; mọi cảnh sau của video đó
+    gen bằng đúng tài khoản ấy (lỗi thì thử lại trên chính tài khoản đó, không đổi sang tài
+    khoản khác). Video xong hoặc dừng thì tài khoản được trả lại cho video khác.
+  - Vì vậy số video chạy "Song song" nên KHÔNG LỚN HƠN số tài khoản đang bật: video dư phải
+    chờ tới khi có tài khoản trống, chờ quá lâu sẽ báo hết thời gian chờ.
   - Công tắc ở góc thẻ dùng để bật/tắt từng tài khoản.
   - "Cập nhật cookie" dùng khi phiên hết hạn (thẻ báo "Lỗi đăng nhập"/401): đăng
     nhập lại muse.ai, lấy cookie mới, dán vào.
@@ -221,25 +225,26 @@ làm các task xếp hàng lâu trong API.
 --------------------------------------------------------------------------------
   - Thẻ video trong "Hàng đợi" hiện trạng thái, số cảnh xong, thời gian chạy. Bấm
     vào thẻ để xem chi tiết từng cảnh (ảnh khung cuối, câu thoại, tiến độ, nhật ký).
-  - Tài khoản Muse: khi có nhiều tài khoản, thẻ video hiện tên tài khoản (nhãn đặt
-    ở trang quản lý tài khoản) đang gen cảnh hiện tại, mỗi thẻ cảnh trong chi tiết
-    hiện tài khoản đã gen cảnh đó, và nhật ký ghi "Cảnh N: gen bằng tài khoản X".
-    Nếu API tự chuyển sang tài khoản khác giữa chừng, tên sẽ đổi theo.
+  - Tài khoản Muse: thẻ video hiện tên tài khoản (nhãn đặt ở trang quản lý tài khoản)
+    mà cả video đang dùng, mỗi thẻ cảnh trong chi tiết hiện tài khoản đã gen cảnh đó,
+    và nhật ký ghi "Video gen bằng tài khoản X (ghim cho mọi cảnh của video)".
   - Dòng "Tổng", "TB/cảnh", "Còn": thời gian đã chạy, trung bình mỗi cảnh, ước
     tính còn lại.
   - Dừng: nút vuông đỏ trên thẻ hoặc nút "Dừng" trong chi tiết dừng riêng video
     đó; nút "Dừng" ở thanh trên dừng tất cả. Dừng chỉ dừng ở phía app; task đã gửi
     lên API có thể vẫn chạy ngầm và tốn lượt.
   - Chạy tiếp: bấm "Chạy tiếp" ở video đã dừng. Phần mềm giữ các cảnh đã xong và
-    gen lại cảnh đang dở.
+    gen lại cảnh đang dở, ưu tiên đúng tài khoản cũ của video. Chỉ khi tài khoản cũ đang
+    được video khác giữ hoặc vừa hết hạn mức thì mới dùng tài khoản khác (nhật ký báo rõ).
   - Gen lại một cảnh: bấm nút mũi tên vòng ở thẻ cảnh. Hộp thoại cho phép viết
     "yêu cầu sửa" (ví dụ: "người học ngậm miệng hoàn toàn, không mấp máy theo").
     Cảnh đó và các cảnh sau sẽ được gen lại; yêu cầu sửa được đặt đầu prompt.
     Nếu video đang chạy, nó sẽ được dừng trước rồi gen lại từ cảnh đó.
   - Nhật ký ở cuối trang chi tiết ghi từng bước: gen, đo miệng, cân màu, cắt,
     tăng tốc, lỗi.
-  - Khi Muse báo hết hạn mức (giới hạn 24 giờ), phần mềm dừng cả hàng đợi để không
-    tốn thêm. Khi hạn mức trở lại, bấm "Chạy tiếp".
+  - Khi Muse báo hết hạn mức (giới hạn 24 giờ) cho tài khoản của một video, chỉ video đó
+    dừng; các video khác dùng tài khoản khác vẫn chạy tiếp. Bấm "Chạy tiếp" để chạy nốt bằng
+    tài khoản khác còn lượt (hoặc đợi hạn mức trở lại).
 
 --------------------------------------------------------------------------------
 8. HẬU KỲ VÀ XUẤT VIDEO
@@ -364,8 +369,8 @@ Thẻ tài khoản "Lỗi đăng nhập" / 401
 
 "The video budget is still exhausted ... 24-hour limit" / "hết hạn mức"
   - Muse báo hết hạn mức tạo video của tài khoản (giới hạn theo giờ/ngày/tuần).
-    Phần mềm dừng hàng đợi để khỏi tốn thêm. Đợi ngày reset (xem thẻ tài khoản) hoặc
-    dùng tài khoản khác, rồi bấm "Chạy tiếp".
+    Phần mềm dừng video đang dùng tài khoản đó (video khác vẫn chạy). Bấm "Chạy tiếp": video
+    chạy nốt bằng tài khoản khác còn lượt; hoặc đợi ngày reset (xem thẻ tài khoản).
 
 Task nằm ở trạng thái "Đang chờ", không chạy
   - Không còn tài khoản dùng được (hết hạn mức, bị tắt, hoặc lỗi đăng nhập), hoặc
