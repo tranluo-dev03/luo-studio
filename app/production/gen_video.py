@@ -264,7 +264,13 @@ TOKEN = re.compile(r"\{\{\s*([A-Za-z0-9_]+)\s*\}\}")
 
 
 def fill_tokens(text, values):
-    out = TOKEN.sub(lambda m: values.get(m.group(1).upper(), m.group(0)), text)
+    # Thay nhiều lượt: giá trị của biến thể có thể nhắc tới token khác (vd. DAO_GIU = "... in {{TEN_LX}}'s hand ..."); giới hạn số lượt để token tự tham chiếu không lặp mãi
+    out = text
+    for _ in range(5):
+        nxt = TOKEN.sub(lambda m: values.get(m.group(1).upper(), m.group(0)), out)
+        if nxt == out:
+            break
+        out = nxt
     left = sorted(set(TOKEN.findall(out)))
     if left:
         sys.exit("Script còn token chưa có giá trị trong biến thể: " + ", ".join(left))
