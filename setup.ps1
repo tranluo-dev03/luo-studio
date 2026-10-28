@@ -1,7 +1,7 @@
 # LUO Studio - cai dat mot lan tu ma nguon (Windows 10/11, 64-bit).
 # Cach dung:  powershell -ExecutionPolicy Bypass -File setup.ps1
 # Viec script lam:
-#   1. Kiem tra Python: neu da co .venv dung duoc thi dung luon; neu khong thi tim Python 3.11/3.12 (64-bit) tren may
+#   1. Kiem tra Python: neu da co .venv dung duoc thi dung luon; neu khong thi tim Python 3.11-3.14 (64-bit) tren may
 #      (py launcher, registry, thu muc mac dinh, PATH). Thieu thi TU DONG cai Python 3.11 tu python.org, cai song song
 #      voi Python dang co (cho rieng nguoi dung, khong can quyen admin, khong sua PATH).
 #   2. Tao moi truong ao .venv va cai thu vien tu requirements.txt
@@ -17,8 +17,8 @@ Set-Location $PSScriptRoot
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 $ProgressPreference = "SilentlyContinue"
 
-# Studio can Python 3.11 hoac 3.12, 64-bit (numpy 1.26.4 va mediapipe 0.10.21 chua co ban cho 3.13 tro len)
-$Supported = @("3.11", "3.12")
+# Studio can Python 3.11 den 3.14, 64-bit (onnxruntime chua co ban cho 3.15; them vao day khi da co va da chay thu)
+$Supported = @("3.11", "3.12", "3.13", "3.14")
 
 function Get-PythonInfo([string]$exe) {
   # Chay thu de biet phien ban va 32/64-bit; $null neu khong chay duoc
@@ -67,7 +67,7 @@ function Get-PythonCandidates {
 }
 
 function Select-Python($infos) {
-  # Ban dung duoc: 3.11 hoac 3.12, 64-bit; uu tien 3.11
+  # Ban dung duoc: 3.11-3.14, 64-bit; uu tien theo thu tu trong $Supported (3.11 truoc)
   $ok = @($infos | Where-Object { $Supported -contains $_.Version -and $_.Bits -eq 64 } | Sort-Object { [array]::IndexOf($Supported, $_.Version) })
   if ($ok.Count) { return $ok[0].Path }
   return $null
@@ -79,7 +79,7 @@ function Show-PythonSeen($infos) {
   if (-not $infos -or @($infos).Count -eq 0) { Write-Host "  Khong thay Python nao tren may." -ForegroundColor Yellow; return }
   Write-Host "  Python tim thay tren may:" -ForegroundColor Yellow
   foreach ($i in $infos) {
-    $why = if ($Supported -contains $i.Version -and $i.Bits -eq 64) { "dung duoc" } elseif ($i.Bits -ne 64) { "khong dung duoc: ban 32-bit" } else { "khong dung duoc: Studio can 3.11 hoac 3.12" }
+    $why = if ($Supported -contains $i.Version -and $i.Bits -eq 64) { "dung duoc" } elseif ($i.Bits -ne 64) { "khong dung duoc: ban 32-bit" } else { "khong dung duoc: Studio can 3.11 den 3.14" }
     Write-Host ("    Python {0} ({1}-bit)  {2}  [{3}]" -f $i.Version, $i.Bits, $i.Path, $why)
   }
 }
@@ -129,11 +129,11 @@ if (-not $venvOk) {
   if (-not $python) {
     Show-PythonSeen $infos
     if ($NoInstallPython -or $CheckOnly) {
-      Write-Host "  Can Python 3.11 hoac 3.12 (64-bit). Cai tu https://www.python.org/downloads/ roi chay lai setup.ps1." -ForegroundColor Yellow
+      Write-Host "  Can Python 3.11 den 3.14 (64-bit). Cai tu https://www.python.org/downloads/ roi chay lai setup.ps1." -ForegroundColor Yellow
       if ($CheckOnly) { Write-Host "  (-CheckOnly: khong cai gi.)"; exit 1 }
       exit 1
     }
-    Write-Host "  Chua co Python 3.11/3.12 (64-bit), tu dong cai dat..." -ForegroundColor Yellow
+    Write-Host "  Chua co Python 3.11-3.14 (64-bit), tu dong cai dat Python 3.11..." -ForegroundColor Yellow
     Install-Python
     $infos = Get-PythonCandidates
     $python = Select-Python $infos

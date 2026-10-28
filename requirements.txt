@@ -1,13 +1,17 @@
-# Thu vien can thiet (Python 3.11 hoac 3.12, 64-bit); setup.ps1 cai tu file nay vao .venv.
+# Thu vien can thiet (Python 3.11 den 3.14, 64-bit); setup.ps1 cai tu file nay vao .venv.
 fastapi>=0.115
 uvicorn[standard]>=0.32
 pydantic>=2.9
 requests>=2.32
 websocket-client>=1.8
 python-multipart>=0.0.9
-numpy==1.26.4
+# Python 3.11/3.12 giu numpy 1.26.4 + mediapipe 0.10.21 (FaceMesh cu, nguong do mieng chinh theo no).
+# Python 3.13/3.14 khong co hai ban do: dung numpy 2.3 + mediapipe 1.x (FaceLandmarker, xem app/luo-studio/face_mesh.py).
+numpy==1.26.4; python_version < "3.13"
+numpy==2.3.5; python_version >= "3.13"
 pillow
-mediapipe==0.10.21
+mediapipe==0.10.21; python_version < "3.13"
+mediapipe==1.2.0; python_version >= "3.13"
 opencv-contrib-python==4.11.0.86
 # Bo ba nhan dang giong: ghim dung phien ban da chay on dinh, de may cai moi khong bi troi sang ban khac
 # (onnxruntime/ctranslate2 la thu vien nhi phan, ban khac co the crash cung tren mot so CPU).

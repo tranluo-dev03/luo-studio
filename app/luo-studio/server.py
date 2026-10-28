@@ -22,6 +22,7 @@ for d in (PROJ, RUNS, TYPES):
     os.makedirs(d, exist_ok=True)
 
 import engine as E  # noqa: E402
+import face_mesh as FM  # noqa: E402
 
 LOCK = threading.RLock()
 DEFAULT_SETTINGS = {"api_url": os.environ.get("LUO_API_URL", "http://127.0.0.1:18610"), "api_key": "", "timeout": 900, "retries": 2, "cut": True, "speedfix": True, "normalize": True, "check_overlap": True, "mouth_note": "", "overlap_retries": 2, "mouth_sens": "normal", "precise_cut": True, "fx_hook": True, "cut_margin": 0.5, "voice_split": True, "export_dir": "", "speed_max": 1.25, "chat_every": 1, "parallel": 1, "fx_ding": False, "fx_pop": False,
@@ -741,9 +742,7 @@ def app_version():
 
 
 _MOUTH = {"t": 0.0, "res": None}
-_MOUTH_PROBE = ("import numpy as np, mediapipe as mp\n"
-                "fm = mp.solutions.face_mesh.FaceMesh(static_image_mode=True, max_num_faces=1)\n"
-                "fm.process(np.zeros((96, 96, 3), np.uint8)); fm.close(); print('ok')")
+_MOUTH_PROBE = FM.probe_code()
 
 
 def mouth_status(force=False, _code=None):

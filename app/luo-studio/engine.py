@@ -580,7 +580,7 @@ OPEN_GAP = 0.15   # khoảng hở môi / bề rộng miệng từ mức này là
 def mouth_activity(path, side, t_end, fps=12):
     """(độ lệch chuẩn, cực đại, tỉ lệ khung hình há miệng rộng, tốc độ mở-khép) của độ mở miệng (khoảng hở môi / bề rộng miệng) ở khuôn mặt bên `side` trong [0, t_end]. None nếu không dò được mặt."""
     import cv2
-    import mediapipe as mp
+    import face_mesh as FM
     W, H = 360, 640
     d = crun(["ffmpeg", "-v", "error", "-t", f"{max(0.5, t_end):.2f}", "-i", path, "-vf", f"fps={fps},scale={W}:{H}", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True).stdout
     n = len(d) // (W * H * 3)
@@ -593,14 +593,13 @@ def mouth_activity(path, side, t_end, fps=12):
     x0, y0, x1, y1 = int(b[0] * W), int(b[1] * H), int(b[2] * W), int(b[3] * H)
     vals = []
     with _MP_LOCK:
-        fm = mp.solutions.face_mesh.FaceMesh(static_image_mode=True, max_num_faces=1, min_detection_confidence=0.3)
+        fm = FM.landmarker(min_conf=0.3)
         try:
             for f in fr:
                 c = cv2.resize(f[y0:y1, x0:x1], None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC)
-                r = fm.process(c)
-                if r.multi_face_landmarks:
-                    lm = r.multi_face_landmarks[0].landmark
-                    vals.append(abs(lm[14].y - lm[13].y) / (abs(lm[291].x - lm[61].x) + 1e-6))
+                g = fm.mouth_gap(c)
+                if g is not None:
+                    vals.append(g)
         finally:
             fm.close()
     if len(vals) < 6:

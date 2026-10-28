@@ -62,9 +62,11 @@ Bước 2. Cài đặt tự động (làm một lần)
     quyền quản trị, không đổi PATH). Sau đó tạo môi trường .venv, cài thư viện, tải ffmpeg vào
     thư mục bin và tạo thư mục userdata. Khi cập nhật, nếu .venv đã có và dùng được thì không
     cần tìm Python hệ thống nữa.
-  - Máy chỉ có Python 3.13/3.14 (hoặc bản 32-bit) thì Studio chưa dùng được các bản đó (thư viện
-    numpy 1.26.4 và mediapipe 0.10.21 chưa có cho 3.13 trở lên); script tự cài thêm 3.11 bên cạnh,
-    không gỡ hay đổi Python hiện có.
+  - Studio dùng được Python 3.11, 3.12, 3.13 và 3.14 (64-bit). Máy chỉ có Python 3.15 trở lên
+    (hoặc bản 32-bit) thì script tự cài thêm 3.11 bên cạnh, không gỡ hay đổi Python hiện có.
+  - Trên Python 3.13/3.14, tính năng kiểm tra "người nghe mấp máy miệng" dùng bản mediapipe mới nên
+    kém tin cậy hơn một chút so với 3.11/3.12 (có thể báo nhầm hoặc bỏ sót). Gen video và Hậu kỳ
+    không bị ảnh hưởng. Muốn kiểm tra miệng chính xác nhất, dùng Python 3.11 hoặc 3.12.
   - Cần Internet; mất vài phút đến vài chục phút tùy tốc độ mạng. Chạy lại script lúc nào
     cũng được, nó bỏ qua những gì đã có.
 
@@ -350,7 +352,7 @@ Phụ đề không chạy khớp tiếng nói (nhất là video trộn tiếng T
 
 setup.ps1 / Cap nhat.bat báo không thấy Python, hoặc "Bo cai Python bao loi (ma 1603)"
   - Chạy: powershell -ExecutionPolicy Bypass -File setup.ps1 -CheckOnly   để xem script thấy những
-    Python nào trên máy và vì sao từng bản dùng được hay không (cần 3.11 hoặc 3.12, 64-bit).
+    Python nào trên máy và vì sao từng bản dùng được hay không (cần 3.11 đến 3.14, 64-bit).
   - Lỗi 1603 là lỗi chung của bộ cài Python. Chi tiết ở %TEMP%\luo-python-install.log. Cách xử lý:
     khởi động lại máy rồi chạy lại; hoặc cài thủ công Python 3.11 (Windows installer 64-bit) từ
     python.org rồi chạy lại. Máy không ra được python.org: tải sẵn bộ cài rồi chạy

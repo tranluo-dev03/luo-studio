@@ -11,6 +11,8 @@ except Exception:
     pass
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, "app", "luo-studio"))
+import face_mesh as FM  # noqa: E402  (chi lay ma thu mediapipe; ban than module khong nap mediapipe)
 lines = []
 
 
@@ -91,7 +93,7 @@ for p in ("faster-whisper", "ctranslate2", "onnxruntime", "numpy", "mediapipe", 
 out("")
 out("Thu nap thu vien nhi phan (moi cai trong tien trinh rieng):")
 problems = []
-for label, mod, code in (("mediapipe (do mieng nguoi nghe)", "mediapipe", "import mediapipe as mp; mp.solutions.face_mesh.FaceMesh(static_image_mode=True).close(); print('ok')"),
+for label, mod, code in (("mediapipe (do mieng nguoi nghe)", "mediapipe", FM.probe_code()),
                          ("onnxruntime (VAD cua Hau ky)", "onnxruntime", None),
                          ("ctranslate2 (nhan dang giong)", "ctranslate2", None),
                          ("opencv (cv2)", "cv2", None),
