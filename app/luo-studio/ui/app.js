@@ -11,6 +11,7 @@ const P = {
   folder: "M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z",
   play: "M7 4.5v15l12-7.5z", film: "M4 4h16v16H4zM8 4v16M16 4v16M4 9h4M4 15h4M16 9h4M16 15h4",
   gear: "M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z",
+  user: "M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0",
   plus: "M12 5v14M5 12h14", stop: "M6 6h12v12H6z", trash: "M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v5M14 11v5",
   redo: "M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.5 6.2L3 16M3 21v-5h5",
   back: "M15 5l-7 7 7 7", check: "M5 12l5 5 9-10", x: "M6 6l12 12M18 6L6 18", up: "M12 19V5M5 12l7-7 7 7", down: "M12 5v14M19 12l-7 7-7-7",
@@ -489,6 +490,7 @@ function drawQueue() {
         ${busyState(it.state) ? `<button class="ib qrm qstp" data-qstp="${it.id}" title="${it.state === "waiting" ? "Bỏ chờ" : "Dừng video này"}" ${it.stopping ? "disabled" : ""}>${ico("stop")}</button>` : `<button class="ib qrm" data-qrm="${it.id}" title="Xoá khỏi hàng đợi">${ico("x")}</button>`}</div>
       <div class="qbd"><div class="qnm" title="${esc(it.variant)}">${it.kind === "post" ? "Hậu kỳ · " : ""}${esc(it.variant)}</div>
         <div class="mini"><div style="width:${pct}%"></div></div>
+        ${(() => { const cur = [...it.scenes].reverse().find(s => s.account && ["image", "video", "cut"].includes(s.state)) || (it.state === "running" ? [...it.scenes].reverse().find(s => s.account) : null); return cur ? `<div class="acc" title="Tài khoản Muse đang gen cảnh ${cur.n}">${ico("user")}${esc(cur.account)}</div>` : ""; })()}
         <div class="st"><span>${it.kind === "post" ? "" : done + "/" + tot + " cảnh"}</span><span class="tm">${ico("clock")}<b data-tm="item:${it.id}">${it.started ? fmtDur(itemSecs(it)) : "0:00"}</b></span></div></div></div>`;
   };
   const par = (S.boot.settings && S.boot.settings.parallel) || 1;
@@ -557,7 +559,7 @@ function drawDetail(it) {
     const thumb = s.thumb ? `<img loading="lazy" src="${media(it.project, it.variant, s.thumb)}?t=${s.secs || s.pct || 0}">` : (act ? `<div class="spin"></div>` : ico("img"));
     const t = sceneSecs(s, it);
     return `<div class="sc ${st} ${act ? "active" : ""}"><div class="th">${thumb}<span class="num">${s.n}</span><span class="wh" style="background:var(--${s.who === "hoc" ? "hoc" : "day"})"></span>${s.clip ? `<div class="play" data-play="${s.clip}">${ico("play")}</div>` : ""}</div>
-      <div class="bd"><div class="tx">${esc(s.text)}</div><div class="mini"><div style="width:${pc}%"></div></div><div class="st"><span>${STATE[st] || st}${["image", "video"].includes(st) && s.pct ? " " + s.pct + "%" : ""}${s.note ? " · " + esc(s.note) : ""}</span><span class="tm"><b data-tm="scene:${it.id}:${s.n}">${t ? fmtDur(t) : ""}</b>${s.secs ? ` · ${s.secs}s` : ""}</span></div></div>
+      <div class="bd"><div class="tx">${esc(s.text)}</div>${s.account ? `<div class="acc" title="Tài khoản Muse đã gen cảnh này">${ico("user")}${esc(s.account)}</div>` : ""}<div class="mini"><div style="width:${pc}%"></div></div><div class="st"><span>${STATE[st] || st}${["image", "video"].includes(st) && s.pct ? " " + s.pct + "%" : ""}${s.note ? " · " + esc(s.note) : ""}</span><span class="tm"><b data-tm="scene:${it.id}:${s.n}">${t ? fmtDur(t) : ""}</b>${s.secs ? ` · ${s.secs}s` : ""}</span></div></div>
       ${st === "done" || (st === "error" && !running) ? `<button class="ib redo" data-redo="${s.n}" title="${running ? "Dừng video đang chạy và gen lại từ cảnh này" : "Gen lại từ cảnh này (có thể thêm yêu cầu sửa)"}">${ico("redo")}</button>` : ""}</div>`;
   }).join("")}</div>` : "";
   const err = it.error ? `<div class="tag bad" style="margin-bottom:14px;white-space:normal">${esc(it.error)}</div>` : "";

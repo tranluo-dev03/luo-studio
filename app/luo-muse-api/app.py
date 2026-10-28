@@ -901,7 +901,8 @@ def _pos(v) -> bool:
 def _run_generation(prompt: str, kind: str, timeout: int,
                     account_id: str | None = None, on_progress=None,
                     reference_image: str | None = None,
-                    on_acquired=None, session: str | None = None) -> tuple[dict, str | None]:
+                    on_acquired=None, session: str | None = None,
+                    on_account=None) -> tuple[dict, str | None]:
     # Browser ownership covers account selection, retry and cleanup, not just generate().
     deadline = time.monotonic() + max(1, timeout)
     if not GEN_LOCK.acquire(timeout=max(1, timeout)):
@@ -914,7 +915,7 @@ def _run_generation(prompt: str, kind: str, timeout: int,
                 pass
         return _run_generation_locked(prompt, kind, timeout, account_id,
                                       on_progress, reference_image, deadline=deadline,
-                                      session=session)
+                                      session=session, on_account=on_account)
     finally:
         GEN_LOCK.release()
 
@@ -922,7 +923,14 @@ def _run_generation(prompt: str, kind: str, timeout: int,
 def _run_generation_locked(prompt: str, kind: str, timeout: int,
                     account_id: str | None = None, on_progress=None,
                     reference_image: str | None = None, deadline=None,
-                    session: str | None = None) -> tuple[dict, str | None]:
+                    session: str | None = None, on_account=None) -> tuple[dict, str | None]:
+    def _notify(a):
+        # báo tài khoản đang gen cho task (chỉ id + nhãn, không lộ cookie)
+        if on_account and a:
+            try:
+                on_account(a)
+            except Exception:
+                pass
     remaining_wait = int(deadline - time.monotonic()) if deadline is not None else timeout
     keep_session = False
     same_acc_retry = False
@@ -932,6 +940,7 @@ def _run_generation_locked(prompt: str, kind: str, timeout: int,
                                preferred_id=getattr(engine, "current_acc_id", None),
                                timeout=max(1, remaining_wait))
     cur_acc = acc
+    _notify(cur_acc)
     last_exc = None
     try:
         for attempt in range(2):
@@ -958,6 +967,7 @@ def _run_generation_locked(prompt: str, kind: str, timeout: int,
                             cur_acc = alt
                         break
                     cur_acc = alt
+                    _notify(cur_acc)
                     log.info("【生图/视频自动切号】切换到备用账号 %s (%s) 重试...", cur_acc.get("label"), cur_acc["id"])
             try:
                 refreshed = _renew_and_persist(cur_acc["id"], wake_vm=True, force=(attempt > 0))
@@ -1080,7 +1090,9 @@ def _queue_image(req: ImageRequest, prompt: str, reference_image: str | None,
                 prompt, "image", req.timeout or CFG.image_timeout,
                 reference_image=reference_image,
                 on_progress=lambda p: store.update_task(tid, progress=p),
-                on_acquired=_on_acquired, session=req.session)
+                on_acquired=_on_acquired, session=req.session,
+                on_account=lambda a: store.update_task(
+                    tid, account=a["id"], account_label=a.get("label") or a["id"]))
             # Store only media metadata, not large base64 payloads or reference credentials.
             store.update_task(tid, status="completed", progress=100, account=acc_id,
                               elapsed=round(time.time() - timing["t0"], 1),
@@ -1241,7 +1253,10 @@ async def create_video(req: VideoRequest, _=Depends(auth)):
                 store.update_task(task["id"], progress=p)
             res, acc_id = _run_generation(prompt, "video", timeout, on_progress=prog_cb,
                                           reference_image=ref_img, on_acquired=_on_acquired,
-                                          session=req.session)
+                                          session=req.session,
+                                          on_account=lambda a: store.update_task(
+                                              task["id"], account=a["id"],
+                                              account_label=a.get("label") or a["id"]))
             vurl = media_url(res["filename"])
             store.update_task(task["id"], status="completed", progress=100, account=acc_id,
                               elapsed=round(time.time() - timing["t0"], 1),

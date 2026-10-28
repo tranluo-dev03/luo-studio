@@ -221,6 +221,10 @@ làm các task xếp hàng lâu trong API.
 --------------------------------------------------------------------------------
   - Thẻ video trong "Hàng đợi" hiện trạng thái, số cảnh xong, thời gian chạy. Bấm
     vào thẻ để xem chi tiết từng cảnh (ảnh khung cuối, câu thoại, tiến độ, nhật ký).
+  - Tài khoản Muse: khi có nhiều tài khoản, thẻ video hiện tên tài khoản (nhãn đặt
+    ở trang quản lý tài khoản) đang gen cảnh hiện tại, mỗi thẻ cảnh trong chi tiết
+    hiện tài khoản đã gen cảnh đó, và nhật ký ghi "Cảnh N: gen bằng tài khoản X".
+    Nếu API tự chuyển sang tài khoản khác giữa chừng, tên sẽ đổi theo.
   - Dòng "Tổng", "TB/cảnh", "Còn": thời gian đã chạy, trung bình mỗi cảnh, ước
     tính còn lại.
   - Dừng: nút vuông đỏ trên thẻ hoặc nút "Dừng" trong chi tiết dừng riêng video

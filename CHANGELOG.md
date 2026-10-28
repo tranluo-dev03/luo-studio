@@ -6,6 +6,7 @@ Nguồn sự thật của số phiên bản: dòng đầu của `version.txt` (c
 ## [Chưa phát hành]
 
 ### Thêm
+- **Hiện tài khoản Muse đang gen video/cảnh:** LUO-API trả thêm `account` (id) và `account_label` (tên gợi nhớ, không lộ cookie) ngay khi task nhận được tài khoản (kể cả khi tự chuyển tài khoản dự phòng); Studio lưu vào `account` của từng cảnh trong hàng đợi, ghi nhật ký "Cảnh N: gen bằng tài khoản X", hiện trên thẻ video (tài khoản của cảnh đang chạy) và trên từng thẻ cảnh.
 - **Cập nhật không mất dữ liệu:** `update.ps1` và `Cap nhat.bat` (sao lưu nhẹ dữ liệu quan trọng vào `userdata-backup/`, `git pull` hoặc tải ZIP mới rồi chép đè, không đụng `userdata/`, `.venv`, `bin`; chạy lại `setup.ps1`). Có tuỳ chọn `-ZipFile` cho máy không có git hoặc mạng hạn chế.
 - **`Chan doan.bat`** (`app/chan_doan.py`): kiểm tra máy (CPU có AVX không, máy ảo, Visual C++ Redistributable, phiên bản thư viện, thử nạp từng thư viện nhị phân trong tiến trình riêng) và lưu báo cáo vào `userdata\logs\chan-doan.txt`; `setup.ps1` cảnh báo sớm nếu thiếu Visual C++ Redistributable.
 - `setup.ps1` tự cài Python 3.11 khi thiếu (winget, nếu không được thì bộ cài chính thức từ python.org).

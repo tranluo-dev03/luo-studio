@@ -228,7 +228,7 @@ def has_audio(path):
 
 # ------------------------------------------------------------------ API với huỷ + tiến độ
 class Api(G.Api):
-    def generate(self, kind, prompt, refs, session, duration=None, timeout=900, on_status=None, cancel=None, audios=None):
+    def generate(self, kind, prompt, refs, session, duration=None, timeout=900, on_status=None, cancel=None, audios=None, on_account=None):
         body = {"prompt": prompt, "model": "muse-video" if kind == "video" else "muse-image", "aspect_ratio": "9:16",
                 "raw_prompt": True, "timeout": min(int(timeout), 600), "session": session}  # API nhận tối đa 600s; thời gian chờ phía app (deadline) vẫn theo `timeout`
         if kind == "video":
@@ -259,6 +259,8 @@ class Api(G.Api):
                 time.sleep(0.5)
             st = self.req(f"{path}/{tid}")
             s, pr = st.get("status"), st.get("progress")
+            if on_account and st.get("account"):   # LUO-API báo tài khoản Muse đang gen task này (nhãn gợi nhớ, không có cookie)
+                on_account(st.get("account_label") or st["account"])
             if on_status and (s, pr) != last:
                 last = (s, pr)
                 on_status(s, pr)
@@ -846,12 +848,19 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                                 "text": (luot[s["n"] - 1]["text"] if s["n"] - 1 < len(luot) else s["title"]),
                                 "state": "wait"} for s in scenes])
     prev_last, clips, ref_stats = None, [], None
+    acc_of = {}                # cảnh -> tên tài khoản Muse đang gen
     mouth_hint_shown = False   # gợi ý nguyên nhân lỗi kiểm tra miệng chỉ hiện một lần mỗi lần chạy
     mouth_off = False          # kiểm tra miệng lỗi một lần thì bỏ qua cho các cảnh còn lại của video này
     for sc in scenes:
         n = sc["n"]
         if cancel.is_set():
             raise Cancelled()
+
+        def note_account(name, n=n):   # ghi tài khoản Muse đang gen cảnh này; chỉ ghi nhật ký khi đổi tài khoản
+            if name != acc_of.get(n):
+                acc_of[n] = name
+                emit("scene", n=n, account=name)
+                emit("log", msg=f"Cảnh {n}: gen bằng tài khoản {name}")
         if chat_every > 0:  # chat mới: Muse không "nhớ" các clip trước (tránh bắt chước lỗi cũ, tránh trả về video ghép); nhân vật vẫn nhất quán nhờ khung đầu + khoá mô tả
             want = f"{base_session}-{(n - 1) // chat_every}"
             if want != session:
@@ -917,7 +926,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
 
             def gi():
                 b = api.generate("image", G.muse_image_prompt(img_p, neg, len(ref_imgs)), ref_imgs, session, timeout=opts["timeout"],
-                                 on_status=lambda s, p: emit("scene", n=n, state="image", pct=p or 0), cancel=cancel)
+                                 on_status=lambda s, p: emit("scene", n=n, state="image", pct=p or 0), cancel=cancel, on_account=note_account)
                 if G.kind_of(b) == "video":
                     open(img_f + ".mp4", "wb").write(b)
                     grab_frame(img_f + ".mp4", img_f)
@@ -936,7 +945,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
 
             def gv():
                 b = api.generate("video", G.muse_video_prompt(vid_p, neg, dur, len(vrefs)), vrefs, session, duration=dur, timeout=opts["timeout"],
-                                 on_status=lambda s, p: emit("scene", n=n, state="video", pct=p or 0), cancel=cancel, audios=spk_auds or None)
+                                 on_status=lambda s, p: emit("scene", n=n, state="video", pct=p or 0), cancel=cancel, audios=spk_auds or None, on_account=note_account)
                 open(vid_f, "wb").write(b)
                 got = duration(vid_f)
                 if got > 2 * dur + 1:  # Muse đôi khi trả về cả chuỗi clip cũ ghép lại (rất dài): clip mới nằm ở cuối -> chỉ giữ `dur` giây cuối. Dài hơn vừa phải (vd. 10s thay vì 8s) thì giữ nguyên, tránh mất đầu câu
