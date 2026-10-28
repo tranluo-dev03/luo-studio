@@ -18,5 +18,7 @@ opencv-contrib-python==4.11.0.86
 faster-whisper==1.2.1
 ctranslate2==4.8.3
 onnxruntime==1.31.0
-av==14.0.0
+# av 14.0.0 co ban cai san den Python 3.13; 3.14 can ban moi hon (19.0.2 da chay thu)
+av==14.0.0; python_version < "3.14"
+av==19.0.2; python_version >= "3.14"
 sounddevice
