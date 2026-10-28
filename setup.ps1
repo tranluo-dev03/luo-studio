@@ -1,10 +1,12 @@
 # LUO Studio - cai dat mot lan tu ma nguon (Windows 10/11, 64-bit).
 # Cach dung:  powershell -ExecutionPolicy Bypass -File setup.ps1
 # Viec script lam:
-#   1. Kiem tra Python: neu da co .venv dung duoc thi dung luon; neu khong thi tim Python 3.11-3.14 (64-bit) tren may
-#      (py launcher, registry, thu muc mac dinh, PATH). Thieu thi TU DONG cai Python 3.11 tu python.org, cai song song
+#   0. Canh bao thu muc cai dat co van de (co dau, OneDrive, qua dai, o day) va go dau "tai tu Internet" khoi cac file.
+#   1. Kiem tra Python: neu da co .venv dung duoc thi dung luon; neu khong thi tim Python 3.11-3.14 (64-bit, ban day du co venv - bo qua ban
+#      embeddable) tren may (py launcher, registry, thu muc mac dinh, PATH). Thieu thi TU DONG cai Python 3.11 tu python.org, cai song song
 #      voi Python dang co (cho rieng nguoi dung, khong can quyen admin, khong sua PATH).
-#   2. Tao moi truong ao .venv va cai thu vien tu requirements.txt
+#      Kiem tra Visual C++ Redistributable x64: thieu hoac cu hon 14.40 thi tu tai va cai (hoi UAC).
+#   2. Tat tien trinh LUO Studio con sot cua thu muc nay, tao moi truong ao .venv va cai thu vien tu requirements.txt
 #   3. Tai ffmpeg ban chinh thuc (gyan.dev) vao bin\
 #   4. Tao thu muc userdata\
 # Tuy chon:  -NoInstallPython  chi bao thieu Python va in huong dan, khong tu cai.
@@ -21,12 +23,14 @@ $ProgressPreference = "SilentlyContinue"
 $Supported = @("3.11", "3.12", "3.13", "3.14")
 
 function Get-PythonInfo([string]$exe) {
-  # Chay thu de biet phien ban va 32/64-bit; $null neu khong chay duoc
+  # Chay thu de biet phien ban, 32/64-bit va co tao duoc .venv khong; $null neu khong chay duoc.
+  # Full = co venv + ensurepip. Ban "embeddable" (thu muc runtime\ cua cac app khac, ke ca ban LUO Studio cu) chay duoc nhung co tinh bo venv/pip:
+  # chon nham no thi buoc tao .venv bao "No module named venv".
   try {
-    $o = & $exe -c "import sys;print('%d.%d %d' % (sys.version_info[0], sys.version_info[1], 64 if sys.maxsize > 2**32 else 32))" 2>$null
+    $o = & $exe -c "import sys,importlib.util as u;print('%d.%d %d %d' % (sys.version_info[0], sys.version_info[1], 64 if sys.maxsize > 2**32 else 32, all(u.find_spec(m) for m in ('venv','ensurepip'))))" 2>$null
     if ($LASTEXITCODE -ne 0 -or -not $o) { return $null }
     $t = ("$o").Trim().Split(" ")
-    return [pscustomobject]@{ Path = $exe; Version = $t[0]; Bits = [int]$t[1] }
+    return [pscustomobject]@{ Path = $exe; Version = $t[0]; Bits = [int]$t[1]; Full = ($t[2] -eq "1") }
   } catch { return $null }
 }
 
@@ -67,9 +71,13 @@ function Get-PythonCandidates {
 }
 
 function Select-Python($infos) {
-  # Ban dung duoc: 3.11-3.14, 64-bit; uu tien theo thu tu trong $Supported (3.11 truoc)
-  $ok = @($infos | Where-Object { $Supported -contains $_.Version -and $_.Bits -eq 64 } | Sort-Object { [array]::IndexOf($Supported, $_.Version) })
-  if ($ok.Count) { return $ok[0].Path }
+  # Ban dung duoc: 3.11-3.14, 64-bit, ban day du (co venv); uu tien theo thu tu trong $Supported (3.11 truoc), cung phien ban thi theo thu tu tim thay.
+  # Khong dung Sort-Object: tren PowerShell 5.1 no khong giu thu tu cac phan tu bang nhau, nen nhieu Python cung "3.12" thi chon ngau nhien.
+  foreach ($v in $Supported) {
+    foreach ($i in @($infos)) {
+      if ($i.Version -eq $v -and $i.Bits -eq 64 -and $i.Full) { return $i.Path }
+    }
+  }
   return $null
 }
 
@@ -79,7 +87,7 @@ function Show-PythonSeen($infos) {
   if (-not $infos -or @($infos).Count -eq 0) { Write-Host "  Khong thay Python nao tren may." -ForegroundColor Yellow; return }
   Write-Host "  Python tim thay tren may:" -ForegroundColor Yellow
   foreach ($i in $infos) {
-    $why = if ($Supported -contains $i.Version -and $i.Bits -eq 64) { "dung duoc" } elseif ($i.Bits -ne 64) { "khong dung duoc: ban 32-bit" } else { "khong dung duoc: Studio can 3.11 den 3.14" }
+    $why = if ($i.Bits -ne 64) { "khong dung duoc: ban 32-bit" } elseif ($Supported -notcontains $i.Version) { "khong dung duoc: Studio can 3.11 den 3.14" } elseif (-not $i.Full) { "khong dung duoc: ban rut gon (embeddable), khong co venv/pip" } else { "dung duoc" }
     Write-Host ("    Python {0} ({1}-bit)  {2}  [{3}]" -f $i.Version, $i.Bits, $i.Path, $why)
   }
 }
@@ -109,6 +117,25 @@ function Install-Python {
   $msg += "`n  Cach xu ly: (1) khoi dong lai may roi chay lai; (2) cai thu cong Python 3.11 tu https://www.python.org/downloads/release/python-3119/ (chon Windows installer 64-bit) roi chay lai file nay."
   throw $msg
 }
+
+# Kiem tra thu muc cai dat: cac loi nay khong bao ro rang ma lam thu vien nhi phan hong am tham ve sau
+$here = $PSScriptRoot
+if ($here -match '[^\x00-\x7F]') {
+  Write-Host "  CANH BAO: duong dan thu muc co ky tu co dau/khong phai ASCII ($here). mediapipe/opencv khong mo duoc file o duong dan nhu vay." -ForegroundColor Yellow
+  Write-Host "  Nen chuyen ca thu muc sang duong dan khong dau, vd. D:\LUO-Studio, roi chay lai setup.ps1." -ForegroundColor Yellow
+}
+if ($here -match '\\OneDrive') {
+  Write-Host "  CANH BAO: thu muc nam trong OneDrive ($here). OneDrive khoa/dong bo file luc dang chay gay loi ngau nhien; nen chuyen sang vd. D:\LUO-Studio." -ForegroundColor Yellow
+}
+if ($here.Length -gt 120) {
+  Write-Host "  CANH BAO: duong dan thu muc qua dai ($($here.Length) ky tu); mot so thu vien vuot gioi han 260 ky tu cua Windows khi cai. Nen dat o thu muc ngan, vd. D:\LUO-Studio." -ForegroundColor Yellow
+}
+try {
+  $free = (Get-PSDrive -Name $here.Substring(0, 1) -ErrorAction Stop).Free
+  if ($free -lt 5GB) { Write-Host ("  CANH BAO: o dia chi con {0:N1} GB trong; can it nhat ~5 GB (thu vien ~2 GB, mo hinh giong ~0,3 GB, video)." -f ($free / 1GB)) -ForegroundColor Yellow }
+} catch {}
+# File tai tu Internet (ZIP) bi Windows danh dau: .bat bi SmartScreen chan, .ps1 bi canh bao. Go dau (bo qua .venv, .git, userdata cho nhanh).
+Get-ChildItem $here -Recurse -File -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notmatch '\\(\.venv|\.git|userdata|userdata-backup)\\' } | Unblock-File -ErrorAction SilentlyContinue
 
 Write-Host "[1/4] Kiem tra Python..." -ForegroundColor Cyan
 $python = $null
@@ -143,13 +170,62 @@ if (-not $venvOk) {
 }
 if ($CheckOnly) { Write-Host "  (-CheckOnly: xong kiem tra Python.)"; exit 0 }
 
-# Thu vien nhi phan (onnxruntime, mediapipe, opencv, ctranslate2) can Microsoft Visual C++ Redistributable x64; thieu thi bao loi DLL kho hieu luc chay
-$vc = Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x64" -ErrorAction SilentlyContinue
-if (-not $vc -or $vc.Installed -ne 1) {
-  Write-Host "  CANH BAO: chua thay Microsoft Visual C++ Redistributable x64. Cai tai https://aka.ms/vs/17/release/vc_redist.x64.exe (hoac: winget install Microsoft.VCRedist.2015+.x64) neu sau nay gap loi 'DLL load failed'." -ForegroundColor Yellow
+# Thu vien nhi phan (onnxruntime, ctranslate2, mediapipe, opencv) can Microsoft Visual C++ Redistributable x64 TU 14.40 TRO LEN (Visual Studio 2022 17.10+).
+# Thieu thi bao 'DLL load failed'; co nhung CU HON (vd. 14.29 nam 2021) con te hon: nap duoc nhung crash cung trong MSVCP140.dll luc chay
+# (doi ABI cua std::mutex o 14.40), Studio chet giua chung va nguoi dung chi thay "mat ket noi API" khi bam Gen. Nen kiem tra PHIEN BAN va tu nang cap.
+$VCMin = [version]"14.40"
+$VCUrl = "https://aka.ms/vs/17/release/vc_redist.x64.exe"
+$restartNeeded = $false
+
+function Get-VCRuntimeVersion {
+  # Phien ban cua chinh file DLL ma tien trinh se nap (registry co the con ghi ban cu/moi khong khop file that); $null neu khong co
+  $v = $null
+  foreach ($f in "msvcp140.dll", "vcruntime140.dll") {
+    $p = Join-Path $env:SystemRoot "System32\$f"
+    if (-not (Test-Path $p)) { return $null }
+    $fv = (Get-Item $p).VersionInfo
+    $x = [version]("{0}.{1}.{2}" -f $fv.FileMajorPart, $fv.FileMinorPart, $fv.FileBuildPart)
+    if (-not $v -or $x -lt $v) { $v = $x }
+  }
+  return $v
+}
+
+$vcv = Get-VCRuntimeVersion
+if ($vcv -and $vcv -ge $VCMin) {
+  Write-Host "  Visual C++ Redistributable x64: $vcv (dat yeu cau)."
+} else {
+  if ($vcv) { Write-Host "  Visual C++ Redistributable x64 qua cu ($vcv, can tu $VCMin): thu vien nhan dang giong se crash. Dang cap nhat..." -ForegroundColor Yellow }
+  else { Write-Host "  Chua co Visual C++ Redistributable x64. Dang cai..." -ForegroundColor Yellow }
+  $vcExe = Join-Path $env:TEMP "vc_redist.x64.exe"
+  try {
+    $curl = Join-Path $env:SystemRoot "System32\curl.exe"
+    if (Test-Path $curl) { & $curl -L --fail --retry 3 --connect-timeout 20 -s -o $vcExe $VCUrl; if ($LASTEXITCODE -ne 0) { throw "curl ma $LASTEXITCODE" } }
+    else { Invoke-WebRequest -Uri $VCUrl -OutFile $vcExe -TimeoutSec 300 }
+    # Can quyen admin: Windows se hien hop thoai UAC, bam "Yes"
+    Write-Host "  Windows se hoi quyen quan tri (UAC) de cai Visual C++ Redistributable: hay bam 'Yes'."
+    $p = Start-Process -FilePath $vcExe -ArgumentList "/install", "/quiet", "/norestart" -Verb RunAs -Wait -PassThru
+    $code = $p.ExitCode
+    if ($code -eq 3010 -or $code -eq 1641) { $restartNeeded = $true }
+    elseif ($code -ne 0 -and $code -ne 1638) { throw "bo cai bao ma $code" }   # 1638 = da co ban moi hon
+    $vcv = Get-VCRuntimeVersion
+    Write-Host "  Da cai Visual C++ Redistributable x64 ($vcv)."
+  } catch {
+    Write-Host "  CANH BAO: khong cai duoc Visual C++ Redistributable tu dong ($($_.Exception.Message))." -ForegroundColor Red
+    Write-Host "  Bat buoc phai cai thu cong truoc khi Gen video: tai $VCUrl , chuot phai > Run as administrator, cai xong KHOI DONG LAI MAY." -ForegroundColor Red
+  } finally {
+    Remove-Item $vcExe -Force -ErrorAction SilentlyContinue
+  }
 }
 
 Write-Host "[2/4] Tao .venv va cai thu vien (co the mat vai phut)..." -ForegroundColor Cyan
+# LUO Studio (hoac tien trinh con sot lai tu lan truoc) dang chay bang .venv nay thi file .pyd bi khoa: pip bao "Access is denied" va .venv hong nua chung
+$mine = @(Get-CimInstance Win32_Process -ErrorAction SilentlyContinue | Where-Object {
+  $_.ExecutablePath -and ($_.ExecutablePath.StartsWith("$here\.venv\", [StringComparison]::OrdinalIgnoreCase) -or $_.ExecutablePath.StartsWith("$here\runtime\", [StringComparison]::OrdinalIgnoreCase)) })
+if ($mine.Count) {
+  Write-Host "  Dang tat $($mine.Count) tien trinh LUO Studio con chay tu thu muc nay (de cap nhat thu vien)..." -ForegroundColor Yellow
+  foreach ($p in $mine) { try { & taskkill /PID $p.ProcessId /T /F 2>$null | Out-Null } catch {} }   # tien trinh con co the da tat theo cha
+  Start-Sleep -Seconds 1
+}
 if (-not $venvOk) {
   if (Test-Path ".venv") { Remove-Item ".venv" -Recurse -Force }
   & $python -m venv .venv
@@ -215,4 +291,5 @@ Write-Host "[4/4] Tao thu muc du lieu..." -ForegroundColor Cyan
 New-Item -ItemType Directory -Force -Path "userdata" | Out-Null
 
 Write-Host ""
+if ($restartNeeded) { Write-Host "Visual C++ Redistributable vua duoc cap nhat: KHOI DONG LAI MAY truoc khi mo LUO Studio." -ForegroundColor Yellow }
 Write-Host "Xong. Mo ung dung bang 'LUO Studio.bat' (hoac 'LUO Studio (xem loi).bat' de xem log)." -ForegroundColor Green

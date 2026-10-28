@@ -455,29 +455,66 @@ def scrub_listener_text(text):
     return naturalize(text)
 
 
-_WM = None
-_WM_LOCK = threading.Lock()
-
-
-def _whisper():
-    global _WM
-    with _WM_LOCK:
-        if _WM is None:
-            from faster_whisper import WhisperModel
-            _WM = WhisperModel("small.en", device="cpu", compute_type="int8")
-    return _WM
-
-
+# Whisper chạy trong MỘT tiến trình con sống suốt phiên (nạp mô hình một lần). Trước đây nạp ngay trong tiến trình Studio: trên máy có Visual C++ Redistributable cũ
+# (< 14.40) ctranslate2/onnxruntime crash cứng trong MSVCP140.dll, kéo chết cả Studio và người dùng chỉ thấy "mất kết nối API" khi bấm Gen.
+# Giờ nếu thư viện native hỏng thì chỉ tiến trình con chết, cảnh đó cắt theo cách thường, lần sau tự bật tiến trình mới.
+# Đọc wav thành mảng float32 thay vì truyền đường dẫn: faster-whisper tự giải mã bằng PyAV và sẽ lỗi trên máy có bản PyAV cũ.
+_WHISPER_WORKER = r"""
+import json, sys, wave
+import numpy as np
+from faster_whisper import WhisperModel
+m = WhisperModel("small.en", device="cpu", compute_type="int8")
+print("ready", flush=True)
+for line in sys.stdin:
+    j = json.loads(line)
+    with wave.open(j["wav"], "rb") as w:
+        a = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768.0
+    segs, _ = m.transcribe(a, language="en", beam_size=1, vad_filter=False, condition_on_previous_text=False, word_timestamps=j["words"])
+    segs = list(segs)
+    print(json.dumps({"text": [s.text for s in segs], "words": [(w.word, w.start, w.end) for s in segs for w in (s.words or [])]}), flush=True)
+"""
+_WP = None
+_WP_LINES = None
 _WH_LOCK = threading.Lock()
 
 
-def _read_wav(path):
-    """Đọc wav 16 kHz mono thành mảng float32 để đưa thẳng cho Whisper. Truyền đường dẫn thì faster-whisper tự giải mã bằng PyAV
-    (av.open(..., metadata_errors=...)) và sẽ lỗi trên máy có bản PyAV cũ."""
-    import wave
-    import numpy as np
-    with wave.open(path, "rb") as w:
-        return np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768.0
+def _wp_read(timeout):
+    import queue
+    try:
+        line = _WP_LINES.get(timeout=timeout)
+    except queue.Empty:
+        line = None
+    if line is None:
+        rc = _WP.poll()
+        _WP.kill()
+        raise RuntimeError("nhận dạng giọng " + (f"bị tắt đột ngột (mã 0x{rc & 0xFFFFFFFF:08X}; chạy 'Chan doan.bat' để kiểm tra)" if rc is not None else "không phản hồi"))
+    return line
+
+
+def _transcribe(wav, words):
+    """{'text': [...], 'words': [(từ, bắt đầu, kết thúc)]} của file wav 16 kHz mono, qua tiến trình Whisper riêng."""
+    global _WP, _WP_LINES
+    import queue
+    with _WH_LOCK:
+        if _WP is None or _WP.poll() is not None:
+            _WP = subprocess.Popen([sys.executable, "-I", "-W", "ignore", "-c", _WHISPER_WORKER], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                                   stderr=subprocess.DEVNULL, text=True, encoding="utf-8", errors="replace",
+                                   creationflags=0x08000000 if os.name == "nt" else 0)
+            _WP_LINES = queue.Queue()
+
+            def pump(out, q):
+                for ln in out:
+                    q.put(ln)
+                q.put(None)
+            threading.Thread(target=pump, args=(_WP.stdout, _WP_LINES), daemon=True).start()
+            while _wp_read(900).strip() != "ready":   # lần đầu có thể phải tải mô hình (~250 MB)
+                pass
+        _WP.stdin.write(json.dumps({"wav": os.path.abspath(wav), "words": words}) + "\n")
+        _WP.stdin.flush()
+        while True:
+            ln = _wp_read(300).strip()
+            if ln.startswith("{"):
+                return json.loads(ln)
 
 
 def voice_span(path, expected):
@@ -491,9 +528,7 @@ def voice_span(path, expected):
     wav = path + ".span.wav"
     sh(["ffmpeg", "-y", "-i", path, "-vn", "-ac", "1", "-ar", "16000", wav])
     try:
-        with _WH_LOCK:
-            segs, _ = _whisper().transcribe(_read_wav(wav), language="en", beam_size=1, vad_filter=False, condition_on_previous_text=False, word_timestamps=True)
-            words = [(norm(w.word), w.start, w.end) for sg in segs for w in (sg.words or [])]
+        words = [(norm(w), a, b) for w, a, b in _transcribe(wav, True)["words"]]
     finally:
         try:
             os.remove(wav)
@@ -509,8 +544,7 @@ def heard_words(path):
     wav = path + ".chk.wav"
     sh(["ffmpeg", "-y", "-i", path, "-vn", "-ac", "1", "-ar", "16000", wav])
     try:
-        segs, _ = _whisper().transcribe(_read_wav(wav), language="en", beam_size=1, vad_filter=False, condition_on_previous_text=False)
-        return [w for sg in segs for w in re.findall(r"[a-z']+", sg.text.lower())]
+        return [w for t in _transcribe(wav, False)["text"] for w in re.findall(r"[a-z']+", t.lower())]
     finally:
         try:
             os.remove(wav)

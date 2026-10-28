@@ -115,6 +115,101 @@ def reap_stale_browsers(profile_root):
         pass
 
 
+_JOB = None
+_CRASH_LOG = None
+
+
+def tie_children_to_launcher():
+    """Windows: đưa trình khởi động vào một Job Object "tắt cùng nhau" nên MỌI tiến trình con (LUO-API, trình duyệt của nó, Whisper, cửa sổ) chết theo khi nó thoát,
+    kể cả khi crash cứng (lúc đó khối finally không chạy). Trước đây LUO-API và trình duyệt con sống mãi thành tiến trình treo, các lần mở sau tranh chấp cổng/hồ sơ."""
+    global _JOB
+    if os.name != "nt":
+        return
+    try:
+        import ctypes
+        from ctypes import wintypes as W
+
+        class Basic(ctypes.Structure):
+            _fields_ = [("PerProcessUserTimeLimit", ctypes.c_int64), ("PerJobUserTimeLimit", ctypes.c_int64), ("LimitFlags", W.DWORD),
+                        ("MinimumWorkingSetSize", ctypes.c_size_t), ("MaximumWorkingSetSize", ctypes.c_size_t), ("ActiveProcessLimit", W.DWORD),
+                        ("Affinity", ctypes.c_size_t), ("PriorityClass", W.DWORD), ("SchedulingClass", W.DWORD)]
+
+        class Extended(ctypes.Structure):
+            _fields_ = [("BasicLimitInformation", Basic), ("IoInfo", ctypes.c_uint64 * 6), ("ProcessMemoryLimit", ctypes.c_size_t),
+                        ("JobMemoryLimit", ctypes.c_size_t), ("PeakProcessMemoryUsed", ctypes.c_size_t), ("PeakJobMemoryUsed", ctypes.c_size_t)]
+        k = ctypes.WinDLL("kernel32", use_last_error=True)
+        k.CreateJobObjectW.restype = W.HANDLE
+        k.GetCurrentProcess.restype = W.HANDLE
+        k.SetInformationJobObject.argtypes = [W.HANDLE, ctypes.c_int, ctypes.c_void_p, W.DWORD]
+        k.AssignProcessToJobObject.argtypes = [W.HANDLE, W.HANDLE]
+        job = k.CreateJobObjectW(None, None)
+        info = Extended()
+        info.BasicLimitInformation.LimitFlags = 0x2000   # JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
+        if job and k.SetInformationJobObject(job, 9, ctypes.byref(info), ctypes.sizeof(info)) and k.AssignProcessToJobObject(job, k.GetCurrentProcess()):
+            _JOB = job   # giữ handle tới khi tiến trình kết thúc
+    except Exception:
+        pass
+
+
+def reap_stale_processes():
+    """Tắt tiến trình treo của các lần chạy trước (bản cũ chưa có Job Object, hoặc trình khởi động bị crash):
+    (1) trình khởi động / LUO-API ghi trong running.json của thư mục này mà máy chủ không còn trả lời; (2) LUO-API mồ côi của BẤT KỲ bản cài nào (trình khởi động đã chết).
+    Chạy SAU already_running(): bản đang chạy thật thì không bị đụng tới."""
+    if os.name != "nt":
+        return
+    pids = []
+    try:
+        d = json.load(open(os.path.join(USER, "running.json"), encoding="utf-8"))
+        pids = [str(int(d[k])) for k in ("pid", "api_pid") if d.get(k)]
+    except Exception:
+        pass
+    script = ("$ids = @(\"$env:LUO_STALE_PIDS\".Split(',') | Where-Object { $_ }); $all = @(Get-CimInstance Win32_Process); $alive = @{}; "
+              "foreach ($p in $all) { $alive[[int]$p.ProcessId] = 1 }; "
+              "foreach ($p in $all) { if ($p.Name -notmatch '^pythonw?\\.exe$' -or [int]$p.ProcessId -eq $PID) { continue }; "
+              "$orphan = $p.CommandLine -and $p.CommandLine -match 'uvicorn\\s+app:app\\s+--host\\s+127\\.0\\.0\\.1' -and -not $alive.ContainsKey([int]$p.ParentProcessId); "
+              "if ($orphan -or $ids -contains \"$($p.ProcessId)\") { taskkill /PID $p.ProcessId /T /F 2>$null | Out-Null } }")
+    try:
+        env = dict(os.environ, LUO_STALE_PIDS=",".join(p for p in pids if int(p) not in (os.getpid(), os.getppid())))
+        subprocess.run(["powershell", "-NoProfile", "-NonInteractive", "-Command", script], capture_output=True, timeout=30,
+                       creationflags=CREATE_NO_WINDOW, env=env)
+    except Exception:
+        pass
+
+
+def vc_runtime_too_old():
+    """Phiên bản Microsoft Visual C++ Redistributable x64 nếu CŨ HƠN 14.40 (hoặc "chưa cài"), ngược lại None.
+    onnxruntime/ctranslate2 mới build bằng VS 2022 17.10+: với bản runtime cũ chúng crash cứng trong MSVCP140.dll khi chạy (đổi ABI của std::mutex)."""
+    if os.name != "nt":
+        return None
+    try:
+        import winreg
+        with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x64") as k:
+            major, minor = (int(winreg.QueryValueEx(k, n)[0]) for n in ("Major", "Minor"))
+            if (major, minor) >= (14, 40):
+                return None
+            return f"{major}.{minor}"
+    except Exception:
+        return "chưa cài"
+
+
+def warn_vc_runtime():
+    old = vc_runtime_too_old()
+    if not old:
+        return
+    url = "https://aka.ms/vs/17/release/vc_redist.x64.exe"
+    msg = (f"Microsoft Visual C++ Redistributable x64 trên máy {'chưa cài' if old == 'chưa cài' else 'quá cũ (' + old + ')'}, cần bản 14.40 trở lên.\n\n"
+           "Nếu không cập nhật, nhận dạng giọng sẽ crash khi Gen video.\n\n"
+           f"Bấm Yes để tải bản mới ({url}), cài bằng quyền Administrator rồi KHỞI ĐỘNG LẠI MÁY.\n(Hoặc chạy lại setup.ps1: nó tự cài.)")
+    say(msg)
+    try:
+        import ctypes
+        if ctypes.windll.user32.MessageBoxW(0, msg, "LUO Studio", 0x04 | 0x30) == 6:   # MB_YESNO | MB_ICONWARNING; 6 = Yes
+            import webbrowser
+            webbrowser.open(url)
+    except Exception:
+        pass
+
+
 def already_running():
     """Chỉ cho một bản chạy: nếu bản trước còn sống thì chỉ mở lại cửa sổ vào đúng máy chủ đó."""
     p = os.path.join(USER, "running.json")
@@ -131,6 +226,13 @@ def main():
     selftest = "--selftest" in sys.argv
     os.makedirs(STUDIO_DATA, exist_ok=True)
     os.makedirs(LOGS, exist_ok=True)
+    try:   # crash cứng trong thư viện native (DLL) giết tiến trình không để lại dấu vết: ghi stack Python vào crash.log để biết thư viện nào
+        import faulthandler
+        global _CRASH_LOG
+        _CRASH_LOG = open(os.path.join(LOGS, "crash.log"), "a", encoding="utf-8")
+        faulthandler.enable(_CRASH_LOG)
+    except Exception:
+        pass
 
     # ---- môi trường chung cho API, Studio và các tiến trình con (ffmpeg, Whisper...)
     bin_dir = os.path.join(ROOT, "bin")
@@ -149,7 +251,11 @@ def main():
         open_window(again)
         return 0
 
+    tie_children_to_launcher()
+    reap_stale_processes()   # trước khi chọn cổng: cổng của LUO-API sót lại được trả về
     reap_stale_browsers(os.environ["MUSE2API_PROFILE_ROOT"])   # trước khi chọn cổng CDP: cổng của trình duyệt sót lại được trả về
+    if not selftest:
+        warn_vc_runtime()
     for p in range(19210, 19250):   # cổng điều khiển trình duyệt (CDP) trống
         if port_free(p):
             os.environ.setdefault("MUSE2API_CDP_PORT", str(p))
@@ -188,7 +294,7 @@ def main():
         url = f"http://127.0.0.1:{studio_port}/"
         import threading
         threading.Thread(target=srv.serve_forever, daemon=True).start()
-        json.dump({"studio_url": url, "api_port": port, "pid": os.getpid()}, open(os.path.join(USER, "running.json"), "w", encoding="utf-8"))
+        json.dump({"studio_url": url, "api_port": port, "pid": os.getpid(), "api_pid": api.pid}, open(os.path.join(USER, "running.json"), "w", encoding="utf-8"))
         say(f"LUO Studio: {url}")
 
         if not selftest:

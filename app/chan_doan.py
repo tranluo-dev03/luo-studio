@@ -82,7 +82,11 @@ feat = cpu_features()
 if feat:
     out("Lenh CPU: " + ", ".join(f"{k}={'co' if v else 'KHONG'}" for k, v in feat.items()))
 ok_vc, vcver = vcredist()
-out(f"Microsoft Visual C++ Redistributable x64: {'co (' + vcver + ')' if ok_vc else 'KHONG THAY'}")
+try:   # v14.29.30133.00 -> (14, 29)
+    vc_old = ok_vc and tuple(int(x) for x in vcver.lstrip("v").split(".")[:2]) < (14, 40)
+except ValueError:
+    vc_old = False
+out(f"Microsoft Visual C++ Redistributable x64: {'co (' + vcver + ')' if ok_vc else 'KHONG THAY'}" + ("  -> QUA CU, can tu 14.40" if vc_old else ""))
 out("")
 out("Phien ban thu vien:")
 for p in ("faster-whisper", "ctranslate2", "onnxruntime", "numpy", "mediapipe", "opencv-contrib-python", "av", "pillow", "fastapi", "uvicorn"):
@@ -109,8 +113,10 @@ out("")
 out("=== Nhan xet ===")
 if not problems:
     out("Cac thu vien nhi phan deu nap duoc.")
-if problems and not ok_vc:
-    out("- Thieu Microsoft Visual C++ Redistributable x64. Cai ban x64 tu: https://aka.ms/vs/17/release/vc_redist.x64.exe  roi chay lai setup.ps1.")
+if not ok_vc or vc_old:
+    out(f"- Microsoft Visual C++ Redistributable x64 {'qua cu (' + vcver + ')' if vc_old else 'chua cai'}: onnxruntime/ctranslate2 se loi DLL hoac crash cung trong MSVCP140.dll "
+        "(Studio chet giua chung, bao 'mat ket noi API' khi Gen). Chay lai setup.ps1 (tu cai), hoac cai ban x64 tu https://aka.ms/vs/17/release/vc_redist.x64.exe "
+        "bang quyen Administrator roi KHOI DONG LAI MAY.")
 if problems and feat and not feat.get("AVX", True):
     out("- CPU/may ao KHONG bao cao lenh AVX: mediapipe (va mot so ban onnxruntime) can AVX. Neu day la may ao, bat 'AVX passthrough' / chon loai CPU 'host' trong cau hinh may ao.")
 if "mediapipe" in problems:
@@ -118,6 +124,15 @@ if "mediapipe" in problems:
 if "onnxruntime" in problems:
     out("- onnxruntime loi: Hau ky tu bo VAD va dung nhan dang giong khong VAD (khong anh huong ket qua).")
 log_dir = os.path.join(ROOT, "userdata", "logs")
+try:   # stack Python luc tien trinh crash cung (launcher ghi bang faulthandler)
+    crash = open(os.path.join(log_dir, "crash.log"), encoding="utf-8", errors="replace").read().strip().splitlines()
+    if crash:
+        out("")
+        out("Crash gan nhat (userdata\logs\crash.log, 15 dong cuoi):")
+        for ln in crash[-15:]:
+            out("  " + ln)
+except OSError:
+    pass
 try:
     os.makedirs(log_dir, exist_ok=True)
     path = os.path.join(log_dir, "chan-doan.txt")

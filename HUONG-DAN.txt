@@ -50,18 +50,28 @@ Bước 1. Tải mã nguồn
     đầy đủ; nếu khi giải nén báo "đường dẫn quá dài", hãy giải nén vào thư mục gốc ổ đĩa.
   - Giải nén đầy đủ rồi mới chạy, KHÔNG chạy trực tiếp từ bên trong file .zip.
   - Tránh đặt trong "Program Files" hoặc "Desktop" nếu máy bật thư mục được bảo vệ.
+  - Đường dẫn KHÔNG DẤU và KHÔNG nằm trong OneDrive (ví dụ tránh "D:\Tài liệu\..." hoặc
+    "C:\Users\...\OneDrive\..."): thư viện đo miệng không mở được file ở đường dẫn có dấu, còn
+    OneDrive khoá file khi đang đồng bộ. setup.ps1 sẽ cảnh báo nếu gặp các trường hợp này.
+  - Chỉ giữ MỘT bản LUO Studio trên máy. Bản cũ không dùng nữa thì xoá đi (sau khi chép
+    thư mục userdata sang bản mới nếu cần), tránh mở nhầm bản cũ.
 
 Bước 2. Cài đặt tự động (làm một lần)
   - Mở PowerShell (Start, gõ PowerShell), vào thư mục vừa tạo rồi chạy:
         cd D:\LUO-Studio
         powershell -ExecutionPolicy Bypass -File setup.ps1
     (thay D:\LUO-Studio bằng thư mục của bạn).
-  - Script tự làm hết, không cần bấm gì thêm: tìm Python 3.11 hoặc 3.12 (64-bit) trên máy
+  - Script tự làm hết: tìm Python 3.11 đến 3.14 (64-bit, bản cài đầy đủ; bỏ qua bản "embeddable"
+    rút gọn mà một số phần mềm khác chép theo) trên máy
     (qua py launcher, registry, thư mục mặc định và PATH); nếu chưa có thì tự cài Python 3.11
     từ python.org, cài SONG SONG với Python đang có (chỉ cho người dùng hiện tại, không cần
     quyền quản trị, không đổi PATH). Sau đó tạo môi trường .venv, cài thư viện, tải ffmpeg vào
     thư mục bin và tạo thư mục userdata. Khi cập nhật, nếu .venv đã có và dùng được thì không
     cần tìm Python hệ thống nữa.
+  - Script kiểm tra Microsoft Visual C++ Redistributable x64: chưa có hoặc CŨ HƠN 14.40 thì tự tải
+    và cài. Windows sẽ hiện hộp thoại quyền quản trị (UAC): bấm "Yes". Nếu script báo cần khởi động
+    lại máy thì khởi động lại trước khi mở LUO Studio. Đây là điều kiện BẮT BUỘC: thiếu hoặc bản cũ
+    thì bấm Gen sẽ bị "mất kết nối API" (xem mục 11).
   - Studio dùng được Python 3.11, 3.12, 3.13 và 3.14 (64-bit). Máy chỉ có Python 3.15 trở lên
     (hoặc bản 32-bit) thì script tự cài thêm 3.11 bên cạnh, không gỡ hay đổi Python hiện có.
   - Trên Python 3.13/3.14, tính năng kiểm tra "người nghe mấp máy miệng" dùng bản mediapipe mới nên
@@ -80,7 +90,9 @@ Bước 4. Mô hình nhận dạng giọng
     dùng cho hậu kỳ (căn phụ đề theo giọng). Cần Internet, mất vài phút.
   - Hậu kỳ chỉ chạy được sau khi tải xong. Gen video không phụ thuộc vào mô hình này.
 
-Cửa sổ ứng dụng đóng lại là LUO Studio tắt hẳn (kể cả dịch vụ nền).
+Cửa sổ ứng dụng đóng lại là LUO Studio tắt hẳn (kể cả dịch vụ nền). Kể cả khi ứng dụng bị
+tắt đột ngột, dịch vụ nền và trình duyệt con cũng tắt theo; lần mở sau tự dọn tiến trình còn
+sót của các lần trước.
 
 --------------------------------------------------------------------------------
 4. THÊM TÀI KHOẢN MUSE (BẮT BUỘC, LÀM MỘT LẦN)
@@ -315,6 +327,30 @@ Bấm "LUO Studio.bat" báo "Chưa cài đặt. Hãy chạy: ... setup.ps1"
 
 "Chưa có tài khoản Muse"
   - Thêm tài khoản ở tab "API Muse" (mục 4).
+
+Bấm Gen thì báo "mất kết nối API" / chấm đỏ, ứng dụng như bị tắt giữa chừng
+  - Nguyên nhân hay gặp nhất: Microsoft Visual C++ Redistributable x64 quá cũ (ví dụ 14.29 năm 2021).
+    Thư viện nhận dạng giọng mới crash cứng trong MSVCP140.dll. Khi mở, LUO Studio hiện cảnh báo nếu
+    phát hiện bản cũ. Cách xử lý: chạy lại setup.ps1 (tự cài bản mới), hoặc tải
+    https://aka.ms/vs/17/release/vc_redist.x64.exe , chuột phải > Run as administrator, rồi KHỞI ĐỘNG
+    LẠI MÁY.
+  - Từ bản này nhận dạng giọng khi Gen chạy trong tiến trình riêng: nếu nó vẫn crash thì chỉ cảnh đó
+    "cắt theo cách thường" kèm cảnh báo trong nhật ký, ứng dụng không bị tắt nữa.
+  - Mở nhiều bản LUO Studio (bản cũ và bản mới) hoặc tiến trình cũ còn treo: đóng hết cửa sổ, mở lại
+    "LUO Studio.bat" (tự dọn tiến trình treo). Vẫn lỗi thì khởi động lại máy.
+  - Chạy "Chan doan.bat" và gửi userdata\logs\chan-doan.txt (kèm userdata\logs\crash.log nếu có).
+
+Bộ cài Python báo lỗi 2503 / 2502 (khi tự cài Python thủ công)
+  - Lỗi quyền của Windows Installer. Chuột phải file cài Python > "Run as administrator". Thường không
+    cần tự cài Python: setup.ps1 tự cài bản cho riêng người dùng, không cần quyền quản trị.
+
+setup.ps1 báo "No module named venv"
+  - Script đã chọn nhầm bản Python rút gọn (embeddable). Bản mới của setup.ps1 tự bỏ qua bản này;
+    hãy cập nhật mã nguồn rồi chạy lại. Kiểm tra bằng: setup.ps1 -CheckOnly
+
+Cài thư viện báo "Access is denied" / "[WinError 5]"
+  - LUO Studio hoặc tiến trình cũ đang chạy giữ file. setup.ps1 tự tắt tiến trình của thư mục này;
+    nếu vẫn lỗi, khởi động lại máy rồi chạy lại setup.ps1.
 
 Lỗi khi giải nén ("đường dẫn quá dài") hoặc báo thiếu file khi mở
   - Giải nén lại vào đường dẫn ngắn như D:\LUO-Studio (xem mục 3).
