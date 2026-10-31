@@ -120,12 +120,15 @@ def _grade(ref, cur):
     return c, b, sat, du, dv
 
 
-def color_match(ref, start, end, dur):
-    """Bộ lọc ffmpeg kéo màu clip về `ref` (cảnh đầu), chỉnh dần theo thời gian từ đầu tới cuối clip vì Muse hay tối/nhạt dần trong clip.
+def color_match(ref, start, end, dur, strength=1.0):
+    """Bộ lọc ffmpeg kéo màu clip về `ref` (khung đầu chuẩn), chỉnh dần theo thời gian từ đầu tới cuối clip vì Muse hay tối/nhạt dần trong clip.
+    strength 0..1: mức kéo về chuẩn (1 = kéo hết, 0.5 = một nửa) cho cảnh vốn khác ánh sáng không bị ép quá tay.
     Trả về (chuỗi lọc, mô tả) hoặc ("", "") nếu đã đủ gần."""
     if not ref or not start or not end:
         return "", ""
-    g0, g1 = _grade(ref, start), _grade(ref, end)
+    s = max(0.0, min(1.0, float(strength)))
+    soft = lambda g: (1 + (g[0] - 1) * s, g[1] * s, 1 + (g[2] - 1) * s, g[3] * s, g[4] * s)
+    g0, g1 = soft(_grade(ref, start)), soft(_grade(ref, end))
     near = lambda g: abs(g[0] - 1) < 0.02 and abs(g[1]) < 0.006 and abs(g[2] - 1) < 0.03 and abs(g[3]) < 1 and abs(g[4]) < 1
     if near(g0) and near(g1):
         return "", ""
@@ -280,11 +283,12 @@ class Api(G.Api):
 
 
 # ------------------------------------------------------------------ tham chiếu đính kèm theo token
-def attachments(vdata, opts, keep=None, offset=0, missing=None):
+def attachments(vdata, opts, keep=None, offset=0, missing=None, lead=None):
     """(ảnh data-url, chú thích ảnh, [(nhóm, audio data-url)]) từ vdata["refs"] = {TOKEN: [{type,file,name}]}.
     keep(token, nhóm) -> bool: chỉ lấy tệp của các token thoả điều kiện (chế độ ghép 2 lớp: mỗi nhân vật chỉ nhận ảnh của chính nó).
     offset: số ảnh đã đứng TRƯỚC các ảnh này trong lệnh gửi (ảnh chung của dự án), để số thứ tự trong chú thích khớp thứ tự thật.
-    missing: danh sách nhận tên các tệp được gắn nhưng không còn trên đĩa (trước đây bị bỏ qua âm thầm, video ra sai nhân vật mà không có cảnh báo)."""
+    missing: danh sách nhận tên các tệp được gắn nhưng không còn trên đĩa (trước đây bị bỏ qua âm thầm, video ra sai nhân vật mà không có cảnh báo).
+    lead: câu đặt trước chú thích thay cho câu mặc định về ảnh chung (vd. nói ảnh #1 là khung đầu của clip)."""
     base = opts.get("assets_dir") or ""
     labels, groups = opts.get("field_labels", {}), opts.get("field_groups", {})
     imgs, notes, auds = [], [], []
@@ -316,7 +320,28 @@ def attachments(vdata, opts, keep=None, offset=0, missing=None):
                 imgs.append(G.data_url(p))
                 notes.append(f"reference image #{offset + len(imgs)} is {describe(key)}")
     legend = "; ".join(notes)
-    return imgs, ((("(the first images are general references) " if offset else "") + legend) if legend else ""), auds
+    return imgs, ((("(the first images are general references) " if offset and lead is None else (lead or "")) + legend) if legend else ""), auds
+
+
+_TOK = re.compile(r"\{\{([A-Z][A-Z0-9_]*)\}\}")
+
+
+def scene_tokens(template):
+    """{số cảnh: tập token {{...}} xuất hiện trong khối CẢNH đó của script (chưa điền)} - để biết cảnh nào có nhân vật / nền nào."""
+    hs = list(re.finditer(r"^CẢNH (\d+) \(", template, re.M))
+    return {int(h.group(1)): set(_TOK.findall(template[h.start(): hs[i + 1].start() if i + 1 < len(hs) else len(template)])) for i, h in enumerate(hs)}
+
+
+def scene_ref_filter(toks, people, all_toks):
+    """keep(token, nhóm) cho attachments(): chỉ gửi ảnh tham chiếu của nhân vật/nền có trong cảnh.
+    Gửi cả ảnh người không có mặt làm Muse trộn mặt (vd. mặt cô gái lẫn vào cảnh sát). `people`: khoá nhân vật có mặt (NGUOI_<khoá>).
+    Token không cảnh nào nhắc riêng (chỉ nằm trong các khối LOCK) thì không lọc được: vẫn gửi như cũ."""
+    def keep(key, _grp):
+        k = key.upper()
+        if k.startswith("NGUOI_"):
+            return k[6:] in people
+        return k in toks or k not in all_toks
+    return keep
 
 
 # ------------------------------------------------------------------ chống 2 nhân vật cùng nói
@@ -386,16 +411,23 @@ def speaker_lock(v, turn):
     spk, spos, role_s = v.get(f"TEN_{k}"), MV.cpos(v, k), MV.crole(v, k)
     contrast = voice_contrast(v, k == "DAY") if {k, *lis} == {"DAY", "HOC"} else ""
     quiet = ""
+    idle = v.get("listen") == "idle"   # người nghe "idle": môi khép nhưng vẫn sống (chớp mắt, thở, phản ứng nhẹ) thay vì đứng như ảnh tĩnh
+    react = str(turn.get("emo2") or "").strip().replace('"', "'")
     for c in lis:
         task = v.get("VIEC", "").strip() if (k == "DAY" and c == "HOC") else ""
         strong = same_gender(v) and bool(task)   # cùng giới: giấu miệng người nghe ngay từ đầu
         pose = str(v.get(f"NGHE_{c}") or "").strip()   # tuỳ chọn: tư thế khi nghe do biến thể quy định (vd. hai người nhìn nhau, không nhìn ống kính)
+        alive = ("listens in a natural, living idle: soft blinking, gentle breathing, small attentive head movements and a faint expression that follows the mood of the line"
+                 + (f' (reacting "{react}")' if react else " (a slight smile, a small eyebrow lift or a tiny nod)") + ", mouth staying closed")
         base = (pose if pose else
                 f"keeps quietly {task} at the same slow, steady pace the whole time, head bowed low over the work, face half hidden by the hat or hair and turned down and away, eyes on the work, lips closed and still" if strong else
+                f"keeps quietly {task} at a slow, steady pace and {alive}" if task and idle else
                 f"keeps quietly {task} at the same slow, steady pace the whole time, head lowered over the work, eyes on the work, face partly turned away from the phone and the camera" if task
+                else f"{alive}, eyes resting on the speaker" if idle
                 else "stays in the calm base pose, still, eyes on the camera, mouth a flat closed line")
         role_l = MV.crole(v, c)
-        quiet += (f"The {role_l} ({MV.cpos(v, c)}) is quiet for the whole clip: lips gently closed, a calm relaxed face with a faint steady quiet mood, and {base}, "
+        mood = "a living, attentive face" if idle else "a calm relaxed face with a faint steady quiet mood"
+        quiet += (f"The {role_l} ({MV.cpos(v, c)}) is quiet for the whole clip: lips gently closed, {mood}, and {base}, "
                   f"at the {role_l}'s own pace regardless of the dialogue. ")
     resting = " and ".join(f"VOICE {letter[c]}" for c in lis) + (" is" if len(lis) == 1 else " are") + " resting in this clip."
     return ("SPEAKER MAP: " + "; ".join(f"VOICE {letter[c]} belongs to the {MV.cpos(v, c)} character ({v.get(f'TEN_{c}')})" for c in chars) + ". "
@@ -472,6 +504,33 @@ def naturalize(text):
     for pat, rp in _NATURAL_RULES:
         text = re.sub(pat, rp, text, flags=re.S)
     return text
+
+
+_UNFREEZE = [
+    # "both characters rest ... and stay completely still, like a photo, until the end" / "everyone on screen ... HOLDS IT COMPLETELY FROZEN ..." / "both rest still until the end"
+    (r"\b(?:both characters|both|everyone on screen|everyone|all characters)\b(?!\s+(?:hands|arms|feet|sides|eyes|of)\b)[^.]*?\b(?:rest|rests|stay|stays|hold|holds|remain|remains|settle|settles|freeze|freezes)\b"
+     r"[^.]*?\b(?:completely still|still|frozen|like a (?:still )?photo(?:graph)?|paused image)\b[^.]*\.",
+     "the speaker relaxes into a calm resting pose with the mouth closed, while the other character keeps a natural, living listening idle (soft blinking, gentle breathing, small facial reactions, mouth closed) until the end of the clip."),
+    (r"(silent[^.]{0,40}?mouth closed), (?:a )?calm face", r"\1, a living, attentive listening face"),
+    (r"cả hai\b[^.;]*?(?:đứng im|giữ im|đứng yên|như ảnh tĩnh)[^.;]*",
+     "người nói về tư thế nghỉ, miệng khép; người kia vẫn lắng nghe tự nhiên (chớp mắt, thở, biểu cảm nhẹ, miệng khép) đến hết clip"),
+]
+_NEG_FREEZE = re.compile(r"final still|movement during|blinking|breathing motion|paused image", re.I)
+
+
+def unfreeze_listener(text):
+    """Chế độ người nghe "idle": gỡ các câu bắt CẢ HAI nhân vật đứng im như ảnh tĩnh trong kịch bản tự viết (câu chữ khác template mẫu nên naturalize() không khớp).
+    Người nói vẫn về tư thế nghỉ sau lời thoại; chỉ người nghe được sống tự nhiên."""
+    def fix(m, rp):
+        out = m.expand(rp) if "\\1" in rp else rp
+        return out[:1].upper() + out[1:] if m.group(0)[:1].isupper() else out
+    for pat, rp in _UNFREEZE:
+        text = re.sub(pat, lambda m, rp=rp: fix(m, rp), text, flags=re.I)
+    return text
+
+
+def unfreeze_negative(neg):
+    return "; ".join(x.strip() for x in re.split(r";|\.(?=\s)", neg) if x.strip() and not _NEG_FREEZE.search(x))
 
 
 def scrub_listener_text(text):
@@ -839,6 +898,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
         return SP.run_split(vdata, template, out_dir, opts, emit, cancel)
     n_real = len(vdata.get("LUOT", []))
     risky = same_gender(vdata)   # robot và người học cùng giới: nguy cơ nói chồng cao hơn nhiều
+    vdata = dict(vdata, listen=str(opts.get("listen_mode") or "idle"))   # người nghe: "idle" (sống, phản ứng nhẹ, môi khép) hoặc "still" (đứng như ảnh tĩnh, cách cũ)
     if risky and opts.get("voice_split", True) and not (vdata.get("VAI_DAY") or vdata.get("VAI_HOC")):   # tách giọng kiểu "robot + người học" chỉ cho loại gia sư AI; thể loại khác tự khai vai nên giữ nguyên giọng đã mô tả
         vdata = voice_split(vdata)
         emit("log", msg="Robot và người học cùng giới: tách giọng (robot cao, sáng, trẻ; người học trầm, khàn, chậm) để Muse không lẫn giọng")
@@ -888,7 +948,15 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                                 "text": (luot[s["n"] - 1]["text"] if s["n"] - 1 < len(luot) else s["title"]),
                                 "state": "wait"} for s in scenes])
     prev_last, clips, ref_stats = None, [], None
-    acc_of = {}                # cảnh -> tên tài khoản Muse đang gen
+    # cân màu: "anchor" = mỗi cảnh có khung đầu riêng (gen từ ảnh tham chiếu) là chuẩn màu cho chính nó và các cảnh nối tiếp sau nó;
+    # "first" = mọi cảnh kéo về cảnh 1 (cách cũ: ép cảnh khác bối cảnh/ánh sáng về cảnh 1, các cảnh nối tiếp tối và đậm dần); "off" = không cân
+    color_mode = str(opts.get("color_mode") or "anchor") if opts.get("normalize", True) else "off"
+    color_strength = float(opts.get("color_strength", 1.0))
+    ref_scene = None           # cảnh làm chuẩn màu hiện tại (để ghi nhật ký)
+    s_toks = scene_tokens(template)
+    all_toks = set().union(*s_toks.values()) if s_toks else set()
+    prev_people = None         # nhân vật có mặt ở cảnh trước (cảnh nối tiếp không nhắc tên ai thì coi như giữ nguyên)
+    acc_of = {}              # cảnh -> tên tài khoản Muse đang gen
     video_acc = {}             # tài khoản đã ghim cho cả video (id, tên)
     pin, pin_prefer = opts.get("pin"), opts.get("pin_prefer")
     mouth_hint_shown = False   # gợi ý nguyên nhân lỗi kiểm tra miệng chỉ hiện một lần mỗi lần chạy
@@ -935,24 +1003,38 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                 vs = chr(65 + chars.index(spk_key))
                 vid_p = vid_p[:first] + f"(the line and its delivery are given at the top, voiced by VOICE {vs})" + vid_p[first + len(tt):]
                 vid_p = vid_p.replace(tt, f'VOICE {vs} (the {MV.crole(vdata, spk_key)}, {spos}) says: "{said}"')
-            vid_p = speaker_lock(vdata, turn) + "\n\n" + scrub_listener_text(drop_listener_voice(vid_p, vdata, turn))
-            neg = compact_negative(neg)
+            body = scrub_listener_text(drop_listener_voice(vid_p, vdata, turn))
+            vid_p = speaker_lock(vdata, turn) + "\n\n" + (unfreeze_listener(body) if vdata.get("listen") == "idle" else body)
+            neg = compact_negative(unfreeze_negative(neg) if vdata.get("listen") == "idle" else neg)
         dur = G.auto_duration(syll) if syll else next((d for d in ALLOWED if d >= sc["seconds"]), 10)
         if fix_note:  # người dùng yêu cầu sửa riêng cho cảnh này khi làm lại: đặt đầu prompt video, ưu tiên cao nhất
             vid_p = f"CORRECTION FOR THIS CLIP (highest priority, overrides anything below that conflicts with it): {fix_note}\n\n" + vid_p
             emit("log", msg=f"Cảnh {n}: gen lại kèm yêu cầu sửa: {fix_note[:120]}")
         P = lambda f: os.path.join(out_dir, f)
         img_f, vid_f, cut_f, last_f = P(f"scene{n}_start.png"), P(f"scene{n}_clip.mp4"), P(f"scene{n}_cut.mp4"), P(f"scene{n}_last.png")
-        if ref_stats is None and opts.get("normalize", True) and os.path.exists(vid_f):  # chạy tiếp: lấy lại chuẩn màu từ cảnh đầu đã có
-            ref_stats = color_stats(vid_f, [0.04, 0.2, 0.4])
+        if color_mode == "anchor" and has_img:
+            ref_stats = None   # khung đầu mới (đổi bối cảnh / góc máy): chuẩn màu mới là chính khung đầu này, không ép về cảnh khác
+        if ref_stats is None and color_mode != "off" and os.path.exists(vid_f):  # chạy tiếp: lấy lại chuẩn màu từ clip làm chuẩn đã có
+            ref_stats, ref_scene = color_stats(vid_f, [0.04, 0.2, 0.4]), n
+        toks = s_toks.get(n, set())
+        people = {c for c in chars if f"NGUOI_{c}" in toks or f"TEN_{c}" in toks}
+        if not people:
+            people = prev_people or set(chars)
+        same_setup = people == prev_people
+        prev_people = people
         if os.path.exists(cut_f) and os.path.exists(last_f):
             emit("scene", n=n, state="done", pct=100, thumb=os.path.basename(last_f), clip=os.path.basename(cut_f), secs=round(duration(cut_f), 1))
             prev_last = last_f
             clips.append(cut_f)
             continue
-        ref_imgs = list(refs) + list(att_imgs) + ([G.data_url(prev_last)] if (prev_last and has_img) else [])
-        if att_legend and has_img:
-            img_p = img_p + "\n\nREFERENCE IMAGE NOTES: " + att_legend
+        ref_keep = scene_ref_filter(toks, people, all_toks) if toks else None
+        sc_imgs, sc_legend, _ = attachments(vdata, opts, keep=ref_keep, offset=len(refs)) if ref_keep else (att_imgs, att_legend, [])
+        use_prev = bool(prev_last and has_img and same_setup)   # khung cuối cảnh trước chỉ gửi khi cùng nhân vật; khác người thì nó làm lẫn mặt
+        ref_imgs = list(refs) + list(sc_imgs) + ([G.data_url(prev_last)] if use_prev else [])
+        if use_prev:
+            sc_legend = (sc_legend + "; " if sc_legend else "") + f"reference image #{len(ref_imgs)} is the final frame of the previous clip: match its lighting and colour only"
+        if sc_legend and has_img:
+            img_p = img_p + "\n\nREFERENCE IMAGE NOTES: " + sc_legend
         spk_auds = [a for g, a in att_auds if g in ((turn or {}).get("who"), "other", "scene")]
 
         def attempt(label, fn):
@@ -972,7 +1054,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
 
         if has_img and not os.path.exists(img_f):
             emit("scene", n=n, state="image", pct=0)
-            emit("log", msg=f"Cảnh {n}: gen ảnh khung đầu kèm {len(ref_imgs)} ảnh tham chiếu" + (f" (trong đó {len(att_imgs)} ảnh gắn trong biến thể)" if att_imgs else ""))
+            emit("log", msg=f"Cảnh {n}: gen ảnh khung đầu kèm {len(ref_imgs)} ảnh tham chiếu" + (f" (trong đó {len(sc_imgs)} ảnh gắn trong biến thể)" if sc_imgs else ""))
 
             def gi():
                 b = api.generate("image", G.muse_image_prompt(img_p, neg, len(ref_imgs)), ref_imgs, session, timeout=opts["timeout"],
@@ -992,10 +1074,20 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
         if not os.path.exists(vid_f):
             start = img_f if has_img else prev_last
             vrefs = [G.data_url(start)] if start and os.path.exists(start) else []
+            vid_legend = ""
+            if opts.get("video_char_refs", True):   # gửi kèm ảnh nhân vật có mặt cho cả bước gen video: chỉ có khung đầu thì qua nhiều cảnh nối tiếp mặt trôi dần
+                pkeep = lambda key, grp: key.upper().startswith("NGUOI_") and (ref_keep is None or ref_keep(key, grp))
+                lead = "reference image #1 is the START FRAME (the clip begins exactly on it: same framing, people, background, lighting and colour); " if vrefs else ""
+                c_imgs, c_legend, _ = attachments(vdata, opts, keep=pkeep, offset=len(vrefs), lead=lead)
+                if c_imgs:
+                    vrefs += c_imgs
+                    vid_legend = ("\n\nREFERENCE IMAGE NOTES: " + c_legend + ". The character reference images are for IDENTITY ONLY: keep each person's face, hair, skin tone, age and clothing "
+                                  "identical to their own reference for the whole clip; never show the reference images themselves, never cut, fade or switch to them, and never change the framing, background or colours of the start frame.")
+                    emit("log", msg=f"Cảnh {n}: gen video kèm {len(c_imgs)} ảnh nhân vật để giữ mặt đồng nhất")
             emit("scene", n=n, state="video", pct=0, dur=dur)
 
             def gv():
-                b = api.generate("video", G.muse_video_prompt(vid_p, neg, dur, len(vrefs)), vrefs, session, duration=dur, timeout=opts["timeout"],
+                b = api.generate("video", G.muse_video_prompt(vid_p + vid_legend, neg, dur, len(vrefs)), vrefs, session, duration=dur, timeout=opts["timeout"],
                                  on_status=lambda s, p: emit("scene", n=n, state="video", pct=p or 0), cancel=cancel, audios=spk_auds or None, on_account=note_account,
                                  pin=pin, pin_prefer=pin_prefer)
                 open(vid_f, "wb").write(b)
@@ -1088,14 +1180,14 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
             vid_p = base_vid_p
         emit("scene", n=n, state="cut", pct=100)
         vf_fix, fix_note = "", ""
-        if opts.get("normalize", True):
+        if color_mode != "off":
             c_start = color_stats(vid_f, [0.04, 0.2, 0.4])
             c_end = color_stats(vid_f, [-0.6, -0.35, -0.1])
             if ref_stats is None:
-                ref_stats = c_start  # chuẩn màu = khung đầu cảnh 1 (đúng màu ảnh gốc)
-            vf_fix, fix_note = color_match(ref_stats, c_start, c_end, duration(vid_f))
+                ref_stats, ref_scene = c_start, n  # chuẩn màu = khung đầu của clip này (đúng màu ảnh gốc gen từ tham chiếu)
+            vf_fix, fix_note = color_match(ref_stats, c_start, c_end, duration(vid_f), color_strength)
             if vf_fix:
-                emit("log", msg=f"Cảnh {n}: cân màu về cảnh đầu ({fix_note})")
+                emit("log", msg=f"Cảnh {n}: cân màu về khung đầu cảnh {ref_scene} ({fix_note})")
         span, margin = None, float(opts.get("cut_margin", 0.3))
         if opts.get("cut", True) and opts.get("precise_cut", True) and turn and str(turn.get("text", "")).strip():
             try:

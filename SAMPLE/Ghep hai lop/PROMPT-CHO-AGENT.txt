@@ -1,0 +1,85 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "GHÉP 2 LỚP"
+  (người nói + nhân vật trong khung bo góc đè lên nền; mỗi nhân vật gen RIÊNG rồi ghép)
+================================================================================
+
+CÁCH DÙNG
+  Gửi cho agent (Claude...) cùng với: video tham chiếu (hoặc ảnh chụp + lời thoại),
+  file KICH-BAN-GHEP-HAI-LOP.txt và BIEN-THE-GHEP-HAI-LOP.json trong thư mục này,
+  và file SAMPLE\HUONG-DAN-CHO-AGENT.md (mục 0 và 3b). Rồi dán phần dưới đây, sửa [ngoặc vuông].
+
+--------------------------------------------------------------------------------
+PROMPT (copy từ dòng dưới)
+--------------------------------------------------------------------------------
+
+Bạn viết kịch bản và biến thể cho LUO Studio, thể loại GHÉP 2 LỚP. Mẫu: KICH-BAN-GHEP-HAI-LOP.txt
+và BIEN-THE-GHEP-HAI-LOP.json đính kèm. KHÔNG dùng khối CẢNH, KHÔNG dùng {{LUOT_n}}: lời thoại nằm
+hết trong mảng LUOT của biến thể, mỗi lượt là một cảnh, số lượt tuỳ ý.
+
+Nguyên lý: mỗi nhân vật được gen RIÊNG, một mình trong khung riêng của nó, rồi ffmpeg ghép khung của
+nhân vật phụ đè lên nhân vật nền. Nên mô tả của mỗi nhân vật phải đúng cho cảnh "đứng một mình".
+
+Thông tin video lần này:
+  Nhân vật nền (chiếm toàn khung 9:16): [vd. HOC = người đàn ông Latino đứng ngoài đường]
+  Nhân vật trong khung đè lên (khoá, vị trí): [vd. DAY = robot gia sư, badge nhỏ góc trên phải]
+  Sản phẩm / thông điệp / lời thoại: [...]
+
+BẮT BUỘC LÀM THEO
+
+1) KHỐI [GHEP HAI LOP] - dòng "khung <KHOÁ>"
+   Định dạng là:  khung <KHOÁ>: x, y, RỘNG, CAO   (cả 4 số theo tỉ lệ khung hình 0..1)
+   - x, y là góc TRÊN-TRÁI của khung. RỘNG và CAO là KÍCH THƯỚC, KHÔNG PHẢI toạ độ góc dưới-phải.
+   - Nếu bạn đang nghĩ theo toạ độ hai góc (x0,y0,x1,y1) thì đổi: RỘNG = x1 - x0, CAO = y1 - y0.
+     Ví dụ khung từ (0.63, 0.04) tới (0.94, 0.30)  ->  khung DAY: 0.63, 0.04, 0.31, 0.26
+     (viết 0.63, 0.04, 0.94, 0.30 là SAI: Studio hiểu rộng 94% đặt từ x=63%, khung tràn khỏi mép phải).
+   - Luôn kiểm tra: x + RỘNG <= 1 và y + CAO <= 1. Ghi phép tính vào phần trả lời.
+   - Màn hình là 720x1280. Đổi ra pixel để hình dung: RỘNG*720 và CAO*1280.
+
+2) TỈ LỆ KHUNG QUYẾT ĐỊNH HÌNH DẠNG CLIP GEN
+   Studio tính r = (RỘNG*720) / (CAO*1280) rồi gen nhân vật trong khung ở:
+     r >= 1.4        -> 16:9 (ngang)
+     0.75 <= r < 1.4 -> 1:1 (vuông)
+     r < 0.75        -> 9:16 (dọc)
+   Mô tả nhân vật trong khung PHẢI khớp tỉ lệ này, nếu không Muse vẽ sai hình dạng
+   (đã từng xảy ra: khung nhập nhầm ra 676x384 = ngang, trong khi mô tả là badge dọc nhỏ, nên robot
+   đứng ngoài đời, bị cắt nửa người).
+     - khung ngang (r >= 1.4): "wide call-window, head and shoulders centred, empty space on both sides"
+     - khung dọc nhỏ (badge/icon, r < 0.75): "portrait-oriented badge (taller than wide), head and upper
+       chest centred" và nói rõ nền phẳng, kiểu icon
+     - khung vuông: "square frame, face centred"
+   Ghi vào phần trả lời: kích thước pixel của khung và tỉ lệ gen suy ra (vd. "223x333 px, 9:16").
+
+3) CÁC KHỐI KHÁC (đúng tên, không thiếu)
+   [STYLE LOCK], [NHAN VAT <KHOÁ>] cho MỖI khoá (kể cả nhân vật nền), [NGHE <KHOÁ>] (dáng khi im lặng, luôn kèm
+   "Lips stay sealed"), [VIDEO SUFFIX], [NEGATIVE].
+   - [NHAN VAT <nền>]: chừa trống/để phần nền yên ở vùng sẽ bị khung đè lên; tả ánh mắt nhìn về hướng khung.
+   - Nhân vật nền nghe thì ánh mắt liếc về phía khung (vd. "up and to the right").
+   - Nhân vật trong khung nghe thì đứng yên, tư thế trung tính (không cần chớp mắt nếu khung nhỏ).
+   - Phần gửi Muse viết TIẾNG ANH; ghi chú [GHI CHU] bằng tiếng Việt thì được (không ảnh hưởng gen).
+   - Có thể viết thẳng nội dung vào kịch bản (không token) nếu chỉ làm một video, hoặc dùng {{TEN_<K>}},
+     {{NGUOI_<K>}}, {{GIONG_<K>}}, {{NEN_<K>}} nếu làm nhiều biến thể.
+
+4) "bo goc" và "vien"
+   - bo goc: bán kính theo bề rộng màn hình (0.05 vừa, 0.12 bo tròn nhiều). Với khung nhỏ dùng giá trị lớn hơn một chút.
+   - vien: "#FFFFFF, 3" (màu, px) hoặc "khong".
+   - nghe: "dung lai 3" (rẻ, mặc định) hoặc "moi canh" (tự nhiên hơn, tốn gấp đôi lượt Muse).
+
+5) LỜI THOẠI (mảng LUOT trong biến thể)
+   - who = khoá viết thường của người nói; mỗi lượt 3-12 từ, tối đa 20; emo 1-3 từ tiếng Anh.
+   - Chỉ khoá có trong [GHEP HAI LOP] (nền + các dòng "khung") mới được nói.
+   - Studio tự cắt sát lời, cân màu, ghép; không viết gì về cắt/ghép trong prompt.
+
+KIỂM TRA TRƯỚC KHI TRẢ LỜI (ghi kết quả từng mục)
+  [ ] Mỗi dòng "khung": x+RỘNG <= 1, y+CAO <= 1, đã đổi ra pixel, đã suy ra tỉ lệ gen.
+  [ ] Mô tả nhân vật trong khung đúng với tỉ lệ gen (ngang/vuông/dọc).
+  [ ] Mọi khoá trong LUOT đều có [NHAN VAT <KHOÁ>].
+  [ ] Không chữ/logo/phụ đề trong khung (badge/icon là hình, không phải chữ).
+  [ ] Khi sửa kịch bản đã chạy dở: liệt kê file cần xoá trong thư mục chạy (base_<K>.png,
+      listen_<K>_*.mp4, scene*_spk.mp4, scene*_cut.mp4, _mask_*, _border_*), vì Studio dùng lại file có sẵn.
+
+--------------------------------------------------------------------------------
+LỖI THƯỜNG GẶP (agent nên đọc)
+--------------------------------------------------------------------------------
+  - Viết toạ độ hai góc cho dòng "khung": khung tràn mép, tỉ lệ ngang thay vì dọc. (Mục 1.)
+  - Mô tả nhân vật trong khung theo tỉ lệ khác với khung thật. (Mục 2.)
+  - Sửa kịch bản mà không xoá file đã gen: Studio dùng lại base_*.png / listen_*.mp4 cũ nên lỗi còn nguyên.

@@ -49,6 +49,11 @@ def parse(text):
         elif k.startswith("khung "):
             if len(nums) != 4 or not (0 <= nums[0] < 1 and 0 <= nums[1] < 1 and 0 < nums[2] <= 1 and 0 < nums[3] <= 1):
                 raise RuntimeError(f'Dòng "{ln.strip()}": cần 4 số x, y, rộng, cao theo tỉ lệ khung hình (0..1)')
+            if nums[0] + nums[2] > 1.001 or nums[1] + nums[3] > 1.001:
+                raise RuntimeError(f'Dòng "{ln.strip()}": khung vượt ra ngoài video (x+rộng = {nums[0] + nums[2]:.2f}, y+cao = {nums[1] + nums[3]:.2f}, phải <= 1). '
+                                   'Định dạng là x, y, RỘNG, CAO (không phải toạ độ hai góc). Nếu bạn muốn khung từ góc '
+                                   f'({nums[0]:g}, {nums[1]:g}) tới ({nums[2]:g}, {nums[3]:g}) thì viết: '
+                                   f'{nums[0]:g}, {nums[1]:g}, {nums[2] - nums[0]:.2f}, {nums[3] - nums[1]:.2f}')
             cfg["panels"][MV.ck(k[6:])] = tuple(nums)
         elif k == "bo goc" and nums:
             cfg["radius"] = nums[0]

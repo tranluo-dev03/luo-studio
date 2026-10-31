@@ -1,0 +1,37 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "LÀM VƯỜN" (người học + gia sư AI trên màn hình điện thoại)
+================================================================================
+
+CÁCH DÙNG
+  Thể loại này dùng kịch bản mẫu chung ..\1-KICH-BAN-MAU.txt (người bên trái làm việc, điện thoại có gia sư AI bên phải);
+  thư mục này chỉ có file biến thể 2-BIEN-THE-MAU.json (người học đang làm vườn).
+  Gửi cho agent: video tham chiếu, ..\1-KICH-BAN-MAU.txt, 2-BIEN-THE-MAU.json (trong thư mục này),
+  ..\3-PROMPT-CHO-CLAUDE.txt (quy trình 2 bước) và ..\HUONG-DAN-CHO-AGENT.md. Rồi dán phần dưới, sửa [ngoặc vuông].
+
+--------------------------------------------------------------------------------
+PROMPT (copy từ dòng dưới)
+--------------------------------------------------------------------------------
+
+Bạn tạo FILE BIẾN THỂ (.json) cho LUO Studio, thể loại LÀM VƯỜN, dùng đúng kịch bản 1-KICH-BAN-MAU.txt
+(KHÔNG sửa kịch bản trừ khi tôi yêu cầu). Mẫu định dạng: 2-BIEN-THE-MAU.json trong thư mục này.
+
+Số biến thể: [vd. 6]
+Nhân vật người học: [vd. nữ 50-60 tuổi người Mỹ, tóc ngắn sáng màu, tạp dề làm vườn]
+Lời thoại: [vd. giữ nguyên lời thoại gốc cho mọi biến thể]
+
+QUY TẮC RIÊNG CỦA THỂ LOẠI
+  - Mọi biến thể có ĐÚNG tập khoá của kịch bản mẫu + "name" + "LUOT". Không thêm, không thiếu, chữ HOA đúng chính tả.
+  - VIEC = việc người học đang làm trong vườn (vd. "pruning roses"): hợp thể loại này (người học cúi làm việc nghe gia sư).
+  - DAO_CU / DAO_GIU / DAO_NGHI: dụng cụ cầm trên tay, cách cầm, tư thế tay khi nghỉ (vd. kéo cắt cành / giữ nguyên trong mọi khung /
+    tay buông thả cạnh người).
+  - NEN_TRAI: vườn/sân phía sau người học, đứng yên; NEN_PHAI: nền màn hình điện thoại phía gia sư.
+  - Các biến thể cùng nhóm: cùng tuổi/giới/phong cách chung, nhưng KHUÔN MẶT khác rõ (hình mặt, mắt, mũi, kính, tóc, màu áo).
+  - GIONG_DAY và GIONG_HOC khác hẳn nhau về cao độ và âm sắc.
+  - Giữ nhịp sửa lỗi (nếu có): câu học SAI/vụng rồi câu day sửa đúng; Studio tự thêm viền đỏ/xanh và âm thanh. who = "hoc" / "day".
+  - Mọi giá trị token viết tiếng Anh, cụ thể, nhìn thấy được; không thương hiệu thật, không người thật.
+  - LUOT: [{"who":"day"|"hoc","text":"3-12 từ","emo":"1-3 từ tiếng Anh"}...], số lượt = số cảnh của kịch bản.
+  - Chỉ trả về MỘT khối code JSON hợp lệ (mảng), không comment.
+
+KIỂM TRA TRƯỚC KHI TRẢ LỜI
+  [ ] JSON hợp lệ; đủ khoá; đủ số lượt thoại; tên biến thể khác nhau, chữ thường không dấu, nối bằng "-".
+  [ ] Hai giọng khác hẳn; các khuôn mặt khác rõ.

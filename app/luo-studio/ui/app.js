@@ -692,6 +692,10 @@ async function pageSettings() {
       <div class="lab"><div>Độ nhạy khi đo miệng<br><small>Cao = bắt cả mấp máy nhẹ (dễ gen lại thừa). Thấp = chỉ bắt khi mấp máy rõ. Nhật ký mỗi cảnh ghi số đo để bạn chỉnh.</small></div><select id="st-mouth_sens">${[["high", "Cao"], ["normal", "Vừa"], ["low", "Thấp"]].map(([v, t]) => `<option value="${v}" ${(s.mouth_sens || "normal") === v ? "selected" : ""}>${t}</option>`).join("")}</select></div>
       <div class="lab"><div>Số lần tự gen lại tối đa mỗi cảnh<br><small>0 = chỉ cảnh báo, không tốn thêm lượt</small></div><select id="st-overlap_retries">${[0, 1, 2, 3, 4, 5].map(n => `<option value="${n}" ${+(s.overlap_retries || 0) === n ? "selected" : ""}>${n === 0 ? "Không" : "Tối đa " + n + " lần"}</option>`).join("")}</select></div>
       </div>
+      <div class="lab"><div>Người không nói trong clip<br><small>"Lắng nghe tự nhiên" (khuyên dùng): môi luôn khép nhưng vẫn chớp mắt, thở, biểu cảm nhẹ theo lời đang nghe. "Đứng im như ảnh" (cách cũ): ít nguy cơ mấp máy môi theo hơn nhưng người nghe trông bất động. Bật kiểm tra miệng người nghe để tự bắt lỗi mấp máy</small></div><select id="st-listen_mode">${[["idle", "Lắng nghe tự nhiên"], ["still", "Đứng im như ảnh"]].map(([v, t]) => `<option value="${v}" ${(s.listen_mode || "idle") === v ? "selected" : ""}>${t}</option>`).join("")}</select></div>
+      <div class="lab"><div>Cân màu giữa các cảnh<br><small>"Theo khung đầu" (khuyên dùng): mỗi cảnh có ảnh khung đầu riêng là chuẩn màu cho chính nó và các cảnh nối tiếp sau, nên cảnh nối tiếp không bị tối/đậm dần và cảnh khác bối cảnh không bị ép màu. "Theo cảnh 1": mọi cảnh kéo về màu cảnh 1 (cách cũ)</small></div><select id="st-color_mode">${[["anchor", "Theo khung đầu"], ["first", "Theo cảnh 1"], ["off", "Tắt"]].map(([v, t]) => `<option value="${v}" ${(s.normalize === false ? "off" : (s.color_mode || "anchor")) === v ? "selected" : ""}>${t}</option>`).join("")}</select></div>
+      <div class="lab"><div>Mức cân màu<br><small>Thấp hơn = chỉnh nhẹ tay, giữ chất màu gốc của từng clip nhiều hơn</small></div><select id="st-color_strength">${[0.5, 0.75, 1].map(x => `<option value="${x}" ${Math.abs((s.color_strength ?? 1) - x) < 0.001 ? "selected" : ""}>${x * 100}%</option>`).join("")}</select></div>
+      <div class="lab"><div>Gửi ảnh nhân vật khi gen video<br><small>Ngoài khung đầu, gửi kèm ảnh tham chiếu của các nhân vật có mặt trong cảnh cho bước gen video để mặt không trôi qua các cảnh nối tiếp. Tắt nếu Muse chèn ảnh tham chiếu vào clip</small></div><div class="sw2 ${s.video_char_refs !== false ? "on" : ""}" id="st-vrefs"></div></div>
       <div class="lab"><div>Viền xanh nháy + tiếng "tinh tinh"<br><small>Hậu kỳ: ở các câu khen (Great, Perfect, Exactly…) viền màn hình nháy xanh và có tiếng tinh tinh</small></div><div class="sw2 ${s.fx_ding ? "on" : ""}" id="st-ding"></div></div>
       <div class="lab"><div>Tiếng "tách" khi hiện phụ đề<br><small>Âm thanh nhẹ mỗi khi chữ mới xuất hiện</small></div><div class="sw2 ${s.fx_pop ? "on" : ""}" id="st-pop"></div></div>
       <div class="lab"><div>Tách giọng khi robot và người học cùng giới<br><small>Đo thực tế: người học nam lỗi nói chồng ~3%, người học nữ ~38% (vì hai giọng nữ nghe giống nhau). Bật thì tự mô tả robot cao/sáng/trẻ và người học trầm/khàn/chậm khi hai bên cùng giới, và giấu miệng người nghe ngay từ lần đầu</small></div><div class="sw2 ${s.voice_split !== false ? "on" : ""}" id="st-vsplit"></div></div>
@@ -707,8 +711,8 @@ async function pageSettings() {
       <div class="f" style="max-width:260px"><label>Nhận dạng giọng</label><select id="st-whisper"><option value="auto" ${s.whisper === "auto" ? "selected" : ""}>Tự chọn</option><option value="small.en" ${s.whisper === "small.en" ? "selected" : ""}>Tiếng Anh (nhanh)</option><option value="medium" ${s.whisper === "medium" ? "selected" : ""}>Đa ngôn ngữ (chậm hơn)</option></select></div></div></div>`;
   const put = o => api("settings", { body: o }).then(() => toast("Đã lưu")).catch(e => toast(e.message, 1));
   $("#view").onchange = e => {
-    const id = e.target.id; if (!id || !id.startsWith("st-") || id === "st-cut" || id === "st-speedfix" || id === "st-overlap" || id === "st-ding" || id === "st-pop" || id === "st-precise" || id === "st-vsplit" || id === "st-hook") return;
-    const k = id.slice(3); put({ [k]: e.target.type === "number" ? +e.target.value : e.target.value });
+    const id = e.target.id; if (!id || !id.startsWith("st-") || id === "st-cut" || id === "st-speedfix" || id === "st-overlap" || id === "st-ding" || id === "st-pop" || id === "st-precise" || id === "st-vsplit" || id === "st-hook" || id === "st-vrefs") return;
+    const k = id.slice(3); if (k === "color_mode") return put({ color_mode: e.target.value, normalize: e.target.value !== "off" }); if (k === "color_strength") return put({ color_strength: +e.target.value }); put({ [k]: e.target.type === "number" ? +e.target.value : e.target.value });
   };
   $("#view").onclick = async e => {
     let x;
@@ -717,6 +721,7 @@ async function pageSettings() {
     if (e.target.closest("#st-pop")) { const el = $("#st-pop"); el.classList.toggle("on"); return put({ fx_pop: el.classList.contains("on") }); }
     if (e.target.closest("#st-hook")) { const el = $("#st-hook"); el.classList.toggle("on"); return put({ fx_hook: el.classList.contains("on") }); }
     if (e.target.closest("#st-vsplit")) { const el = $("#st-vsplit"); el.classList.toggle("on"); return put({ voice_split: el.classList.contains("on") }); }
+    if (e.target.closest("#st-vrefs")) { const el = $("#st-vrefs"); el.classList.toggle("on"); return put({ video_char_refs: el.classList.contains("on") }); }
     if (e.target.closest("#st-precise")) { const el = $("#st-precise"); el.classList.toggle("on"); return put({ precise_cut: el.classList.contains("on") }); }
     if (e.target.closest("#st-overlap")) {
       const el = $("#st-overlap"), sub = $("#mouth-sub"), note = $("#mouth-note");

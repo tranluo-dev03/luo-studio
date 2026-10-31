@@ -6,6 +6,10 @@ Bạn tạo ra 2 file mà Studio nhập được và Muse gen đúng ý, cho **b
 
 File mẫu: `1-KICH-BAN-MAU.txt`, `2-BIEN-THE-MAU.json`; ví dụ bố cục khác: thư mục `Xe tai/`. Hai file mẫu chỉ là **một thể loại** (người học + gia sư AI), không phải khuôn bắt buộc.
 
+## Prompt riêng cho từng thể loại
+
+Mỗi thư mục thể loại trong `SAMPLE/` có file `PROMPT-CHO-AGENT.txt`: quy tắc riêng của thể loại đó, lỗi thường gặp và danh sách tự kiểm tra. **Nếu video thuộc một thể loại đã có, đọc file đó trước** rồi mới đọc phần chung bên dưới. Hiện có: `Ghep hai lop/`, `Canh sat nu/`, `Xe tai/`, `Làm vườn/`. Thể loại mới: tạo thư mục mới với đủ kịch bản mẫu, biến thể mẫu và `PROMPT-CHO-AGENT.txt` cùng cấu trúc.
+
 ## 0. Phân tích video tham chiếu (BẮT BUỘC, làm trước khi viết bất cứ thứ gì)
 
 Không phân tích video bằng vài ảnh chụp thưa hay chỉ lời thoại: hành động nhỏ (đưa giấy tờ, lấy điện thoại), tốc độ nói và tư thế khung cuối sẽ bị bỏ sót hoặc hiểu sai. (Đã từng xảy ra: nhìn thưa nên mô tả sai cảnh "tài xế cầm điện thoại".) Luôn chạy công cụ:

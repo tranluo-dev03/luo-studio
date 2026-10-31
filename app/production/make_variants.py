@@ -76,21 +76,31 @@ def speaker_how(v, who, text, emo=""):
 
 
 def turn_text(v, who, text, emo="", emo2=""):
-    """emo2 (phản ứng người nghe) được giữ để tương thích nhưng KHÔNG đưa vào prompt: người nghe không được biểu cảm hay phản ứng theo."""
+    """emo2 (phản ứng người nghe): chỉ dùng ở chế độ người nghe "idle" (v["listen"] == "idle"); chế độ "still" (cũ) người nghe không được biểu cảm hay phản ứng theo."""
     k, chars = ck(who), chars_of(v)
     if k not in chars:
         sys.exit(f'who "{who}" không có nhân vật tương ứng (cần token TEN_{k or "<KHOÁ>"}); các nhân vật của biến thể: {", ".join(chars) or "chưa có"}')
     how = speaker_how(v, who, text, emo)
-    # NGƯỜI NGHE: không nói, không biểu cảm, không gật, không nhìn theo, không bắt chước; hoặc làm tiếp việc riêng (người học), hoặc đứng yên như ảnh tĩnh (robot)
+    idle = v.get("listen") == "idle"
+    # NGƯỜI NGHE - "still": không nói, không biểu cảm, không gật; làm tiếp việc riêng hoặc đứng yên như ảnh tĩnh.
+    # "idle": môi luôn khép nhưng vẫn sống: chớp mắt, thở, phản ứng nhẹ trên mặt theo lời đang nghe (video call trông tự nhiên hơn)
     out = f'Only the {cpos(v, k)} character ({v.get(f"TEN_{k}", "")}) speaks in this clip, {how}'
     for c in chars:
         if c != k:
             task = v.get("VIEC", "").strip() if (k == "DAY" and c == "HOC") else ""   # việc riêng chỉ áp cho người học khi người dạy nói
-            out += f' The {cpos(v, c)} character ({v.get(f"TEN_{c}", "")}) {listener_rule_text(task)}.'
+            out += f' The {cpos(v, c)} character ({v.get(f"TEN_{c}", "")}) {listener_rule_text(task, idle, emo2)}.'
     return out
 
 
-def listener_rule_text(task=""):
+def listener_rule_text(task="", idle=False, emo2=""):
+    if idle:
+        react = str(emo2 or "").strip().replace('"', "'")
+        base = ("does not speak: lips stay gently closed for the whole clip and never mouth the words; but they are alive and listening, "
+                "in a natural idle: soft blinking, gentle breathing, small attentive head movements and a faint expression that follows the mood of what they hear"
+                + (f' (reacting "{react}")' if react else " (a slight smile, a small eyebrow lift or a tiny nod)"))
+        if task:
+            return base + f", while quietly continuing {task} at a slow, steady pace"
+        return base + ", eyes resting on the speaker"
     base = ("does not speak and does not react to the other character at all: lips sealed, a neutral relaxed face that never changes, "
             "no smile, no frown, no eyebrow raise, no nodding, no head turn, no glance at the phone, no gesture")
     if task:

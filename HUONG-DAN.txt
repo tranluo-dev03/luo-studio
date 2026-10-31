@@ -213,13 +213,18 @@ Góc trên bên phải có chấm trạng thái API:
   - Dành cho bố cục mà mỗi nhân vật ở một vùng riêng (vd. gia sư AI trong khung bo góc phía trên,
     người học quay selfie phía dưới). Mỗi nhân vật được gen RIÊNG, một mình trong khung, rồi phần mềm
     tự ghép lại; vì vậy không thể xảy ra chuyện hai người cùng nói hay người nghe mấp máy miệng.
+  - Nhờ Claude/agent viết kịch bản: gửi kèm file SAMPLE\Ghep hai lop\PROMPT-CHO-AGENT.txt (mỗi thể loại
+    trong SAMPLE đều có file PROMPT-CHO-AGENT.txt riêng chứa quy tắc và lỗi thường gặp của thể loại đó).
   - Tạo: tab "Loại dự án" > "Loại mới" > tải file SAMPLE\Ghep hai lop\KICH-BAN-GHEP-HAI-LOP.txt
     (thẻ hiện "Ghép 2 lớp"); biến thể mẫu: SAMPLE\Ghep hai lop\BIEN-THE-GHEP-HAI-LOP.json.
   - Mỗi lượt thoại là một cảnh, số lượt tuỳ ý. Mỗi video, trước cảnh 1 phần mềm gen: một ảnh gốc cho
     từng nhân vật và vài clip "đang nghe" (nhật ký ghi "Chuẩn bị: ..."). Sau đó mỗi cảnh chỉ gen clip của
     người nói rồi ghép với một đoạn clip nghe của người kia.
   - Tuỳ chỉnh trong khối [GHEP HAI LOP] của script (sửa loại dự án):
-      + "khung DAY: x, y, rộng, cao": vị trí và tỉ lệ khung (ví dụ cao 0.32 = 32% chiều cao màn hình);
+      + "khung DAY: x, y, rộng, cao": x, y là góc TRÊN-TRÁI của khung; rộng, cao là KÍCH THƯỚC (không phải
+        toạ độ góc dưới-phải), tất cả theo tỉ lệ 0..1 và phải có x+rộng <= 1, y+cao <= 1. Ví dụ cao 0.32 =
+        32% chiều cao màn hình; badge nhỏ góc trên phải: "khung DAY: 0.63, 0.04, 0.31, 0.26". Tỉ lệ rộng:cao
+        của khung quyết định clip gen (ngang 16:9, vuông, hay dọc 9:16): mô tả nhân vật phải khớp;
       + "bo goc", "vien": bo góc và viền khung;
       + "nghe: dung lai 3" (tiết kiệm lượt, mặc định) hoặc "nghe: moi canh" (gen clip nghe riêng từng
         cảnh: tự nhiên hơn nhưng tốn gấp đôi lượt).

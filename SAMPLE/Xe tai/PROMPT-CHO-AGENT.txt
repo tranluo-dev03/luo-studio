@@ -1,0 +1,63 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "XE TẢI" (người học + gia sư AI trong khung gọi video ngang phía trên)
+================================================================================
+
+CÁCH DÙNG
+  Gửi cho agent cùng với: video tham chiếu, KICH-BAN-XE-TAI.txt và BIEN-THE-XE-TAI.json trong thư mục này,
+  SAMPLE\HUONG-DAN-CHO-AGENT.md và 3-PROMPT-CHO-CLAUDE.txt (quy trình 2 bước). Rồi dán phần dưới, sửa [ngoặc vuông].
+
+--------------------------------------------------------------------------------
+PROMPT (copy từ dòng dưới)
+--------------------------------------------------------------------------------
+
+Bạn viết kịch bản (.txt) và biến thể (.json) cho LUO Studio, thể loại XE TẢI: một khung 9:16 duy nhất,
+camera cố định; phần trên (~1/3 chiều cao, rộng cả khung) là MỘT cửa sổ gọi video ngang bo góc, viền trắng
+mỏng, trong đó gia sư (AI) ngực trở lên; phần dưới (~2/3) là người học ngồi sau vô lăng, nhìn chéo lên
+cửa sổ gia sư. Mẫu: KICH-BAN-XE-TAI.txt và BIEN-THE-XE-TAI.json đính kèm. Giữ nguyên cấu trúc khối,
+tên trường và tên token của mẫu.
+
+Đây là thể loại gen CHUNG một clip (hai người trong cùng khung hình, mỗi clip một người nói). Nếu bạn muốn
+khung gia sư là nhân vật tách biệt, nhỏ, hoặc khung không phải ngang to thì dùng thể loại "Ghep hai lop"
+thay vì thể loại này.
+
+Thông tin video lần này:
+  Người học: [vd. nữ 50-60 tuổi, tài xế xe tải]
+  Gia sư: [vd. giữ nguyên như mẫu]
+  Số lượt thoại: [vd. 12]
+  Sản phẩm / thông điệp: [...]
+
+QUY TẮC RIÊNG CỦA THỂ LOẠI
+
+1) BỐ CỤC CỐ ĐỊNH (viết thẳng, KHÔNG làm token)
+   POS_DAY = "TOP", POS_HOC = "BOTTOM". Cửa sổ gia sư: rộng, ngang, bo góc, KHÔNG nhỏ, KHÔNG dọc, KHÔNG di chuyển;
+   gia sư luôn nằm trong cửa sổ, không ra ngoài, không cầm điện thoại. Giữ trong [NEGATIVE]:
+   "a small, portrait or moving window", "the tutor outside the window or on a phone", và dòng cấm viết chữ TOP/BOTTOM
+   vào khung hình.
+
+2) NGƯỜI HỌC
+   - Ngực trở lên, nhìn chéo lên về phía cửa sổ gia sư, KHÔNG nhìn vào ống kính.
+   - Hai tay giữ vô lăng (DAO_CU / DAO_GIU / DAO_NGHI mô tả đạo cụ và tư thế tay); tay không đưa lên đầu, mặt, tóc, không nhún vai.
+   - Việc đang làm của người học là VIEC (vd. "driving, hands on the steering wheel"); dùng đúng token mẫu.
+   - Ngoài cửa sổ xe không có gì chuyển động.
+
+3) NHỊP SỬA LỖI (nếu video có)
+   Câu đầu của người học SAI hoặc vụng, câu ngay sau của gia sư sửa đúng. Studio tự thêm viền đỏ + tiếng "tè tè"
+   khi người học nói sai, viền xanh + tiếng "tinh tinh" khi AI sửa: giữ đúng thứ tự sai -> sửa, KHÔNG viết hiệu ứng
+   này vào prompt Muse. who = "hoc" / "day".
+
+4) GIỌNG
+   Gia sư giọng trẻ, sáng, nhanh; người học giọng trầm/khàn/chậm hơn: khác hẳn về cao độ và âm sắc.
+
+5) LỜI THOẠI
+   Mỗi lượt 3-12 từ (tối đa 20), xen kẽ day/hoc, bắt đầu bằng "day" (hook), kết bằng lời kêu gọi hành động ngắn.
+   Số cảnh trong kịch bản = số lượt.
+
+ĐỊNH DẠNG TRẢ VỀ
+  - Kịch bản trong MỘT khối code, rồi danh sách token (mỗi token một dòng giải thích), rồi biến thể JSON hợp lệ.
+  - Prompt gửi Muse tiếng Anh; tiêu đề trường và trường mô tả tiếng Việt như mẫu.
+
+KIỂM TRA TRƯỚC KHI TRẢ LỜI
+  [ ] Số cảnh = số lượt = số token {{LUOT_n}}.
+  [ ] Mọi token trong kịch bản có trong biến thể và ngược lại; JSON hợp lệ, dùng đúng tên token mẫu.
+  [ ] Bố cục TOP/BOTTOM, cửa sổ ngang to, không có chữ/logo/phụ đề trong khung.
+  [ ] Hai giọng khác hẳn nhau; cuối mỗi cảnh cả hai về tư thế nghỉ, miệng khép.

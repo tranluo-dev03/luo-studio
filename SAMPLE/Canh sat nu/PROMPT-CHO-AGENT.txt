@@ -1,0 +1,66 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "CẢNH SÁT + TÀI XẾ" (hai người trong MỘT khung, có hành động đưa đồ)
+================================================================================
+
+CÁCH DÙNG
+  Gửi cho agent cùng với: video tham chiếu, KICH-BAN-CANH-SAT.txt và BIEN-THE-CANH-SAT.json trong thư mục này,
+  SAMPLE\HUONG-DAN-CHO-AGENT.md (đọc kỹ mục 0, 1, 2) và kết quả công cụ SAMPLE\phan-tich-video.py.
+  Rồi dán phần dưới, sửa [ngoặc vuông].
+
+--------------------------------------------------------------------------------
+PROMPT (copy từ dòng dưới)
+--------------------------------------------------------------------------------
+
+Bạn viết kịch bản (.txt) và biến thể (.json) cho LUO Studio, thể loại CẢNH SÁT + TÀI XẾ: một khung 9:16
+duy nhất, máy quay cố định ở lề đường, tài xế nghiêng ra cửa xe, cảnh sát đứng ở lề đường nhìn lên. Mẫu:
+KICH-BAN-CANH-SAT.txt và BIEN-THE-CANH-SAT.json đính kèm. Giữ nguyên cấu trúc, tên khối và tên token của mẫu.
+
+Thông tin video lần này:
+  Hai nhân vật: [vd. cảnh sát nữ + tài xế xe tải]
+  Hành động trong video gốc: [vd. đưa giấy tờ, đưa điện thoại cho xem]
+  Số lượt thoại: [vd. 8]
+
+QUY TẮC RIÊNG CỦA THỂ LOẠI
+
+1) MỘT KHUNG, KHÔNG GHÉP
+   Không split-screen, không khung đè, không cửa sổ. Hai khuôn mặt đều lớn, rõ (mỗi mặt ~1/6 chiều cao khung).
+   Khoá vị trí bằng POS_DAY / POS_HOC (vd. "LEFT" / "RIGHT"). Từ viết hoa vị trí từng bị Muse vẽ thành chữ:
+   giữ trong [NEGATIVE] mục cấm chữ trên đồng phục, áo phản quang, huy hiệu, xe.
+
+2) CẢNH CÓ HÀNH ĐỘNG (đưa giấy tờ, đưa điện thoại)
+   - Hành động xảy ra TRONG lúc câu thoại được nói và xong trước từ cuối (Studio cắt ngay sau từ cuối).
+   - Khung cuối là trạng thái SAU hành động (ai cầm gì, tay ở đâu); cảnh sau nối từ khung đó, nên phải ghi rõ ở
+     trường "Khung cuối" và "Diễn biến".
+   - Mỗi đạo cụ chỉ xuất hiện đúng cảnh được ghi, không nhân đôi, không biến mất, không tự đổi tay, KHÔNG có chữ
+     đọc được trên giấy và KHÔNG có giao diện app trên điện thoại. Dùng token DAO_GIAY_TO, DAO_DIEN_THOAI,
+     DAO_GIU (cách cầm), DAO_NGHI (tư thế tay khi nghỉ).
+   - Phân tích video gốc bằng công cụ trước, điền bảng hành động từng lượt (xem HUONG-DAN-CHO-AGENT.md mục 0).
+
+3) IM LẶNG CỦA NGƯỜI KHÔNG NÓI
+   Dùng NGHE_DAY / NGHE_HOC (tư thế khi im lặng; thể loại này người nghe nhìn người nói, KHÔNG nhìn vào ống kính).
+   Không dùng token VIEC. Nhân vật không có cử chỉ tay/thân lớn khi cảm xúc (gãi đầu, nhún vai, che mặt).
+   Cảnh sát không rút/chỉ vũ khí (đã có trong [NEGATIVE]).
+
+4) KHÔNG CÓ NHỊP SỬA LỖI
+   Đây không phải thể loại dạy tiếng Anh: đặt "fx": "none" ở MỌI lượt trong LUOT (tắt viền đỏ/xanh tự động).
+   Khai VAI_DAY và VAI_HOC (vd. "officer", "driver") để Studio không ghi đè giọng bằng giọng trợ lý gọi video.
+
+5) GIỌNG
+   GIONG_DAY và GIONG_HOC khác hẳn nhau (cao độ, âm sắc, tốc độ), nhất là khi cùng giới.
+   Tốc độ nói ghi vào [VIDEO SUFFIX] theo số đo thật của video gốc (trung vị từ/giây).
+
+6) BỐI CẢNH ĐỨNG YÊN
+   Xe không chạy, không xe qua lại, mây/cây không động, ánh sáng cố định (golden hour), camera cố định.
+
+ĐỊNH DẠNG TRẢ VỀ
+  - Kịch bản trong MỘT khối code; sau đó danh sách token (mỗi token một dòng giải thích); sau đó bảng
+    "video gốc -> kịch bản" (hành động nào đi vào cảnh nào, chỗ nào đã đơn giản hoá).
+  - Biến thể JSON: mảng hợp lệ, mỗi biến thể có đủ token + "name" + "LUOT" (who/text/emo/fx).
+  - Prompt gửi Muse tiếng Anh; tiêu đề trường và trường mô tả tiếng Việt như mẫu.
+
+KIỂM TRA TRƯỚC KHI TRẢ LỜI
+  [ ] Số cảnh = số lượt = số token {{LUOT_n}}; mỗi cảnh một {{LUOT_n}} khớp số.
+  [ ] Mọi token trong kịch bản có trong biến thể và ngược lại; JSON hợp lệ.
+  [ ] Mọi cảnh có hành động: hành động nằm trong lúc nói, khung cuối ghi trạng thái sau hành động.
+  [ ] "fx": "none" ở mọi lượt; VAI_DAY / VAI_HOC đã khai.
+  [ ] Không chữ/logo/thương hiệu thật/người thật.
