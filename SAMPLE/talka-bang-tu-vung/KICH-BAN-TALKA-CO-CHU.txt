@@ -1,90 +1,92 @@
 [STYLE LOCK]:
-Photorealistic cinematic CGI, vertical 9:16, sharp, soft even daylight. One locked-off tripod shot, no cuts, no zoom. The TEACHER stands in the lower part of the frame, seen from the belly up (a medium shot): head top at about 40 percent of the frame height, head center at about 62 percent of the frame width, head about 24 percent of the frame width, shoulders about 62 percent of the frame width, her body cut by the bottom edge at the belly; the area above her head shows the background. Same framing, lens and light in every clip. No captions, logos or subtitles.
+Photorealistic cinematic CGI, vertical 9:16, sharp, soft even daylight. One locked-off tripod shot, no cuts, no zoom. The TEACHER stands in the lower part of the frame, seen from the belly up (a medium shot): head top at about 42 percent of the frame height, centered left to right (head center at 50 percent of the frame width), head about 25 percent of the frame width, shoulders about 60 percent of the frame width, her body cut by the bottom edge at the belly; the area above her head shows only the green background. Same framing, lens and light in every clip. No captions, logos or subtitles.
 
 [CHAR LOCK]:
 TEACHER ({{TEN_DAY}}): {{NGUOI_DAY}}. Same face, head and armor in every frame; the only accent color is light blue. Voice: {{GIONG_DAY}}, the same voice in every clip; the English words said slowly and clearly in an American accent. {{PHAT_AM}}. A lively, expressive human face with accurate lip-sync; her own hands never appear.
 
 [SET LOCK]:
-The background stays exactly as in the start frame: it never moves or changes. Lesson clips: the background is one perfectly flat, evenly lit green screen and nothing else (no paper, no wall, no writing, no object); her body has no green reflection or green rim light. Advert clips: the city skyline stays exactly as in the start frame, with no paper, board or note anywhere. No hand, pen, marker or other object ever appears.
+In every clip the background is one perfectly flat, evenly lit green screen and nothing else (no paper, no wall, no city, no writing, no object); it never moves or changes. Her body has no green reflection or green rim light. No hand, pen, marker or other object ever appears.
 
 [VIDEO SUFFIX]:
 Static camera. She speaks the line once at a natural, lively pace, with a short natural pause between sentences. After her last word she settles into the rest pose ({{DAO_NGHI}}) and holds still until the end of the clip (the tail is cut in editing; the next clip starts from that still frame). No music.
 
 [NEGATIVE]:
-captions, subtitles, logos, extra text; a second person or voice; the robot's hands in the frame; the robot larger or closer; camera movement or zoom; background or lighting change; face or armor change; paper, notes, writing or any object behind her; music, echo, robotic or text-to-speech voice; stiff face or wrong lip-sync.
+captions, subtitles, logos, extra text; a second person or voice; the robot's hands in the frame; the robot larger, closer or off-center; camera movement or zoom; background or lighting change; face or armor change; paper, notes, writing or any object behind her; music, echo, robotic or text-to-speech voice; stiff face or wrong lip-sync.
+
+[HAU KY]:
+loai: talka-bang-tu-vung
+Nền video cảnh quảng cáo (hậu kỳ gen bằng AI, đặt sau bảng chữ và robot): {{NEN_PHO}}
 
 CẢNH 1 (0:00–0:06): Lượt 1
-Bối cảnh: robot nhỏ nửa dưới khung, phía sau chỉ có nền xanh lục phẳng: {{NEN_XANH}}. Không có giấy, không có chữ (hậu kỳ ghép tờ giấy sau).
+Bối cảnh: robot đứng giữa nửa dưới khung, phía sau chỉ có nền xanh lục phẳng: {{NEN_XANH}}. Không có giấy, không có chữ (hậu kỳ ghép tờ giấy sau).
 Voice: {{LUOT_1}}
-Khung đầu: New start frame: the teacher from the belly up in the lower part of the frame, head top at about 40 percent of the height, against one perfectly flat green screen, nothing else.
+Khung đầu: New start frame: the teacher from the belly up in the lower part of the frame, centered, head top at about 42 percent of the height, against one perfectly flat green screen, nothing else.
 Khung cuối: She holds the rest pose, still; no hand; the background is still one flat green.
-Prompt ảnh: One still image (the image itself), vertical 9:16, photorealistic: the TEACHER, {{NGUOI_DAY}}, in the lower part of the frame, from the belly up (medium shot), head about 24 percent of the frame width, shoulders about 62 percent of the frame width, body cut by the bottom edge at the belly, head top at about 40 percent of the frame height, head center at about 62 percent of the frame width, looking into the lens, lips closed in a soft smile, hands out of the frame. Behind her: {{NEN_XANH}}. Nothing else in the frame. No hand, no marker, no logos.
-Prompt video: Start exactly from the start frame. {{LUOT_1}} The green background stays one flat green: nothing appears on it. No hand, pen or marker. VIDEO SUFFIX.
+Prompt ảnh: One still image (the image itself), vertical 9:16, photorealistic: the TEACHER, {{NGUOI_DAY}}, in the lower part of the frame, from the belly up (medium shot), centered left to right, head about 25 percent of the frame width, shoulders about 60 percent of the frame width, body cut by the bottom edge at the belly, head top at about 42 percent of the frame height, looking into the lens, lips closed in a soft smile, hands out of the frame. Behind her: {{NEN_XANH}}. Nothing else in the frame. No hand, no marker, no logos.
+Prompt video: Start exactly from the start frame. {{LUOT_1}} The green background stays one flat green: nothing appears on it. She stays the same size and in the same place. No hand, pen or marker. VIDEO SUFFIX.
 Audio: Only her voice, clean and dry; no music, no ambient sound.
-Negative prompt: paper, notes, writing, gradient, shadow or any object in the background; green on her body; a hand, pen or marker in the frame.
+Negative prompt: paper, notes, writing, city, gradient, shadow or any object in the background; green on her body; a hand, pen or marker in the frame.
 
 CẢNH 2 (0:06–0:12): Lượt 2
-Bối cảnh: robot nhỏ nửa dưới khung, phía sau chỉ có nền xanh lục phẳng: {{NEN_XANH}}. Không có giấy, không có chữ (hậu kỳ ghép tờ giấy sau).
+Bối cảnh: robot đứng giữa nửa dưới khung, phía sau chỉ có nền xanh lục phẳng: {{NEN_XANH}}. Không có giấy, không có chữ (hậu kỳ ghép tờ giấy sau).
 Voice: {{LUOT_2}}
 Khung cuối: She holds the rest pose, still; no hand; the background is still one flat green.
-Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing and the same background). {{LUOT_2}} The green background stays one flat green: nothing appears on it. No hand, pen or marker. VIDEO SUFFIX.
+Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing and the same green background). {{LUOT_2}} The green background stays one flat green: nothing appears on it. She stays the same size and in the same place. No hand, pen or marker. VIDEO SUFFIX.
 Audio: Only her voice, clean and dry; no music, no ambient sound.
-Negative prompt: paper, notes, writing, gradient, shadow or any object in the background; green on her body; a hand, pen or marker in the frame.
+Negative prompt: paper, notes, writing, city, gradient, shadow or any object in the background; green on her body; a hand, pen or marker in the frame.
 
 CẢNH 3 (0:12–0:18): Lượt 3
-Bối cảnh: robot nhỏ nửa dưới khung, phía sau chỉ có nền xanh lục phẳng: {{NEN_XANH}}. Không có giấy, không có chữ (hậu kỳ ghép tờ giấy sau).
+Bối cảnh: robot đứng giữa nửa dưới khung, phía sau chỉ có nền xanh lục phẳng: {{NEN_XANH}}. Không có giấy, không có chữ (hậu kỳ ghép tờ giấy sau).
 Voice: {{LUOT_3}}
 Khung cuối: She holds the rest pose, still; no hand; the background is still one flat green.
-Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing and the same background). {{LUOT_3}} The green background stays one flat green: nothing appears on it. No hand, pen or marker. VIDEO SUFFIX.
+Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing and the same green background). {{LUOT_3}} The green background stays one flat green: nothing appears on it. She stays the same size and in the same place. No hand, pen or marker. VIDEO SUFFIX.
 Audio: Only her voice, clean and dry; no music, no ambient sound.
-Negative prompt: paper, notes, writing, gradient, shadow or any object in the background; green on her body; a hand, pen or marker in the frame.
+Negative prompt: paper, notes, writing, city, gradient, shadow or any object in the background; green on her body; a hand, pen or marker in the frame.
 
 CẢNH 4 (0:18–0:23): Lượt 4
-Bối cảnh: robot nhỏ nửa dưới khung, phía sau chỉ có nền xanh lục phẳng: {{NEN_XANH}}. Không có giấy, không có chữ (hậu kỳ ghép tờ giấy sau).
+Bối cảnh: robot đứng giữa nửa dưới khung, phía sau chỉ có nền xanh lục phẳng: {{NEN_XANH}}. Không có giấy, không có chữ (hậu kỳ ghép tờ giấy sau).
 Voice: {{LUOT_4}}
 Khung cuối: She holds the rest pose, still; no hand; the background is still one flat green.
-Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing and the same background). {{LUOT_4}} The green background stays one flat green: nothing appears on it. No hand, pen or marker. VIDEO SUFFIX.
+Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing and the same green background). {{LUOT_4}} The green background stays one flat green: nothing appears on it. She stays the same size and in the same place. No hand, pen or marker. VIDEO SUFFIX.
 Audio: Only her voice, clean and dry; no music, no ambient sound.
-Negative prompt: paper, notes, writing, gradient, shadow or any object in the background; green on her body; a hand, pen or marker in the frame.
+Negative prompt: paper, notes, writing, city, gradient, shadow or any object in the background; green on her body; a hand, pen or marker in the frame.
 
 CẢNH 5 (0:23–0:29): Lượt 5
-Bối cảnh: robot nhỏ nửa dưới khung, phía sau chỉ có nền xanh lục phẳng: {{NEN_XANH}}. Không có giấy, không có chữ (hậu kỳ ghép tờ giấy sau).
+Bối cảnh: robot đứng giữa nửa dưới khung, phía sau chỉ có nền xanh lục phẳng: {{NEN_XANH}}. Không có giấy, không có chữ (hậu kỳ ghép tờ giấy sau).
 Voice: {{LUOT_5}}
 Khung cuối: She holds the rest pose, still; no hand; the background is still one flat green.
-Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing and the same background). {{LUOT_5}} The green background stays one flat green: nothing appears on it. No hand, pen or marker. VIDEO SUFFIX.
+Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing and the same green background). {{LUOT_5}} The green background stays one flat green: nothing appears on it. She stays the same size and in the same place. No hand, pen or marker. VIDEO SUFFIX.
 Audio: Only her voice, clean and dry; no music, no ambient sound.
-Negative prompt: paper, notes, writing, gradient, shadow or any object in the background; green on her body; a hand, pen or marker in the frame.
+Negative prompt: paper, notes, writing, city, gradient, shadow or any object in the background; green on her body; a hand, pen or marker in the frame.
 
 CẢNH 6 (0:29–0:35): Lượt 6
-Bối cảnh: robot nhỏ nửa dưới khung, phía sau chỉ có nền xanh lục phẳng: {{NEN_XANH}}. Không có giấy, không có chữ (hậu kỳ ghép tờ giấy sau).
+Bối cảnh: robot đứng giữa nửa dưới khung, phía sau chỉ có nền xanh lục phẳng: {{NEN_XANH}}. Không có giấy, không có chữ (hậu kỳ ghép tờ giấy sau).
 Voice: {{LUOT_6}}
 Khung cuối: She holds the rest pose, still; no hand; the background is still one flat green.
-Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing and the same background). {{LUOT_6}} The green background stays one flat green: nothing appears on it. No hand, pen or marker. VIDEO SUFFIX.
+Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing and the same green background). {{LUOT_6}} The green background stays one flat green: nothing appears on it. She stays the same size and in the same place. No hand, pen or marker. VIDEO SUFFIX.
 Audio: Only her voice, clean and dry; no music, no ambient sound.
-Negative prompt: paper, notes, writing, gradient, shadow or any object in the background; green on her body; a hand, pen or marker in the frame.
+Negative prompt: paper, notes, writing, city, gradient, shadow or any object in the background; green on her body; a hand, pen or marker in the frame.
 
 CẢNH 7 (0:35–0:40): Lượt 7
-Bối cảnh: robot NHỎ và THẤP (đỉnh đầu ~50% chiều cao, nửa trên khung chỉ có trời và thành phố, để trống cho ô chữ), phía sau là {{NEN_PHO}}; không có chữ, không có tờ giấy (hậu kỳ thêm bảng sau).
+Bối cảnh: robot đứng giữa nửa dưới khung, phía sau chỉ có nền xanh lục phẳng: {{NEN_XANH}}. Không có giấy, không có chữ (cảnh quảng cáo: hậu kỳ thêm video nền thành phố và bảng chữ, rồi đặt robot lên trên).
 Voice: {{LUOT_7}}
-Khung đầu: New start frame: the teacher from the belly up in the lower part of the frame, head top at about 40 percent of the height, head top at about 50 percent of the height (small and low in the frame), the upper half only sky and distant skyline, no text, no paper.
-Khung cuối: She holds the rest pose, still; no text in the frame, no paper.
-Prompt ảnh: One still image (the image itself), vertical 9:16, photorealistic: the TEACHER, {{NGUOI_DAY}}, She is small and LOW in the frame, seen from further away than a close-up portrait: head about 20 percent of the frame width, shoulders about 50 percent of the frame width, head top at about 50 percent of the frame height, head center at about 62 percent of the frame width, body cut by the bottom edge at the chest; the whole upper half of the frame (above 45 percent of the height) shows only sky and the distant skyline, completely empty on purpose because a text box is added there later, looking into the lens, lips closed in a soft smile, hands out of the frame. Behind her: {{NEN_PHO}}. No text anywhere, no paper, no board, no note. No hand, no marker, no logos.
-Prompt video: Start exactly from the start frame. {{LUOT_7}} She stays small and low for the whole clip: her head never rises above 45 percent of the frame height and she never moves closer to the camera. No hand, pen or marker appears; the city background does not change. VIDEO SUFFIX.
+Khung cuối: She holds the rest pose, still; no hand; the background is still one flat green.
+Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing and the same green background). {{LUOT_7}} The green background stays one flat green: nothing appears on it. She stays the same size and in the same place. No hand, pen or marker. VIDEO SUFFIX.
 Audio: Only her voice, clean and dry; no music, no ambient sound.
-Negative prompt: a paper, note, notebook or board in the frame; a close-up or large robot, her head in the upper half of the frame, her moving closer to the camera; a hand or marker in the frame; any text in the frame.
+Negative prompt: paper, notes, writing, city, gradient, shadow or any object in the background; green on her body; a hand, pen or marker in the frame.
 
 CẢNH 8 (0:40–0:46): Lượt 8
-Bối cảnh: robot NHỎ và THẤP (đỉnh đầu ~50% chiều cao, nửa trên khung chỉ có trời và thành phố, để trống cho ô chữ), phía sau là {{NEN_PHO}}; không có chữ, không có tờ giấy (hậu kỳ thêm bảng sau).
+Bối cảnh: robot đứng giữa nửa dưới khung, phía sau chỉ có nền xanh lục phẳng: {{NEN_XANH}}. Không có giấy, không có chữ (cảnh quảng cáo: hậu kỳ thêm video nền thành phố và bảng chữ, rồi đặt robot lên trên).
 Voice: {{LUOT_8}}
-Khung cuối: She holds the rest pose, still; no text in the frame, no paper.
-Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing and the same background). {{LUOT_8}} She stays small and low for the whole clip: her head never rises above 45 percent of the frame height and she never moves closer to the camera. No hand, pen or marker appears; the city background does not change. VIDEO SUFFIX.
+Khung cuối: She holds the rest pose, still; no hand; the background is still one flat green.
+Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing and the same green background). {{LUOT_8}} The green background stays one flat green: nothing appears on it. She stays the same size and in the same place. No hand, pen or marker. VIDEO SUFFIX.
 Audio: Only her voice, clean and dry; no music, no ambient sound.
-Negative prompt: a paper, note, notebook or board in the frame; a close-up or large robot, her head in the upper half of the frame, her moving closer to the camera; a hand or marker in the frame; any text in the frame.
+Negative prompt: paper, notes, writing, city, gradient, shadow or any object in the background; green on her body; a hand, pen or marker in the frame.
 
 CẢNH 9 (0:46–0:53): Lượt 9
-Bối cảnh: robot NHỎ và THẤP (đỉnh đầu ~50% chiều cao, nửa trên khung chỉ có trời và thành phố, để trống cho ô chữ), phía sau là {{NEN_PHO}}; không có chữ, không có tờ giấy (hậu kỳ thêm bảng sau).
+Bối cảnh: robot đứng giữa nửa dưới khung, phía sau chỉ có nền xanh lục phẳng: {{NEN_XANH}}. Không có giấy, không có chữ (cảnh quảng cáo: hậu kỳ thêm video nền thành phố và bảng chữ, rồi đặt robot lên trên).
 Voice: {{LUOT_9}}
-Khung cuối: She holds the rest pose, still; no text in the frame, no paper. End of the video.
-Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing and the same background). {{LUOT_9}} She stays small and low for the whole clip: her head never rises above 45 percent of the frame height and she never moves closer to the camera. No hand, pen or marker appears; the city background does not change. VIDEO SUFFIX.
+Khung cuối: She holds the rest pose, still; no hand; the background is still one flat green. End of the video.
+Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing and the same green background). {{LUOT_9}} The green background stays one flat green: nothing appears on it. She stays the same size and in the same place. No hand, pen or marker. VIDEO SUFFIX.
 Audio: Only her voice, clean and dry; no music, no ambient sound.
-Negative prompt: a paper, note, notebook or board in the frame; a close-up or large robot, her head in the upper half of the frame, her moving closer to the camera; a hand or marker in the frame; any text in the frame.
+Negative prompt: paper, notes, writing, city, gradient, shadow or any object in the background; green on her body; a hand, pen or marker in the frame.

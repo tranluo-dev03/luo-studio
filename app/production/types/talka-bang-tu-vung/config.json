@@ -1,18 +1,16 @@
 {
-  "_doc": "Studio truyền biến thể vào (--variant): từ vựng cho bút lấy từ các lượt \"¿Cómo se dice X? Se dice, Y. Repite conmigo. Y.\", ô bảng quảng cáo lấy đúng lời robot ở các lượt từ ad_from (đếm từ 0) trở đi, tự chia ô, tô đỏ tên app + \"số + đơn vị\" + các từ trong red_words. board = kiểu ô (y_center = tâm ô, px; hoặc y_top = mép trên của ô). pointer/phrases bên dưới chỉ dùng khi chạy tay không có --variant (ví dụ của biến thể mẫu). robot_top: đỉnh đầu robot (tỉ lệ chiều cao) sau khi hậu kỳ thu nhỏ robot ở cảnh dạy từ (nền xanh). Cảnh quảng cáo không chỉnh cỡ ở hậu kỳ (nền dính liền robot): robot nhỏ và thấp do prompt gen quyết định.",
+  "_doc": "Studio truyền biến thể vào (--variant): từ vựng cho bút lấy từ các lượt \"¿Cómo se dice X? Se dice, Y. Repite conmigo. Y.\", ô bảng quảng cáo lấy đúng lời robot ở các lượt từ ad_from (đếm từ 0) trở đi, tự chia ô, tô đỏ tên app + \"số + đơn vị\" + các từ trong red_words. board = kiểu ô (y_center = tâm ô, px; hoặc y_top = mép trên của ô). pointer/phrases bên dưới chỉ dùng khi chạy tay không có --variant (ví dụ của biến thể mẫu). board: ô cố định như video mẫu (x, w, y_top, h theo khung 1080x1920; line = khoảng cách dòng / cỡ chữ). bo_cuc: vị trí robot như video mẫu, theo tỉ lệ khung (top = đỉnh đầu, cx = tâm đầu, head_w = bề rộng đầu kể cả tai nghe), bai = cảnh dạy từ, qc = cảnh quảng cáo; che_bang = đầu robot được chạm vào mép dưới bảng tối đa bao nhiêu (tỉ lệ chiều cao). nen_pho_giay: độ dài video nền thành phố gen bằng AI. robot_top: chỉ dùng cho video cũ (chưa xếp lớp).",
   "ad_from": 6,
   "red_words": [
     "inglés",
     "inglês"
   ],
   "board": {
-    "x": 70,
-    "w": 940,
-    "y_center": 560,
-    "pad": 46,
-    "size": 66,
-    "min_h": 300,
-    "border": 9,
+    "x": 100,
+    "w": 880,
+    "pad": 40,
+    "size": 80,
+    "border": 16,
     "border_color": [
       38,
       84,
@@ -27,7 +25,10 @@
       222,
       36,
       40
-    ]
+    ],
+    "y_top": 351,
+    "h": 624,
+    "line": 1.68
   },
   "pointer": [
     {
@@ -103,5 +104,19 @@
       "text": "Download now"
     }
   ],
-  "robot_top": 0.52
+  "robot_top": 0.52,
+  "bo_cuc": {
+    "bai": {
+      "top": 0.475,
+      "cx": 0.7,
+      "head_w": 0.285
+    },
+    "qc": {
+      "top": 0.485,
+      "cx": 0.47,
+      "head_w": 0.29
+    },
+    "che_bang": 0.025
+  },
+  "nen_pho_giay": 10
 }

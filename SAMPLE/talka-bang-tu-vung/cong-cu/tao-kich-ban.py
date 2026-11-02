@@ -1,31 +1,36 @@
 """Tạo lại kịch bản + biến thể Talka bảng từ vựng. Chạy: python cong-cu/tao-kich-ban.py -> ghi đè KICH-BAN-TALKA-CO-CHU.txt và BIEN-THE-TALKA-CO-CHU.json.
 Muốn đổi câu chữ prompt thì sửa file này rồi chạy lại, không sửa tay file kịch bản.
 
-Cách làm: Muse chỉ gen ROBOT trên NỀN XANH LỤC phẳng (các cảnh dạy từ) và robot trên nền thành phố (cảnh quảng cáo, không có giấy).
-Hậu kỳ (app/production/types/talka-bang-tu-vung) tự dựng tờ giấy (ảnh tĩnh, từ khai trong HAU_KY.bang của biến thể), tách nền xanh, ghép robot lên giấy,
-viết chữ tiếng Anh và vẽ bút chỉ đúng chỗ; ô bảng quảng cáo cũng thêm ở hậu kỳ.
+Cách làm: Muse chỉ gen ROBOT trên NỀN XANH LỤC phẳng ở MỌI cảnh (dạy từ và quảng cáo), một khung hình liên tục, robot đứng giữa khung.
+Hậu kỳ (app/production/types/talka-bang-tu-vung) tách nền xanh rồi chỉnh cỡ và vị trí robot cho khớp video mẫu (config.json "bo_cuc"):
+- cảnh dạy từ: tờ giấy (ảnh tĩnh, từ khai trong HAU_KY.bang của biến thể), chữ tiếng Anh, bút; robot đè lên trên;
+- cảnh quảng cáo: video nền thành phố (hậu kỳ gen bằng AI theo ô NEN_PHO, lưu nen_pho.mp4 trong thư mục chạy), bảng chữ cố định đè lên nền, robot đè lên trên cùng.
 Kịch bản BẢN GỌN: mỗi ý nói một lần, từ vựng nhắc ít lần (prompt dài làm Muse đọc lẫn từ tiếng Anh vào câu hỏi)."""
 import copy, json, os
 
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # SAMPLE/talka-bang-tu-vung
 
 HEAD = """[STYLE LOCK]:
-Photorealistic cinematic CGI, vertical 9:16, sharp, soft even daylight. One locked-off tripod shot, no cuts, no zoom. The TEACHER stands in the lower part of the frame, seen from the belly up (a medium shot): head top at about 40 percent of the frame height, head center at about 62 percent of the frame width, head about 24 percent of the frame width, shoulders about 62 percent of the frame width, her body cut by the bottom edge at the belly; the area above her head shows the background. Same framing, lens and light in every clip. No captions, logos or subtitles.
+Photorealistic cinematic CGI, vertical 9:16, sharp, soft even daylight. One locked-off tripod shot, no cuts, no zoom. The TEACHER stands in the lower part of the frame, seen from the belly up (a medium shot): head top at about 42 percent of the frame height, centered left to right (head center at 50 percent of the frame width), head about 25 percent of the frame width, shoulders about 60 percent of the frame width, her body cut by the bottom edge at the belly; the area above her head shows only the green background. Same framing, lens and light in every clip. No captions, logos or subtitles.
 
 [CHAR LOCK]:
 TEACHER ({{TEN_DAY}}): {{NGUOI_DAY}}. Same face, head and armor in every frame; the only accent color is light blue. Voice: {{GIONG_DAY}}, the same voice in every clip; the English words said slowly and clearly in an American accent. {{PHAT_AM}}. A lively, expressive human face with accurate lip-sync; her own hands never appear.
 
 [SET LOCK]:
-The background stays exactly as in the start frame: it never moves or changes. Lesson clips: the background is one perfectly flat, evenly lit green screen and nothing else (no paper, no wall, no writing, no object); her body has no green reflection or green rim light. Advert clips: the city skyline stays exactly as in the start frame, with no paper, board or note anywhere. No hand, pen, marker or other object ever appears.
+In every clip the background is one perfectly flat, evenly lit green screen and nothing else (no paper, no wall, no city, no writing, no object); it never moves or changes. Her body has no green reflection or green rim light. No hand, pen, marker or other object ever appears.
 
 [VIDEO SUFFIX]:
 Static camera. She speaks the line once at a natural, lively pace, with a short natural pause between sentences. After her last word she settles into the rest pose ({{DAO_NGHI}}) and holds still until the end of the clip (the tail is cut in editing; the next clip starts from that still frame). No music.
 
 [NEGATIVE]:
-captions, subtitles, logos, extra text; a second person or voice; the robot's hands in the frame; the robot larger or closer; camera movement or zoom; background or lighting change; face or armor change; paper, notes, writing or any object behind her; music, echo, robotic or text-to-speech voice; stiff face or wrong lip-sync.
+captions, subtitles, logos, extra text; a second person or voice; the robot's hands in the frame; the robot larger, closer or off-center; camera movement or zoom; background or lighting change; face or armor change; paper, notes, writing or any object behind her; music, echo, robotic or text-to-speech voice; stiff face or wrong lip-sync.
+
+[HAU KY]:
+loai: talka-bang-tu-vung
+Nền video cảnh quảng cáo (hậu kỳ gen bằng AI, đặt sau bảng chữ và robot): {{NEN_PHO}}
 """
 
-# cảnh -> (thời lượng, nền: "xanh" = nền xanh lục (dạy từ), "pho" = nền thành phố (quảng cáo))
+# cảnh -> (thời lượng, loại: "xanh" = dạy từ, "pho" = quảng cáo). Mọi cảnh đều gen trên nền xanh; "pho" chỉ đổi lời mô tả (hậu kỳ thêm nền thành phố + bảng chữ).
 SCENES = [
     ("0:00–0:06", "xanh"),
     ("0:06–0:12", "xanh"),
@@ -38,47 +43,33 @@ SCENES = [
     ("0:46–0:53", "pho"),
 ]
 AUDIO = "Only her voice, clean and dry; no music, no ambient sound."
-BG = {"xanh": "{{NEN_XANH}}", "pho": "{{NEN_PHO}}"}
 
 
-# Cảnh giới thiệu app: ô bảng chữ (thêm ở hậu kỳ) nằm ở khoảng 18-38% chiều cao khung, nên robot phải NHỎ và THẤP (đầu từ ~50% trở xuống), nửa trên chỉ có trời và thành phố
-AD_FRAME = ("She is small and LOW in the frame, seen from further away than a close-up portrait: head about 20 percent of the frame width, shoulders about 50 percent of the frame width, "
-            "head top at about 50 percent of the frame height, head center at about 62 percent of the frame width, body cut by the bottom edge at the chest; "
-            "the whole upper half of the frame (above 45 percent of the height) shows only sky and the distant skyline, completely empty on purpose because a text box is added there later")
-
-
-def robot_img(kind):
-    bg = "{{NEN_XANH}}. Nothing else in the frame" if kind == "xanh" else "{{NEN_PHO}}. No text anywhere, no paper, no board, no note"
-    if kind == "xanh":
-        frame = ("in the lower part of the frame, from the belly up (medium shot), head about 24 percent of the frame width, shoulders about 62 percent of the frame width, body cut by the bottom edge at the belly, "
-                 "head top at about 40 percent of the frame height, head center at about 62 percent of the frame width")
-    else:
-        frame = AD_FRAME
-    return ("One still image (the image itself), vertical 9:16, photorealistic: the TEACHER, {{NGUOI_DAY}}, " + frame + ", looking into the lens, lips closed in a soft smile, hands out of the frame. "
-            f"Behind her: {bg}. No hand, no marker, no logos.")
+def robot_img():
+    return ("One still image (the image itself), vertical 9:16, photorealistic: the TEACHER, {{NGUOI_DAY}}, in the lower part of the frame, from the belly up (medium shot), "
+            "centered left to right, head about 25 percent of the frame width, shoulders about 60 percent of the frame width, body cut by the bottom edge at the belly, "
+            "head top at about 42 percent of the frame height, looking into the lens, lips closed in a soft smile, hands out of the frame. "
+            "Behind her: {{NEN_XANH}}. Nothing else in the frame. No hand, no marker, no logos.")
 
 
 body = []
 for i, (rng, kind) in enumerate(SCENES, 1):
-    first = i == 1 or kind != SCENES[i - 2][1]
+    first = i == 1
     lesson = kind == "xanh"
     L = [f"CẢNH {i} ({rng}): Lượt {i}"]
-    L.append("Bối cảnh: " + (f"robot nhỏ nửa dưới khung, phía sau chỉ có nền xanh lục phẳng: {BG[kind]}. Không có giấy, không có chữ (hậu kỳ ghép tờ giấy sau)."
-                            if lesson else f"robot NHỎ và THẤP (đỉnh đầu ~50% chiều cao, nửa trên khung chỉ có trời và thành phố, để trống cho ô chữ), phía sau là {BG[kind]}; không có chữ, không có tờ giấy (hậu kỳ thêm bảng sau)."))
+    L.append("Bối cảnh: robot đứng giữa nửa dưới khung, phía sau chỉ có nền xanh lục phẳng: {{NEN_XANH}}. Không có giấy, không có chữ "
+             + ("(hậu kỳ ghép tờ giấy sau)." if lesson else "(cảnh quảng cáo: hậu kỳ thêm video nền thành phố và bảng chữ, rồi đặt robot lên trên)."))
     L.append(f"Voice: {{{{LUOT_{i}}}}}")
     if first:
-        L.append("Khung đầu: New start frame: the teacher from the belly up in the lower part of the frame, head top at about 40 percent of the height, "
-                 + ("against one perfectly flat green screen, nothing else." if lesson else "head top at about 50 percent of the height (small and low in the frame), the upper half only sky and distant skyline, no text, no paper."))
-    L.append("Khung cuối: She holds the rest pose, still" + ("; no hand; the background is still one flat green." if lesson else "; no text in the frame, no paper.") + (" End of the video." if i == len(SCENES) else ""))
+        L.append("Khung đầu: New start frame: the teacher from the belly up in the lower part of the frame, centered, head top at about 42 percent of the height, "
+                 "against one perfectly flat green screen, nothing else.")
+    L.append("Khung cuối: She holds the rest pose, still; no hand; the background is still one flat green." + (" End of the video." if i == len(SCENES) else ""))
     if first:
-        L.append("Prompt ảnh: " + robot_img(kind))
-    start = "Start exactly from the start frame." if first else "Continue exactly from the previous clip's last frame (same teacher, pose, framing and the same background)."
-    act = (" The green background stays one flat green: nothing appears on it. No hand, pen or marker." if lesson else
-           " She stays small and low for the whole clip: her head never rises above 45 percent of the frame height and she never moves closer to the camera. No hand, pen or marker appears; the city background does not change.")
-    L.append(f"Prompt video: {start} {{{{LUOT_{i}}}}}{act} VIDEO SUFFIX.")
+        L.append("Prompt ảnh: " + robot_img())
+    start = "Start exactly from the start frame." if first else "Continue exactly from the previous clip's last frame (same teacher, pose, framing and the same green background)."
+    L.append(f"Prompt video: {start} {{{{LUOT_{i}}}}} The green background stays one flat green: nothing appears on it. She stays the same size and in the same place. No hand, pen or marker. VIDEO SUFFIX.")
     L.append("Audio: " + AUDIO)
-    L.append("Negative prompt: " + ("paper, notes, writing, gradient, shadow or any object in the background; green on her body; a hand, pen or marker in the frame." if lesson
-                                   else "a paper, note, notebook or board in the frame; a close-up or large robot, her head in the upper half of the frame, her moving closer to the camera; a hand or marker in the frame; any text in the frame."))
+    L.append("Negative prompt: paper, notes, writing, city, gradient, shadow or any object in the background; green on her body; a hand, pen or marker in the frame.")
     body.append("\n".join(L))
 
 open(os.path.join(OUT, "KICH-BAN-TALKA-CO-CHU.txt"), "w", encoding="utf-8").write(HEAD + "\n" + "\n\n".join(body) + "\n")

@@ -18,11 +18,11 @@ Video mẫu: robot AI dạy cách nói từ Tây Ban Nha bằng tiếng Anh trư
 
 ## Quy trình đang dùng (đã chốt)
 
-**Muse chỉ gen robot**: cảnh dạy từ là robot trên **nền xanh lục phẳng**; cảnh quảng cáo là robot trên nền thành phố (không có giấy).
+**Muse chỉ gen robot trên nền xanh lục phẳng ở MỌI cảnh** (dạy từ và quảng cáo), một khung hình liên tục, robot đứng giữa khung.
 **Hậu kỳ** làm phần còn lại, khớp lời đọc (Whisper):
 - **dựng tờ giấy bằng code** (`giay.py`, ảnh tĩnh: checklist, giấy kẻ dòng 2 cột, sổ lò xo; từ + icon lấy từ `HAU_KY.bang` của biến thể), tách nền xanh và ghép robot lên giấy. Giấy do code vẽ nên biết chính xác toạ độ từng từ: không dò, không sai chính tả, bút không lệch hàng;
-- **cỡ robot cảnh dạy từ chỉnh ở hậu kỳ** (`config.json` → `robot_top`, mặc định 52% chiều cao): robot đã tách nền xanh được thu nhỏ về phía đáy, 8 từ dãn đều xuống hết tờ giấy (robot che mấy từ dưới cùng);
-- **cảnh quảng cáo không chỉnh cỡ ở hậu kỳ** (nền thành phố dính liền robot, thu nhỏ sẽ thu nhỏ cả nền): robot phải **nhỏ và thấp ngay lúc Muse gen** (prompt ghi đỉnh đầu ~50% chiều cao, nửa trên khung chỉ có trời), để ô bảng chữ ở khoảng 18–38% chiều cao không che robot;
+- **cỡ và vị trí robot chỉnh ở hậu kỳ cho khớp video mẫu** (`config.json` → `bo_cuc`): hậu kỳ đo robot trong video rồi phóng/thu và dời. Cảnh dạy từ: đỉnh đầu 47,5% chiều cao, robot lệch phải (tâm đầu 70%); cảnh quảng cáo: đỉnh đầu 48,5%, robot giữa, đầu chỉ chạm mép dưới bảng;
+- **cảnh quảng cáo xếp lớp**: video nền thành phố (hậu kỳ gen bằng AI theo `NEN_PHO`, lưu `nen_pho.mp4` trong thư mục chạy) → ô bảng cố định (như video mẫu: 9–90% bề ngang, 18–51% chiều cao) → robot;
 - bút (đỏ mẫu / bút máy / bút bi) nằm **dưới robot** (không che robot), lướt qua đúng chữ robot đang đọc: từ bản ngữ → chữ tiếng Anh → lướt lại khi đọc lại; sang cảnh sau trượt xuống hàng kế tiếp;
 - chữ tiếng Anh hiện ra **nguyên chữ** đúng lúc bút đặt vào đầu chữ, nằm trên giấy (sau lưng robot), giữ đến hết phần bảng chữ;
 - ô bảng quảng cáo ở 3 cảnh cuối hiện đúng lời robot (như video gốc); **không phụ đề, không logo, không end card**.

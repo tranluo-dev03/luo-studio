@@ -424,11 +424,13 @@ def composite(raw, back, out, color, key_until=None, robot_scale=1.0):
                     "-c:a", "copy", "-t", f"{_duration(raw):.3f}", out], check=True, creationflags=NOWIN)
 
 
-def add_pointer(raw, scenes, items, out, transcribe, model="medium", log=print, paper=None, key_until=None, robot_top_target=0.52):
+def add_pointer(raw, scenes, items, out, transcribe, model="medium", log=print, paper=None, key_until=None, robot_top_target=0.52, back_only=False):
     """items = [{turn, es, en, row}]; transcribe(raw, model, jobs) -> list từ theo từng đoạn (giờ tuyệt đối). Trả về đường dẫn video đã ghép, hoặc raw nếu không làm được.
     Có `paper` (spec giấy, xem giay.py): video Muse chỉ có robot trên nền xanh; hậu kỳ dựng tờ giấy tĩnh (biết chính xác toạ độ từng từ), ghép robot lên trên,
     chữ tiếng Anh hiện ra khi bút đặt vào đầu chữ. Không có `paper`: video Muse có sẵn tờ checklist (vòng tròn đỏ, vạch xám trống), dò vị trí trên khung hình.
-    Bút lướt qua đúng chữ robot đang đọc, trượt sang chữ/hàng tiếp theo; với giấy dựng sẵn bút nằm DƯỚI robot (không che robot), video cũ thì bút nằm trên cùng."""
+    Bút lướt qua đúng chữ robot đang đọc, trượt sang chữ/hàng tiếp theo; với giấy dựng sẵn bút nằm DƯỚI robot (không che robot), video cũ thì bút nằm trên cùng.
+    back_only (cùng `paper`): chỉ xuất video NỀN (giấy + chữ + bút, chưa có robot) ra `out`; robot do người gọi đặt lên với cỡ/vị trí riêng,
+    giấy được dựng cho đỉnh đầu robot ở đúng robot_top_target."""
     w, h, fps = probe(raw)
     by_turn = {s["turn"]: s for s in scenes}
     todo = sorted([(it, by_turn[it["turn"]]) for it in items if it["turn"] in by_turn], key=lambda x: x[1]["start"])
@@ -443,11 +445,15 @@ def add_pointer(raw, scenes, items, out, transcribe, model="medium", log=print, 
     style, L = {}, None
     if paper:
         import giay
-        color = key_color(raw, (w, h), log)
-        top = robot_top(raw, (w, h), key_until, log)
+        if back_only:
+            color, top, robot_scale = None, robot_top_target, 1.0
+        else:
+            color = key_color(raw, (w, h), log)
+            top = robot_top(raw, (w, h), key_until, log)
         # chỉnh cỡ robot ở hậu kỳ: thu nhỏ về phía đáy khung cho đỉnh đầu xuống ~robot_top_target (chỉ thu nhỏ, không phóng to) để giấy lộ ra đủ chỗ cho 5 từ vựng đầu
-        robot_scale = min(1.0, max(0.5, (1 - robot_top_target) / max(1e-3, 1 - top)))
-        top = 1 - (1 - top) * robot_scale
+        if not back_only:
+            robot_scale = min(1.0, max(0.5, (1 - robot_top_target) / max(1e-3, 1 - top)))
+            top = 1 - (1 - top) * robot_scale
         if robot_scale < 0.999:
             log(f"  thu nhỏ robot còn {robot_scale * 100:.0f}% (đỉnh đầu xuống {top * 100:.0f}% chiều cao)")
         paper_img, geo, style = giay.render(paper, (w, h), top)
@@ -477,7 +483,9 @@ def add_pointer(raw, scenes, items, out, transcribe, model="medium", log=print, 
     total = int(round(max(s["end"] for s in scenes) * fps)) + 2
     off = (w + 80, h * 0.95)
     xs, ys = path_frames(keys, total, fps, off, max(0.0, todo[0][1]["start"] - 0.01), min(board_end, keys[-1][0] + 0.7))
-    if paper:
+    if paper and back_only:
+        render(raw, out, xs, ys, labels, (w, h), fps, pen=pen, base_img=paper_img, nframes=int(round(_duration(raw) * fps)) + 1)
+    elif paper:
         back = out + ".back.mp4"
         try:
             render(raw, back, xs, ys, labels, (w, h), fps, pen=pen, base_img=paper_img, nframes=int(round(_duration(raw) * fps)) + 1)   # nền: giấy + chữ tiếng Anh + bút

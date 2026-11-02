@@ -2,7 +2,7 @@
 
 Video: robot AI dạy cách nói từ Tây Ban Nha bằng tiếng Anh trước một tờ giấy "¿CÓMO SE DICE?". Bút đỏ lướt qua đúng chữ robot đang đọc, chữ tiếng Anh hiện ra khi đọc. Phần cuối là quảng cáo app trên nền thành phố, có ô bảng hiện lời robot. Video khoảng 60–70 giây, 9 cảnh.
 
-**Muse chỉ gen robot** (cảnh dạy từ: robot trên **nền xanh lục phẳng**; cảnh quảng cáo: robot trên nền thành phố, **không có tờ giấy**). **Hậu kỳ** tự dựng tờ giấy (ảnh tĩnh, vẽ bằng code từ file biến thể), tách nền xanh, ghép robot lên giấy, viết chữ tiếng Anh, vẽ bút chỉ đúng từ, và thêm ô bảng quảng cáo. Vì giấy do hậu kỳ dựng nên chữ luôn đúng chính tả và bút luôn chỉ đúng hàng.
+**Muse chỉ gen robot trên nền xanh lục phẳng ở mọi cảnh.** **Hậu kỳ** tự dựng tờ giấy (ảnh tĩnh, vẽ bằng code từ file biến thể), viết chữ tiếng Anh, vẽ bút chỉ đúng từ; ở phần quảng cáo tự gen video nền thành phố bằng AI (theo ô `NEN_PHO`) và đặt ô bảng lên; cuối cùng tách nền xanh, đặt robot lên trên cùng với cỡ và vị trí như video mẫu. Vì giấy do hậu kỳ dựng nên chữ luôn đúng chính tả và bút luôn chỉ đúng hàng.
 
 ---
 
@@ -12,9 +12,9 @@ Video: robot AI dạy cách nói từ Tây Ban Nha bằng tiếng Anh trước m
    Tên loại bắt đầu bằng `KICH-BAN-TALKA` thì Studio tự dùng hậu kỳ riêng của thể loại này.
 2. **Tạo dự án**: **Dự án mới** → chọn loại vừa nhập → chọn file biến thể `SAMPLE\talka-bang-tu-vung\BIEN-THE-TALKA-CO-CHU.json` (hoặc file biến thể mới, xem phần 2).
 3. **Gen**: bấm chạy. Mỗi cảnh mất vài phút. Xem nhanh từng cảnh:
-   - cảnh 1–6: phía sau robot chỉ là **một màu xanh lục phẳng** (không giấy, không chữ, không tay, không bút); cảnh 7–9: nền thành phố, **không có tờ giấy**. Nền xanh không phẳng hoặc còn vết giấy thì gen lại cảnh đó;
+   - cả 9 cảnh: phía sau robot chỉ là **một màu xanh lục phẳng** (không giấy, không thành phố, không chữ, không tay, không bút). Nền xanh không phẳng hoặc có vật lạ thì gen lại cảnh đó;
    - robot đọc **đúng lời**. Lỗi hay gặp: đọc lẫn từ tiếng Anh vào câu hỏi, ví dụ "¿Cómo se dice **please**?". Gặp thì bấm **gen lại cảnh đó**, và cả cảnh ngay sau nó để hai cảnh nối khớp.
-4. **Hậu kỳ**: bấm Hậu kỳ. Studio tự thêm bút đỏ, chữ tiếng Anh, ô bảng quảng cáo. Không có phụ đề, logo hay end card.
+4. **Hậu kỳ**: bấm Hậu kỳ. Studio tự thêm tờ giấy, bút đỏ, chữ tiếng Anh, video nền thành phố (lần đầu mất thêm vài phút để gen, lưu `nen_pho.mp4` trong thư mục chạy) và ô bảng quảng cáo. Không có phụ đề, logo hay end card.
 
 ---
 
@@ -91,7 +91,8 @@ Mỗi biến thể phải in ra **5 cặp từ** và **tên app**. Thiếu cặp
 |---|---|---|
 | Robot đọc lẫn từ tiếng Anh vào câu hỏi | Lỗi ngẫu nhiên của Muse | Gen lại cảnh đó và cảnh ngay sau |
 | Nền sau robot không phải xanh phẳng (có giấy, chữ, vệt sáng) hoặc robot bị khuyết mép sau hậu kỳ | Muse không giữ nền xanh | Gen lại cảnh đó; nếu hay bị, chỉnh `NEN_XANH` |
-| Cảnh quảng cáo vẫn còn tờ giấy | Muse lấy khung cuối cảnh trước làm tham chiếu | Đã sửa trong Studio (đổi nền thì không gửi khung cuối cảnh trước); gen lại cảnh 7–9 |
+| Hậu kỳ báo "cảnh quảng cáo không phải nền xanh" | Video gen bằng kịch bản cũ (cảnh 7–9 nền thành phố) | Nhập lại kịch bản mới, gen lại cảnh 7–9 |
+| Muốn đổi video nền thành phố | Nền đã lưu `nen_pho.mp4` | Xoá `nen_pho.mp4` trong thư mục chạy rồi Hậu kỳ lại |
 | Bút chỉ sai hàng | 5 từ đầu trong `HAU_KY.bang.hang` không khớp thứ tự với lời đọc | Sửa biến thể, hậu kỳ lại |
 | Chữ đen trên giấy chớp trắng 1–2 khung | Model video vẽ lại cả khung + nén | Thường bỏ qua được |
 | Ô bảng quảng cáo thiếu chữ đỏ | Không có "Descarga <Tên app>" hoặc số + thời gian | Sửa câu trong lượt 7–9 |
