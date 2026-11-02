@@ -127,13 +127,56 @@ def _smooth(v, sigma):
     return np.convolve(pad, k, mode="valid")
 
 
-def _scene_layout(raw, sc, item, size, log):
+# Kiểu giấy khác tờ checklist (vòng tròn đỏ): khai trong biến thể "HAU_KY": {"giay": <tên>}. Giấy kẻ dòng: hàng k nằm trên vạch kẻ thứ k, vị trí dự kiến
+# y1 + (k-1)*step (tỉ lệ chiều cao khung; NEN_BANG của biến thể mô tả đúng các số này) rồi bám vào vạch kẻ thật gần nhất;
+# từ bản ngữ bắt đầu từ x0 (tỉ lệ bề rộng), chữ tiếng Anh đặt từ cột `slot` (cột phải trống).
+LAYOUTS = {
+    "hai-cot":           dict(y1=0.185, step=0.048, x0=0.04, x1=0.52, slot=0.57, gap=24, color=(196, 52, 56), fonts="hand"),    # giấy kẻ, hai cột, icon bên phải chữ
+    "hai-cot-icon-trai": dict(y1=0.185, step=0.048, x0=0.19, x1=0.52, slot=0.57, gap=24, color=(196, 52, 56), fonts="hand"),    # như trên nhưng icon nằm bên trái chữ
+    "so-tay":            dict(y1=0.185, step=0.048, x0=0.12, x1=0.56, slot=0.60, gap=24, color=(146, 30, 42), fonts="serif"),    # sổ lò xo, mỗi hàng một vạch kẻ
+}
+_FONT_SETS = {"hand": [r"C:\Windows\Fonts\Inkfree.ttf", r"C:\Windows\Fonts\segoesc.ttf"],
+              "serif": [r"C:\Windows\Fonts\georgiai.ttf", r"C:\Windows\Fonts\timesi.ttf"]}
+
+
+def _hlines(f, x_lo, x_hi, y_lo, y_hi):
+    """y của các vạch kẻ ngang trong dải [x_lo, x_hi): hàng ảnh có đa số bề rộng tối hơn giấy (cột phải để trống nên chỉ có vạch kẻ)."""
+    g = f[y_lo:y_hi, x_lo:x_hi].astype(np.int16).mean(2)
+    paper = float(np.median(g))
+    ys = np.nonzero((g < paper - 12).mean(1) > 0.6)[0]
+    groups = []
+    for y in ys:
+        if groups and y - groups[-1][-1] <= 3:
+            groups[-1].append(y)
+        else:
+            groups.append([y])
+    return [y_lo + int(np.mean(g_)) for g_ in groups]
+
+
+def _scene_layout_lines(end_f, row, size, L):
+    """Giấy kẻ dòng: (hộp từ bản ngữ, x đặt chữ tiếng Anh, đường chân chữ)."""
+    w, h = size
+    step = L["step"] * h
+    pred = int((L["y1"] + (row - 1) * L["step"]) * h)
+    x_lo, x_hi = int(w * L["slot"]), int(w * 0.93)
+    lines = _hlines(end_f, x_lo, x_hi, max(0, int(h * 0.1)), int(h * 0.62))
+    near = [y for y in lines if abs(y - pred) <= step * 0.4]
+    base = min(near, key=lambda y: abs(y - pred)) if near else pred
+    dark = end_f.max(2) < 95
+    x0 = int(w * L["x0"])
+    es_box = word_box(dark, max(0, int(base - step * 0.85)), base + 2, x0, int(w * L["x1"]), gap=L["gap"]) or (x0, int(base - step * 0.5), x0 + int(w * 0.2), base)
+    return es_box, x_lo + 6, base - 3
+
+
+def _scene_layout(raw, sc, item, size, log, L=None):
     """Đo trên khung cuối cảnh: hộp từ Tây Ban Nha và vị trí đặt chữ tiếng Anh (đầu vạch xám, đường chân chữ). Video Muse không có chữ tiếng Anh."""
     w, h = size
     row = item["row"]
     end_f = frame_at(raw, max(sc["start"], sc["end"] - 0.25), w, h)
     if end_f is None:
         return None
+    if L:
+        return _scene_layout_lines(end_f, row, size, L)
     rows = rows_of(end_f)
     if len(rows) < row and len(rows) >= 2:   # Muse không vẽ đủ vòng tròn đỏ: các hàng cách đều nhau nên suy ra từ hàng 1 và 2
         step = rows[1][0] - rows[0][0]
@@ -171,10 +214,10 @@ def _scene_layout(raw, sc, item, size, log):
 _FONTS = [r"C:\Windows\Fonts\segoeuii.ttf", r"C:\Windows\Fonts\calibrii.ttf", r"C:\Windows\Fonts\ariali.ttf"]
 
 
-def word_image(text, cap_h, color=(38, 66, 190)):
+def word_image(text, cap_h, color=(38, 66, 190), fonts=None):
     """Chữ tiếng Anh xanh nghiêng như video gốc (RGBA), cỡ theo chiều cao chữ Tây Ban Nha. Trả về (ảnh, độ lệch chân chữ tính từ đỉnh ảnh)."""
     from PIL import ImageDraw, ImageFilter, ImageFont
-    path = next((f for f in _FONTS if os.path.exists(f)), None)
+    path = next((f for f in (fonts or []) + _FONTS if os.path.exists(f)), None)
     font = ImageFont.truetype(path, max(12, int(cap_h * 1.32))) if path else ImageFont.load_default()
     asc, desc = font.getmetrics()
     tw = int(font.getlength(text)) + 8
@@ -191,11 +234,13 @@ def scene_keys(sc, item, words, es_box, en_box, base, log=print):
     y = base + 3
     ES_L, ES_R = (es_box[0] + 3, y), (es_box[2] - 2, y)
     EN_L, EN_R = (en_box[0] + 3, y), (en_box[2] - 2, y)
-    t_es = find(words, es)
+    say = find(words, "diz" if item.get("lang") == "pt" else "dice")   # "Cómo se DICE <từ>": từ bản ngữ nằm SAU "dice" (từ như "cómo" trùng với chữ mở đầu câu hỏi)
+    t_es = find(words, es, after=(say[0] if say else -1.0))
     # mốc "Repite conmigo" chia lời thành: lần nói chính (chữ tiếng Anh NGAY TRƯỚC "Repite") và lần đọc lại (sau "conmigo").
     # Muse đôi khi nói lẫn từ tiếng Anh vào câu hỏi ("¿Cómo se dice for you…?"), nên không lấy lần xuất hiện đầu tiên.
-    rp = find(words, "repite", after=(t_es[1] if t_es else sc["start"]))
-    cm = find(words, "conmigo", after=(rp[0] if rp else sc["start"])) or find(words, "migo", after=(rp[0] if rp else sc["start"]))
+    w_rep, w_cm = ("repita", "comigo") if item.get("lang") == "pt" else ("repite", "conmigo")   # "Repita comigo" (Bồ Đào Nha) / "Repite conmigo" (Tây Ban Nha)
+    rp = find(words, w_rep, after=(t_es[1] if t_es else sc["start"]))
+    cm = find(words, w_cm, after=(rp[0] if rp else sc["start"])) or find(words, "migo", after=(rp[0] if rp else sc["start"]))
     if rp:
         before = [m for m in _all(words, en) if m[0] < rp[0] and (not t_es or m[0] > t_es[0])]
         t_en = before[-1] if before else None
@@ -250,11 +295,14 @@ def path_frames(keys, n_frames, fps, off, t_in, t_out):
     return _smooth(xs, sig), _smooth(ys, sig)
 
 
-def render(raw, out, xs, ys, labels, size, fps, scale=0.28):
-    """Ghép chữ tiếng Anh (labels = [(giây hiện, giây tắt, ảnh, (x, y))]) và bút đỏ (vị trí ngòi xs, ys) lên raw. Tiếng giữ nguyên."""
+def render(raw, out, xs, ys, labels, size, fps, scale=0.28, pen="marker"):
+    """Ghép chữ tiếng Anh (labels = [(giây hiện, giây tắt, ảnh, (x, y))]) và bút (kiểu `pen`; vị trí ngòi xs, ys) lên raw. Tiếng giữ nguyên."""
     w, h = size
-    base = Image.open(os.path.join(HERE, "assets", "marker.png")).convert("RGBA")
-    meta = json.load(open(os.path.join(HERE, "assets", "marker.json"), encoding="utf-8"))
+    stem = "marker" if pen in (None, "", "marker") else f"marker-{pen}"
+    if not os.path.exists(os.path.join(HERE, "assets", stem + ".png")):
+        stem = "marker"
+    base = Image.open(os.path.join(HERE, "assets", stem + ".png")).convert("RGBA")
+    meta = json.load(open(os.path.join(HERE, "assets", stem + ".json"), encoding="utf-8"))
     s = scale * h / 1280
     mk = base.resize((int(base.width * s), int(base.height * s)), Image.LANCZOS)
     sh = Image.new("RGBA", mk.size, (0, 0, 0, 0))
@@ -292,11 +340,14 @@ def add_pointer(raw, scenes, items, out, transcribe, model="medium", log=print):
     todo = sorted([(it, by_turn[it["turn"]]) for it in items if it["turn"] in by_turn], key=lambda x: x[1]["start"])
     if not todo:
         return raw
-    jobs = [{"a": max(0.0, sc["start"] - 0.1), "b": sc["end"] + 0.1, "prompt": f'{it["es"]} {it["en"]} repite conmigo', "lang": "es"} for it, sc in todo]
+    jobs = [{"a": max(0.0, sc["start"] - 0.1), "b": sc["end"] + 0.1,
+             "prompt": f'{it["es"]} {it["en"]} ' + ("repita comigo" if it.get("lang") == "pt" else "repite conmigo"), "lang": it.get("lang", "es")} for it, sc in todo]
     res = transcribe(raw, model, jobs) or [[] for _ in todo]
     board_end = todo[-1][1]["end"]                      # chữ đã hiện giữ đến hết cảnh bảng chữ cuối
     keys, labels = [], []
-    lays = [_scene_layout(raw, sc, it, (w, h), log) for it, sc in todo]
+    L = LAYOUTS.get(todo[0][0].get("layout") or "")      # kiểu giấy khai trong biến thể; chưa khai = tờ checklist vòng tròn đỏ
+    pen = todo[0][0].get("pen") or "marker"
+    lays = [_scene_layout(raw, sc, it, (w, h), log, L) for it, sc in todo]
     caps = sorted(l[0][3] - l[0][1] for l in lays if l)
     cap = caps[len(caps) // 2] if caps else 30          # một cỡ chữ chung cho mọi hàng ("¡Gracias!" có dấu ¡ ! nên cao hơn, không lấy riêng)
     for (it, sc), words, lay in zip(todo, res, lays):
@@ -304,7 +355,7 @@ def add_pointer(raw, scenes, items, out, transcribe, model="medium", log=print):
             continue
         es_box, slot, base = lay
         text = it.get("text") or it["en"][:1].upper() + it["en"][1:]
-        img, asc = word_image(text, cap)
+        img, asc = word_image(text, cap, **({"color": L["color"], "fonts": _FONT_SETS[L["fonts"]]} if L else {}))
         pos = (int(slot), int(base - asc))
         en_box = (pos[0], pos[1], pos[0] + img.width - 6, base)
         k, t_on = scene_keys(sc, it, words, es_box, en_box, base, log)
@@ -315,5 +366,5 @@ def add_pointer(raw, scenes, items, out, transcribe, model="medium", log=print):
     total = int(round(max(s["end"] for s in scenes) * fps)) + 2
     off = (w + 80, h * 0.95)
     xs, ys = path_frames(keys, total, fps, off, max(0.0, todo[0][1]["start"] - 0.01), min(board_end, keys[-1][0] + 0.7))
-    render(raw, out, xs, ys, labels, (w, h), fps)
+    render(raw, out, xs, ys, labels, (w, h), fps, pen=pen)
     return out

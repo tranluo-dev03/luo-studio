@@ -2,7 +2,8 @@
   "_doc": "Studio truyền biến thể vào (--variant): từ vựng cho bút lấy từ các lượt \"¿Cómo se dice X? Se dice, Y. Repite conmigo. Y.\", ô bảng quảng cáo lấy đúng lời robot ở các lượt từ ad_from (đếm từ 0) trở đi, tự chia ô, tô đỏ tên app + \"số + đơn vị\" + các từ trong red_words. board = kiểu ô. pointer/phrases bên dưới chỉ dùng khi chạy tay không có --variant (ví dụ của biến thể mẫu).",
   "ad_from": 6,
   "red_words": [
-    "inglés"
+    "inglés",
+    "inglês"
   ],
   "board": {
     "x": 70,

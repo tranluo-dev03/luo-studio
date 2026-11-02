@@ -22,7 +22,7 @@ Video mẫu: robot AI dạy cách nói từ Tây Ban Nha bằng tiếng Anh trư
 **Hậu kỳ** làm phần còn lại, khớp lời đọc (Whisper):
 - bút đỏ (giống video gốc) luôn nằm trên giấy, lướt qua đúng chữ robot đang đọc: từ Tây Ban Nha → chữ tiếng Anh → lướt lại khi đọc lại; sang cảnh sau trượt xuống hàng kế tiếp;
 - chữ tiếng Anh hiện ra **nguyên chữ** đúng lúc bút đặt vào đầu chữ, giữ đến hết phần bảng chữ;
-- ô bảng quảng cáo ở 3 cảnh cuối hiện đúng lời robot (như video gốc), logo, end card Talka; **không phụ đề**.
+- ô bảng quảng cáo ở 3 cảnh cuối hiện đúng lời robot (như video gốc); **không phụ đề, không logo, không end card**.
 - Từ vựng cho bút và lời cho ô bảng **lấy từ chính biến thể** (`bien_the.py` trong thư mục hậu kỳ): biến thể mới không cần sửa code.
 
 Studio tự chọn hậu kỳ này cho loại dự án có tên bắt đầu bằng `KICH-BAN-TALKA` (hoặc file loại có `"post": "talka-bang-tu-vung"`).

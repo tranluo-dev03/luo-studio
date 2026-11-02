@@ -1,5 +1,5 @@
-"""Hậu kỳ riêng cho thể loại "Talka bảng từ vựng": KHÔNG phụ đề; bút đỏ chỉ chữ + chữ tiếng Anh (pointer.py); logo góc trái;
-ô bảng ở các cảnh quảng cáo hiện đúng lời robot đang nói (như video gốc); thêm end card.
+"""Hậu kỳ riêng cho thể loại "Talka bảng từ vựng": KHÔNG phụ đề; bút chỉ chữ + chữ tiếng Anh (pointer.py);
+ô bảng ở các cảnh quảng cáo hiện đúng lời robot đang nói (như video gốc). Không gắn logo, không thêm end card.
 Dùng: python post.py raw.mp4 --scenes scenes.json --out final.mp4 [--variant bien-the.json] [--config config.json] [--model medium]"""
 import argparse, json, os, shutil, subprocess, sys, tempfile
 
@@ -74,9 +74,6 @@ def main():
     ap.add_argument("--out")
     ap.add_argument("--config", default=os.path.join(HERE, "config.json"))
     ap.add_argument("--model", default="medium")
-    ap.add_argument("--topbar", default=os.path.join(P.ASSETS, "topbar.png"))
-    ap.add_argument("--endcard", default=os.path.join(HERE, "assets", "endcard-talka.mp4"))
-    ap.add_argument("--no-endcard", action="store_true")
     ap.add_argument("--no-pointer", action="store_true", help="bỏ bước bút đỏ chỉ chữ")
     ap.add_argument("--variant", help="file JSON biến thể (Studio truyền vào): lấy từ vựng cho bút và lời cho ô bảng quảng cáo từ đây, thay cho mục pointer/phrases trong config")
     a = ap.parse_args()
@@ -88,6 +85,9 @@ def main():
         v = v[0] if isinstance(v, list) else v
         luot = v.get("LUOT", [])
         cfg["pointer"] = bien_the.vocab_items(luot)
+        hk = v.get("HAU_KY") or {}   # tuỳ chọn: {"giay": kiểu giấy (pointer.LAYOUTS), "but": kiểu bút (assets/marker-<kiểu>.png)}; bỏ trống = tờ checklist + bút đỏ mẫu
+        for it in cfg["pointer"]:
+            it["layout"], it["pen"] = hk.get("giay"), hk.get("but")
         cfg["phrases"] = bien_the.ad_phrases(luot, int(cfg.get("ad_from", 6)), cfg.get("red_words", []))
         print(f"Lấy nội dung từ biến thể \"{v.get('name', '')}\": {len(cfg['pointer'])} cặp từ, {len(cfg['phrases'])} ô bảng quảng cáo")
     have = {s["turn"] for s in scenes}
@@ -105,9 +105,7 @@ def main():
                 print(f"  bút chỉ lỗi ({ex}); bỏ qua bước này")
                 src = a.raw
         cmd = ["ffmpeg", "-y", "-i", src]
-        shutil.copy(a.topbar, os.path.join(work, "topbar.png"))
-        cmd += ["-i", "topbar.png"]
-        fc = "[0:v]scale=1080:1920:flags=lanczos,fps=30[b0];[b0][1:v]overlay=37:42[v1]"
+        fc = "[0:v]scale=1080:1920:flags=lanczos,fps=30[v1]"
         last = "v1"
         nph = len(cfg["phrases"])
         for i, ((s, e), p) in enumerate(zip(times[:nph], cfg["phrases"])):
@@ -120,19 +118,14 @@ def main():
             png = f"board{i}.png"
             render_board(p, os.path.join(work, png), cfg["board"])
             cmd += ["-i", png]
-            fc += f";[{last}][{i + 2}:v]overlay=0:0:enable='between(t,{s:.2f},{e + 0.3:.2f})'[v{i + 2}]"
+            fc += f";[{last}][{i + 1}:v]overlay=0:0:enable='between(t,{s:.2f},{e + 0.3:.2f})'[v{i + 2}]"
             last = f"v{i + 2}"
             print(f"  bảng {i + 1}: {s:6.2f}-{e:6.2f}  " + " / ".join("".join(t for t, _ in segs) for segs in board_lines(p)))
         main_mp4 = os.path.join(work, "main.mp4")
         cmd += ["-filter_complex", fc, "-map", f"[{last}]", "-map", "0:a", "-c:v", "libx264", "-crf", "17", "-preset", "medium",
                 "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-ar", "44100", "main.mp4"]
         P.run(cmd, cwd=work)
-        if a.no_endcard or not os.path.exists(a.endcard):
-            shutil.copy(main_mp4, out)
-        else:
-            P.run(["ffmpeg", "-y", "-i", main_mp4, "-i", a.endcard, "-filter_complex",
-                   "[0:v]setsar=1,fps=30,format=yuv420p[a];[1:v]scale=1080:1920,setsar=1,fps=30,format=yuv420p[b];[0:a]aresample=44100[x];[1:a]aresample=44100[y];[a][x][b][y]concat=n=2:v=1:a=1[v][au]",
-                   "-map", "[v]", "-map", "[au]", "-c:v", "libx264", "-crf", "17", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", out])
+        shutil.copy(main_mp4, out)
         print("XONG ->", out, f"({P.duration(out):.1f}s)")
     finally:
         shutil.rmtree(work, ignore_errors=True)

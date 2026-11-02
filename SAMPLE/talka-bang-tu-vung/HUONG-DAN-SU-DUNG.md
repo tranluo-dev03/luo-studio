@@ -2,7 +2,7 @@
 
 Video: robot AI dạy cách nói từ Tây Ban Nha bằng tiếng Anh trước một tờ giấy "¿CÓMO SE DICE?". Bút đỏ lướt qua đúng chữ robot đang đọc, chữ tiếng Anh hiện ra khi đọc. Phần cuối là quảng cáo app trên nền thành phố, có ô bảng hiện lời robot. Video khoảng 60–70 giây, 9 cảnh.
 
-**Muse chỉ gen robot nói trước tờ giấy trống.** Bút đỏ, chữ tiếng Anh, ô bảng quảng cáo, logo và end card đều do **Hậu kỳ** làm tự động, lấy nội dung từ file biến thể.
+**Muse chỉ gen robot nói trước tờ giấy trống.** Bút đỏ, chữ tiếng Anh, ô bảng quảng cáo đều do **Hậu kỳ** làm tự động, lấy nội dung từ file biến thể.
 
 ---
 
@@ -14,7 +14,7 @@ Video: robot AI dạy cách nói từ Tây Ban Nha bằng tiếng Anh trước m
 3. **Gen**: bấm chạy. Mỗi cảnh mất vài phút. Xem nhanh từng cảnh:
    - tờ giấy phải **trống** ở các vạch xám (không có chữ tiếng Anh, không có tay, không có bút);
    - robot đọc **đúng lời**. Lỗi hay gặp: đọc lẫn từ tiếng Anh vào câu hỏi, ví dụ "¿Cómo se dice **please**?". Gặp thì bấm **gen lại cảnh đó**, và cả cảnh ngay sau nó để hai cảnh nối khớp.
-4. **Hậu kỳ**: bấm Hậu kỳ. Studio tự thêm bút đỏ, chữ tiếng Anh, ô bảng quảng cáo, logo, end card. Không có phụ đề.
+4. **Hậu kỳ**: bấm Hậu kỳ. Studio tự thêm bút đỏ, chữ tiếng Anh, ô bảng quảng cáo. Không có phụ đề, logo hay end card.
 
 ---
 
@@ -70,6 +70,10 @@ QUY TẮC BẮT BUỘC (phần mềm tự đọc các câu này để làm bút 
 - [ ] 5 từ đầu trong `NEN_BANG` **trùng y hệt và đúng thứ tự** với X của 5 lượt đó. Từ trên giấy phải khớp lời đọc, vì bút tìm hàng theo thứ tự.
 - [ ] Lượt 8 có "Descarga <Tên app>".
 - [ ] Nếu đổi tên app: `PHAT_AM` đã sửa theo tên mới.
+
+**Ngôn ngữ:** hậu kỳ đọc được mẫu câu tiếng Tây Ban Nha (`¿Cómo se dice X? Se dice, Y. Repite conmigo. Y.`, `Descarga <app>`) và tiếng Bồ Đào Nha (`Como se diz X? Se diz, Y. Repita comigo. Y.`, `Baixe o <app>`). Ngôn ngữ giọng nói khai trong `GIONG_DAY` của từng biến thể ("speaking native Spanish" / "speaking native Brazilian Portuguese"), script không ghi cứng. Mẫu tiếng Bồ: biến thể `talka-robot-trang-co-chu-pt`. **Kiểu giấy và kiểu bút:** khoá tuỳ chọn `"HAU_KY": {"giay": ..., "but": ...}` trong biến thể. `giay`: `hai-cot` (giấy kẻ dòng, icon bên phải chữ), `hai-cot-icon-trai` (icon bên trái chữ), `so-tay` (sổ lò xo); bỏ trống = tờ checklist vòng tròn đỏ. `but`: `fountain` (bút máy), `ballpoint` (bút bi đỏ); bỏ trống = bút đỏ mẫu. Với các kiểu giấy kẻ dòng, `NEN_BANG` phải ghi đúng hình học mà hậu kỳ dò: vạch kẻ hàng 1 ở khoảng 18,5% chiều cao, các vạch cách nhau 4,8%, cột tiếng Anh bắt đầu từ khoảng 57% bề rộng và để trống (xem `LAYOUTS` trong `pointer.py`). Khoá `HAU_KY` chỉ được giữ khi tạo dự án từ file JSON biến thể (không giữ khi dùng "Điền từ file / bảng" vào biến thể đã có). Vẽ lại bút: `cong-cu/ve-but.py`.
+
+File kịch bản và biến thể được sinh bởi `cong-cu/tao-kich-ban.py`, muốn đổi thì sửa script đó rồi chạy lại.
 
 Kiểm tra nhanh bằng máy (từ thư mục gốc LUO Studio):
 

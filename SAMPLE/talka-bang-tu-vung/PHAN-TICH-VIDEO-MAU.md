@@ -46,8 +46,8 @@ Thay đổi so với video gốc: `LangLearn` → `Talka` (lượt 8). Mọi l�
 | Chữ xanh tiếng Anh hiện dần, bút đỏ và bàn tay lướt qua | **Bỏ khỏi prompt** (hình đồ họa chèn thêm, không phải cảnh quay) | Thêm lúc dựng, xem mục 4 |
 | Cắt cứng sang nền thành phố (36,4s) | Cảnh 7 có `Prompt ảnh` riêng, nên Studio sinh khung đầu mới | Token `NEN_PHO` |
 | Khung chữ trắng phía trên, chữ đổi theo cụm | **Bỏ khỏi prompt**; chừa nửa trên khung là nền trống | Phụ đề do hậu kỳ của Studio; khung chữ kiểu này phải dựng thêm |
-| Logo LangLearn góc trên trái | Chừa trống góc trên trái và 12% phía trên | Logo ghép bằng hậu kỳ (Cài đặt → Logo) |
-| End card trắng | Không có trong cảnh gen; nối bằng "End card" của hậu kỳ | `app\production\types\talka-bang-tu-vung\assets\endcard-talka.mp4` có sẵn trong repo, cần kiểm tra đúng mẫu |
+| Logo LangLearn góc trên trái | Chừa trống góc trên trái và 12% phía trên | Hậu kỳ Talka không ghép logo (đã bỏ) |
+| End card trắng | Không có trong cảnh gen; hậu kỳ Talka không nối end card (đã bỏ) | `endcard-talka.mp4` còn trong repo nhưng không dùng |
 | Lời thoại xen hai ngôn ngữ | Giữ nguyên trong `LUOT`; `[CHAR LOCK]` yêu cầu giọng Tây Ban Nha bản ngữ, từ tiếng Anh giọng Mỹ chuẩn | Xem rủi ro bên dưới |
 | Giọng nói | `GIONG_DAY`: nữ trẻ, ấm, tươi, tự nhiên | Dùng lại một giọng cho mọi cảnh |
 
