@@ -1,0 +1,85 @@
+# Hướng dẫn sử dụng LUO Studio
+
+LUO Studio tạo hàng loạt video quảng cáo bằng AI (Muse): bạn chọn **thể loại video**, điền **biến thể** (nhân vật + lời thoại), phần mềm tự gen từng cảnh, nối, cắt, rồi làm **hậu kỳ** ra video hoàn chỉnh.
+
+---
+
+## 1. Cài đặt (làm 1 lần)
+1. Giải nén vào thư mục **ngắn, không dấu**, ví dụ `D:\LUO-Studio` (không để trong OneDrive).
+2. Mở PowerShell trong thư mục đó, chạy:
+   ```
+   powershell -ExecutionPolicy Bypass -File setup.ps1
+   ```
+   Có hộp thoại xin quyền thì bấm **Yes**. Script báo cần khởi động lại máy thì khởi động lại.
+3. Bấm đúp **`LUO Studio.bat`** để mở.
+
+## 2. Thêm tài khoản Muse (làm 1 lần)
+1. Đăng nhập **muse.ai** trên Chrome/Edge → nhấn **F12** → tab **Network** → **F5**.
+2. Bấm một dòng bất kỳ → tìm **Cookie** trong Request Headers → copy toàn bộ.
+3. Trong LUO Studio: tab **API Muse** → **Thêm tài khoản** → dán cookie → **Lưu** → **Kiểm tra phiên** (báo "Phiên ổn" là xong).
+
+> Góc trên bên phải hiện **"API sẵn sàng"** (chấm xanh) là dùng được.
+
+## 3. Cập nhật bản mới
+Đóng LUO Studio → bấm đúp **`Cap nhat.bat`** → mở lại. Dữ liệu của bạn không mất.
+
+---
+
+## 4. Làm video
+
+### Bước 1: Chọn thể loại
+Mỗi thể loại là một thư mục trong `SAMPLE\` (kịch bản + biến thể mẫu + hướng dẫn riêng):
+
+| Thư mục | Thể loại |
+|---|---|
+| `talka-bang-tu-vung` | Robot dạy từ vựng trước tờ giấy, bút chỉ chữ, cuối quảng cáo app |
+| `xe-tai` | Tài xế xe tải nói chuyện với gia sư AI |
+| `canh-sat-nu` | Cảnh sát nữ và tài xế |
+| `ghep-hai-lop` | Hai nhân vật ở hai khung riêng (không bao giờ nói chồng) |
+| `lam-vuon` | Người học làm vườn + gia sư AI trên điện thoại (dùng loại có sẵn **"Điện thoại + người học"**, bỏ qua Bước 2) |
+
+### Bước 2: Nhập kịch bản (mỗi thể loại 1 lần)
+Tab **Loại dự án** → **Loại mới** → chọn file `KICH-BAN-*.txt` trong thư mục thể loại → **Tạo** (đặt tên loại tuỳ ý).
+
+### Bước 3: Tạo dự án
+**Dự án mới** → chọn loại vừa nhập → chọn file biến thể `BIEN-THE-*.json` trong thư mục thể loại.
+Mỗi biến thể = một video.
+
+### Bước 4: Gen
+1. Tick các biến thể → **Thêm vào hàng đợi**.
+2. Tab **Hàng đợi** → chọn **Song song** (không lớn hơn số tài khoản Muse) → **Bắt đầu**.
+3. Bấm vào thẻ video để xem từng cảnh. Cảnh nào sai → bấm **gen lại cảnh** (mũi tên vòng), có thể ghi yêu cầu sửa.
+
+> **Chạy thử 1 biến thể trước**, ưng rồi mới chạy cả nhóm (tiết kiệm lượt Muse).
+
+### Bước 5: Hậu kỳ và lấy video
+Tab **Kết quả** → **Hậu kỳ**. Video hoàn chỉnh nằm ở `userdata\studio\exports\<dự án>\` (nút **Mở thư mục**).
+
+---
+
+## 5. Tạo biến thể mới bằng AI
+1. Mở **Claude** hoặc **ChatGPT**, đính kèm file **biến thể mẫu** của thể loại (`BIEN-THE-*.json`).
+2. Dán prompt của thể loại đó, sửa phần trong `[ ]`:
+   - thể loại Talka: prompt trong `SAMPLE\talka-bang-tu-vung\HUONG-DAN-NHANH.md`;
+   - các thể loại khác: `PROMPT-CHO-AGENT.txt` trong thư mục thể loại.
+3. Lưu kết quả thành file `.json` → **Dự án mới** chọn file này (hoặc trong dự án bấm nút **mũi tên lên** dưới danh sách biến thể) → chạy thử 1 biến thể.
+
+---
+
+## 6. Lỗi thường gặp
+
+| Lỗi | Cách xử lý |
+|---|---|
+| Chấm đỏ "API chưa kết nối" | Đóng hẳn LUO Studio, mở lại. Vẫn lỗi: chạy `Chan doan.bat`, gửi file `userdata\logs\chan-doan.txt` |
+| "Chưa có tài khoản Muse" | Làm mục 2 |
+| Thẻ tài khoản báo "Lỗi đăng nhập" | Cookie hết hạn: đăng nhập lại muse.ai, lấy cookie mới, bấm **Cập nhật cookie** |
+| "Hết hạn mức" | Tài khoản hết lượt: đợi ngày reset (xem thẻ tài khoản) hoặc **Chạy tiếp** bằng tài khoản khác |
+| Video đứng "Đang chờ" lâu | Không còn tài khoản dùng được, hoặc Song song lớn hơn số tài khoản |
+| "Hết thời gian chờ" | Muse chậm: tăng "Chờ tối đa mỗi bước" trong **Cài đặt**, giảm Song song |
+| Nhân vật nói sai lời / hai người cùng nói | Gen lại cảnh đó (kèm yêu cầu sửa) |
+| Hậu kỳ lần đầu lâu | Máy đang tải mô hình nhận dạng giọng, đợi vài phút |
+| `LUO Studio.bat` báo "Chưa cài đặt" | Chạy lại bước cài đặt ở mục 1 |
+
+---
+
+**Dữ liệu** (dự án, video, tài khoản) nằm trong thư mục `userdata\`. Sao lưu: chép cả thư mục này. Đừng gửi `userdata\api` cho người khác (có cookie đăng nhập).

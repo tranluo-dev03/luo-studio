@@ -1,6 +1,6 @@
 # LUO Studio
 
-Tao hang loat video quang cao dang hoi thoai (xem `HUONG-DAN.txt` de biet cach dung chi tiet).
+Tao hang loat video quang cao dang hoi thoai (xem `HUONG-DAN.md` de biet cach dung).
 
 ## Cai dat tu ma nguon (Windows 10/11, 64-bit)
 

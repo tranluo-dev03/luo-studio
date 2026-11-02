@@ -4,7 +4,7 @@ Video mẫu: robot AI dạy cách nói từ Tây Ban Nha bằng tiếng Anh trư
 
 ## File
 
-**Người dùng bắt đầu ở `HUONG-DAN-SU-DUNG.md`** (làm video, nhờ AI viết biến thể mới).
+**Người dùng bắt đầu ở `HUONG-DAN-NHANH.md`** (từng bước, ngắn gọn); chi tiết hơn ở `HUONG-DAN-SU-DUNG.md` (làm video, nhờ AI viết biến thể mới).
 
 | File | Dùng để |
 |---|---|
