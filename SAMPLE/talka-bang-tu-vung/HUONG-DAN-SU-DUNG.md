@@ -2,7 +2,7 @@
 
 Video: robot AI dạy cách nói từ Tây Ban Nha bằng tiếng Anh trước một tờ giấy "¿CÓMO SE DICE?". Bút đỏ lướt qua đúng chữ robot đang đọc, chữ tiếng Anh hiện ra khi đọc. Phần cuối là quảng cáo app trên nền thành phố, có ô bảng hiện lời robot. Video khoảng 60–70 giây, 9 cảnh.
 
-**Muse chỉ gen robot nói trước tờ giấy trống.** Bút đỏ, chữ tiếng Anh, ô bảng quảng cáo đều do **Hậu kỳ** làm tự động, lấy nội dung từ file biến thể.
+**Muse chỉ gen robot** (cảnh dạy từ: robot trên **nền xanh lục phẳng**; cảnh quảng cáo: robot trên nền thành phố, **không có tờ giấy**). **Hậu kỳ** tự dựng tờ giấy (ảnh tĩnh, vẽ bằng code từ file biến thể), tách nền xanh, ghép robot lên giấy, viết chữ tiếng Anh, vẽ bút chỉ đúng từ, và thêm ô bảng quảng cáo. Vì giấy do hậu kỳ dựng nên chữ luôn đúng chính tả và bút luôn chỉ đúng hàng.
 
 ---
 
@@ -12,7 +12,7 @@ Video: robot AI dạy cách nói từ Tây Ban Nha bằng tiếng Anh trước m
    Tên loại bắt đầu bằng `KICH-BAN-TALKA` thì Studio tự dùng hậu kỳ riêng của thể loại này.
 2. **Tạo dự án**: **Dự án mới** → chọn loại vừa nhập → chọn file biến thể `SAMPLE\talka-bang-tu-vung\BIEN-THE-TALKA-CO-CHU.json` (hoặc file biến thể mới, xem phần 2).
 3. **Gen**: bấm chạy. Mỗi cảnh mất vài phút. Xem nhanh từng cảnh:
-   - tờ giấy phải **trống** ở các vạch xám (không có chữ tiếng Anh, không có tay, không có bút);
+   - cảnh 1–6: phía sau robot chỉ là **một màu xanh lục phẳng** (không giấy, không chữ, không tay, không bút); cảnh 7–9: nền thành phố, **không có tờ giấy**. Nền xanh không phẳng hoặc còn vết giấy thì gen lại cảnh đó;
    - robot đọc **đúng lời**. Lỗi hay gặp: đọc lẫn từ tiếng Anh vào câu hỏi, ví dụ "¿Cómo se dice **please**?". Gặp thì bấm **gen lại cảnh đó**, và cả cảnh ngay sau nó để hai cảnh nối khớp.
 4. **Hậu kỳ**: bấm Hậu kỳ. Studio tự thêm bút đỏ, chữ tiếng Anh, ô bảng quảng cáo. Không có phụ đề, logo hay end card.
 
@@ -52,12 +52,12 @@ QUY TẮC BẮT BUỘC (phần mềm tự đọc các câu này để làm bút 
      Số + thời gian viết bằng chữ, ví dụ "cuatro semanas" (phần mềm tự hiện thành "4 semanas" và tô đỏ).
      Có thể kết thúc lượt 9 bằng câu tiếng Anh ngắn như "Best Language Learning App. Download now."
    - Mỗi lượt đọc được trong khoảng 6–8 giây (khoảng 15–25 từ).
-3. "NEN_BANG": giữ nguyên toàn bộ mô tả tờ giấy, CHỈ thay danh sách 8 từ trong ngoặc kép:
+3. "HAU_KY"."bang"."hang": danh sách ĐÚNG 8 từ trên tờ giấy (mỗi phần tử {"tu": từ, "icon": ký tự biểu tượng}; giữ nguyên "giay", "tieu_de", "dau_trai", "but"):
    5 từ đầu = đúng 5 từ Tây Ban Nha của lượt 1, 2, 3, 5, 6, ĐÚNG THỨ TỰ và đúng chính tả (có dấu, có ¡ ! nếu có);
    3 từ sau = 3 từ Tây Ban Nha cùng chủ đề (không dùng tới).
    Mỗi từ ngắn (tối đa khoảng 12 ký tự) để vừa nửa trái tờ giấy.
 4. "PHAT_AM": nếu đổi tên app, viết lại hướng dẫn phát âm tên app theo cùng kiểu (ví dụ "TAWK-ah").
-5. Giữ nguyên các khoá khác (POS_DAY, BOX_DAY, VAI_DAY, DAO_NGHI, NEN_PHO...) trừ khi tôi yêu cầu đổi.
+5. Giữ nguyên các khoá khác (POS_DAY, BOX_DAY, VAI_DAY, DAO_NGHI, NEN_XANH, NEN_PHO...) trừ khi tôi yêu cầu đổi.
 6. Không thêm khoá mới, không bỏ khoá. Chỉ trả về JSON, không giải thích.
 ```
 
@@ -67,11 +67,11 @@ QUY TẮC BẮT BUỘC (phần mềm tự đọc các câu này để làm bút 
 
 - [ ] Có đúng **9** lượt trong `LUOT`.
 - [ ] Lượt 1, 2, 3, 5, 6 đúng mẫu `¿Cómo se dice X? Se dice, Y. Repite conmigo. Y.` (Y giống nhau ở hai chỗ).
-- [ ] 5 từ đầu trong `NEN_BANG` **trùng y hệt và đúng thứ tự** với X của 5 lượt đó. Từ trên giấy phải khớp lời đọc, vì bút tìm hàng theo thứ tự.
+- [ ] 5 từ đầu trong `HAU_KY.bang.hang` **trùng y hệt và đúng thứ tự** với X của 5 lượt đó (và có đúng 8 từ). Từ trên giấy phải khớp lời đọc, vì bút tìm hàng theo thứ tự.
 - [ ] Lượt 8 có "Descarga <Tên app>".
 - [ ] Nếu đổi tên app: `PHAT_AM` đã sửa theo tên mới.
 
-**Ngôn ngữ:** hậu kỳ đọc được mẫu câu tiếng Tây Ban Nha (`¿Cómo se dice X? Se dice, Y. Repite conmigo. Y.`, `Descarga <app>`) và tiếng Bồ Đào Nha (`Como se diz X? Se diz, Y. Repita comigo. Y.`, `Baixe o <app>`). Ngôn ngữ giọng nói khai trong `GIONG_DAY` của từng biến thể ("speaking native Spanish" / "speaking native Brazilian Portuguese"), script không ghi cứng. Mẫu tiếng Bồ: biến thể `talka-robot-trang-co-chu-pt`. **Kiểu giấy và kiểu bút:** khoá tuỳ chọn `"HAU_KY": {"giay": ..., "but": ...}` trong biến thể. `giay`: `hai-cot` (giấy kẻ dòng, icon bên phải chữ), `hai-cot-icon-trai` (icon bên trái chữ), `so-tay` (sổ lò xo); bỏ trống = tờ checklist vòng tròn đỏ. `but`: `fountain` (bút máy), `ballpoint` (bút bi đỏ); bỏ trống = bút đỏ mẫu. Với các kiểu giấy kẻ dòng, `NEN_BANG` phải ghi đúng hình học mà hậu kỳ dò: vạch kẻ hàng 1 ở khoảng 18,5% chiều cao, các vạch cách nhau 4,8%, cột tiếng Anh bắt đầu từ khoảng 57% bề rộng và để trống (xem `LAYOUTS` trong `pointer.py`). Khoá `HAU_KY` chỉ được giữ khi tạo dự án từ file JSON biến thể (không giữ khi dùng "Điền từ file / bảng" vào biến thể đã có). Vẽ lại bút: `cong-cu/ve-but.py`.
+**Ngôn ngữ:** hậu kỳ đọc được mẫu câu tiếng Tây Ban Nha (`¿Cómo se dice X? Se dice, Y. Repite conmigo. Y.`, `Descarga <app>`) và tiếng Bồ Đào Nha (`Como se diz X? Se diz, Y. Repita comigo. Y.`, `Baixe o <app>`). Ngôn ngữ giọng nói khai trong `GIONG_DAY` của từng biến thể ("speaking native Spanish" / "speaking native Brazilian Portuguese"), script không ghi cứng. Mẫu tiếng Bồ: biến thể `talka-robot-trang-co-chu-pt`. **Tờ giấy và bút (khoá `HAU_KY`):** hậu kỳ dựng tờ giấy từ `"HAU_KY": {"giay": kiểu, "bang": {"tieu_de", "dau_trai", "hang": [{"tu", "icon"}]}, "but": kiểu}`. `giay`: `checklist` (giấy kem lưới chấm, vòng tròn đỏ), `hai-cot` (giấy kẻ dòng 2 cột Español | English, icon bên phải chữ), `hai-cot-icon-trai` (icon bên trái chữ), `so-tay` (sổ lò xo). `but`: bỏ trống = bút đỏ mẫu, hoặc `fountain` (bút máy), `ballpoint` (bút bi đỏ). `icon` là một ký tự biểu tượng (font Segoe UI Symbol), bỏ trống thì không có icon. Giấy vẽ trong `giay.py`, chữ tiếng Anh viết ở cột phải đúng hàng, nên đổi từ vựng không cần chỉnh gì thêm. Khoá `HAU_KY` chỉ được giữ khi tạo dự án từ file JSON biến thể (không giữ khi dùng "Điền từ file / bảng" vào biến thể đã có). Vẽ lại bút: `cong-cu/ve-but.py`.
 
 File kịch bản và biến thể được sinh bởi `cong-cu/tao-kich-ban.py`, muốn đổi thì sửa script đó rồi chạy lại.
 
@@ -90,8 +90,9 @@ Mỗi biến thể phải in ra **5 cặp từ** và **tên app**. Thiếu cặp
 | Hiện tượng | Nguyên nhân | Cách xử lý |
 |---|---|---|
 | Robot đọc lẫn từ tiếng Anh vào câu hỏi | Lỗi ngẫu nhiên của Muse | Gen lại cảnh đó và cảnh ngay sau |
-| Tờ giấy có chữ tiếng Anh / tay / bút | Muse làm sai kịch bản | Gen lại cảnh đó |
-| Bút chỉ sai hàng | 5 từ đầu trong `NEN_BANG` không khớp thứ tự với lời đọc | Sửa biến thể, gen lại |
+| Nền sau robot không phải xanh phẳng (có giấy, chữ, vệt sáng) hoặc robot bị khuyết mép sau hậu kỳ | Muse không giữ nền xanh | Gen lại cảnh đó; nếu hay bị, chỉnh `NEN_XANH` |
+| Cảnh quảng cáo vẫn còn tờ giấy | Muse lấy khung cuối cảnh trước làm tham chiếu | Đã sửa trong Studio (đổi nền thì không gửi khung cuối cảnh trước); gen lại cảnh 7–9 |
+| Bút chỉ sai hàng | 5 từ đầu trong `HAU_KY.bang.hang` không khớp thứ tự với lời đọc | Sửa biến thể, hậu kỳ lại |
 | Chữ đen trên giấy chớp trắng 1–2 khung | Model video vẽ lại cả khung + nén | Thường bỏ qua được |
 | Ô bảng quảng cáo thiếu chữ đỏ | Không có "Descarga <Tên app>" hoặc số + thời gian | Sửa câu trong lượt 7–9 |
 

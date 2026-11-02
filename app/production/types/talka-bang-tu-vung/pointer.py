@@ -127,7 +127,7 @@ def _smooth(v, sigma):
     return np.convolve(pad, k, mode="valid")
 
 
-# Kiểu giấy khác tờ checklist (vòng tròn đỏ): khai trong biến thể "HAU_KY": {"giay": <tên>}. Giấy kẻ dòng: hàng k nằm trên vạch kẻ thứ k, vị trí dự kiến
+# VIDEO CŨ gen kèm tờ giấy trong Muse (biến thể có HAU_KY.giay nhưng không có HAU_KY.bang): dò hàng theo vạch kẻ trên khung hình. Giấy kẻ dòng: hàng k nằm trên vạch kẻ thứ k, vị trí dự kiến
 # y1 + (k-1)*step (tỉ lệ chiều cao khung; NEN_BANG của biến thể mô tả đúng các số này) rồi bám vào vạch kẻ thật gần nhất;
 # từ bản ngữ bắt đầu từ x0 (tỉ lệ bề rộng), chữ tiếng Anh đặt từ cột `slot` (cột phải trống).
 LAYOUTS = {
@@ -295,8 +295,9 @@ def path_frames(keys, n_frames, fps, off, t_in, t_out):
     return _smooth(xs, sig), _smooth(ys, sig)
 
 
-def render(raw, out, xs, ys, labels, size, fps, scale=0.28, pen="marker"):
-    """Ghép chữ tiếng Anh (labels = [(giây hiện, giây tắt, ảnh, (x, y))]) và bút (kiểu `pen`; vị trí ngòi xs, ys) lên raw. Tiếng giữ nguyên."""
+def render(raw, out, xs, ys, labels, size, fps, scale=0.28, pen="marker", base_img=None, nframes=0):
+    """Ghép chữ tiếng Anh (labels = [(giây hiện, giây tắt, ảnh, (x, y))]) và bút (kiểu `pen`; vị trí ngòi xs, ys) lên raw. Tiếng giữ nguyên.
+    Có `base_img` (ảnh giấy): vẽ lên ảnh tĩnh đó thay cho video, `nframes` khung, chỉ xuất hình (lớp NỀN, robot ghép đè lên sau nên bút nằm dưới robot)."""
     w, h = size
     stem = "marker" if pen in (None, "", "marker") else f"marker-{pen}"
     if not os.path.exists(os.path.join(HERE, "assets", stem + ".png")):
@@ -311,7 +312,8 @@ def render(raw, out, xs, ys, labels, size, fps, scale=0.28, pen="marker"):
     tmp = out + ".v.mp4"
     enc = subprocess.Popen(["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{w}x{h}", "-r", f"{fps:.3f}", "-i", "-",
                             "-c:v", "libx264", "-crf", "16", "-pix_fmt", "yuv420p", tmp], stdin=subprocess.PIPE, creationflags=NOWIN)
-    for i, f in enumerate(frames(raw, w, h)):
+    src = frames(raw, w, h) if base_img is None else (np.asarray(base_img.convert("RGB")) for _ in range(nframes))
+    for i, f in enumerate(src):
         t = i / fps
         show = [lb for lb in labels if lb[0] <= t < lb[1]]
         pen = i < len(xs) and xs[i] < w + 20
@@ -327,14 +329,75 @@ def render(raw, out, xs, ys, labels, size, fps, scale=0.28, pen="marker"):
         enc.stdin.write(np.ascontiguousarray(f).tobytes())
     enc.stdin.close()
     enc.wait()
+    if base_img is not None:
+        os.replace(tmp, out)
+        return
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", tmp, "-i", raw, "-map", "0:v", "-map", "1:a?", "-c:v", "copy", "-c:a", "copy", "-shortest", out], check=True)
     os.remove(tmp)
 
 
-def add_pointer(raw, scenes, items, out, transcribe, model="medium", log=print):
+def _duration(path):
+    out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path], capture_output=True, text=True).stdout.strip()
+    return float(out) if out else 0.0
+
+
+def key_color(raw, size, log=print):
+    """Màu nền xanh của video Muse: lấy trung vị ở dải trên và dải trái khung (robot không bao giờ chạm tới đó). Không phải xanh lục thì dùng 0x00FF00."""
+    w, h = size
+    f = frame_at(raw, 0.05, w, h)
+    if f is None:
+        return "0x00FF00"
+    reg = np.concatenate([f[:max(2, int(h * 0.06))].reshape(-1, 3), f[:, :max(2, int(w * 0.05))].reshape(-1, 3)])
+    r, g, b = (int(v) for v in np.median(reg, axis=0))
+    if g < r + 40 or g < b + 40:
+        log(f"  CẢNH BÁO: nền video không phải xanh lục (đo được RGB {r},{g},{b}); thử tách nền với xanh lục chuẩn")
+        return "0x00FF00"
+    return "0x%02X%02X%02X" % (r, g, b)
+
+
+def robot_top(raw, size, key_until=None, log=print):
+    """Đỉnh đầu robot (tỉ lệ chiều cao khung) đo từ chính video: hàng cao nhất có chỗ không phải nền xanh, lấy cao nhất trong vài khung rải đều các cảnh dạy từ.
+    Giấy dựng sau đó dãn 5 hàng từ vựng ra vừa kịp nằm trên đầu robot. Không đo được thì 0.40."""
+    w, h = size
+    end = key_until or _duration(raw)
+    tops = []
+    for k in range(7):
+        t = 0.4 + (max(end - 0.8, 0.5) - 0.4) * k / 6
+        f = frame_at(raw, t, w, h)
+        if f is None:
+            continue
+        a = f.astype(np.int16)
+        non_green = (a[..., 1] - np.maximum(a[..., 0], a[..., 2])) < 45
+        rows = np.nonzero(non_green.sum(1) > 0.05 * w)[0]
+        if len(rows):
+            tops.append(rows[0] / h)
+    if not tops:
+        log("  CẢNH BÁO: không đo được đỉnh đầu robot; dùng 40% chiều cao")
+        return 0.40
+    top = float(min(tops))
+    log(f"  đỉnh đầu robot ở {top * 100:.0f}% chiều cao khung: dãn 5 hàng từ vựng trên đầu robot")
+    return min(0.7, max(0.2, top))
+
+
+def composite(raw, back, out, color, key_until=None, robot_scale=1.0):
+    """Ghép robot (tách nền xanh) từ `raw` lên video NỀN `back` (giấy + chữ tiếng Anh + bút): giấy, chữ, bút nằm sau, robot nằm trên cùng nên bút không che robot.
+    robot_scale < 1: thu nhỏ robot về phía đáy khung (chỉnh cỡ ở hậu kỳ, robot đã tách nền nên giấy lộ ra thêm).
+    Từ `key_until` (giây) trở đi (cảnh quảng cáo: nền thành phố dính liền với robot do Muse gen, không tách nền được) giữ nguyên video gốc, không chỉnh cỡ. Tiếng giữ nguyên."""
+    rs = f",scale=iw*{robot_scale:.4f}:ih*{robot_scale:.4f}:flags=lanczos" if robot_scale < 0.999 else ""
+    chain = [f"[0:v]format=rgba,colorkey=color={color}:similarity=0.22:blend=0.08,despill=type=green:mix=0.5:expand=0{rs}[rob]",
+             "[1:v]format=rgba[b]",
+             "[b][rob]overlay=(main_w-overlay_w)/2:main_h-overlay_h:format=auto:shortest=1[a]"]
+    base = "[0:v]"
+    chain.append(f"{base}[a]overlay=0:0" + (f":enable='lt(t,{key_until:.3f})'" if key_until else "") + ":shortest=1,format=yuv420p[v]")
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", raw, "-i", back, "-filter_complex", ";".join(chain), "-map", "[v]", "-map", "0:a?", "-c:v", "libx264", "-crf", "16",
+                    "-c:a", "copy", "-t", f"{_duration(raw):.3f}", out], check=True, creationflags=NOWIN)
+
+
+def add_pointer(raw, scenes, items, out, transcribe, model="medium", log=print, paper=None, key_until=None, robot_top_target=0.52):
     """items = [{turn, es, en, row}]; transcribe(raw, model, jobs) -> list từ theo từng đoạn (giờ tuyệt đối). Trả về đường dẫn video đã ghép, hoặc raw nếu không làm được.
-    Video Muse chỉ có robot nói trước bảng chữ cố định (vạch xám trống). Hậu kỳ ghép: chữ tiếng Anh hiện ra nguyên chữ khi bút đặt vào đầu chữ và giữ đến hết
-    phần bảng chữ; bút đỏ nằm trên giấy, lướt qua đúng chữ robot đang đọc, trượt sang chữ/hàng tiếp theo."""
+    Có `paper` (spec giấy, xem giay.py): video Muse chỉ có robot trên nền xanh; hậu kỳ dựng tờ giấy tĩnh (biết chính xác toạ độ từng từ), ghép robot lên trên,
+    chữ tiếng Anh hiện ra khi bút đặt vào đầu chữ. Không có `paper`: video Muse có sẵn tờ checklist (vòng tròn đỏ, vạch xám trống), dò vị trí trên khung hình.
+    Bút lướt qua đúng chữ robot đang đọc, trượt sang chữ/hàng tiếp theo; với giấy dựng sẵn bút nằm DƯỚI robot (không che robot), video cũ thì bút nằm trên cùng."""
     w, h, fps = probe(raw)
     by_turn = {s["turn"]: s for s in scenes}
     todo = sorted([(it, by_turn[it["turn"]]) for it in items if it["turn"] in by_turn], key=lambda x: x[1]["start"])
@@ -345,9 +408,23 @@ def add_pointer(raw, scenes, items, out, transcribe, model="medium", log=print):
     res = transcribe(raw, model, jobs) or [[] for _ in todo]
     board_end = todo[-1][1]["end"]                      # chữ đã hiện giữ đến hết cảnh bảng chữ cuối
     keys, labels = [], []
-    L = LAYOUTS.get(todo[0][0].get("layout") or "")      # kiểu giấy khai trong biến thể; chưa khai = tờ checklist vòng tròn đỏ
     pen = todo[0][0].get("pen") or "marker"
-    lays = [_scene_layout(raw, sc, it, (w, h), log, L) for it, sc in todo]
+    style, L = {}, None
+    if paper:
+        import giay
+        color = key_color(raw, (w, h), log)
+        top = robot_top(raw, (w, h), key_until, log)
+        # chỉnh cỡ robot ở hậu kỳ: thu nhỏ về phía đáy khung cho đỉnh đầu xuống ~robot_top_target (chỉ thu nhỏ, không phóng to) để giấy lộ ra đủ chỗ cho 5 từ vựng đầu
+        robot_scale = min(1.0, max(0.5, (1 - robot_top_target) / max(1e-3, 1 - top)))
+        top = 1 - (1 - top) * robot_scale
+        if robot_scale < 0.999:
+            log(f"  thu nhỏ robot còn {robot_scale * 100:.0f}% (đỉnh đầu xuống {top * 100:.0f}% chiều cao)")
+        paper_img, geo, style = giay.render(paper, (w, h), top)
+        lays = [((tuple(geo[it["row"] - 1]["es_box"]), geo[it["row"] - 1]["slot"], geo[it["row"] - 1]["base"]) if it["row"] <= len(geo) else None) for it, _ in todo]
+    else:
+        L = LAYOUTS.get(todo[0][0].get("layout") or "")      # video cũ: kiểu giấy khai trong biến thể; chưa khai = tờ checklist vòng tròn đỏ
+        style = {"color": L["color"], "fonts": _FONT_SETS[L["fonts"]]} if L else {}
+        lays = [_scene_layout(raw, sc, it, (w, h), log, L) for it, sc in todo]
     caps = sorted(l[0][3] - l[0][1] for l in lays if l)
     cap = caps[len(caps) // 2] if caps else 30          # một cỡ chữ chung cho mọi hàng ("¡Gracias!" có dấu ¡ ! nên cao hơn, không lấy riêng)
     for (it, sc), words, lay in zip(todo, res, lays):
@@ -355,7 +432,7 @@ def add_pointer(raw, scenes, items, out, transcribe, model="medium", log=print):
             continue
         es_box, slot, base = lay
         text = it.get("text") or it["en"][:1].upper() + it["en"][1:]
-        img, asc = word_image(text, cap, **({"color": L["color"], "fonts": _FONT_SETS[L["fonts"]]} if L else {}))
+        img, asc = word_image(text, cap, **style)
         pos = (int(slot), int(base - asc))
         en_box = (pos[0], pos[1], pos[0] + img.width - 6, base)
         k, t_on = scene_keys(sc, it, words, es_box, en_box, base, log)
@@ -366,5 +443,14 @@ def add_pointer(raw, scenes, items, out, transcribe, model="medium", log=print):
     total = int(round(max(s["end"] for s in scenes) * fps)) + 2
     off = (w + 80, h * 0.95)
     xs, ys = path_frames(keys, total, fps, off, max(0.0, todo[0][1]["start"] - 0.01), min(board_end, keys[-1][0] + 0.7))
-    render(raw, out, xs, ys, labels, (w, h), fps, pen=pen)
+    if paper:
+        back = out + ".back.mp4"
+        try:
+            render(raw, back, xs, ys, labels, (w, h), fps, pen=pen, base_img=paper_img, nframes=int(round(_duration(raw) * fps)) + 1)   # nền: giấy + chữ tiếng Anh + bút
+            composite(raw, back, out, color, key_until, robot_scale)                                                        # robot đè lên trên cùng
+        finally:
+            if os.path.exists(back):
+                os.remove(back)
+    else:
+        render(raw, out, xs, ys, labels, (w, h), fps, pen=pen)
     return out

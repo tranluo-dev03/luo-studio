@@ -985,6 +985,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
     s_toks = scene_tokens(template)
     all_toks = set().union(*s_toks.values()) if s_toks else set()
     prev_people = None         # nhân vật có mặt ở cảnh trước (cảnh nối tiếp không nhắc tên ai thì coi như giữ nguyên)
+    prev_bg = None             # token nền (NEN_*) của cảnh trước
     acc_of = {}              # cảnh -> tên tài khoản Muse đang gen
     video_acc = {}             # tài khoản đã ghim cho cả video (id, tên)
     pin, pin_prefer = opts.get("pin"), opts.get("pin_prefer")
@@ -1049,7 +1050,10 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
         people = {c for c in chars if f"NGUOI_{c}" in toks or f"TEN_{c}" in toks}
         if not people:
             people = prev_people or set(chars)
-        same_setup = people == prev_people
+        bg = {t for t in toks if t.startswith("NEN_")}
+        bg_changed = bool(bg and prev_bg and bg != prev_bg)   # đổi nền (vd. nền xanh dạy từ -> nền thành phố quảng cáo): khung cuối cảnh trước còn nền/đồ vật cũ, Muse sẽ giữ lại
+        prev_bg = bg or prev_bg
+        same_setup = people == prev_people and not bg_changed
         prev_people = people
         if os.path.exists(cut_f) and os.path.exists(last_f):
             emit("scene", n=n, state="done", pct=100, thumb=os.path.basename(last_f), clip=os.path.basename(cut_f), secs=round(duration(cut_f), 1))

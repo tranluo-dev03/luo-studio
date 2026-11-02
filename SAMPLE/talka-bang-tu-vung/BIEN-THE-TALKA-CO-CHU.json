@@ -9,7 +9,6 @@
     "BOX_DAY": "0.35,0.43,0.85,0.7",
     "VAI_DAY": "teacher",
     "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
-    "NEN_BANG": "a big cream-colored paper checklist with a faint dotted grid, pinned flat on a light beige wall and filling almost the whole frame. At about 6 percent from the top, the title \"¿CÓMO SE DICE?\" in thick black bold capitals. Below it eight medium-sized rows (not tiny), about 5 percent of the frame height apart, from about 12 to 47 percent from the top, so the first five rows are clearly above her head. Each row: a dark bullet, a red circle with a white check mark, and a dark bold Spanish word, in order: \"Para mí\", \"Para ti\", \"Nunca\", \"Por favor\", \"¡Gracias!\", \"Lo siento\", \"Hasta luego\", \"Cuídate\"; the Spanish words stay in the left half. To the right of each word, a thin light-gray line from about 52 to 88 percent of the frame width, the empty slot for a blue handwritten-style English word. All words sharp and correctly spelled",
     "NEN_PHO": "a vertical view of a dense big-city skyline from a high rooftop at sunset: a warm orange, pink and purple sky, thousands of small glowing lights on the buildings, softly out of focus; the upper third of the frame is calm sky with no sign boards or writing",
     "LUOT": [
       {
@@ -66,7 +65,40 @@
         "emo": "upbeat, persuasive",
         "fx": "none"
       }
-    ]
+    ],
+    "NEN_XANH": "a perfectly flat, evenly lit, saturated chroma-key green screen (about #00B140) filling the whole frame: no texture, no gradient, no shadow, no object, no text",
+    "HAU_KY": {
+      "giay": "checklist",
+      "bang": {
+        "tieu_de": "¿CÓMO SE DICE?",
+        "hang": [
+          {
+            "tu": "Para mí"
+          },
+          {
+            "tu": "Para ti"
+          },
+          {
+            "tu": "Nunca"
+          },
+          {
+            "tu": "Por favor"
+          },
+          {
+            "tu": "¡Gracias!"
+          },
+          {
+            "tu": "Lo siento"
+          },
+          {
+            "tu": "Hasta luego"
+          },
+          {
+            "tu": "Cuídate"
+          }
+        ]
+      }
+    }
   },
   {
     "name": "talka-robot-trang-co-chu-pt",
@@ -78,7 +110,6 @@
     "BOX_DAY": "0.35,0.43,0.85,0.7",
     "VAI_DAY": "teacher",
     "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
-    "NEN_BANG": "a big cream-colored paper checklist with a faint dotted grid, pinned flat on a light beige wall and filling almost the whole frame. At about 6 percent from the top, the title \"COMO SE DIZ?\" in thick black bold capitals. Below it eight medium-sized rows (not tiny), about 5 percent of the frame height apart, from about 12 to 47 percent from the top, so the first five rows are clearly above her head. Each row: a dark bullet, a red circle with a white check mark, and a dark bold Portuguese word, in order: \"Para mim\", \"Para você\", \"Nunca\", \"Por favor\", \"Obrigado!\", \"Sinto muito\", \"Até logo\", \"Se cuida\"; the Portuguese words stay in the left half. To the right of each word, a thin light-gray line from about 52 to 88 percent of the frame width, the empty slot for a blue handwritten-style English word. All words sharp and correctly spelled",
     "NEN_PHO": "a vertical view of a dense big-city skyline from a high rooftop at sunset: a warm orange, pink and purple sky, thousands of small glowing lights on the buildings, softly out of focus; the upper third of the frame is calm sky with no sign boards or writing",
     "LUOT": [
       {
@@ -135,7 +166,40 @@
         "emo": "upbeat, persuasive",
         "fx": "none"
       }
-    ]
+    ],
+    "NEN_XANH": "a perfectly flat, evenly lit, saturated chroma-key green screen (about #00B140) filling the whole frame: no texture, no gradient, no shadow, no object, no text",
+    "HAU_KY": {
+      "giay": "checklist",
+      "bang": {
+        "tieu_de": "COMO SE DIZ?",
+        "hang": [
+          {
+            "tu": "Para mim"
+          },
+          {
+            "tu": "Para você"
+          },
+          {
+            "tu": "Nunca"
+          },
+          {
+            "tu": "Por favor"
+          },
+          {
+            "tu": "Obrigado!"
+          },
+          {
+            "tu": "Sinto muito"
+          },
+          {
+            "tu": "Até logo"
+          },
+          {
+            "tu": "Se cuida"
+          }
+        ]
+      }
+    }
   },
   {
     "name": "talka-robot-trang-bt2",
@@ -147,76 +211,6 @@
     "BOX_DAY": "0.35,0.43,0.85,0.7",
     "VAI_DAY": "teacher",
     "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
-    "NEN_BANG": "a big cream-colored paper checklist with a faint dotted grid, pinned flat on a light beige wall and filling almost the whole frame. At about 6 percent from the top, the title \"¿CÓMO SE DICE?\" in thick black bold capitals. Below it eight medium-sized rows (not tiny), about 5 percent of the frame height apart, from about 12 to 47 percent from the top, so the first five rows are clearly above her head. Each row: a dark bullet, a red circle with a white check mark, and a dark bold Spanish word, in order: \"Disculpa\", \"Buenos días\", \"Adiós\", \"¿Cómo estás?\", \"Gracias\", \"Te amo\", \"Por favor\", \"Lo siento\"; the Spanish words stay in the left half. To the right of each word, a thin light-gray line from about 52 to 88 percent of the frame width, the empty slot for a blue handwritten-style English word. All words sharp and correctly spelled",
-    "NEN_PHO": "a vertical view of a dense big-city skyline from a high rooftop at sunset: a warm orange, pink and purple sky, thousands of small glowing lights on the buildings, softly out of focus; the upper third of the frame is calm sky with no sign boards or writing",
-    "LUOT": [
-      {
-        "who": "day",
-        "text": "¿Cómo se dice disculpa en inglés? Se dice, excuse me. Repite conmigo. Excuse me.",
-        "emo": "curious, encouraging",
-        "fx": "none"
-      },
-      {
-        "who": "day",
-        "text": "¿Cómo se dice buenos días? Se dice, good morning. Repite conmigo. Good morning.",
-        "emo": "curious, encouraging",
-        "fx": "none"
-      },
-      {
-        "who": "day",
-        "text": "¿Cómo se dice adiós? Se dice, goodbye. Repite conmigo. Goodbye.",
-        "emo": "curious, encouraging",
-        "fx": "none"
-      },
-      {
-        "who": "day",
-        "text": "El inglés no es difícil y descubrirás que tengo razón si sigues esta página.",
-        "emo": "confident, warm",
-        "fx": "none"
-      },
-      {
-        "who": "day",
-        "text": "¿Cómo se dice cómo estás? Se dice, how are you. Repite conmigo. How are you.",
-        "emo": "curious, encouraging",
-        "fx": "none"
-      },
-      {
-        "who": "day",
-        "text": "¿Cómo se dice gracias? Se dice, thank you. Repite conmigo. Thank you.",
-        "emo": "curious, encouraging",
-        "fx": "none"
-      },
-      {
-        "who": "day",
-        "text": "¿Quieres aprender inglés de una manera más fácil?",
-        "emo": "friendly, curious",
-        "fx": "none"
-      },
-      {
-        "who": "day",
-        "text": "Descarga Talka y en solo cuatro semanas podrás sonar como un hablante nativo.",
-        "emo": "enthusiastic, persuasive",
-        "fx": "none"
-      },
-      {
-        "who": "day",
-        "text": "Un tutor con IA que te corrige en tiempo real y acelera tu progreso. Best Language Learning App. Download now.",
-        "emo": "upbeat, persuasive",
-        "fx": "none"
-      }
-    ]
-  },
-  {
-    "name": "talka-robot-trang-bt3",
-    "NGUOI_DAY": "a sleek white humanoid AI robot teacher: a smooth glossy white head with fine panel seams and no hair, a realistic young woman's face with pale light blue eyes, soft lips and a calm warm expression, a black ribbed mechanical neck, and white hexagon-plated armor on the shoulders, chest and arms with black mechanical joints and thin glowing light blue accent lines",
-    "TEN_DAY": "the white robot teacher",
-    "GIONG_DAY": "a warm, bright, natural young woman's voice, speaking native Spanish, like a friendly language teacher recording a short lesson video, with lively, varied intonation and a smile in the voice, clear crisp diction; completely human-sounding, not robotic, no synthetic or metallic effect",
-    "PHAT_AM": "PRONUNCIATION OF THE BRAND NAME (strict): the word \"Talka\" is always said as \"TAWK-ah\": the English word \"talk\" with a silent L, rhyming with \"walk\", followed by a short unstressed \"ah\", stress on the first syllable, one smooth word; never \"TAL-ka\" with an audible L and never two equal Spanish syllables \"tal-ka\"",
-    "POS_DAY": "center",
-    "BOX_DAY": "0.35,0.43,0.85,0.7",
-    "VAI_DAY": "teacher",
-    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
-    "NEN_BANG": "a big sheet of white lined notebook paper with thin pale blue ruled lines across the whole sheet and no dotted grid, pinned flat on a light gray wall and filling almost the whole frame. At about 4 percent from the top, the title \"¿Cómo se dice?\" in dark handwritten-style letters. At about 11 percent from the top, two column headers: \"Español\" on the left with a dark underline and \"English\" on the right with a red underline. A thin dark vertical line divides the page into a left and a right column at about 53 percent of the frame width, from about 9 percent from the top down to the bottom of the page. Below it there are eight rows, each sitting on its own thin ruled line: the first ruled line at about 18.5 percent from the top and the next lines every 4.8 percent, so the first five rows are clearly above her head. In the left column each row has a dark handwritten word starting at about 4 percent of the frame width, followed right after by a small black line-art doodle icon, in order: \"Disculpa\", \"Buenos días\", \"Adiós\", \"¿Cómo estás?\", \"Gracias\", \"Te amo\", \"Por favor\", \"Lo siento\"; the doodle icons in order are a speech bubble, a rising sun, two waving hands, a person outline, a gift box, a heart, praying hands and a sad face. The whole right column stays completely empty (only the ruled lines, no words and no icons): it is the empty slot for a red handwritten-style English word. All words sharp and correctly spelled",
     "NEN_PHO": "a vertical view of a dense big-city skyline from a high rooftop at sunset: a warm orange, pink and purple sky, thousands of small glowing lights on the buildings, softly out of focus; the upper third of the frame is calm sky with no sign boards or writing",
     "LUOT": [
       {
@@ -274,8 +268,148 @@
         "fx": "none"
       }
     ],
+    "NEN_XANH": "a perfectly flat, evenly lit, saturated chroma-key green screen (about #00B140) filling the whole frame: no texture, no gradient, no shadow, no object, no text",
     "HAU_KY": {
-      "giay": "hai-cot"
+      "giay": "checklist",
+      "bang": {
+        "tieu_de": "¿CÓMO SE DICE?",
+        "hang": [
+          {
+            "tu": "Disculpa"
+          },
+          {
+            "tu": "Buenos días"
+          },
+          {
+            "tu": "Adiós"
+          },
+          {
+            "tu": "¿Cómo estás?"
+          },
+          {
+            "tu": "Gracias"
+          },
+          {
+            "tu": "Te amo"
+          },
+          {
+            "tu": "Por favor"
+          },
+          {
+            "tu": "Lo siento"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "talka-robot-trang-bt3",
+    "NGUOI_DAY": "a sleek white humanoid AI robot teacher: a smooth glossy white head with fine panel seams and no hair, a realistic young woman's face with pale light blue eyes, soft lips and a calm warm expression, a black ribbed mechanical neck, and white hexagon-plated armor on the shoulders, chest and arms with black mechanical joints and thin glowing light blue accent lines",
+    "TEN_DAY": "the white robot teacher",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, speaking native Spanish, like a friendly language teacher recording a short lesson video, with lively, varied intonation and a smile in the voice, clear crisp diction; completely human-sounding, not robotic, no synthetic or metallic effect",
+    "PHAT_AM": "PRONUNCIATION OF THE BRAND NAME (strict): the word \"Talka\" is always said as \"TAWK-ah\": the English word \"talk\" with a silent L, rhyming with \"walk\", followed by a short unstressed \"ah\", stress on the first syllable, one smooth word; never \"TAL-ka\" with an audible L and never two equal Spanish syllables \"tal-ka\"",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.35,0.43,0.85,0.7",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN_PHO": "a vertical view of a dense big-city skyline from a high rooftop at sunset: a warm orange, pink and purple sky, thousands of small glowing lights on the buildings, softly out of focus; the upper third of the frame is calm sky with no sign boards or writing",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "¿Cómo se dice disculpa en inglés? Se dice, excuse me. Repite conmigo. Excuse me.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice buenos días? Se dice, good morning. Repite conmigo. Good morning.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice adiós? Se dice, goodbye. Repite conmigo. Goodbye.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "El inglés no es difícil y descubrirás que tengo razón si sigues esta página.",
+        "emo": "confident, warm",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice cómo estás? Se dice, how are you. Repite conmigo. How are you.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice gracias? Se dice, thank you. Repite conmigo. Thank you.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Quieres aprender inglés de una manera más fácil?",
+        "emo": "friendly, curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Descarga Talka y en solo cuatro semanas podrás sonar como un hablante nativo.",
+        "emo": "enthusiastic, persuasive",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Un tutor con IA que te corrige en tiempo real y acelera tu progreso. Best Language Learning App. Download now.",
+        "emo": "upbeat, persuasive",
+        "fx": "none"
+      }
+    ],
+    "NEN_XANH": "a perfectly flat, evenly lit, saturated chroma-key green screen (about #00B140) filling the whole frame: no texture, no gradient, no shadow, no object, no text",
+    "HAU_KY": {
+      "giay": "hai-cot",
+      "bang": {
+        "tieu_de": "¿Cómo se dice?",
+        "hang": [
+          {
+            "tu": "Disculpa",
+            "icon": "💬"
+          },
+          {
+            "tu": "Buenos días",
+            "icon": "☀"
+          },
+          {
+            "tu": "Adiós",
+            "icon": "✋"
+          },
+          {
+            "tu": "¿Cómo estás?",
+            "icon": "👤"
+          },
+          {
+            "tu": "Gracias",
+            "icon": "🎁"
+          },
+          {
+            "tu": "Te amo",
+            "icon": "♡"
+          },
+          {
+            "tu": "Por favor",
+            "icon": "🙏"
+          },
+          {
+            "tu": "Lo siento",
+            "icon": "☹"
+          }
+        ],
+        "dau_trai": "Español"
+      }
     }
   },
   {
@@ -288,7 +422,6 @@
     "BOX_DAY": "0.35,0.43,0.85,0.7",
     "VAI_DAY": "teacher",
     "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
-    "NEN_BANG": "a big sheet of white lined notebook paper with thin pale blue ruled lines across the whole sheet and no dotted grid, pinned flat on a light gray wall and filling almost the whole frame. At about 4 percent from the top, the title \"Como se diz?\" in dark handwritten-style letters. At about 11 percent from the top, two column headers: \"Português\" on the left with a dark underline and \"English\" on the right with a red underline. A thin dark vertical line divides the page into a left and a right column at about 53 percent of the frame width, from about 9 percent from the top down to the bottom of the page. Below it there are eight rows, each sitting on its own thin ruled line: the first ruled line at about 18.5 percent from the top and the next lines every 4.8 percent, so the first five rows are clearly above her head. In the left column each row has a dark handwritten word starting at about 4 percent of the frame width, followed right after by a small black line-art doodle icon, in order: \"Desculpa\", \"Bom dia\", \"Tchau\", \"Como vai?\", \"Obrigado\", \"Eu te amo\", \"Por favor\", \"Sinto muito\"; the doodle icons in order are a speech bubble, a rising sun, two waving hands, a person outline, a gift box, a heart, praying hands and a sad face. The whole right column stays completely empty (only the ruled lines, no words and no icons): it is the empty slot for a red handwritten-style English word. All words sharp and correctly spelled",
     "NEN_PHO": "a vertical view of a dense big-city skyline from a high rooftop at sunset: a warm orange, pink and purple sky, thousands of small glowing lights on the buildings, softly out of focus; the upper third of the frame is calm sky with no sign boards or writing",
     "LUOT": [
       {
@@ -346,8 +479,47 @@
         "fx": "none"
       }
     ],
+    "NEN_XANH": "a perfectly flat, evenly lit, saturated chroma-key green screen (about #00B140) filling the whole frame: no texture, no gradient, no shadow, no object, no text",
     "HAU_KY": {
-      "giay": "hai-cot"
+      "giay": "hai-cot",
+      "bang": {
+        "tieu_de": "Como se diz?",
+        "hang": [
+          {
+            "tu": "Desculpa",
+            "icon": "💬"
+          },
+          {
+            "tu": "Bom dia",
+            "icon": "☀"
+          },
+          {
+            "tu": "Tchau",
+            "icon": "✋"
+          },
+          {
+            "tu": "Como vai?",
+            "icon": "👤"
+          },
+          {
+            "tu": "Obrigado",
+            "icon": "🎁"
+          },
+          {
+            "tu": "Eu te amo",
+            "icon": "♡"
+          },
+          {
+            "tu": "Por favor",
+            "icon": "🙏"
+          },
+          {
+            "tu": "Sinto muito",
+            "icon": "☹"
+          }
+        ],
+        "dau_trai": "Português"
+      }
     }
   },
   {
@@ -360,7 +532,6 @@
     "BOX_DAY": "0.35,0.43,0.85,0.7",
     "VAI_DAY": "teacher",
     "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
-    "NEN_BANG": "a tall cream-colored spiral-bound notepad filling almost the whole frame, pinned flat on a light gray wall: along its top edge a row of seven black metal spiral rings. At about 9 percent from the top, the title \"¿CÓMO SE DICE?\" in thick black bold serif capitals with a thin line under it. Below it there are eight rows, each sitting on its own thin ruled line: the first ruled line at about 18.5 percent from the top and the next lines every 4.8 percent, so the first five rows are clearly above her head. Each row has a dark serif Spanish word starting at about 12 percent of the frame width, followed right after by a small black line-art doodle icon, in order: \"Para mí\", \"Para ti\", \"Nunca\", \"Por favor\", \"¡Gracias!\", \"Lo siento\", \"Hasta luego\", \"Cuídate\"; the doodle icons in order are a person with a hand on the chest, a person pointing, a crossed circle, praying hands, a heart, a sad face, a waving hand and a smiling face; the words and icons stay in the left half. Every ruled line continues to the right, and the right part of every line, from about 60 to 90 percent of the frame width, is an empty slot for a dark red serif English word: no words and no icons there. All words sharp and correctly spelled",
     "NEN_PHO": "a vertical view of a dense big-city skyline from a high rooftop at sunset: a warm orange, pink and purple sky, thousands of small glowing lights on the buildings, softly out of focus; the upper third of the frame is calm sky with no sign boards or writing",
     "LUOT": [
       {
@@ -418,8 +589,46 @@
         "fx": "none"
       }
     ],
+    "NEN_XANH": "a perfectly flat, evenly lit, saturated chroma-key green screen (about #00B140) filling the whole frame: no texture, no gradient, no shadow, no object, no text",
     "HAU_KY": {
       "giay": "so-tay",
+      "bang": {
+        "tieu_de": "¿CÓMO SE DICE?",
+        "hang": [
+          {
+            "tu": "Para mí",
+            "icon": "👤"
+          },
+          {
+            "tu": "Para ti",
+            "icon": "✋"
+          },
+          {
+            "tu": "Nunca",
+            "icon": "🚫"
+          },
+          {
+            "tu": "Por favor",
+            "icon": "🙏"
+          },
+          {
+            "tu": "¡Gracias!",
+            "icon": "♡"
+          },
+          {
+            "tu": "Lo siento",
+            "icon": "☹"
+          },
+          {
+            "tu": "Hasta luego",
+            "icon": "✋"
+          },
+          {
+            "tu": "Cuídate",
+            "icon": "☺"
+          }
+        ]
+      },
       "but": "fountain"
     }
   },
@@ -433,7 +642,6 @@
     "BOX_DAY": "0.35,0.43,0.85,0.7",
     "VAI_DAY": "teacher",
     "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
-    "NEN_BANG": "a big sheet of white lined notebook paper with thin pale blue ruled lines across the whole sheet and no dotted grid, pinned flat on a light gray wall and filling almost the whole frame. At about 4 percent from the top, the title \"¿CÓMO SE DICE?\" in dark navy printed capitals with a thick dark underline. At about 11 percent from the top, two column headers: \"Español\" on the left with a dark underline and \"English\" on the right with a red underline. A thin dark vertical line divides the page into a left and a right column at about 53 percent of the frame width, from about 9 percent from the top down to the bottom of the page. Below it there are eight rows, each sitting on its own thin ruled line: the first ruled line at about 18.5 percent from the top and the next lines every 4.8 percent, so the first five rows are clearly above her head. In the left column each row starts with a small black line-art doodle icon at about 5 percent of the frame width, followed by a dark handwritten Spanish word starting at about 19 percent of the frame width, in order: \"Dios mío\", \"Gracias\", \"Por qué\", \"Cómo\", \"Mañana\", \"Para mí\", \"Para ti\", \"Nunca\"; the doodle icons in order are praying hands with a halo, a gift box, a question mark, a magnifying glass, a sunrise, a heart, a person with an arrow and a prohibition sign. The whole right column stays completely empty (only the ruled lines, no words and no icons): it is the empty slot for a red handwritten-style English word. All words sharp and correctly spelled",
     "NEN_PHO": "a vertical view of a dense big-city skyline from a high rooftop at sunset: a warm orange, pink and purple sky, thousands of small glowing lights on the buildings, softly out of focus; the upper third of the frame is calm sky with no sign boards or writing",
     "LUOT": [
       {
@@ -491,8 +699,47 @@
         "fx": "none"
       }
     ],
+    "NEN_XANH": "a perfectly flat, evenly lit, saturated chroma-key green screen (about #00B140) filling the whole frame: no texture, no gradient, no shadow, no object, no text",
     "HAU_KY": {
       "giay": "hai-cot-icon-trai",
+      "bang": {
+        "tieu_de": "¿CÓMO SE DICE?",
+        "hang": [
+          {
+            "tu": "Dios mío",
+            "icon": "🙏"
+          },
+          {
+            "tu": "Gracias",
+            "icon": "🎁"
+          },
+          {
+            "tu": "Por qué",
+            "icon": "❓"
+          },
+          {
+            "tu": "Cómo",
+            "icon": "🔍"
+          },
+          {
+            "tu": "Mañana",
+            "icon": "🌅"
+          },
+          {
+            "tu": "Para mí",
+            "icon": "♡"
+          },
+          {
+            "tu": "Para ti",
+            "icon": "👤"
+          },
+          {
+            "tu": "Nunca",
+            "icon": "🚫"
+          }
+        ],
+        "dau_trai": "Español"
+      },
       "but": "ballpoint"
     }
   }

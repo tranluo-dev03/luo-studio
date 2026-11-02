@@ -467,7 +467,7 @@ def custom_post(p):
             script = template_text(tid) or ""
         except Exception:  # noqa: BLE001
             script = ""
-        if tid.upper().startswith("KICH-BAN-TALKA") or ("{{NEN_BANG}}" in script and "{{NEN_PHO}}" in script):
+        if tid.upper().startswith("KICH-BAN-TALKA") or (("{{NEN_BANG}}" in script or "{{NEN_XANH}}" in script) and "{{NEN_PHO}}" in script):
             name = "talka-bang-tu-vung"
     name = {"talka_vocab": "talka-bang-tu-vung"}.get(name, name)   # tên cũ
     path = os.path.join(PRODUCTION, "types", name, "post.py") if name else ""

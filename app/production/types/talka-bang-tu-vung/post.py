@@ -25,7 +25,7 @@ def render_board(p, path, cfg):
     lh = int(cfg["size"] * 1.32)
     x0, w, pad, bw = cfg["x"], cfg["w"], cfg["pad"], cfg.get("border", 9)
     hgt = max(cfg.get("min_h", 0), pad * 2 + lh * len(lines))
-    y0 = cfg["y_center"] - hgt // 2
+    y0 = cfg["y_top"] if "y_top" in cfg else cfg["y_center"] - hgt // 2   # y_top: neo mép trên (bảng không đè lên mặt robot ở cảnh quảng cáo)
     im = Image.new("RGBA", (1080, 1920), (0, 0, 0, 0))
     sh = Image.new("RGBA", im.size, (0, 0, 0, 0))
     ImageDraw.Draw(sh).rectangle((x0 + 8, y0 + 12, x0 + w + 8, y0 + hgt + 12), fill=(0, 0, 0, 90))
@@ -80,14 +80,19 @@ def main():
     out = a.out or os.path.splitext(a.raw)[0] + "_final.mp4"
     cfg = json.load(open(a.config, encoding="utf-8"))
     scenes = json.load(open(a.scenes, encoding="utf-8"))
+    paper = None
     if a.variant and os.path.exists(a.variant):
         v = json.load(open(a.variant, encoding="utf-8"))
         v = v[0] if isinstance(v, list) else v
         luot = v.get("LUOT", [])
         cfg["pointer"] = bien_the.vocab_items(luot)
-        hk = v.get("HAU_KY") or {}   # tuỳ chọn: {"giay": kiểu giấy (pointer.LAYOUTS), "but": kiểu bút (assets/marker-<kiểu>.png)}; bỏ trống = tờ checklist + bút đỏ mẫu
+        hk = v.get("HAU_KY") or {}   # {"giay": kiểu giấy, "bang": nội dung tờ giấy (xem giay.py), "but": kiểu bút (assets/marker-<kiểu>.png)}
         for it in cfg["pointer"]:
-            it["layout"], it["pen"] = hk.get("giay"), hk.get("but")
+            it["pen"] = hk.get("but")
+            if not hk.get("bang"):
+                it["layout"] = hk.get("giay")   # video cũ gen kèm tờ giấy trong Muse: dò hàng theo kiểu giấy này
+        if hk.get("bang"):   # giấy do hậu kỳ dựng: video Muse chỉ có robot trên nền xanh (cảnh dạy từ); cảnh quảng cáo (từ ad_from) giữ nền thành phố của Muse
+            paper = dict(hk["bang"], kieu=hk.get("giay") or "checklist")
         cfg["phrases"] = bien_the.ad_phrases(luot, int(cfg.get("ad_from", 6)), cfg.get("red_words", []))
         print(f"Lấy nội dung từ biến thể \"{v.get('name', '')}\": {len(cfg['pointer'])} cặp từ, {len(cfg['phrases'])} ô bảng quảng cáo")
     have = {s["turn"] for s in scenes}
@@ -98,10 +103,15 @@ def main():
         src = a.raw
         if cfg.get("pointer") and not a.no_pointer:
             print("Bút chỉ chữ (đo mốc lời nói và vị trí chữ)...")
+            ad_from = int(cfg.get("ad_from", 6))
+            key_until = min((s["start"] for s in scenes if s["turn"] >= ad_from), default=None)
             try:
                 src = pointer.add_pointer(a.raw, scenes, cfg["pointer"], os.path.join(work, "pointed.mp4"),
-                                          lambda raw, model, jobs: P.transcribe(raw, model, None, vad=True, jobs=jobs), a.model)
+                                          lambda raw, model, jobs: P.transcribe(raw, model, None, vad=True, jobs=jobs), a.model, paper=paper, key_until=key_until,
+                                          robot_top_target=float(cfg.get("robot_top", 0.52)))
             except Exception as ex:  # noqa: BLE001 - bút lỗi thì vẫn xuất video, chỉ thiếu bút
+                if paper:   # giấy dựng ở hậu kỳ: bỏ qua thì video ra nền xanh trơn, nên báo lỗi thay vì xuất video hỏng
+                    raise
                 print(f"  bút chỉ lỗi ({ex}); bỏ qua bước này")
                 src = a.raw
         cmd = ["ffmpeg", "-y", "-i", src]
