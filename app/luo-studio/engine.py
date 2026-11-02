@@ -614,23 +614,27 @@ def voice_span(path, expected):
     sh(["ffmpeg", "-y", "-i", path, "-vn", "-ac", "1", "-ar", "16000", wav])
     try:
         words = [(norm(w), a, b) for w, a, b in _transcribe(wav, True)["words"]]
-        onset = _energy_onset(wav)
+        onset, offset = _energy_span(wav)
     finally:
         try:
             os.remove(wav)
         except OSError:
             pass
     hit = [(a, b) for t, a, b in words if t and any(difflib.SequenceMatcher(None, t, e).ratio() >= 0.78 for e in exp)]
+    # Whisper ở đây là bản tiếng Anh (small.en). Với câu tiếng Tây Ban Nha nó chỉ khớp vài từ giữa câu: từ khớp đầu muộn hơn lời thật (mất đầu câu,
+    # "El inglés", "Descarga Talka"), từ khớp cuối sớm hơn lời thật (mất đuôi câu, "fácil"), hoặc khớp quá ít -> trước đây trả None và cắt theo cách
+    # thường, để lại đoạn nghỉ dài. Bổ sung lúc có tiếng nói thật theo năng lượng âm thanh (không phụ thuộc ngôn ngữ).
     if len(hit) < max(1, int(0.5 * len(exp))):
-        return None
-    # Whisper ở đây là bản tiếng Anh (small.en): với câu tiếng Tây Ban Nha nó chỉ khớp vài từ giữa câu -> từ khớp đầu tiên muộn hơn lời thật và
-    # bước cắt sát làm mất đầu câu ("El inglés", "Descarga Talka"). Lấy thêm lúc có tiếng nói thật (năng lượng âm thanh, không phụ thuộc ngôn ngữ).
+        return (onset, offset) if onset is not None and offset is not None and offset - onset > 0.5 else None
     start = onset if onset is not None and onset < hit[0][0] else hit[0][0]
-    return start, hit[-1][1]
+    end = hit[-1][1]
+    if offset is not None and end < offset <= end + 1.5:   # tiếng nói còn tiếp sau từ khớp cuối (từ cuối Whisper không nhận ra)
+        end = offset
+    return start, end
 
 
-def _energy_onset(wav):
-    """Giây đầu tiên có tiếng nói trong file wav 16 kHz mono (năng lượng vượt nền rõ rệt, liên tục ~60 ms); None nếu không rõ."""
+def _energy_span(wav):
+    """(giây bắt đầu, giây kết thúc) của tiếng nói trong file wav 16 kHz mono theo năng lượng âm thanh (vượt nền rõ rệt, liên tục ~60 ms); (None, None) nếu không rõ."""
     import wave
     import numpy as np
     try:
@@ -638,20 +642,20 @@ def _energy_onset(wav):
             sr = w.getframerate()
             a = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768.0
     except (OSError, wave.Error):
-        return None
+        return None, None
     win, hop = int(sr * 0.025), int(sr * 0.01)
     if len(a) < 2 * win:
-        return None
+        return None, None
     fr = np.lib.stride_tricks.sliding_window_view(a, win)[::hop]
     db = 20 * np.log10(np.sqrt((fr ** 2).mean(axis=1)) + 1e-9)
     floor, level = np.percentile(db, 10), np.percentile(db, 90)
     if level - floor < 15:
-        return None
+        return None, None
     above = db > max(floor + 10, level - 15)
-    for k in range(len(above) - 5):
-        if above[k:k + 6].all():
-            return k * hop / sr
-    return None
+    starts = [k for k in range(len(above) - 5) if above[k:k + 6].all()]
+    if not starts:
+        return None, None
+    return starts[0] * hop / sr, (starts[-1] + 6) * hop / sr + win / sr
 
 
 def heard_words(path):

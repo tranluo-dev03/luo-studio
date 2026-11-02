@@ -56,20 +56,53 @@ def rows_of(f):
     red = (a[..., 0] > 160) & (a[..., 1] < 95) & (a[..., 2] < 95)
     red[:, int(w * 0.35):] = False
     ys = np.nonzero(red.sum(1) > 3)[0]
-    groups = []
+    groups, join = [], max(3, int(h * 0.008))   # dấu tick trắng có thể chẻ vòng tròn thành 2 mảnh: gộp mảnh cách nhau vài điểm ảnh
     for y in ys:
-        if groups and y - groups[-1][-1] <= 3:
+        if groups and y - groups[-1][-1] <= join:
             groups[-1].append(y)
         else:
             groups.append([y])
     out = []
     for g in groups:
-        if len(g) < h * 0.008:
+        if g[-1] - g[0] + 1 < h * 0.008:
             continue
         band = red[g[0]:g[-1] + 1]
         xs = np.nonzero(band.any(0))[0]
-        out.append((int(np.mean(g)), int(xs.max()), len(g)))
+        out.append(((g[0] + g[-1]) // 2, int(xs.max()), g[-1] - g[0] + 1))
     return out
+
+
+def paper_rows(raw, sc, size, n_rows=8):
+    """Các hàng của tờ giấy, đo MỘT lần (tờ giấy đứng yên suốt các cảnh bảng chữ) trên khung đầu cảnh bảng chữ đầu tiên.
+    Thử vài khung, chọn khung có nhiều hàng cách đều nhất, rồi dựng lưới hàng cách đều từ hàng đầu + khoảng cách trung vị
+    (Muse có thể vẽ thiếu vòng tròn đỏ ở vài hàng). Trả về (khung, [(y tâm hàng, x phải vòng tròn, chiều cao vòng tròn)]) hoặc (None, [])."""
+    w, h = size
+    best = (None, [], -1.0)
+    for dt in (0.15, 0.4, 0.8, 1.3, 2.0):
+        f = frame_at(raw, min(sc["end"] - 0.05, sc["start"] + dt), w, h)
+        if f is None:
+            continue
+        rows = rows_of(f)
+        if len(rows) < 2:
+            continue
+        ys = np.array([r[0] for r in rows], float)
+        d = np.diff(ys)
+        step = float(np.median(d))
+        if step < h * 0.02:
+            continue
+        on_grid = sum(1 for y in ys if abs(((y - ys[0]) / step) - round((y - ys[0]) / step)) < 0.2)
+        score = on_grid - float(np.std(d) / step)
+        if score > best[2]:
+            best = (f, rows, score)
+    f, rows, _ = best
+    if f is None:
+        return None, []
+    ys = np.array([r[0] for r in rows], float)
+    step = float(np.median(np.diff(ys)))
+    x_red = int(np.median([r[1] for r in rows]))
+    ch = int(np.median([r[2] for r in rows]))
+    grid = [(int(round(ys[0] + k * step)), x_red, ch) for k in range(n_rows)]
+    return f, grid
 
 
 def word_box(mask, y0, y1, x0, x1, gap=16):
@@ -127,23 +160,18 @@ def _smooth(v, sigma):
     return np.convolve(pad, k, mode="valid")
 
 
-def _scene_layout(raw, sc, item, size, log):
-    """Đo trên khung cuối cảnh: hộp từ Tây Ban Nha và vị trí đặt chữ tiếng Anh (đầu vạch xám, đường chân chữ). Video Muse không có chữ tiếng Anh."""
+def _scene_layout(end_f, rows, sc, item, size, log):
+    """Đo trên khung chuẩn của tờ giấy: hộp từ Tây Ban Nha và vị trí đặt chữ tiếng Anh (đầu vạch xám, đường chân chữ). Video Muse không có chữ tiếng Anh."""
     w, h = size
     row = item["row"]
-    end_f = frame_at(raw, max(sc["start"], sc["end"] - 0.25), w, h)
-    if end_f is None:
-        return None
-    rows = rows_of(end_f)
-    if len(rows) < row and len(rows) >= 2:   # Muse không vẽ đủ vòng tròn đỏ: các hàng cách đều nhau nên suy ra từ hàng 1 và 2
-        step = rows[1][0] - rows[0][0]
-        rows = rows + [(rows[0][0] + k * step, rows[0][1], rows[0][2]) for k in range(len(rows), row)]
-    if len(rows) < row:
-        log(f"  bút: cảnh lượt {sc['turn'] + 1}: chỉ thấy {len(rows)} hàng trên giấy, bỏ qua")
+    if end_f is None or len(rows) < row:
+        log(f"  bút: cảnh lượt {sc['turn'] + 1}: không đo được hàng {row} trên giấy, bỏ qua")
         return None
     cy, cx_red, ch = rows[row - 1]
     gap = (rows[1][0] - rows[0][0]) if len(rows) > 1 else int(h * 0.05)
     y0, y1 = int(cy - gap * 0.45), int(cy + gap * 0.45)
+    if not (end_f.max(2)[y0:y1, cx_red + 4:int(w * 0.52)] < 95).any():   # hàng này trống trên khung chuẩn
+        log(f"  bút: cảnh lượt {sc['turn'] + 1}: không thấy chữ ở hàng {row}")
     dark = end_f.max(2) < 95
     es_box = word_box(dark, y0, y1, cx_red + 4, int(w * 0.52)) or (cx_red + 8, int(cy - ch * 0.5), int(w * 0.4), int(cy + ch * 0.5))
     base = es_box[3]                                    # chân chữ của hàng (từ Tây Ban Nha không có nét thòng)
@@ -296,7 +324,9 @@ def add_pointer(raw, scenes, items, out, transcribe, model="medium", log=print):
     res = transcribe(raw, model, jobs) or [[] for _ in todo]
     board_end = todo[-1][1]["end"]                      # chữ đã hiện giữ đến hết cảnh bảng chữ cuối
     keys, labels = [], []
-    lays = [_scene_layout(raw, sc, it, (w, h), log) for it, sc in todo]
+    ref, rows = paper_rows(raw, todo[0][1], (w, h))     # tờ giấy đứng yên: đo hàng MỘT lần, dùng chung cho mọi cảnh
+    log(f"  tờ giấy: {len(rows)} hàng, cách nhau {rows[1][0] - rows[0][0] if len(rows) > 1 else 0}px")
+    lays = [_scene_layout(ref, rows, sc, it, (w, h), log) for it, sc in todo]
     caps = sorted(l[0][3] - l[0][1] for l in lays if l)
     cap = caps[len(caps) // 2] if caps else 30          # một cỡ chữ chung cho mọi hàng ("¡Gracias!" có dấu ¡ ! nên cao hơn, không lấy riêng)
     for (it, sc), words, lay in zip(todo, res, lays):

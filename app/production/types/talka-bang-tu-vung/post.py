@@ -50,8 +50,12 @@ def phrase_times(cfg, scenes, raw, model, work):
     units = [{"t": p["say"], "c": "white", "turn": p["turn"]} for p in ph]
     try:
         al = P.align_by_scene(raw, units, scenes, model)
-        if al and all(u.get("ok", True) for u in al):
-            return [(u["s"], u["e"]) for u in al]
+        if al and any(u.get("ok", True) for u in al):
+            # câu robot KHÔNG nói (Muse bỏ câu, vd. "Best Language Learning App. Download now.") thì không hiện ô cho câu đó
+            for u, p in zip(al, ph):
+                if not u.get("ok", True):
+                    print(f"  bỏ ô \"{p['say']}\": không nghe thấy robot nói câu này")
+            return [(u["s"], u["e"]) if u.get("ok", True) else None for u in al]
     except Exception as ex:  # noqa: BLE001
         print(f"Căn giọng lỗi ({ex}); chia theo số ký tự.")
     out = []
@@ -95,6 +99,8 @@ def main():
     work = tempfile.mkdtemp(prefix="talka_pp_")
     try:
         times = phrase_times(cfg, scenes, a.raw, a.model, work)
+        keep = [i for i, t in enumerate(times) if t is not None]
+        cfg["phrases"], times = [cfg["phrases"][i] for i in keep], [times[i] for i in keep]
         src = a.raw
         if cfg.get("pointer") and not a.no_pointer:
             print("Bút chỉ chữ (đo mốc lời nói và vị trí chữ)...")
