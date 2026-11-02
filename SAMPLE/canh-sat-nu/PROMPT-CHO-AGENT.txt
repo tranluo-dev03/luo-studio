@@ -4,7 +4,7 @@
 
 CÁCH DÙNG
   Gửi cho agent cùng với: video tham chiếu, KICH-BAN-CANH-SAT.txt và BIEN-THE-CANH-SAT.json trong thư mục này,
-  SAMPLE\HUONG-DAN-CHO-AGENT.md (đọc kỹ mục 0, 1, 2) và kết quả công cụ SAMPLE\phan-tich-video.py.
+  SAMPLE\_chung\HUONG-DAN-CHO-AGENT.md (đọc kỹ mục 0, 1, 2) và kết quả công cụ SAMPLE\_chung\phan-tich-video.py.
   Rồi dán phần dưới, sửa [ngoặc vuông].
 
 --------------------------------------------------------------------------------

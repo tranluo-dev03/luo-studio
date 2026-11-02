@@ -6,7 +6,7 @@ CÁCH DÙNG
   Thể loại này dùng kịch bản mẫu chung ..\1-KICH-BAN-MAU.txt (người bên trái làm việc, điện thoại có gia sư AI bên phải);
   thư mục này chỉ có file biến thể 2-BIEN-THE-MAU.json (người học đang làm vườn).
   Gửi cho agent: video tham chiếu, ..\1-KICH-BAN-MAU.txt, 2-BIEN-THE-MAU.json (trong thư mục này),
-  ..\3-PROMPT-CHO-CLAUDE.txt (quy trình 2 bước) và ..\HUONG-DAN-CHO-AGENT.md. Rồi dán phần dưới, sửa [ngoặc vuông].
+  ..\SAMPLE\_chung\3-PROMPT-CHO-CLAUDE.txt (quy trình 2 bước) và ..\HUONG-DAN-CHO-AGENT.md. Rồi dán phần dưới, sửa [ngoặc vuông].
 
 --------------------------------------------------------------------------------
 PROMPT (copy từ dòng dưới)

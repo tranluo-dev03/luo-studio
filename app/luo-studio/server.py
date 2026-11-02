@@ -453,12 +453,44 @@ def scene_marks(d, raw):
         return None
 
 
+def custom_post(p):
+    """Hậu kỳ riêng theo thể loại video: app/production/types/<mã thể loại>/post.py (mã trùng tên thư mục SAMPLE/<mã thể loại>).
+    Loại dự án khai báo bằng khoá "post" trong file loại; chưa khai báo thì nhận theo tên loại (bắt đầu bằng KICH-BAN-TALKA) hoặc theo kịch bản (dùng token {{NEN_BANG}} và {{NEN_PHO}})."""
+    tid = p.get("template") or ""
+    try:
+        t = jread(type_path(tid)) or {}
+    except (OSError, ValueError):
+        t = {}
+    name = t.get("post") or ""
+    if not name:   # chưa khai báo: nhận theo tên loại, hoặc theo nội dung kịch bản (user có thể đặt tên loại tuỳ ý khi nhập)
+        try:
+            script = template_text(tid) or ""
+        except Exception:  # noqa: BLE001
+            script = ""
+        if tid.upper().startswith("KICH-BAN-TALKA") or ("{{NEN_BANG}}" in script and "{{NEN_PHO}}" in script):
+            name = "talka-bang-tu-vung"
+    name = {"talka_vocab": "talka-bang-tu-vung"}.get(name, name)   # tên cũ
+    path = os.path.join(PRODUCTION, "types", name, "post.py") if name else ""
+    return path if path and os.path.exists(path) else ""
+
+
 def post_item(it, opts, cx):
     s = settings()
     p = load_project(it["project"])
     v = next(x for x in p["variants"] if x["name"] == it["variant"])
     d = run_dir(it["project"], it["variant"])
     raw, final = os.path.join(d, "raw.mp4"), os.path.join(d, "final.mp4")
+    cp = custom_post(p)
+    if cp:
+        sc_file = scene_marks(d, raw)
+        if not sc_file:
+            raise RuntimeError("Hậu kỳ riêng cần mốc cảnh (thiếu clip scene*_cut.mp4)")
+        vfile = os.path.join(d, "variant.json")
+        jwrite(vfile, v)   # hậu kỳ riêng lấy từ vựng / lời quảng cáo từ chính biến thể này
+        cmd = [sys.executable, "-I", cp, raw, "--scenes", sc_file, "--out", final, "--variant", vfile]
+        qlog(it, "Hậu kỳ riêng: " + os.path.basename(os.path.dirname(cp)))
+        _run_post(it, cmd, final, cx)
+        return _finish_post(it, final)
     subs = E.subs_from_variant(v, auto_hook=bool(s.get("fx_hook", True)))
     jwrite(os.path.join(d, "subs.json"), subs)
     text = " ".join(u["t"] for u in subs)
@@ -484,6 +516,11 @@ def post_item(it, opts, cx):
     if sc_file:
         cmd += ["--scenes", sc_file]
     qlog(it, "Hậu kỳ: " + os.path.basename(final))
+    _run_post(it, cmd, final, cx)
+    _finish_post(it, final)
+
+
+def _run_post(it, cmd, final, cx):
     proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace", env=dict(os.environ, PYTHONIOENCODING="utf-8"))
     for line in proc.stdout:
         line = line.rstrip()
@@ -495,6 +532,9 @@ def post_item(it, opts, cx):
     proc.wait()
     if proc.returncode != 0 or not os.path.exists(final):
         raise RuntimeError("Hậu kỳ lỗi, xem nhật ký")
+
+
+def _finish_post(it, final):
     it["final"] = "final.mp4"
     try:
         out = export_final(it["project"], it["variant"], it.get("pname") or it["project"], final)

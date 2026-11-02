@@ -614,6 +614,7 @@ def voice_span(path, expected):
     sh(["ffmpeg", "-y", "-i", path, "-vn", "-ac", "1", "-ar", "16000", wav])
     try:
         words = [(norm(w), a, b) for w, a, b in _transcribe(wav, True)["words"]]
+        onset = _energy_onset(wav)
     finally:
         try:
             os.remove(wav)
@@ -622,7 +623,35 @@ def voice_span(path, expected):
     hit = [(a, b) for t, a, b in words if t and any(difflib.SequenceMatcher(None, t, e).ratio() >= 0.78 for e in exp)]
     if len(hit) < max(1, int(0.5 * len(exp))):
         return None
-    return hit[0][0], hit[-1][1]
+    # Whisper ở đây là bản tiếng Anh (small.en): với câu tiếng Tây Ban Nha nó chỉ khớp vài từ giữa câu -> từ khớp đầu tiên muộn hơn lời thật và
+    # bước cắt sát làm mất đầu câu ("El inglés", "Descarga Talka"). Lấy thêm lúc có tiếng nói thật (năng lượng âm thanh, không phụ thuộc ngôn ngữ).
+    start = onset if onset is not None and onset < hit[0][0] else hit[0][0]
+    return start, hit[-1][1]
+
+
+def _energy_onset(wav):
+    """Giây đầu tiên có tiếng nói trong file wav 16 kHz mono (năng lượng vượt nền rõ rệt, liên tục ~60 ms); None nếu không rõ."""
+    import wave
+    import numpy as np
+    try:
+        with wave.open(wav, "rb") as w:
+            sr = w.getframerate()
+            a = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768.0
+    except (OSError, wave.Error):
+        return None
+    win, hop = int(sr * 0.025), int(sr * 0.01)
+    if len(a) < 2 * win:
+        return None
+    fr = np.lib.stride_tricks.sliding_window_view(a, win)[::hop]
+    db = 20 * np.log10(np.sqrt((fr ** 2).mean(axis=1)) + 1e-9)
+    floor, level = np.percentile(db, 10), np.percentile(db, 90)
+    if level - floor < 15:
+        return None
+    above = db > max(floor + 10, level - 15)
+    for k in range(len(above) - 5):
+        if above[k:k + 6].all():
+            return k * hop / sr
+    return None
 
 
 def heard_words(path):

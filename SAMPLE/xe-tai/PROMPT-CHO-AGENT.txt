@@ -4,7 +4,7 @@
 
 CÁCH DÙNG
   Gửi cho agent cùng với: video tham chiếu, KICH-BAN-XE-TAI.txt và BIEN-THE-XE-TAI.json trong thư mục này,
-  SAMPLE\HUONG-DAN-CHO-AGENT.md và 3-PROMPT-CHO-CLAUDE.txt (quy trình 2 bước). Rồi dán phần dưới, sửa [ngoặc vuông].
+  SAMPLE\_chung\HUONG-DAN-CHO-AGENT.md và SAMPLE\_chung\3-PROMPT-CHO-CLAUDE.txt (quy trình 2 bước). Rồi dán phần dưới, sửa [ngoặc vuông].
 
 --------------------------------------------------------------------------------
 PROMPT (copy từ dòng dưới)
@@ -17,7 +17,7 @@ cửa sổ gia sư. Mẫu: KICH-BAN-XE-TAI.txt và BIEN-THE-XE-TAI.json đính k
 tên trường và tên token của mẫu.
 
 Đây là thể loại gen CHUNG một clip (hai người trong cùng khung hình, mỗi clip một người nói). Nếu bạn muốn
-khung gia sư là nhân vật tách biệt, nhỏ, hoặc khung không phải ngang to thì dùng thể loại "Ghep hai lop"
+khung gia sư là nhân vật tách biệt, nhỏ, hoặc khung không phải ngang to thì dùng thể loại "ghep-hai-lop"
 thay vì thể loại này.
 
 Thông tin video lần này:

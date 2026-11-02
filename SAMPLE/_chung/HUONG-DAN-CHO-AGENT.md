@@ -4,18 +4,18 @@ Bạn tạo ra 2 file mà Studio nhập được và Muse gen đúng ý, cho **b
 1. **Kịch bản** (`.txt`): khung prompt có token `{{...}}` → tab "Loại dự án" → "Loại mới".
 2. **Biến thể** (`.json`): mảng các video, mỗi phần tử điền token + lời thoại.
 
-File mẫu: `1-KICH-BAN-MAU.txt`, `2-BIEN-THE-MAU.json`; ví dụ bố cục khác: thư mục `Xe tai/`. Hai file mẫu chỉ là **một thể loại** (người học + gia sư AI), không phải khuôn bắt buộc.
+File mẫu: `1-KICH-BAN-MAU.txt`, `2-BIEN-THE-MAU.json`; ví dụ bố cục khác: thư mục `SAMPLE/xe-tai/`. Hai file mẫu chỉ là **một thể loại** (người học + gia sư AI), không phải khuôn bắt buộc.
 
 ## Prompt riêng cho từng thể loại
 
-Mỗi thư mục thể loại trong `SAMPLE/` có file `PROMPT-CHO-AGENT.txt`: quy tắc riêng của thể loại đó, lỗi thường gặp và danh sách tự kiểm tra. **Nếu video thuộc một thể loại đã có, đọc file đó trước** rồi mới đọc phần chung bên dưới. Hiện có: `Ghep hai lop/`, `Canh sat nu/`, `Xe tai/`, `Làm vườn/`. Thể loại mới: tạo thư mục mới với đủ kịch bản mẫu, biến thể mẫu và `PROMPT-CHO-AGENT.txt` cùng cấu trúc.
+Mỗi thư mục thể loại trong `SAMPLE/` có file `PROMPT-CHO-AGENT.txt`: quy tắc riêng của thể loại đó, lỗi thường gặp và danh sách tự kiểm tra. **Nếu video thuộc một thể loại đã có, đọc file đó trước** rồi mới đọc phần chung bên dưới. Hiện có: `ghep-hai-lop/`, `canh-sat-nu/`, `xe-tai/`, `lam-vuon/`. Thể loại mới: tạo thư mục mới với đủ kịch bản mẫu, biến thể mẫu và `PROMPT-CHO-AGENT.txt` cùng cấu trúc.
 
 ## 0. Phân tích video tham chiếu (BẮT BUỘC, làm trước khi viết bất cứ thứ gì)
 
 Không phân tích video bằng vài ảnh chụp thưa hay chỉ lời thoại: hành động nhỏ (đưa giấy tờ, lấy điện thoại), tốc độ nói và tư thế khung cuối sẽ bị bỏ sót hoặc hiểu sai. (Đã từng xảy ra: nhìn thưa nên mô tả sai cảnh "tài xế cầm điện thoại".) Luôn chạy công cụ:
 
 ```
-runtime\python.exe SAMPLE\phan-tich-video.py "C:\duong-dan\video.mp4" [thu-muc-ra]
+runtime\python.exe SAMPLE\_chung\phan-tich-video.py "C:\duong-dan\video.mp4" [thu-muc-ra]
 ```
 
 Công cụ sinh `bao-cao.md` và các ảnh ghép: `tong-quan_N.jpg` (1 khung/giây cả video), **`luot_NN.jpg` (4 khung/giây cho từng câu nói, có số giây)**, **`chuyen-dong_NN.jpg` (các khoảnh khắc chuyển động mạnh)**. Báo cáo có: thời điểm và lời từng câu, **tốc độ nói từng câu (từ/giây)** và trung vị, khoảng lặng giữa các câu, danh sách cảnh cắt cứng.
@@ -89,7 +89,7 @@ Giới hạn của công cụ: không biết ai đang nói (agent điền); chuy
 
 Dùng khi các nhân vật KHÔNG cần đứng chung một khung thật: ví dụ gia sư AI trong khung gọi video bo góc phía trên + người học quay selfie phía dưới,
 hoặc hai người chia đôi màn hình. Studio gen RIÊNG từng nhân vật (mỗi clip chỉ có một người, nên không bao giờ có chuyện hai người cùng nói),
-rồi ghép bằng ffmpeg. Mỗi lượt thoại là một cảnh, số lượt tuỳ ý, KHÔNG viết khối CẢNH. Mẫu: `SAMPLE/Ghep hai lop/`.
+rồi ghép bằng ffmpeg. Mỗi lượt thoại là một cảnh, số lượt tuỳ ý, KHÔNG viết khối CẢNH. Mẫu: `SAMPLE/ghep-hai-lop/`.
 
 Kịch bản gồm các khối:
 - `[GHEP HAI LOP]:` bố cục, mỗi dòng một khoá (có dấu hay không đều được):

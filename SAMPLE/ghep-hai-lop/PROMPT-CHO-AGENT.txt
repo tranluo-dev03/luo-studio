@@ -6,7 +6,7 @@
 CÁCH DÙNG
   Gửi cho agent (Claude...) cùng với: video tham chiếu (hoặc ảnh chụp + lời thoại),
   file KICH-BAN-GHEP-HAI-LOP.txt và BIEN-THE-GHEP-HAI-LOP.json trong thư mục này,
-  và file SAMPLE\HUONG-DAN-CHO-AGENT.md (mục 0 và 3b). Rồi dán phần dưới đây, sửa [ngoặc vuông].
+  và file SAMPLE\_chung\HUONG-DAN-CHO-AGENT.md (mục 0 và 3b). Rồi dán phần dưới đây, sửa [ngoặc vuông].
 
 --------------------------------------------------------------------------------
 PROMPT (copy từ dòng dưới)

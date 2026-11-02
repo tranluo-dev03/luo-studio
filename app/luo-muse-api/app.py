@@ -1037,7 +1037,8 @@ def _run_generation_locked(prompt: str, kind: str, timeout: int,
                     # pin: video đã ghim tài khoản -> thử lại trên CHÍNH tài khoản đó, không đổi sang tài khoản khác
                     # Lỗi công cụ của Muse (media handle hỏng) trong chat dùng chung: thử lại một lần trên
                     # cùng tài khoản nhưng ở chat mới (session đã bị bỏ); ảnh tham chiếu được đính lại.
-                    log.info("【session】media handle 异常，在新对话中重试一次 (session %s)", session)
+                    log.info("【session】%s，在新对话中重试一次 (session %s)",
+                             "提示词未发出" if last_exc and "提示词未发出" in str(last_exc) else "media handle 异常", session)
                 else:
                     old_id = cur_acc["id"] if cur_acc else None
                     if old_id:
@@ -1081,7 +1082,7 @@ def _run_generation_locked(prompt: str, kind: str, timeout: int,
                     PINS.mark_exhausted(cur_acc["id"])
                 if session:
                     engine.finish_session(session, keep=False)  # chat lỗi: bỏ, lần sau mở chat mới
-                    same_acc_retry = attempt == 0 and bool(re.search(r"media handle|invalid media", str(exc), re.I))
+                    same_acc_retry = attempt == 0 and bool(re.search(r"media handle|invalid media|提示词未发出", str(exc), re.I))
                 else:
                     try:
                         engine.reset_thread()

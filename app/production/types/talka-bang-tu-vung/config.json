@@ -1,0 +1,105 @@
+{
+  "_doc": "Studio truyền biến thể vào (--variant): từ vựng cho bút lấy từ các lượt \"¿Cómo se dice X? Se dice, Y. Repite conmigo. Y.\", ô bảng quảng cáo lấy đúng lời robot ở các lượt từ ad_from (đếm từ 0) trở đi, tự chia ô, tô đỏ tên app + \"số + đơn vị\" + các từ trong red_words. board = kiểu ô. pointer/phrases bên dưới chỉ dùng khi chạy tay không có --variant (ví dụ của biến thể mẫu).",
+  "ad_from": 6,
+  "red_words": [
+    "inglés"
+  ],
+  "board": {
+    "x": 70,
+    "w": 940,
+    "y_center": 560,
+    "pad": 46,
+    "size": 66,
+    "min_h": 300,
+    "border": 9,
+    "border_color": [
+      38,
+      84,
+      214
+    ],
+    "ink": [
+      24,
+      34,
+      92
+    ],
+    "red": [
+      222,
+      36,
+      40
+    ]
+  },
+  "pointer": [
+    {
+      "turn": 0,
+      "es": "para mí",
+      "en": "for me",
+      "row": 1
+    },
+    {
+      "turn": 1,
+      "es": "para ti",
+      "en": "for you",
+      "row": 2
+    },
+    {
+      "turn": 2,
+      "es": "nunca",
+      "en": "never",
+      "row": 3
+    },
+    {
+      "turn": 4,
+      "es": "por favor",
+      "en": "please",
+      "row": 4
+    },
+    {
+      "turn": 5,
+      "es": "gracias",
+      "en": "thank you",
+      "row": 5
+    }
+  ],
+  "phrases": [
+    {
+      "turn": 6,
+      "say": "¿Quieres aprender inglés de una manera más fácil?",
+      "text": "¿Quieres aprender\n*inglés* de una\nmanera más fácil?"
+    },
+    {
+      "turn": 7,
+      "say": "Descarga Talka",
+      "text": "Descarga\n*Talka*"
+    },
+    {
+      "turn": 7,
+      "say": "y en solo cuatro semanas podrás sonar",
+      "text": "y en solo\n*4 semanas*\npodrás sonar"
+    },
+    {
+      "turn": 7,
+      "say": "como un hablante nativo.",
+      "text": "como un\nhablante nativo."
+    },
+    {
+      "turn": 8,
+      "say": "Un tutor con IA que te corrige en tiempo real",
+      "text": "Un tutor con IA\nque te corrige en\ntiempo real"
+    },
+    {
+      "turn": 8,
+      "say": "y acelera tu progreso.",
+      "text": "y acelera tu\nprogreso."
+    },
+    {
+      "turn": 8,
+      "say": "Best Language Learning App.",
+      "text": "*Best Language*\n*Learning App*"
+    },
+    {
+      "turn": 8,
+      "say": "Download now.",
+      "text": "Download now"
+    }
+  ]
+}
