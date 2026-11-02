@@ -1,8 +1,9 @@
 {
-  "_doc": "Studio truyền biến thể vào (--variant): từ vựng cho bút lấy từ các lượt \"¿Cómo se dice X? Se dice, Y. Repite conmigo. Y.\", ô bảng quảng cáo lấy đúng lời robot ở các lượt từ ad_from (đếm từ 0) trở đi, tự chia ô, tô đỏ tên app + \"số + đơn vị\" + các từ trong red_words. board = kiểu ô. pointer/phrases bên dưới chỉ dùng khi chạy tay không có --variant (ví dụ của biến thể mẫu).",
+  "_doc": "Studio truyền biến thể vào (--variant): từ vựng cho bút lấy từ các lượt \"¿Cómo se dice X? Se dice, Y. Repite conmigo. Y.\", ô bảng quảng cáo lấy đúng lời robot ở các lượt từ ad_from (đếm từ 0) trở đi, tự chia ô, tô đỏ tên app + \"số + đơn vị\" + các từ trong red_words. board = kiểu ô (y_center = tâm ô, px; hoặc y_top = mép trên của ô). pointer/phrases bên dưới chỉ dùng khi chạy tay không có --variant (ví dụ của biến thể mẫu). robot_top: đỉnh đầu robot (tỉ lệ chiều cao) sau khi hậu kỳ thu nhỏ robot ở cảnh dạy từ (nền xanh). Cảnh quảng cáo không chỉnh cỡ ở hậu kỳ (nền dính liền robot): robot nhỏ và thấp do prompt gen quyết định.",
   "ad_from": 6,
   "red_words": [
-    "inglés"
+    "inglés",
+    "inglês"
   ],
   "board": {
     "x": 70,
@@ -101,5 +102,6 @@
       "say": "Download now.",
       "text": "Download now"
     }
-  ]
+  ],
+  "robot_top": 0.52
 }

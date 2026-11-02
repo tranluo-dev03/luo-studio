@@ -3,13 +3,12 @@
     "name": "talka-robot-trang-co-chu",
     "NGUOI_DAY": "a sleek white humanoid AI robot teacher: a smooth glossy white head with fine panel seams and no hair, a realistic young woman's face with pale light blue eyes, soft lips and a calm warm expression, a black ribbed mechanical neck, and white hexagon-plated armor on the shoulders, chest and arms with black mechanical joints and thin glowing light blue accent lines",
     "TEN_DAY": "the white robot teacher",
-    "GIONG_DAY": "a warm, bright, natural young woman's voice, like a friendly language teacher recording a short lesson video, with lively, varied intonation and a smile in the voice, clear crisp diction; completely human-sounding, not robotic, no synthetic or metallic effect",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, speaking native Spanish, like a friendly language teacher recording a short lesson video, with lively, varied intonation and a smile in the voice, clear crisp diction; completely human-sounding, not robotic, no synthetic or metallic effect",
     "PHAT_AM": "PRONUNCIATION OF THE BRAND NAME (strict): the word \"Talka\" is always said as \"TAWK-ah\": the English word \"talk\" with a silent L, rhyming with \"walk\", followed by a short unstressed \"ah\", stress on the first syllable, one smooth word; never \"TAL-ka\" with an audible L and never two equal Spanish syllables \"tal-ka\"",
     "POS_DAY": "center",
     "BOX_DAY": "0.35,0.43,0.85,0.7",
     "VAI_DAY": "teacher",
     "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
-    "NEN_BANG": "a big cream-colored paper checklist with a faint dotted grid, pinned flat on a light beige wall and filling almost the whole frame. At about 6 percent from the top, the title \"¿CÓMO SE DICE?\" in thick black bold capitals. Below it eight medium-sized rows (not tiny), about 5 percent of the frame height apart, from about 12 to 47 percent from the top, so the first five rows are clearly above her head. Each row: a dark bullet, a red circle with a white check mark, and a dark bold Spanish word, in order: \"Para mí\", \"Para ti\", \"Nunca\", \"Por favor\", \"¡Gracias!\", \"Lo siento\", \"Hasta luego\", \"Cuídate\"; the Spanish words stay in the left half. To the right of each word, a thin light-gray line from about 52 to 88 percent of the frame width, the empty slot for a blue handwritten-style English word. All words sharp and correctly spelled",
     "NEN_PHO": "a vertical view of a dense big-city skyline from a high rooftop at sunset: a warm orange, pink and purple sky, thousands of small glowing lights on the buildings, softly out of focus; the upper third of the frame is calm sky with no sign boards or writing",
     "LUOT": [
       {
@@ -66,6 +65,682 @@
         "emo": "upbeat, persuasive",
         "fx": "none"
       }
-    ]
+    ],
+    "NEN_XANH": "a perfectly flat, evenly lit, saturated chroma-key green screen (about #00B140) filling the whole frame: no texture, no gradient, no shadow, no object, no text",
+    "HAU_KY": {
+      "giay": "checklist",
+      "bang": {
+        "tieu_de": "¿CÓMO SE DICE?",
+        "hang": [
+          {
+            "tu": "Para mí"
+          },
+          {
+            "tu": "Para ti"
+          },
+          {
+            "tu": "Nunca"
+          },
+          {
+            "tu": "Por favor"
+          },
+          {
+            "tu": "¡Gracias!"
+          },
+          {
+            "tu": "Lo siento"
+          },
+          {
+            "tu": "Hasta luego"
+          },
+          {
+            "tu": "Cuídate"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "talka-robot-trang-co-chu-pt",
+    "NGUOI_DAY": "a sleek white humanoid AI robot teacher: a smooth glossy white head with fine panel seams and no hair, a realistic young woman's face with pale light blue eyes, soft lips and a calm warm expression, a black ribbed mechanical neck, and white hexagon-plated armor on the shoulders, chest and arms with black mechanical joints and thin glowing light blue accent lines",
+    "TEN_DAY": "the white robot teacher",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, speaking native Brazilian Portuguese (not Spanish), like a friendly language teacher recording a short lesson video, with lively, varied intonation and a smile in the voice, clear crisp diction; completely human-sounding, not robotic, no synthetic or metallic effect",
+    "PHAT_AM": "PRONUNCIATION OF THE BRAND NAME (strict): the word \"Talka\" is always said as \"TAWK-ah\": the English word \"talk\" with a silent L, rhyming with \"walk\", followed by a short unstressed \"ah\", stress on the first syllable, one smooth word; never \"TAL-ka\" with an audible L and never two equal Portuguese syllables \"tal-ka\"",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.35,0.43,0.85,0.7",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN_PHO": "a vertical view of a dense big-city skyline from a high rooftop at sunset: a warm orange, pink and purple sky, thousands of small glowing lights on the buildings, softly out of focus; the upper third of the frame is calm sky with no sign boards or writing",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Como se diz para mim em inglês? Se diz, for me. Repita comigo. For me.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Como se diz para você? Se diz, for you. Repita comigo. For you.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Como se diz nunca? Se diz, never. Repita comigo. Never.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "O inglês não é difícil, e você vai descobrir que eu tenho razão se seguir esta página.",
+        "emo": "confident, warm",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Como se diz por favor? Se diz, please. Repita comigo. Please.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Como se diz obrigado? Se diz, thank you. Repita comigo. Thank you.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Quer aprender inglês de um jeito mais fácil?",
+        "emo": "friendly, curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Baixe o Talka e em apenas quatro semanas você vai soar como um falante nativo.",
+        "emo": "enthusiastic, persuasive",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Um tutor com IA que corrige você em tempo real e acelera o seu progresso. Best Language Learning App. Download now.",
+        "emo": "upbeat, persuasive",
+        "fx": "none"
+      }
+    ],
+    "NEN_XANH": "a perfectly flat, evenly lit, saturated chroma-key green screen (about #00B140) filling the whole frame: no texture, no gradient, no shadow, no object, no text",
+    "HAU_KY": {
+      "giay": "checklist",
+      "bang": {
+        "tieu_de": "COMO SE DIZ?",
+        "hang": [
+          {
+            "tu": "Para mim"
+          },
+          {
+            "tu": "Para você"
+          },
+          {
+            "tu": "Nunca"
+          },
+          {
+            "tu": "Por favor"
+          },
+          {
+            "tu": "Obrigado!"
+          },
+          {
+            "tu": "Sinto muito"
+          },
+          {
+            "tu": "Até logo"
+          },
+          {
+            "tu": "Se cuida"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "talka-robot-trang-bt2",
+    "NGUOI_DAY": "a sleek white humanoid AI robot teacher: a smooth glossy white head with fine panel seams and no hair, a realistic young woman's face with pale light blue eyes, soft lips and a calm warm expression, a black ribbed mechanical neck, and white hexagon-plated armor on the shoulders, chest and arms with black mechanical joints and thin glowing light blue accent lines",
+    "TEN_DAY": "the white robot teacher",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, speaking native Spanish, like a friendly language teacher recording a short lesson video, with lively, varied intonation and a smile in the voice, clear crisp diction; completely human-sounding, not robotic, no synthetic or metallic effect",
+    "PHAT_AM": "PRONUNCIATION OF THE BRAND NAME (strict): the word \"Talka\" is always said as \"TAWK-ah\": the English word \"talk\" with a silent L, rhyming with \"walk\", followed by a short unstressed \"ah\", stress on the first syllable, one smooth word; never \"TAL-ka\" with an audible L and never two equal Spanish syllables \"tal-ka\"",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.35,0.43,0.85,0.7",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN_PHO": "a vertical view of a dense big-city skyline from a high rooftop at sunset: a warm orange, pink and purple sky, thousands of small glowing lights on the buildings, softly out of focus; the upper third of the frame is calm sky with no sign boards or writing",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "¿Cómo se dice disculpa en inglés? Se dice, excuse me. Repite conmigo. Excuse me.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice buenos días? Se dice, good morning. Repite conmigo. Good morning.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice adiós? Se dice, goodbye. Repite conmigo. Goodbye.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "El inglés no es difícil y descubrirás que tengo razón si sigues esta página.",
+        "emo": "confident, warm",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice cómo estás? Se dice, how are you. Repite conmigo. How are you.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice gracias? Se dice, thank you. Repite conmigo. Thank you.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Quieres aprender inglés de una manera más fácil?",
+        "emo": "friendly, curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Descarga Talka y en solo cuatro semanas podrás sonar como un hablante nativo.",
+        "emo": "enthusiastic, persuasive",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Un tutor con IA que te corrige en tiempo real y acelera tu progreso. Best Language Learning App. Download now.",
+        "emo": "upbeat, persuasive",
+        "fx": "none"
+      }
+    ],
+    "NEN_XANH": "a perfectly flat, evenly lit, saturated chroma-key green screen (about #00B140) filling the whole frame: no texture, no gradient, no shadow, no object, no text",
+    "HAU_KY": {
+      "giay": "checklist",
+      "bang": {
+        "tieu_de": "¿CÓMO SE DICE?",
+        "hang": [
+          {
+            "tu": "Disculpa"
+          },
+          {
+            "tu": "Buenos días"
+          },
+          {
+            "tu": "Adiós"
+          },
+          {
+            "tu": "¿Cómo estás?"
+          },
+          {
+            "tu": "Gracias"
+          },
+          {
+            "tu": "Te amo"
+          },
+          {
+            "tu": "Por favor"
+          },
+          {
+            "tu": "Lo siento"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "talka-robot-trang-bt3",
+    "NGUOI_DAY": "a sleek white humanoid AI robot teacher: a smooth glossy white head with fine panel seams and no hair, a realistic young woman's face with pale light blue eyes, soft lips and a calm warm expression, a black ribbed mechanical neck, and white hexagon-plated armor on the shoulders, chest and arms with black mechanical joints and thin glowing light blue accent lines",
+    "TEN_DAY": "the white robot teacher",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, speaking native Spanish, like a friendly language teacher recording a short lesson video, with lively, varied intonation and a smile in the voice, clear crisp diction; completely human-sounding, not robotic, no synthetic or metallic effect",
+    "PHAT_AM": "PRONUNCIATION OF THE BRAND NAME (strict): the word \"Talka\" is always said as \"TAWK-ah\": the English word \"talk\" with a silent L, rhyming with \"walk\", followed by a short unstressed \"ah\", stress on the first syllable, one smooth word; never \"TAL-ka\" with an audible L and never two equal Spanish syllables \"tal-ka\"",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.35,0.43,0.85,0.7",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN_PHO": "a vertical view of a dense big-city skyline from a high rooftop at sunset: a warm orange, pink and purple sky, thousands of small glowing lights on the buildings, softly out of focus; the upper third of the frame is calm sky with no sign boards or writing",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "¿Cómo se dice disculpa en inglés? Se dice, excuse me. Repite conmigo. Excuse me.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice buenos días? Se dice, good morning. Repite conmigo. Good morning.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice adiós? Se dice, goodbye. Repite conmigo. Goodbye.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "El inglés no es difícil y descubrirás que tengo razón si sigues esta página.",
+        "emo": "confident, warm",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice cómo estás? Se dice, how are you. Repite conmigo. How are you.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice gracias? Se dice, thank you. Repite conmigo. Thank you.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Quieres aprender inglés de una manera más fácil?",
+        "emo": "friendly, curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Descarga Talka y en solo cuatro semanas podrás sonar como un hablante nativo.",
+        "emo": "enthusiastic, persuasive",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Un tutor con IA que te corrige en tiempo real y acelera tu progreso. Best Language Learning App. Download now.",
+        "emo": "upbeat, persuasive",
+        "fx": "none"
+      }
+    ],
+    "NEN_XANH": "a perfectly flat, evenly lit, saturated chroma-key green screen (about #00B140) filling the whole frame: no texture, no gradient, no shadow, no object, no text",
+    "HAU_KY": {
+      "giay": "hai-cot",
+      "bang": {
+        "tieu_de": "¿Cómo se dice?",
+        "hang": [
+          {
+            "tu": "Disculpa",
+            "icon": "💬"
+          },
+          {
+            "tu": "Buenos días",
+            "icon": "☀"
+          },
+          {
+            "tu": "Adiós",
+            "icon": "✋"
+          },
+          {
+            "tu": "¿Cómo estás?",
+            "icon": "👤"
+          },
+          {
+            "tu": "Gracias",
+            "icon": "🎁"
+          },
+          {
+            "tu": "Te amo",
+            "icon": "♡"
+          },
+          {
+            "tu": "Por favor",
+            "icon": "🙏"
+          },
+          {
+            "tu": "Lo siento",
+            "icon": "☹"
+          }
+        ],
+        "dau_trai": "Español"
+      }
+    }
+  },
+  {
+    "name": "talka-robot-trang-bt4-pt",
+    "NGUOI_DAY": "a sleek white humanoid AI robot teacher: a smooth glossy white head with fine panel seams and no hair, a realistic young woman's face with pale light blue eyes, soft lips and a calm warm expression, a black ribbed mechanical neck, and white hexagon-plated armor on the shoulders, chest and arms with black mechanical joints and thin glowing light blue accent lines",
+    "TEN_DAY": "the white robot teacher",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, speaking native Brazilian Portuguese (not Spanish), like a friendly language teacher recording a short lesson video, with lively, varied intonation and a smile in the voice, clear crisp diction; completely human-sounding, not robotic, no synthetic or metallic effect",
+    "PHAT_AM": "PRONUNCIATION OF THE BRAND NAME (strict): the word \"Talka\" is always said as \"TAWK-ah\": the English word \"talk\" with a silent L, rhyming with \"walk\", followed by a short unstressed \"ah\", stress on the first syllable, one smooth word; never \"TAL-ka\" with an audible L and never two equal Portuguese syllables \"tal-ka\"",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.35,0.43,0.85,0.7",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN_PHO": "a vertical view of a dense big-city skyline from a high rooftop at sunset: a warm orange, pink and purple sky, thousands of small glowing lights on the buildings, softly out of focus; the upper third of the frame is calm sky with no sign boards or writing",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Como se diz desculpa em inglês? Se diz, excuse me. Repita comigo. Excuse me.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Como se diz bom dia? Se diz, good morning. Repita comigo. Good morning.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Como se diz tchau? Se diz, goodbye. Repita comigo. Goodbye.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "O inglês não é difícil, e você vai descobrir que eu tenho razão se seguir esta página.",
+        "emo": "confident, warm",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Como se diz como vai? Se diz, how are you. Repita comigo. How are you.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Como se diz obrigado? Se diz, thank you. Repita comigo. Thank you.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Quer aprender inglês de um jeito mais fácil?",
+        "emo": "friendly, curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Baixe o Talka e em apenas quatro semanas você vai soar como um falante nativo.",
+        "emo": "enthusiastic, persuasive",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Um tutor com IA que corrige você em tempo real e acelera o seu progresso. Best Language Learning App. Download now.",
+        "emo": "upbeat, persuasive",
+        "fx": "none"
+      }
+    ],
+    "NEN_XANH": "a perfectly flat, evenly lit, saturated chroma-key green screen (about #00B140) filling the whole frame: no texture, no gradient, no shadow, no object, no text",
+    "HAU_KY": {
+      "giay": "hai-cot",
+      "bang": {
+        "tieu_de": "Como se diz?",
+        "hang": [
+          {
+            "tu": "Desculpa",
+            "icon": "💬"
+          },
+          {
+            "tu": "Bom dia",
+            "icon": "☀"
+          },
+          {
+            "tu": "Tchau",
+            "icon": "✋"
+          },
+          {
+            "tu": "Como vai?",
+            "icon": "👤"
+          },
+          {
+            "tu": "Obrigado",
+            "icon": "🎁"
+          },
+          {
+            "tu": "Eu te amo",
+            "icon": "♡"
+          },
+          {
+            "tu": "Por favor",
+            "icon": "🙏"
+          },
+          {
+            "tu": "Sinto muito",
+            "icon": "☹"
+          }
+        ],
+        "dau_trai": "Português"
+      }
+    }
+  },
+  {
+    "name": "talka-robot-trang-bt5",
+    "NGUOI_DAY": "a sleek white humanoid AI robot teacher: a smooth glossy white head with fine panel seams and no hair, a realistic young woman's face with pale light blue eyes, soft lips and a calm warm expression, a black ribbed mechanical neck, and white hexagon-plated armor on the shoulders, chest and arms with black mechanical joints and thin glowing light blue accent lines",
+    "TEN_DAY": "the white robot teacher",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, speaking native Spanish, like a friendly language teacher recording a short lesson video, with lively, varied intonation and a smile in the voice, clear crisp diction; completely human-sounding, not robotic, no synthetic or metallic effect",
+    "PHAT_AM": "PRONUNCIATION OF THE BRAND NAME (strict): the word \"Talka\" is always said as \"TAWK-ah\": the English word \"talk\" with a silent L, rhyming with \"walk\", followed by a short unstressed \"ah\", stress on the first syllable, one smooth word; never \"TAL-ka\" with an audible L and never two equal Spanish syllables \"tal-ka\"",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.35,0.43,0.85,0.7",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN_PHO": "a vertical view of a dense big-city skyline from a high rooftop at sunset: a warm orange, pink and purple sky, thousands of small glowing lights on the buildings, softly out of focus; the upper third of the frame is calm sky with no sign boards or writing",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "¿Cómo se dice para mí en inglés? Se dice, for me. Repite conmigo. For me.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice para ti? Se dice, for you. Repite conmigo. For you.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice nunca? Se dice, never. Repite conmigo. Never.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "El inglés no es difícil y descubrirás que tengo razón si sigues esta página.",
+        "emo": "confident, warm",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice por favor? Se dice, please. Repite conmigo. Please.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice gracias? Se dice, thank you. Repite conmigo. Thank you.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Quieres aprender inglés de una manera más fácil?",
+        "emo": "friendly, curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Descarga Talka y en solo cuatro semanas podrás sonar como un hablante nativo.",
+        "emo": "enthusiastic, persuasive",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Un tutor con IA que te corrige en tiempo real y acelera tu progreso. Best Language Learning App. Download now.",
+        "emo": "upbeat, persuasive",
+        "fx": "none"
+      }
+    ],
+    "NEN_XANH": "a perfectly flat, evenly lit, saturated chroma-key green screen (about #00B140) filling the whole frame: no texture, no gradient, no shadow, no object, no text",
+    "HAU_KY": {
+      "giay": "so-tay",
+      "bang": {
+        "tieu_de": "¿CÓMO SE DICE?",
+        "hang": [
+          {
+            "tu": "Para mí",
+            "icon": "👤"
+          },
+          {
+            "tu": "Para ti",
+            "icon": "✋"
+          },
+          {
+            "tu": "Nunca",
+            "icon": "🚫"
+          },
+          {
+            "tu": "Por favor",
+            "icon": "🙏"
+          },
+          {
+            "tu": "¡Gracias!",
+            "icon": "♡"
+          },
+          {
+            "tu": "Lo siento",
+            "icon": "☹"
+          },
+          {
+            "tu": "Hasta luego",
+            "icon": "✋"
+          },
+          {
+            "tu": "Cuídate",
+            "icon": "☺"
+          }
+        ]
+      },
+      "but": "fountain"
+    }
+  },
+  {
+    "name": "talka-robot-trang-bt6",
+    "NGUOI_DAY": "a sleek white humanoid AI robot teacher: a smooth glossy white head with fine panel seams and no hair, a realistic young woman's face with pale light blue eyes, soft lips and a calm warm expression, a black ribbed mechanical neck, and white hexagon-plated armor on the shoulders, chest and arms with black mechanical joints and thin glowing light blue accent lines",
+    "TEN_DAY": "the white robot teacher",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, speaking native Spanish, like a friendly language teacher recording a short lesson video, with lively, varied intonation and a smile in the voice, clear crisp diction; completely human-sounding, not robotic, no synthetic or metallic effect",
+    "PHAT_AM": "PRONUNCIATION OF THE BRAND NAME (strict): the word \"Talka\" is always said as \"TAWK-ah\": the English word \"talk\" with a silent L, rhyming with \"walk\", followed by a short unstressed \"ah\", stress on the first syllable, one smooth word; never \"TAL-ka\" with an audible L and never two equal Spanish syllables \"tal-ka\"",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.35,0.43,0.85,0.7",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN_PHO": "a vertical view of a dense big-city skyline from a high rooftop at sunset: a warm orange, pink and purple sky, thousands of small glowing lights on the buildings, softly out of focus; the upper third of the frame is calm sky with no sign boards or writing",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "¿Cómo se dice dios mío en inglés? Se dice, oh my god. Repite conmigo. Oh my god.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice gracias? Se dice, thank you. Repite conmigo. Thank you.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice por qué? Se dice, why. Repite conmigo. Why.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "El inglés no es difícil y descubrirás que tengo razón si sigues esta página.",
+        "emo": "confident, warm",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice cómo? Se dice, how. Repite conmigo. How.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice mañana? Se dice, tomorrow. Repite conmigo. Tomorrow.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Quieres aprender inglés de una manera más fácil?",
+        "emo": "friendly, curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Descarga Talka y en solo cuatro semanas podrás sonar como un hablante nativo.",
+        "emo": "enthusiastic, persuasive",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Un tutor con IA que te corrige en tiempo real y acelera tu progreso. Best Language Learning App. Download now.",
+        "emo": "upbeat, persuasive",
+        "fx": "none"
+      }
+    ],
+    "NEN_XANH": "a perfectly flat, evenly lit, saturated chroma-key green screen (about #00B140) filling the whole frame: no texture, no gradient, no shadow, no object, no text",
+    "HAU_KY": {
+      "giay": "hai-cot-icon-trai",
+      "bang": {
+        "tieu_de": "¿CÓMO SE DICE?",
+        "hang": [
+          {
+            "tu": "Dios mío",
+            "icon": "🙏"
+          },
+          {
+            "tu": "Gracias",
+            "icon": "🎁"
+          },
+          {
+            "tu": "Por qué",
+            "icon": "❓"
+          },
+          {
+            "tu": "Cómo",
+            "icon": "🔍"
+          },
+          {
+            "tu": "Mañana",
+            "icon": "🌅"
+          },
+          {
+            "tu": "Para mí",
+            "icon": "♡"
+          },
+          {
+            "tu": "Para ti",
+            "icon": "👤"
+          },
+          {
+            "tu": "Nunca",
+            "icon": "🚫"
+          }
+        ],
+        "dau_trai": "Español"
+      },
+      "but": "ballpoint"
+    }
   }
 ]

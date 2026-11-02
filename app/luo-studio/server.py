@@ -525,7 +525,7 @@ def custom_post(p):
         m = re.search(r"^\[HAU KY\]:[ \t]*\r?\n(?:(?!\[)[^\n]*\n)*?[ \t]*loai:[ \t]*([\w-]+)", script + "\n", re.M)   # khối [HAU KY] có dòng "loai: <mã thể loại>"
         if m:
             name = m.group(1)
-        elif tid.upper().startswith("KICH-BAN-TALKA") or ("{{NEN_BANG}}" in script and "{{NEN_PHO}}" in script):
+        elif tid.upper().startswith("KICH-BAN-TALKA") or (("{{NEN_BANG}}" in script or "{{NEN_XANH}}" in script) and "{{NEN_PHO}}" in script):
             name = "talka-bang-tu-vung"
     name = {"talka_vocab": "talka-bang-tu-vung"}.get(name, name)   # tên cũ
     path = os.path.join(PRODUCTION, "types", name, "post.py") if name else ""
