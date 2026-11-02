@@ -455,13 +455,20 @@ def scene_marks(d, raw):
 
 def custom_post(p):
     """Hậu kỳ riêng theo thể loại video: app/production/types/<mã thể loại>/post.py (mã trùng tên thư mục SAMPLE/<mã thể loại>).
-    Loại dự án khai báo bằng khoá "post" trong file loại; chưa khai báo thì nhận theo tên loại (KICH-BAN-TALKA... -> talka-bang-tu-vung)."""
+    Loại dự án khai báo bằng khoá "post" trong file loại; chưa khai báo thì nhận theo tên loại (bắt đầu bằng KICH-BAN-TALKA) hoặc theo kịch bản (dùng token {{NEN_BANG}} và {{NEN_PHO}})."""
     tid = p.get("template") or ""
     try:
-        t = jread(type_path(tid))
+        t = jread(type_path(tid)) or {}
     except (OSError, ValueError):
         t = {}
-    name = t.get("post") or ("talka-bang-tu-vung" if tid.upper().startswith("KICH-BAN-TALKA") else "")
+    name = t.get("post") or ""
+    if not name:   # chưa khai báo: nhận theo tên loại, hoặc theo nội dung kịch bản (user có thể đặt tên loại tuỳ ý khi nhập)
+        try:
+            script = template_text(tid) or ""
+        except Exception:  # noqa: BLE001
+            script = ""
+        if tid.upper().startswith("KICH-BAN-TALKA") or ("{{NEN_BANG}}" in script and "{{NEN_PHO}}" in script):
+            name = "talka-bang-tu-vung"
     name = {"talka_vocab": "talka-bang-tu-vung"}.get(name, name)   # tên cũ
     path = os.path.join(PRODUCTION, "types", name, "post.py") if name else ""
     return path if path and os.path.exists(path) else ""
