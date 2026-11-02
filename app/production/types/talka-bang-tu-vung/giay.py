@@ -53,6 +53,14 @@ def _shadow(im, box, blur, off, alpha):
     im.paste(Image.alpha_composite(im.convert("RGBA"), sh.filter(ImageFilter.GaussianBlur(blur))).convert("RGB"))
 
 
+def _fit(names, size, text, maxw):
+    """Font cỡ `size`, thu nhỏ dần nếu `text` rộng hơn `maxw` (từ dài như "Prazer em conhecer você" không được lấn sang cột tiếng Anh)."""
+    f = _font(names, size)
+    while f.size > 24 and f.getlength(text) > maxw:
+        f = _font(names, f.size * 0.94)
+    return f
+
+
 def _ink(d, xy, text, font, fill, anchor="ls"):
     d.text(xy, text, font=font, fill=fill, anchor=anchor)
     return d.textbbox(xy, text, font=font, anchor=anchor)
@@ -81,8 +89,9 @@ def _checklist(w, h, spec, y1, step):
             d.ellipse((gx - r, gy - r, gx + r, gy + r), fill=(206, 199, 182))
     _ink(d, (w // 2, int(h * 0.075)), spec.get("tieu_de", ""), _font(SERIF_B, h * 0.05), (20, 20, 20), "ms")
     sc = min(1.12, max(1.0, step / 0.05))   # bước hàng lớn hơn thì chữ và vòng tròn to lên theo
-    fw, geo = _font(SANS_B, h * 0.029 * sc), []
+    geo = []
     for k, row in enumerate(spec["hang"]):
+        fw = _fit(SANS_B, h * 0.029 * sc, row["tu"], w * 0.39)
         yc = (y1 + step * k) * h
         base = int(yc + h * 0.010 * sc)
         b, rc = int(w * 0.07), int(h * 0.0155 * sc)
@@ -115,10 +124,11 @@ def _lined(w, h, spec, icon_left, y1, step):
     d.line((lb[0], hy + 8, lb[2], hy + 8), fill=(54, 58, 72), width=max(3, int(h * 0.002)))
     rb = _ink(d, (int(w * 0.77), hy), spec.get("dau_phai", "English"), fh, (36, 40, 54), "ms")
     d.line((rb[0], hy + 8, rb[2], hy + 8), fill=(206, 56, 60), width=max(3, int(h * 0.002)))
-    fw, geo = _font(HAND, h * 0.031 * sc), []
+    geo = []
     for k, row in enumerate(spec["hang"]):
         base = int((y1 + step * k) * h) - 6
         ic = row.get("icon", "")
+        fw = _fit(HAND, h * 0.031 * sc, row["tu"], w * (0.31 if icon_left else 0.46) - (0 if icon_left or not ic else h * 0.034 + 10))
         if icon_left:
             _icon(d, int(w * 0.045), base, ic, h * 0.034 * sc, (30, 34, 46))
             box_es = _word(d, int(w * 0.19), base, row["tu"], fw, (36, 40, 54))
@@ -145,9 +155,10 @@ def _notepad(w, h, spec, y1, step):
     for j in range(int((0.96 - y1) / step) + 1):   # vạch kẻ chạy hết tờ giấy
         y = int((y1 + step * j) * h)
         d.line((int(w * 0.1), y, int(w * 0.9), y), fill=(186, 184, 176), width=max(2, int(h * 0.0016)))
-    fw, geo = _font(SERIF, h * 0.032 * sc), []
+    geo = []
     for k, row in enumerate(spec["hang"]):
         base = int((y1 + step * k) * h) - 6
+        fw = _fit(SERIF, h * 0.032 * sc, row["tu"], w * 0.45 - (h * 0.034 if row.get("icon") else 0))
         box_es = _word(d, int(w * 0.12), base, row["tu"], fw, (28, 28, 32))
         _icon(d, box_es[2] + int(w * 0.03), base, row.get("icon", ""), h * 0.034 * sc, (30, 30, 36))
         geo.append({"es_box": box_es, "slot": int(w * 0.60) + 6, "base": base - 2})

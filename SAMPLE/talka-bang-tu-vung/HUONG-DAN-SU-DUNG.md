@@ -14,7 +14,7 @@ Video: robot AI dạy cách nói từ Tây Ban Nha bằng tiếng Anh trước m
 3. **Gen**: bấm chạy. Mỗi cảnh mất vài phút. Xem nhanh từng cảnh:
    - cả 9 cảnh: phía sau robot chỉ là **một màu xanh lục phẳng** (không giấy, không thành phố, không chữ, không tay, không bút). Nền xanh không phẳng hoặc có vật lạ thì gen lại cảnh đó;
    - robot đọc **đúng lời**. Lỗi hay gặp: đọc lẫn từ tiếng Anh vào câu hỏi, ví dụ "¿Cómo se dice **please**?". Gặp thì bấm **gen lại cảnh đó**, và cả cảnh ngay sau nó để hai cảnh nối khớp.
-4. **Hậu kỳ**: bấm Hậu kỳ. Studio tự thêm tờ giấy, bút đỏ, chữ tiếng Anh, video nền thành phố (lần đầu mất thêm vài phút để gen, lưu `nen_pho.mp4` trong thư mục chạy) và ô bảng quảng cáo. Không có phụ đề, logo hay end card.
+4. **Hậu kỳ**: tự chạy khi gen xong (không cần bấm; hỏng thì bấm Hậu kỳ lại). Studio tự thêm tờ giấy, bút đỏ, chữ tiếng Anh, video nền thành phố (lần đầu mất thêm vài phút để gen, lưu `nen_pho.mp4` trong thư mục chạy) và ô bảng quảng cáo. Không có phụ đề, logo hay end card.
 
 ---
 

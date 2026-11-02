@@ -10,7 +10,9 @@ Video mẫu: robot AI dạy cách nói từ Tây Ban Nha bằng tiếng Anh trư
 |---|---|
 | `HUONG-DAN-SU-DUNG.md` | Hướng dẫn sử dụng + prompt mẫu nhờ AI viết biến thể |
 | `KICH-BAN-TALKA-CO-CHU.txt` | Kịch bản đang dùng: 9 cảnh (6 cảnh bảng chữ + 3 cảnh quảng cáo nền thành phố) |
-| `BIEN-THE-TALKA-CO-CHU.json` | Biến thể: robot, giọng, phát âm "Talka", nền xanh (`NEN_XANH`) và nền thành phố (`NEN_PHO`), tờ giấy cho hậu kỳ dựng (`HAU_KY.bang`), 9 lượt thoại |
+| `BIEN-THE-TALKA-CO-CHU.json` | **20 biến thể** (1–10 tiếng Tây Ban Nha giấy checklist; 11–13 tiếng Bồ Đào Nha giấy kẻ hai cột + bút bi đỏ; 14–20 tiếng Bồ Đào Nha sổ lò xo + bút máy, có icon). Mỗi biến thể: robot, giọng, phát âm "Talka", nền xanh (`NEN_XANH`) và nền thành phố (`NEN_PHO`), tờ giấy cho hậu kỳ dựng (`HAU_KY.bang`), 9 lượt thoại |
+| `anh-mau/` | 2 ảnh giấy mẫu của biến thể 11–20 (`giay-hai-cot.png`, `giay-so-tay.png`). Giấy do hậu kỳ vẽ bằng code theo `HAU_KY.giay` nên **không gửi cho Muse** (Muse chỉ gen robot nền xanh) |
+| `cong-cu/tao-20-bien-the.py` | Tạo lại file 20 biến thể (danh sách từ, icon, giấy, bút); nền lấy từ `phien-ban-cu/BIEN-THE-TALKA-7-BIEN-THE.json`. Mỗi biến thể đọc 5 từ đầu, các từ còn lại có trên giấy nhưng không đọc |
 | `cong-cu/tao-kich-ban.py` | Tạo lại 2 file trên. Muốn sửa prompt thì sửa file này rồi chạy `python cong-cu/tao-kich-ban.py` |
 | `PHAN-TICH-VIDEO-MAU.md` | Phân tích video gốc: lời thoại, thời lượng, bố cục |
 | `phien-ban-cu/` | Bản đầu (bảng không chữ), giữ tham khảo |

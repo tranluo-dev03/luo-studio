@@ -54,7 +54,7 @@ Mỗi biến thể = một video.
 > **Chạy thử 1 biến thể trước**, ưng rồi mới chạy cả nhóm (tiết kiệm lượt Muse).
 
 ### Bước 5: Hậu kỳ và lấy video
-Tab **Kết quả** → **Hậu kỳ**. Video hoàn chỉnh nằm ở `userdata\studio\exports\<dự án>\` (nút **Mở thư mục**).
+Hậu kỳ **tự chạy** ngay khi gen xong và ghép xong clip (không cần bấm). Xong thì xem ở tab **Kết quả**; nếu hậu kỳ lỗi thì bấm **Hậu kỳ lại**. Video hoàn chỉnh nằm ở `userdata\studio\exports\<dự án>\` (nút **Mở thư mục**).
 
 ---
 

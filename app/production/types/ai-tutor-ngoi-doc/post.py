@@ -14,9 +14,9 @@ PROD = os.path.dirname(os.path.dirname(HERE))
 ROOT = os.path.dirname(os.path.dirname(PROD))
 sys.path[:0] = [PROD]
 import postprocess as P  # noqa: E402
+import layout_fit as LF  # noqa: E402
 
 W, H = 1080, 1920
-ROBOT_SCALE = 0.80   # robot thu về 80% và neo đáy giữa khung: đầu robot luôn nằm dưới bảng (~37%); phần trống phía trên là nền mờ của chính video
 FONT_B = r"C:\Windows\Fonts\arialbd.ttf" if os.name == "nt" else "DejaVuSans-Bold.ttf"
 LANG = {"portuguese": "pt", "english": "en", "spanish": "es", "french": "fr", "german": "de", "italian": "it", "vietnamese": "vi",
         "japanese": "ja", "korean": "ko", "chinese": "zh", "russian": "ru", "turkish": "tr", "arabic": "ar", "hindi": "hi", "indonesian": "id"}
@@ -315,9 +315,10 @@ def main():
             c = int(W * 0.13)
             avatar = f0.crop((W // 2 - c, int(H * 0.25), W // 2 + c, int(H * 0.25) + 2 * c))
         cmd = ["ffmpeg", "-y", "-i", a.raw]
-        rw, rh = int(W * ROBOT_SCALE) // 2 * 2, int(H * ROBOT_SCALE) // 2 * 2
-        fc = (f"[0:v]fps=30,split[a][b];[a]scale={W}:{H},boxblur=40:5[bg];[b]scale={rw}:{rh}:flags=lanczos[fg];"
-              f"[bg][fg]overlay={(W - rw) // 2}:{H - rh}[v0]")
+        top = LF.head_top(a.raw)
+        if top is not None and top < LF.HEAD_OK:
+            print(f"CẢNH BÁO: đỉnh đầu robot ở {top * 100:.0f}% khung (< {LF.HEAD_OK * 100:.0f}%): bảng sẽ che mặt. Gen lại cảnh 1 (Studio tự thu cỡ + vẽ nối nền) thay vì thu/làm mờ khi hậu kỳ.")
+        fc = f"[0:v]scale={W}:{H}:flags=lanczos,fps=30[v0]"
         last = "v0"
         for k, (s, e, im) in enumerate(cards):
             pth = os.path.join(work, f"card{k}.png")

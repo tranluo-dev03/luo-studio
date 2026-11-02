@@ -282,7 +282,103 @@ class Api(G.Api):
                 raise RuntimeError("Hết thời gian chờ")
 
 
+# ------------------------------------------------------------------ bố cục khung đầu cố định
+def fit_start_frame(api, img_f, session, opts, emit, n, pin, pin_prefer, cancel, note_account):
+    """Thể loại có bảng chèn phía trên: nếu nhân vật trong ảnh khung đầu quá to (đỉnh đầu cao hơn ~33% khung) thì thu về đúng cỡ, neo đáy, rồi nhờ Muse vẽ nối nền
+    cho kín khung (không viền mờ, nền vẫn là nền gốc). Ảnh gốc giữ ở <ảnh>.orig.png. Muse vẽ lỗi / đổi cỡ thì thử lại, hết lượt thì giữ ảnh gốc và báo."""
+    import layout_fit as LF
+    top = LF.head_top(img_f)
+    if top is None:
+        emit("log", msg=f"Cảnh {n}: không dò được đầu nhân vật trong ảnh khung đầu, giữ nguyên", level="warn")
+        return
+    if top >= LF.HEAD_OK:
+        emit("log", msg=f"Cảnh {n}: nhân vật đúng cỡ (đỉnh đầu ở {top * 100:.0f}% khung)")
+        return
+    s = LF.scale_for(top)
+    emit("log", msg=f"Cảnh {n}: nhân vật quá to (đỉnh đầu ở {top * 100:.0f}% khung, bảng sẽ che mặt): thu {s:.2f} rồi nhờ Muse vẽ nối nền")
+    orig = img_f + ".orig.png"
+    shutil.copy(img_f, orig)
+    canvas = img_f + ".canvas.png"
+    LF.make_canvas(orig, canvas, s)
+    for i in range(1, opts["retries"] + 2):
+        try:
+            b = api.generate("image", G.muse_image_prompt(LF.OUTPAINT_PROMPT, "", 1), [G.data_url(canvas)], session, timeout=opts["timeout"],
+                             on_status=lambda st, p: emit("scene", n=n, state="image", pct=p or 0), cancel=cancel, on_account=note_account,
+                             pin=pin, pin_prefer=pin_prefer)
+            tmp = img_f + ".fit.png"
+            if G.kind_of(b) == "video":
+                open(tmp + ".mp4", "wb").write(b)
+                grab_frame(tmp + ".mp4", tmp)
+                os.remove(tmp + ".mp4")
+            else:
+                open(tmp, "wb").write(b)
+            t2 = LF.head_top(tmp)
+            if t2 is not None and t2 >= LF.HEAD_OK:
+                os.replace(tmp, img_f)
+                emit("log", msg=f"Cảnh {n}: đã mở rộng nền, đỉnh đầu ở {t2 * 100:.0f}% khung")
+                break
+            emit("log", msg=f"Cảnh {n}: Muse vẽ nối nền chưa đúng cỡ (đỉnh đầu {'?' if t2 is None else f'{t2 * 100:.0f}%'}), thử lại {i}/{opts['retries'] + 1}", level="warn")
+        except Cancelled:
+            raise
+        except Exception as e:  # noqa: BLE001
+            emit("log", msg=f"Cảnh {n}: vẽ nối nền lỗi: {e}", level="warn")
+    else:
+        emit("log", msg=f"Cảnh {n}: không mở rộng nền được, giữ ảnh gốc (nhân vật to, bảng có thể che mặt)", level="warn")
+    for f in (canvas, img_f + ".fit.png"):
+        if os.path.exists(f):
+            os.remove(f)
+
+
 # ------------------------------------------------------------------ tham chiếu đính kèm theo token
+_REMBG = {}
+
+
+def _cutout(im):
+    """Tách phông (rembg, model u2net_human_seg chạy tại máy). Trả về ảnh RGBA hoặc None nếu chưa cài rembg / lỗi."""
+    try:
+        from rembg import new_session, remove
+        if "s" not in _REMBG:
+            _REMBG["s"] = new_session("u2net_human_seg")
+        return remove(im, session=_REMBG["s"])
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def reframe_ref(path, out_dir, scale=0.85):
+    """Ảnh nhân vật tham chiếu thường là cận cảnh, có sẵn nền riêng nên Muse chép luôn cỡ, khung và nền của ảnh. Tách phông nhân vật, thu còn `scale` chiều rộng,
+    neo đáy giữa khung 9:16 trên nền trơn: Muse chỉ lấy mặt/trang phục, nền lấy từ lời dặn, nhân vật nhỏ và 1/3 trên trống (~đầu ở 34%).
+    Chưa cài rembg thì dùng nền là chính ảnh phóng to và làm mờ (kém hơn)."""
+    try:
+        from PIL import Image, ImageFilter
+        os.makedirs(out_dir, exist_ok=True)
+        dst = os.path.join(out_dir, "reframed_" + os.path.splitext(os.path.basename(path))[0] + ".png")
+        if os.path.exists(dst) and os.path.getmtime(dst) >= os.path.getmtime(path):
+            return dst
+        W, H = 720, 1280
+        im = Image.open(path).convert("RGB")
+        cut = _cutout(im)
+        fw = int(W * scale)
+        if cut is not None:
+            canvas = Image.new("RGBA", (W, H), (226, 226, 226, 255))
+            fg = cut.resize((fw, max(1, int(cut.height * fw / cut.width))), Image.LANCZOS)
+            if fg.height > H:
+                fg = fg.resize((max(1, int(fg.width * H / fg.height)), H), Image.LANCZOS)
+            canvas.alpha_composite(fg, ((W - fg.width) // 2, H - fg.height))
+            canvas.convert("RGB").save(dst)
+            return dst
+        k = max(W / im.width, H / im.height)
+        bg = im.resize((int(im.width * k) + 1, int(im.height * k) + 1)).filter(ImageFilter.GaussianBlur(24))
+        canvas = bg.crop(((bg.width - W) // 2, (bg.height - H) // 2, (bg.width - W) // 2 + W, (bg.height - H) // 2 + H))
+        fg = im.resize((fw, max(1, int(im.height * fw / im.width))))
+        if fg.height > H:
+            fg = fg.resize((max(1, int(fg.width * H / fg.height)), H))
+        canvas.paste(fg, ((W - fg.width) // 2, H - fg.height))
+        canvas.save(dst)
+        return dst
+    except Exception:  # noqa: BLE001 - không xử lý được thì dùng ảnh gốc
+        return path
+
+
 def attachments(vdata, opts, keep=None, offset=0, missing=None, lead=None):
     """(ảnh data-url, chú thích ảnh, [(nhóm, audio data-url)]) từ vdata["refs"] = {TOKEN: [{type,file,name}]}.
     keep(token, nhóm) -> bool: chỉ lấy tệp của các token thoả điều kiện (chế độ ghép 2 lớp: mỗi nhân vật chỉ nhận ảnh của chính nó).
@@ -317,8 +413,10 @@ def attachments(vdata, opts, keep=None, offset=0, missing=None, lead=None):
             if it.get("type") == "audio":
                 auds.append((groups.get(key, "other"), G.data_url(p)))
             else:
-                imgs.append(G.data_url(p))
-                notes.append(f"reference image #{offset + len(imgs)} is {describe(key)}")
+                framed = opts.get("layout_ref") and key.upper().startswith("NGUOI")   # thể loại có bố cục cố định: ảnh nhân vật chỉ để lấy mặt/trang phục
+                imgs.append(G.data_url(reframe_ref(p, os.path.join(base, ".reframed")) if framed else p))
+                notes.append(f"reference image #{offset + len(imgs)} is {describe(key)}"
+                             + ("; take the character's identity and outfit ONLY. Its plain background is NOT part of the scene (draw the background from the prompt), and the character must stay as small and as low in the frame as in this reference" if framed else ""))
     legend = "; ".join(notes)
     return imgs, ((("(the first images are general references) " if offset and lead is None else (lead or "")) + legend) if legend else ""), auds
 
@@ -970,6 +1068,11 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
         except Exception:  # noqa: BLE001
             pass
     refs = [G.data_url(p) for p in opts.get("refs", []) if p and os.path.exists(p)]
+    layout = opts.get("layout_ref")   # wireframe bố cục của thể loại (vd. AI tutor ngồi đọc): ảnh #1, chỉ để khoá cỡ/vị trí nhân vật
+    if layout and os.path.exists(layout):
+        refs.insert(0, G.data_url(layout))
+    else:
+        layout = None
     luot = vdata.get("LUOT", [])
     att_missing = []
     att_imgs, att_legend, att_auds = attachments(vdata, opts, offset=len(refs), missing=att_missing)
@@ -1072,6 +1175,11 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
             sc_legend = (sc_legend + "; " if sc_legend else "") + f"reference image #{len(ref_imgs)} is the final frame of the previous clip: match its lighting and colour only"
         if sc_legend and has_img:
             img_p = img_p + "\n\nREFERENCE IMAGE NOTES: " + sc_legend
+        if layout and has_img:
+            img_p += ("\n\nLAYOUT GUIDE (highest priority, overrides the framing, crop and scale of every character reference): reference image #1 is a rough grey wireframe of the required framing, NOT an appearance reference. "
+                      "Place the character so her head (including any headset) fills exactly the dark oval, her neck and shoulders fill the mid-grey shape, "
+                      "and her body is no wider than it, with the table at the lower grey band; the pale top third (above the line) must be only plain background with nothing in it. "
+                      "Never draw the grey shapes, the line or any of its colours, and never make the character larger or closer than the guide.")
         spk_auds = [a for g, a in att_auds if g in ((turn or {}).get("who"), "other", "scene")]
 
         def attempt(label, fn):
@@ -1104,6 +1212,8 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                 else:
                     open(img_f, "wb").write(b)
             attempt("image", gi)
+            if layout:
+                fit_start_frame(api, img_f, session, opts, emit, n, pin, pin_prefer, cancel, note_account)
             emit("scene", n=n, state="image", pct=100, thumb=os.path.basename(img_f))
         if spoken and os.path.exists(vid_f) and not has_audio(vid_f):  # clip câm còn sót từ lần chạy trước: bỏ đi để gen lại
             emit("log", msg=f"Cảnh {n}: clip cũ không có tiếng, gen lại", level="warn")

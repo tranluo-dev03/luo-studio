@@ -1,4 +1,4 @@
-"""Tạo lại kịch bản + biến thể Talka bảng từ vựng. Chạy: python cong-cu/tao-kich-ban.py -> ghi đè KICH-BAN-TALKA-CO-CHU.txt và BIEN-THE-TALKA-CO-CHU.json.
+"""Tạo lại kịch bản + biến thể Talka bảng từ vựng. Chạy: python cong-cu/tao-kich-ban.py -> ghi đè KICH-BAN-TALKA-CO-CHU.txt và phien-ban-cu/BIEN-THE-TALKA-7-BIEN-THE.json (xong chạy tiếp tao-20-bien-the.py để ra file 20 biến thể).
 Muốn đổi câu chữ prompt thì sửa file này rồi chạy lại, không sửa tay file kịch bản.
 
 Cách làm: Muse chỉ gen ROBOT trên NỀN XANH LỤC phẳng ở MỌI cảnh (dạy từ và quảng cáo), một khung hình liên tục, robot đứng giữa khung.
@@ -75,7 +75,8 @@ for i, (rng, kind) in enumerate(SCENES, 1):
 open(os.path.join(OUT, "KICH-BAN-TALKA-CO-CHU.txt"), "w", encoding="utf-8").write(HEAD + "\n" + "\n\n".join(body) + "\n")
 
 # ------------------------------------------------------------------ biến thể
-v = json.load(open(os.path.join(OUT, "BIEN-THE-TALKA-CO-CHU.json"), encoding="utf-8"))[0]
+V7 = os.path.join(OUT, "phien-ban-cu", "BIEN-THE-TALKA-7-BIEN-THE.json")   # bản 7 biến thể: nền cho tao-20-bien-the.py (file BIEN-THE-TALKA-CO-CHU.json là bản 20 biến thể)
+v = json.load(open(V7, encoding="utf-8"))[0]
 v.pop("NEN_BANG", None)   # tờ giấy do hậu kỳ dựng (HAU_KY.bang), không còn gửi cho Muse
 v.pop("HAU_KY", None)
 v["NEN_XANH"] = "a perfectly flat, evenly lit, saturated chroma-key green screen (about #00B140) filling the whole frame: no texture, no gradient, no shadow, no object, no text"
@@ -182,5 +183,5 @@ v6 = make(v, stem + "-bt6", ES_TEXTS_6, hau_ky("hai-cot-icon-trai", "¿CÓMO SE 
 
 names = [x["name"] for x in (v, pt, v2, v3, v4, v5, v6)]
 assert len(set(names)) == len(names), names
-json.dump([v, pt, v2, v3, v4, v5, v6], open(os.path.join(OUT, "BIEN-THE-TALKA-CO-CHU.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+json.dump([v, pt, v2, v3, v4, v5, v6], open(V7, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 print("ok", names)

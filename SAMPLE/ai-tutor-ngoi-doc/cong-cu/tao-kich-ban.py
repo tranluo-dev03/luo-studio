@@ -9,7 +9,7 @@ OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # SAMPLE/ai-
 PER_CLIP = 3          # số cặp câu mỗi cảnh (mỗi cảnh ~8–9 giây)
 
 HEAD = """[STYLE LOCK]:
-Photorealistic cinematic CGI, vertical 9:16, sharp, warm natural light. One locked-off tripod shot, no cuts, no zoom. The TUTOR {{TU_THE}}, in the lower part of the frame, seen from the waist up and centered: head top at about 36 percent of the frame height, head about 22 percent of the frame width. The whole upper third of the frame shows only the background, with nothing important in it (a sign is added there in editing). Same framing, lens and light in every clip. No text, captions, logos or subtitles anywhere.
+Photorealistic cinematic CGI, vertical 9:16, sharp, warm natural light. One locked-off tripod shot, no cuts, no zoom. The TUTOR {{TU_THE}}, in the lower part of the frame, seen from the waist up and centered: head top at about 34 percent of the frame height, head (with the headset) only about 30 percent of the frame width, shoulders no wider than about 45 percent of the frame width (a medium-wide shot, NOT a close-up: the tutor is small in the frame). The whole upper third of the frame (above the head) shows only the background, with nothing important in it (a sign is added there in editing). Same framing, lens and light in every clip. No text, captions, logos or subtitles anywhere.
 
 [CHAR LOCK]:
 TUTOR ({{TEN_DAY}}): {{NGUOI_DAY}}. Same face, head, body and outfit in every frame. Voice: {{GIONG_DAY}}, the same voice in every clip. She is a native {{NGON_NGU_ME}} speaker teaching {{NGON_NGU_HOC}}: she says each {{NGON_NGU_ME}} phrase naturally, then its {{NGON_NGU_HOC}} translation slowly and clearly with a correct {{NGON_NGU_HOC}} accent. A friendly, expressive face with accurate lip-sync; small natural head movements; her hands stay relaxed on the table.
@@ -55,11 +55,11 @@ def script(n):
         L.append("Bối cảnh: robot tutor {{TU_THE}}, ở nửa dưới khung; phía sau là {{NEN}}; phần trên khung để trống (hậu kỳ ghép bảng).")
         L.append(f"Voice: {{{{LUOT_{i}}}}}")
         if i == 1:
-            L.append("Khung đầu: New start frame: the tutor {{TU_THE}}, waist up, centered, head top at about 36 percent of the frame height, the upper third of the frame only background.")
+            L.append("Khung đầu: New start frame: the tutor {{TU_THE}}, waist up, centered, head top at about 34 percent of the frame height, the upper third of the frame only background.")
         L.append("Khung cuối: She holds the rest pose, still, looking into the lens; same framing and background.")
         if i == 1:
             L.append("Prompt ảnh: One still image (the image itself), vertical 9:16, photorealistic: the TUTOR, {{NGUOI_DAY}}, sitting behind a small round table, "
-                     "seen from the waist up, centered, head top at about 36 percent of the frame height, forearms resting on the table, looking into the lens, "
+                     "seen from the waist up, centered, head top at about 34 percent of the frame height, forearms resting on the table, looking into the lens, "
                      "lips closed in a soft smile. Behind her: {{NEN}}. The upper third of the frame shows only background. No text, no signs, no logos.")
         start = "Start exactly from the start frame." if i == 1 else "Continue exactly from the previous clip's last frame (same tutor, pose, framing and background)."
         L.append(f"Prompt video: {start} {{{{LUOT_{i}}}}} VIDEO SUFFIX.")

@@ -27,7 +27,7 @@ Bạn chỉ cần: **nhập kịch bản → tạo dự án → gen → hậu k�
    - ❌ Sai (ví dụ robot nói "¿Cómo se dice **please**?") → **gen lại cảnh đó và cảnh ngay sau**.
 
 ## Bước 4: Hậu kỳ
-Bấm **Hậu kỳ** → xong. Video xuất ra có bút chỉ chữ, chữ tiếng Anh, ô quảng cáo, logo, end card (không phụ đề).
+Hậu kỳ tự chạy sau khi gen xong → xong. Video xuất ra có bút chỉ chữ, chữ tiếng Anh, ô quảng cáo, logo, end card (không phụ đề).
 
 > Lần hậu kỳ đầu tiên có thể lâu hơn (máy tải mô hình nhận giọng nói ~1,5 GB).
 

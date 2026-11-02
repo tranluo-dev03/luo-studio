@@ -14,7 +14,7 @@ Tick biến thể → **Thêm vào hàng đợi** → **Bắt đầu**. Xem nhan
 - ✅ Đọc đúng thứ tự, đúng ngôn ngữ. Sai → **gen lại cảnh đó** và cảnh ngay sau.
 
 ## Bước 4: Hậu kỳ
-Bấm **Hậu kỳ**. Lần đầu mỗi video, máy gen **khung bảng** bằng AI (mất thêm 1–2 phút), rồi điền chữ và ghép. Không có phụ đề, không có end card.
+Hậu kỳ **tự chạy** sau khi gen xong (không cần bấm). Lần đầu mỗi video, máy gen **khung bảng** bằng AI (mất thêm 1–2 phút), rồi điền chữ và ghép. Không có phụ đề, không có end card.
 
 ---
 

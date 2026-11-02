@@ -491,7 +491,7 @@ function drawQueue() {
       <div class="qbd"><div class="qnm" title="${esc(it.variant)}">${it.kind === "post" ? "Hậu kỳ · " : ""}${esc(it.variant)}</div>
         <div class="mini"><div style="width:${pct}%"></div></div>
         ${it.account ? `<div class="acc" title="Tài khoản Muse của video này (mọi cảnh gen bằng tài khoản này)">${ico("user")}${esc(it.account)}</div>` : ""}
-        <div class="st"><span>${it.kind === "post" ? "" : done + "/" + tot + " cảnh"}</span><span class="tm">${ico("clock")}<b data-tm="item:${it.id}">${it.started ? fmtDur(itemSecs(it)) : "0:00"}</b></span></div></div></div>`;
+        <div class="st"><span>${it.kind === "post" ? "" : done + "/" + tot + " cảnh" + (it.state === "running" && it.phase === "post" ? " · hậu kỳ…" : "")}</span><span class="tm">${ico("clock")}<b data-tm="item:${it.id}">${it.started ? fmtDur(itemSecs(it)) : "0:00"}</b></span></div></div></div>`;
   };
   const par = (S.boot.settings && S.boot.settings.parallel) || 1;
   v.innerHTML = `<div class="qbar"><button class="btn primary" id="qgo" ${nSel ? "" : "disabled"}>${ico("play")}${running ? "Chạy thêm" : "Bắt đầu"}${nSel ? " (" + nSel + ")" : ""}</button>
@@ -546,14 +546,14 @@ function drawDetail(it) {
   const q = S.q, v = $("#view"), running = it.state === "running", sc = it.scenes || [], done = sc.filter(s => s.state === "done").length, tot = it.total || sc.length;
   setTop(esc(it.variant), `<span class="tag ${it.state === "done" ? "ok" : it.state === "error" ? "bad" : it.state === "stopped" ? "warn" : ""}">${QSTATE[it.state]}</span><span class="tm big">${ico("clock")}<b data-tm="item:${it.id}">${fmtDur(itemSecs(it))}</b></span>`
     + (running ? `<button class="btn danger" id="dstop" ${it.stopping ? "disabled" : ""}>${ico("stop")}${it.stopping ? "Đang dừng…" : "Dừng"}</button>` : it.state === "waiting" ? `<button class="btn" id="dstop">${ico("stop")}Bỏ chờ</button>` : (it.state !== "done" ? `<button class="btn primary" id="dgo">${ico("play")}${it.state === "queued" ? "Bắt đầu" : "Chạy tiếp"}</button>` : "")));
-  const fin = it.final, raw = it.raw && (it.state === "done" || it.kind === "post");
+  const fin = it.final, raw = it.raw && (it.state === "done" || it.state === "error" || it.kind === "post");
   let res = "";
-  if (fin || (raw && it.kind === "gen" && it.state === "done")) {
+  if (!running && (fin || (raw && it.kind === "gen" && !fin))) {
     const f = fin || "raw.mp4";
     res = `<div class="card result"><video src="${media(it.project, it.variant, f)}?t=${Math.round(it.ended)}" controls preload="metadata"></video><div style="display:flex;flex-direction:column;gap:12px"><div><span class="tag ${fin ? "ok" : ""}">${fin ? "Video hoàn thiện" : "Video thô"}</span>${fin ? `<span class="tag mute" title="Bản cuối mang tên biến thể, nằm trong thư mục xuất và cạnh final.mp4">${esc(it.variant)}.mp4</span>` : ""}</div><h3 style="font-size:17px">${esc(it.variant)}</h3>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">${!running ? `<button class="btn primary" data-post="1">${ico("wand")}${fin ? "Hậu kỳ lại" : "Hậu kỳ"}</button>` : ""}<button class="btn" data-openf="1">${ico("folderopen")}Mở thư mục</button></div></div></div>`;
+      <div style="display:flex;gap:10px;flex-wrap:wrap">${!running && (fin || it.kind === "post" || (it.raw && it.state === "error")) ? `<button class="btn primary" data-post="1">${ico("wand")}Hậu kỳ lại</button>` : ""}<button class="btn" data-openf="1">${ico("folderopen")}Mở thư mục</button></div></div></div>`;
   }
-  if (it.kind === "post" && running) res = `<div class="card result" style="grid-template-columns:1fr"><div style="display:flex;gap:16px;align-items:center"><div class="spin"></div><div>Đang hậu kỳ — căn phụ đề, ghép logo và end card…</div></div></div>`;
+  if (running && (it.kind === "post" || it.phase === "post")) res = `<div class="card result" style="grid-template-columns:1fr"><div style="display:flex;gap:16px;align-items:center"><div class="spin"></div><div>Đang hậu kỳ — video chỉ hiện khi hậu kỳ xong. Xem tiến trình ở Nhật ký bên dưới.</div></div></div>`;
   const grid = it.kind === "gen" ? `<div class="scenes">${sc.map(s => {
     const st = s.state, pc = st === "done" ? 100 : st === "wait" ? 0 : (s.pct || 0), act = ["image", "video", "cut"].includes(st);
     const thumb = s.thumb ? `<img loading="lazy" src="${media(it.project, it.variant, s.thumb)}?t=${s.secs || s.pct || 0}">` : (act ? `<div class="spin"></div>` : ico("img"));

@@ -410,6 +410,9 @@ def gen_item(it, cx):
     opts = {"api_url": s["api_url"], "api_key": api_key(), "timeout": int(s["timeout"]), "retries": int(s["retries"]), "cut": bool(s["cut"]),
             "speedfix": bool(s.get("speedfix", True)), "speed_max": float(s.get("speed_max", 1.25)), "chat_every": int(s.get("chat_every", 1)), "normalize": bool(s.get("normalize", True)), "color_mode": str(s.get("color_mode", "anchor")), "color_strength": float(s.get("color_strength", 1.0)), "video_char_refs": bool(s.get("video_char_refs", True)), "listen_mode": str(s.get("listen_mode", "idle")), "check_overlap": effective_check_overlap(it, s), "overlap_retries": int(s.get("overlap_retries", 5)), "mouth_sens": str(s.get("mouth_sens", "normal")), "precise_cut": bool(s.get("precise_cut", True)), "voice_split": bool(s.get("voice_split", True)), "cut_margin": float(s.get("cut_margin", 0.5)),
             "only": None, "scene_notes": dict(it.get("notes") or {}), "refs": p.get("refs", []), "field_labels": {f["key"]: f.get("label", f["key"]) for f in get_type(p["template"]).get("fields", [])}, "field_groups": {f["key"]: f.get("group", "other") for f in get_type(p["template"]).get("fields", [])}, "assets_dir": os.path.join(DATA, "assets", slug(it["project"]))}
+    cp = custom_post(p)   # thể loại có wireframe bố cục riêng (types/<mã>/assets/layout.png) thì gửi kèm lệnh gen ảnh khung đầu
+    if cp and os.path.exists(os.path.join(os.path.dirname(cp), "assets", "layout.png")):
+        opts["layout_ref"] = os.path.join(os.path.dirname(cp), "assets", "layout.png")
     # Một video = một tài khoản Muse: mọi cảnh ghim vào cùng tài khoản; chạy tiếp thì ưu tiên tài khoản cũ
     opts["pin"], opts["pin_prefer"] = f"video-{it['id']}", it.get("account_id")
     try:
@@ -625,12 +628,22 @@ def _run_item(iid):
     cx = ICANCEL[iid] = ItemCancel()
     with LOCK:
         it.update({"state": "running", "error": "", "started": time.time(), "ended": 0.0, "stopping": False})
-        if it["kind"] == "gen":
+        if it["kind"] == "gen" and not it.get("only_post"):
             it["scenes"] = []
+        if it["kind"] == "gen":
+            it["phase"] = "post" if it.get("only_post") else "gen"
+            if not it.get("only_post"):
+                it["final"] = ""   # chạy lại từ đầu: bản hậu kỳ cũ không còn đúng với clip mới
     qsave()
     try:
         if it["kind"] == "gen":
-            gen_item(it, cx)
+            if not it.get("only_post"):
+                gen_item(it, cx)
+            # Hậu kỳ là bước cuối của chính video này (cùng một mục trong hàng đợi): gen + ghép clip xong thì hậu kỳ luôn, video cuối cùng là bản đã hậu kỳ
+            if os.path.exists(os.path.join(run_dir(it["project"], it["variant"]), "raw.mp4")):
+                it["phase"] = "post"
+                qlog(it, "Hậu kỳ…")
+                post_item(it, it.get("opts") or {}, cx)
         else:
             post_item(it, it.get("opts") or {}, cx)
         it["state"] = "done"
@@ -652,6 +665,8 @@ def _run_item(iid):
         qlog(it, f"Lỗi - {e}", "error")
     finally:
         ICANCEL.pop(iid, None)
+        it.pop("only_post", None)
+        it["phase"] = ""
         it["stopping"] = False
         it["ended"] = time.time()
         it["elapsed"] = round(it["ended"] - it["started"], 1)
@@ -735,6 +750,18 @@ def start_post(pid, vname, opts):
     if not os.path.exists(os.path.join(run_dir(pid, vname), "raw.mp4")):
         raise RuntimeError("Chưa có video thô")
     p = load_project(pid)
+    gen = next((x for x in QUEUE if x["kind"] == "gen" and x["project"] == pid and x["variant"] == vname and x["state"] not in ("running", "waiting")), None)
+    if gen:   # hậu kỳ lại ngay trong mục gen của video này (không tạo thẻ riêng)
+        gen["opts"] = {k: opts.get(k, "") for k in ("logo", "endcard", "topbar", "whisper")}
+        gen["only_post"] = True
+        with LOCK:
+            ACTIVE.add(gen["id"])
+            if BATCH["state"] != "running":
+                BATCH.update({"state": "running", "started": time.time(), "ended": 0.0, "ids": []})
+            if gen["id"] not in BATCH["ids"]:
+                BATCH["ids"].append(gen["id"])
+        threading.Thread(target=_worker, args=(gen["id"],), daemon=True).start()
+        return gen["id"]
     it = {"id": uuid.uuid4().hex[:8], "kind": "post", "project": pid, "pname": (p or {}).get("name", pid), "variant": vname, "state": "queued", "scenes": [], "total": 0,
           "raw": "raw.mp4", "final": "", "error": "", "added": time.time(), "started": 0.0, "ended": 0.0, "elapsed": 0.0, "log": [], "opts": {k: opts.get(k, "") for k in ("logo", "endcard", "topbar", "whisper")}}
     with LOCK:
