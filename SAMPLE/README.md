@@ -14,6 +14,7 @@ Thể loại không có hậu kỳ riêng thì dùng hậu kỳ chung (`app/prod
 | Mã | Mô tả | Hậu kỳ riêng |
 |---|---|---|
 | `talka-bang-tu-vung` | Robot dạy từ vựng Tây Ban Nha → Anh trước bảng chữ; bút đỏ chỉ chữ, chữ tiếng Anh hiện khi đọc; phần cuối quảng cáo app Talka | Có (`app/production/types/talka-bang-tu-vung/`) |
+| `ai-tutor-ngoi-doc` | Robot ngồi đọc cặp câu (tiếng mẹ đẻ → tiếng học); bảng phía trên khung gen bằng AI, chữ + phiên âm do code điền | Có (`app/production/types/ai-tutor-ngoi-doc/`) |
 | `canh-sat-nu` | Hội thoại cảnh sát nữ và tài xế | Không |
 | `xe-tai` | Tài xế xe tải và gia sư AI | Không |
 | `ghep-hai-lop` | Loại "Ghép 2 lớp": mỗi nhân vật gen riêng rồi ghép khung | Không (ghép trong `app/luo-studio/split.py`) |

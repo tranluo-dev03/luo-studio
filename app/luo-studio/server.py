@@ -455,19 +455,23 @@ def scene_marks(d, raw):
 
 def custom_post(p):
     """Hậu kỳ riêng theo thể loại video: app/production/types/<mã thể loại>/post.py (mã trùng tên thư mục SAMPLE/<mã thể loại>).
-    Loại dự án khai báo bằng khoá "post" trong file loại; chưa khai báo thì nhận theo tên loại (bắt đầu bằng KICH-BAN-TALKA) hoặc theo kịch bản (dùng token {{NEN_BANG}} và {{NEN_PHO}})."""
+    Thứ tự: khoá "post" trong file loại; dòng "loai: <mã>" trong khối [HAU KY] của kịch bản; với Talka bảng từ vựng (kịch bản cũ chưa khai báo):
+    tên loại bắt đầu bằng KICH-BAN-TALKA hoặc kịch bản dùng token {{NEN_BANG}} và {{NEN_PHO}}."""
     tid = p.get("template") or ""
     try:
         t = jread(type_path(tid)) or {}
     except (OSError, ValueError):
         t = {}
     name = t.get("post") or ""
-    if not name:   # chưa khai báo: nhận theo tên loại, hoặc theo nội dung kịch bản (user có thể đặt tên loại tuỳ ý khi nhập)
+    if not name:   # chưa khai báo trong file loại: kịch bản tự khai báo, hoặc nhận theo tên loại / token (user có thể đặt tên loại tuỳ ý khi nhập)
         try:
             script = template_text(tid) or ""
         except Exception:  # noqa: BLE001
             script = ""
-        if tid.upper().startswith("KICH-BAN-TALKA") or ("{{NEN_BANG}}" in script and "{{NEN_PHO}}" in script):
+        m = re.search(r"^\[HAU KY\]:[ \t]*\r?\n(?:(?!\[)[^\n]*\n)*?[ \t]*loai:[ \t]*([\w-]+)", script + "\n", re.M)   # khối [HAU KY] có dòng "loai: <mã thể loại>"
+        if m:
+            name = m.group(1)
+        elif tid.upper().startswith("KICH-BAN-TALKA") or ("{{NEN_BANG}}" in script and "{{NEN_PHO}}" in script):
             name = "talka-bang-tu-vung"
     name = {"talka_vocab": "talka-bang-tu-vung"}.get(name, name)   # tên cũ
     path = os.path.join(PRODUCTION, "types", name, "post.py") if name else ""

@@ -11,10 +11,17 @@ app/production/types/<mã>/
 ```
 
 ## Studio gọi hậu kỳ riêng thế nào
-`app/luo-studio/server.py` → `custom_post`: nếu file loại dự án (`userdata/studio/types/<id>.json`) có `"post": "<mã>"` thì khi bấm Hậu kỳ, Studio chạy
+`app/luo-studio/server.py` → `custom_post`. Cách khai báo (nên dùng): trong kịch bản có khối
 
 ```
-python post.py <thư mục chạy>/raw.mp4 --scenes <thư mục chạy>/scenes.json --out <thư mục chạy>/final.mp4
+[HAU KY]:
+loai: <mã>
+```
+
+(các token chỉ dùng cho hậu kỳ cũng đặt trong khối này, không gửi cho Muse). Hoặc file loại dự án (`userdata/studio/types/<id>.json`) có `"post": "<mã>"`. Khi đó khi bấm Hậu kỳ, Studio chạy
+
+```
+python post.py <thư mục chạy>/raw.mp4 --scenes <thư mục chạy>/scenes.json --out <thư mục chạy>/final.mp4 --variant <thư mục chạy>/variant.json
 ```
 
 `scenes.json` = `[{turn, start, end}]`: mốc (giây) từng cảnh trong `raw.mp4` (turn đếm từ 0). Không có `"post"` thì dùng hậu kỳ chung `app/production/postprocess.py`.
@@ -23,3 +30,4 @@ python post.py <thư mục chạy>/raw.mp4 --scenes <thư mục chạy>/scenes.j
 
 ## Thể loại có hậu kỳ riêng
 - `talka-bang-tu-vung/`: bút đỏ chỉ chữ + chữ tiếng Anh hiện khi đọc, logo, bảng chữ quảng cáo, end card, không phụ đề.
+- `ai-tutor-ngoi-doc/`: khung bảng gen bằng AI + chữ/phiên âm điền theo lời đọc, nhãn góc dưới, không phụ đề.

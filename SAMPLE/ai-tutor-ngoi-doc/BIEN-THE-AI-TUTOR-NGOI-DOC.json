@@ -1,0 +1,192 @@
+[
+  {
+    "TEN_DAY": "the robot tutor",
+    "NGUOI_DAY": "a sleek white humanoid robot tutor with a realistic young woman's face, glowing light blue eyes, a smooth white head with a red-and-black headset and a small microphone, black mechanical neck and joints, wearing a red and green Portugal football jersey with the number 7",
+    "GIONG_DAY": "a warm, bright young woman's voice, a native Brazilian Portuguese speaker, friendly and clear like a language teacher; completely human, not robotic",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN": "a cozy sunny cafe interior: a large window onto a street with trees, warm wooden shelves with plants and hanging lamps, a latte with heart foam art and a glass of water on the table, softly out of focus",
+    "NGON_NGU_ME": "Brazilian Portuguese",
+    "NGON_NGU_HOC": "American English",
+    "CO": "two small United States flags on short wooden poles at the top left and top right corners, and a cheerful cartoon Uncle Sam mascot pointing forward from the top center",
+    "BANG_TU": "Com licença | Excuse me | /iks-kiúz mi/\nBom dia | Good morning | /gud mór-ning/\nTchau | Goodbye | /gud-bái/\nComo você está? | How are you? | /hau ar iú/\nObrigado | Thank you | /ténk iú/\nEu te amo | I love you | /ái lóv iú/\nPor favor | Please | /pliiz/\nDesculpa | I'm sorry | /áim só-ri/\nDe nada | You're welcome | /iur uél-kam/\nSem problema | No problem | /nóu prób-lem/\nPratique todos os dias!",
+    "name": "ai-tutor-pt-hoc-anh",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Com licença. Excuse me. Bom dia. Good morning. Tchau. Goodbye.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Como você está? How are you? Obrigado. Thank you. Eu te amo. I love you.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Por favor. Please. Desculpa. I'm sorry. De nada. You're welcome.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Sem problema. No problem. Pratique todos os dias!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ]
+  },
+  {
+    "TEN_DAY": "the robot tutor",
+    "NGUOI_DAY": "a sleek white humanoid robot tutor with a realistic young woman's face, glowing light blue eyes, a smooth white head with a red-and-black headset and a small microphone, black mechanical neck and joints, wearing a red and green Portugal football jersey with the number 7",
+    "GIONG_DAY": "a warm, bright young woman's voice, a native Brazilian Portuguese speaker, friendly and clear like a language teacher; completely human, not robotic",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN": "an outdoor cafe terrace on a sunny Lisbon street: colorful blue-and-white tiled building facades, a yellow vintage tram in the distance, a cobblestone sidewalk, a pastel de nata and an espresso on the table, softly out of focus",
+    "NGON_NGU_ME": "Brazilian Portuguese",
+    "NGON_NGU_HOC": "American English",
+    "CO": "two small United States flags on short wooden poles at the top left and top right corners, and a cheerful cartoon Uncle Sam mascot pointing forward from the top center",
+    "BANG_TU": "Com licença | Excuse me | /iks-kiúz mi/\nBom dia | Good morning | /gud mór-ning/\nTchau | Goodbye | /gud-bái/\nComo você está? | How are you? | /hau ar iú/\nObrigado | Thank you | /ténk iú/\nEu te amo | I love you | /ái lóv iú/\nPor favor | Please | /pliiz/\nDesculpa | I'm sorry | /áim só-ri/\nDe nada | You're welcome | /iur uél-kam/\nSem problema | No problem | /nóu prób-lem/\nPratique todos os dias!",
+    "name": "ai-tutor-pt-hoc-anh-nen-lisbon",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Com licença. Excuse me. Bom dia. Good morning. Tchau. Goodbye.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Como você está? How are you? Obrigado. Thank you. Eu te amo. I love you.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Por favor. Please. Desculpa. I'm sorry. De nada. You're welcome.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Sem problema. No problem. Pratique todos os dias!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ]
+  },
+  {
+    "TEN_DAY": "the robot tutor",
+    "NGUOI_DAY": "a sleek white humanoid robot tutor with a realistic young woman's face, glowing light blue eyes, a smooth white head with a red-and-black headset and a small microphone, black mechanical neck and joints, wearing a simple white polo shirt with a small Portugal flag badge",
+    "GIONG_DAY": "a warm, bright young woman's voice, a native American English speaker, friendly and clear like a language teacher; completely human, not robotic",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN": "a cozy sunny cafe interior: a large window onto a street with trees, warm wooden shelves with plants and hanging lamps, a latte with heart foam art and a glass of water on the table, softly out of focus",
+    "NGON_NGU_ME": "American English",
+    "NGON_NGU_HOC": "European Portuguese",
+    "CO": "two small Portugal flags on short wooden poles at the top left and top right corners, and a cheerful cartoon Portuguese rooster (Galo de Barcelos) mascot from the top center",
+    "BANG_TU": "Excuse me | Com licença | /kohn lee-SEN-sah/\nGood morning | Bom dia | /bohn DEE-ah/\nGoodbye | Adeus | /ah-DAY-oosh/\nHow are you? | Como está? | /KOH-moo shtah/\nThank you | Obrigado | /oh-bree-GAH-doo/\nI love you | Amo-te | /AH-moo-tuh/\nPlease | Por favor | /poor fah-VOR/\nI'm sorry | Desculpe | /dish-KOOL-puh/\nYou're welcome | De nada | /duh NAH-duh/\nNo problem | Sem problema | /sayn proo-BLAY-muh/\nPractice every day!",
+    "name": "ai-tutor-anh-hoc-bdn",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Excuse me. Com licença. Good morning. Bom dia. Goodbye. Adeus.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How are you? Como está? Thank you. Obrigado. I love you. Amo-te.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Please. Por favor. I'm sorry. Desculpe. You're welcome. De nada.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "No problem. Sem problema. Practice every day!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ]
+  },
+  {
+    "TEN_DAY": "the robot tutor",
+    "NGUOI_DAY": "a friendly chrome-silver robot tutor with a rounded helmet-like head, a smooth dark glass face screen showing two large glowing cyan oval eyes and a small smiling mouth light, slim silver arms with dark joints, wearing a yellow Brazil football jersey with green trim",
+    "GIONG_DAY": "a warm, bright young woman's voice, a native Brazilian Portuguese speaker, friendly and clear like a language teacher; completely human, not robotic",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN": "a cozy sunny cafe interior: a large window onto a street with trees, warm wooden shelves with plants and hanging lamps, a latte with heart foam art and a glass of water on the table, softly out of focus",
+    "NGON_NGU_ME": "Brazilian Portuguese",
+    "NGON_NGU_HOC": "American English",
+    "CO": "two small United States flags on short wooden poles at the top left and top right corners, and a cheerful cartoon Uncle Sam mascot pointing forward from the top center",
+    "BANG_TU": "Com licença | Excuse me | /iks-kiúz mi/\nBom dia | Good morning | /gud mór-ning/\nTchau | Goodbye | /gud-bái/\nComo você está? | How are you? | /hau ar iú/\nObrigado | Thank you | /ténk iú/\nEu te amo | I love you | /ái lóv iú/\nPor favor | Please | /pliiz/\nDesculpa | I'm sorry | /áim só-ri/\nDe nada | You're welcome | /iur uél-kam/\nSem problema | No problem | /nóu prób-lem/\nPratique todos os dias!",
+    "name": "ai-tutor-pt-hoc-anh-robot-moi",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Com licença. Excuse me. Bom dia. Good morning. Tchau. Goodbye.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Como você está? How are you? Obrigado. Thank you. Eu te amo. I love you.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Por favor. Please. Desculpa. I'm sorry. De nada. You're welcome.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Sem problema. No problem. Pratique todos os dias!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ]
+  },
+  {
+    "TEN_DAY": "the robot tutor",
+    "NGUOI_DAY": "a sleek white humanoid robot tutor with a realistic young woman's face, glowing light blue eyes, a smooth bald white head with a white headset with small blue LED lights, black mechanical neck and joints, wearing a cream hooded zip jacket with colorful Mexican-style woven embroidery on the hood and sleeves and red flower embroidery on the chest",
+    "GIONG_DAY": "a warm, bright young woman's voice, a native Mexican Spanish speaker, friendly and clear like a language teacher; completely human, not robotic",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN": "a cozy sunny cafe interior: a large window onto a street with trees, warm wooden shelves with plants and hanging lamps, a latte with heart foam art and a glass of water on the table, softly out of focus",
+    "NGON_NGU_ME": "Mexican Spanish",
+    "NGON_NGU_HOC": "American English",
+    "CO": "two small United States flags on short wooden poles at the top left and top right corners, and a cheerful cartoon Uncle Sam mascot pointing forward from the top center",
+    "BANG_TU": "Hola | Hello | /jelóu/\nBuenos días | Good morning | /gud mór-ning/\nBuenas noches | Good night | /gud náit/\nPor favor | Please | /plíiz/\nGracias | Thank you | /zénk iú/\nLo siento | I'm sorry | /áim sóri/\nHasta luego | See you later | /sí iú léi-ter/\n¡Practica todos los días!",
+    "name": "ai-tutor-es-hoc-anh-robot-hoodie",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Hola. Hello. Buenos días. Good morning.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Buenas noches. Good night. Por favor. Please.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Gracias. Thank you. Lo siento. I'm sorry.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hasta luego. See you later. ¡Practica todos los días!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ]
+  }
+]

@@ -33,6 +33,7 @@ Mỗi thể loại là một thư mục trong `SAMPLE\` (kịch bản + biến t
 | Thư mục | Thể loại |
 |---|---|
 | `talka-bang-tu-vung` | Robot dạy từ vựng trước tờ giấy, bút chỉ chữ, cuối quảng cáo app |
+| `ai-tutor-ngoi-doc` | Robot ngồi đọc cặp câu, bảng phía trên hiện câu + phiên âm (đổi được robot, nền, cờ, từ, ngôn ngữ) |
 | `xe-tai` | Tài xế xe tải nói chuyện với gia sư AI |
 | `canh-sat-nu` | Cảnh sát nữ và tài xế |
 | `ghep-hai-lop` | Hai nhân vật ở hai khung riêng (không bao giờ nói chồng) |
