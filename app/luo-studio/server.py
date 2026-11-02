@@ -208,7 +208,61 @@ def load_project(pid):
     return jread(project_path(pid))
 
 
+def _download_image(url, dest_dir, cache):
+    """Tải ảnh từ link (link ảnh trực tiếp, hoặc trang xem ảnh như prnt.sc: lấy og:image) vào dest_dir. Trả về (tên tệp, loại)."""
+    orig = url
+    if orig in cache:
+        return cache[orig]
+    hdr = {"User-Agent": "Mozilla/5.0"}
+    for _ in range(2):
+        with urllib.request.urlopen(urllib.request.Request(url, headers=hdr), timeout=30) as r:
+            raw = r.read(15 * 1024 * 1024 + 1)
+        if len(raw) > 15 * 1024 * 1024:
+            raise ValueError("ảnh quá lớn (tối đa 15MB)")
+        ext = ".png" if raw[:8] == b"\x89PNG\r\n\x1a\n" else ".jpg" if raw[:3] == b"\xff\xd8\xff" else ".webp" if raw[:4] == b"RIFF" and raw[8:12] == b"WEBP" else ""
+        if ext:
+            break
+        m = re.search(rb'(?:og|twitter):image"?\s+content="([^"]+)', raw) or re.search(rb'content="([^"]+)"\s+(?:property|name)="(?:og|twitter):image"', raw)
+        if not m:
+            raise ValueError("link không phải ảnh")
+        url = urllib.parse.urljoin(url, m.group(1).decode("utf-8", "ignore").replace("&amp;", "&"))
+    else:
+        raise ValueError("link không phải ảnh")
+    os.makedirs(dest_dir, exist_ok=True)
+    fn = uuid.uuid4().hex[:10] + ext
+    open(os.path.join(dest_dir, fn), "wb").write(raw)
+    cache[orig] = (fn, "image")
+    return cache[orig]
+
+
+def attach_ref_links(p):
+    """Biến thể (từ file JSON/CSV hoặc giao diện) có thể gắn ảnh tham chiếu bằng link: "refs": {"NGUOI_DAY": ["https://..."]} hoặc [{"url": "..."}].
+    Tải ảnh về thư mục tài sản của dự án và đổi thành {type, file, name} giống ảnh đính kèm từ giao diện. Link lỗi: giữ nguyên kèm "error" để nhìn thấy."""
+    d = os.path.join(DATA, "assets", slug(p["id"]))
+    cache = {}
+    for v in p.get("variants", []):
+        refs = v.get("refs")
+        if not isinstance(refs, dict):
+            continue
+        for key, items in list(refs.items()):
+            if isinstance(items, (str, dict)):
+                items = [items]
+            out = []
+            for it in items or []:
+                if isinstance(it, str):
+                    it = {"url": it}
+                if it.get("url") and not it.get("file"):
+                    try:
+                        fn, typ = _download_image(it["url"], d, cache)
+                        it = {"type": typ, "file": fn, "name": it.get("name") or it["url"].rstrip("/").rsplit("/", 1)[-1], "url": it["url"]}
+                    except Exception as e:  # noqa: BLE001 - link hỏng không được làm hỏng cả dự án
+                        it = dict(it, error=str(e)[:120])
+                out.append(it)
+            refs[key] = out
+
+
 def save_project(p):
+    attach_ref_links(p)
     p["updated"] = int(time.time())
     jwrite(project_path(p["id"]), p)
 

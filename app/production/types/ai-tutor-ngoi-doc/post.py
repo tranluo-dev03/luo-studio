@@ -120,6 +120,21 @@ def find_inner(im):
     return (int(cols[0]), int(rows[0]), int(cols[-1]), int(rows[-1]))
 
 
+def tall_panel(board, inner, ratio=2.0):
+    """Lòng trắng của khung AI thường bị dẹt vì cờ/linh vật chiếm chiều cao. Kéo giãn dọc riêng dải lòng trắng + viền hai bên
+    (phần trên có cờ, linh vật và phần viền dưới giữ nguyên, không méo) để lòng trắng có tỉ lệ rộng:cao chỉ ~ratio."""
+    x0, y0, x1, y1 = inner
+    iw, ih = x1 - x0, y1 - y0
+    want = min(int(iw / ratio), int(ih * 1.7))
+    if want <= ih:
+        return board, inner
+    top, mid, bot = board.crop((0, 0, board.width, y0)), board.crop((0, y0, board.width, y1)), board.crop((0, y1, board.width, board.height))
+    mid = mid.resize((board.width, want), Image.LANCZOS)
+    out = Image.new("RGBA", (board.width, top.height + want + bot.height), (0, 0, 0, 0))
+    out.alpha_composite(top, (0, 0)); out.alpha_composite(mid, (0, y0)); out.alpha_composite(bot, (0, y0 + want))
+    return out, (x0, y0, x1, y0 + want)
+
+
 def fallback_board():
     """Không gen được bảng (mất kết nối API): vẽ bảng đơn giản bằng code để vẫn ra video."""
     im = Image.new("RGBA", (1000, 500), (0, 0, 0, 0))
@@ -273,6 +288,7 @@ def main():
         print(f"Không gen được khung bảng ({str(ex)[:120]}); dùng bảng vẽ bằng code")
         board, inner = fallback_board()
     # đặt bảng: rộng ~86% khung, đỉnh ~4.5%, đáy không quá ~35% (đầu robot ở ~36%)
+    board, inner = tall_panel(board, inner)
     scale = min(W * 0.86 / board.width, H * 0.31 / board.height)
     place = (int((W - board.width * scale) / 2), int(H * 0.045), scale)
     starts, t_close = timeline(a.raw, scenes, turns, pairs, closing, a.model, lang_code(v.get("NGON_NGU_ME", "")))

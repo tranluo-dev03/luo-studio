@@ -9,7 +9,7 @@ OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # SAMPLE/ai-
 PER_CLIP = 3          # số cặp câu mỗi cảnh (mỗi cảnh ~8–9 giây)
 
 HEAD = """[STYLE LOCK]:
-Photorealistic cinematic CGI, vertical 9:16, sharp, warm natural light. One locked-off tripod shot, no cuts, no zoom. The TUTOR sits behind a small round table in the lower part of the frame, seen from the waist up and centered: head top at about 36 percent of the frame height, head about 22 percent of the frame width, both forearms resting on the table; the table edge is near the bottom of the frame. The whole upper third of the frame shows only the background, with nothing important in it (a sign is added there in editing). Same framing, lens and light in every clip. No text, captions, logos or subtitles anywhere.
+Photorealistic cinematic CGI, vertical 9:16, sharp, warm natural light. One locked-off tripod shot, no cuts, no zoom. The TUTOR {{TU_THE}}, in the lower part of the frame, seen from the waist up and centered: head top at about 36 percent of the frame height, head about 22 percent of the frame width. The whole upper third of the frame shows only the background, with nothing important in it (a sign is added there in editing). Same framing, lens and light in every clip. No text, captions, logos or subtitles anywhere.
 
 [CHAR LOCK]:
 TUTOR ({{TEN_DAY}}): {{NGUOI_DAY}}. Same face, head, body and outfit in every frame. Voice: {{GIONG_DAY}}, the same voice in every clip. She is a native {{NGON_NGU_ME}} speaker teaching {{NGON_NGU_HOC}}: she says each {{NGON_NGU_ME}} phrase naturally, then its {{NGON_NGU_HOC}} translation slowly and clearly with a correct {{NGON_NGU_HOC}} accent. A friendly, expressive face with accurate lip-sync; small natural head movements; her hands stay relaxed on the table.
@@ -21,7 +21,7 @@ Background: {{NEN}}. It stays exactly as in the start frame for every clip: noth
 Static camera. She reads the phrase pairs in order at a calm teaching pace: each {{NGON_NGU_ME}} phrase, a tiny pause, its {{NGON_NGU_HOC}} translation, then a short pause before the next pair. After the last word she settles into the rest pose ({{DAO_NGHI}}) and holds still until the end of the clip (the tail is cut in editing; the next clip starts from that still frame). No music.
 
 [NEGATIVE]:
-captions, subtitles, logos, any text or letters in the frame; signs or boards in the background; a second person or voice; the tutor standing up, leaving or changing position; the tutor larger, closer or off-center; camera movement or zoom; background or lighting change; outfit or face change; music, echo, robotic or text-to-speech voice; wrong language or wrong accent; skipped, repeated or reordered phrases; stiff face or wrong lip-sync.
+captions, subtitles, logos, any text or letters in the frame; signs or boards in the background; a second person or voice; the tutor leaving or changing position; the tutor larger, closer or off-center; camera movement or zoom; background or lighting change; outfit or face change; music, echo, robotic or text-to-speech voice; wrong language or wrong accent; skipped, repeated or reordered phrases; stiff face or wrong lip-sync.
 
 [HAU KY]:
 loai: ai-tutor-ngoi-doc
@@ -52,10 +52,10 @@ def script(n):
     body = []
     for i in range(1, n + 1):
         L = [f"CẢNH {i} (0:{(i - 1) * 9:02d}–0:{i * 9:02d}): Lượt {i}"]
-        L.append("Bối cảnh: robot tutor ngồi sau bàn nhỏ ở nửa dưới khung; phía sau là {{NEN}}; phần trên khung để trống (hậu kỳ ghép bảng).")
+        L.append("Bối cảnh: robot tutor {{TU_THE}}, ở nửa dưới khung; phía sau là {{NEN}}; phần trên khung để trống (hậu kỳ ghép bảng).")
         L.append(f"Voice: {{{{LUOT_{i}}}}}")
         if i == 1:
-            L.append("Khung đầu: New start frame: the tutor sitting behind the table, waist up, centered, head top at about 36 percent of the frame height, the upper third of the frame only background.")
+            L.append("Khung đầu: New start frame: the tutor {{TU_THE}}, waist up, centered, head top at about 36 percent of the frame height, the upper third of the frame only background.")
         L.append("Khung cuối: She holds the rest pose, still, looking into the lens; same framing and background.")
         if i == 1:
             L.append("Prompt ảnh: One still image (the image itself), vertical 9:16, photorealistic: the TUTOR, {{NGUOI_DAY}}, sitting behind a small round table, "
@@ -110,7 +110,7 @@ You're welcome | De nada | /duh NAH-duh/
 No problem | Sem problema | /sayn proo-BLAY-muh/
 Practice every day!"""
 
-BASE = {"TEN_DAY": "the robot tutor", "NGUOI_DAY": ROBOT, "GIONG_DAY": VOICE_PT, "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+BASE = {"TEN_DAY": "the robot tutor", "TU_THE": "sits behind a small round table, both forearms resting on the table, the table edge near the bottom of the frame", "NGUOI_DAY": ROBOT, "GIONG_DAY": VOICE_PT, "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
         "NEN": CAFE, "NGON_NGU_ME": "Brazilian Portuguese", "NGON_NGU_HOC": "American English", "CO": US_FLAGS, "BANG_TU": BANG_PT_EN}
 VARIANTS = [
     dict(BASE, name="ai-tutor-pt-hoc-anh"),

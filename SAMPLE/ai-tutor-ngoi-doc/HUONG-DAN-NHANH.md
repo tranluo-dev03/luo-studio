@@ -36,6 +36,8 @@ Bắt buộc:
 - "NGON_NGU_ME", "NGON_NGU_HOC": tên ngôn ngữ bằng tiếng Anh (vd "Mexican Spanish", "American English").
 - "GIONG_DAY": giọng người bản xứ của ngôn ngữ mẹ đẻ.
 - "CO": hai lá cờ nhỏ ở hai góc trên + một linh vật hoạt hình, theo nước của ngôn ngữ học (viết bằng tiếng Anh).
+- Nếu tôi đưa link ảnh robot cho biến thể nào, thêm vào biến thể đó khoá "refs": {"NGUOI_DAY": ["<link ảnh>"]}
+  (link ảnh trực tiếp hoặc trang prnt.sc đều được); đồng thời viết "NGUOI_DAY" mô tả đúng robot, trang phục trong ảnh và "TU_THE", "NEN" đúng tư thế, bối cảnh trong ảnh.
 - Giữ nguyên các khoá khác nếu tôi không yêu cầu đổi. Chỉ trả về JSON.
 ```
 
@@ -45,6 +47,9 @@ Bắt buộc:
 - [ ] `BANG_TU` có 10 dòng cặp + 1 dòng câu kết.
 - [ ] `LUOT` có đúng 4 lượt, đọc đúng các cặp theo thứ tự `BANG_TU`.
 - [ ] Mọi biến thể trong cùng dự án có cùng số lượt (4).
+
+## Ảnh robot tham chiếu
+Biến thể nào có `"refs": {"NGUOI_DAY": ["<link ảnh>"]}` thì khi **Dự án mới** (nạp file `.json`), Studio tự tải ảnh về và gắn vào ô **Ngoại hình** của biến thể đó (hiện thành ảnh nhỏ dưới ô, giống bấm "+ Ảnh / mp3"); Muse dùng đúng ảnh này làm tham chiếu mặt, trang phục. Cần có mạng lúc tạo dự án. Link hỏng thì biến thể không có ảnh (xem lại ô Ngoại hình, không có ảnh nhỏ = link lỗi). Có thể gắn nhiều link cho một ô.
 
 ## Lỗi thường gặp
 | Lỗi | Làm gì |

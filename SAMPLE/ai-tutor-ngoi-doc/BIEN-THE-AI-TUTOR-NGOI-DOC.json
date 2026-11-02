@@ -35,7 +35,8 @@
         "emo": "warm, encouraging",
         "fx": "none"
       }
-    ]
+    ],
+    "TU_THE": "sits behind a small round table, both forearms resting on the table, the table edge near the bottom of the frame"
   },
   {
     "TEN_DAY": "the robot tutor",
@@ -73,7 +74,8 @@
         "emo": "warm, encouraging",
         "fx": "none"
       }
-    ]
+    ],
+    "TU_THE": "sits behind a small round table, both forearms resting on the table, the table edge near the bottom of the frame"
   },
   {
     "TEN_DAY": "the robot tutor",
@@ -111,7 +113,8 @@
         "emo": "warm, encouraging",
         "fx": "none"
       }
-    ]
+    ],
+    "TU_THE": "sits behind a small round table, both forearms resting on the table, the table edge near the bottom of the frame"
   },
   {
     "TEN_DAY": "the robot tutor",
@@ -149,7 +152,8 @@
         "emo": "warm, encouraging",
         "fx": "none"
       }
-    ]
+    ],
+    "TU_THE": "sits behind a small round table, both forearms resting on the table, the table edge near the bottom of the frame"
   },
   {
     "TEN_DAY": "the robot tutor",
@@ -187,6 +191,496 @@
         "emo": "warm, encouraging",
         "fx": "none"
       }
-    ]
+    ],
+    "TU_THE": "sits behind a small round table, both forearms resting on the table, the table edge near the bottom of the frame",
+    "refs": {
+      "NGUOI_DAY": [
+        "https://prnt.sc/H01XLzdTzF0w"
+      ]
+    }
+  },
+  {
+    "TEN_DAY": "the robot tutor",
+    "NGUOI_DAY": "a glossy white humanoid robot tutor with a realistic young woman's face, glowing light blue eyes, a smooth bald white head with a small white headset with blue LED lights, a black mechanical neck and joints with glowing blue accents, a white armor-like torso with a thin vertical blue light on the chest",
+    "GIONG_DAY": "a warm, bright young woman's voice, a native Mexican Spanish speaker, friendly and clear like a language teacher; completely human, not robotic",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN": "a cozy living room: a framed family photo on a pale wall, a warm table lamp, a green plant and a woven cushion, softly out of focus",
+    "NGON_NGU_ME": "Mexican Spanish",
+    "NGON_NGU_HOC": "American English",
+    "CO": "two small United States flags on short wooden poles at the top left and top right corners, and a cheerful cartoon Uncle Sam mascot pointing forward from the top center",
+    "BANG_TU": "Buenos días | Good morning | /gud mór-ning/\n¿Dormiste bien? | Did you sleep well? | /did iú slíip uél/\nTengo sueño | I'm sleepy | /áim slíipi/\nMe levanté temprano | I woke up early | /ái uóuk ap érli/\nTengo hambre | I'm hungry | /áim jángri/\n¿Hay café? | Is there coffee? | /iz der cófi/\nVamos a empezar | Let's get started | /lets guet stártid/\n¡Practica todos los días!",
+    "name": "ai-tutor-es-hoc-anh-bt03-buoi-sang",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Buenos días. Good morning. ¿Dormiste bien? Did you sleep well?",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Tengo sueño. I'm sleepy. Me levanté temprano. I woke up early.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Tengo hambre. I'm hungry. ¿Hay café? Is there coffee?",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Vamos a empezar. Let's get started. ¡Practica todos los días!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ],
+    "TU_THE": "sits on a brown sofa, hands lightly clasped in front of her chest",
+    "refs": {
+      "NGUOI_DAY": [
+        "https://prnt.sc/8dqS7WF0j5la"
+      ]
+    }
+  },
+  {
+    "TEN_DAY": "the robot tutor",
+    "NGUOI_DAY": "a glossy white humanoid robot tutor with a realistic young woman's face, glowing light blue eyes, a smooth bald white head with a small white headset with blue LED lights, a black mechanical neck and joints with glowing blue accents, a white armor-like torso with a thin vertical blue light on the chest",
+    "GIONG_DAY": "a warm, bright young woman's voice, a native Mexican Spanish speaker, friendly and clear like a language teacher; completely human, not robotic",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN": "a warm restaurant interior with wooden tables and hanging pendant lamps, softly out of focus; on her table a plate of grilled chicken with salad and a glass of water with a lemon slice",
+    "NGON_NGU_ME": "Mexican Spanish",
+    "NGON_NGU_HOC": "American English",
+    "CO": "two small United States flags on short wooden poles at the top left and top right corners, and a cheerful cartoon Uncle Sam mascot pointing forward from the top center",
+    "BANG_TU": "Buenas noches | Good evening | /gud ívning/\nEstoy en casa | I'm home | /áim jóum/\nEstoy cansado | I'm tired | /áim táierd/\nTengo frío | I'm cold | /áim cóuld/\nApaga la luz | Turn off the light | /tern óf de láit/\nHasta mañana | See you tomorrow | /sí iú tumórou/\nQue descanses | Sleep well | /slíip uél/\n¡Practica todos los días!",
+    "name": "ai-tutor-es-hoc-anh-bt04-buoi-toi",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Buenas noches. Good evening. Estoy en casa. I'm home.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Estoy cansado. I'm tired. Tengo frío. I'm cold.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Apaga la luz. Turn off the light. Hasta mañana. See you tomorrow.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Que descanses. Sleep well. ¡Practica todos los días!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ],
+    "TU_THE": "sits at a restaurant table, one hand holding a fork with a piece of broccoli, the other forearm resting on the table",
+    "refs": {
+      "NGUOI_DAY": [
+        "https://prnt.sc/dW0L6MWenN95"
+      ]
+    }
+  },
+  {
+    "TEN_DAY": "the robot tutor",
+    "NGUOI_DAY": "a glossy white humanoid robot tutor with a realistic young woman's face, glowing light blue eyes, a smooth bald white head with a small white headset with blue LED lights, a black mechanical neck and joints with glowing blue accents, a white armor-like torso with a thin vertical blue light on the chest",
+    "GIONG_DAY": "a warm, bright young woman's voice, a native Mexican Spanish speaker, friendly and clear like a language teacher; completely human, not robotic",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN": "a cozy living room: a framed family photo on a pale wall, a warm table lamp, a green plant and a woven cushion, softly out of focus",
+    "NGON_NGU_ME": "Mexican Spanish",
+    "NGON_NGU_HOC": "American English",
+    "CO": "two small United States flags on short wooden poles at the top left and top right corners, and a cheerful cartoon Uncle Sam mascot pointing forward from the top center",
+    "BANG_TU": "Abre la puerta | Open the door | /óupen de dór/\nCierra la ventana | Close the window | /clóuz de uíndou/\nVen aquí | Come here | /cam jíer/\nSiéntate | Sit down | /sit dáun/\nEspera un momento | Wait a moment | /uéit a móument/\nEstoy ocupado | I'm busy | /áim bízi/\nYa voy | I'm coming | /áim cáming/\n¡Practica todos los días!",
+    "name": "ai-tutor-es-hoc-anh-bt05-menh-lenh",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Abre la puerta. Open the door. Cierra la ventana. Close the window.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Ven aquí. Come here. Siéntate. Sit down.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Espera un momento. Wait a moment. Estoy ocupado. I'm busy.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Ya voy. I'm coming. ¡Practica todos los días!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ],
+    "TU_THE": "sits on a brown sofa, hands lightly clasped in front of her chest",
+    "refs": {
+      "NGUOI_DAY": [
+        "https://prnt.sc/a9d04hgP01a3"
+      ]
+    }
+  },
+  {
+    "TEN_DAY": "the robot tutor",
+    "NGUOI_DAY": "a glossy white humanoid robot tutor with a realistic young woman's face, glowing light blue eyes, a smooth bald white head with a small white headset with blue LED lights, a black mechanical neck and joints with glowing blue accents, a white armor-like torso with a thin vertical blue light on the chest",
+    "GIONG_DAY": "a warm, bright young woman's voice, a native Mexican Spanish speaker, friendly and clear like a language teacher; completely human, not robotic",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN": "a cozy living room: a framed family photo on a pale wall, a warm table lamp, a green plant and a woven cushion, softly out of focus",
+    "NGON_NGU_ME": "Mexican Spanish",
+    "NGON_NGU_HOC": "American English",
+    "CO": "two small United States flags on short wooden poles at the top left and top right corners, and a cheerful cartoon Uncle Sam mascot pointing forward from the top center",
+    "BANG_TU": "Mi mamá | My mom | /mái mam/\nMi papá | My dad | /mái dad/\nMi hermano | My brother | /mái bróder/\nMi hermana | My sister | /mái síster/\nMi hijo | My son | /mái son/\nMi hija | My daughter | /mái dóter/\nMi familia | My family | /mái fámili/\n¡Practica todos los días!",
+    "name": "ai-tutor-es-hoc-anh-bt06-gia-dinh",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Mi mamá. My mom. Mi papá. My dad.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Mi hermano. My brother. Mi hermana. My sister.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Mi hijo. My son. Mi hija. My daughter.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Mi familia. My family. ¡Practica todos los días!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ],
+    "TU_THE": "sits on a brown sofa, hands lightly clasped in front of her chest",
+    "refs": {
+      "NGUOI_DAY": [
+        "https://prnt.sc/n8Clzxwriw3R"
+      ]
+    }
+  },
+  {
+    "TEN_DAY": "the robot tutor",
+    "NGUOI_DAY": "a glossy white humanoid robot tutor with a realistic young woman's face, glowing light blue eyes, a smooth bald white head with a small white headset with blue LED lights, a black mechanical neck and joints with glowing blue accents, a white armor-like torso with a thin vertical blue light on the chest",
+    "GIONG_DAY": "a warm, bright young woman's voice, a native Mexican Spanish speaker, friendly and clear like a language teacher; completely human, not robotic",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN": "a bright kitchen next to a sunny window with a green plant; on the table a plate of scrambled eggs with toast and a bowl of berries",
+    "NGON_NGU_ME": "Mexican Spanish",
+    "NGON_NGU_HOC": "American English",
+    "CO": "two small United States flags on short wooden poles at the top left and top right corners, and a cheerful cartoon Uncle Sam mascot pointing forward from the top center",
+    "BANG_TU": "Quiero café | I want coffee | /ái uánt cófi/\nUn vaso de agua | A glass of water | /a glas ov uóter/\nUn huevo | An egg | /an eg/\nUn poco de pan | Some bread | /sam bred/\nTengo sed | I'm thirsty | /áim zérsti/\nEstá delicioso | It's delicious | /its dilíshes/\nYa terminé | I'm done | /áim don/\n¡Practica todos los días!",
+    "name": "ai-tutor-es-hoc-anh-bt07-bua-sang",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Quiero café. I want coffee. Un vaso de agua. A glass of water.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Un huevo. An egg. Un poco de pan. Some bread.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Tengo sed. I'm thirsty. Está delicioso. It's delicious.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Ya terminé. I'm done. ¡Practica todos los días!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ],
+    "TU_THE": "sits at a breakfast table, one hand holding a white coffee mug, the other forearm resting on the table",
+    "refs": {
+      "NGUOI_DAY": [
+        "https://prnt.sc/tSLRIybfZOBZ"
+      ]
+    }
+  },
+  {
+    "TEN_DAY": "the robot tutor",
+    "NGUOI_DAY": "a glossy white humanoid robot tutor with a realistic young woman's face, glowing light blue eyes, a smooth bald white head with a small white headset with blue LED lights, a black mechanical neck and joints with glowing blue accents, a white armor-like torso with a thin vertical blue light on the chest",
+    "GIONG_DAY": "a warm, bright young woman's voice, a native Mexican Spanish speaker, friendly and clear like a language teacher; completely human, not robotic",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN": "a warm restaurant interior with wooden tables and hanging pendant lamps, softly out of focus; on her table a plate of grilled chicken with salad and a glass of water with a lemon slice",
+    "NGON_NGU_ME": "Mexican Spanish",
+    "NGON_NGU_HOC": "American English",
+    "CO": "two small United States flags on short wooden poles at the top left and top right corners, and a cheerful cartoon Uncle Sam mascot pointing forward from the top center",
+    "BANG_TU": "Una mesa, por favor | A table, please | /a téibol plíiz/\nEl menú, por favor | The menu, please | /de méniu plíiz/\nQuiero pollo | I want chicken | /ái uánt chíken/\nSin cebolla | No onions | /nóu ánians/\nMás agua, por favor | More water, please | /mor uóter plíiz/\nLa cuenta, por favor | The check, please | /de chek plíiz/\nEstá muy rico | It's very good | /its véri gud/\n¡Practica todos los días!",
+    "name": "ai-tutor-es-hoc-anh-bt08-nha-hang",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Una mesa, por favor. A table, please. El menú, por favor. The menu, please.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Quiero pollo. I want chicken. Sin cebolla. No onions.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Más agua, por favor. More water, please. La cuenta, por favor. The check, please.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Está muy rico. It's very good. ¡Practica todos los días!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ],
+    "TU_THE": "sits at a restaurant table, one hand holding a fork with a piece of broccoli, the other forearm resting on the table",
+    "refs": {
+      "NGUOI_DAY": [
+        "https://prnt.sc/6KEloEHtBZaA"
+      ]
+    }
+  },
+  {
+    "TEN_DAY": "the robot tutor",
+    "NGUOI_DAY": "a glossy white humanoid robot tutor with a realistic young woman's face, glowing light blue eyes, a smooth bald white head with a small white headset with blue LED lights, a black mechanical neck and joints with glowing blue accents, a white armor-like torso with a thin vertical blue light on the chest",
+    "GIONG_DAY": "a warm, bright young woman's voice, a native Mexican Spanish speaker, friendly and clear like a language teacher; completely human, not robotic",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN": "a supermarket aisle with shelves of colorful products, softly out of focus; in the cart a milk carton, lettuce, tomatoes and bananas",
+    "NGON_NGU_ME": "Mexican Spanish",
+    "NGON_NGU_HOC": "American English",
+    "CO": "two small United States flags on short wooden poles at the top left and top right corners, and a cheerful cartoon Uncle Sam mascot pointing forward from the top center",
+    "BANG_TU": "Necesito leche | I need milk | /ái níid milk/\nBusco arroz | I'm looking for rice | /áim lúking for ráis/\n¿Cuánto cuesta? | How much is it? | /jáu mach iz it/\nEstá barato | It's cheap | /its chíip/\nEstá caro | It's expensive | /its ekspénsiv/\nSolo uno | Just one | /yast uan/\nGracias por su ayuda | Thanks for your help | /zanks for iór jelp/\n¡Practica todos los días!",
+    "name": "ai-tutor-es-hoc-anh-bt09-sieu-thi",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Necesito leche. I need milk. Busco arroz. I'm looking for rice.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cuánto cuesta? How much is it? Está barato. It's cheap.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Está caro. It's expensive. Solo uno. Just one.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Gracias por su ayuda. Thanks for your help. ¡Practica todos los días!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ],
+    "TU_THE": "stands in a supermarket aisle behind a shopping cart, both hands on its red handle",
+    "refs": {
+      "NGUOI_DAY": [
+        "https://prnt.sc/LOXfBxP-V4ck"
+      ]
+    }
+  },
+  {
+    "TEN_DAY": "the robot tutor",
+    "NGUOI_DAY": "a glossy white humanoid robot tutor with a realistic young woman's face, glowing light blue eyes, a smooth bald white head with a small white headset with blue LED lights, a black mechanical neck and joints with glowing blue accents, a white armor-like torso with a thin vertical blue light on the chest",
+    "GIONG_DAY": "a warm, bright young woman's voice, a native Mexican Spanish speaker, friendly and clear like a language teacher; completely human, not robotic",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN": "a bright clothing store with racks of shirts in soft colors, softly out of focus",
+    "NGON_NGU_ME": "Mexican Spanish",
+    "NGON_NGU_HOC": "American English",
+    "CO": "two small United States flags on short wooden poles at the top left and top right corners, and a cheerful cartoon Uncle Sam mascot pointing forward from the top center",
+    "BANG_TU": "Me gusta | I like it | /ái láik it/\nNo me gusta | I don't like it | /ái dóunt láik it/\nEs muy grande | It's too big | /its tú big/\nEs muy pequeño | It's too small | /its tú smól/\n¿Tienen otra talla? | Do you have another size? | /du iú jav anóder sáiz/\nQuiero probarlo | I want to try it | /ái uánt tu trái it/\nMe queda bien | It fits well | /it fits uél/\n¡Practica todos los días!",
+    "name": "ai-tutor-es-hoc-anh-bt10-mua-ao",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Me gusta. I like it. No me gusta. I don't like it.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Es muy grande. It's too big. Es muy pequeño. It's too small.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Tienen otra talla? Do you have another size? Quiero probarlo. I want to try it.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me queda bien. It fits well. ¡Practica todos los días!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ],
+    "TU_THE": "stands in a clothing store, one hand holding a pink t-shirt on a hanger",
+    "refs": {
+      "NGUOI_DAY": [
+        "https://prnt.sc/GCEJQhwXKk4G"
+      ]
+    }
+  },
+  {
+    "TEN_DAY": "the robot tutor",
+    "NGUOI_DAY": "a glossy white humanoid robot tutor with a realistic young woman's face, glowing light blue eyes, a smooth bald white head with a small white headset with blue LED lights, a black mechanical neck and joints with glowing blue accents, wearing a navy school blazer with a white shirt and a red bow tie and a backpack on her shoulders",
+    "GIONG_DAY": "a warm, bright young woman's voice, a native Mexican Spanish speaker, friendly and clear like a language teacher; completely human, not robotic",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN": "a sunny school courtyard with a modern school building and trees, softly out of focus",
+    "NGON_NGU_ME": "Mexican Spanish",
+    "NGON_NGU_HOC": "American English",
+    "CO": "two small United States flags on short wooden poles at the top left and top right corners, and a cheerful cartoon Uncle Sam mascot pointing forward from the top center",
+    "BANG_TU": "Necesito dinero | I need money | /ái níid móni/\nNo tengo efectivo | I have no cash | /ái jav nóu cash/\nPago con tarjeta | I'll pay by card | /áil péi bai card/\n¿Cuánto debo? | How much do I owe? | /jáu mach du ái óu/\nAquí tiene | Here you go | /jíer iú góu/\nQuédese con el cambio | Keep the change | /kíip de chéinch/\nNecesito un recibo | I need a receipt | /ái níid a risíit/\n¡Practica todos los días!",
+    "name": "ai-tutor-es-hoc-anh-bt11-tra-tien",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Necesito dinero. I need money. No tengo efectivo. I have no cash.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Pago con tarjeta. I'll pay by card. ¿Cuánto debo? How much do I owe?",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Aquí tiene. Here you go. Quédese con el cambio. Keep the change.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Necesito un recibo. I need a receipt. ¡Practica todos los días!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ],
+    "TU_THE": "stands in a school courtyard, holding a stack of books against her chest",
+    "refs": {
+      "NGUOI_DAY": [
+        "https://prnt.sc/b6oUacpgy4Zb"
+      ]
+    }
+  },
+  {
+    "TEN_DAY": "the robot tutor",
+    "NGUOI_DAY": "a glossy white humanoid robot tutor with a realistic young woman's face, glowing light blue eyes, a smooth bald white head with a small white headset with blue LED lights, a black mechanical neck and joints with glowing blue accents, wearing a gray blazer over a plain white t-shirt",
+    "GIONG_DAY": "a warm, bright young woman's voice, a native Mexican Spanish speaker, friendly and clear like a language teacher; completely human, not robotic",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN": "a modern bright office with large windows and desks, softly out of focus",
+    "NGON_NGU_ME": "Mexican Spanish",
+    "NGON_NGU_HOC": "American English",
+    "CO": "two small United States flags on short wooden poles at the top left and top right corners, and a cheerful cartoon Uncle Sam mascot pointing forward from the top center",
+    "BANG_TU": "Voy al trabajo | I'm going to work | /áim góuing tu uérk/\nEstoy listo | I'm ready | /áim rédi/\nLlegué temprano | I'm early | /áim érli/\nLlegué tarde | I'm late | /áim léit/\nNecesito ayuda | I need help | /ái níid jelp/\nYa terminé | I'm done | /áim don/\nHasta mañana | See you tomorrow | /sí iú tumórou/\n¡Practica todos los días!",
+    "name": "ai-tutor-es-hoc-anh-bt12-van-phong",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Voy al trabajo. I'm going to work. Estoy listo. I'm ready.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Llegué temprano. I'm early. Llegué tarde. I'm late.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Necesito ayuda. I need help. Ya terminé. I'm done.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hasta mañana. See you tomorrow. ¡Practica todos los días!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ],
+    "TU_THE": "sits at an office desk, both hands resting on a laptop keyboard",
+    "refs": {
+      "NGUOI_DAY": [
+        "https://prnt.sc/YUHe6dGy475_"
+      ]
+    }
+  },
+  {
+    "TEN_DAY": "the robot tutor",
+    "NGUOI_DAY": "a glossy white humanoid robot tutor with a realistic young woman's face, glowing light blue eyes, a smooth bald white head with a small white headset with blue LED lights, a black mechanical neck and joints with glowing blue accents, wearing a royal blue blazer over a plain white t-shirt",
+    "GIONG_DAY": "a warm, bright young woman's voice, a native Mexican Spanish speaker, friendly and clear like a language teacher; completely human, not robotic",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN": "a TV weather studio with a blue screen showing a world map and a cartoon sun-and-cloud icon (no text or numbers), softly out of focus",
+    "NGON_NGU_ME": "Mexican Spanish",
+    "NGON_NGU_HOC": "American English",
+    "CO": "two small United States flags on short wooden poles at the top left and top right corners, and a cheerful cartoon Uncle Sam mascot pointing forward from the top center",
+    "BANG_TU": "Hace calor | It's hot | /its jat/\nHace frío | It's cold | /its cóuld/\nEstá lloviendo | It's raining | /its réining/\nHay viento | It's windy | /its uíndi/\nHace sol | It's sunny | /its sáni/\nNecesito una chamarra | I need a jacket | /ái níid a yáket/\nQué bonito día | What a nice day | /uat a náis déi/\n¡Practica todos los días!",
+    "name": "ai-tutor-es-hoc-anh-bt13-thoi-tiet",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Hace calor. It's hot. Hace frío. It's cold.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Está lloviendo. It's raining. Hay viento. It's windy.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hace sol. It's sunny. Necesito una chamarra. I need a jacket.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Qué bonito día. What a nice day. ¡Practica todos los días!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ],
+    "TU_THE": "stands in front of a weather screen, one hand raised in an open presenting gesture",
+    "refs": {
+      "NGUOI_DAY": [
+        "https://prnt.sc/9Yn34zAcArJR"
+      ]
+    }
   }
 ]
