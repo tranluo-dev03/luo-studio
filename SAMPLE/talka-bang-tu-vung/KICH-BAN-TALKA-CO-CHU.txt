@@ -2,7 +2,7 @@
 Photorealistic cinematic CGI, vertical 9:16, sharp, soft even daylight. One locked-off tripod shot, no cuts, no zoom. The TEACHER stands in the lower part of the frame, seen from the belly up (a medium shot): head top at about 40 percent of the frame height, head center at about 62 percent of the frame width, head about 24 percent of the frame width, shoulders about 62 percent of the frame width, her body cut by the bottom edge at the belly; the area above her head shows the background. Same framing, lens and light in every clip. No captions, logos or subtitles.
 
 [CHAR LOCK]:
-TEACHER: {{NGUOI_DAY}}. Same face, head and armor in every frame; the only accent color is light blue. Voice: {{GIONG_DAY}}, the same voice in every clip; native Spanish, with the English words said slowly and clearly in an American accent. {{PHAT_AM}}. A lively, expressive human face with accurate lip-sync; her own hands never appear.
+TEACHER ({{TEN_DAY}}): {{NGUOI_DAY}}. Same face, head and armor in every frame; the only accent color is light blue. Voice: {{GIONG_DAY}}, the same voice in every clip; native Spanish, with the English words said slowly and clearly in an American accent. {{PHAT_AM}}. A lively, expressive human face with accurate lip-sync; her own hands never appear.
 
 [SET LOCK]:
 The background stays exactly as in the start frame: it never moves or changes. The paper is pinned flat and never moves; words already on it never change. No hand, pen, marker or other object ever appears.
