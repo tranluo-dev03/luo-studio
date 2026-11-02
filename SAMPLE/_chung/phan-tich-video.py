@@ -2,7 +2,7 @@
 """Phân tích video tham chiếu thành bộ dữ liệu để viết kịch bản KHÔNG bỏ sót hành động và tốc độ nói.
 
 Chạy (dùng Python đi kèm Studio, đã có ffmpeg và faster-whisper):
-    runtime\\python.exe SAMPLE\\phan-tich-video.py "duong\\dan\\video.mp4" [thu-muc-ra] [--lang en] [--model small]
+    runtime\\python.exe SAMPLE\\_chung\\phan-tich-video.py "duong\\dan\\video.mp4" [thu-muc-ra] [--lang en] [--model small]
 
 Sinh ra trong thư mục ra (mặc định: <tên video>-phan-tich/):
     bao-cao.md        bảng các lượt nói (thời điểm, lời, số từ/giây, khoảng lặng), cảnh cắt, các khoảnh khắc chuyển động mạnh

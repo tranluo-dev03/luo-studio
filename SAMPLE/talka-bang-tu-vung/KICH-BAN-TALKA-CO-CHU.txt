@@ -1,0 +1,90 @@
+[STYLE LOCK]:
+Photorealistic cinematic CGI, vertical 9:16, sharp, soft even daylight. One locked-off tripod shot, no cuts, no zoom. The TEACHER stands in the lower part of the frame, seen from the belly up (a medium shot): head top at about 40 percent of the frame height, head center at about 62 percent of the frame width, head about 24 percent of the frame width, shoulders about 62 percent of the frame width, her body cut by the bottom edge at the belly; the area above her head shows the background. Same framing, lens and light in every clip. No captions, logos or subtitles.
+
+[CHAR LOCK]:
+TEACHER: {{NGUOI_DAY}}. Same face, head and armor in every frame; the only accent color is light blue. Voice: {{GIONG_DAY}}, the same voice in every clip; native Spanish, with the English words said slowly and clearly in an American accent. {{PHAT_AM}}. A lively, expressive human face with accurate lip-sync; her own hands never appear.
+
+[SET LOCK]:
+The background stays exactly as in the start frame: it never moves or changes. The paper is pinned flat and never moves; words already on it never change. No hand, pen, marker or other object ever appears.
+
+[VIDEO SUFFIX]:
+Static camera. She speaks the line once at a natural, lively pace, with a short natural pause between sentences. After her last word she settles into the rest pose ({{DAO_NGHI}}) and holds still until the end of the clip (the tail is cut in editing; the next clip starts from that still frame). No music.
+
+[NEGATIVE]:
+captions, subtitles, logos, extra text; a second person or voice; the robot's hands in the frame; the robot larger or closer; camera movement or zoom; background or lighting change; face or armor change; misspelled or changing words on the paper; a word written over another word or on the wrong row; music, echo, robotic or text-to-speech voice; stiff face or wrong lip-sync.
+
+CẢNH 1 (0:00–0:06): Lượt 1
+Bối cảnh: robot nhỏ nửa dưới khung, phía sau là tờ giấy checklist {{NEN_BANG}}.
+Voice: {{LUOT_1}}
+Khung đầu: New start frame: the teacher from the belly up in the lower part of the frame, head top at about 40 percent of the height, the paper checklist behind her with every gray line empty.
+Khung cuối: She holds the rest pose, still; no hand; the paper shows every gray line is empty, exactly as in the start frame.
+Prompt ảnh: One still image (the image itself), vertical 9:16, photorealistic: the TEACHER, {{NGUOI_DAY}}, in the lower part of the frame, from the belly up (medium shot), head about 24 percent of the frame width, shoulders about 62 percent of the frame width, body cut by the bottom edge at the belly, head top at about 40 percent of the frame height, head center at about 62 percent of the frame width, looking into the lens, lips closed in a soft smile, hands out of the frame. Behind her: {{NEN_BANG}}. No English words written yet. No hand, no marker, no logos.
+Prompt video: Start exactly from the start frame. Paper at the start: every gray line is empty, exactly as in the start frame. {{LUOT_1}} The paper behind her never changes: no word appears or is written on it, every gray line stays empty for the whole clip. No hand, pen or marker. VIDEO SUFFIX.
+Audio: Only her voice, clean and dry; no music, no ambient sound.
+Negative prompt: a hand, pen or marker in the frame; any word appearing or being written on the paper; text on the gray lines.
+
+CẢNH 2 (0:06–0:12): Lượt 2
+Bối cảnh: robot nhỏ nửa dưới khung, phía sau là tờ giấy checklist {{NEN_BANG}}.
+Voice: {{LUOT_2}}
+Khung cuối: She holds the rest pose, still; no hand; the paper shows every gray line is empty, exactly as in the start frame.
+Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing, background and paper). Paper at the start: every gray line is empty, exactly as in the start frame. {{LUOT_2}} The paper behind her never changes: no word appears or is written on it, every gray line stays empty for the whole clip. No hand, pen or marker. VIDEO SUFFIX.
+Audio: Only her voice, clean and dry; no music, no ambient sound.
+Negative prompt: a hand, pen or marker in the frame; any word appearing or being written on the paper; text on the gray lines.
+
+CẢNH 3 (0:12–0:18): Lượt 3
+Bối cảnh: robot nhỏ nửa dưới khung, phía sau là tờ giấy checklist {{NEN_BANG}}.
+Voice: {{LUOT_3}}
+Khung cuối: She holds the rest pose, still; no hand; the paper shows every gray line is empty, exactly as in the start frame.
+Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing, background and paper). Paper at the start: every gray line is empty, exactly as in the start frame. {{LUOT_3}} The paper behind her never changes: no word appears or is written on it, every gray line stays empty for the whole clip. No hand, pen or marker. VIDEO SUFFIX.
+Audio: Only her voice, clean and dry; no music, no ambient sound.
+Negative prompt: a hand, pen or marker in the frame; any word appearing or being written on the paper; text on the gray lines.
+
+CẢNH 4 (0:18–0:23): Lượt 4
+Bối cảnh: robot nhỏ nửa dưới khung, phía sau là tờ giấy checklist {{NEN_BANG}}.
+Voice: {{LUOT_4}}
+Khung cuối: She holds the rest pose, still; no hand; the paper shows every gray line is empty, exactly as in the start frame.
+Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing, background and paper). Paper at the start: every gray line is empty, exactly as in the start frame. {{LUOT_4}} No hand or marker appears; the paper does not change. VIDEO SUFFIX.
+Audio: Only her voice, clean and dry; no music, no ambient sound.
+Negative prompt: a hand or marker in the frame.
+
+CẢNH 5 (0:23–0:29): Lượt 5
+Bối cảnh: robot nhỏ nửa dưới khung, phía sau là tờ giấy checklist {{NEN_BANG}}.
+Voice: {{LUOT_5}}
+Khung cuối: She holds the rest pose, still; no hand; the paper shows every gray line is empty, exactly as in the start frame.
+Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing, background and paper). Paper at the start: every gray line is empty, exactly as in the start frame. {{LUOT_5}} The paper behind her never changes: no word appears or is written on it, every gray line stays empty for the whole clip. No hand, pen or marker. VIDEO SUFFIX.
+Audio: Only her voice, clean and dry; no music, no ambient sound.
+Negative prompt: a hand, pen or marker in the frame; any word appearing or being written on the paper; text on the gray lines.
+
+CẢNH 6 (0:29–0:35): Lượt 6
+Bối cảnh: robot nhỏ nửa dưới khung, phía sau là tờ giấy checklist {{NEN_BANG}}.
+Voice: {{LUOT_6}}
+Khung cuối: She holds the rest pose, still; no hand; the paper shows every gray line is empty, exactly as in the start frame.
+Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing, background and paper). Paper at the start: every gray line is empty, exactly as in the start frame. {{LUOT_6}} The paper behind her never changes: no word appears or is written on it, every gray line stays empty for the whole clip. No hand, pen or marker. VIDEO SUFFIX.
+Audio: Only her voice, clean and dry; no music, no ambient sound.
+Negative prompt: a hand, pen or marker in the frame; any word appearing or being written on the paper; text on the gray lines.
+
+CẢNH 7 (0:35–0:40): Lượt 7
+Bối cảnh: robot nhỏ nửa dưới khung, phía sau là {{NEN_PHO}}; không có chữ.
+Voice: {{LUOT_7}}
+Khung đầu: New start frame: the teacher from the belly up in the lower part of the frame, head top at about 40 percent of the height, the city skyline behind her, no text.
+Khung cuối: She holds the rest pose, still; no text in the frame.
+Prompt ảnh: One still image (the image itself), vertical 9:16, photorealistic: the TEACHER, {{NGUOI_DAY}}, in the lower part of the frame, from the belly up (medium shot), head about 24 percent of the frame width, shoulders about 62 percent of the frame width, body cut by the bottom edge at the belly, head top at about 40 percent of the frame height, head center at about 62 percent of the frame width, looking into the lens, lips closed in a soft smile, hands out of the frame. Behind her: {{NEN_PHO}}. No text anywhere. No hand, no marker, no logos.
+Prompt video: Start exactly from the start frame. {{LUOT_7}} VIDEO SUFFIX.
+Audio: Only her voice, clean and dry; no music, no ambient sound.
+Negative prompt: a hand or marker in the frame; any text in the frame.
+
+CẢNH 8 (0:40–0:46): Lượt 8
+Bối cảnh: robot nhỏ nửa dưới khung, phía sau là {{NEN_PHO}}; không có chữ.
+Voice: {{LUOT_8}}
+Khung cuối: She holds the rest pose, still; no text in the frame.
+Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing, background and paper). {{LUOT_8}} VIDEO SUFFIX.
+Audio: Only her voice, clean and dry; no music, no ambient sound.
+Negative prompt: a hand or marker in the frame; any text in the frame.
+
+CẢNH 9 (0:46–0:53): Lượt 9
+Bối cảnh: robot nhỏ nửa dưới khung, phía sau là {{NEN_PHO}}; không có chữ.
+Voice: {{LUOT_9}}
+Khung cuối: She holds the rest pose, still; no text in the frame. End of the video.
+Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing, background and paper). {{LUOT_9}} VIDEO SUFFIX.
+Audio: Only her voice, clean and dry; no music, no ambient sound.
+Negative prompt: a hand or marker in the frame; any text in the frame.

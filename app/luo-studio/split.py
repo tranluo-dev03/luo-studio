@@ -10,7 +10,7 @@ Mỗi video:
   3. mỗi lượt thoại = một cảnh: gen clip người nói -> cắt sát lời như chế độ thường -> lấy đoạn clip nghe dài đúng bằng -> ghép theo bố cục,
      tiếng chỉ lấy từ người nói -> scene<N>_cut.mp4 (Hậu kỳ dùng như cũ).
 
-Script (loại dự án) có khối [GHEP HAI LOP] thay cho các khối CẢNH; mẫu: SAMPLE/Ghep hai lop/KICH-BAN-GHEP-HAI-LOP.txt.
+Script (loại dự án) có khối [GHEP HAI LOP] thay cho các khối CẢNH; mẫu: SAMPLE/ghep-hai-lop/KICH-BAN-GHEP-HAI-LOP.txt.
 """
 import os, re, shutil, time, unicodedata
 

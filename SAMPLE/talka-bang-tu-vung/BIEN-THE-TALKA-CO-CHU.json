@@ -1,0 +1,71 @@
+[
+  {
+    "name": "talka-robot-trang-co-chu",
+    "NGUOI_DAY": "a sleek white humanoid AI robot teacher: a smooth glossy white head with fine panel seams and no hair, a realistic young woman's face with pale light blue eyes, soft lips and a calm warm expression, a black ribbed mechanical neck, and white hexagon-plated armor on the shoulders, chest and arms with black mechanical joints and thin glowing light blue accent lines",
+    "TEN_DAY": "the white robot teacher",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, like a friendly language teacher recording a short lesson video, with lively, varied intonation and a smile in the voice, clear crisp diction; completely human-sounding, not robotic, no synthetic or metallic effect",
+    "PHAT_AM": "PRONUNCIATION OF THE BRAND NAME (strict): the word \"Talka\" is always said as \"TAWK-ah\": the English word \"talk\" with a silent L, rhyming with \"walk\", followed by a short unstressed \"ah\", stress on the first syllable, one smooth word; never \"TAL-ka\" with an audible L and never two equal Spanish syllables \"tal-ka\"",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.35,0.43,0.85,0.7",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens",
+    "NEN_BANG": "a big cream-colored paper checklist with a faint dotted grid, pinned flat on a light beige wall and filling almost the whole frame. At about 6 percent from the top, the title \"¿CÓMO SE DICE?\" in thick black bold capitals. Below it eight medium-sized rows (not tiny), about 5 percent of the frame height apart, from about 12 to 47 percent from the top, so the first five rows are clearly above her head. Each row: a dark bullet, a red circle with a white check mark, and a dark bold Spanish word, in order: \"Para mí\", \"Para ti\", \"Nunca\", \"Por favor\", \"¡Gracias!\", \"Lo siento\", \"Hasta luego\", \"Cuídate\"; the Spanish words stay in the left half. To the right of each word, a thin light-gray line from about 52 to 88 percent of the frame width, the empty slot for a blue handwritten-style English word. All words sharp and correctly spelled",
+    "NEN_PHO": "a vertical view of a dense big-city skyline from a high rooftop at sunset: a warm orange, pink and purple sky, thousands of small glowing lights on the buildings, softly out of focus; the upper third of the frame is calm sky with no sign boards or writing",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "¿Cómo se dice para mí en inglés? Se dice, for me. Repite conmigo. For me.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice para ti? Se dice, for you. Repite conmigo. For you.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice nunca? Se dice, never. Repite conmigo. Never.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "El inglés no es difícil y descubrirás que tengo razón si sigues esta página.",
+        "emo": "confident, warm",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice por favor? Se dice, please. Repite conmigo. Please.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Cómo se dice gracias? Se dice, thank you. Repite conmigo. Thank you.",
+        "emo": "curious, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Quieres aprender inglés de una manera más fácil?",
+        "emo": "friendly, curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Descarga Talka y en solo cuatro semanas podrás sonar como un hablante nativo.",
+        "emo": "enthusiastic, persuasive",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Un tutor con IA que te corrige en tiempo real y acelera tu progreso. Best Language Learning App. Download now.",
+        "emo": "upbeat, persuasive",
+        "fx": "none"
+      }
+    ]
+  }
+]

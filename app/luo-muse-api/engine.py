@@ -1020,6 +1020,31 @@ class MuseEngine:
         except Exception:  # noqa: BLE001
             return 0
 
+    def _textarea_len(self) -> int:
+        try:
+            return int(self.page.js("String((document.querySelector('textarea')||{value:''}).value.length)") or 0)
+        except Exception:  # noqa: BLE001
+            return 0
+
+    def _confirm_sent(self, base_user: int, base_agent: int, timeout: float) -> bool:
+        """Prompt đã thật sự lên chat chưa: có bong bóng tin nhắn người dùng / trợ lý mới, hoặc nút Stop (Muse đang xử lý)."""
+        deadline = time.time() + timeout
+        while time.time() < deadline:
+            self._scroll_bottom()
+            try:
+                st = json.loads(self.page.js(
+                    "(function(){var bs=[].slice.call(document.querySelectorAll('div[class*=\"hatch-chat-groupable-bubble\"]'));"
+                    "var u=0,a=0;bs.forEach(function(b){var c=b.className||'';if(/chat-user-bubble/.test(c))u++;if(/hatch-agent-bubble-bg/.test(c))a++;});"
+                    "var stop=!!(document.querySelector('[data-testid=\"hatch-composer-stop-button\"]')"
+                    "||document.querySelector('button[aria-label*=\"Stop\" i]')||document.querySelector('button[aria-label*=\"停止\"]'));"
+                    "return JSON.stringify({u:u,a:a,stop:stop});})()") or "{}")
+            except Exception:  # noqa: BLE001
+                st = {}
+            if st.get("stop") or (st.get("u") or 0) > base_user or (st.get("a") or 0) > base_agent:
+                return True
+            time.sleep(0.5)
+        return False
+
     def _poll_chat(self) -> tuple[int, str, bool]:
         try:
             raw = self.page.js(self._POLL_CHAT_JS)
@@ -1363,8 +1388,18 @@ class MuseEngine:
         base = atts_before[-1] if atts_before else {}
         baseline_src = base.get("src") or ""
         base_agent_cnt = self._agent_count()
+        base_user_cnt = self._user_count()
         if self._send(prompt) not in ("clicked", "enter-sent"):
             raise MuseGenerationError("提示词发送未确认，已停止生成")
+        if not self._confirm_sent(base_user_cnt, base_agent_cnt, 25.0):
+            # Bấm Gửi nhưng prompt không lên khung chat (Muse không tạo chat mới): trước đây chờ suông đến hết thời gian chờ.
+            # Gửi lại một lần nếu ô nhập vẫn còn chữ; vẫn không lên thì báo lỗi ngay để lớp trên thử lại ở chat mới.
+            log.warning("【发送确认】提示词未出现在对话中，重新发送一次")
+            if self._textarea_len() and self._send(prompt) in ("clicked", "enter-sent") and self._confirm_sent(base_user_cnt, base_agent_cnt, 20.0):
+                pass
+            else:
+                self._debug_dump("not-sent")
+                raise MuseGenerationError("提示词未发出（对话中没有出现该消息），在新对话中重试")
         att = self._wait_attachment(
             baseline_src, timeout, expect, on_progress=on_progress,
             base_agent_cnt=base_agent_cnt, base_att_cnt=len(atts_before),

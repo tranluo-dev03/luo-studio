@@ -199,7 +199,8 @@ Góc trên bên phải có chấm trạng thái API:
     mẫu" để biết định dạng.
 
 6.5b Nhờ Claude viết kịch bản và biến thể mới (thư mục SAMPLE)
-  Trong gói có thư mục "SAMPLE" gồm 3 file:
+  Trong gói có thư mục "SAMPLE": mỗi thể loại video một thư mục con (kịch bản, biến thể, phân tích),
+  xem SAMPLE\README.md. Thư mục SAMPLE\_chung gồm 3 file dùng cho mọi thể loại:
     - 1-KICH-BAN-MAU.txt     kịch bản mẫu (cấu trúc cảnh và các token {{...}}).
     - 2-BIEN-THE-MAU.json    ví dụ file biến thể (nhân vật + lời thoại) đúng định dạng.
     - 3-PROMPT-CHO-CLAUDE.txt prompt mẫu, có hướng dẫn dùng từng bước.
@@ -213,8 +214,8 @@ Góc trên bên phải có chấm trạng thái API:
   - Dành cho bố cục mà mỗi nhân vật ở một vùng riêng (vd. gia sư AI trong khung bo góc phía trên,
     người học quay selfie phía dưới). Mỗi nhân vật được gen RIÊNG, một mình trong khung, rồi phần mềm
     tự ghép lại; vì vậy không thể xảy ra chuyện hai người cùng nói hay người nghe mấp máy miệng.
-  - Tạo: tab "Loại dự án" > "Loại mới" > tải file SAMPLE\Ghep hai lop\KICH-BAN-GHEP-HAI-LOP.txt
-    (thẻ hiện "Ghép 2 lớp"); biến thể mẫu: SAMPLE\Ghep hai lop\BIEN-THE-GHEP-HAI-LOP.json.
+  - Tạo: tab "Loại dự án" > "Loại mới" > tải file SAMPLE\ghep-hai-lop\KICH-BAN-GHEP-HAI-LOP.txt
+    (thẻ hiện "Ghép 2 lớp"); biến thể mẫu: SAMPLE\ghep-hai-lop\BIEN-THE-GHEP-HAI-LOP.json.
   - Mỗi lượt thoại là một cảnh, số lượt tuỳ ý. Mỗi video, trước cảnh 1 phần mềm gen: một ảnh gốc cho
     từng nhân vật và vài clip "đang nghe" (nhật ký ghi "Chuẩn bị: ..."). Sau đó mỗi cảnh chỉ gen clip của
     người nói rồi ghép với một đoạn clip nghe của người kia.
