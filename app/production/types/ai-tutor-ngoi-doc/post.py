@@ -16,6 +16,7 @@ sys.path[:0] = [PROD]
 import postprocess as P  # noqa: E402
 
 W, H = 1080, 1920
+ROBOT_SCALE = 0.80   # robot thu về 80% và neo đáy giữa khung: đầu robot luôn nằm dưới bảng (~37%); phần trống phía trên là nền mờ của chính video
 FONT_B = r"C:\Windows\Fonts\arialbd.ttf" if os.name == "nt" else "DejaVuSans-Bold.ttf"
 LANG = {"portuguese": "pt", "english": "en", "spanish": "es", "french": "fr", "german": "de", "italian": "it", "vietnamese": "vi",
         "japanese": "ja", "korean": "ko", "chinese": "zh", "russian": "ru", "turkish": "tr", "arabic": "ar", "hindi": "hi", "indonesian": "id"}
@@ -52,7 +53,7 @@ def _api():
 
 def board_prompt(deco):
     return ("Generate exactly one still image (the image itself, not a description of it). A cheerful classroom-style wall board seen straight on, "
-            "a WIDE HORIZONTAL LANDSCAPE rectangle about twice as wide as it is tall (aspect ratio 2:1, like a whiteboard or TV screen, NOT portrait, NOT square), "
+            "a WIDE HORIZONTAL LANDSCAPE rectangle, about 1.7 times as wide as it is tall including the decoration on top (like a whiteboard or TV screen, NOT portrait, NOT square), "
             "centered and filling most of the frame width: a thick rounded wooden frame with a bright painted stripe pattern on its inner border, "
             "and a large, completely blank, plain white rectangular panel inside it (absolutely no text, letters or marks on the panel). "
             f"Decoration on top of the frame: {deco}. "
@@ -92,7 +93,7 @@ def make_board(deco, cache_png, log=print):
         if best is None or im.width / im.height > best[0].width / best[0].height:
             best = (im, raw_png + f".{attempt}")
             shutil.copy(raw_png, best[1])
-        if im.width / im.height >= 1.6:
+        if 1.4 <= im.width / im.height <= 2.1:
             break
         log(f"Khung bảng chưa đủ ngang ({im.width}x{im.height}), gen lại...")
         os.remove(raw_png)
@@ -100,8 +101,6 @@ def make_board(deco, cache_png, log=print):
     shutil.copy(best[1], raw_png)
     for f in glob.glob(raw_png + ".[0-9]"):
         os.remove(f)
-    if im.width / im.height < 1.6:
-        im = im.resize((int(im.height * 1.8), im.height), Image.LANCZOS)
     inner = find_inner(im)
     im.save(cache_png)
     json.dump({"inner": inner}, open(meta, "w"))
@@ -120,19 +119,30 @@ def find_inner(im):
     return (int(cols[0]), int(rows[0]), int(cols[-1]), int(rows[-1]))
 
 
-def tall_panel(board, inner, ratio=2.0):
-    """Lòng trắng của khung AI thường bị dẹt vì cờ/linh vật chiếm chiều cao. Kéo giãn dọc riêng dải lòng trắng + viền hai bên
-    (phần trên có cờ, linh vật và phần viền dưới giữ nguyên, không méo) để lòng trắng có tỉ lệ rộng:cao chỉ ~ratio."""
-    x0, y0, x1, y1 = inner
-    iw, ih = x1 - x0, y1 - y0
-    want = min(int(iw / ratio), int(ih * 1.7))
-    if want <= ih:
-        return board, inner
-    top, mid, bot = board.crop((0, 0, board.width, y0)), board.crop((0, y0, board.width, y1)), board.crop((0, y1, board.width, board.height))
-    mid = mid.resize((board.width, want), Image.LANCZOS)
-    out = Image.new("RGBA", (board.width, top.height + want + bot.height), (0, 0, 0, 0))
-    out.alpha_composite(top, (0, 0)); out.alpha_composite(mid, (0, y0)); out.alpha_composite(bot, (0, y0 + want))
-    return out, (x0, y0, x1, y0 + want)
+def fit_board(board, inner):
+    """Đưa khung bảng AI về khung cố định (rộng 88%, cao 30% khung hình), đặt ở vị trí cố định (đỉnh 3%).
+    Phóng đều theo chiều rộng (không méo cờ/linh vật), rồi chỉ kéo/co dải lòng trắng + viền hai bên theo chiều dọc
+    để đủ chiều cao cố định. Trả về (ảnh RGBA W x H, lòng trắng (x0, y0, x1, y1) trong khung hình)."""
+    BW, BH = int(W * 0.88), int(H * 0.30)
+    k = BW / board.width
+    x0, y0, x1, y1 = [int(v * k) for v in inner]
+    board = board.resize((BW, max(1, int(board.height * k))), Image.LANCZOS)
+    top, bot = y0, board.height - y1
+    if top + bot + 140 > BH:   # phần trên/dưới quá cao: thu cả khung lại cho vừa chiều cao, giữ đúng tỉ lệ
+        k2 = (BH - 140) / (top + bot)
+        board = board.resize((max(1, int(board.width * k2)), max(1, int(board.height * k2))), Image.LANCZOS)
+        x0, y0, x1, y1 = [int(v * k2) for v in (x0, y0, x1, y1)]
+        top, bot = y0, board.height - y1
+    mid_h = BH - top - bot
+    mid = board.crop((0, y0, board.width, y1)).resize((board.width, mid_h), Image.LANCZOS)
+    out = Image.new("RGBA", (board.width, BH), (0, 0, 0, 0))
+    out.alpha_composite(board.crop((0, 0, board.width, y0)), (0, 0))
+    out.alpha_composite(mid, (0, y0))
+    out.alpha_composite(board.crop((0, y1, board.width, board.height)), (0, y0 + mid_h))
+    bx, by = (W - out.width) // 2, int(H * 0.03)
+    frame = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    frame.alpha_composite(out, (bx, by))
+    return frame, (bx + x0, by + y0, bx + x1, by + y0 + mid_h)
 
 
 def fallback_board():
@@ -155,35 +165,31 @@ def _fit(d, text, px, maxw):
     return _font(px)
 
 
-def render_card(board, inner, place, pair, closing=None):
-    """Khung bảng + chữ của một cặp (hoặc câu kết), ảnh trong suốt W x H."""
-    bx, by, scale = place
-    im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    bd = board.resize((int(board.width * scale), int(board.height * scale)), Image.LANCZOS)
-    im.alpha_composite(bd, (bx, by))
-    x0, y0, x1, y1 = [int(v * scale) for v in inner]
-    x0, x1, y0, y1 = bx + x0, bx + x1, by + y0, by + y1
+def render_card(board, inner, pair, closing=None):
+    """Bảng cố định + chữ của một cặp (hoặc câu kết), ảnh trong suốt W x H. Mỗi dòng ở một vị trí cố định."""
+    im = board.copy()
+    x0, y0, x1, y1 = inner
     iw, ih = x1 - x0, y1 - y0
     d = ImageDraw.Draw(im)
     cx = (x0 + x1) / 2
+
+    def line(text, base, frac, cy, col, under=False, stroke=None):
+        f = _fit(d, text, ih * frac, iw * 0.94)
+        tw = d.textlength(text, font=f)
+        kw = {"stroke_width": max(2, f.size // 12), "stroke_fill": stroke} if stroke else {}
+        d.text((cx, y0 + ih * cy), text, font=f, fill=col, anchor="mm", **kw)
+        if under:
+            yy = y0 + ih * cy + f.size * 0.62
+            d.line((cx - tw / 2, yy, cx + tw / 2, yy), fill=col, width=max(3, f.size // 14))
+
     if closing:
-        f = _fit(d, closing, ih * 0.3, iw * 0.9)
-        tw = d.textlength(closing, font=f)
-        d.text((cx - tw / 2, y0 + ih / 2 - f.size * 0.6), closing, font=f, fill=(255, 210, 0, 255), stroke_width=max(2, f.size // 12), stroke_fill=(90, 40, 0, 255))
+        line(closing, 0, 0.3, 0.5, (255, 210, 0, 255), stroke=(90, 40, 0, 255))
         return im
     native, target, pron = pair
-    f1, f2, f3 = _fit(d, native, ih * 0.2, iw * 0.9), _fit(d, target, ih * 0.28, iw * 0.92), _fit(d, pron, ih * 0.17, iw * 0.9)
-    gap = ih * 0.06
-    total = f1.size + f2.size + (f3.size if pron else 0) + gap * (2 if pron else 1)
-    y = y0 + (ih - total) / 2
-    for text, f, col, under in ((native, f1, (20, 20, 20, 255), True), (target, f2, (226, 44, 36, 255), False), (pron, f3, (226, 44, 36, 255), False)):
-        if not text:
-            continue
-        tw = d.textlength(text, font=f)
-        d.text((cx - tw / 2, y), text, font=f, fill=col)
-        if under:
-            d.line((cx - tw / 2, y + f.size * 1.12, cx + tw / 2, y + f.size * 1.12), fill=col, width=max(2, f.size // 14))
-        y += f.size + gap
+    line(native, 0, 0.17, 0.17, (20, 20, 20, 255), under=True)
+    line(target, 0, 0.27, 0.50, (226, 44, 36, 255))
+    if pron:
+        line(pron, 0, 0.15, 0.80, (226, 44, 36, 255))
     return im
 
 
@@ -287,10 +293,7 @@ def main():
     except Exception as ex:  # noqa: BLE001 - không gen được bảng vẫn ra video với bảng vẽ bằng code
         print(f"Không gen được khung bảng ({str(ex)[:120]}); dùng bảng vẽ bằng code")
         board, inner = fallback_board()
-    # đặt bảng: rộng ~86% khung, đỉnh ~4.5%, đáy không quá ~35% (đầu robot ở ~36%)
-    board, inner = tall_panel(board, inner)
-    scale = min(W * 0.86 / board.width, H * 0.31 / board.height)
-    place = (int((W - board.width * scale) / 2), int(H * 0.045), scale)
+    board, inner = fit_board(board, inner)   # kích thước + vị trí cố định
     starts, t_close = timeline(a.raw, scenes, turns, pairs, closing, a.model, lang_code(v.get("NGON_NGU_ME", "")))
     end = max(s["end"] for s in scenes)
     work = tempfile.mkdtemp(prefix="tutor_pp_")
@@ -299,10 +302,10 @@ def main():
         for i, pair in enumerate(pairs):
             s = 0.0 if i == 0 else max(0.0, starts[i] - 0.15)
             e = (starts[i + 1] - 0.15) if i + 1 < len(pairs) else ((t_close - 0.15) if t_close else end)
-            cards.append((s, e, render_card(board, inner, place, pair)))
+            cards.append((s, e, render_card(board, inner, pair)))
             print(f"  bảng {i + 1}: {s:6.2f}-{e:6.2f}  {pair[0]} / {pair[1]} / {pair[2]}")
         if closing and t_close:
-            cards.append((t_close - 0.15, end, render_card(board, inner, place, None, closing)))
+            cards.append((t_close - 0.15, end, render_card(board, inner, None, closing)))
             print(f"  câu kết: {t_close - 0.15:6.2f}-{end:6.2f}  {closing}")
         fr = os.path.join(work, "f0.png")
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-ss", "0.3", "-i", a.raw, "-vf", f"scale={W}:{H}", "-frames:v", "1", fr])
@@ -310,9 +313,11 @@ def main():
         if os.path.exists(fr):   # ảnh robot cho nhãn: vùng mặt (giữa khung, ngay dưới bảng)
             f0 = Image.open(fr).convert("RGB")
             c = int(W * 0.13)
-            avatar = f0.crop((W // 2 - c, int(H * 0.36), W // 2 + c, int(H * 0.36) + 2 * c))
+            avatar = f0.crop((W // 2 - c, int(H * 0.25), W // 2 + c, int(H * 0.25) + 2 * c))
         cmd = ["ffmpeg", "-y", "-i", a.raw]
-        fc = f"[0:v]scale={W}:{H}:flags=lanczos,fps=30[v0]"
+        rw, rh = int(W * ROBOT_SCALE) // 2 * 2, int(H * ROBOT_SCALE) // 2 * 2
+        fc = (f"[0:v]fps=30,split[a][b];[a]scale={W}:{H},boxblur=40:5[bg];[b]scale={rw}:{rh}:flags=lanczos[fg];"
+              f"[bg][fg]overlay={(W - rw) // 2}:{H - rh}[v0]")
         last = "v0"
         for k, (s, e, im) in enumerate(cards):
             pth = os.path.join(work, f"card{k}.png")
