@@ -57,17 +57,20 @@ def board_prompt(deco):
             "centered and filling most of the frame width: a thick rounded wooden frame with a bright painted stripe pattern on its inner border, "
             "and a large, completely blank, plain white rectangular panel inside it (absolutely no text, letters or marks on the panel). "
             f"Decoration on top of the frame: {deco}. "
-            "The whole board is isolated on a perfectly flat, evenly lit, pure chroma-key green (#00B140) background, with no shadow on the background "
-            "and no other objects. No text, letters, numbers or logos anywhere in the image. Output only the generated image, with no written reply.")
+            "The whole board is isolated on a perfectly flat, evenly lit, pure chroma-key magenta (#FF00FF) background, with no shadow on the background "
+            "and no other objects. No text, letters, numbers, brand names or logos anywhere in the image. Output only the generated image, with no written reply.")
 
 
 def _key(raw_png):
+    """Cắt phông magenta (#FF00FF): màu này không có trong cờ/linh vật (khác phông xanh lá làm mất phần xanh của cờ Bồ Đào Nha, Brazil...). Khử ám hồng chỉ ở viền."""
     a = np.asarray(Image.open(raw_png).convert("RGB")).astype(np.float32)
     r, g, bl = a[..., 0], a[..., 1], a[..., 2]
-    spill = g - np.maximum(r, bl)
-    alpha = np.clip((60 - spill) / 35, 0, 1)
-    g2 = np.minimum(g, np.maximum(r, bl) + 8)
-    im = Image.fromarray(np.dstack([r, g2, bl, alpha * 255]).clip(0, 255).astype(np.uint8), "RGBA")
+    spill = np.minimum(r, bl) - g
+    alpha = np.clip((70 - spill) / 40, 0, 1)
+    edge = (alpha < 0.999) & (alpha > 0)
+    r2 = np.where(edge, np.minimum(r, g + 12), r)
+    b2 = np.where(edge, np.minimum(bl, g + 12), bl)
+    im = Image.fromarray(np.dstack([r2, g, b2, alpha * 255]).clip(0, 255).astype(np.uint8), "RGBA")
     return im.crop(im.getbbox())
 
 
@@ -165,16 +168,39 @@ def _fit(d, text, px, maxw):
     return _font(px)
 
 
-def render_card(board, inner, pair, closing=None):
-    """Bảng cố định + chữ của một cặp (hoặc câu kết), ảnh trong suốt W x H. Mỗi dòng ở một vị trí cố định."""
+TEXT_W = 0.80   # chữ chiếm tối đa 80% bề rộng lòng bảng (lề ~10% mỗi bên)
+ROWS = (("native", 0.17), ("target", 0.27), ("pron", 0.15), ("closing", 0.30))   # (dòng, cỡ chữ theo chiều cao lòng bảng)
+
+
+def text_sizes(inner, pairs, closing):
+    """Cỡ chữ DÙNG CHUNG cho mọi bảng của video: cặp nào có chữ dài nhất quyết định hệ số thu k, mọi dòng ở mọi bảng đều nhân k
+    (giữ nguyên tỉ lệ giữa các dòng). Trả về {dòng: px}."""
+    x0, y0, x1, y1 = inner
+    iw, ih = x1 - x0, y1 - y0
+    d = ImageDraw.Draw(Image.new("RGB", (4, 4)))
+    texts = {"native": [p[0] for p in pairs], "target": [p[1] for p in pairs], "pron": [p[2] for p in pairs if p[2]], "closing": [closing] if closing else []}
+    k = 1.0
+    for row, frac in ROWS:
+        for t in texts[row]:
+            w = d.textlength(t, font=_font(ih * frac)) + (2 * max(2, int(ih * frac) // 12) if row == "closing" else 0)
+            k = min(k, iw * TEXT_W / max(w, 1))
+    sizes = {row: max(14, int(ih * frac * k)) for row, frac in ROWS}
+    for row, frac in ROWS:   # làm tròn xuống có thể còn lố vài px: hạ tới khi mọi chữ lọt lề
+        while sizes[row] > 14 and any(d.textlength(t, font=_font(sizes[row])) > iw * TEXT_W for t in texts[row]):
+            sizes[row] -= 1
+    return sizes
+
+
+def render_card(board, inner, pair, sizes, closing=None):
+    """Bảng cố định + chữ của một cặp (hoặc câu kết), ảnh trong suốt W x H. Mỗi dòng ở vị trí cố định, cỡ chữ lấy từ `sizes` (chung cả video)."""
     im = board.copy()
     x0, y0, x1, y1 = inner
     iw, ih = x1 - x0, y1 - y0
     d = ImageDraw.Draw(im)
     cx = (x0 + x1) / 2
 
-    def line(text, base, frac, cy, col, under=False, stroke=None):
-        f = _fit(d, text, ih * frac, iw * 0.94)
+    def line(text, row, cy, col, under=False, stroke=None):
+        f = _font(sizes[row])
         tw = d.textlength(text, font=f)
         kw = {"stroke_width": max(2, f.size // 12), "stroke_fill": stroke} if stroke else {}
         d.text((cx, y0 + ih * cy), text, font=f, fill=col, anchor="mm", **kw)
@@ -183,13 +209,13 @@ def render_card(board, inner, pair, closing=None):
             d.line((cx - tw / 2, yy, cx + tw / 2, yy), fill=col, width=max(3, f.size // 14))
 
     if closing:
-        line(closing, 0, 0.3, 0.5, (255, 210, 0, 255), stroke=(90, 40, 0, 255))
+        line(closing, "closing", 0.5, (255, 210, 0, 255), stroke=(90, 40, 0, 255))
         return im
     native, target, pron = pair
-    line(native, 0, 0.17, 0.17, (20, 20, 20, 255), under=True)
-    line(target, 0, 0.27, 0.50, (226, 44, 36, 255))
+    line(native, "native", 0.17, (20, 20, 20, 255), under=True)
+    line(target, "target", 0.50, (226, 44, 36, 255))
     if pron:
-        line(pron, 0, 0.15, 0.80, (226, 44, 36, 255))
+        line(pron, "pron", 0.80, (226, 44, 36, 255))
     return im
 
 
@@ -294,6 +320,8 @@ def main():
         print(f"Không gen được khung bảng ({str(ex)[:120]}); dùng bảng vẽ bằng code")
         board, inner = fallback_board()
     board, inner = fit_board(board, inner)   # kích thước + vị trí cố định
+    sizes = text_sizes(inner, pairs, closing)
+    print("Cỡ chữ chung cả video (px):", sizes)
     starts, t_close = timeline(a.raw, scenes, turns, pairs, closing, a.model, lang_code(v.get("NGON_NGU_ME", "")))
     end = max(s["end"] for s in scenes)
     work = tempfile.mkdtemp(prefix="tutor_pp_")
@@ -302,10 +330,10 @@ def main():
         for i, pair in enumerate(pairs):
             s = 0.0 if i == 0 else max(0.0, starts[i] - 0.15)
             e = (starts[i + 1] - 0.15) if i + 1 < len(pairs) else ((t_close - 0.15) if t_close else end)
-            cards.append((s, e, render_card(board, inner, pair)))
+            cards.append((s, e, render_card(board, inner, pair, sizes)))
             print(f"  bảng {i + 1}: {s:6.2f}-{e:6.2f}  {pair[0]} / {pair[1]} / {pair[2]}")
         if closing and t_close:
-            cards.append((t_close - 0.15, end, render_card(board, inner, None, closing)))
+            cards.append((t_close - 0.15, end, render_card(board, inner, None, sizes, closing)))
             print(f"  câu kết: {t_close - 0.15:6.2f}-{end:6.2f}  {closing}")
         fr = os.path.join(work, "f0.png")
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-ss", "0.3", "-i", a.raw, "-vf", f"scale={W}:{H}", "-frames:v", "1", fr])

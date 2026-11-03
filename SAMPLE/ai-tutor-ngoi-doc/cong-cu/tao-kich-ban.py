@@ -9,7 +9,7 @@ OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # SAMPLE/ai-
 PER_CLIP = 3          # số cặp câu mỗi cảnh (mỗi cảnh ~8–9 giây)
 
 HEAD = """[STYLE LOCK]:
-Photorealistic cinematic CGI, vertical 9:16, sharp, warm natural light. One locked-off tripod shot, no cuts, no zoom. The TUTOR {{TU_THE}}, in the lower part of the frame, seen from the waist up and centered: head top at about 34 percent of the frame height, head (with the headset) only about 30 percent of the frame width, shoulders no wider than about 45 percent of the frame width (a medium-wide shot, NOT a close-up: the tutor is small in the frame). The whole upper third of the frame (above the head) shows only the background, with nothing important in it (a sign is added there in editing). Same framing, lens and light in every clip. No text, captions, logos or subtitles anywhere.
+Photorealistic cinematic CGI, vertical 9:16, sharp, warm natural light. One locked-off tripod shot, no cuts, no zoom. The TUTOR {{TU_THE}}, in the lower part of the frame, seen from the waist up and centered: head top at about 34 percent of the frame height, head (with the headset) only about 30 percent of the frame width, shoulders no wider than about 45 percent of the frame width (a medium-wide shot, NOT a close-up: the tutor is small in the frame). The whole upper third of the frame (above the head) shows only the background, with nothing important in it (a sign is added there in editing). Same framing, lens and light in every clip. No text, captions or subtitles anywhere. No brand names, trademarks, logos or emblems anywhere in the frame: none on the robot's body, chest or headset, none on clothing, jerseys, bags, books, laptops, cups or in the background; all clothing and objects are plain and unbranded, and any logo or text printed on a reference image must be left out.
 
 [CHAR LOCK]:
 TUTOR ({{TEN_DAY}}): {{NGUOI_DAY}}. Same face, head, body and outfit in every frame. Voice: {{GIONG_DAY}}, the same voice in every clip. She is a native {{NGON_NGU_ME}} speaker teaching {{NGON_NGU_HOC}}: she says each {{NGON_NGU_ME}} phrase naturally, then its {{NGON_NGU_HOC}} translation slowly and clearly with a correct {{NGON_NGU_HOC}} accent. A friendly, expressive face with accurate lip-sync; small natural head movements; her hands stay relaxed on the table.
@@ -21,7 +21,7 @@ Background: {{NEN}}. It stays exactly as in the start frame for every clip: noth
 Static camera. She reads the phrase pairs in order at a calm teaching pace: each {{NGON_NGU_ME}} phrase, a tiny pause, its {{NGON_NGU_HOC}} translation, then a short pause before the next pair. After the last word she settles into the rest pose ({{DAO_NGHI}}) and holds still until the end of the clip (the tail is cut in editing; the next clip starts from that still frame). No music.
 
 [NEGATIVE]:
-captions, subtitles, logos, any text or letters in the frame; signs or boards in the background; a second person or voice; the tutor leaving or changing position; the tutor larger, closer or off-center; camera movement or zoom; background or lighting change; outfit or face change; music, echo, robotic or text-to-speech voice; wrong language or wrong accent; skipped, repeated or reordered phrases; stiff face or wrong lip-sync.
+captions, subtitles, any brand name, trademark, logo, emblem or badge anywhere (on the robot, clothing, jersey, bag, laptop, cup, books or background), any text or letters in the frame; signs or boards in the background; a second person or voice; the tutor leaving or changing position; the tutor larger, closer or off-center; camera movement or zoom; background or lighting change; outfit or face change; music, echo, robotic or text-to-speech voice; wrong language or wrong accent; skipped, repeated or reordered phrases; stiff face or wrong lip-sync.
 
 [HAU KY]:
 loai: ai-tutor-ngoi-doc
@@ -60,7 +60,7 @@ def script(n):
         if i == 1:
             L.append("Prompt ảnh: One still image (the image itself), vertical 9:16, photorealistic: the TUTOR, {{NGUOI_DAY}}, sitting behind a small round table, "
                      "seen from the waist up, centered, head top at about 34 percent of the frame height, forearms resting on the table, looking into the lens, "
-                     "lips closed in a soft smile. Behind her: {{NEN}}. The upper third of the frame shows only background. No text, no signs, no logos.")
+                     "lips closed in a soft smile. Behind her: {{NEN}}. The upper third of the frame shows only background. No text, no signs, no brand names, no logos.")
         start = "Start exactly from the start frame." if i == 1 else "Continue exactly from the previous clip's last frame (same tutor, pose, framing and background)."
         L.append(f"Prompt video: {start} {{{{LUOT_{i}}}}} VIDEO SUFFIX.")
         L.append("Audio: Only her voice, clean and dry; no music, no ambient sound.")

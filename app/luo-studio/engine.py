@@ -416,7 +416,7 @@ def attachments(vdata, opts, keep=None, offset=0, missing=None, lead=None):
                 framed = opts.get("layout_ref") and key.upper().startswith("NGUOI")   # thể loại có bố cục cố định: ảnh nhân vật chỉ để lấy mặt/trang phục
                 imgs.append(G.data_url(reframe_ref(p, os.path.join(base, ".reframed")) if framed else p))
                 notes.append(f"reference image #{offset + len(imgs)} is {describe(key)}"
-                             + ("; take the character's identity and outfit ONLY. Its plain background is NOT part of the scene (draw the background from the prompt), and the character must stay as small and as low in the frame as in this reference" if framed else ""))
+                             + ("; take the character's identity and outfit ONLY, and leave out any logo, brand mark or text printed on it. Its plain background is NOT part of the scene (draw the background from the prompt), and the character must stay as small and as low in the frame as in this reference" if framed else ""))
     legend = "; ".join(notes)
     return imgs, ((("(the first images are general references) " if offset and lead is None else (lead or "")) + legend) if legend else ""), auds
 
