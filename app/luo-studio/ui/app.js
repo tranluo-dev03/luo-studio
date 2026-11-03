@@ -152,7 +152,7 @@ function newProjectModal(presetType) {
 
 // ---------------------------------------------------------------- Soạn dự án
 function touch() { clearTimeout(S.saveT); S.saveT = setTimeout(save, 500); }
-async function save() { if (!S.project) return; try { await api("projects/" + S.project.id, { method: "PUT", body: { name: S.project.name, variants: S.project.variants } }); } catch (e) { toast(e.message, 1); } }
+async function save() { if (!S.project) return; try { await api("projects/" + S.project.id, { method: "PUT", body: { name: S.project.name, variants: S.project.variants, branding: S.project.branding } }); } catch (e) { toast(e.message, 1); } }
 const curV = () => S.project.variants[S.sel] || S.project.variants[0];
 const GROUP_LABEL = (T, g) => g === "day" ? T.turns.day_label || "Người dạy" : g === "hoc" ? T.turns.hoc_label || "Người học" : g === "scene" ? "Bối cảnh" : g === "other" ? "Khác" : g;
 const GROUP_DOT = g => g === "day" ? "day" : g === "hoc" ? "hoc" : "";
@@ -182,6 +182,7 @@ async function pageEditor(id) {
       <div class="vtools"><button class="ib" data-act="addv" title="Thêm biến thể">${ico("plus")}</button><button class="ib" data-act="dupv" title="Nhân bản">${ico("copy")}</button><button class="ib" data-act="imp" title="Điền từ file hoặc bảng">${ico("up2")}</button><button class="ib" data-act="faces" title="Tạo nhiều khuôn mặt khác nhau từ biến thể này">${ico("users")}</button><button class="ib danger" data-act="delv" title="Xoá">${ico("trash")}</button></div>
       </div>
     <div>
+      ${brandCard(p)}
       <div class="card sec"><div class="f" style="max-width:340px"><label>Tên biến thể</label><input data-k="name" value="${esc(v.name)}"></div>
         ${sides.length ? `<div class="${sides.length > 1 ? "two" : ""}">${sides.map(gcard).join("")}</div>` : ""}</div>
       ${rest.map(g => `<div class="card sec"><h4>${esc(GROUP_LABEL(T, g))}</h4><div class="two">${T.fields.filter(f => f.group === g).map(field).join("")}</div></div>`).join("")}
@@ -214,6 +215,35 @@ async function pageEditor(id) {
     }
     if (el.dataset.c !== undefined) { curV().LUOT[+el.dataset.i].c = el.value; touch(); drawTurns(); } };
   $("#view").onclick = e => editorClick(e);
+  brandBind(p);
+}
+const BRAND_ROWS = [["fly", "Logo bay (.mov / .webm nền trong suốt, lặp đến hết video)"], ["logo", "Logo cố định trên màn hình (.png / .jpg)"], ["intro", "Video giới thiệu app (.mp4, nối sau video gen)"], ["outro", "Video outro (.mp4, nối cuối cùng)"]];
+const brandName = f => String(f || "").split(/[\\/]/).pop();
+function brandCard(p) {
+  const b = p.branding || {}, on = !!b.enabled;
+  return `<div class="card sec" id="brand"><h4>Logo & Outro của dự án <span class="tag ${on ? "ok" : "mute"}">${on ? "Đang bật" : "Tắt"}</span></h4>
+    <div class="lab" style="margin-bottom:10px"><div>Gắn vào mọi video của dự án<br><small>Thứ tự video cuối: video gen từ tool (có logo bay + logo cố định) → video giới thiệu → outro. Video giới thiệu và outro nối nguyên bản, không phủ logo. Khi bật, logo / end card mặc định ở Cài đặt không dùng cho dự án này.</small></div><div class="sw2 ${on ? "on" : ""}" id="br-on"></div></div>
+    <div class="two">${BRAND_ROWS.map(([k, label]) => `<div class="f"><label>${label}</label><div class="pick"><input class="input" readonly title="${esc(b[k] || "")}" value="${esc(brandName(b[k]))}" placeholder="Không dùng"><button class="btn sm" data-bpick="${k}">Chọn</button><button class="ib" data-bclr="${k}">${ico("x")}</button></div></div>`).join("")}</div>
+    <div class="f" style="max-width:340px"><label>Độ đậm logo bay <small style="opacity:.6">(100 = đặc, thấp hơn = mờ hơn)</small></label><div class="pick"><input class="input" id="br-fo" type="number" min="1" max="100" step="1" style="width:96px;flex:none;color:var(--text);cursor:text" value="${b.fly_opacity ?? 16}"><span style="align-self:center;color:var(--mute)">%</span></div></div>
+    <div class="two"><div class="f"><label>Chữ cạnh logo cố định <small style="opacity:.6">(tuỳ chọn, vd. Talka AI)</small></label><input id="br-text" value="${esc(b.logo_text || "")}" placeholder="Tên app"></div>
+      <div class="f"><label>Vị trí và cỡ logo cố định</label><div class="pick"><select class="input" id="br-pos" style="flex:1">${[["tl", "Trên trái"], ["tr", "Trên phải"], ["bl", "Dưới trái"], ["br", "Dưới phải"]].map(([v, n]) => `<option value="${v}" ${(b.logo_pos || "tl") === v ? "selected" : ""}>${n}</option>`).join("")}</select><input class="input" id="br-size" type="number" min="3" max="40" step="1" style="width:84px;flex:none;color:var(--text);cursor:text" value="${b.logo_size || 9}" title="Cạnh logo, % bề ngang video"><span style="align-self:center;color:var(--mute)">%</span></div></div></div></div>`;
+}
+function brandBind(p) {
+  const c = $("#brand"); if (!c) return;
+  const B = () => (p.branding = p.branding || { enabled: false, logo_pos: "tl", logo_size: 9 });
+  c.onclick = async e => {
+    let x;
+    if (e.target.closest("#br-on")) { B().enabled = !B().enabled; touch(); return pageEditor(p.id); }
+    if ((x = e.target.closest("[data-bpick]"))) { const r = await api("pick", { body: { kind: "file" } }); if (r.path) { B()[x.dataset.bpick] = r.path; touch(); pageEditor(p.id); } return; }
+    if ((x = e.target.closest("[data-bclr]"))) { B()[x.dataset.bclr] = ""; touch(); pageEditor(p.id); }
+  };
+  c.oninput = c.onchange = e => {
+    if (e.target.id === "br-text") B().logo_text = e.target.value;
+    if (e.target.id === "br-pos") B().logo_pos = e.target.value;
+    if (e.target.id === "br-fo") B().fly_opacity = Math.min(100, Math.max(1, +e.target.value || 16));
+    if (e.target.id === "br-size") B().logo_size = Math.min(40, Math.max(3, +e.target.value || 9));
+    touch();
+  };
 }
 function drawTurns() {
   const v = curV(); v.LUOT = v.LUOT || [];

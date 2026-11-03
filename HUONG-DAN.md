@@ -56,6 +56,8 @@ Mỗi biến thể = một video.
 ### Bước 5: Hậu kỳ và lấy video
 Hậu kỳ **tự chạy** ngay khi gen xong và ghép xong clip (không cần bấm). Xong thì xem ở tab **Kết quả**; nếu hậu kỳ lỗi thì bấm **Hậu kỳ lại**. Video hoàn chỉnh nằm ở `userdata\studio\exports\<dự án>\` (nút **Mở thư mục**).
 
+**Logo & Outro của dự án:** trong trang dự án, thẻ **Logo & Outro của dự án** cho chọn 4 file: logo bay (.mov/.webm nền trong suốt, lặp đến hết video), logo cố định (.png, kèm chữ tên app, chọn góc và cỡ), video giới thiệu app (.mp4) và video outro (.mp4). Bật công tắc thì mọi video của dự án sau hậu kỳ được gắn logo rồi nối **video gen + video giới thiệu + outro**. Video giới thiệu và outro nối nguyên bản, không phủ logo. Dự án bật mục này thì không dùng logo / end card mặc định ở Cài đặt.
+
 ---
 
 ## 5. Tạo biến thể mới bằng AI

@@ -551,6 +551,7 @@ def post_item(it, opts, cx):
         cmd = [sys.executable, "-I", cp, raw, "--scenes", sc_file, "--out", final, "--variant", vfile]
         qlog(it, "Hậu kỳ riêng: " + os.path.basename(os.path.dirname(cp)))
         _run_post(it, cmd, final, cx)
+        _brand(it, p, final, cx)
         return _finish_post(it, final)
     subs = E.subs_from_variant(v, auto_hook=bool(s.get("fx_hook", True)))
     jwrite(os.path.join(d, "subs.json"), subs)
@@ -560,6 +561,8 @@ def post_item(it, opts, cx):
         model = "medium" if re.search(r"[¿¡áéíóúñüàèìòùâêôãõç]", text, re.I) else "small.en"
     cmd = [sys.executable, "-I", os.path.join(PRODUCTION, "postprocess.py"), raw, "--subs", os.path.join(d, "subs.json"), "--out", final, "--no-tighten", "--model", model]
     logo, endcard, topbar = opts.get("logo") or s["logo"], opts.get("endcard") or s["endcard"], opts.get("topbar") or s["topbar"]
+    if _branding(p):
+        logo = endcard = topbar = ""
     if logo and os.path.exists(logo):
         cmd += ["--logo-mov" if logo.lower().endswith((".mov", ".webm")) else "--topbar", logo]
     elif topbar and os.path.exists(topbar):
@@ -578,7 +581,52 @@ def post_item(it, opts, cx):
         cmd += ["--scenes", sc_file]
     qlog(it, "Hậu kỳ: " + os.path.basename(final))
     _run_post(it, cmd, final, cx)
+    _brand(it, p, final, cx)
     _finish_post(it, final)
+
+
+def _branding(p):
+    """Cài đặt thương hiệu của dự án đã bật và còn file nào dùng được: {fly, logo, intro, outro, logo_pos, logo_size, logo_text} hoặc {}."""
+    b = p.get("branding") or {}
+    if not b.get("enabled"):
+        return {}
+    out = {k: (b.get(k) or "") for k in ("fly", "logo", "intro", "outro")}
+    out.update(logo_pos=b.get("logo_pos") or "tl", logo_size=b.get("logo_size") or 9, logo_text=b.get("logo_text") or "", fly_opacity=16 if b.get("fly_opacity") in (None, "") else b["fly_opacity"])
+    return out if any(out[k] and os.path.exists(out[k]) for k in ("fly", "logo", "intro", "outro")) else {}
+
+
+def _brand(it, p, final, cx):
+    """Bước cuối của hậu kỳ: logo bay (lặp đến hết video) + logo cố định phủ lên video, rồi nối video giới thiệu app + outro (production/branding.py)."""
+    b = _branding(p)
+    if not b:
+        return
+    use = {}
+    for k in ("fly", "logo", "intro", "outro"):
+        f = b[k]
+        if f and not os.path.exists(f):
+            qlog(it, f"Không thấy file {k} của dự án, bỏ qua: {f}", "warn")
+        elif f:
+            use[k] = f
+    if not use:
+        return
+    tmp = final + ".brand.mp4"
+    cmd = [sys.executable, "-I", os.path.join(PRODUCTION, "branding.py"), final, "--out", tmp]
+    for k, flag in (("fly", "--fly"), ("logo", "--logo"), ("intro", "--intro"), ("outro", "--outro")):
+        if k in use:
+            cmd += [flag, use[k]]
+    if "fly" in use:
+        cmd += ["--fly-opacity", str(b["fly_opacity"])]
+    if "logo" in use:
+        cmd += ["--logo-pos", str(b["logo_pos"]), "--logo-size", str(b["logo_size"])]
+        if b["logo_text"]:
+            cmd += ["--logo-text", b["logo_text"]]
+    qlog(it, "Thương hiệu: " + ", ".join({"fly": "logo bay", "logo": "logo cố định", "intro": "video giới thiệu", "outro": "outro"}[k] for k in use))
+    try:
+        _run_post(it, cmd, tmp, cx)
+        os.replace(tmp, final)
+    finally:
+        if os.path.exists(tmp):
+            os.remove(tmp)
 
 
 def _run_post(it, cmd, final, cx):
@@ -837,7 +885,7 @@ def pick_file(kind):
     code = ("import tkinter as tk, tkinter.filedialog as fd, sys; r=tk.Tk(); r.withdraw(); r.attributes('-topmost',True); "
             "ft=[('Tệp','*.mov *.webm *.png *.jpg *.mp4 *.json *.txt')] if sys.argv[1]!='json' else [('JSON','*.json')]; "
             "print(fd.askopenfilename(filetypes=ft) or '')")
-    r = subprocess.run([sys.executable, "-c", code, kind], capture_output=True, text=True, encoding="utf-8", errors="replace")
+    r = subprocess.run([sys.executable, "-c", code, kind], capture_output=True, text=True, encoding="utf-8", errors="replace", env=dict(os.environ, PYTHONIOENCODING="utf-8"))
     return r.stdout.strip().replace("/", os.sep)
 
 
@@ -1096,7 +1144,7 @@ class H(BaseHTTPRequestHandler):
             if m == "PUT":
                 b = self.body()
                 p = load_project(pid) or {}
-                p.update({k: b[k] for k in ("name", "variants", "refs") if k in b})  # loại dự án (template) không đổi sau khi tạo
+                p.update({k: b[k] for k in ("name", "variants", "refs", "branding") if k in b})  # loại dự án (template) không đổi sau khi tạo
                 p["id"] = pid
                 save_project(p)
                 return self.send_json({"ok": True})
