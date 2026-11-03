@@ -87,6 +87,7 @@ main{display:flex;flex-direction:column;min-width:0;height:100vh}
 .sw{display:flex;border-radius:9px;overflow:hidden;border:1px solid var(--line2);height:34px}
 .sw button{flex:1;font-size:12px;font-weight:650;color:var(--mute)}
 .sw button.d.on{background:rgba(96,165,250,.2);color:var(--day)}.sw button.h.on{background:rgba(244,114,182,.2);color:var(--hoc)}
+.whosel{height:34px;width:100%;min-width:0;border-radius:9px;border:1px solid var(--line2);border-left:4px solid var(--mute);background:var(--panel);color:var(--text);font-size:12px;font-weight:650;padding:0 4px;cursor:pointer}
 .colr{height:34px;width:40px;border-radius:9px;border:1px solid var(--line2);position:relative;display:grid;place-items:center}
 .colr i{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.25)}
 .colr select{position:absolute;inset:0;opacity:0;cursor:pointer}

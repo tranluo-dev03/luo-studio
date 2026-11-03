@@ -554,6 +554,8 @@ def post_item(it, opts, cx):
         _brand(it, p, final, cx)
         return _finish_post(it, final)
     subs = E.subs_from_variant(v, auto_hook=bool(s.get("fx_hook", True)))
+    if not subs and os.path.exists(os.path.join(d, "script.txt")):   # loại dự án không dùng LUOT (vd. lồng tiếng ngoài khung): phụ đề lấy từ trường Voice của script đã gen
+        subs = E.subs_from_script(open(os.path.join(d, "script.txt"), encoding="utf-8").read())
     jwrite(os.path.join(d, "subs.json"), subs)
     text = " ".join(u["t"] for u in subs)
     model = opts.get("whisper") or s.get("whisper", "auto")

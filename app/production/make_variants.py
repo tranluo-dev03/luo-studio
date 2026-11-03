@@ -33,7 +33,7 @@ LEGACY_ROLE = {"DAY": "tutor", "HOC": "learner"}
 
 def ck(who):
     """Khoá nhân vật: "day" -> "DAY", "hoc" -> "HOC", khoá bất kỳ -> chữ HOA không dấu. Một nhân vật có các token TEN_<KHOÁ>, POS_<KHOÁ>, GIONG_<KHOÁ>, NGUOI_<KHOÁ>,
-    và tuỳ chọn VAI_<KHOÁ> (tên vai trong prompt), NGHE_<KHOÁ> (tư thế khi im lặng), EMO_<KHOÁ> (cảm xúc mặc định)."""
+    và tuỳ chọn VAI_<KHOÁ> (tên vai trong prompt), NGHE_<KHOÁ> (tư thế khi im lặng), NHIN_<KHOÁ> (hướng nhìn khi nói), QUAY_LUNG_<KHOÁ> (quay lưng về camera: khi nói không đòi lộ miệng), EMO_<KHOÁ> (cảm xúc mặc định)."""
     return re.sub(r"[^A-Z0-9]", "", str(who or "").upper())
 
 
@@ -65,14 +65,28 @@ def crole(v, c):
     return str(v.get(f"VAI_{c}") or LEGACY_ROLE.get(c, "character")).strip()
 
 
+def back_view(v, who):
+    """Nhân vật quay lưng về camera (QUAY_LUNG_<khoá> khác rỗng, vd. góc qua vai): khi nói không đòi lộ miệng / nét mặt."""
+    return bool(str(v.get(f"QUAY_LUNG_{ck(who)}") or "").strip())
+
+
 def speaker_how(v, who, text, emo=""):
     """Cách NGƯỜI NÓI nói: nhịp, cảm xúc (mặt + giọng) và câu nói."""
     text = text.strip().replace('"', "'")
     # cảm xúc của lượt: "emo" trong từng lượt, nếu không có thì EMO_<khoá> của biến thể (EMO_DAY / EMO_HOC), mặc định theo dấu câu
     import prompt_parts as PP
     emo = (emo or v.get(f"EMO_{ck(who)}") or PP.default_emo(text, who)).strip()
+    if back_view(v, who):   # quay lưng về camera: không tả nét mặt / môi (Muse sẽ xoay mặt người nói ra để khoe), cảm xúc chỉ ở giọng
+        look = str(v.get(f"NHIN_{ck(who)}") or "").strip().rstrip(".")
+        return (f'right away, clearly, in the mood "{emo}" heard in the voice only, and says exactly: "{text}"; their face stays hidden from the camera the whole time '
+                "(the camera sees the back of their head), so no lip movement is shown: the voice simply comes from them, and the only visible sign of speaking "
+                "is a small natural movement of the head and shoulders on the stressed words" + (f"; the whole time they speak, {look}" if look else ""))
     cues = PP.emo_cues(emo)
-    return f'right away, quickly and clearly, in the mood "{emo}" (face and voice)' + (f' - {cues}' if cues else '') + f', and says exactly: "{text}"'
+    # hướng nhìn KHI NÓI: NHIN_<khoá> (tuỳ chọn), vd. "keeps looking at the traveller, face turned toward her and away from the camera".
+    # Không khai thì không nói gì về hướng nhìn của người nói (Muse hay xoay mặt người nói ra camera để khoe khẩu hình)
+    look = str(v.get(f"NHIN_{ck(who)}") or "").strip().rstrip(".")
+    return (f'right away, quickly and clearly, in the mood "{emo}" (face and voice)' + (f' - {cues}' if cues else '') + f', and says exactly: "{text}"'
+            + (f"; the whole time they speak, {look}, keeping the head and eyes in that direction for the whole line" if look else ""))
 
 
 def turn_text(v, who, text, emo="", emo2=""):
