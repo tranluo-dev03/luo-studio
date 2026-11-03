@@ -457,6 +457,7 @@ def add_pointer(raw, scenes, items, out, transcribe, model="medium", log=print, 
         if robot_scale < 0.999:
             log(f"  thu nhỏ robot còn {robot_scale * 100:.0f}% (đỉnh đầu xuống {top * 100:.0f}% chiều cao)")
         paper_img, geo, style = giay.render(paper, (w, h), top)
+        rights = [geo[it["row"] - 1]["right"] if it["row"] <= len(geo) else None for it, _ in todo]
         lays = [((tuple(geo[it["row"] - 1]["es_box"]), geo[it["row"] - 1]["slot"], geo[it["row"] - 1]["base"]) if it["row"] <= len(geo) else None) for it, _ in todo]
     else:
         L = LAYOUTS.get(todo[0][0].get("layout") or "")      # video cũ: kiểu giấy khai trong biến thể; chưa khai = tờ checklist vòng tròn đỏ
@@ -465,13 +466,18 @@ def add_pointer(raw, scenes, items, out, transcribe, model="medium", log=print, 
         if not L:
             log(f"  tờ giấy: {len(rows)} hàng, cách nhau {rows[1][0] - rows[0][0] if len(rows) > 1 else 0}px")
         lays = [_scene_layout(raw, ref, rows, sc, it, (w, h), log, L) for it, sc in todo]
+        rights = [int(w * 0.95)] * len(todo)
     caps = sorted(l[0][3] - l[0][1] for l in lays if l)
     cap = caps[len(caps) // 2] if caps else 30          # một cỡ chữ chung cho mọi hàng ("¡Gracias!" có dấu ¡ ! nên cao hơn, không lấy riêng)
-    for (it, sc), words, lay in zip(todo, res, lays):
+    texts = [it.get("text") or it["en"][:1].upper() + it["en"][1:] for it, _ in todo]
+    while cap > 14:   # chữ tiếng Anh cùng MỘT cỡ cho mọi hàng, thu nhỏ cho tới khi hàng nào cũng nằm gọn trong giấy (không tràn ra mép)
+        if all(word_image(t, cap, **style)[0].width - 6 + lay[1] <= rt for t, lay, rt in zip(texts, lays, rights) if lay):
+            break
+        cap -= 1
+    for (it, sc), words, lay, text in zip(todo, res, lays, texts):
         if not lay:
             continue
         es_box, slot, base = lay
-        text = it.get("text") or it["en"][:1].upper() + it["en"][1:]
         img, asc = word_image(text, cap, **style)
         pos = (int(slot), int(base - asc))
         en_box = (pos[0], pos[1], pos[0] + img.width - 6, base)
