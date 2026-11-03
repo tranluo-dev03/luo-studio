@@ -56,6 +56,37 @@ def render_board(p, path, cfg):
     im.save(path)
 
 
+def head_top_ratio(raw, t0, t1, size):
+    """Đỉnh đầu robot (tỉ lệ chiều cao khung) trong [t0, t1] của video cũ (nền thành phố dính liền): dò khuôn mặt ở vài khung rải đều, lấy mức cao nhất. Không dò được -> None."""
+    try:
+        import cv2
+    except ImportError:
+        return None
+    w, h = size
+    det = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+    tops = []
+    for k in range(6):
+        f = pointer.frame_at(raw, t0 + (t1 - t0) * (k + 0.5) / 6, w, h)
+        if f is None:
+            continue
+        faces = det.detectMultiScale(cv2.cvtColor(np.ascontiguousarray(f), cv2.COLOR_RGB2GRAY), 1.1, 5, minSize=(int(w * 0.12), int(w * 0.12)))
+        if len(faces):
+            x, y, fw, fh = max(faces, key=lambda r: r[2] * r[3])
+            tops.append((y - 0.25 * fh) / h)   # ô nhận dạng bắt đầu ở khoảng chân tóc/lông mày; đỉnh đầu cao hơn một chút
+    return min(tops) if tops else None
+
+
+def legacy_board_cfg(cfg, raw=None, t0=0.0, t1=0.0, size=None):
+    """Ô bảng cho video cũ (robot dính liền nền thành phố, không tách được): mép dưới ô bảng chỉ chạm sát đỉnh đầu robot (đo theo khuôn mặt trong lúc ô hiện), không che mặt."""
+    b = dict(cfg["board"], **cfg.get("board_cu", {}))
+    top = head_top_ratio(raw, t0, t1, size) if raw and size else None
+    if top is not None:
+        bottom = int((top + float(cfg.get("bo_cuc", {}).get("che_bang", 0.025))) * 1920)
+        b["h"] = max(260, min(int(b.get("h", 560)), bottom - 80))
+        b["y_top"] = max(40, bottom - b["h"])
+    return b
+
+
 def phrase_times(cfg, scenes, raw, model, work):
     """Mốc bắt đầu/kết thúc từng bảng và từng lần viết chữ: nhận dạng giọng theo cảnh; lỗi thì chia theo số ký tự trong cảnh."""
     ph = cfg["phrases"]
@@ -169,11 +200,16 @@ def compose(raw, sections, out, color, dur):
     """Ghép robot (tách nền xanh) lên từng lớp nền. sections = [(video nền, giây bắt đầu, (s, x, y))]; tiếng giữ nguyên."""
     W, H = 1080, 1920
     n = len(sections)
-    fc = [f"[0:v]scale={W}:{H}:flags=lanczos,fps=30,format=rgba,colorkey=color={color}:similarity=0.22:blend=0.08,despill=type=green:mix=0.5:expand=0,split={n}"
-          + "".join(f"[r{i}]" for i in range(n))]
-    for i, (_, t0, (s, x, y)) in enumerate(sections):
-        fc.append(f"[r{i}]scale={int(W * s) // 2 * 2}:{int(H * s) // 2 * 2}:flags=lanczos[rs{i}]")
+    keyed = [i for i, sec in enumerate(sections) if sec[2] is not None]
+    fc = [f"[0:v]scale={W}:{H}:flags=lanczos,fps=30,format=rgba,colorkey=color={color}:similarity=0.22:blend=0.08,despill=type=green:mix=0.5:expand=0,split={len(keyed)}"
+          + "".join(f"[r{i}]" for i in keyed)]
+    for i, (_, t0, xf) in enumerate(sections):
         fc.append(f"[{i + 1}:v]scale={W}:{H}:flags=lanczos,fps=30,format=rgba[b{i}]")
+        if xf is None:   # video cũ: lớp này đã có sẵn robot, không ghép robot tách nền lên
+            fc.append(f"[b{i}]copy[c{i}]")
+            continue
+        s, x, y = xf
+        fc.append(f"[r{i}]scale={int(W * s) // 2 * 2}:{int(H * s) // 2 * 2}:flags=lanczos[rs{i}]")
         fc.append(f"[b{i}][rs{i}]overlay={int(x * W)}:{int(y * H)}:format=auto[c{i}]")
     last = "c0"
     for i in range(1, n):
@@ -185,6 +221,22 @@ def compose(raw, sections, out, color, dur):
         cmd += ["-i", path]
     cmd += ["-filter_complex", ";".join(fc), "-map", "[v]", "-map", "0:a?", "-c:v", "libx264", "-crf", "16", "-preset", "medium",
             "-c:a", "aac", "-b:a", "192k", "-ar", "44100", "-t", f"{dur:.3f}", out]
+    P.run(cmd)
+
+
+def ad_raw_back(raw, boards, t0, dur, out):
+    """Cảnh quảng cáo của video cũ (nền thành phố dính liền robot): giữ nguyên hình, chỉ đè các ô bảng chữ đúng mốc. Trước t0 để đen."""
+    cmd = ["ffmpeg", "-y", "-v", "error", "-i", raw]
+    fc = "[0:v]scale=1080:1920:flags=lanczos,fps=30[v0]"
+    last = "v0"
+    for i, (png, s, e) in enumerate(boards):
+        if e <= t0:
+            continue
+        cmd += ["-i", png]
+        k = len(cmd) and (cmd.count("-i") - 1)
+        fc += f";[{last}][{k}:v]overlay=0:0:enable='between(t,{max(s, t0):.2f},{e:.2f})'[v{k}]"
+        last = f"v{k}"
+    cmd += ["-filter_complex", fc, "-map", f"[{last}]", "-an", "-t", f"{dur:.3f}", "-c:v", "libx264", "-crf", "17", "-preset", "fast", "-pix_fmt", "yuv420p", out]
     P.run(cmd)
 
 
@@ -230,8 +282,16 @@ def layered_main(a, cfg, scenes, paper, boards, v, work, out):
         P.run(["ffmpeg", "-y", "-v", "error", "-loop", "1", "-i", "paper.png", "-t", f"{dur:.3f}", "-r", "30", "-pix_fmt", "yuv420p", "paper.mp4"], cwd=work)
     sections = [(back, 0.0, xf)]
     if key_until is not None and key_until < dur - 0.2:
-        if not is_green_bg(a.raw, key_until + 0.5, (w, h)):
-            raise RuntimeError("cảnh quảng cáo không phải nền xanh (video gen bằng kịch bản cũ): nhập lại kịch bản mới rồi gen lại các cảnh quảng cáo")
+        if not is_green_bg(a.raw, key_until + 0.5, (w, h)):   # video gen bằng kịch bản cũ: cảnh quảng cáo có sẵn nền thành phố dính liền robot -> giữ nguyên, chỉ thêm ô bảng
+            print("  CẢNH BÁO: cảnh quảng cáo không phải nền xanh (video gen bằng kịch bản cũ): giữ nguyên robot và nền Muse gen, chỉ thêm ô bảng chữ. Muốn đủ bố cục mới thì nhập lại kịch bản và gen lại cảnh quảng cáo")
+            back2 = os.path.join(work, "ad.mp4")
+            for i, p in enumerate(cfg["phrases"]):   # vẽ lại ô bảng theo đỉnh đầu robot để không che mặt
+                render_board(p, boards[i][0], legacy_board_cfg(cfg, a.raw, boards[i][1], boards[i][2], (w, h)))
+            ad_raw_back(a.raw, boards, key_until, dur, back2)
+            sections.append((back2, key_until, None))
+            compose(a.raw, sections, out, color, dur)
+            print("XONG ->", out, f"({P.duration(out):.1f}s)")
+            return
         try:
             city = city_video(v.get("NEN_PHO") or "a dense big-city skyline at sunset, softly out of focus",
                               os.path.join(os.path.dirname(os.path.abspath(a.raw)), "nen_pho.mp4"), int(cfg.get("nen_pho_giay", 10)))
@@ -296,7 +356,7 @@ def main():
             elif i + 1 == len(cfg["phrases"]):
                 e = max(e, max(x["end"] for x in scenes) - 0.3)   # ô cuối giữ đến hết phần robot
             png = os.path.join(work, f"board{i}.png")
-            render_board(p, png, cfg["board"])
+            render_board(p, png, cfg["board"] if paper else legacy_board_cfg(cfg, a.raw, s, e + 0.3, pointer.probe(a.raw)[:2]))
             boards.append((png, s, e + 0.3))
             print(f"  bảng {i + 1}: {s:6.2f}-{e:6.2f}  " + " / ".join("".join(t for t, _ in segs) for segs in board_lines(p)))
         if paper:   # giấy dựng ở hậu kỳ = video Muse nền xanh: ghép theo lớp (nền -> bảng -> robot)
