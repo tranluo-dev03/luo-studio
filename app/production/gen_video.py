@@ -41,7 +41,15 @@ def sh(cmd, **kw):
 
 # ---------------------------------------------------------------- script parsing (cổng của parseSceneScript)
 LOCKS = ["STYLE LOCK", "CHAR LOCK", "SET LOCK", "VIDEO SUFFIX", "NEGATIVE"]
-FIELDS = ["Bối cảnh", "Voice", "Khung đầu", "Khung cuối", "Diễn biến", "Prompt ảnh", "Prompt video", "Audio", "Negative prompt"]
+# "Chuyển cảnh" (hiệu ứng vào cảnh, vd. "chớp trắng") và "Lớp phủ" (vd. "camera") chỉ dùng khi ghép clip (engine.concat_clips), không đưa vào prompt;
+# "Giữ sau lời" (số giây, vd. "1.2") chỉ dùng khi cắt clip: giữ thêm đoạn sau từ cuối (vd. camera lia sang người kia sau câu nói)
+# "Ảnh tổng quan" (prompt ảnh ngang 16:9 cả bố cục) + "Khung đầu cắt" (trái / giữa / phải / 0..1): cảnh lia máy, engine gen ảnh ngang, cắt khung đầu từ đó và gửi kèm bước gen video
+# "Lia nhanh" (số lần, vd. "4"): sau khi cắt, engine dò đoạn camera lia sau từ cuối, tua nhanh N lần + nhoè ngang (Muse thường lia chậm, không có lực)
+# "Lia theo tay" (giây, vd. "1"): đi kèm "Lia nhanh": ngay trước cú vụt, máy đẩy vào và trôi về phía phải-dưới theo tay nhân vật N giây (Muse thường để máy đứng yên khi nhân vật chỉ tay)
+# "Giữ yên dưới: 0.55": phần dưới khung từ mốc đó (tỉ lệ chiều cao) giữ đúng như khung đầu, chỉ người cử động (băng chuyền / vali không trôi)
+# "Mở đầu ảnh" / "Mở đầu video" / "Mở đầu dài" (giây, mặc định 1.5): đoạn không lời gen riêng rồi ghép trước clip của cảnh (vd. hành lý trôi ra khỏi máy soi trước câu hỏi), không cần thêm lượt thoại
+FIELDS = ["Bối cảnh", "Voice", "Khung đầu", "Khung cuối", "Diễn biến", "Prompt ảnh", "Prompt video", "Audio", "Negative prompt", "Chuyển cảnh", "Lớp phủ", "Giữ sau lời",
+          "Ảnh tổng quan", "Khung đầu cắt", "Lia nhanh", "Lia theo tay", "Mở đầu ảnh", "Mở đầu video", "Mở đầu dài", "Giữ yên dưới"]
 
 
 def parse_script(text):
@@ -84,7 +92,8 @@ def build_prompts(locks, sc):
     details = [
         f"Timed action beats:\n{f['Diễn biến']}" if f.get("Diễn biến") else "",
         f"Final frame to reach: {f['Khung cuối']}" if f.get("Khung cuối") else "",
-        f"Spoken dialogue (required; the character says this on camera with accurate lip-sync): {voice}" if voice else "",
+        # chỉ bắt buộc có tiếng; ai nói và có nhép miệng trong hình hay không (lồng tiếng ngoài khung) do kịch bản / SPEAKER MAP quy định
+        f"Spoken audio (required; this exact line must be clearly heard in the clip): {voice}" if voice else "",
         f"Audio direction: {audio}{'' if voice else '. No speech.'}" if audio else "",
     ]
     vid = "\n\n".join([vid] + [d for d in details if d])

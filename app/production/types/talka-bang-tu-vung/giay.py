@@ -61,6 +61,14 @@ def _fit(names, size, text, maxw):
     return f
 
 
+def _fit_all(names, size, items):
+    """MỘT font chung cho mọi hàng: cỡ `size`, thu nhỏ dần cho tới khi từ nào cũng vừa bề rộng của nó. items = [(chữ, bề rộng tối đa)]."""
+    f = _font(names, size)
+    while f.size > 24 and any(f.getlength(t) > mw for t, mw in items):
+        f = _font(names, f.size * 0.94)
+    return f
+
+
 def _ink(d, xy, text, font, fill, anchor="ls"):
     d.text(xy, text, font=font, fill=fill, anchor=anchor)
     return d.textbbox(xy, text, font=font, anchor=anchor)
@@ -90,8 +98,8 @@ def _checklist(w, h, spec, y1, step):
     _ink(d, (w // 2, int(h * 0.075)), spec.get("tieu_de", ""), _font(SERIF_B, h * 0.05), (20, 20, 20), "ms")
     sc = min(1.12, max(1.0, step / 0.05))   # bước hàng lớn hơn thì chữ và vòng tròn to lên theo
     geo = []
+    fw = _fit_all(SANS_B, h * 0.029 * sc, [(r["tu"], w * 0.39) for r in spec["hang"]])
     for k, row in enumerate(spec["hang"]):
-        fw = _fit(SANS_B, h * 0.029 * sc, row["tu"], w * 0.39)
         yc = (y1 + step * k) * h
         base = int(yc + h * 0.010 * sc)
         b, rc = int(w * 0.07), int(h * 0.0155 * sc)
@@ -102,7 +110,7 @@ def _checklist(w, h, spec, y1, step):
         box_es = _word(d, int(w * 0.19), base, row["tu"], fw, (28, 28, 30))
         sx0, sx1 = int(w * 0.60), int(w * 0.94)
         d.line((sx0, base + 5, sx1, base + 5), fill=(168, 168, 168), width=max(2, int(h * 0.0016)))
-        geo.append({"es_box": box_es, "slot": sx0 + 6, "base": base + 3})
+        geo.append({"es_box": box_es, "slot": sx0 + 6, "base": base + 3, "right": sx1})
     return im, geo
 
 
@@ -125,17 +133,17 @@ def _lined(w, h, spec, icon_left, y1, step):
     rb = _ink(d, (int(w * 0.77), hy), spec.get("dau_phai", "English"), fh, (36, 40, 54), "ms")
     d.line((rb[0], hy + 8, rb[2], hy + 8), fill=(206, 56, 60), width=max(3, int(h * 0.002)))
     geo = []
+    fw = _fit_all(HAND, h * 0.031 * sc, [(r["tu"], w * (0.31 if icon_left else 0.46) - (0 if icon_left or not r.get("icon") else h * 0.034 + 10)) for r in spec["hang"]])
     for k, row in enumerate(spec["hang"]):
         base = int((y1 + step * k) * h) - 6
         ic = row.get("icon", "")
-        fw = _fit(HAND, h * 0.031 * sc, row["tu"], w * (0.31 if icon_left else 0.46) - (0 if icon_left or not ic else h * 0.034 + 10))
         if icon_left:
             _icon(d, int(w * 0.045), base, ic, h * 0.034 * sc, (30, 34, 46))
             box_es = _word(d, int(w * 0.19), base, row["tu"], fw, (36, 40, 54))
         else:
             box_es = _word(d, int(w * 0.04), base, row["tu"], fw, (36, 40, 54))
             _icon(d, box_es[2] + int(w * 0.03), base, ic, h * 0.034 * sc, (30, 34, 46))
-        geo.append({"es_box": box_es, "slot": int(w * 0.57) + 6, "base": base - 2})
+        geo.append({"es_box": box_es, "slot": int(w * 0.57) + 6, "base": base - 2, "right": int(w * 0.97)})
     return im, geo
 
 
@@ -156,12 +164,12 @@ def _notepad(w, h, spec, y1, step):
         y = int((y1 + step * j) * h)
         d.line((int(w * 0.1), y, int(w * 0.9), y), fill=(186, 184, 176), width=max(2, int(h * 0.0016)))
     geo = []
+    fw = _fit_all(SERIF, h * 0.032 * sc, [(r["tu"], w * 0.45 - (h * 0.034 if r.get("icon") else 0)) for r in spec["hang"]])
     for k, row in enumerate(spec["hang"]):
         base = int((y1 + step * k) * h) - 6
-        fw = _fit(SERIF, h * 0.032 * sc, row["tu"], w * 0.45 - (h * 0.034 if row.get("icon") else 0))
         box_es = _word(d, int(w * 0.12), base, row["tu"], fw, (28, 28, 32))
         _icon(d, box_es[2] + int(w * 0.03), base, row.get("icon", ""), h * 0.034 * sc, (30, 30, 36))
-        geo.append({"es_box": box_es, "slot": int(w * 0.60) + 6, "base": base - 2})
+        geo.append({"es_box": box_es, "slot": int(w * 0.60) + 6, "base": base - 2, "right": int(w * 0.9)})
     return im, geo
 
 
