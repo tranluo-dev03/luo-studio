@@ -1,0 +1,213 @@
+[HAU KY]:
+loai: canh-sat-gia-su-ai
+
+[GHI CHU]:
+Thể loại "cảnh sát chặn xe + gia sư AI" (hoạt hình 3D): MỘT dự án 2 phần, Studio chạy bằng code riêng app/production/types/canh-sat-gia-su-ai/gen.py
+(cùng cơ chế với san-bay-gia-su-ai, logic chung ở types/_chung/nhieu_phan.py).
+  PHẦN 1 (cảnh thường, 12 cảnh): cảnh sát nữ (CANHSAT) chặn xe tài xế (HOC) đi cùng con gái nhỏ (BE). Mỗi cảnh một góc máy
+         (A: từ trong xe nhìn ra cảnh sát ở cửa sổ; B: từ ngoài cửa sổ nhìn vào hai bố con; C: cận tài xế; D: cận bé gái),
+         nên MỌI cảnh có "Prompt ảnh" riêng: cảnh không nối khung cuối cảnh trước. Hãy gắn ảnh tham chiếu cho 3 nhân vật để mặt không đổi giữa các góc.
+  PHẦN 2 (ghép 2 lớp, mỗi lượt một cảnh): gen RIÊNG video tài xế (HOC, nền 9:16, camera trên taplo) và video gia sư AI (DAY, ô bo góc viền trắng phía trên:
+         x 0.02, y 0.015, rộng 0.96, cao 0.32 = 691x410 px -> gen 16:9), rồi ghép. Bố cục giống hệt SAMPLE/ghep-hai-lop. Vào phần 2 bằng nhoè chuyển động 0,5 giây.
+  Lượt thoại: LUOT chung, mỗi lượt có "phan": 1 hoặc 2 (lượt phần 1 đứng trước). Phần 1 cần đúng 12 lượt (= 12 CẢNH).
+  Hậu kỳ riêng (post.py, kiểu trong config.json): phần 1 phụ đề ô vàng chữ đen; phần 2 AI chữ xanh ngọc ô đen, tài xế chữ đen ô trắng;
+         "to" tô màu từ sai/đúng, "icon" x/check/dollar, "fx" wrong/right viền + tiếng.
+  Phần 3 (end card LangLearn + giọng "Best language learning app. Download now."): Thương hiệu -> Outro của dự án, không gen.
+Các dòng "===== PHAN n: ... =====" chia phần; mọi thứ phía trên dòng chia phần đầu tiên không gửi cho Muse.
+
+===== PHAN 1: CANH SAT CHAN XE =====
+
+[STYLE LOCK]:
+Vertical 9:16 stylized 3D animated feature-film look: soft rounded shapes, big expressive eyes, warm glowing skin, rich detail, cinematic warm golden-hour sunset light. Every shot is one fixed static camera (no camera movement inside a clip). Each clip uses the camera angle described in its start frame. The same three characters, the same car and the same place in every clip. No text, no letters, no logos, no captions, no icons, no lettering on the uniform, badge, car or phone screen anywhere in the frame.
+
+[CHAR LOCK]:
+The {{VAI_CANHSAT}}, {{TEN_CANHSAT}} ({{POS_CANHSAT}}): {{NGUOI_CANHSAT}}. VOICE LOCK OFFICER: one single voice, {{GIONG_CANHSAT}}, the same in every clip.
+The {{VAI_HOC}}, {{TEN_HOC}} ({{POS_HOC}}): {{NGUOI_HOC}}. VOICE LOCK DRIVER: one single voice, {{GIONG_HOC}}, the same in every clip.
+The {{VAI_BE}}, {{TEN_BE}} ({{POS_BE}}): {{NGUOI_BE}}. VOICE LOCK GIRL: one single voice, {{GIONG_BE}}, the same in every clip.
+When silent, the officer {{NGHE_CANHSAT}}; the driver {{NGHE_HOC}}; the girl {{NGHE_BE}}.
+EYE LINE (every clip): the speaker looks at the person they are talking to, as given in the clip's EYE LINE, for the whole line; the head does not turn away toward the camera, to the side or out of the frame while talking. Listeners look at the speaker. Nobody looks into the lens.
+RULE: in each clip exactly ONE character speaks, one line, with lip-sync and an expressive face, keeping the EYE LINE. Everyone else in the frame stays silent: mouth closed. Characters that are not in the shot never appear. Each voice stays the same in every clip.
+ACTION CLIPS: some clips contain a physical action (handing over documents, holding up a phone). The action is done WHILE the line is spoken and is complete by the last word. Props, the same in every clip: {{DAO_GIAY_TO}} and {{DAO_DIEN_THOAI}}; they appear only when a clip's action says so, never duplicated, never with readable text.
+
+[SET LOCK]:
+{{NEN_DUONG}}. The car: {{XE}}, parked on the shoulder with the engine off. Nothing moves in the background: no passing cars, no moving clouds, no swaying grass.
+
+[VIDEO SUFFIX]:
+Static camera, no zoom, no pan, no shake, no cut. The speaker starts right away at a natural, unhurried conversational pace (about 2.5 to 3 words per second, short pauses allowed) and finishes the line. After the last word (and the action, if the clip has one) everyone keeps a calm closed-mouth face and stays still until the end of the clip. No subtitles, no text, no music, no engine or wind noise. 9:16.
+
+[NEGATIVE]:
+text, captions, subtitles, logos, icons, emoji, lettering on uniform, badge, car or phone; camera movement, zoom, shake, cut; two voices in one clip; a silent character moving the mouth; a character who is not in this shot appearing; extra people; passing cars, moving clouds; face, hair or outfit changing; realistic live-action look; one character copying another's movements; background music, engine noise; robotic or text-to-speech voice; silent clip with no speech; movement during the final still; documents or phone multiplying, vanishing or appearing in the wrong clip; readable text or app screen on the phone; slow, dragged speech.
+
+CẢNH 1 (0:00–0:04): Lượt 1
+Bối cảnh: góc máy A: góc từ trong xe, sau vai tài xế (chỉ thấy mép tóc xoăn ở mép trái), nhìn ra cửa sổ: cảnh sát đứng ngoài, cúi vào cửa sổ, mặt và nửa người trên to rõ; không có chữ, không người lạ.
+Voice: (chỉ một người nói trong clip này) {{LUOT_1}}
+Khung đầu: ảnh mới theo góc máy A (góc từ trong xe, sau vai tài xế (chỉ thấy mép tóc xoăn ở mép trái), nhìn ra cửa sổ: cảnh sát đứng ngoài, cúi vào cửa sổ, mặt và nửa người trên to rõ); miệng mọi người khép.
+Khung cuối: cảnh sát cúi ở cửa sổ, miệng khép, nhìn vào trong xe; mọi người miệng khép, đứng im đến hết clip.
+Hướng nhìn: the officer looks into the car at the driver (toward the left edge of the frame) the whole clip.
+Diễn biến: Cảnh sát cúi vào cửa sổ, nhìn tài xế (ngoài khung bên trái), hỏi nghiêm nhưng bình tĩnh. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, stylized 3D animated feature-film look, warm golden-hour light. CAMERA ANGLE: OFFICER AT THE WINDOW, seen from inside the car: the camera sits in the driver's seat area just behind the driver's shoulder (only the edge of his curly hair at the left edge of the frame), looking out through the open driver's window at {{TEN_CANHSAT}} standing outside and leaning toward the window, her face and upper body large and clear; behind her {{NEN_DUONG}}. In the shot: {{TEN_CANHSAT}} ({{NGUOI_CANHSAT}}). EYE LINE: the officer looks into the car at the driver (toward the left edge of the frame) the whole clip. Mouths closed, natural expressions, nobody looks into the lens. Only the characters named here are visible. No text, no logos, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. CHAR LOCK. In this clip: {{LUOT_1}} Only that character speaks, with lip-sync and an expressive face. EYE LINE for the whole clip: the officer looks into the car at the driver (toward the left edge of the frame) the whole clip; the speaker never turns the head toward the camera or away from that person while talking. Anyone else in the shot keeps the mouth closed. Natural unhurried pace, about 2.5 to 3 words per second. After the line everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ; phần còn lại im lặng. Không nhạc, không tiếng động cơ, không tiếng gió.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 2 (0:04–0:08): Lượt 2
+Bối cảnh: góc máy B: góc từ ngoài cửa sổ tài xế nhìn vào xe: tài xế ngồi cầm lái gần camera, bé gái ngồi ghế trẻ em phía ghế phụ, cả hai mặt rõ; không có chữ, không người lạ.
+Voice: (chỉ một người nói trong clip này) {{LUOT_2}}
+Khung đầu: ảnh mới theo góc máy B (góc từ ngoài cửa sổ tài xế nhìn vào xe: tài xế ngồi cầm lái gần camera, bé gái ngồi ghế trẻ em phía ghế phụ, cả hai mặt rõ); miệng mọi người khép.
+Khung cuối: tài xế nhìn ra cửa sổ, hai tay trên vô lăng; bé ngồi im; mọi người miệng khép, đứng im đến hết clip.
+Hướng nhìn: the driver looks up at the officer standing outside his window, just beside the camera (not into the lens); the girl looks at the officer too.
+Diễn biến: Tài xế quay mặt về phía cửa sổ (về camera bên trái), mặt lo lắng, mồ hôi lấm tấm, đáp ngắn; bé gái im, mắt tròn lo lắng. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, stylized 3D animated feature-film look, warm golden-hour light. CAMERA ANGLE: THE CAR FROM OUTSIDE: the camera stands outside the open driver's window at chest height, looking into {{XE}}: {{TEN_HOC}} sits at the wheel in the foreground, {{TEN_BE}} sits in her child seat on the passenger side beyond him, both faces clear; red leather seats, the desert visible through the far window. In the shot: {{TEN_BE}} ({{NGUOI_BE}}). In the shot: {{TEN_HOC}} ({{NGUOI_HOC}}). EYE LINE: the driver looks up at the officer standing outside his window, just beside the camera (not into the lens); the girl looks at the officer too. Mouths closed, natural expressions, nobody looks into the lens. Only the characters named here are visible. No text, no logos, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. CHAR LOCK. In this clip: {{LUOT_2}} Only that character speaks, with lip-sync and an expressive face. EYE LINE for the whole clip: the driver looks up at the officer standing outside his window, just beside the camera (not into the lens); the girl looks at the officer too; the speaker never turns the head toward the camera or away from that person while talking. Anyone else in the shot keeps the mouth closed. Natural unhurried pace, about 2.5 to 3 words per second. After the line everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ; phần còn lại im lặng. Không nhạc, không tiếng động cơ, không tiếng gió.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 3 (0:08–0:13): Lượt 3
+Bối cảnh: góc máy A: góc từ trong xe, sau vai tài xế (chỉ thấy mép tóc xoăn ở mép trái), nhìn ra cửa sổ: cảnh sát đứng ngoài, cúi vào cửa sổ, mặt và nửa người trên to rõ; không có chữ, không người lạ.
+Voice: (chỉ một người nói trong clip này) {{LUOT_3}}
+Khung đầu: ảnh mới theo góc máy A (góc từ trong xe, sau vai tài xế (chỉ thấy mép tóc xoăn ở mép trái), nhìn ra cửa sổ: cảnh sát đứng ngoài, cúi vào cửa sổ, mặt và nửa người trên to rõ); miệng mọi người khép.
+Khung cuối: cảnh sát chìa tay chờ, miệng khép; mọi người miệng khép, đứng im đến hết clip.
+Hướng nhìn: the officer looks into the car at the driver (toward the left edge of the frame) the whole clip.
+Diễn biến: Cảnh sát nói, hơi chìa tay về phía cửa sổ chờ giấy tờ. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, stylized 3D animated feature-film look, warm golden-hour light. CAMERA ANGLE: OFFICER AT THE WINDOW, seen from inside the car: the camera sits in the driver's seat area just behind the driver's shoulder (only the edge of his curly hair at the left edge of the frame), looking out through the open driver's window at {{TEN_CANHSAT}} standing outside and leaning toward the window, her face and upper body large and clear; behind her {{NEN_DUONG}}. In the shot: {{TEN_CANHSAT}} ({{NGUOI_CANHSAT}}). EYE LINE: the officer looks into the car at the driver (toward the left edge of the frame) the whole clip. Mouths closed, natural expressions, nobody looks into the lens. Only the characters named here are visible. No text, no logos, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. CHAR LOCK. In this clip: {{LUOT_3}} Only that character speaks, with lip-sync and an expressive face. EYE LINE for the whole clip: the officer looks into the car at the driver (toward the left edge of the frame) the whole clip; the speaker never turns the head toward the camera or away from that person while talking. Anyone else in the shot keeps the mouth closed. Natural unhurried pace, about 2.5 to 3 words per second. ACTION, done WHILE the line is spoken and complete by the last word: the officer holds one hand slightly toward the window, palm up, waiting for the documents. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ; phần còn lại im lặng. Không nhạc, không tiếng động cơ, không tiếng gió.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 4 (0:13–0:18): Lượt 4
+Bối cảnh: góc máy C: cận mặt tài xế, từ phía ghế phụ trong xe; không có chữ, không người lạ.
+Voice: (chỉ một người nói trong clip này) {{LUOT_4}}
+Khung đầu: ảnh mới theo góc máy C (cận mặt tài xế, từ phía ghế phụ trong xe); miệng mọi người khép.
+Khung cuối: tài xế mở miệng ngập ngừng rồi khép lại, mắt nhìn xuống; mọi người miệng khép, đứng im đến hết clip.
+Hướng nhìn: the driver looks toward the officer at his window (off-screen, beside the camera, not into the lens), eyes darting nervously.
+Diễn biến: Tài xế ấp úng, mắt đảo, mồ hôi, không nói ra lời. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, stylized 3D animated feature-film look, warm golden-hour light. CAMERA ANGLE: CLOSE-UP OF THE DRIVER from inside the car, seen from the passenger side: {{TEN_HOC}}'s face and shoulders fill most of the frame, the driver's window and the sunset behind him. In the shot: {{TEN_HOC}} ({{NGUOI_HOC}}). EYE LINE: the driver looks toward the officer at his window (off-screen, beside the camera, not into the lens), eyes darting nervously. Mouths closed, natural expressions, nobody looks into the lens. Only the characters named here are visible. No text, no logos, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. CHAR LOCK. In this clip: {{LUOT_4}} Only that character speaks, with lip-sync and an expressive face. EYE LINE for the whole clip: the driver looks toward the officer at his window (off-screen, beside the camera, not into the lens), eyes darting nervously; the speaker never turns the head toward the camera or away from that person while talking. Anyone else in the shot keeps the mouth closed. Natural unhurried pace, about 2.5 to 3 words per second. After the line everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ; phần còn lại im lặng. Không nhạc, không tiếng động cơ, không tiếng gió.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 5 (0:18–0:24): Lượt 5
+Bối cảnh: góc máy D: cận bé gái ngồi ghế trẻ em phía ghế phụ, trong xe; không có chữ, không người lạ.
+Voice: (chỉ một người nói trong clip này) {{LUOT_5}}
+Khung đầu: ảnh mới theo góc máy D (cận bé gái ngồi ghế trẻ em phía ghế phụ, trong xe); miệng mọi người khép.
+Khung cuối: bé nhìn ra cửa sổ, mỉm cười ngại ngùng, miệng khép; mọi người miệng khép, đứng im đến hết clip.
+Hướng nhìn: the girl looks across the car toward the officer at the driver's window (off-screen, not into the lens).
+Diễn biến: Bé gái nhìn ra cửa sổ (về phía cảnh sát), nói lễ phép, đỡ lời cho bố. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, stylized 3D animated feature-film look, warm golden-hour light. CAMERA ANGLE: CLOSE-UP OF THE GIRL from inside the car: {{TEN_BE}} in her child seat on the passenger side, her face and upper body fill most of the frame, the seat belt across her chest, the father's arm just visible at the edge of the frame. In the shot: {{TEN_BE}} ({{NGUOI_BE}}). EYE LINE: the girl looks across the car toward the officer at the driver's window (off-screen, not into the lens). Mouths closed, natural expressions, nobody looks into the lens. Only the characters named here are visible. No text, no logos, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. CHAR LOCK. In this clip: {{LUOT_5}} Only that character speaks, with lip-sync and an expressive face. EYE LINE for the whole clip: the girl looks across the car toward the officer at the driver's window (off-screen, not into the lens); the speaker never turns the head toward the camera or away from that person while talking. Anyone else in the shot keeps the mouth closed. Natural unhurried pace, about 2.5 to 3 words per second. After the line everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ; phần còn lại im lặng. Không nhạc, không tiếng động cơ, không tiếng gió.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 6 (0:24–0:29): Lượt 6
+Bối cảnh: góc máy A: góc từ trong xe, sau vai tài xế (chỉ thấy mép tóc xoăn ở mép trái), nhìn ra cửa sổ: cảnh sát đứng ngoài, cúi vào cửa sổ, mặt và nửa người trên to rõ; không có chữ, không người lạ.
+Voice: (chỉ một người nói trong clip này) {{LUOT_6}}
+Khung đầu: ảnh mới theo góc máy A (góc từ trong xe, sau vai tài xế (chỉ thấy mép tóc xoăn ở mép trái), nhìn ra cửa sổ: cảnh sát đứng ngoài, cúi vào cửa sổ, mặt và nửa người trên to rõ); miệng mọi người khép.
+Khung cuối: cảnh sát mỉm cười nhẹ nhìn vào trong xe; mọi người miệng khép, đứng im đến hết clip.
+Hướng nhìn: the officer looks down into the car at the little girl on the passenger side (toward the left edge of the frame).
+Diễn biến: Cảnh sát nhìn bé gái (hơi cúi thấp), hỏi lại nhẹ nhàng. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, stylized 3D animated feature-film look, warm golden-hour light. CAMERA ANGLE: OFFICER AT THE WINDOW, seen from inside the car: the camera sits in the driver's seat area just behind the driver's shoulder (only the edge of his curly hair at the left edge of the frame), looking out through the open driver's window at {{TEN_CANHSAT}} standing outside and leaning toward the window, her face and upper body large and clear; behind her {{NEN_DUONG}}. In the shot: {{TEN_CANHSAT}} ({{NGUOI_CANHSAT}}). EYE LINE: the officer looks down into the car at the little girl on the passenger side (toward the left edge of the frame). Mouths closed, natural expressions, nobody looks into the lens. Only the characters named here are visible. No text, no logos, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. CHAR LOCK. In this clip: {{LUOT_6}} Only that character speaks, with lip-sync and an expressive face. EYE LINE for the whole clip: the officer looks down into the car at the little girl on the passenger side (toward the left edge of the frame); the speaker never turns the head toward the camera or away from that person while talking. Anyone else in the shot keeps the mouth closed. Natural unhurried pace, about 2.5 to 3 words per second. After the line everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ; phần còn lại im lặng. Không nhạc, không tiếng động cơ, không tiếng gió.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 7 (0:29–0:35): Lượt 7
+Bối cảnh: góc máy B: góc từ ngoài cửa sổ tài xế nhìn vào xe: tài xế ngồi cầm lái gần camera, bé gái ngồi ghế trẻ em phía ghế phụ, cả hai mặt rõ; không có chữ, không người lạ.
+Voice: (chỉ một người nói trong clip này) {{LUOT_7}}
+Khung đầu: ảnh mới theo góc máy B (góc từ ngoài cửa sổ tài xế nhìn vào xe: tài xế ngồi cầm lái gần camera, bé gái ngồi ghế trẻ em phía ghế phụ, cả hai mặt rõ); miệng mọi người khép.
+Khung cuối: tài xế cầm giấy tờ trên tay, nhìn ra cửa sổ; bé nhìn bố; mọi người miệng khép, đứng im đến hết clip.
+Hướng nhìn: the girl turns her head and looks at her father; the father looks at her, then down at the console.
+Diễn biến: Bé gái quay sang bố, nói tiếng Tây Ban Nha; tài xế gật đầu, lấy {{DAO_GIAY_TO}} trong hộc giữa ra cầm trên tay. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, stylized 3D animated feature-film look, warm golden-hour light. CAMERA ANGLE: THE CAR FROM OUTSIDE: the camera stands outside the open driver's window at chest height, looking into {{XE}}: {{TEN_HOC}} sits at the wheel in the foreground, {{TEN_BE}} sits in her child seat on the passenger side beyond him, both faces clear; red leather seats, the desert visible through the far window. In the shot: {{TEN_BE}} ({{NGUOI_BE}}). In the shot: {{TEN_HOC}} ({{NGUOI_HOC}}). EYE LINE: the girl turns her head and looks at her father; the father looks at her, then down at the console. Mouths closed, natural expressions, nobody looks into the lens. Only the characters named here are visible. No text, no logos, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. CHAR LOCK. In this clip: {{LUOT_7}} Only that character speaks, with lip-sync and an expressive face. EYE LINE for the whole clip: the girl turns her head and looks at her father; the father looks at her, then down at the console; the speaker never turns the head toward the camera or away from that person while talking. Anyone else in the shot keeps the mouth closed. Natural unhurried pace, about 2.5 to 3 words per second. ACTION, done WHILE the line is spoken and complete by the last word: the driver nods, takes {{DAO_GIAY_TO}} out of the centre console and holds it in his right hand. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ; phần còn lại im lặng. Không nhạc, không tiếng động cơ, không tiếng gió.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 8 (0:35–0:41): Lượt 8
+Bối cảnh: góc máy A: góc từ trong xe, sau vai tài xế (chỉ thấy mép tóc xoăn ở mép trái), nhìn ra cửa sổ: cảnh sát đứng ngoài, cúi vào cửa sổ, mặt và nửa người trên to rõ; không có chữ, không người lạ.
+Voice: (chỉ một người nói trong clip này) {{LUOT_8}}
+Khung đầu: ảnh mới theo góc máy A (góc từ trong xe, sau vai tài xế (chỉ thấy mép tóc xoăn ở mép trái), nhìn ra cửa sổ: cảnh sát đứng ngoài, cúi vào cửa sổ, mặt và nửa người trên to rõ); miệng mọi người khép.
+Khung cuối: cảnh sát cầm giấy tờ, nhìn vào trong xe, miệng khép; mọi người miệng khép, đứng im đến hết clip.
+Hướng nhìn: the officer looks at the documents in her hand, then back into the car at the driver.
+Diễn biến: Tay tài xế (từ mép trái khung) đưa {{DAO_GIAY_TO}} ra cửa sổ, cảnh sát nhận lấy, nhìn qua, rồi ngẩng lên dặn. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, stylized 3D animated feature-film look, warm golden-hour light. CAMERA ANGLE: OFFICER AT THE WINDOW, seen from inside the car: the camera sits in the driver's seat area just behind the driver's shoulder (only the edge of his curly hair at the left edge of the frame), looking out through the open driver's window at {{TEN_CANHSAT}} standing outside and leaning toward the window, her face and upper body large and clear; behind her {{NEN_DUONG}}. In the shot: {{TEN_CANHSAT}} ({{NGUOI_CANHSAT}}). EYE LINE: the officer looks at the documents in her hand, then back into the car at the driver. Mouths closed, natural expressions, nobody looks into the lens. Only the characters named here are visible. No text, no logos, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. CHAR LOCK. In this clip: {{LUOT_8}} Only that character speaks, with lip-sync and an expressive face. EYE LINE for the whole clip: the officer looks at the documents in her hand, then back into the car at the driver; the speaker never turns the head toward the camera or away from that person while talking. Anyone else in the shot keeps the mouth closed. Natural unhurried pace, about 2.5 to 3 words per second. ACTION, done WHILE the line is spoken and complete by the last word: the driver's hand reaches in from the left edge and hands {{DAO_GIAY_TO}} to the officer; she takes it, glances at it, then looks up at the driver. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ; phần còn lại im lặng. Không nhạc, không tiếng động cơ, không tiếng gió.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 9 (0:41–0:46): Lượt 9
+Bối cảnh: góc máy B: góc từ ngoài cửa sổ tài xế nhìn vào xe: tài xế ngồi cầm lái gần camera, bé gái ngồi ghế trẻ em phía ghế phụ, cả hai mặt rõ; không có chữ, không người lạ.
+Voice: (chỉ một người nói trong clip này) {{LUOT_9}}
+Khung đầu: ảnh mới theo góc máy B (góc từ ngoài cửa sổ tài xế nhìn vào xe: tài xế ngồi cầm lái gần camera, bé gái ngồi ghế trẻ em phía ghế phụ, cả hai mặt rõ); miệng mọi người khép.
+Khung cuối: tài xế nhìn con gái, mỉm cười; bé nhìn bố; mọi người miệng khép, đứng im đến hết clip.
+Hướng nhìn: the driver turns and looks at his daughter; the girl looks up at her father.
+Diễn biến: Tài xế thở phào, quay sang con gái, nói với vẻ ước ao; bé nhìn bố. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, stylized 3D animated feature-film look, warm golden-hour light. CAMERA ANGLE: THE CAR FROM OUTSIDE: the camera stands outside the open driver's window at chest height, looking into {{XE}}: {{TEN_HOC}} sits at the wheel in the foreground, {{TEN_BE}} sits in her child seat on the passenger side beyond him, both faces clear; red leather seats, the desert visible through the far window. In the shot: {{TEN_BE}} ({{NGUOI_BE}}). In the shot: {{TEN_HOC}} ({{NGUOI_HOC}}). EYE LINE: the driver turns and looks at his daughter; the girl looks up at her father. Mouths closed, natural expressions, nobody looks into the lens. Only the characters named here are visible. No text, no logos, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. CHAR LOCK. In this clip: {{LUOT_9}} Only that character speaks, with lip-sync and an expressive face. EYE LINE for the whole clip: the driver turns and looks at his daughter; the girl looks up at her father; the speaker never turns the head toward the camera or away from that person while talking. Anyone else in the shot keeps the mouth closed. Natural unhurried pace, about 2.5 to 3 words per second. ACTION, done WHILE the line is spoken and complete by the last word: the driver lets out a relieved breath and turns his head toward his daughter. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ; phần còn lại im lặng. Không nhạc, không tiếng động cơ, không tiếng gió.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 10 (0:46–0:52): Lượt 10
+Bối cảnh: góc máy D: cận bé gái ngồi ghế trẻ em phía ghế phụ, trong xe; không có chữ, không người lạ.
+Voice: (chỉ một người nói trong clip này) {{LUOT_10}}
+Khung đầu: ảnh mới theo góc máy D (cận bé gái ngồi ghế trẻ em phía ghế phụ, trong xe); miệng mọi người khép.
+Khung cuối: bé cầm điện thoại trước ngực, mỉm cười; mọi người miệng khép, đứng im đến hết clip.
+Hướng nhìn: the girl looks toward her father on the driver's side (off-screen, not into the lens) while holding up the phone.
+Diễn biến: Bé gái tự hào giơ {{DAO_DIEN_THOAI}} lên trước ngực, màn hình sáng hướng về camera (không chữ đọc được), nói hào hứng. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, stylized 3D animated feature-film look, warm golden-hour light. CAMERA ANGLE: CLOSE-UP OF THE GIRL from inside the car: {{TEN_BE}} in her child seat on the passenger side, her face and upper body fill most of the frame, the seat belt across her chest, the father's arm just visible at the edge of the frame. In the shot: {{TEN_BE}} ({{NGUOI_BE}}). EYE LINE: the girl looks toward her father on the driver's side (off-screen, not into the lens) while holding up the phone. Mouths closed, natural expressions, nobody looks into the lens. Only the characters named here are visible. No text, no logos, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. CHAR LOCK. In this clip: {{LUOT_10}} Only that character speaks, with lip-sync and an expressive face. EYE LINE for the whole clip: the girl looks toward her father on the driver's side (off-screen, not into the lens) while holding up the phone; the speaker never turns the head toward the camera or away from that person while talking. Anyone else in the shot keeps the mouth closed. Natural unhurried pace, about 2.5 to 3 words per second. ACTION, done WHILE the line is spoken and complete by the last word: the girl lifts {{DAO_DIEN_THOAI}} to chest height with the bright screen toward the camera (a plain glowing screen, no readable text). After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ; phần còn lại im lặng. Không nhạc, không tiếng động cơ, không tiếng gió.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 11 (0:52–0:56): Lượt 11
+Bối cảnh: góc máy C: cận mặt tài xế, từ phía ghế phụ trong xe; không có chữ, không người lạ.
+Voice: (chỉ một người nói trong clip này) {{LUOT_11}}
+Khung đầu: ảnh mới theo góc máy C (cận mặt tài xế, từ phía ghế phụ trong xe); miệng mọi người khép.
+Khung cuối: tài xế cầm điện thoại, cười, nhìn màn hình; mọi người miệng khép, đứng im đến hết clip.
+Hướng nhìn: the driver looks down at the phone screen in his hands.
+Diễn biến: Tài xế cầm {{DAO_DIEN_THOAI}} trước ngực, nhìn màn hình, cười tươi ngạc nhiên. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, stylized 3D animated feature-film look, warm golden-hour light. CAMERA ANGLE: CLOSE-UP OF THE DRIVER from inside the car, seen from the passenger side: {{TEN_HOC}}'s face and shoulders fill most of the frame, the driver's window and the sunset behind him. In the shot: {{TEN_HOC}} ({{NGUOI_HOC}}). EYE LINE: the driver looks down at the phone screen in his hands. Mouths closed, natural expressions, nobody looks into the lens. Only the characters named here are visible. No text, no logos, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. CHAR LOCK. In this clip: {{LUOT_11}} Only that character speaks, with lip-sync and an expressive face. EYE LINE for the whole clip: the driver looks down at the phone screen in his hands; the speaker never turns the head toward the camera or away from that person while talking. Anyone else in the shot keeps the mouth closed. Natural unhurried pace, about 2.5 to 3 words per second. ACTION, done WHILE the line is spoken and complete by the last word: the driver holds {{DAO_DIEN_THOAI}} at chest height and looks at its screen with a big surprised smile (the camera sees the back of the phone). After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ; phần còn lại im lặng. Không nhạc, không tiếng động cơ, không tiếng gió.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 12 (0:56–1:01): Lượt 12
+Bối cảnh: góc máy B: góc từ ngoài cửa sổ tài xế nhìn vào xe: tài xế ngồi cầm lái gần camera, bé gái ngồi ghế trẻ em phía ghế phụ, cả hai mặt rõ; không có chữ, không người lạ.
+Voice: (chỉ một người nói trong clip này) {{LUOT_12}}
+Khung đầu: ảnh mới theo góc máy B (góc từ ngoài cửa sổ tài xế nhìn vào xe: tài xế ngồi cầm lái gần camera, bé gái ngồi ghế trẻ em phía ghế phụ, cả hai mặt rõ); miệng mọi người khép.
+Khung cuối: hai bố con cùng nhìn màn hình điện thoại; kết thúc phần 1; mọi người miệng khép, đứng im đến hết clip.
+Hướng nhìn: the girl and her father both look down at the phone screen in his hands.
+Diễn biến: Bé gái nghiêng người sang bố, chỉ vào màn hình điện thoại bố đang cầm, nói; tài xế nhìn màn hình. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, stylized 3D animated feature-film look, warm golden-hour light. CAMERA ANGLE: THE CAR FROM OUTSIDE: the camera stands outside the open driver's window at chest height, looking into {{XE}}: {{TEN_HOC}} sits at the wheel in the foreground, {{TEN_BE}} sits in her child seat on the passenger side beyond him, both faces clear; red leather seats, the desert visible through the far window. In the shot: {{TEN_BE}} ({{NGUOI_BE}}). In the shot: {{TEN_HOC}} ({{NGUOI_HOC}}). EYE LINE: the girl and her father both look down at the phone screen in his hands. Mouths closed, natural expressions, nobody looks into the lens. Only the characters named here are visible. No text, no logos, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. CHAR LOCK. In this clip: {{LUOT_12}} Only that character speaks, with lip-sync and an expressive face. EYE LINE for the whole clip: the girl and her father both look down at the phone screen in his hands; the speaker never turns the head toward the camera or away from that person while talking. Anyone else in the shot keeps the mouth closed. Natural unhurried pace, about 2.5 to 3 words per second. ACTION, done WHILE the line is spoken and complete by the last word: the girl leans toward her father and points at the screen of {{DAO_DIEN_THOAI}} in his hands; he looks down at it. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ; phần còn lại im lặng. Không nhạc, không tiếng động cơ, không tiếng gió.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+===== PHAN 2: TAI XE + GIA SU AI (GHEP 2 LOP) | vao: nhoe 0.5 =====
+
+[GHEP HAI LOP]:
+nen: HOC
+khung DAY: 0.02, 0.015, 0.96, 0.32
+bo goc: 0.05
+vien: #FFFFFF, 3
+nghe: dung lai 3
+
+[STYLE LOCK]:
+Vertical short-form video look, stylized 3D animated feature-film characters (soft rounded shapes, big expressive eyes, warm glowing skin), crisp focus on the face, warm natural light. No text, captions, logos, icons or watermarks anywhere in the frame.
+
+[NHAN VAT DAY]:
+{{TEN_DAY}}: {{NGUOI_DAY}}. Framed for a wide call-window: head and shoulders centred in the middle of the frame, chin resting lightly on one hand, a little empty space on both sides, in front of {{NEN_DAY}}. The camera is locked off and never moves. VOICE: {{GIONG_DAY}}, the same timbre, pitch and loudness in every clip.
+
+[NGHE DAY]:
+{{TEN_DAY}} listens to the person on the other end of the call: soft attentive smile, slow natural blinks, a tiny occasional nod, chin resting lightly on one hand. Lips stay sealed.
+
+[NHAN VAT HOC]:
+{{TEN_HOC}}: {{NGUOI_HOC}}. Seen from a phone mounted on the dashboard in front of him, chest-up, the face in the lower-middle of the frame, both hands on the steering wheel; the upper third of the frame is calm car-roof and window background (it is covered later by a call window). Behind him: {{NEN_HOC}}. He looks into the lens while speaking, as if talking to the phone. Small natural head movements only, no cuts, no zoom. VOICE: {{GIONG_HOC}}, the same timbre, pitch and loudness in every clip.
+
+[NGHE HOC]:
+{{TEN_HOC}} listens to the AI tutor on the phone: eyes on the lens, friendly attentive expression, slow blinks, a small nod now and then, hands on the steering wheel. Lips stay sealed.
+
+[VIDEO SUFFIX]:
+Natural spontaneous conversational delivery, not text-to-speech, clear (about 3 words per second, short lines faster), the line starts right away, light natural breaths, a smile audible in the voice when the line is positive. Clean voice only, no music, no engine noise, no echo.
+
+[NEGATIVE]:
+text, letters, captions, subtitles, logos, icons, watermark; phone screen or app interface in the frame; camera cuts, zoom, push-in, shake; a second person; face morphing, outfit change, age or style drift; realistic live-action look; distorted face; extra or missing fingers; jerky or exaggerated gestures; slow, dragged or stretched speech; flat monotone or robotic voice; background music; echo or reverb

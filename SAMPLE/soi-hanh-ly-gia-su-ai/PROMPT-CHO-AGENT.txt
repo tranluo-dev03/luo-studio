@@ -1,0 +1,67 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "SOI HÀNH LÝ + GIA SƯ AI" (soi-hanh-ly-gia-su-ai)
+  MỘT dự án hai phần: phần 1 tình huống ở máy soi hành lý (cảnh thường, đổi góc máy, có một cú lia máy ở cảnh 1),
+  phần 2 người dùng quay selfie + AI gen RIÊNG rồi ghép (ghép 2 lớp). Code riêng: app/production/types/soi-hanh-ly-gia-su-ai/
+  Cùng khuôn: san-bay-gia-su-ai, canh-sat-gia-su-ai.
+================================================================================
+
+CÁCH DÙNG
+  Gửi cho agent cùng với: video tham chiếu (nếu có), KICH-BAN-SOI-HANH-LY-GIA-SU-AI.txt, BIEN-THE-SOI-HANH-LY-GIA-SU-AI.json,
+  PHAN-TICH-VIDEO-MAU.md, cong-cu\tao_kich_ban.py và SAMPLE\_chung\HUONG-DAN-CHO-AGENT.md (mục 0, 3b). Rồi dán phần dưới đây, sửa [ngoặc vuông].
+
+--------------------------------------------------------------------------------
+PROMPT (copy từ dòng dưới)
+--------------------------------------------------------------------------------
+
+Bạn viết biến thể (và sửa kịch bản nếu cần) cho LUO Studio, thể loại SOI HÀNH LÝ + GIA SƯ AI. Mẫu đính kèm.
+
+Thông tin lần này:
+  Người dùng (nói tiếng Anh chưa chuẩn): [ngoại hình, giọng, đang bế/địu gì]
+  Người hỏi ở phần 1: [vd. nhân viên an ninh sân bay]
+  Câu nói sai và câu sửa: [vd. "I have 48" -> "I am 48"]
+  App: [vd. Talka AI]
+
+BẮT BUỘC LÀM THEO
+
+1) MỘT KỊCH BẢN, MỘT FILE BIẾN THỂ
+   - Kịch bản giữ khối [HAU KY] "loai: soi-hanh-ly-gia-su-ai" và hai dòng chia phần "===== PHAN 1: ... =====" /
+     "===== PHAN 2: ... | vao: nhoe 0.5 =====". Sửa kịch bản bằng cong-cu\tao_kich_ban.py (bảng SC từng cảnh) rồi chạy lại, không sửa tay 13 cảnh.
+   - Khoá nhân vật: CANBO = người hỏi phần 1 (đứng TRÁI), HOC = người dùng (cả hai phần, đứng PHẢI ở phần 1), DAY = robot AI (phần 2).
+
+2) LỜI THOẠI (mảng LUOT chung)
+   - Mỗi lượt có "phan": 1 hoặc 2; mọi lượt phần 1 đứng trước. Phần 1 ĐÚNG 13 lượt theo thứ tự người nói:
+     canbo, hoc, canbo, hoc, canbo, hoc, canbo, hoc, canbo, hoc, hoc, canbo, hoc
+     (cảnh 2 là cận người dùng một mình; cảnh 4 đặt tay lên vali, 10 giơ điện thoại, 13 xoay điện thoại chạm màn hình: lời phải hợp hành động).
+   - Phần 2 số lượt tuỳ ý, mở đầu bằng AI hỏi. MỘT câu sai của người dùng: "fx":"wrong", "icon":"x"; AI sửa ("fx":"none");
+     người dùng nói lại câu đúng: "fx":"right", "icon":"check" (giống video mẫu: dấu ✅ ở lượt người dùng).
+   - "c": phần 1 mọi người "white"; phần 2 AI "yellow", người dùng "white". Mọi lượt khác "fx":"none". Không có "dich".
+   - Mỗi lượt 3-12 từ (tối đa 20); emo 1-3 từ trong EMO_CUES (app/production/prompt_parts.py).
+     Tốc độ: phần 1 ~4,5-5 từ/giây, phần 2 ~3,5.
+
+3) HƯỚNG NHÌN (bắt buộc, lỗi từng gặp: người nói quay mặt ra ngoài khung)
+   - Khai NHIN_CANBO (nhìn người dùng, mặt nghiêng 3/4, không quay ra camera), NHIN_HOC (nhìn mặt người hỏi, không nhìn ống kính),
+     NHIN_HOC@2 (phần 2: nhìn thẳng ống kính), NHIN_DAY (nhìn ống kính).
+   - Mỗi cảnh phần 1 đã có EYE LINE riêng trong kịch bản; đổi hành động thì sửa EYE LINE của cảnh đó trong tao_kich_ban.py.
+
+4) BỐ CỤC PHẦN 2 (không đổi nếu không có lý do)
+   khung DAY: 0.62, 0.06, 0.30, 0.27 (x, y, RỘNG, CAO) -> 324x518 px -> gen 9:16; bo góc 0.03, không viền.
+
+5) KHÔNG CÓ CHỮ TRONG HÌNH
+   Biển treo, màn hình máy soi, huy hiệu, màn hình điện thoại đều không chữ; phụ đề, ❌/✅, viền màu, badge app do hậu kỳ/Thương hiệu thêm.
+
+KIỂM TRA TRƯỚC KHI TRẢ LỜI (viết script Python nhỏ, ghi kết quả)
+  [ ] JSON hợp lệ, 1 mảng; tập khoá CHỮ HOA = token của kịch bản + NHIN_* (+ name, LUOT).
+  [ ] Mọi lượt có "phan"; phần 1 đúng 13 lượt, đúng thứ tự người nói ở trên; phần 2 "who" là day/hoc.
+  [ ] Đúng một lượt "fx":"wrong" và một lượt "fx":"right" (cả hai của hoc).
+  [ ] Chạy nhieu_phan.plan(biến thể, kịch bản) (app/production/types/_chung/nhieu_phan.py) không báo lỗi.
+
+--------------------------------------------------------------------------------
+LỖI THƯỜNG GẶP / GIỚI HẠN
+--------------------------------------------------------------------------------
+  - Cảnh 1, 2, 3, 8 gen ảnh khung đầu mới (đổi góc máy): mặt và trang phục dễ lệch giữa các góc -> gắn ảnh tham chiếu mặt cho CANBO và HOC.
+  - Cú lia từ nhân viên sang người mẹ là "Chuyển cảnh: lia phải 0.36" của cảnh 2 (làm khi ghép, chắc chắn). Cảnh 1 camera KHOÁ (đã thử cho
+    Muse nghiêng máy theo tay: nó lia sang mẹ con, ngón tay trông như chỉ vào em bé). Ảnh đầu cảnh 1 phải ở sẵn tư thế chỉ xuống vali.
+  - Mỗi cảnh phần 1 ghi hành động của CẢ HAI người (người nghe nhìn theo tay người nói). Đổi lời thoại thì đổi hành động trong bảng SC cho khớp.
+  - Em bé phải ngủ yên suốt video; thấy bé cử động/khóc: gen lại cảnh kèm yêu cầu sửa.
+  - Màn hình điện thoại có chân dung hoạt hình: Muse có thể vẽ thêm chữ/giao diện -> gen lại, hoặc đổi DAO_DIEN_THOAI thành "màn hình tối".
+  - Giao diện Studio: người nói mỗi lượt chọn trong danh sách nhân vật (Dạy / mother / officer, theo VAI_*); nhập file JSON hay sửa trên giao diện đều được.

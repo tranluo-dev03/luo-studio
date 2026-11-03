@@ -156,6 +156,18 @@ async function save() { if (!S.project) return; try { await api("projects/" + S.
 const curV = () => S.project.variants[S.sel] || S.project.variants[0];
 const GROUP_LABEL = (T, g) => g === "day" ? T.turns.day_label || "Người dạy" : g === "hoc" ? T.turns.hoc_label || "Người học" : g === "scene" ? "Bối cảnh" : g === "other" ? "Khác" : g;
 const GROUP_DOT = g => g === "day" ? "day" : g === "hoc" ? "hoc" : "";
+// Nhân vật (khoá viết thường, vd. day, hoc, canbo): từ trường TEN_/NGUOI_<KHOÁ> của loại dự án, TEN_<KHOÁ> trong biến thể và "who" của các lượt thoại
+const CHAR_KEY = /^(TEN|NGUOI|GIONG|POS|BOX|VAI|NGHE|NHIN|EMO)_([A-Z0-9]+)(@\d+)?$/;
+function charsOf(T, v) {
+  const out = [], add = k => { k = String(k || "").trim().toLowerCase(); if (k && !out.includes(k)) out.push(k); };
+  T.fields.forEach(f => { const m = /^(TEN|NGUOI)_([A-Z0-9]+)$/.exec(f.key); if (m) add(m[2]); });
+  Object.keys(v || {}).forEach(k => { const m = /^TEN_([A-Z0-9]+)$/.exec(k); if (m) add(m[1]); });
+  ((v || {}).LUOT || []).forEach(t => add(t.who));
+  return out.length ? out : ["day", "hoc"];
+}
+const CHAR_DOTS = ["#fbbf24", "#34d399", "#a78bfa", "#fb923c", "#22d3ee"];
+const charColor = (chars, c) => c === "day" ? "var(--day)" : c === "hoc" ? "var(--hoc)" : CHAR_DOTS[Math.max(0, chars.filter(x => x !== "day" && x !== "hoc").indexOf(c)) % CHAR_DOTS.length];
+const charLabel = (v, c) => (v || {})["VAI_" + c.toUpperCase()] || (c === "day" ? "Dạy" : c === "hoc" ? "Học" : c.toUpperCase());
 
 async function pageEditor(id) {
   if (!S.boot) S.boot = await api("boot");
@@ -165,7 +177,29 @@ async function pageEditor(id) {
   setTop(`<input id="pname" class="input" style="width:280px;font-weight:650;font-size:16px;background:none;border-color:transparent" value="${esc(p.name)}">`,
     `<span class="tag" title="Loại dự án (không đổi được sau khi tạo)">${esc(T.name)}</span>
      <button class="btn primary" id="go" ${ck.size ? "" : "disabled"}>${ico("plus")}Thêm vào hàng đợi${ck.size > 1 ? " (" + ck.size + ")" : ""}</button>`);
-  const groups = []; T.fields.forEach(f => { if (!groups.includes(f.group)) groups.push(f.group); });
+  // Trường của nhân vật khác day/hoc (vd. TEN_CANBO, NGUOI_CANBO) gom vào thẻ của nhân vật đó thay vì nhóm "Khác";
+  // mỗi nhân vật có thêm ô "Hướng nhìn khi nói" (NHIN_<KHOÁ>, kể cả bản theo phần NHIN_<KHOÁ>@n đã có trong biến thể)
+  const chars = charsOf(T, v), CH = chars.map(c => c.toUpperCase());
+  const groupOf = f => { if (f.group === "day" || f.group === "hoc") return f.group; const m = CHAR_KEY.exec(f.key); return m && CH.includes(m[2]) && f.group === "other" ? m[2].toLowerCase() : f.group; };
+  const CHAR_LAB = { NGUOI: "Ngoại hình", TEN: "Gọi ngắn", GIONG: "Giọng", NEN: "Nền", POS: "Vị trí", VAI: "Vai (tên gọi trong prompt)", BOX: "Hộp khuôn mặt (x0,y0,x1,y1)", EMO: "Cảm xúc mặc định" };
+  const ORDER = ["NGUOI", "TEN", "GIONG", "NEN"], rank = f => { const i = ORDER.indexOf(f.key.split("_")[0]); return i < 0 ? ORDER.length : i; };
+  const fields = T.fields.map(f => {   // nhãn tự sinh kiểu "Nguoi canbo" -> nhãn như thẻ Dạy/Học
+    const g = groupOf(f), pre = f.key.split("_")[0], auto = !f.label || f.label.toLowerCase() === f.key.replace(/_/g, " ").toLowerCase();
+    return { ...f, group: g, label: chars.includes(g) && !["day", "hoc"].includes(g) && auto && CHAR_LAB[pre] ? CHAR_LAB[pre] : f.label };
+  });
+  const extra = g => chars.includes(g) && !["day", "hoc"].includes(g);
+  const g0 = {}; fields.forEach((f, i) => { if (!(f.group in g0)) g0[f.group] = i; f._i = i; f._r = extra(f.group) ? rank(f) : 0; });
+  fields.sort((a, b) => g0[a.group] - g0[b.group] || a._r - b._r || a._i - b._i);
+  chars.forEach(c => {
+    const K = c.toUpperCase(), has = k => fields.some(f => f.key === k);
+    if (!fields.some(f => f.group === c)) return;
+    [`NHIN_${K}`, ...Object.keys(v).filter(k => new RegExp(`^NHIN_${K}@\\d+$`).test(k)).sort()].forEach(k => {
+      if (!has(k)) fields.push({ key: k, group: c, kind: "long", rows: 1, optional: true, label: "Hướng nhìn khi nói" + (k.includes("@") ? ` (phần ${k.split("@")[1]})` : ""),
+        ph: "vd. looks at the other person's face, never into the lens" });
+    });
+  });
+  const groups = []; fields.forEach(f => { if (!groups.includes(f.group)) groups.push(f.group); });
+  const glabel = g => chars.includes(g) && g !== "day" && g !== "hoc" ? `Nhân vật ${charLabel(v, g)} (${g.toUpperCase()})` : GROUP_LABEL(T, g);
   const attach = key => { const L = (v.refs || {})[key] || [];
     return `<div class="att">${L.map((a, j) => a.type === "audio"
       ? `<span class="chip"><audio controls preload="none" src="/asset/${encodeURIComponent(p.id)}/${a.file}"></audio><i title="${esc(a.name)}">${esc(a.name)}</i><button class="x" data-ratt="${key}" data-j="${j}">×</button></span>`
@@ -174,8 +208,8 @@ async function pageEditor(id) {
   const field = f => `<div class="f"><label>${esc(f.label)}${f.optional ? " <small style='opacity:.6'>(tuỳ chọn)</small>" : ""}</label>${f.kind === "short"
     ? `<input data-k="${f.key}" value="${esc(v[f.key] ?? "")}" placeholder="${esc(f.ph || "")}">`
     : `<textarea data-k="${f.key}" rows="${f.rows || 2}" placeholder="${esc(f.ph || "")}">${esc(v[f.key] ?? "")}</textarea>`}${attach(f.key)}</div>`;
-  const gcard = g => `<div><div class="who">${GROUP_DOT(g) ? `<b style="background:var(--${GROUP_DOT(g)})"></b>` : ""}${esc(GROUP_LABEL(T, g))}</div>${T.fields.filter(f => f.group === g).map(field).join("")}</div>`;
-  const sides = ["day", "hoc"].filter(g => groups.includes(g)), rest = groups.filter(g => !sides.includes(g));
+  const gcard = g => `<div><div class="who">${chars.includes(g) ? `<b style="background:${charColor(chars, g)}"></b>` : ""}${esc(glabel(g))}</div>${fields.filter(f => f.group === g).map(field).join("")}</div>`;
+  const sides = chars.filter(g => groups.includes(g)), rest = groups.filter(g => !sides.includes(g));
   const seriesPlain = Object.entries(T.series || {}).filter(([pre]) => pre !== "LUOT");
   $("#view").innerHTML = `<div class="editor">
     <div class="card vlist">${p.variants.map((x, i) => `<div class="vitem ${i === S.sel ? "on" : ""}" data-v="${i}"><span class="chk ${ck.has(x.name) ? "on" : ""}" data-ck="${i}">${ck.has(x.name) ? ico("check") : ""}</span><span class="n">${esc(x.name)}</span></div>`).join("")}
@@ -185,7 +219,7 @@ async function pageEditor(id) {
       ${brandCard(p)}
       <div class="card sec"><div class="f" style="max-width:340px"><label>Tên biến thể</label><input data-k="name" value="${esc(v.name)}"></div>
         ${sides.length ? `<div class="${sides.length > 1 ? "two" : ""}">${sides.map(gcard).join("")}</div>` : ""}</div>
-      ${rest.map(g => `<div class="card sec"><h4>${esc(GROUP_LABEL(T, g))}</h4><div class="two">${T.fields.filter(f => f.group === g).map(field).join("")}</div></div>`).join("")}
+      ${rest.map(g => `<div class="card sec"><h4>${esc(glabel(g))}</h4><div class="two">${fields.filter(f => f.group === g).map(field).join("")}</div></div>`).join("")}
       ${seriesPlain.map(([pre, num]) => `<div class="card sec"><h4>${esc(pre)}</h4>${Array.from({ length: num }, (_, i) => `<div class="f"><label>${pre}_${i + 1}</label><textarea data-s="${pre}" data-i="${i}" rows="1">${esc((v[pre] || [])[i] ?? "")}</textarea></div>`).join("")}</div>`).join("")}
       ${hasTurns ? `<div class="card sec"><h4>Lời thoại <span class="tag ${n >= 1 ? "ok" : "bad"}" title="Số lượt tuỳ ý; mỗi lượt = 1 cảnh (script mẫu có ${need} cảnh, thiếu thì tự nhân bản cảnh cuối)">${n} lượt</span> <small style="color:var(--mute)">≈ ${n * 5}–${n * 6}s</small></h4><div class="turns" id="turns"></div>
         <div style="margin-top:12px"><button class="btn sm" data-act="addt">${ico("plus")}Thêm lượt</button></div></div>` : ""}
@@ -213,7 +247,8 @@ async function pageEditor(id) {
       }
       await save(); pageEditor(p.id); return;
     }
-    if (el.dataset.c !== undefined) { curV().LUOT[+el.dataset.i].c = el.value; touch(); drawTurns(); } };
+    if (el.dataset.c !== undefined) { curV().LUOT[+el.dataset.i].c = el.value; touch(); drawTurns(); }
+    if (el.dataset.t === "who") drawTurns(); };
   $("#view").onclick = e => editorClick(e);
   brandBind(p);
 }
@@ -247,8 +282,13 @@ function brandBind(p) {
 }
 function drawTurns() {
   const v = curV(); v.LUOT = v.LUOT || [];
+  const chars = charsOf(typ(S.project.template), v), two = chars.length === 2 && chars.includes("day") && chars.includes("hoc");
+  // loại gia sư cũ (chỉ day/hoc): hai nút Dạy/Học như trước; loại có nhân vật khác (vd. canbo): ô chọn trong danh sách nhân vật của kịch bản
+  const whoCell = (t, i) => two
+    ? `<div class="sw"><button class="d ${t.who === "day" ? "on" : ""}" data-who="day" data-i="${i}">Dạy</button><button class="h ${t.who === "hoc" ? "on" : ""}" data-who="hoc" data-i="${i}">Học</button></div>`
+    : `<select class="whosel" data-t="who" data-i="${i}" title="Người nói lượt này" style="border-left-color:${charColor(chars, t.who)}">${chars.map(c => `<option value="${c}" ${t.who === c ? "selected" : ""} title="${esc(v["TEN_" + c.toUpperCase()] || c)}">${esc(charLabel(v, c))}</option>`).join("")}</select>`;
   $("#turns").innerHTML = v.LUOT.map((t, i) => `<div class="turn"><span class="no">${i + 1}</span>
-    <div class="sw"><button class="d ${t.who === "day" ? "on" : ""}" data-who="day" data-i="${i}">Dạy</button><button class="h ${t.who === "hoc" ? "on" : ""}" data-who="hoc" data-i="${i}">Học</button></div>
+    ${whoCell(t, i)}
     <textarea data-t="text" data-i="${i}" rows="1" placeholder="Lời thoại">${esc(t.text || "")}</textarea>
     <input class="emo" list="emos" data-t="emo" data-i="${i}" value="${esc(t.emo || "")}" placeholder="cảm xúc người nói">
     <select class="fxsel" data-t="fx" data-i="${i}" title="Hiệu ứng hậu kỳ: Sai = viền đỏ nháy + tiếng tè tè; Đúng = viền xanh lá nháy + tiếng tinh tinh. Để trống = tự động (người học nói đầu tiên là sai, câu AI sửa ngay sau là đúng)"><option value="" ${!t.fx ? "selected" : ""}>Hiệu ứng: tự động</option><option value="none" ${t.fx === "none" ? "selected" : ""}>Không</option><option value="wrong" ${t.fx === "wrong" ? "selected" : ""}>Sai (đỏ + tè tè)</option><option value="right" ${t.fx === "right" ? "selected" : ""}>Đúng (xanh + tinh)</option></select>
@@ -270,7 +310,10 @@ function editorClick(e) {
   if ((x = g("[data-rm]"))) { curV().LUOT.splice(+x.dataset.rm, 1); touch(); return pageEditor(p.id); }
   if ((x = g("[data-act]"))) {
     const a = x.dataset.act, v = curV();
-    if (a === "addt") { const last = v.LUOT[v.LUOT.length - 1]; v.LUOT.push({ who: last && last.who === "day" ? "hoc" : "day", text: "", emo: "" }); touch(); return pageEditor(p.id); }
+    if (a === "addt") {   // lượt mới: người nói khác người nói lượt trước (luân phiên trong danh sách nhân vật của kịch bản)
+      const chars = charsOf(typ(p.template), v), last = v.LUOT[v.LUOT.length - 1], li = last ? chars.indexOf(last.who) : -1;
+      v.LUOT.push({ who: chars[(li + 1) % chars.length], text: "", emo: "" }); touch(); return pageEditor(p.id);
+    }
     if (a === "addv") { const nv = clone(v); nv.name = uniqueName("Biến thể " + (p.variants.length + 1)); if (nv.LUOT) nv.LUOT = []; p.variants.push(nv); S.sel = p.variants.length - 1; ck.add(nv.name); touch(); return pageEditor(p.id); }
     if (a === "dupv") { const nv = clone(v); nv.name = uniqueName(v.name + " (bản sao)"); p.variants.push(nv); S.sel = p.variants.length - 1; ck.add(nv.name); touch(); return pageEditor(p.id); }
     if (a === "delv") { if (p.variants.length < 2) return toast("Cần ít nhất một biến thể", 1); if (!confirm("Xoá biến thể này?")) return; ck.delete(v.name); p.variants.splice(S.sel, 1); S.sel = 0; touch(); return pageEditor(p.id); }
@@ -588,7 +631,7 @@ function drawDetail(it) {
     const st = s.state, pc = st === "done" ? 100 : st === "wait" ? 0 : (s.pct || 0), act = ["image", "video", "cut"].includes(st);
     const thumb = s.thumb ? `<img loading="lazy" src="${media(it.project, it.variant, s.thumb)}?t=${s.secs || s.pct || 0}">` : (act ? `<div class="spin"></div>` : ico("img"));
     const t = sceneSecs(s, it);
-    return `<div class="sc ${st} ${act ? "active" : ""}"><div class="th">${thumb}<span class="num">${s.n}</span><span class="wh" style="background:var(--${s.who === "hoc" ? "hoc" : "day"})"></span>${s.clip ? `<div class="play" data-play="${s.clip}">${ico("play")}</div>` : ""}</div>
+    return `<div class="sc ${st} ${act ? "active" : ""}"><div class="th">${thumb}<span class="num">${s.n}</span><span class="wh" style="background:${s.who === "hoc" ? "var(--hoc)" : !s.who || s.who === "day" ? "var(--day)" : CHAR_DOTS[0]}" title="${esc(s.who || "")}"></span>${s.clip ? `<div class="play" data-play="${s.clip}">${ico("play")}</div>` : ""}</div>
       <div class="bd"><div class="tx">${esc(s.text)}</div>${s.account ? `<div class="acc" title="Tài khoản Muse đã gen cảnh này">${ico("user")}${esc(s.account)}</div>` : ""}<div class="mini"><div style="width:${pc}%"></div></div><div class="st"><span>${STATE[st] || st}${["image", "video"].includes(st) && s.pct ? " " + s.pct + "%" : ""}${s.note ? " · " + esc(s.note) : ""}</span><span class="tm"><b data-tm="scene:${it.id}:${s.n}">${t ? fmtDur(t) : ""}</b>${s.secs ? ` · ${s.secs}s` : ""}</span></div></div>
       ${st === "done" || (st === "error" && !running) ? `<button class="ib redo" data-redo="${s.n}" title="${running ? "Dừng video đang chạy và gen lại từ cảnh này" : "Gen lại từ cảnh này (có thể thêm yêu cầu sửa)"}">${ico("redo")}</button>` : ""}</div>`;
   }).join("")}</div>` : "";

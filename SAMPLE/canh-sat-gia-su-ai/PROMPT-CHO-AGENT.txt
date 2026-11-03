@@ -1,0 +1,46 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "CẢNH SÁT CHẶN XE + GIA SƯ AI" (canh-sat-gia-su-ai), hoạt hình 3D
+  MỘT dự án hai phần: phần 1 tình huống (cảnh thường, 3 nhân vật, 4 góc máy),
+  phần 2 tài xế + AI gen RIÊNG rồi ghép (ghép 2 lớp, bố cục như ghep-hai-lop).
+  Code riêng: app/production/types/canh-sat-gia-su-ai/ (cùng khuôn san-bay-gia-su-ai)
+================================================================================
+
+CÁCH DÙNG
+  Gửi cho agent: KICH-BAN-CANH-SAT-GIA-SU-AI.txt, BIEN-THE-CANH-SAT-GIA-SU-AI.json, PHAN-TICH-VIDEO-MAU.md,
+  SAMPLE\san-bay-gia-su-ai\PROMPT-CHO-AGENT.txt (quy tắc chung của khuôn 2 phần) và SAMPLE\_chung\HUONG-DAN-CHO-AGENT.md.
+  Rồi dán phần dưới đây, sửa [ngoặc vuông].
+
+--------------------------------------------------------------------------------
+PROMPT (copy từ dòng dưới)
+--------------------------------------------------------------------------------
+
+Bạn viết biến thể (và sửa kịch bản nếu cần) cho LUO Studio, thể loại CẢNH SÁT CHẶN XE + GIA SƯ AI. Mẫu đính kèm.
+
+Thông tin lần này:
+  Gia đình trong xe (người lớn kém tiếng Anh + đứa trẻ giỏi tiếng Anh): [ngoại hình, giọng, ngôn ngữ mẹ đẻ]
+  Cảnh sát: [ngoại hình]
+  Câu nói sai và câu sửa: [...]
+  App: [...]
+
+BẮT BUỘC LÀM THEO
+
+1) KHOÁ NHÂN VẬT
+   CANHSAT = cảnh sát (chỉ phần 1), HOC = người lớn lái xe (cả hai phần), BE = đứa trẻ (chỉ phần 1), DAY = gia sư AI (chỉ phần 2).
+   POS_CANHSAT / POS_HOC / POS_BE giữ nhãn "window-side" / "driver-seat" / "child-seat" (không dùng LEFT/RIGHT: vị trí đổi theo góc máy).
+
+2) LỜI THOẠI (mảng LUOT chung, mỗi lượt có "phan")
+   - Phần 1 đúng 12 lượt, đúng thứ tự người nói của 12 CẢNH: canhsat, hoc, canhsat, hoc, be, canhsat, be, canhsat, hoc, be, hoc, be.
+     Cảnh 7 (be) là câu bằng tiếng mẹ đẻ của gia đình (người lớn lấy giấy tờ trong lúc đó); cảnh 8 (canhsat) nhận giấy tờ;
+     cảnh 10 (be) khoe app trên điện thoại; cảnh 12 (be) "Let me show you".
+     Đổi thứ tự người nói thì phải sửa góc máy (A/B/C/D) và Prompt ảnh của cảnh đó trong kịch bản.
+   - Phần 2: mở bằng AI hỏi; mỗi câu sai của người lớn: "fx":"wrong", "icon":"x", "to": "<từ sai>"; câu lặp lại đúng: "fx":"right",
+     "icon":"check", "to": "<từ đúng>"; câu than tiền: "icon":"dollar". Lượt khác "fx":"none".
+   - Không cần ghi "c"/"o": màu phụ đề lấy theo phần và người nói trong config.json.
+   - Mỗi lượt 3-12 từ (tối đa 20); emo trong EMO_CUES.
+
+3) PHONG CÁCH: mọi mô tả nhân vật bắt đầu bằng "a stylized 3D-animated ..."; không chữ trên đồng phục, xe, điện thoại.
+
+KIỂM TRA TRƯỚC KHI TRẢ LỜI (script Python nhỏ)
+  [ ] JSON hợp lệ; tập khoá CHỮ HOA = token của kịch bản (+ name, LUOT).
+  [ ] Phần 1 đúng 12 lượt, đúng thứ tự người nói ở mục 2; phần 2 chỉ day/hoc.
+  [ ] nhieu_phan.plan(biến thể, kịch bản) (app/production/types/_chung/nhieu_phan.py) không báo lỗi.

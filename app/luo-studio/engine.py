@@ -120,6 +120,15 @@ def _grade(ref, cur):
     return c, b, sat, du, dv
 
 
+def pull_palette(own, palette, w=0.7):
+    """Chuẩn màu của cảnh mới = khung đầu của chính nó, nhưng sắc (bão hoà, U, V) kéo `w` về bảng màu chung của video: khung đầu do Muse vẽ hay ngả màu riêng,
+    nếu lấy nguyên làm chuẩn thì mỗi cụm cảnh một tông. Độ sáng giữ của riêng cảnh (cận mặt và toàn cảnh có độ sáng trung bình khác nhau theo bố cục)."""
+    if not palette:
+        return own
+    mix = lambda a, b: a + (b - a) * w
+    return (own[0], own[1], mix(own[2], palette[2]), mix(own[3], palette[3]), mix(own[4], palette[4]))
+
+
 def color_match(ref, start, end, dur, strength=1.0):
     """Bộ lọc ffmpeg kéo màu clip về `ref` (khung đầu chuẩn), chỉnh dần theo thời gian từ đầu tới cuối clip vì Muse hay tối/nhạt dần trong clip.
     strength 0..1: mức kéo về chuẩn (1 = kéo hết, 0.5 = một nửa) cho cảnh vốn khác ánh sáng không bị ép quá tay.
@@ -421,6 +430,31 @@ def attachments(vdata, opts, keep=None, offset=0, missing=None, lead=None):
     return imgs, ((("(the first images are general references) " if offset and lead is None else (lead or "")) + legend) if legend else ""), auds
 
 
+# ---- ảnh ngang tổng quan (trường "Ảnh tổng quan" của một CẢNH): cho Muse thấy cả bố cục trước khi lia máy trong clip
+WIDE_NOTE = ("Create exactly one still image, a HORIZONTAL 16:9 widescreen frame (landscape, much wider than tall). This is an image-generation request, not a video request: "
+             "ignore any mention of voice, motion or timing. It is a WIDE OVERVIEW of the whole set: every person and object named below is fully inside the frame, at the position given. "
+             "Ignore any mention of a vertical, portrait or 9:16 frame elsewhere in the text: this one picture is landscape 16:9.")
+_CROP_X = {"trái": 0.0, "trai": 0.0, "giữa": 0.5, "giua": 0.5, "phải": 1.0, "phai": 1.0}
+
+
+def crop_x(field):
+    """Trường "Khung đầu cắt": trái / giữa / phải hoặc số 0..1 (vị trí khung dọc trong ảnh ngang). None nếu không khai."""
+    m = re.search(r"trái|trai|giữa|giua|phải|phai|\d+(?:[.,]\d+)?", str(field or ""), re.I)
+    if not m:
+        return None
+    w = m.group(0).lower()
+    return _CROP_X[w] if w in _CROP_X else max(0.0, min(1.0, float(w.replace(",", "."))))
+
+
+def wide_crop(src, out_png, x):
+    """Cắt khung dọc 9:16 từ ảnh ngang tổng quan (x = 0 sát mép trái .. 1 sát mép phải), phóng lên 1080x1920. Trả về chiều rộng khung cắt (px của ảnh gốc)."""
+    w, h = (int(v) for v in sh(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "csv=p=0:s=x", src]).stdout.strip().split("x")[:2])
+    cw = min(w, int(h * 9 / 16)) // 2 * 2
+    ox = int((w - cw) * x)
+    sh(["ffmpeg", "-y", "-i", src, "-vf", f"crop={cw}:{h}:{ox}:0,scale=1080:1920:flags=lanczos", "-frames:v", "1", "-update", "1", out_png])
+    return cw
+
+
 _TOK = re.compile(r"\{\{([A-Z][A-Z0-9_]*)\}\}")
 
 
@@ -524,15 +558,19 @@ def speaker_lock(v, turn):
                 else f"{alive}, eyes resting on the speaker" if idle
                 else "stays in the calm base pose, still, eyes on the camera, mouth a flat closed line")
         role_l = MV.crole(v, c)
-        mood = "a living, attentive face" if idle else "a calm relaxed face with a faint steady quiet mood"
-        quiet += (f"The {role_l} ({MV.cpos(v, c)}) is quiet for the whole clip: lips gently closed, {mood}, and {base}, "
+        lb = MV.back_view(v, c)   # người nghe quay lưng về camera: không tả mặt / môi (kẻo Muse xoay mặt họ ra), chỉ tư thế
+        mood = ("their back to the camera and face hidden, only the head and shoulders visible" if lb else
+                "a living, attentive face" if idle else "a calm relaxed face with a faint steady quiet mood")
+        quiet += (f"The {role_l} ({MV.cpos(v, c)}) is quiet for the whole clip: " + ("" if lb else "lips gently closed, ") + f"{mood}, and {base}, "
                   f"at the {role_l}'s own pace regardless of the dialogue. ")
     resting = " and ".join(f"VOICE {letter[c]}" for c in lis) + (" is" if len(lis) == 1 else " are") + " resting in this clip."
+    back = MV.back_view(v, turn["who"])   # người nói quay lưng về camera (QUAY_LUNG_<khoá>): không nhắc miệng / nét mặt, kẻo Muse xoay mặt họ ra
     return ("SPEAKER MAP: " + "; ".join(f"VOICE {letter[c]} belongs to the {MV.cpos(v, c)} character ({v.get(f'TEN_{c}')})" for c in chars) + ". "
-            f"In this clip only VOICE {letter[k]} is heard, coming from the mouth of the {spos} character ({spk}). "
-            f"The {role_s} ({spos}) says the line once, "
+            f"In this clip only VOICE {letter[k]} is heard, " + (f"spoken by the {spos} character ({spk}), who has their back to the camera. " if back else f"coming from the mouth of the {spos} character ({spk}). ")
+            + f"The {role_s} ({spos}) says the line once, "
             f"{MV.speaker_how(v, turn['who'], turn.get('text', ''), turn.get('emo', ''))}. "
-            f"The {role_s}'s expression grows naturally out of a calm ongoing mood and eases back down gently after the line. "
+            + (f"The {role_s}'s voice grows naturally out of a calm ongoing mood and eases back down gently after the line. " if back else
+               f"The {role_s}'s expression grows naturally out of a calm ongoing mood and eases back down gently after the line. ")
             + (f"{contrast} " if contrast else "") + quiet + (resting if lis else ""))
 
 
@@ -905,6 +943,84 @@ def overlap_check(path, speaker_side, listener_side, expected_text):
     return {"bad": bad_motion or bad_words, "speaker": round(sp, 1), "listener": round(li, 1), "words": wc, "why": "lời nghe được lệch lời thoại" if bad_words else ""}
 
 
+_NUMW = {w: str(i) for i, w in enumerate("zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty".split())}
+_NUMW.update({w: str(10 * i) for i, w in enumerate("x x twenty thirty forty fifty sixty seventy eighty ninety".split()) if i >= 2})
+
+
+def _speech_tokens(text):
+    """Từ thường viết thường; số (chữ hay chữ số) quy về chữ số để "ten" khớp "10"."""
+    return [_NUMW.get(w, w) for w in re.findall(r"[a-z0-9']+", str(text).lower().replace("-", " ")) if w.strip("'")]
+
+
+def speech_issues(expected, path):
+    """Lỗi lời nói của clip so với câu mong đợi (Whisper): từ/cụm bị nói lặp (mà câu gốc không lặp), thừa >= 2 từ lạ, hoặc thiếu nhiều lời.
+    Trả về danh sách (mô tả tiếng Việt cho nhật ký, mô tả tiếng Anh cho ghi chú gen lại) (rỗng = đạt); None nếu không kiểm được (câu quá ngắn, không có Whisper)."""
+    import difflib
+    exp = _speech_tokens(expected)
+    if len(exp) < 3:
+        return None
+    wav = path + ".sp.wav"
+    sh(["ffmpeg", "-y", "-i", path, "-vn", "-ac", "1", "-ar", "16000", wav])
+    try:
+        hrd = _speech_tokens(" ".join(_transcribe(wav, False)["text"]))
+    finally:
+        try:
+            os.remove(wav)
+        except OSError:
+            pass
+    if not hrd:
+        return [("không nghe thấy lời", "no speech was heard")]
+    out, es = [], " " + " ".join(exp) + " "
+    for n in (4, 3, 2, 1):   # cụm dài trước: "what I'm here for, what I'm here for"
+        for i in range(len(hrd) - 2 * n + 1):
+            if hrd[i:i + n] == hrd[i + n:i + 2 * n] and (" " + " ".join(hrd[i:i + 2 * n]) + " ") not in es:
+                rep = " ".join(hrd[i:i + n])
+                out.append((f'nói lặp "{rep}"', f'the words "{rep}" were said twice'))
+                break
+        if out:
+            break
+    near = lambda a, b: a == b or difflib.SequenceMatcher(None, a, b).ratio() >= 0.75
+    extra = [h for h in hrd if not any(near(h, e) for e in exp)]
+    if len(extra) >= 2:
+        out.append((f'thừa từ ngoài lời thoại ({" ".join(extra[:5])})', f'extra words not in the line were said ({" ".join(extra[:5])})'))
+    hit = sum(1 for e in exp if any(near(e, h) for h in hrd)) / len(exp)
+    if hit < 0.7:
+        out.append((f"thiếu lời (chỉ nghe được {hit:.0%})", "part of the line was missing"))
+    return out
+
+
+def speech_retry(path, expected, regen, emit, n, retries=1):
+    """Kiểm tra lời nói của clip vừa gen; lỗi (lặp từ, thừa từ, thiếu lời) thì gọi regen(ghi chú sửa) tối đa `retries` lần, cuối cùng giữ lần ít lỗi nhất."""
+    tried = []
+    for k in range(retries + 1):
+        try:
+            iss = speech_issues(expected, path)
+        except Exception as ex:  # noqa: BLE001 - thiếu Whisper / âm thanh hỏng: bỏ qua kiểm tra
+            emit("log", msg=f"Cảnh {n}: bỏ qua kiểm tra lời nói ({ex})", level="warn")
+            iss = None
+        if not iss:
+            if iss is not None and tried:
+                emit("log", msg=f"Cảnh {n}: lời nói đạt sau {k} lần gen lại")
+            break
+        emit("log", msg=f"Cảnh {n}: lần {k + 1} lời nói lỗi: {'; '.join(v for v, _ in iss)}", level="warn")
+        keep = f"{path}.sp{k}"
+        shutil.copyfile(path, keep)
+        tried.append((len(iss), k, keep))
+        if k == retries:
+            best = min(tried)
+            shutil.copyfile(best[2], path)
+            emit("log", msg=f"Cảnh {n}: vẫn lỗi lời nói sau {retries} lần gen lại, giữ lần ít lỗi nhất. Bấm gen lại cảnh này nếu muốn thử tiếp", level="warn")
+            break
+        emit("scene", n=n, state="video", pct=0, note=f"gen lại (lời nói) {k + 1}")
+        regen(f'IMPORTANT RETRY NOTE: in the previous attempt the speech was wrong ({"; ".join(e for _, e in iss)}). Say the line exactly once, word for word: "{expected}". '
+              "Do not repeat any word or phrase, do not add any word before or after it, do not stutter, then stop talking.")
+    for _, _, f in tried:
+        try:
+            os.remove(f)
+        except OSError:
+            pass
+
+
 # ------------------------------------------------------------------ cắt clip + chọn khung nối
 def _silences(path, noise="-35dB", dmin=0.25):
     r = crun(["ffmpeg", "-hide_banner", "-i", path, "-af", f"silencedetect=noise={noise}:d={dmin}", "-f", "null", "-"],
@@ -1012,6 +1128,133 @@ def smart_cut(src, cut_path, last_png, lo=0.15, hi=0.8, fps=24, syll=None, speed
     return {"total": total, "cut": duration(cut_path), "speech_end": speech_end, "speed": round(factor, 2), "pauses": round(sum(y - x for x, y in longs), 1)}
 
 
+def prepend_preroll(pre_src, main, secs, vf_pre=""):
+    """Ghép đoạn mở đầu không lời (clip Muse `pre_src`, tua cho vừa `secs` giây, tối đa nhanh 3 lần) vào ĐẦU clip cảnh `main` (cắt cứng), cùng cỡ khung / fps với `main`.
+    Tiếng mở đầu: `secs` giây đầu của chính clip đó (tiếng sảnh, băng chuyền), mờ dần cuối; clip câm thì dùng im lặng."""
+    w, h = (int(v) for v in sh(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "csv=p=0:s=x", main]).stdout.strip().split("x")[:2])
+    d = video_duration(pre_src)
+    k = max(1.0, min(1.25, d / secs))   # gần đúng tốc độ thật: tua nhanh làm vali vút qua (user 03/11)
+    secs = min(secs, d / k)
+    a_pre = (f"[0:a]atrim=0:{secs:.3f},asetpts=PTS-STARTPTS,afade=t=out:st={max(0.0, secs - 0.3):.3f}:d=0.3,aresample=48000,aformat=channel_layouts=stereo[pa];" if has_audio(pre_src)
+             else f"anullsrc=r=48000:cl=stereo,atrim=0:{secs:.3f}[pa];")
+    fc = (f"[0:v]setpts=(PTS-STARTPTS)/{k:.3f},trim=0:{secs:.3f},setpts=PTS-STARTPTS,scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},fps=30,setsar=1" + (f",{vf_pre}" if vf_pre else "") + "[pv];"
+          f"[1:v]fps=30,setsar=1[mv];{a_pre}[1:a]aresample=48000,aformat=channel_layouts=stereo[ma];[pv][pa][mv][ma]concat=n=2:v=1:a=1[v][a]")
+    tmp = main + ".pre.mp4"
+    sh_enc(["ffmpeg", "-y", "-i", pre_src, "-i", main, "-filter_complex", fc, "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-crf", "17", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", tmp])
+    os.replace(tmp, main)
+    return secs, k
+
+
+def pan_span(path, min_t=0.0):
+    """(bắt đầu, kết thúc) của đoạn camera lia mạnh nhất trong clip, từ `min_t` trở đi; None nếu không thấy. Đo dịch chuyển toàn khung giữa hai khung liền nhau (phase correlation)."""
+    import cv2
+    cap = cv2.VideoCapture(path)
+    fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
+    prev, mv = None, []
+    while True:
+        ok, fr = cap.read()
+        if not ok:
+            break
+        g = cv2.cvtColor(cv2.resize(fr, (160, 284)), cv2.COLOR_BGR2GRAY).astype(np.float32)
+        mv.append(float(np.hypot(*cv2.phaseCorrelate(prev, g)[0])) if prev is not None else 0.0)
+        prev = g
+    cap.release()
+    if len(mv) < 6:
+        return None
+    s = np.convolve(np.array(mv), np.ones(3) / 3, mode="same")
+    i0 = int(min_t * fps)
+    thr = max(0.8, 0.25 * float(s[i0:].max(initial=0)))
+    best, run = None, None
+    for i in range(i0, len(s)):
+        if s[i] > thr:
+            run = [i, i] if run is None else [run[0], i]
+        if run and (s[i] <= thr or i == len(s) - 1):
+            tot = float(s[run[0]:run[1] + 1].sum())
+            if tot >= 8 and (best is None or tot > best[2]):   # tổng dịch >= 8 px trên khung rộng 160 (~5%): là cú lia thật, không phải rung tay
+                best = (run[0], run[1], tot)
+            run = None
+    return (best[0] / fps, (best[1] + 1) / fps) if best else None
+
+
+def whip_speedup(path, factor, min_t=0.0, blur=28, follow=0.0, follow_from=0.0):
+    """Tua nhanh đoạn camera lia (sau `min_t`, thường là hết lời) `factor` lần và thêm nhoè ngang cho ra cú lia vụt có lực như quay thật;
+    tiếng: bỏ bớt đoạn im lặng tương ứng ngay sau điểm bắt đầu lia. Khung cuối không đổi. Trả về (t0, t1, độ dài mới của đoạn lia) hoặc None.
+    follow > 0: thêm `follow` giây máy đẩy vào và trôi theo tay ngay trước cú vụt (không sớm hơn `follow_from`, thường là đầu câu nói)."""
+    sp = pan_span(path, min_t)
+    if not sp or factor <= 1:
+        return None
+    t0, t1 = sp
+    d = (t1 - t0) / factor
+    fc = (f"[0:v]trim=0:{t0:.3f},setpts=PTS-STARTPTS[a];"
+          f"[0:v]trim={t0:.3f}:{t1:.3f},setpts=(PTS-STARTPTS)/{factor:.3f},avgblur=sizeX={blur}:sizeY=1[b];"
+          f"[0:v]trim=start={t1:.3f},setpts=PTS-STARTPTS[c];[a][b][c]concat=n=3:v=1:a=0,fps=30[v];"
+          f"[0:a]atrim=0:{t0 + d:.3f},asetpts=PTS-STARTPTS[x];[0:a]atrim=start={t1:.3f},asetpts=PTS-STARTPTS[y];[x][y]concat=n=2:v=0:a=1[au]")
+    tmp = path + ".whip.mp4"
+    sh_enc(["ffmpeg", "-y", "-i", path, "-filter_complex", fc, "-map", "[v]", "-map", "[au]", "-c:v", "libx264", "-crf", "17", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", tmp])
+    os.replace(tmp, path)
+    if follow > 0:
+        follow_push(path, max(follow_from, t0 - follow), t0, d)
+    return t0, t1, d
+
+
+def follow_push(path, a, b, d, zoom=1.35, fx=0.85, fy=0.7):
+    """Máy "đi theo tay" trước cú vụt (như quay thật: máy đẩy vào và trôi theo cánh tay tới vật được chỉ): trong [a, b] phóng dần 1 -> `zoom` (chậm rồi nhanh)
+    và lệch về phía phải-dưới (fx, fy: 0..1 vị trí khung trong ảnh), nối liền vào cú vụt [b, b+d] trong lúc đó trả dần về khung gốc. Không đổi độ dài."""
+    w, h = (int(v) for v in sh(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "csv=p=0:s=x", path]).stdout.strip().split("x")[:2])
+    T = "(in/30)"
+    z = (f"if(lt({T},{a:.3f}),1,if(lt({T},{b:.3f}),1+{zoom - 1:.3f}*pow(({T}-{a:.3f})/{max(0.05, b - a):.3f},2),"
+         f"if(lt({T},{b + d:.3f}),{zoom:.3f}-{zoom - 1:.3f}*({T}-{b:.3f})/{max(0.05, d):.3f},1)))")
+    vf = (f"fps=30,scale={w * 2}:{h * 2}:flags=lanczos,zoompan=z='{z}':x='(iw-iw/zoom)*{fx}':y='(ih-ih/zoom)*{fy}':d=1:s={w}x{h}:fps=30,setsar=1")
+    tmp = path + ".follow.mp4"
+    sh_enc(["ffmpeg", "-y", "-i", path, "-vf", vf, "-c:v", "libx264", "-crf", "17", "-pix_fmt", "yuv420p", "-c:a", "copy", tmp])
+    os.replace(tmp, path)
+
+
+def freeze_below(path, y0, edge=0.06, max_drift=0.012):
+    """Giữ yên phần dưới khung (từ `y0` = tỉ lệ chiều cao trở xuống): lấy đúng khung ĐẦU clip, trừ chỗ có người ở khung hiện tại (tách người bằng mediapipe),
+    nên tay/người vẫn cử động mà băng chuyền, vali không trôi. Muse cứ thấy băng chuyền là cho chạy, lời dặn "conveyor off" không chặn được (soi hành lý 03/11).
+    Chỉ dùng cho cảnh máy đứng yên. Không đổi độ dài, giữ tiếng."""
+    import cv2
+    import mediapipe as mp
+    cap = cv2.VideoCapture(path)
+    fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
+    w, h = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    ok, fr = cap.read()
+    if not ok:
+        cap.release()
+        raise RuntimeError("không đọc được clip")
+    plate = fr.astype(np.float32)
+    region = np.repeat(np.clip((np.arange(h, dtype=np.float32)[:, None] / h - y0) / edge, 0, 1), w, axis=1)   # mép trên hoà mềm
+    tmp = path + ".freeze.mp4"
+    p = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{w}x{h}", "-r", f"{fps}", "-i", "-", "-i", path,
+                          "-map", "0:v", "-map", "1:a?", "-c:v", "libx264", "-crf", "17", "-pix_fmt", "yuv420p", "-c:a", "copy", tmp],
+                         stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    seg = mp.solutions.selfie_segmentation.SelfieSegmentation(model_selection=0)
+    top = lambda f: cv2.cvtColor(cv2.resize(f[: int(h * 0.3)], (180, max(8, int(54 * h / w)))), cv2.COLOR_BGR2GRAY).astype(np.float32)
+    top0, drift, i = top(fr), 0.0, 0
+    try:
+        while ok:
+            if i % 6 == 0:   # máy trôi (Muse tự đẩy/lia nhẹ): phần dưới lấy từ khung đầu sẽ lệch, hiện bóng mờ -> bỏ, giữ clip gốc
+                drift = max(drift, float(np.hypot(*cv2.phaseCorrelate(top0, top(fr))[0])) / 180)
+            i += 1
+            m = seg.process(cv2.cvtColor(fr, cv2.COLOR_BGR2RGB)).segmentation_mask
+            m = cv2.GaussianBlur(cv2.dilate((m > 0.85).astype(np.uint8), np.ones((3, 3), np.uint8)).astype(np.float32), (7, 7), 0)
+            keep = (region * (1 - m))[..., None]   # 1 = lấy từ khung đầu
+            p.stdin.write((fr.astype(np.float32) * (1 - keep) + plate * keep).astype(np.uint8).tobytes())
+            ok, fr = cap.read()
+    finally:
+        cap.release()
+        seg.close()
+        p.stdin.close()
+        p.wait()
+    if p.returncode != 0 or not os.path.exists(tmp):
+        raise RuntimeError("ffmpeg lỗi khi giữ yên phần dưới khung")
+    if drift > max_drift:
+        os.remove(tmp)
+        raise RuntimeError(f"máy trôi {100 * drift:.1f}% bề ngang trong clip, giữ nguyên clip")
+    os.replace(tmp, path)
+
+
 # ------------------------------------------------------------------ chạy một biến thể
 def release_pin(opts, pin):
     """Bỏ ghim tài khoản của video trên LUO-API (video xong / dừng / lỗi) để video khác dùng được tài khoản đó."""
@@ -1021,9 +1264,27 @@ def release_pin(opts, pin):
         pass
 
 
+def custom_gen(template):
+    """Code gen riêng của thể loại: kịch bản có khối [HAU KY] với dòng "loai: <mã>" và có file app/production/types/<mã>/gen.py
+    (hàm run(vdata, template, out_dir, opts, emit, cancel) -> raw.mp4). Không có thì None: chạy như thường. Cùng cách khai báo với post.py (server.custom_post)."""
+    m = re.search(r"^\[HAU KY\]:[ \t]*\r?\n(?:(?!\[)[^\n]*\n)*?[ \t]*loai:[ \t]*([\w-]+)", (template or "") + "\n", re.M)
+    path = os.path.join(PROD, "types", m.group(1), "gen.py") if m else ""
+    if not (path and os.path.exists(path)):
+        return None
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(f"gen_{m.group(1).replace('-', '_')}", path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
 def run_variant(vdata, template, out_dir, opts, emit, cancel):
     """emit(event, **kw): scene_init / scene / log / done. Trả về đường dẫn raw.mp4."""
     os.makedirs(out_dir, exist_ok=True)
+    cg = custom_gen(template)
+    if cg and not opts.get("_part"):   # thể loại có code gen riêng (vd. nhiều phần: tình huống + ghép 2 lớp); "_part" = đang chạy một phần của chính nó
+        emit("log", msg=f"Gen theo code riêng của thể loại: {os.path.relpath(cg.__file__, PROD)}")
+        return cg.run(vdata, template, out_dir, opts, emit, cancel)
     import split as SP
     if SP.is_split(template):   # loại dự án "ghép 2 lớp": mỗi nhân vật gen riêng rồi ghép (split.py)
         return SP.run_split(vdata, template, out_dir, opts, emit, cancel)
@@ -1084,11 +1345,13 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                                 "text": (luot[s["n"] - 1]["text"] if s["n"] - 1 < len(luot) else s["title"]),
                                 "state": "wait"} for s in scenes])
     prev_last, clips, ref_stats = None, [], None
+    last_wide = None           # ảnh ngang tổng quan gần nhất: gửi kèm các khung đầu sau để giữ cùng bối cảnh, đạo cụ, vị trí
     # cân màu: "anchor" = mỗi cảnh có khung đầu riêng (gen từ ảnh tham chiếu) là chuẩn màu cho chính nó và các cảnh nối tiếp sau nó;
     # "first" = mọi cảnh kéo về cảnh 1 (cách cũ: ép cảnh khác bối cảnh/ánh sáng về cảnh 1, các cảnh nối tiếp tối và đậm dần); "off" = không cân
     color_mode = str(opts.get("color_mode") or "anchor") if opts.get("normalize", True) else "off"
     color_strength = float(opts.get("color_strength", 1.0))
     ref_scene = None           # cảnh làm chuẩn màu hiện tại (để ghi nhật ký)
+    palette = None             # bảng màu chung của cả video (ảnh tổng quan trung tính nếu có, không thì khung đầu cảnh đầu tiên): các khung đầu sau kéo sắc về đây
     s_toks = scene_tokens(template)
     all_toks = set().union(*s_toks.values()) if s_toks else set()
     prev_people = None         # nhân vật có mặt ở cảnh trước (cảnh nối tiếp không nhắc tên ai thì coi như giữ nguyên)
@@ -1124,6 +1387,9 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
             if session not in started_sessions:
                 started_sessions.append(session)
         has_img = bool(sc["f"].get("Prompt ảnh"))
+        wide_p = str(sc["f"].get("Ảnh tổng quan", "")).strip()   # ảnh ngang 16:9 cả bố cục: khung đầu cắt từ nó + gửi kèm bước gen video (cảnh có lia máy)
+        cx = crop_x(sc["f"].get("Khung đầu cắt")) if wide_p else None
+        has_img = has_img or cx is not None
         img_p, vid_p, neg = G.build_prompts(locks, sc)
         turn = luot[n - 1] if n - 1 < len(luot) else None
         syll = G.spoken_syllables(sc["f"].get("Voice", ""))  # đếm âm tiết trước khi sửa prompt
@@ -1149,6 +1415,10 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
             emit("log", msg=f"Cảnh {n}: gen lại kèm yêu cầu sửa: {fix_note[:120]}")
         P = lambda f: os.path.join(out_dir, f)
         img_f, vid_f, cut_f, last_f = P(f"scene{n}_start.png"), P(f"scene{n}_clip.mp4"), P(f"scene{n}_cut.mp4"), P(f"scene{n}_last.png")
+        wide_f = P(f"scene{n}_wide.png")
+        wide_ref = last_wide if (has_img and not wide_p) else None   # khung đầu mới ở cảnh sau: giữ cùng bối cảnh với ảnh tổng quan đã có
+        if wide_p and os.path.exists(wide_f):
+            last_wide = wide_f
         if color_mode == "anchor" and has_img:
             ref_stats = None   # khung đầu mới (đổi bối cảnh / góc máy): chuẩn màu mới là chính khung đầu này, không ép về cảnh khác
         if ref_stats is None and color_mode != "off" and os.path.exists(vid_f):  # chạy tiếp: lấy lại chuẩn màu từ clip làm chuẩn đã có
@@ -1180,6 +1450,10 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                       "Place the character so her head (including any headset) fills exactly the dark oval, her neck and shoulders fill the mid-grey shape, "
                       "and her body is no wider than it, with the table at the lower grey band; the pale top third (above the line) must be only plain background with nothing in it. "
                       "Never draw the grey shapes, the line or any of its colours, and never make the character larger or closer than the guide.")
+        if wide_ref and os.path.exists(wide_ref):
+            ref_imgs = ref_imgs + [G.data_url(wide_ref)]
+            img_p += (f"\n\nreference image #{len(ref_imgs)} is a WIDE OVERVIEW of this same set from an earlier shot: keep the same place, the same props (colours, sizes and positions) "
+                      "and the same people and clothing as in it. It is for consistency only: use the framing written in this prompt and show only the people this prompt names.")
         spk_auds = [a for g, a in att_auds if g in ((turn or {}).get("who"), "other", "scene")]
 
         def attempt(label, fn):
@@ -1197,6 +1471,80 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                     emit("scene", n=n, state=label, pct=0, note=f"thử lại {i}/{opts['retries']}")
                     time.sleep(4)
 
+        pre_v = str(sc["f"].get("Mở đầu video", "")).strip()   # đoạn không lời ghép trước clip của cảnh (gen TRƯỚC ảnh tổng quan: khung cuối của nó là nguồn bối cảnh để mọi khung sau cùng một máy soi / bố cục) (vd. hành lý trôi ra khỏi máy soi rồi mới tới câu hỏi)
+        if pre_v:
+            pre_img, pre_clip = P(f"scene{n}_pre_start.png"), P(f"scene{n}_pre_clip.mp4")
+            pre_ip = str(sc["f"].get("Mở đầu ảnh", "")).strip()
+            ctx = [locks.get("SET LOCK", ""), locks.get("STYLE LOCK", "")]
+            if pre_ip and not os.path.exists(pre_img):
+                p_refs = list(refs) + list(sc_imgs) + ([G.data_url(last_wide)] if last_wide and os.path.exists(last_wide) else [])
+                p_prompt = G.with_ctx(pre_ip, ctx) + (f"\n\nreference image #{len(p_refs)} is a wide overview of this same set: keep the same place, props (colours, sizes) and lighting; "
+                                                      "use the framing written above." if last_wide and os.path.exists(last_wide) else "")
+                emit("scene", n=n, state="image", pct=0, note="mở đầu")
+                emit("log", msg=f"Cảnh {n}: gen ảnh đoạn mở đầu không lời")
+
+                def gpi():
+                    b = api.generate("image", G.muse_image_prompt(p_prompt, neg, len(p_refs)), p_refs, session, timeout=opts["timeout"], cancel=cancel,
+                                     on_status=lambda s, p: emit("scene", n=n, state="image", pct=p or 0), on_account=note_account, pin=pin, pin_prefer=pin_prefer)
+                    if G.kind_of(b) == "video":
+                        open(pre_img + ".mp4", "wb").write(b)
+                        grab_frame(pre_img + ".mp4", pre_img)
+                        os.remove(pre_img + ".mp4")
+                    else:
+                        open(pre_img, "wb").write(b)
+                attempt("image", gpi)
+            if not os.path.exists(pre_clip):
+                p_start = pre_img if os.path.exists(pre_img) else img_f
+                p_vrefs = [G.data_url(p_start)] if p_start and os.path.exists(p_start) else []
+                p_vid = (G.with_ctx(pre_v, ctx) + "\n\nNO DIALOGUE: nobody speaks in this clip; only quiet natural ambience of the place."
+                         + ("\n\nREFERENCE IMAGE NOTES: reference image #1 is the START FRAME (the clip begins exactly on it)." if p_vrefs else ""))
+                emit("scene", n=n, state="video", pct=0, note="mở đầu")
+                emit("log", msg=f"Cảnh {n}: gen video đoạn mở đầu không lời")
+
+                def gpv():
+                    b = api.generate("video", G.muse_video_prompt(p_vid, neg, 5, len(p_vrefs)), p_vrefs, session, duration=5, timeout=opts["timeout"], cancel=cancel,
+                                     on_status=lambda s, p: emit("scene", n=n, state="video", pct=p or 0), on_account=note_account, pin=pin, pin_prefer=pin_prefer)
+                    open(pre_clip, "wb").write(b)
+                attempt("video", gpv)
+        if wide_p and not os.path.exists(img_f):
+            if not os.path.exists(wide_f):
+                emit("scene", n=n, state="image", pct=0, note="ảnh tổng quan")
+                w_imgs, w_legend, _ = attachments(vdata, opts, keep=ref_keep, offset=0)
+                pre_last = P(f"scene{n}_pre_last.png")
+                if pre_v and os.path.exists(pre_clip):   # khung cuối của đoạn mở đầu = bối cảnh chuẩn: cùng máy soi, băng chuyền, vali, vị trí người
+                    grab_frame(pre_clip, pre_last, sseof=-0.06)
+                    w_imgs = list(w_imgs) + [G.data_url(pre_last)]
+                    w_legend = (w_legend + "; " if w_legend else "") + (f"reference image #{len(w_imgs)} is the LAST FRAME of the opening clip of this same set: draw the wide overview as the SAME moment of the SAME place "
+                                                                      "(the same scanner, conveyor, suitcases, lighting and people in the same positions), only wider")
+                w_prompt = (WIDE_NOTE + "\n\n" + G.with_ctx(wide_p, [locks.get("SET LOCK", ""), locks.get("CHAR LOCK", "")])
+                            + (("\n\nREFERENCE IMAGE NOTES: " + w_legend + ". The reference images are authoritative for each person's face, hair, skin tone, age and clothing; "
+                                "never blend two people's references into one face.") if w_legend else "")
+                            + (f"\n\nAvoid: {neg}" if neg else "") + "\n\nFINAL REMINDER: output exactly ONE STILL IMAGE, landscape 16:9.")
+                emit("log", msg=f"Cảnh {n}: gen ảnh ngang tổng quan 16:9 kèm {len(w_imgs)} ảnh tham chiếu")
+
+                def gw():
+                    b = api.generate("image", w_prompt, w_imgs, session, timeout=opts["timeout"], on_status=lambda s, p: emit("scene", n=n, state="image", pct=p or 0),
+                                     cancel=cancel, on_account=note_account, pin=pin, pin_prefer=pin_prefer, aspect="16:9")
+                    if G.kind_of(b) == "video":
+                        open(wide_f + ".mp4", "wb").write(b)
+                        grab_frame(wide_f + ".mp4", wide_f)
+                        os.remove(wide_f + ".mp4")
+                    else:
+                        open(wide_f, "wb").write(b)
+                attempt("image", gw)
+            last_wide = wide_f
+            if cx is not None:
+                crop_f = P(f"scene{n}_crop.png")
+                cw = wide_crop(wide_f, crop_f, cx)
+                if cw >= 700 or not sc["f"].get("Prompt ảnh"):
+                    os.replace(crop_f, img_f)
+                    emit("log", msg=f"Cảnh {n}: khung đầu cắt từ ảnh tổng quan (vị trí {cx:.2f}, rộng {cw}px)")
+                    emit("scene", n=n, state="image", pct=100, thumb=os.path.basename(img_f))
+                else:   # ảnh tổng quan nhỏ: khung cắt mờ -> cho Muse vẽ lại sắc nét theo đúng bố cục khung cắt
+                    ref_imgs = ref_imgs + [G.data_url(crop_f)]
+                    img_p += (f"\n\nreference image #{len(ref_imgs)} is a rough low-resolution crop of EXACTLY the required framing, cut from the wide overview of this set: "
+                              "redraw it sharp at full resolution with the same composition, positions, poses, props and people; it overrides any other framing description.")
+                    emit("log", msg=f"Cảnh {n}: ảnh tổng quan nhỏ (khung cắt rộng {cw}px), gen lại khung đầu sắc nét theo khung cắt")
         if has_img and not os.path.exists(img_f):
             emit("scene", n=n, state="image", pct=0)
             emit("log", msg=f"Cảnh {n}: gen ảnh khung đầu kèm {len(ref_imgs)} ảnh tham chiếu" + (f" (trong đó {len(sc_imgs)} ảnh gắn trong biến thể)" if sc_imgs else ""))
@@ -1222,19 +1570,32 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
             start = img_f if has_img else prev_last
             vrefs = [G.data_url(start)] if start and os.path.exists(start) else []
             vid_legend = ""
+            wide_lead = ""
+            if wide_p and vrefs and os.path.exists(wide_f):   # cảnh lia máy: Muse thấy trước cả bố cục mà máy sẽ lia qua
+                vrefs.append(G.data_url(wide_f))
+                wide_lead = ("reference image #2 is a WIDE OVERVIEW (16:9) of the whole set, showing where every person and object stands; the start frame is one part of it. "
+                             "Any camera move in this clip travels across exactly this layout and lands on the people and objects where this overview shows them; "
+                             "never show the overview as a picture, never cut or fade to it; ")
+                emit("log", msg=f"Cảnh {n}: gen video kèm ảnh tổng quan để máy lia đúng bố cục")
             if opts.get("video_char_refs", True):   # gửi kèm ảnh nhân vật có mặt cho cả bước gen video: chỉ có khung đầu thì qua nhiều cảnh nối tiếp mặt trôi dần
                 pkeep = lambda key, grp: key.upper().startswith("NGUOI_") and (ref_keep is None or ref_keep(key, grp))
-                lead = "reference image #1 is the START FRAME (the clip begins exactly on it: same framing, people, background, lighting and colour); " if vrefs else ""
+                lead = ("reference image #1 is the START FRAME (the clip begins exactly on it: same framing, people, background, lighting and colour); " if vrefs else "") + wide_lead
                 c_imgs, c_legend, _ = attachments(vdata, opts, keep=pkeep, offset=len(vrefs), lead=lead)
                 if c_imgs:
                     vrefs += c_imgs
                     vid_legend = ("\n\nREFERENCE IMAGE NOTES: " + c_legend + ". The character reference images are for IDENTITY ONLY: keep each person's face, hair, skin tone, age and clothing "
-                                  "identical to their own reference for the whole clip; never show the reference images themselves, never cut, fade or switch to them, and never change the framing, background or colours of the start frame.")
+                                  "identical to their own reference for the whole clip; never show the reference images themselves, never cut, fade or switch to them, and "
+                                  + ("keep the lighting and colours of the start frame; the framing changes only through the camera move this clip describes." if wide_lead else
+                                     "never change the framing, background or colours of the start frame."))
                     emit("log", msg=f"Cảnh {n}: gen video kèm {len(c_imgs)} ảnh nhân vật để giữ mặt đồng nhất")
+            if wide_lead and not vid_legend:
+                vid_legend = "\n\nREFERENCE IMAGE NOTES: reference image #1 is the START FRAME (the clip begins exactly on it); " + wide_lead.rstrip("; ") + "."
             emit("scene", n=n, state="video", pct=0, dur=dur)
 
+            speech_note = [""]   # ghi chú sửa lời nói (lặp từ, thừa từ) khi gen lại
+
             def gv():
-                b = api.generate("video", G.muse_video_prompt(vid_p + vid_legend, neg, dur, len(vrefs)), vrefs, session, duration=dur, timeout=opts["timeout"],
+                b = api.generate("video", G.muse_video_prompt(vid_p + speech_note[0] + vid_legend, neg, dur, len(vrefs)), vrefs, session, duration=dur, timeout=opts["timeout"],
                                  on_status=lambda s, p: emit("scene", n=n, state="video", pct=p or 0), cancel=cancel, audios=spk_auds or None, on_account=note_account,
                                  pin=pin, pin_prefer=pin_prefer)
                 open(vid_f, "wb").write(b)
@@ -1252,7 +1613,15 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
             base_vid_p = vid_p
             while True:
                 attempt("video", gv)
-                if not (opts.get("check_overlap", True) and not mouth_off and turn and spoken and spk_key in chars):
+                if spoken and turn and str(turn.get("text", "")).strip() and opts.get("check_speech", True):   # nói lặp từ / thừa từ / thiếu lời: gen lại ngay
+
+                    def regen(note):
+                        speech_note[0] = "\n\n" + note
+                        os.remove(vid_f)
+                        attempt("video", gv)
+                    speech_retry(vid_f, turn["text"], regen, emit, n, int(opts.get("speech_retries", 1)))
+                    speech_note[0] = ""
+                if not (opts.get("check_overlap", True) and not mouth_off and turn and spoken and spk_key in chars) or wide_p:   # cảnh lia máy: mặt chạy khỏi vị trí cố định, không đo được
                     break
                 spk_side = MV.cbox(vdata, spk_key)
                 lis_keys = [c for c in chars if c != spk_key and MV.cbox(vdata, c)]
@@ -1331,7 +1700,9 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
             c_start = color_stats(vid_f, [0.04, 0.2, 0.4])
             c_end = color_stats(vid_f, [-0.6, -0.35, -0.1])
             if ref_stats is None:
-                ref_stats, ref_scene = c_start, n  # chuẩn màu = khung đầu của clip này (đúng màu ảnh gốc gen từ tham chiếu)
+                if palette is None:
+                    palette = color_stats(last_wide, [0.0]) if last_wide and os.path.exists(last_wide) else c_start
+                ref_stats, ref_scene = pull_palette(c_start, palette), n  # chuẩn màu = khung đầu của clip này, sắc kéo về bảng màu chung của video
             vf_fix, fix_note = color_match(ref_stats, c_start, c_end, duration(vid_f), color_strength)
             if vf_fix:
                 emit("log", msg=f"Cảnh {n}: cân màu về khung đầu cảnh {ref_scene} ({fix_note})")
@@ -1347,8 +1718,14 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                 emit("log", msg=f"Cảnh {n}: lời nói từ {span[0]:.2f}s đến {span[1]:.2f}s trong clip {duration(vid_f):.1f}s; cắt sát, chừa ~{margin:.2f}s")
             else:
                 emit("log", msg=f"Cảnh {n}: không nhận ra đủ lời để cắt sát, cắt theo cách thường", level="warn")
+        lo, hi = (0.18 if span else 0.15), (max(0.3, margin + 0.05) if span else 0.8)
+        keep = re.search(r"\d+(?:[.,]\d+)?", str(sc["f"].get("Giữ sau lời", "")))   # kịch bản: giữ thêm N giây sau từ cuối (vd. camera lia sang người kia sau câu nói)
+        if keep:
+            tail = min(4.0, float(keep.group(0).replace(",", ".")))
+            lo, hi = max(lo, tail), max(hi, tail + 0.4)
+            emit("log", msg=f"Cảnh {n}: giữ ~{tail:.1f}s sau lời nói (trường \"Giữ sau lời\")")
         info = smart_cut(vid_f, cut_f, last_f, syll=syll, speedfix=opts.get("speedfix", True), vf_extra=vf_fix, max_speed=float(opts.get("speed_max", 1.25)),
-                         span=span, lo=(0.18 if span else 0.15), hi=(max(0.3, margin + 0.05) if span else 0.8), head_margin=margin * 0.7) if opts.get("cut", True) and spoken else None
+                         span=span, lo=lo, hi=hi, head_margin=margin * 0.7) if opts.get("cut", True) and spoken else None
         if info is None:
             if vf_fix:
                 sh_enc(["ffmpeg", "-y", "-i", vid_f, "-vf", vf_fix, "-c:v", "libx264", "-crf", "17", "-pix_fmt", "yuv420p", "-c:a", "copy", cut_f])
@@ -1363,6 +1740,36 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                     emit("log", msg=f"Cảnh {n}: CẢNH BÁO đầu câu có thể bị mất ({hc[1]}). Giữ file gốc scene{n}_clip.mp4 để kiểm tra", level="warn")
         except Exception:  # noqa: BLE001 - chỉ là chẩn đoán
             pass
+        fast = re.search(r"\d+(?:[.,]\d+)?", str(sc["f"].get("Lia nhanh", "")))   # kịch bản: tua nhanh cú lia của Muse (thường lia chậm, không có lực) N lần + nhoè ngang
+        if fast:
+            try:
+                vs_ = voice_span(cut_f, turn["text"]) if spoken and turn and str(turn.get("text", "")).strip() else None   # chỉ tua sau từ cuối (Whisper), không làm mất lời
+                fol = re.search(r"\d+(?:[.,]\d+)?", str(sc["f"].get("Lia theo tay", "")))   # máy đẩy vào + trôi theo tay N giây trước cú vụt (Muse thường để máy đứng yên khi nhân vật chỉ tay)
+                w = whip_speedup(cut_f, float(fast.group(0).replace(",", ".")), min_t=vs_[1] + 0.05 if vs_ else (speech_end_of(cut_f) if spoken else 0.0),
+                                 follow=float(fol.group(0).replace(",", ".")) if fol else 0.0, follow_from=vs_[0] if vs_ else 0.0)
+                emit("log", msg=(f"Cảnh {n}: cú lia {w[0]:.2f}–{w[1]:.2f}s tua nhanh còn {w[2]:.2f}s (trường \"Lia nhanh\")" if w else
+                                 f"Cảnh {n}: không dò thấy cú lia sau lời nói, giữ nguyên clip (trường \"Lia nhanh\")"), **({} if w else {"level": "warn"}))
+            except Exception as ex:  # noqa: BLE001
+                emit("log", msg=f"Cảnh {n}: không tua nhanh được cú lia ({ex})", level="warn")
+        fz = re.search(r"\d+(?:[.,]\d+)?", str(sc["f"].get("Giữ yên dưới", "")))   # kịch bản: phần dưới khung (băng chuyền, vali) đứng yên như khung đầu, chỉ người cử động
+        if fz:
+            try:
+                freeze_below(cut_f, min(0.95, max(0.0, float(fz.group(0).replace(",", ".")))))
+                grab_frame(cut_f, last_f, sseof=-0.06)   # khung nối cho cảnh sau: vali vẫn ở chỗ cũ
+                emit("log", msg=f"Cảnh {n}: giữ yên phần dưới khung từ {fz.group(0)} chiều cao (trường \"Giữ yên dưới\")")
+            except Exception as ex:  # noqa: BLE001
+                emit("log", msg=f"Cảnh {n}: không giữ yên được phần dưới khung ({ex})", level="warn")
+        if pre_v:
+            try:
+                ln = re.search(r"\d+(?:[.,]\d+)?", str(sc["f"].get("Mở đầu dài", "")))
+                vf_pre = ""
+                if color_mode != "off":   # đoạn mở đầu do Muse gen riêng: kéo màu về đầu clip chính để chỗ ghép không nhảy màu
+                    c_main, c_pre = color_stats(cut_f, [0.05, 0.3]), color_stats(pre_clip, [0.05, 0.5])
+                    vf_pre, _ = color_match(c_main, c_pre, c_pre, 1.0, 0.9) if c_main and c_pre else ("", "")
+                secs, k = prepend_preroll(pre_clip, cut_f, float(ln.group(0).replace(",", ".")) if ln else 1.5, vf_pre)
+                emit("log", msg=f"Cảnh {n}: ghép đoạn mở đầu {secs:.1f}s (tua x{k:.1f}) trước câu nói")
+            except Exception as ex:  # noqa: BLE001
+                emit("log", msg=f"Cảnh {n}: không ghép được đoạn mở đầu ({ex})", level="warn")
         prev_last = last_f
         clips.append(cut_f)
         emit("scene", n=n, state="done", pct=100, thumb=os.path.basename(last_f), clip=os.path.basename(cut_f),
@@ -1370,16 +1777,61 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
         if info and info["speed"] > 1:
             emit("log", msg=f"Cảnh {n}: lời nói chậm, tăng tốc x{info['speed']}")
     end_session(session)
-    return concat_clips(clips, out_dir, emit)
+    return concat_clips(clips, out_dir, emit, [scene_fx(sc["f"]) for sc in scenes])
 
 
-def concat_clips(clips, out_dir, emit):
-    """Ghép các clip cảnh (đã cắt) thành raw.mp4."""
+_FLASH = {"trắng": "FFFFFF", "trang": "FFFFFF", "white": "FFFFFF", "vàng": "FFF1C9", "vang": "FFF1C9", "warm": "FFF1C9", "đen": "000000", "den": "000000", "black": "000000"}
+
+
+def scene_fx(f):
+    """Hiệu ứng khi ghép của một cảnh, từ trường "Chuyển cảnh" và "Lớp phủ" của kịch bản:
+    - "Chuyển cảnh: chớp trắng [0.4]" / "chớp vàng" / "chớp #RRGGBB": cuối cảnh trước mờ dần sang màu đó rồi cảnh này hiện ra từ màu đó (tổng N giây, mặc định 0,4).
+      Không chồng hai clip lên nhau nên độ dài video không đổi (mốc cảnh của Hậu kỳ vẫn đúng). "cắt thẳng" hoặc để trống = cắt thẳng.
+    - "Lớp phủ: camera [đường-dẫn.png]": giao diện camera điện thoại + hình bầu dục bám theo khuôn mặt (camera_overlay.py)."""
+    out = {}
+    tr = str(f.get("Chuyển cảnh", "")).strip().lower()
+    m = re.search(r"#?([0-9a-f]{6})\b", tr)
+    color = m.group(1).upper() if m else next((c for k, c in _FLASH.items() if k in tr), None)
+    if color and not re.search(r"cắt thẳng|cat thang", tr):
+        d = re.search(r"(?<![0-9a-f#])(\d+(?:[.,]\d+)?)\s*(?:s|giây|giay)?\s*$", tr[m.end():] if m else tr)
+        out["flash"] = (color, min(1.2, max(0.1, float(d.group(1).replace(",", ".")))) if d else 0.4)
+    ov = str(f.get("Lớp phủ", "")).strip()
+    if ov.lower().startswith("camera"):
+        out["overlay"] = "camera"
+        out["ui"] = ov[6:].strip().strip('"') or None
+    return out
+
+
+def concat_clips(clips, out_dir, emit, fx=None):
+    """Ghép các clip cảnh (đã cắt) thành raw.mp4. fx: danh sách scene_fx() song song với clips (chớp sáng chuyển cảnh, lớp phủ camera)."""
     raw = os.path.join(out_dir, "raw.mp4")
+    fx = list(fx or []) + [{}] * (len(clips) - len(fx or []))
+    clips = list(clips)
+    for i, c in enumerate(clips):
+        if fx[i].get("overlay") == "camera":
+            cam = os.path.splitext(c)[0] + "_cam.mp4"
+            try:
+                if not (os.path.exists(cam) and os.path.getmtime(cam) >= os.path.getmtime(c)):
+                    import camera_overlay as CO
+                    emit("log", msg=f"Cảnh {i + 1}: ghép giao diện camera + vòng bám mặt")
+                    with _MP_LOCK:
+                        found = CO.render(c, cam, fx[i].get("ui"))
+                    if found < 0.5:
+                        emit("log", msg=f"Cảnh {i + 1}: chỉ dò được khuôn mặt ở {found:.0%} số khung hình, vòng bám mặt có thể bị thiếu", level="warn")
+                clips[i] = cam
+            except Exception as ex:  # noqa: BLE001 - lớp phủ lỗi thì ghép clip gốc, không làm hỏng cả video
+                emit("log", msg=f"Cảnh {i + 1}: không ghép được lớp phủ camera ({ex}); dùng clip gốc", level="warn")
     ins, fl = [], ""
     for i, c in enumerate(clips):
         ins += ["-i", c]
-        fl += f"[{i}:v]scale=720:1280:flags=accurate_rnd+full_chroma_int:force_original_aspect_ratio=increase,crop=720:1280,fps=30,setsar=1[v{i}];"
+        fade = ""
+        if fx[i].get("flash"):   # chớp sáng VÀO cảnh này: hiện ra từ màu chớp
+            col, d = fx[i]["flash"]
+            fade += f",fade=t=in:st=0:d={d / 2:.3f}:color=0x{col}"
+        if i + 1 < len(clips) and fx[i + 1].get("flash"):   # cảnh sau có chớp sáng: cuối cảnh này mờ dần sang màu chớp
+            col, d = fx[i + 1]["flash"]
+            fade += f",fade=t=out:st={max(0.0, duration(c) - d / 2):.3f}:d={d / 2:.3f}:color=0x{col}"
+        fl += f"[{i}:v]scale=720:1280:flags=accurate_rnd+full_chroma_int:force_original_aspect_ratio=increase,crop=720:1280,fps=30,setsar=1{fade}[v{i}];"
         if has_audio(c):
             fl += f"[{i}:a]aresample=44100[a{i}];"
         else:  # không có track tiếng thì chèn im lặng đúng độ dài, để concat không báo "matches no streams"
@@ -1404,20 +1856,39 @@ def hook_marks(turns):
     return marks
 
 
+def _sub_parts(text):
+    """Chia một lượt thành các dòng phụ đề theo câu; câu quá ngắn (< 12 ký tự) gộp vào câu sau."""
+    text = re.sub(r"\s+", " ", str(text or "").strip())
+    merged = []
+    for p in (p.strip() for p in re.findall(r"[^.!?…]+[.!?…]*", text) if p.strip()):
+        if merged and len(merged[-1]) < 12:
+            merged[-1] += " " + p
+        else:
+            merged.append(p)
+    return merged
+
+
+def subs_from_script(text):
+    """Phụ đề cho loại dự án không dùng LUOT (vd. lồng tiếng ngoài khung): lời trong ngoặc kép ở trường Voice của từng cảnh của script đã điền token (script.txt).
+    "turn" = thứ tự cảnh, khớp mốc cảnh của Hậu kỳ."""
+    try:
+        _, scenes = G.parse_script(text)
+    except (IndexError, AttributeError):
+        return []
+    units = []
+    for ti, sc in enumerate(scenes):
+        for p in _sub_parts(" ".join(re.findall(r'"([^"]+)"', sc["f"].get("Voice", "")))):
+            units.append({"t": p, "c": "white", "turn": ti})
+    return units
+
+
 def subs_from_variant(v, auto_hook=True):
     units = []
     turns = v.get("LUOT", [])
     explicit = any(t.get("fx") for t in turns)   # chỉnh tay ở bất kỳ lượt nào (kể cả "Không") thì tắt tự động
     marks = {} if explicit or not auto_hook else hook_marks(turns)
     for ti, t in enumerate(turns):
-        text = re.sub(r"\s+", " ", str(t.get("text", "")).strip())
-        parts = [p.strip() for p in re.findall(r"[^.!?…]+[.!?…]*", text) if p.strip()]
-        merged = []
-        for p in parts:
-            if merged and len(merged[-1]) < 12:
-                merged[-1] += " " + p
-            else:
-                merged.append(p)
+        merged = _sub_parts(t.get("text", ""))
         for i, p in enumerate(merged):
             u = {"t": p, "c": t.get("c") or "white", "turn": ti}   # "turn": cảnh chứa phụ đề này (căn phụ đề theo từng cảnh)
             if i == 0 and t.get("icon"):
@@ -1513,7 +1984,9 @@ def suggest_fields(plain, has_luot, existing=None):
     for k in keys:
         if k in old:
             out.append(old[k]); continue
-        lab, grp, kind, ph = KNOWN_FIELDS.get(k, (k.replace("_", " ").capitalize(), "day" if k.endswith("_DAY") else "hoc" if k.endswith("_HOC") else "other", "long", ""))
+        pre = {"NHIN": "Hướng nhìn khi nói", "NGHE": "Tư thế khi nghe"}.get(k.split("_", 1)[0])   # trường nhân vật có nhãn chung, kèm tên khoá
+        lab, grp, kind, ph = KNOWN_FIELDS.get(k, ((f"{pre} ({k.split('_', 1)[1]})" if pre and "_" in k else k.replace("_", " ").capitalize()),
+                                                   "day" if k.endswith("_DAY") else "hoc" if k.endswith("_HOC") else "other", "long", ""))
         out.append({"key": k, "label": lab, "group": grp, "kind": kind, "ph": ph, "default": ""})
     order = {"day": 0, "hoc": 1, "scene": 2}
     prio = list(KNOWN_FIELDS)

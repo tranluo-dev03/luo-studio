@@ -1,0 +1,65 @@
+[STYLE LOCK]:
+Vertical 9:16 photorealistic short ad, fixed static camera at chest height, straight-on. A modern barbershop: {{NEN}}. THE MAN sits in a black leather barber chair in the exact center of the frame, chest-up, shoulders square to the camera, head at about one third from the top of the frame, hands resting on his thighs out of view. Soft warm even light, shallow depth of field. Same framing in every clip. No text, no logos, no captions, no icons, no screens anywhere.
+
+[CHAR LOCK]:
+THE MAN: {{NGUOI_KHACH}}. Same face, skin, beard and clothes in every clip; only his hair changes, and only when a clip says so.
+THE BARBER (first clip only, standing behind the man): {{NGUOI_THO}}.
+THE NARRATOR: an off-screen voice-over that is never seen: {{GIONG_DOC}}. Speaks {{NGON_NGU}}.
+RULE: nobody on screen speaks. The man's lips stay gently closed for the whole clip; every word is the off-screen narrator's voice-over laid over the picture. The voice stays the same in every clip.
+
+[SET LOCK]:
+{{NEN}}. The same shelves, lights and mirrors in every clip. Nothing in the background moves. No other people except the barber in the first clip.
+
+[VIDEO SUFFIX]:
+Static camera, no zoom, no cut. The narrator's voice-over starts right away, at a natural ad pace of about 3 words per second, and finishes the line; then the man holds still with lips closed until the end of the clip. Clean dry voice, no music, no background noise. 9:16.
+
+[NEGATIVE]:
+text, captions, subtitles, logos, watermark, icons, emoji; phone, phone screen, camera interface, viewfinder, grid lines, face-tracking box or circle; the man moving his lips, talking or lip-syncing; two voices; background music; camera movement, zoom, shake; face, beard, skin or shirt changing; hair changing in the middle of a clip; the barber appearing after the first clip; the man touching his face or hair; other people; the words MAN, BARBER or NARRATOR written in the frame.
+
+CẢNH 1 (0:00–0:03): Thợ cắt tóc chải tóc cho khách
+Bối cảnh: tiệm cắt tóc; khách ngồi giữa khung, thợ đứng phía sau chải và vuốt tóc; không chữ, không người khác.
+Voice: (Lồng tiếng ngoài khung hình, người trong hình KHÔNG nói) "{{LOI_MO}}"
+Khung đầu: Khách ngồi giữa khung, tóc {{TOC_GOC}}, cười nhẹ, nhìn hơi chếch sang bên; thợ đứng sau, tay phải cầm lược đen trên đỉnh đầu khách, tay trái giữ nhẹ bên đầu.
+Khung cuối: Thợ vẫn đang chải tóc, khách cười nhẹ, miệng khép. (Cảnh sau có ảnh riêng nên không cần nối.)
+Diễn biến: Ngay từ đầu clip thợ chải và vuốt phần tóc trên đỉnh đầu khách bằng lược, nhịp chậm, đều; khách thư giãn, cười nhẹ, nhìn hơi chếch sang bên, miệng khép suốt clip. Giọng đọc ngoài khung nói câu mở đầu.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, photorealistic. In a modern barbershop ({{NEN}}), THE MAN, {{NGUOI_KHACH}}, with {{TOC_GOC}}, sits in a black barber chair in the center of the frame, chest-up, a relaxed soft smile with lips closed, eyes looking slightly off to the side. Behind him stands THE BARBER, {{NGUOI_THO}}, holding a black comb in his right hand on top of the man's head and resting his left hand lightly on the side of the man's head, focused on the hair. Soft warm light. No text, no logos, no screens. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image. CHAR LOCK. The barber slowly combs and shapes the top of the man's hair with the comb while the man sits relaxed, smiling softly with lips closed, eyes slightly to the side. Over the picture, the off-screen narrator says: "{{LOI_MO}}" The man never speaks. VIDEO SUFFIX.
+Audio: Chỉ giọng đọc ngoài khung, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không tiếng tiệm.
+Negative prompt: the man talking or moving his lips; text; scissors cutting; hair falling; camera movement.
+
+CẢNH 2 (0:03–0:05): Kiểu tóc thứ hai
+Chuyển cảnh: chớp vàng 0.5
+Bối cảnh: cùng tiệm, cùng ghế; thợ đã đi; khách ngồi một mình giữa khung, nhìn thẳng ống kính, tóc đã đổi sang kiểu thứ hai.
+Voice: (Lồng tiếng ngoài khung hình, người trong hình KHÔNG nói) "{{LOI_CAMERA}}"
+Khung đầu: Khách ngồi một mình giữa khung, đầu hơi quay sang trái, tóc {{TOC_MOI_A}}, miệng khép.
+Khung cuối: Khách nhìn thẳng ống kính, cười tự tin, miệng khép, đứng im.
+Diễn biến: Trong lúc giọng đọc nói, khách chậm rãi quay đầu từ hơi trái về nhìn thẳng ống kính rồi nở nụ cười tự tin, miệng khép; quay xong trước từ cuối, sau đó đứng im.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, photorealistic. The same man as in the reference image, {{NGUOI_KHACH}}, now alone, sitting in the same black barber chair in the center of the frame in the same barbershop ({{NEN}}), chest-up, his head turned slightly to his left, lips closed. His hair is now {{TOC_MOI_A}}. Same face, beard, skin and shirt as the reference. No barber, no other people, no text, no screens. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image. CHAR LOCK. The man slowly turns his head from slightly left to face the camera and gives a confident closed-mouth smile, then holds still. His hair stays exactly {{TOC_MOI_A}}. Over the picture, the off-screen narrator says: "{{LOI_CAMERA}}" The man never speaks. VIDEO SUFFIX.
+Audio: Chỉ giọng đọc ngoài khung, cùng giọng cảnh trước; nói xong là im. Không nhạc.
+Negative prompt: the man talking or moving his lips; the barber; hair changing during the clip; camera movement.
+
+CẢNH 3 (0:05–0:07): Kiểu tóc thứ ba
+Chuyển cảnh: chớp trắng 0.3
+Bối cảnh: cùng tiệm, cùng ghế; khách ngồi một mình, tóc đổi sang kiểu thứ ba.
+Voice: (Lồng tiếng ngoài khung hình, người trong hình KHÔNG nói) "{{LOI_PHAN_TICH}}"
+Khung đầu: Khách ngồi giữa khung, đầu hơi quay sang phải, tóc {{TOC_MOI_B}}, miệng khép.
+Khung cuối: Khách nhìn thẳng ống kính, cằm hơi nâng, cười nhẹ, miệng khép, đứng im.
+Diễn biến: Trong lúc giọng đọc nói, khách chậm rãi quay đầu từ hơi phải về nhìn thẳng ống kính, hơi nâng cằm, cười nhẹ, miệng khép; quay xong trước từ cuối, sau đó đứng im.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, photorealistic. The same man as in the reference image, {{NGUOI_KHACH}}, alone, sitting in the same black barber chair in the center of the frame in the same barbershop ({{NEN}}), chest-up, his head turned slightly to his right, lips closed. His hair is now {{TOC_MOI_B}}. Same face, beard, skin and shirt as the reference. No barber, no other people, no text, no screens. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image. CHAR LOCK. The man slowly turns his head from slightly right to face the camera, lifts his chin a little and smiles softly with lips closed, then holds still. His hair stays exactly {{TOC_MOI_B}}. Over the picture, the off-screen narrator says: "{{LOI_PHAN_TICH}}" The man never speaks. VIDEO SUFFIX.
+Audio: Chỉ giọng đọc ngoài khung, cùng giọng các cảnh trước; nói xong là im. Không nhạc.
+Negative prompt: the man talking or moving his lips; the barber; hair changing during the clip; camera movement.
+
+CẢNH 4 (0:07–0:12): Khung camera dò khuôn mặt
+Chuyển cảnh: chớp trắng 0.5
+Lớp phủ: camera
+Bối cảnh: cùng tiệm, cùng ghế; khách ngồi một mình, tóc trở lại kiểu ban đầu; khung hình như đang nhìn qua camera điện thoại cầm ngang mắt (giao diện camera và viền bám mặt do Studio ghép khi ghép clip nhờ trường Lớp phủ, KHÔNG để Muse vẽ).
+Voice: (Lồng tiếng ngoài khung hình, người trong hình KHÔNG nói) "{{LOI_KET}}"
+Khung đầu: Khách ngồi giữa khung, nhìn thẳng ống kính, tóc {{TOC_GOC}}, cười nhẹ, miệng khép; đầu ở khoảng một phần ba trên của khung, có khoảng trống phía trên đầu.
+Khung cuối: Khách nhìn thẳng ống kính, đầu thẳng, cười nhẹ, miệng khép, đứng im.
+Diễn biến: Trong lúc giọng đọc nói, khách chậm rãi xoay đầu sang trái, về giữa, sang phải, nghiêng đầu nhẹ một chút rồi về nhìn thẳng ống kính (như đang cho camera quét khuôn mặt); chuyển động nhỏ, chậm, đều; xong trước từ cuối rồi đứng im.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, photorealistic. The same man as in the reference image, {{NGUOI_KHACH}}, with {{TOC_GOC}}, alone, sitting in the same black barber chair in the center of the frame in the same barbershop ({{NEN}}), chest-up, facing the camera directly, a soft smile with lips closed. His head sits at about one third from the top with clear space above it. Same face, beard, skin and shirt as the reference. No barber, no phone, no screen, no interface, no text. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image. CHAR LOCK. The man slowly turns his head a little to his left, back to center, a little to his right, tilts it slightly, then faces the camera again with a soft closed-mouth smile, as if letting a camera scan his face; small, slow, smooth movements, shoulders still. His hair stays exactly {{TOC_GOC}}. Over the picture, the off-screen narrator says: "{{LOI_KET}}" The man never speaks. VIDEO SUFFIX.
+Audio: Chỉ giọng đọc ngoài khung, cùng giọng các cảnh trước; nói xong là im. Không nhạc.
+Negative prompt: the man talking or moving his lips; phone interface, viewfinder, grid, circle or box drawn on the face; fast head movement; camera movement.

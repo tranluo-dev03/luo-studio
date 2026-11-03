@@ -1,0 +1,60 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "SÂN BAY + GIA SƯ AI" (san-bay-gia-su-ai)
+  MỘT dự án hai phần: phần 1 tình huống (cảnh thường, hai người chung khung),
+  phần 2 người dùng + AI gen RIÊNG rồi ghép (ghép 2 lớp). Code riêng: app/production/types/san-bay-gia-su-ai/
+================================================================================
+
+CÁCH DÙNG
+  Gửi cho agent cùng với: video tham chiếu (nếu có), KICH-BAN-SAN-BAY-GIA-SU-AI.txt, BIEN-THE-SAN-BAY-GIA-SU-AI.json,
+  PHAN-TICH-VIDEO-MAU.md, SAMPLE\ghep-hai-lop\PROMPT-CHO-AGENT.txt (quy tắc khung ghép) và
+  SAMPLE\_chung\HUONG-DAN-CHO-AGENT.md (mục 0, 3b). Rồi dán phần dưới đây, sửa [ngoặc vuông].
+
+--------------------------------------------------------------------------------
+PROMPT (copy từ dòng dưới)
+--------------------------------------------------------------------------------
+
+Bạn viết biến thể (và sửa kịch bản nếu cần) cho LUO Studio, thể loại SÂN BAY + GIA SƯ AI. Mẫu đính kèm.
+
+Thông tin lần này:
+  Người dùng (khách, nói tiếng Anh chưa chuẩn): [ngoại hình, giọng]
+  Người hỏi ở phần 1: [vd. nhân viên hải quan / lễ tân khách sạn]
+  Câu nói sai và câu sửa: [vd. "I am Mexico" -> "I am from Mexico"]
+  App / ngôn ngữ dòng dịch: [vd. Talka AI / tiếng Bồ Đào Nha]
+
+BẮT BUỘC LÀM THEO
+
+1) MỘT KỊCH BẢN, MỘT FILE BIẾN THỂ
+   - Kịch bản giữ khối [HAU KY] "loai: san-bay-gia-su-ai" (Studio chạy gen.py + post.py riêng) và hai dòng chia phần
+     "===== PHAN 1: ... =====" / "===== PHAN 2: ... | vao: nhoe 0.5 =====". Không xoá các dòng này.
+   - Khoá nhân vật: CANBO = người hỏi phần 1 (quay lưng 3/4), HOC = người dùng (cả hai phần), DAY = robot AI (phần 2).
+     Token của CANBO chỉ dùng trong phần 1, của DAY chỉ trong phần 2 (code tự bỏ token nhân vật không có mặt khi gen từng phần).
+
+2) LỜI THOẠI (mảng LUOT chung)
+   - Mỗi lượt có "phan": 1 hoặc 2; mọi lượt phần 1 đứng trước. Phần 1 đúng 8 lượt (= 8 CẢNH; lượt 5 đưa vé, lượt 8 lấy điện thoại
+     vì kịch bản có ACTION ở các cảnh đó). Phần 2 số lượt tuỳ ý.
+   - Phần 1 kết thúc bằng người dùng nói mình học với app và "Here, let me show you."
+   - Phần 2 mở đầu bằng AI hỏi "Do you speak English?"; MỘT câu sai của người dùng: "c":"red", "icon":"x", "fx":"wrong";
+     ngay sau là lượt AI chỉ chứa câu đúng: "c":"green", "icon":"check", "fx":"right". Câu than không có tiền: "icon":"dollar".
+   - "c": người hỏi / AI = "white", người dùng = "yellow". Mọi lượt khác "fx":"none".
+   - "dich": bản dịch lượt đó sang ngôn ngữ của người xem (dòng đỏ dưới phụ đề). "nhan": cụm có tên app (vd. "with Talka AI"), hiện trên ô vàng.
+   - Mỗi lượt 3-12 từ (tối đa 20); emo 1-3 từ trong EMO_CUES (app/production/prompt_parts.py). Tốc độ ~3,5 từ/giây.
+
+3) BỐ CỤC PHẦN 2 (không đổi nếu không có lý do)
+   khung DAY: 0.54, 0, 0.46, 0.40 (x, y, RỘNG, CAO) -> 331x512 px -> gen 9:16. Đổi khung thì kiểm tra x+RỘNG <= 1, y+CAO <= 1 và tỉ lệ gen.
+
+4) KHÔNG CÓ CHỮ TRONG HÌNH
+   Bảng DEPARTURES, biển CHECK-IN, màn hình số thứ tự đều là hình không chữ đọc được; phụ đề, dịch, ❌/✅/$, viền màu, badge app do hậu kỳ thêm.
+
+KIỂM TRA TRƯỚC KHI TRẢ LỜI (viết script Python nhỏ, ghi kết quả)
+  [ ] JSON hợp lệ, 1 mảng; tập khoá CHỮ HOA = token của kịch bản (+ name, LUOT).
+  [ ] Mọi lượt có "phan"; phần 1 đúng 8 lượt và đứng trước; "who" phần 1 là canbo/hoc, phần 2 là day/hoc.
+  [ ] Đúng một lượt "fx":"wrong" (hoc) và ngay sau là lượt "fx":"right" (day).
+  [ ] Chạy nhieu_phan.plan(biến thể, kịch bản) (app/production/types/_chung/nhieu_phan.py) không báo lỗi.
+
+--------------------------------------------------------------------------------
+LỖI THƯỜNG GẶP / GIỚI HẠN
+--------------------------------------------------------------------------------
+  - Thiếu "phan" ở một lượt, hoặc lượt phần 2 đứng trước lượt phần 1: gen báo lỗi ngay.
+  - Phần 3 (robot toàn khung + popup Google Play + end card) không gen: Thương hiệu -> Video giới thiệu + Outro của dự án.
+  - Người hỏi ở phần 1 quay lưng nên không đo được miệng: nghe kỹ giọng các cảnh của người hỏi (1, 3, 6).
+  - Giao diện Studio chỉ có nút người nói Dạy/Học: lượt "canbo" phải nhập từ file JSON.

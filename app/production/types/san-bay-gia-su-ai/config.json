@@ -1,0 +1,9 @@
+{
+  "nhoe": 1.0,
+  "phu_de": {
+    "co_chu": 78,
+    "co_chu_dich": 46,
+    "y_theo_phan": {"1": 1160, "2": 1330},
+    "whisper": "small.en"
+  }
+}
