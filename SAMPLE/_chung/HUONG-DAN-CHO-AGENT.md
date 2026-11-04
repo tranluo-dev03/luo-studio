@@ -8,7 +8,7 @@ File mẫu: `1-KICH-BAN-MAU.txt`, `2-BIEN-THE-MAU.json`; ví dụ bố cục kh�
 
 ## Prompt riêng cho từng thể loại
 
-Mỗi thư mục thể loại trong `SAMPLE/` có file `PROMPT-CHO-AGENT.txt`: quy tắc riêng của thể loại đó, lỗi thường gặp và danh sách tự kiểm tra. **Nếu video thuộc một thể loại đã có, đọc file đó trước** rồi mới đọc phần chung bên dưới. Hiện có: `ghep-hai-lop/`, `canh-sat-nu/`, `xe-tai/`, `lam-vuon/`. Thể loại mới: tạo thư mục mới với đủ kịch bản mẫu, biến thể mẫu và `PROMPT-CHO-AGENT.txt` cùng cấu trúc.
+Mỗi thư mục thể loại trong `SAMPLE/` có file `PROMPT-CHO-AGENT.txt`: quy tắc riêng của thể loại đó, lỗi thường gặp và danh sách tự kiểm tra. **Nếu video thuộc một thể loại đã có, đọc file đó trước** rồi mới đọc phần chung bên dưới. Hiện có: `ghep-hai-lop/`, `canh-sat-nu/`, `xe-tai/`, `lam-vuon/`, `san-bay-gia-su-ai/`, `canh-sat-gia-su-ai/`, `soi-hanh-ly-gia-su-ai/`, `chia-doi-gia-su-ai/`. Thể loại mới: tạo thư mục mới với đủ kịch bản mẫu, biến thể mẫu và `PROMPT-CHO-AGENT.txt` cùng cấu trúc.
 
 ## 0. Phân tích video tham chiếu (BẮT BUỘC, làm trước khi viết bất cứ thứ gì)
 
@@ -64,7 +64,7 @@ Giới hạn của công cụ: không biết ai đang nói (agent điền); chuy
 - **Trường `Lia theo tay`** (tuỳ chọn, số giây, đi kèm `Lia nhanh`, ví dụ `Lia theo tay: 1`): Muse thường để máy đứng yên khi nhân vật giơ tay chỉ. Studio thêm N giây máy đẩy vào (tới 1,35 lần) và trôi về phía phải-dưới theo cánh tay ngay trước cú vụt (bắt đầu không sớm hơn đầu câu nói), rồi trả dần về khung gốc trong lúc vụt. Vì vậy kịch bản nên đặt vật được chỉ ở phía phải-dưới của khung đầu.
 - **Trường `Mở đầu ảnh` + `Mở đầu video` + `Mở đầu dài`** (tuỳ chọn): đoạn KHÔNG LỜI ghép (cắt cứng) trước clip của cảnh, không cần thêm lượt thoại, ví dụ hành lý trôi ra khỏi máy soi rồi mới tới câu hỏi. Studio gen ảnh khung đầu riêng từ `Mở đầu ảnh` (kèm ảnh tổng quan nếu cảnh có), gen clip 5 giây từ `Mở đầu video`, tua cho vừa `Mở đầu dài` giây (mặc định 1,5; nhanh tối đa 3 lần), lấy tiếng nền của chính clip đó. Khoá chung của kịch bản vẫn áp dụng, nên nếu cần chuyển động khác khoá (băng chuyền chạy, máy di chuyển) thì ghi rõ "In this clip only ...".
 - **Trường `Lớp phủ: camera`** (tuỳ chọn, mỗi cảnh): khi ghép, Studio đè giao diện camera điện thoại (lưới, 1x, hàng chế độ, nút chụp) và một viền trắng hình trứng bám theo khuôn mặt từng khung hình (mediapipe). Muse không vẽ gì: trong prompt cảnh đó cấm giao diện/khung/vòng tròn, cho nhân vật nhìn thẳng, xoay đầu chậm, đầu ở khoảng 1/3 trên khung. Muốn giao diện riêng: `Lớp phủ: camera D:\duong-dan\giao-dien.png` (PNG trong suốt 9:16). Chỉ hợp cảnh có MỘT khuôn mặt rõ.
-- Có thể đính kèm ảnh tham chiếu (mặt, trang phục) hoặc mp3 mẫu giọng cho từng ô ở giao diện.
+- Có thể đính kèm ảnh tham chiếu (mặt, trang phục) hoặc mp3 mẫu giọng cho từng ô ở giao diện. Trong file biến thể: `"refs": {"NGUOI_HOC": ["<link>"]}`. Link nhận được: ảnh trực tiếp, prnt.sc, Google Drive dạng chia sẻ (`.../file/d/<id>/view`, file để "bất kỳ ai có liên kết"; Studio tự đổi sang link tải), hoặc đường dẫn tệp trên máy (tuyệt đối, hoặc tính từ thư mục gốc, vd. `SAMPLE/chia-doi-gia-su-ai/anh/robot-ai.webp`).
 - Số lượt thoại nhiều hơn số cảnh trong kịch bản: Studio tự nhân bản cảnh cuối.
 
 **Mô hình nhân vật tổng quát (số nhân vật bất kỳ, khoá bất kỳ):**
@@ -78,6 +78,8 @@ Giới hạn của công cụ: không biết ai đang nói (agent điền); chuy
 - Cảnh không có lời thoại (không dùng `{{LUOT_n}}`, trường Voice trống): Studio không đòi tiếng, không cắt theo lời, không đo miệng. Nếu clip câm, khi ghép sẽ chèn im lặng.
 - Chỉ dùng `VIEC` (việc người học đang làm) cho loại "người học + gia sư AI": nó khiến người học nghe "cúi xuống làm việc, quay mặt đi", không hợp thể loại khác. Thể loại khác **bỏ `VIEC`** và dùng `NGHE_<K>`.
 - Nếu hai vai `DAY`/`HOC` **cùng giới** và biến thể không khai `VAI_DAY`/`VAI_HOC`, Studio (bật "Tách giọng") ghi đè giọng `DAY` bằng giọng "trợ lý gọi video tươi sáng". Chỉ hợp gia sư AI; thể loại khác hãy khai `VAI_*` (khi đó Studio không ghi đè) hoặc chọn các nhân vật có giọng khác hẳn nhau.
+- **Hai nhân vật cùng giới, khoá tự đặt** (vd. khách + nhân viên hộ chiếu, đều là nam): Studio (bật "Tách giọng") tự gắn một giọng THẤP (bên có mô tả trầm / khô / cứng hơn) và một giọng CAO vào `GIONG_<K>` và nhắc lại trong khối SPEAKER MAP của mỗi cảnh (`pair_voice_split` trong `engine.py`). Không gen thêm. Khi cả hai mặt đều hiện thì đủ để Muse ghép đúng giọng với khuôn mặt; nên vẫn mô tả giọng thật khác nhau (tuổi, âm sắc, giọng vùng miền) trong `GIONG_<K>`.
+- **Người nói quay lưng** (`QUAY_LUNG_<K>`, góc qua vai): không có miệng nào hiện ra để nói, Muse gán lời và cả động tác của người này cho khuôn mặt duy nhất nhìn thấy (người kia nhép miệng, làm động tác của nhân viên; hộ chiếu 04/11/2026, khách nam). Tính năng gen 2 clip cho cảnh loại này hiện **TẮT mặc định** (bật bằng `voice_swap: true`; chưa có nút trong giao diện); mặc định chỉ tách giọng cùng giới. Khi bật, Studio gen 2 clip: clip có giọng chỉ lấy TIẾNG, clip câm (prompt bỏ mọi câu về nói / giọng, giữ động tác của người quay lưng) lấy HÌNH, rồi ghép (`silent_prompt` + khối `voice_swap` trong `engine.py`; `voice_swap` mặc định tắt). Tốn thêm 1 lượt gen cho mỗi cảnh người quay lưng nói; không đo miệng clip giọng vì hình không lấy từ đó. Gen dở (huỷ giữa chừng) làm tiếp được: file `scene<N>_swap.todo` đánh dấu clip giọng đã xong, `scene<N>_voice.mp4` là bản giọng gốc.
 - Video không có nhịp "sửa lỗi": đặt `"fx": "none"` ở **mọi** lượt thoại để tắt viền đỏ/xanh tự động (chỉ áp cho khoá `hoc`/`day`).
 
 **Giới hạn hiện còn:**
@@ -105,6 +107,7 @@ Kịch bản gồm các khối:
 - `[GHEP HAI LOP]:` bố cục, mỗi dòng một khoá (có dấu hay không đều được):
   - `nen: HOC` nhân vật làm nền toàn khung 9:16;
   - `khung DAY: 0.02, 0.015, 0.96, 0.32` khung của nhân vật khác: x, y, rộng, cao theo tỉ lệ khung hình (0..1). Có thể nhiều dòng `khung <KHOÁ>`.
+    Nhân vật NỀN cũng có thể có `khung` riêng (vd. màn hình chia đôi: `khung HOC: 0.5, 0, 0.5, 1` + `khung DAY: 0, 0, 0.5, 1`): khi đó nền chỉ chiếm ô của nó (mẫu: `SAMPLE/chia-doi-gia-su-ai/`). Ô hẹp hơn 9:16 thì Studio gen 9:16 rồi cắt DẢI GIỮA: kịch bản phải dặn nhân vật đứng giữa, mọi thứ quan trọng nằm trong phần giữa.
     Studio gen nhân vật trong khung ở tỉ lệ Muse hỗ trợ gần nhất (16:9, 1:1 hoặc 9:16) rồi cắt vừa khung;
   - `bo goc: 0.05` bán kính bo góc (theo bề rộng khung hình); `vien: #FFFFFF, 3` màu và độ dày viền (`vien: khong` = không viền);
   - `noi: lien` (mặc định từ 03/11/2026): **nối khung**: clip sau của mỗi nhân vật bắt đầu từ khung cuối clip trước của chính nhân vật đó (cả người nói lẫn người nghe),

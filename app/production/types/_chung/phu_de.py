@@ -205,17 +205,35 @@ Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
         f.write(head + "\n".join(lines) + "\n")
 
 
-def burn(src, units, out, font="Arial", size=78, y=1345, dich_size=46):
-    """Đốt phụ đề + viền nháy + tiếng hiệu ứng vào src (1080x1920 đầu ra), giữ tiếng gốc."""
+def _glow_box(times, dur, color, x0, w):
+    """Như postprocess.glow_filters nhưng viền chỉ bao một vùng dọc [x0, x0 + w] (px, khung 1080x1920), vd. nửa khung của người dùng ở màn hình chia đôi."""
+    fl = []
+    for t in times:
+        en = f"between(t,{t:.2f},{t + dur:.2f})*lt(mod(t-{t:.2f},0.34),0.2)"
+        for th, al in ((46, 0.14), (26, 0.28), (12, 0.55), (5, 0.95)):
+            fl.append(f"drawbox=x={x0}:y=0:w={w}:h=ih:color=0x{color}@{al}:t={th}:enable='{en}'")
+    return ",".join(fl)
+
+
+def burn(src, units, out, font="Arial", size=78, y=1345, dich_size=46, glow_box=None, glow_end=False):
+    """Đốt phụ đề + viền nháy + tiếng hiệu ứng vào src (1080x1920 đầu ra), giữ tiếng gốc.
+    glow_box = (x, rộng) theo tỉ lệ bề ngang: viền sai/đúng chỉ nháy trong vùng đó (mặc định cả khung).
+    glow_end = True: viền + tiếng nháy ở cuối câu (0,6 giây trước khi hết lời) thay vì đầu câu, như video mẫu chia đôi."""
     work = tempfile.mkdtemp(prefix="pd_")
     try:
         write_ass(units, os.path.join(work, "subs.ass"), font=font, size=size, y0=y, dich_size=dich_size)
         shutil.copy(src, os.path.join(work, "in.mp4"))
-        wrongs = [u["s"] for u in units if u.get("fx") == "wrong"]
-        rights = [u["s"] for u in units if u.get("fx") == "right"]
-        dings = [u["s"] for u in units if u.get("fx") == "ding"]
-        glows = [g for g in (PP.glow_filters(dings) if dings else "", PP.glow_filters(wrongs, 1.1, "FF2A2A") if wrongs else "",
-                             PP.glow_filters(rights, 1.1, "2EE86A") if rights else "") if g]
+        at = (lambda u: max(u["s"], u["e"] - 0.6)) if glow_end else (lambda u: u["s"])
+        wrongs = [at(u) for u in units if u.get("fx") == "wrong"]
+        rights = [at(u) for u in units if u.get("fx") == "right"]
+        dings = [at(u) for u in units if u.get("fx") == "ding"]
+        if glow_box:
+            gx, gw = int(round(glow_box[0] * 1080)), int(round(glow_box[1] * 1080))
+            glow = lambda ts, d=1.0, col=PP.GLOW: _glow_box(ts, d, col, gx, gw)
+        else:
+            glow = PP.glow_filters
+        glows = [g for g in (glow(dings) if dings else "", glow(wrongs, 1.1, "FF2A2A") if wrongs else "",
+                             glow(rights, 1.1, "2EE86A") if rights else "") if g]
         fc = "[0:v]scale=1080:1920:flags=lanczos,fps=30,subtitles=subs.ass" + ("," + ",".join(glows) if glows else "") + "[v]"
         cmd, sfx = ["ffmpeg", "-y", "-i", "in.mp4"], []
         for kind, times, vol in (("ding", dings + rights, 0.9), ("buzz", wrongs, 0.85)):

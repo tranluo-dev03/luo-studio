@@ -6,6 +6,7 @@ Studio gọi: python post.py raw.mp4 --scenes scenes.json --out final.mp4 --vari
   y_theo_phan              {"<phần>": độ cao tâm phụ đề}
   kieu_theo_phan           {"<phần>": {"<người nói>" hoặc "*": {"c": màu chữ, "o": màu ô}}}  - lượt không ghi "c"/"o" thì lấy ở đây
   whisper                  model căn lời (mặc định small.en)
+  vien                     (tuỳ chọn) {"x": 0.5, "rong": 0.5, "cuoi_cau": true}: viền sai/đúng chỉ nháy trong vùng dọc đó, ở cuối câu
 Cảnh nào thuộc phần nào: phan.json do nhieu_phan.py ghi cạnh raw.mp4 (không có thì lượt thứ i = cảnh thứ i, coi như phần 1).
 Không logo, không end card: phần Thương hiệu của dự án làm sau."""
 import argparse
@@ -54,5 +55,7 @@ def main(type_dir, argv=None):
             u["y"] = int(y)
     print(f"Căn {len(units)} dòng phụ đề theo {len(scene_of_turn)} cảnh...")
     units = PD.align(a.raw, units, a.scenes, cfg.get("whisper", "small.en"))
-    PD.burn(a.raw, units, a.out, size=int(cfg.get("co_chu", 78)), dich_size=int(cfg.get("co_chu_dich", 46)))
+    vien = cfg.get("vien") or {}   # {"x": 0.5, "rong": 0.5, "cuoi_cau": true}: viền sai/đúng chỉ ở một vùng, nháy ở cuối câu (màn hình chia đôi)
+    PD.burn(a.raw, units, a.out, size=int(cfg.get("co_chu", 78)), dich_size=int(cfg.get("co_chu_dich", 46)),
+            glow_box=(float(vien["x"]), float(vien["rong"])) if "x" in vien and "rong" in vien else None, glow_end=bool(vien.get("cuoi_cau")))
     print("XONG ->", a.out)

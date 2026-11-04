@@ -213,6 +213,14 @@ def _download_image(url, dest_dir, cache):
     orig = url
     if orig in cache:
         return cache[orig]
+    m = re.search(r"drive\.google\.com/(?:file/d/|open\?id=|uc\?(?:[^#]*&)?id=)([\w-]{20,})", url)
+    if m:   # link chia sẻ Google Drive (.../file/d/<id>/view) là trang HTML, chỉ có ảnh thu nhỏ: đổi sang link tải thẳng
+        url = f"https://drive.google.com/uc?export=download&id={m.group(1)}"
+    elif not re.match(r"^[a-z]+://", url, re.I):   # đường dẫn ảnh trên máy: tuyệt đối, hoặc tương đối từ thư mục gốc (vd. SAMPLE/<thể loại>/anh/robot.webp)
+        p = url if os.path.isabs(url) else os.path.join(HERE, "..", "..", url)
+        if not os.path.isfile(p):
+            raise ValueError(f"không thấy tệp ảnh {url}")
+        url = "file:///" + os.path.abspath(p).replace("\\", "/")
     hdr = {"User-Agent": "Mozilla/5.0"}
     for _ in range(2):
         with urllib.request.urlopen(urllib.request.Request(url, headers=hdr), timeout=30) as r:

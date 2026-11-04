@@ -1,0 +1,60 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "CHIA ĐÔI MÀN HÌNH + GIA SƯ AI" (chia-doi-gia-su-ai)
+  MỘT phần, ghép 2 lớp: robot AI nửa TRÁI, người dùng ngồi bàn cà phê nửa PHẢI, gen RIÊNG từng người rồi ghép.
+  Code riêng (chỉ hậu kỳ): app/production/types/chia-doi-gia-su-ai/
+================================================================================
+
+CÁCH DÙNG
+  Gửi cho agent cùng với: video tham chiếu (nếu có), KICH-BAN-CHIA-DOI-GIA-SU-AI.txt, BIEN-THE-CHIA-DOI-GIA-SU-AI.json, cong-cu\tao_bien_the.py,
+  PHAN-TICH-VIDEO-MAU.md và SAMPLE\_chung\HUONG-DAN-CHO-AGENT.md (mục 0, 3b). Rồi dán phần dưới đây, sửa [ngoặc vuông].
+
+--------------------------------------------------------------------------------
+PROMPT (copy từ dòng dưới)
+--------------------------------------------------------------------------------
+
+Bạn viết biến thể cho LUO Studio, thể loại CHIA ĐÔI MÀN HÌNH + GIA SƯ AI. Mẫu đính kèm.
+
+Thông tin lần này:
+  Bảng biến thể: [STT | kiểu biến thể | mô tả nhân vật (tiếng Việt) | link ảnh]
+  Đổi lời thoại: [vd. "I am 28" -> "I am 68" ở biến thể nào]
+
+BẮT BUỘC LÀM THEO
+
+1) SỬA BẰNG cong-cu\tao_bien_the.py, KHÔNG SỬA TAY JSON
+   - Mỗi biến thể một dòng trong BIEN_THE: (tên, NGUOI_HOC tiếng Anh, GIONG_HOC tiếng Anh, link ảnh, tuổi). Chạy lại script để sinh JSON.
+   - Robot (TEN/NGUOI/GIONG/NEN_DAY), bối cảnh (NEN_HOC) và đồ trên bàn (DAO_BAN) nằm trong CHUNG: giữ nguyên trừ khi được yêu cầu.
+
+2) NHÂN VẬT (NGUOI_HOC)
+   - Dịch mô tả sang tiếng Anh, giữ: tuổi, dáng, khuôn mặt, da, tóc, áo, phụ kiện thấy được từ ngực trở lên.
+   - BỎ chi tiết tạo dáng / nửa dưới không thấy hoặc mâu thuẫn với cảnh ngồi nhìn ống kính: "đứng", "hai tay đút túi", giày, quần (có thể giữ ngắn).
+   - Không viết "she/her" trong kịch bản: kịch bản dùng {{TEN_HOC}} để dùng được cho cả nam và nữ.
+   - GIONG_HOC: người Mexico nói tiếng Anh là ngôn ngữ thứ hai, giọng Mexico tự nhiên, khác hẳn giọng robot (nam: trầm; nữ lớn tuổi: mỏng, khàn nhẹ).
+
+3) ẢNH THAM CHIẾU (khoá "refs" của biến thể)
+   - "refs": {"NGUOI_DAY": ["SAMPLE/chia-doi-gia-su-ai/anh/robot-ai.webp"], "NGUOI_HOC": ["<link ảnh>"]}.
+   - Link Google Drive dạng chia sẻ (.../file/d/<id>/view?usp=sharing) dán thẳng được: Studio tự đổi sang link tải.
+     File Drive phải để "Bất kỳ ai có đường liên kết". Link prnt.sc và link ảnh trực tiếp cũng được.
+
+4) LỜI THOẠI (15 lượt, đúng video mẫu)
+   - Thứ tự người nói: day, hoc, day, hoc, day, hoc, day, hoc, day, hoc, day, hoc, day, hoc, day.
+   - Lượt 4 (câu sai, vd. "I have 28."): "c": "red", "fx": "wrong". Lượt 6 (nói lại đúng, vd. "I am 28."): "c": "green", "fx": "right".
+     Đổi tuổi thì đổi cả lượt 4, 5 ("You have to say, I am N.") và 6. Mọi lượt khác "fx": "none", không ghi "c" (màu lấy từ config.json).
+   - Mỗi lượt <= 20 từ; emo 1-3 từ trong EMO_CUES (app/production/prompt_parts.py).
+
+KIỂM TRA TRƯỚC KHI TRẢ LỜI (viết script Python nhỏ, ghi kết quả)
+  [ ] JSON hợp lệ; tập khoá CHỮ HOA = token của kịch bản (TEN/NGUOI/GIONG/NEN_DAY, TEN/NGUOI/GIONG/NEN_HOC, DAO_BAN) + name, LUOT, refs.
+  [ ] 15 lượt đúng thứ tự người nói; đúng một "wrong" (lượt 4) và một "right" (lượt 6), cả hai của hoc.
+  [ ] G.fill_tokens(kịch bản, engine.variant_values(biến thể)) không còn "{{"; split.parse(...) đọc được bố cục.
+  [ ] Mọi link ảnh tải được bằng server._download_image (in kích thước ảnh).
+
+--------------------------------------------------------------------------------
+LỖI THƯỜNG GẶP / GIỚI HẠN
+--------------------------------------------------------------------------------
+  - Mỗi nhân vật gen 9:16 rồi bị cắt lấy DẢI GIỮA (một nửa bề ngang): người lệch tâm hoặc cốc/bánh ở sát mép sẽ bị cắt mất.
+    Xem base_HOC.png / base_DAY.png trước khi chạy cả nhóm; lệch thì gen lại ảnh gốc.
+  - Ảnh tham chiếu người dùng là ảnh ĐỨNG nền XANH LÁ: kịch bản đã dặn bỏ nền xanh và tư thế đứng. Thấy nền xanh lọt vào ảnh gốc -> gen lại ảnh gốc.
+  - Người nghe mấp máy miệng: [NGHE HOC]/[NGHE DAY] viết "lips stay gently pressed together… never mirrors the speaker". ĐỪNG viết "reacts visibly to
+    what is being said / smiles along" (Muse diễn cười hé môi, gật theo nhịp). Bật "Kiểm tra miệng người nghe" nếu muốn tự gen lại.
+  - AI nói chậm hơn video mẫu (~4,5 từ/giây): nâng "Tốc độ tăng tối đa" trong Cài đặt.
+  - Phụ đề chia theo câu (video mẫu chia cụm ngắn hơn); viền sai/đúng là khung sáng nháy ở nửa phải (video mẫu là quầng màu mềm).
+  - Badge "Talka AI": Thương hiệu -> logo cố định, vị trí Dưới trái; Studio không vẽ.

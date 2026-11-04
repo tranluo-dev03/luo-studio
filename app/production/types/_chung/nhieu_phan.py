@@ -99,6 +99,14 @@ def sub_variant(vdata, keep, turns, part=None):
         base, _, n = str(k).partition("@")
         if n and part is not None and n.strip() == str(part) and not gone(base):
             v[base] = x
+    # giá trị còn giữ có nhắc token của nhân vật bị bỏ (vd. DAO_DIEN_THOAI = "... screen shows {{NGUOI_DAY}} ..." ở phần tình huống): giữ lại riêng
+    # các token đó để màn hình điện thoại vẽ đúng robot của biến thể; không giữ TEN_* (sẽ biến robot thành nhân vật có mặt trong phần)
+    for _ in range(5):
+        need = {t.upper() for x in v.values() if isinstance(x, str) for t in re.findall(r"\{\{\s*([A-Za-z0-9_]+)\s*\}\}", x)}
+        add = {t for t in need if t not in v and t in vdata and not t.startswith("TEN_")}
+        if not add:
+            break
+        v.update({t: vdata[t] for t in add})
     if isinstance(vdata.get("refs"), dict):
         v["refs"] = {k: x for k, x in vdata["refs"].items() if not gone(k)}
     v["LUOT"] = turns

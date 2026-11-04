@@ -28,6 +28,11 @@ def _is_pos(v) -> bool:
 # 而不是退回到 hatch_native_auth_device 的 30 天（那个不决定生死，会误导用户）。
 VML_TTL = 2 * 86400
 
+# Muse 限制每个账号每天生成的视频数（约 100 条）。统计当天（本机时间 00:00 起）成功生成的视频数，
+# 过了零点归零，供界面提醒（只提醒，不拦截）。
+def _day(ts: float | None = None) -> str:
+    return time.strftime("%Y-%m-%d", time.localtime(ts))
+
 
 def min_expiry(cookies_exp: dict | None) -> int | None:
     """核心 cookie 里最早过期的那个（通用兜底，不区分哪条决定寿命）。"""
@@ -103,6 +108,38 @@ class Store:
             if _is_pos(ce.get("hatch_vml")):
                 a["expires_at"] = int(ce["hatch_vml"])
         self.tasks: dict[str, dict] = _read(cfg.tasks_file, {})
+        self._backfill_video_log()
+
+    def _backfill_video_log(self):
+        """旧账号还没有当天视频计数：从任务记录里补出今天成功的视频数（只补一次）。"""
+        todo = [a for a in self.accounts if "video_day" not in a]
+        if not todo:
+            return
+        today = _day()
+        for a in todo:
+            n = 0
+            for t in self.tasks.values():
+                try:
+                    c = int(t.get("created_at") or 0)
+                except (TypeError, ValueError):
+                    continue
+                if (t.get("kind") == "video" and t.get("status") == "completed"
+                        and t.get("account") == a["id"] and _day(c) == today):
+                    n += 1
+            for k in ("video_log", "video_last"):
+                a.pop(k, None)
+            a["video_day"], a["video_count"] = today, n
+        _write(self.cfg.accounts_file, self.accounts)
+
+    def record_video(self, aid: str):
+        """记一次视频生成成功；换了一天就从 1 重新计。"""
+        with _LOCK:
+            today = _day()
+            for a in self.accounts:
+                if a["id"] == aid:
+                    a["video_count"] = (a.get("video_count") or 0) + 1 if a.get("video_day") == today else 1
+                    a["video_day"] = today
+            _write(self.cfg.accounts_file, self.accounts)
 
     # ---------- 账号 ----------
     def add_account(self, cookies: dict, label: str = "",
@@ -126,6 +163,8 @@ class Store:
         out = []
         for a in self.accounts:
             item = {k: v for k, v in a.items() if k != "cookies"}
+            # 计数只算今天的：过了零点还没生成新视频 -> 显示 0（下次生成时 record_video 也从 1 重计）
+            item["video_count"] = (a.get("video_count") or 0) if a.get("video_day") == _day() else 0
             ce = a.get("cookies_exp") or {}
             if _is_pos(ce.get("hatch_vml")):
                 item["expires_at"] = int(ce["hatch_vml"])

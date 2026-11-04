@@ -177,6 +177,11 @@ def compose(out, dur, layers, audio_src, cfg, out_dir):
     for i, (_, path, off, loop) in enumerate(layers):
         ins += (["-stream_loop", "-1"] if loop else []) + (["-ss", f"{off:.3f}"] if off > 0 else []) + ["-i", path]
     base = f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps=30,setsar=1,trim=duration={dur:.3f},setpts=PTS-STARTPTS[l0]"
+    if layers[0][0] in cfg["panels"]:   # nền cũng có "khung <KHOÁ>" (vd. màn hình chia đôi): chỉ chiếm ô của nó, phần còn lại do các ô khác phủ
+        bx, by, bw_, bh_ = cfg["panels"][layers[0][0]]
+        x, y, w, h = _even(bx * W), _even(by * H), _even(bw_ * W), _even(bh_ * H)
+        base = (f"[0:v]scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},fps=30,setsar=1,trim=duration={dur:.3f},setpts=PTS-STARTPTS,"
+                f"pad={W}:{H}:{x}:{y}:black[l0]")
     fl.append(base)
     cur, img_idx = "l0", len(layers)
     for i, (key, _, _, _) in enumerate(layers[1:], 1):

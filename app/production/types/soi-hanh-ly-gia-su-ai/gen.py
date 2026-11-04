@@ -13,6 +13,20 @@ import nhieu_phan as NP  # noqa: E402
 
 CFG = json.load(open(os.path.join(HERE, "config.json"), encoding="utf-8"))
 
+# Muse (04/11/2026) là agent có bộ nhớ: nó tóm tắt prompt rồi mới gọi công cụ tạo media, trộn MEMORY.md / AGENTS.md / Goal của cả loạt
+# video vào (biết cảnh này ai nói câu gì) -> clip người nghe phần 2 nhép miệng, nhái cử chỉ người nói. Câu dẫn này đặt trước MỌI prompt của thể loại.
+MEDIA_DIRECTIVE = (
+    "[DIRECT MEDIA REQUEST] Call the media generation tool exactly once and give it the full request text below as its prompt, "
+    "VERBATIM, word for word: do not summarize, shorten, paraphrase, translate or add anything. Do not read or use MEMORY.md, "
+    "AGENTS.md, goals, notes, earlier chats, or earlier images and videos from the library; use only the files attached to this "
+    "message, in the order given. Do not add any dialogue, speech, action or person that the request does not ask for. "
+    "Do not launch subagents, do not draft follow-up clips, do not write memory or notes about this request. "
+    "Reply only with the generated file.\n\n--- REQUEST ---\n")
+
 
 def run(vdata, template, out_dir, opts, emit, cancel):
-    return NP.run(vdata, template, out_dir, opts, emit, cancel, blur_strength=float(CFG.get("nhoe", 1.0)))
+    NP.E._TL.prompt_prefix = MEDIA_DIRECTIVE if CFG.get("chi_thi_muse", True) else ""
+    try:
+        return NP.run(vdata, template, out_dir, opts, emit, cancel, blur_strength=float(CFG.get("nhoe", 1.0)))
+    finally:
+        NP.E._TL.prompt_prefix = ""
