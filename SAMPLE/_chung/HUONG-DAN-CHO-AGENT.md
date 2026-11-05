@@ -6,6 +6,12 @@ Bạn tạo ra 2 file mà Studio nhập được và Muse gen đúng ý, cho **b
 
 File mẫu: `1-KICH-BAN-MAU.txt`, `2-BIEN-THE-MAU.json`; ví dụ bố cục khác: thư mục `SAMPLE/xe-tai/`. Hai file mẫu chỉ là **một thể loại** (người học + gia sư AI), không phải khuôn bắt buộc.
 
+## Đọc trước: sổ tay kỹ thuật và công cụ một lệnh
+
+- **`SO-TAY-KY-THUAT.md`** (cùng thư mục): tổng hợp mọi kỹ thuật đã kiểm chứng (bảng chọn khuôn theo đặc điểm video, kỹ thuật viết kịch bản, ghép 2 lớp, camera, lỗi đã gặp và cách sửa). Tài liệu này là chi tiết cơ chế Studio; sổ tay là cách dùng chúng cho video mới.
+- **`video-moi.py`**: `danh-gia <video>` (phân tích + đo mặt/máy quay/giọng + gợi ý khuôn), `kiem-tra <kịch bản> <biến thể>` (kiểm bằng code Studio), `nhap ... --chay-thu` (tạo loại dự án + dự án trong Studio và chạy thử).
+- Skill `luo-video-moi` (`.claude/skills/luo-video-moi/SKILL.md`): quy trình từng bước cho agent khi người dùng đưa video mới.
+
 ## Prompt riêng cho từng thể loại
 
 Mỗi thư mục thể loại trong `SAMPLE/` có file `PROMPT-CHO-AGENT.txt`: quy tắc riêng của thể loại đó, lỗi thường gặp và danh sách tự kiểm tra. **Nếu video thuộc một thể loại đã có, đọc file đó trước** rồi mới đọc phần chung bên dưới. Hiện có: `ghep-hai-lop/`, `canh-sat-nu/`, `xe-tai/`, `lam-vuon/`, `san-bay-gia-su-ai/`, `canh-sat-gia-su-ai/`, `soi-hanh-ly-gia-su-ai/`, `chia-doi-gia-su-ai/`. Thể loại mới: tạo thư mục mới với đủ kịch bản mẫu, biến thể mẫu và `PROMPT-CHO-AGENT.txt` cùng cấu trúc.

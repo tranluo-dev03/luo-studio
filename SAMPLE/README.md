@@ -38,8 +38,13 @@ SAMPLE/<mã>/
   phien-ban-cu/             bản cũ, giữ để tham khảo
 ```
 
-## Thêm thể loại mới
+## Thêm thể loại mới (video tham chiếu mới)
 
-1. Tạo `SAMPLE/<mã>/`, phân tích video mẫu bằng `_chung/phan-tich-video.py`, viết kịch bản + biến thể (xem `_chung/HUONG-DAN-CHO-AGENT.md`).
-2. Cần hậu kỳ riêng: tạo `app/production/types/<mã>/post.py` (xem `app/production/types/README.md`), rồi trong file loại dự án (`userdata/studio/types/<id>.json`) đặt `"post": "<mã>"`.
-3. Ghi lại trong `SAMPLE/<mã>/README.md` những gì đã thử và kết quả, để lần sau không lặp lại.
+Chỉ cần đưa video cho Claude trong thư mục dự án này: skill `luo-video-moi` (`.claude/skills/luo-video-moi/SKILL.md`) chạy trọn quy trình.
+Tri thức nền và bảng chọn khuôn: **`_chung/SO-TAY-KY-THUAT.md`** (tổng hợp mọi kỹ thuật đã kiểm chứng qua các thể loại ở trên). Công cụ: `_chung/video-moi.py`.
+
+1. `runtime\python.exe SAMPLE\_chung\video-moi.py danh-gia "<video>"`: bóc lời, nhịp, cảnh cắt, số mặt, chuyển động máy, cao độ giọng; gợi ý khuôn. Xem từng ảnh `luot_NN.jpg`, điền bảng hành động.
+2. Chọn khuôn theo bảng mục 2 của sổ tay; sao mẫu gần nhất trong `SAMPLE/<mẫu>/`; viết `SAMPLE/<mã>/` (phân tích, kịch bản, biến thể, README, PROMPT-CHO-AGENT). Cần gen/hậu kỳ riêng: `app/production/types/<mã>/` (xem `app/production/types/README.md`), khai `[HAU KY] loai: <mã>` trong kịch bản.
+3. `video-moi.py kiem-tra <kịch bản> <biến thể> --tai-anh`: kiểm bằng code Studio.
+4. `video-moi.py nhap <kịch bản> <biến thể> --ten-loai ... --ten-du-an ... --chay-thu`: tạo loại dự án + dự án trong Studio đang chạy và chạy thử biến thể đầu.
+5. Ghi lại trong `SAMPLE/<mã>/README.md` những gì đã thử và kết quả; kỹ thuật/lỗi mới thì bổ sung vào sổ tay.

@@ -61,6 +61,10 @@ Hậu kỳ **tự chạy** ngay khi gen xong và ghép xong clip (không cần b
 ---
 
 ## 5. Tạo biến thể mới bằng AI
+
+**Có video mẫu mới?** Mở Claude Code trong thư mục LUO Studio, đưa file video và nói "làm video này": Claude tự phân tích, chọn thể loại, viết kịch bản + biến thể, kiểm tra và nhập thẳng vào Studio rồi chạy thử một biến thể (quy trình: `SAMPLE\_chung\SO-TAY-KY-THUAT.md`, công cụ `SAMPLE\_chung\video-moi.py`). Studio phải đang mở.
+
+**Chỉ cần thêm biến thể cho thể loại đã có:**
 1. Mở **Claude** hoặc **ChatGPT**, đính kèm file **biến thể mẫu** của thể loại (`BIEN-THE-*.json`).
 2. Dán prompt của thể loại đó, sửa phần trong `[ ]`:
    - thể loại Talka: prompt trong `SAMPLE\talka-bang-tu-vung\HUONG-DAN-NHANH.md`;

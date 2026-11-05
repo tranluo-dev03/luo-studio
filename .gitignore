@@ -24,4 +24,5 @@ __pycache__/
 # Khac
 *.log
 Thumbs.db
-.claude/
+.claude/*
+!.claude/skills/
