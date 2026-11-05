@@ -2281,6 +2281,55 @@ def _warmup_browser_sync():
             log.warning("【浏览器预热】账号 %s 预热异常: %s", acc.get("label"), exc)
 
 
+CLEANUP_LOCK = threading.Lock()
+
+
+def _cleanup_sync(aid: str, dry_run: bool = False, force: bool = False) -> dict:
+    """Dọn hội thoại cũ + media cũ trên VM của một tài khoản (xem MuseEngine.cleanup_account)."""
+    acc = store.get_account(aid)
+    if not acc or not acc.get("cookies"):
+        return {"ok": False, "id": aid, "error": "账号无有效 cookie"}
+    if not force and not dry_run and ACCOUNT_POOL.load.get(aid):
+        return {"ok": False, "id": aid, "skipped": "tài khoản đang gen"}
+    with CLEANUP_LOCK:
+        engine.start()
+        # Dọn tay khi chưa cấu hình: dùng mức gợi ý (giữ 20 hội thoại, media > 2 ngày).
+        keep = CFG.thread_keep if CFG.thread_keep > 0 else (20 if force else 10 ** 9)
+        days = CFG.media_keep_days if CFG.media_keep_days > 0 else (2.0 if force else 0.0)
+        res = engine.cleanup_account(aid, acc["cookies"], acc.get("cookies_exp"), keep_threads=keep,
+                                     media_days=days, dry_run=dry_run)
+    res.update(id=aid, label=acc.get("label", aid), at=int(time.time()))
+    if not dry_run:
+        store.update_account(aid, cleanup=res)
+        log.info("【dọn tài khoản】%s: xoá %s/%s hội thoại, %s/%s file media (%.1f s)%s", acc.get("label", aid),
+                 res.get("threads_deleted"), res.get("threads_total"), res.get("media_deleted"), res.get("media_total"),
+                 res.get("seconds") or 0, "" if res.get("ok") else f" lỗi: {res.get('error')}")
+    return res
+
+
+def _auto_cleanup_sync():
+    """Tự dọn các tài khoản đang bật và đang rảnh, mỗi tài khoản tối đa một lần mỗi CFG.cleanup_every giây."""
+    if CFG.thread_keep <= 0 and CFG.media_keep_days <= 0:
+        return
+    now = time.time()
+    for acc in [a for a in store.accounts if a.get("enabled", True) and a.get("cookies")]:
+        last = (acc.get("cleanup") or {}).get("at") or 0
+        if now - last < CFG.cleanup_every or ACCOUNT_POOL.load.get(acc["id"]):
+            continue
+        try:
+            _cleanup_sync(acc["id"])
+        except Exception as exc:  # noqa: BLE001
+            log.warning("【dọn tài khoản】%s lỗi: %s", acc.get("label"), exc)
+
+
+@app.post("/admin/accounts/{aid}/cleanup")
+async def cleanup_account(aid: str, dry_run: bool = False, _=Depends(auth)):
+    """Dọn hội thoại cũ và media cũ trên VM Muse của tài khoản. dry_run=true: chỉ đếm, không xoá."""
+    if not store.get_account(aid):
+        raise HTTPException(404, "账号不存在")
+    return await asyncio.to_thread(_cleanup_sync, aid, dry_run, True)
+
+
 async def _keepalive_loop():
     """后台常驻守护任务：每 15 分钟轮询一次账号健康状态并保持 VM 热备。"""
     log.info("【自动保活守护进程】已启动，检测周期: 15 分钟")
@@ -2293,6 +2342,7 @@ async def _keepalive_loop():
         try:
             await run_keepalive_all(force=False)
             await asyncio.to_thread(_warmup_browser_sync)
+            await asyncio.to_thread(_auto_cleanup_sync)
         except Exception as e:  # noqa: BLE001
             log.error("【自动保活守护进程】轮询异常: %s", e)
         await asyncio.sleep(900)

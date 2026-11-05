@@ -108,6 +108,13 @@ class Config:
     # Số việc song song trên MỘT tài khoản (mỗi việc một tab, cửa sổ riêng). Một tài khoản là một VM của Muse:
     # đo của muse2api (www222fff): 1 việc ~5 s phản hồi, 3 việc cùng lúc ~20 s, 10 việc 33–95 s. Mặc định 2.
     account_parallel: int = field(default_factory=lambda: max(1, int(_env("MUSE2API_ACCOUNT_PARALLEL", "2"))))
+    # Dọn tài khoản trên VM Muse (tự chạy khi tài khoản rảnh, tối đa mỗi 30 phút): giữ N hội thoại mới nhất
+    # (0 = tắt dọn hội thoại), xoá media trong imagine_media cũ hơn X ngày (0 = không xoá media).
+    # Xoá trên Muse KHÔNG hoàn tác được nên mặc định TẮT; bật bằng .env, ví dụ MUSE2API_THREAD_KEEP=20,
+    # MUSE2API_MEDIA_KEEP_DAYS=2. Dọn tay / xem trước: POST /admin/accounts/{id}/cleanup?dry_run=true.
+    thread_keep: int = field(default_factory=lambda: max(0, int(_env("MUSE2API_THREAD_KEEP", "0"))))
+    media_keep_days: float = field(default_factory=lambda: max(0.0, float(_env("MUSE2API_MEDIA_KEEP_DAYS", "0"))))
+    cleanup_every: int = field(default_factory=lambda: max(300, int(_env("MUSE2API_CLEANUP_EVERY", "1800"))))
 
     # 工具调用（function calling）协议适配开关，**默认关闭**。
     # 实测 muse.ai 的助手会明确拒绝输出"伪工具调用"（原话：「我不会按这种 JSON

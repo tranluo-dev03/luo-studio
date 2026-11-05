@@ -44,7 +44,7 @@ var ov=document.querySelector('[data-testid="hatch-composer-placeholder-overlay"
 
 PAGE_HELPER = r"""
 (() => {
-  if (window.__luo && window.__luo.v === 3) return true;
+  if (window.__luo && window.__luo.v === 4) return true;
   const VID = /\.(mp4|webm|mov|m4v)$/i, IMG = /\.(webp|png|jpe?g|gif|avif)$/i;
   const MEDIA_RE = /(?:sandbox:\/\/)?(workspace\/[^\s"'()<>\]\[]+?\.(?:mp4|webm|mov|m4v|webp|png|jpe?g|gif|avif))/ig;
   const norm = (p) => String(p || '').replace(/^sandbox:\/\//, '').replace(/^\/+/, '');
@@ -73,8 +73,31 @@ PAGE_HELPER = r"""
             text: String(ev.display_text || p.content || '').slice(0, 1500), status: p.status || null,
             media: uniq, uploads: role === 'user' ? res.map(r => r.path) : []};
   };
+  const pool = async (items, n, fn) => { const out = []; let i = 0;
+    await Promise.all(Array.from({length: Math.min(n, items.length)}, async () => { while (i < items.length) { const it = items[i++]; out.push(await fn(it)); } }));
+    return out; };
   window.__luo = {
-    v: 3,
+    v: 4,
+    // ---- dọn tài khoản (hội thoại cũ, media cũ trên VM) ----
+    listSessions: async (maxPages) => {
+      const all = []; let cursor = null, pages = 0;
+      do { const p = {include_peer_sidechats: true, limit: 200}; if (cursor) p.cursor = cursor;
+           const r = await call('sessions.list', p); const a = (r && r.sessions) || []; pages++;
+           for (const x of a) all.push({id: x.session_id, created: x.created_at_ms || 0, updated: x.updated_at_ms || 0,
+             pinned: !!x.pinned, primary: !!x.is_primary, archived: !!x.archived, status: x.status || '', thread: x.is_thread !== false});
+           cursor = r && r.next_cursor && a.length ? r.next_cursor : null; } while (cursor && pages < (maxPages || 30));
+      return all;
+    },
+    // Đã kiểm chứng 2026-11-06: VM đòi trường method = '/api/session/delete'.
+    deleteSessions: async (ids) => pool(ids, 4, async (id) => {
+      try { const r = await call('session.delete', {session_id: id, method: '/api/session/delete'}); return {id, ok: !!(r && r.deleted !== false)}; }
+      catch (e) { return {id, ok: false, err: String(e && e.message || e).slice(0, 120)}; } }),
+    listDir: async (path) => { const r = await call('fs.list', {path}); return ((r && (r.entries || r.items || r.files)) || [])
+      .map(x => ({name: x.name, dir: x.type === 'directory' || !!x.is_dir, size: x.size || 0, mtime: Date.parse(x.modifiedAt || x.modified_at || '') || x.modified_ms || 0})); },
+    // fs.delete nhận đường dẫn TƯƠNG ĐỐI (workspace/...) + recursive; đường dẫn tuyệt đối bị 422.
+    deleteFiles: async (paths) => pool(paths, 4, async (p) => {
+      try { await call('fs.delete', {path: norm(p), recursive: false}); return {p, ok: true}; }
+      catch (e) { return {p, ok: false, err: String(e && e.message || e).slice(0, 120)}; } }),
     rpcReady: () => { const s = rt(); return !!(s && typeof s.sendRequest === 'function' && (s.isConnected || s.connectionState === 'connected')); },
     ready: () => {
       const b = document.body ? document.body.innerText : '';

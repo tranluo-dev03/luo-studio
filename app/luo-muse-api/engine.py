@@ -634,6 +634,70 @@ class MuseEngine:
             if self._tab is t:
                 self._checkin(t)
 
+    def cleanup_account(self, account_id: str, cookies: dict, expires: dict | None = None, *, keep_threads: int = 20,
+                        min_age_s: float = 1800.0, media_days: float = 2.0, dry_run: bool = False) -> dict:
+        """Dọn tài khoản trên VM Muse: hội thoại cũ và file media cũ trong workspace/imagine_media.
+
+        Tài khoản dùng lâu tích hàng trăm hội thoại (đo 2026-11-06: 180–303/tài khoản) và 400–700 file media (300–570 MB);
+        mỗi lần tải trang phải nạp danh sách hội thoại, trợ lý của Muse duyệt workspace khi tìm file. Giữ lại:
+        `keep_threads` hội thoại mới nhất, hội thoại trẻ hơn `min_age_s`, hội thoại đang chạy / ghim / hội thoại chính /
+        đang được tab của LUO giữ. Media: chỉ file (không thư mục) trong imagine_media cũ hơn `media_days` ngày
+        (Studio đã tải bản sao về máy). media_days <= 0 thì không xoá media."""
+        t0 = time.time()
+        try:
+            t = self._checkout(account_id, cookies, expires, wait=10)
+        except Exception as exc:  # noqa: BLE001
+            return {"ok": False, "error": f"không mượn được tab: {exc}"}
+        out: dict = {"ok": True, "dry_run": dry_run}
+        try:
+            if not self._wait_ready(t, 2.0):
+                self._navigate_new(t)
+            p = t.cdp
+            p.js(dom.PAGE_HELPER, timeout=20)
+            sessions = p.js("window.__luo.listSessions(30)", await_promise=True, timeout=120) or []
+            if not isinstance(sessions, list):
+                raise MuseGenerationError(f"sessions.list lỗi: {sessions}")
+            with self._cond:
+                protect = {x.thread for x in self._tabs.get(account_id, []) if x.thread}
+            now_ms = time.time() * 1000
+            ordered = sorted(sessions, key=lambda s: max(s.get("updated") or 0, s.get("created") or 0), reverse=True)
+            victims = []
+            for i, s in enumerate(ordered):
+                if i < keep_threads or s.get("pinned") or s.get("primary") or s["id"] in protect:
+                    continue
+                if (s.get("status") or "").lower() not in TERMINAL_STATUS:
+                    continue
+                if now_ms - max(s.get("updated") or 0, s.get("created") or 0) < min_age_s * 1000:
+                    continue
+                victims.append(s["id"])
+            out.update(threads_total=len(sessions), threads_delete=len(victims))
+            files = []
+            if media_days and media_days > 0:
+                entries = p.js("window.__luo.listDir('workspace/imagine_media')", await_promise=True, timeout=120) or []
+                cutoff = now_ms - media_days * 86400 * 1000
+                old = [e for e in entries if isinstance(e, dict) and not e.get("dir") and e.get("mtime") and e["mtime"] < cutoff]
+                files = [f"workspace/imagine_media/{e['name']}" for e in old]
+                out.update(media_total=sum(1 for e in entries if isinstance(e, dict) and not e.get("dir")),
+                           media_delete=len(files), media_delete_mb=round(sum(e.get("size") or 0 for e in old) / 1e6, 1))
+            if not dry_run:
+                done_t = done_f = 0
+                for i in range(0, len(victims), 100):
+                    r = p.js(f"window.__luo.deleteSessions({dom.q(victims[i:i + 100])})", await_promise=True, timeout=300) or []
+                    done_t += sum(1 for x in r if isinstance(x, dict) and x.get("ok"))
+                for i in range(0, len(files), 100):
+                    r = p.js(f"window.__luo.deleteFiles({dom.q(files[i:i + 100])})", await_promise=True, timeout=300) or []
+                    done_f += sum(1 for x in r if isinstance(x, dict) and x.get("ok"))
+                out.update(threads_deleted=done_t, media_deleted=done_f)
+                # Trang đang hiện danh sách cũ: lần sau mở hội thoại mới qua router, không cần tải lại.
+        except MuseAuthError as exc:
+            out = {"ok": False, "error": str(exc)}
+        except Exception as exc:  # noqa: BLE001
+            out.update(ok=False, error=f"{type(exc).__name__}: {str(exc)[:200]}")
+        finally:
+            self._checkin(t)
+        out["seconds"] = round(time.time() - t0, 1)
+        return out
+
     def reset_thread(self, for_chat: bool = False):
         t = self._tab
         if not t:
