@@ -775,9 +775,11 @@ class MuseEngine:
             res = self.page.js(
                 "(function(){var b=[...document.querySelectorAll('button,[role=button]')]"
                 ".filter(function(x){return x.offsetParent!==null;})"
-                ".find(function(x){return /发送|send/i.test(x.getAttribute('aria-label')||'')"
-                "||/发送|send/i.test(x.getAttribute('data-testid')||'')"
-                "||/send/i.test(x.innerText||'');});"
+                # chỉ khớp nút Gửi thật: chữ "send" nằm trong tiêu đề cuộc chat ở thanh bên ("...waiting for re-send")
+                # từng làm bấm nhầm sang chat cũ, prompt không bao giờ được gửi
+                ".find(function(x){return /^(发送|send)( message)?$/i.test((x.getAttribute('aria-label')||'').trim())"
+                "||/(^|-)send(-|$)/i.test(x.getAttribute('data-testid')||'')"
+                "||/^(发送|send)$/i.test((x.innerText||'').trim());});"
                 "if(!b)return 'no-button';"
                 "if(b.disabled)return 'disabled';"
                 "b.click();return 'clicked';})()")
@@ -928,7 +930,7 @@ class MuseEngine:
                     else:
                         last_txt, txt_stable = cur_txt, 0
                     if txt_stable >= 15 and elapsed > 8.0:
-                        raise MuseGenerationError(f"模型未生成媒体，仅返回文本: {cur_txt[:120]}")
+                        raise MuseGenerationError(f"模型未生成媒体，仅返回文本: {cur_txt[:400]}")
                 else:
                     txt_stable = 0
             else:

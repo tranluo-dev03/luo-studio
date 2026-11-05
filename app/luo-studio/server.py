@@ -25,7 +25,7 @@ import engine as E  # noqa: E402
 import face_mesh as FM  # noqa: E402
 
 LOCK = threading.RLock()
-DEFAULT_SETTINGS = {"api_url": os.environ.get("LUO_API_URL", "http://127.0.0.1:18610"), "api_key": "", "timeout": 900, "retries": 2, "cut": True, "speedfix": True, "normalize": True, "color_mode": "anchor", "color_strength": 1.0, "video_char_refs": True, "listen_mode": "idle", "check_overlap": True, "mouth_note": "", "overlap_retries": 2, "mouth_sens": "normal", "precise_cut": True, "fx_hook": True, "cut_margin": 0.5, "voice_split": True, "export_dir": "", "speed_max": 1.25, "chat_every": 1, "parallel": 1, "fx_ding": False, "fx_pop": False,
+DEFAULT_SETTINGS = {"api_url": os.environ.get("LUO_API_URL", "http://127.0.0.1:18610"), "api_key": "", "timeout": 900, "retries": 2, "cut": True, "speedfix": True, "normalize": True, "color_mode": "anchor", "color_strength": 1.0, "video_char_refs": True, "listen_mode": "idle", "check_overlap": True, "mouth_note": "", "overlap_retries": 2, "mouth_sens": "normal", "precise_cut": True, "muse_directive": True, "check_camera": True, "fx_hook": True, "cut_margin": 0.5, "voice_split": True, "export_dir": "", "speed_max": 1.25, "chat_every": 1, "parallel": 1, "fx_ding": False, "fx_pop": False,
                     "logo": "", "endcard": "", "topbar": "", "whisper": "auto"}
 
 # ------------------------------------------------------------------ lưu trữ
@@ -213,6 +213,14 @@ def _download_image(url, dest_dir, cache):
     orig = url
     if orig in cache:
         return cache[orig]
+    m = re.search(r"drive\.google\.com/(?:file/d/|open\?id=|uc\?(?:[^#]*&)?id=)([\w-]{20,})", url)
+    if m:   # link chia sẻ Google Drive (.../file/d/<id>/view) là trang HTML, chỉ có ảnh thu nhỏ: đổi sang link tải thẳng
+        url = f"https://drive.google.com/uc?export=download&id={m.group(1)}"
+    elif not re.match(r"^[a-z]+://", url, re.I):   # đường dẫn ảnh trên máy: tuyệt đối, hoặc tương đối từ thư mục gốc (vd. SAMPLE/<thể loại>/anh/robot.webp)
+        p = url if os.path.isabs(url) else os.path.join(HERE, "..", "..", url)
+        if not os.path.isfile(p):
+            raise ValueError(f"không thấy tệp ảnh {url}")
+        url = "file:///" + os.path.abspath(p).replace("\\", "/")
     hdr = {"User-Agent": "Mozilla/5.0"}
     for _ in range(2):
         with urllib.request.urlopen(urllib.request.Request(url, headers=hdr), timeout=30) as r:
@@ -408,7 +416,7 @@ def gen_item(it, cx):
         v.setdefault(k, val)
     s = settings()
     opts = {"api_url": s["api_url"], "api_key": api_key(), "timeout": int(s["timeout"]), "retries": int(s["retries"]), "cut": bool(s["cut"]),
-            "speedfix": bool(s.get("speedfix", True)), "speed_max": float(s.get("speed_max", 1.25)), "chat_every": int(s.get("chat_every", 1)), "normalize": bool(s.get("normalize", True)), "color_mode": str(s.get("color_mode", "anchor")), "color_strength": float(s.get("color_strength", 1.0)), "video_char_refs": bool(s.get("video_char_refs", True)), "listen_mode": str(s.get("listen_mode", "idle")), "check_overlap": effective_check_overlap(it, s), "overlap_retries": int(s.get("overlap_retries", 5)), "mouth_sens": str(s.get("mouth_sens", "normal")), "precise_cut": bool(s.get("precise_cut", True)), "voice_split": bool(s.get("voice_split", True)), "cut_margin": float(s.get("cut_margin", 0.5)),
+            "speedfix": bool(s.get("speedfix", True)), "speed_max": float(s.get("speed_max", 1.25)), "chat_every": int(s.get("chat_every", 1)), "normalize": bool(s.get("normalize", True)), "color_mode": str(s.get("color_mode", "anchor")), "color_strength": float(s.get("color_strength", 1.0)), "video_char_refs": bool(s.get("video_char_refs", True)), "listen_mode": str(s.get("listen_mode", "idle")), "check_overlap": effective_check_overlap(it, s), "overlap_retries": int(s.get("overlap_retries", 5)), "mouth_sens": str(s.get("mouth_sens", "normal")), "precise_cut": bool(s.get("precise_cut", True)), "muse_directive": bool(s.get("muse_directive", True)), "check_camera": bool(s.get("check_camera", True)), "voice_split": bool(s.get("voice_split", True)), "cut_margin": float(s.get("cut_margin", 0.5)),
             "only": None, "scene_notes": dict(it.get("notes") or {}), "refs": p.get("refs", []), "field_labels": {f["key"]: f.get("label", f["key"]) for f in get_type(p["template"]).get("fields", [])}, "field_groups": {f["key"]: f.get("group", "other") for f in get_type(p["template"]).get("fields", [])}, "assets_dir": os.path.join(DATA, "assets", slug(it["project"]))}
     cp = custom_post(p)   # thể loại có wireframe bố cục riêng (types/<mã>/assets/layout.png) thì gửi kèm lệnh gen ảnh khung đầu
     if cp and os.path.exists(os.path.join(os.path.dirname(cp), "assets", "layout.png")):

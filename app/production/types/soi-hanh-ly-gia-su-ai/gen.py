@@ -13,6 +13,6 @@ import nhieu_phan as NP  # noqa: E402
 
 CFG = json.load(open(os.path.join(HERE, "config.json"), encoding="utf-8"))
 
-
 def run(vdata, template, out_dir, opts, emit, cancel):
+    # câu dẫn "gửi nguyên văn, không dùng bộ nhớ" cho Muse nay nằm chung ở engine (E.MEDIA_DIRECTIVE, cài đặt muse_directive), áp cho mọi thể loại
     return NP.run(vdata, template, out_dir, opts, emit, cancel, blur_strength=float(CFG.get("nhoe", 1.0)))

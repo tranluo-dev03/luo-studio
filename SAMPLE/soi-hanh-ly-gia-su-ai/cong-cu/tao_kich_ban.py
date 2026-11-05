@@ -41,17 +41,17 @@ When silent, the officer {{NGHE_CANBO}}; when silent, the mother {{NGHE_HOC}}.
 INTERACTION: the two react to each other like real people in one continuous moment. When one points at, touches or holds up something, the other's eyes follow it to that exact object, then come back to the speaker's face. Pointing is precise: the index finger aims straight at the named object.
 EYE LINE (every clip, whoever speaks): the speaker looks at the other person or at the object named in the clip, as given in the clip's EYE LINE; the speaker's head never turns toward the camera, to the side or out of the frame while talking. Nobody looks into the lens.
 RULE: in each clip exactly ONE character speaks, one line, with lip-sync, keeping the EYE LINE. The other character stays silent the whole clip, mouth closed, but stays alive and reacts with the eyes and face as the clip describes. A character who is not in the shot never appears. The baby sleeps the whole time and makes no sound. Each voice stays the same in every clip.
-ACTION CLIPS: the actions are done WHILE the line is spoken, in the order given, and are complete by the last word. Props, the same in every clip: {{DAO_VALI}} lies flat on the roller conveyor directly between the two, in front of the mother and within easy reach of the officer's right hand, lid facing up; {{DAO_VALI_2}} lies behind it nearer the camera; {{DAO_DIEN_THOAI}} appears only when a clip's action says so, never duplicated.
+ACTION CLIPS: the actions are done WHILE the line is spoken, in the order given, and are complete by the last word. Props, the same in every clip: {{DAO_VALI}} lies flat on the roller conveyor directly between the two, in front of the mother and within easy reach of the officer's right hand, lid facing up; {{DAO_VALI_2}} lies behind it nearer the camera.
 
 [SET LOCK]:
-{{NEN_SOI}}. The travellers in the far background are small, softly out of focus and stand still; nobody walks through the foreground. The X-ray conveyor is switched OFF and completely still: the rollers do not turn, and the suitcases, the phone, the bags and the baby stay exactly where they are in the start frame for the whole clip; nothing slides, drifts, rolls or shifts, only the people move.
+{{NEN_SOI}}. The travellers in the far background are small, softly out of focus and stand still; nobody walks through the foreground. The suitcases, the bags and the baby stay exactly where they are in the start frame for the whole clip: the suitcases lie perfectly still and never slide, drift, roll or shift; only the people move.
 
 [VIDEO SUFFIX]:
-STATIC SET (every clip except the opening one): the conveyor is off, so the rollers never turn and every suitcase sits motionless on it exactly as in the start frame; the only things that move are the people, and the suitcases are only touched when the action says so.
+STATIC SET (every clip except the opening one): every suitcase lies motionless exactly where it is in the start frame and never slides or drifts; the only things that move are the people, and the suitcases are only touched when the action says so.
 Camera: still in every clip (no pan, no tilt, no zoom) unless the clip describes a CAMERA MOVE; never shaky, never a cut. The speaker starts talking right away at a quick, natural, unscripted conversational pace (about 4.5 to 5 words per second, short lines up to 6, no long pauses), like a real exchange at a busy checkpoint, and finishes the line promptly. After the last word (and the action, if the clip has one) the speaker relaxes with the mouth closed, while the other keeps listening naturally, until the end of the clip (the usual rest pose: {{DAO_NGHI}}). Both sound like real people caught on camera, not actors and not a voice-over: relaxed natural pitch movement, everyday volume, not over-enunciated, no theatrical emphasis, no radio-announcer polish; small natural breaths and tiny hesitations are fine. Sound: two real voices close to the camera in the natural acoustics of a large airport hall (a light natural room reverb), no music, no announcements, no crowd chatter over the voices, no baby sounds. No subtitles, no text. 9:16.
 
 [NEGATIVE]:
-text, captions, subtitles, logos, icons, emoji, lettering on the uniform, badge, scanner screen, signs or phone; split screen, overlay, inset window; anyone looking into the lens; the speaker turning the face to the camera, to the side or out of the frame; pointing at the wrong thing, sideways or vaguely into the air; pointing at the baby, the mother or any person; the listener staring blankly while the other points or shows something; shaky handheld camera, random zoom, a camera move the clip does not ask for, a cut; two voices in one clip; the silent character moving the mouth; the baby waking, crying, moving or disappearing; extra people in the foreground; people walking in the background; moving conveyor, turning rollers, suitcases sliding, drifting, rolling or changing position on their own; face, hair or outfit changing; hands going to the head, face or hair; one character copying the other's movements; background music, announcements; robotic, text-to-speech or announcer voice; silent clip with no speech; suitcases or phone multiplying, vanishing or moving by themselves; readable text or app interface on the phone; slow, dragged speech.
+text, captions, subtitles, logos, icons, emoji, lettering on the uniform, badge, scanner screen or signs; split screen, overlay, inset window; anyone looking into the lens; the speaker turning the face to the camera, to the side or out of the frame; pointing at the wrong thing, sideways or vaguely into the air; pointing at the baby, the mother or any person; the listener staring blankly while the other points or shows something; shaky handheld camera, random zoom, a camera move the clip does not ask for, a cut; two voices in one clip; the silent character moving the mouth; the baby waking, crying, moving or disappearing; extra people in the foreground; people walking in the background; suitcases sliding, drifting, rolling or changing position on their own; face, hair or outfit changing; hands going to the head, face or hair; one character copying the other's movements; background music, announcements; robotic, text-to-speech or announcer voice; silent clip with no speech; suitcases multiplying, vanishing or moving by themselves; slow, dragged speech.
 """
 
 ANGLE = {
@@ -63,10 +63,10 @@ ANGLE = {
           "seen from the knees up, face and body in three-quarter profile turned toward the right; {{TEN_HOC}} stands at the RIGHT edge of the frame, turned three-quarters toward the left, "
           "facing him, her face in clear three-quarter profile; between them, in the middle, the grey X-ray scanner tunnel with a small monitor on top (blurry grey image, no text); "
           "the roller conveyor runs diagonally through the lower half of the frame: {{DAO_VALI}} lies flat on it directly between them, in front of the mother and within easy reach "
-          "of the officer's right hand, lid facing up; {{DAO_VALI_2}} in the foreground nearer the camera; behind them {{NEN_SOI}}."),
+          "of the officer's right hand, lid facing up; {{DAO_VALI_2}} in the foreground nearer the camera; behind them {{NEN_SOI}}. FRAME ANCHORS: the officer stays inside the left third of the frame, the mother inside the right third, the scanner between them; {{DAO_VALI}} stays in the lower middle and {{DAO_VALI_2}} in the lower left corner, both exactly where the start frame has them; the frame edges never change."),
     "C": ("CAMERA ANGLE: CLOSE TWO-SHOT at head height: {{TEN_CANBO}} at the LEFT edge of the frame, cut off by the frame below the chest, his head and shoulder in three-quarter profile "
           "turned to the right toward the mother; {{TEN_HOC}} at centre-right, chest-up, turned three-quarters to the left toward him, her face large, clear and well lit; "
-          "the dark edge of {{DAO_VALI}} along the bottom of the frame; behind them {{NEN_SOI}}, softly out of focus, with a long line of travellers standing still far away."),
+          "the dark edge of {{DAO_VALI}} along the bottom of the frame; behind them {{NEN_SOI}}, softly out of focus, with a long line of travellers standing still far away. FRAME ANCHORS: the officer stays cut by the left edge, the mother stays centre-right, the suitcase edge stays along the bottom; the frame edges never change."),
 }
 ANGLE_VN = {
     "A1": "góc A1 cận trung nhân viên một mình (từ đùi trở lên) ở băng chuyền, vali xanh giữa-dưới khung ngay dưới tay ông; camera đứng yên",
@@ -113,15 +113,14 @@ PRE = {1: ("Generate exactly one still image now, vertical 9:16, photorealistic,
            "the conveyor. At the RIGHT, right of the scanner: {{TEN_HOC}} ({{NGUOI_HOC}}), carrying {{DAO_BE}}, {{DAO_TUI}} on her shoulder, looking down at the conveyor. "
            "{{DAO_VALI}} is just coming out of the dark tunnel opening onto the rollers. Mouths closed, the baby asleep. Nothing hangs from the ceiling or across the top of the "
            "frame: no curtain, no strips, no fabric. No text, no logos, no lettering anywhere. Output only the image.",
-           "Start exactly from the start-frame image. THIS CLIP OVERRIDES the set lock about a still conveyor: here, and only here, the conveyor is switched ON and the rollers DO turn: {{DAO_VALI}} comes out of the scanner tunnel and rolls down the diagonal conveyor toward the "
+           "Start exactly from the start-frame image. THIS CLIP OVERRIDES the set lock about still suitcases: here, and only here, {{DAO_VALI}} comes out of the scanner tunnel and rolls down the diagonal conveyor toward the "
            "camera SLOWLY, at a calm steady pace, taking about three full seconds to come out, and then rests still. The moment it comes out, the small red-orange ALARM LIGHT on top of the tunnel entrance starts flashing red, blinking on and off several times (the scanner has "
            "detected something abnormal). Both the officer and the mother watch the suitcase come out, their eyes following it down the conveyor; nobody points yet. The camera stays "
            "still. No curtain or strips anywhere. Nobody speaks; only the rumble of the rollers, a short electronic beeping alarm, and quiet airport ambience. No text.",
            "3.0")}
 CROP = {1: "trái"}
-# engine giữ yên phần dưới khung (băng chuyền, vali) như khung đầu, chỉ người cử động: Muse vẫn cho vali trượt dù đã dặn "conveyor off" (lần chạy 18:00 03/11:
-# cảnh 2, 5, 6, 9, 12). Mốc = tỉ lệ chiều cao nơi vùng băng chuyền bắt đầu ở từng góc máy; cảnh có CAMERA MOVE không dùng.
-FREEZE_Y = {"A": 0.55, "C": 0.8}   # góc B (cận mẹ sau cú lia): Muse hay trôi máy, phần dưới lấy từ khung đầu hiện bóng mờ
+LAYOUT_OF = {3: 1, 8: 3}   # cảnh đổi góc máy -> cảnh có khung đầu dùng làm ảnh bố cục (cảnh 3 lấy cảnh 1, cảnh 8 lấy cảnh 3)
+# 04/11: bỏ "Giữ yên dưới" (freeze_below dán khung đầu -> tay cũ hiện mờ chồng tay thật). Chỉ dặn trong prompt: vali nằm yên, không trôi; không nhắc băng chuyền tắt/con lăn.
 FOLLOW = {1: 1.0}   # engine: 1 giây máy đẩy vào + trôi xuống-phải theo tay tới vali ngay trước cú vụt (lần 15:43: Muse để máy đứng yên khi ông giơ tay chỉ)
 FAST = {1: 3}   # engine tua nhanh cú lia sau lời 3 lần + nhoè ngang (Muse lia chậm ~2 s; video mẫu ~0,4 s)
 CAM_PAN = ("CAMERA MOVES (the only clip with camera moves). First, WITH THE GESTURE, during the line: as the officer raises his right arm and points steeply DOWN and toward "
@@ -205,7 +204,7 @@ SC = [
      "the officer tilts his head slightly and raises his eyebrows with curiosity; the mother keeps smiling",
      EYE_C, "", None, None, None),
     (10, "0:15–0:19", "C", False, "",
-     "Người mẹ vừa nói vừa đưa điện thoại từ bên hông phải lên, giơ ngang ngực giữa hai người, màn hình quay về phía nhân viên (camera thấy chân dung hoạt hình); tay kia ngửa ra giải thích. "
+     "Người mẹ vừa nói vừa đưa điện thoại từ bên hông phải lên, giơ ngang ngực giữa hai người, màn hình quay về phía nhân viên (camera thấy robot gia sư AI trên màn hình, đúng robot của phần 2); tay kia ngửa ra giải thích. "
      "Mắt nhân viên nhìn xuống màn hình điện thoại và dừng ở đó.",
      "Người mẹ giơ điện thoại ngang ngực, màn hình quay ra; nhân viên nhìn điện thoại; miệng khép.",
      "the mother brings {{DAO_DIEN_THOAI}} up from her right side and holds it at chest height between them with the screen turned toward the officer, while her other hand makes a small open explaining gesture; the officer's eyes drop to the phone screen and stay on it",
@@ -225,7 +224,7 @@ SC = [
      "Người mẹ cầm điện thoại trước ngực, nhìn xuống màn hình; nhân viên cũng nhìn điện thoại; miệng khép.",
      "the mother shakes her head twice with a laugh on 'No, no'; on 'it's free' she turns {{DAO_DIEN_THOAI}} toward herself and holds it in both hands at chest height; on 'Let me show you' she taps the screen with her thumb; the officer leans in and looks down at the screen, so both look at the phone together; in the last half second the camera pushes in slightly toward the two of them (the only camera move of this clip, smooth, no shake)",
      "EYE LINE: the mother looks at the officer's face at the start of the line, then down at the phone as she taps it; the officer looks at the phone; nobody looks into the lens", "",
-     "CAMERA MOVE: the camera stays still for most of the clip; only in the last half second it pushes in slightly and smoothly toward the two of them, no pan, no shake", None, None),
+     "", None, None),
 ]
 
 # Ngữ điệu từng câu (nghe video mẫu + cao độ đo: nhân viên ~130-150 Hz, người mẹ ~200-230 Hz). Câu kể hạ giọng cuối câu, câu hỏi yes/no lên giọng cuối câu.
@@ -263,12 +262,12 @@ for n, t, ang, img, kd, db, kc, act, eye, pose, cam, keep, trans in SC:
     if n in WIDE:
         out.append(f"Ảnh tổng quan: {WIDE[n]}")
         out.append(f"Khung đầu cắt: {CROP[n]}")
+    if img and n > 1:
+        out.append(f"Ảnh bố cục: {LAYOUT_OF[n]}")   # khung đầu của cảnh có cùng bố cục đã gen: giữ đúng thứ tự vali, vị trí người khi đổi góc máy
     if n in FAST:
         out.append(f"Lia nhanh: {FAST[n]}")
     if n in FOLLOW:
         out.append(f"Lia theo tay: {FOLLOW[n]}")
-    if ang in FREEZE_Y and not cam:
-        out.append(f"Giữ yên dưới: {FREEZE_Y[ang]}")
     if n in PRE:
         out.append(f"Mở đầu ảnh: {PRE[n][0]}")
         out.append(f"Mở đầu video: {PRE[n][1]}")
@@ -281,7 +280,7 @@ for n, t, ang, img, kd, db, kc, act, eye, pose, cam, keep, trans in SC:
     solo = ang in ("A1", "B")
     other = "the mother" if ang == "A1" else "the officer"
     camera = f" {cam}." if cam else (" LOCKED CAMERA: the camera does not move at all (no pan, no tilt, no zoom); the framing stays exactly as in the start frame, the suitcase stays right under his finger, "
-                                      "and the mother and the baby never enter the frame." if ang == "A1" else " The camera stays still.")
+                                      "and the mother and the baby never enter the frame." if ang == "A1" else " LOCKED CAMERA on a tripod: no pan, no tilt, no zoom, no push-in; the framing of the start frame stays exactly the same to the last frame and nothing at the frame edges enters or leaves; only the people move inside the frame.")
     out.append(f"Prompt video: STYLE LOCK, SET LOCK. {start} CHAR LOCK. In this clip: {{{{LUOT_{n}}}}} Only that character speaks, with lip-sync, "
                f"and keeps the EYE LINE while speaking ({eye.replace('EYE LINE: ', '')}); "
                + (f"{other} stays off-screen and is not heard. " if solo else "" if ang == "P" else "the other keeps the mouth closed and reacts as described. ")
@@ -291,7 +290,7 @@ for n, t, ang, img, kd, db, kc, act, eye, pose, cam, keep, trans in SC:
                   ("After the line he holds the pointing pose with the mouth closed" if ang == "A1" else "After the line she relaxes with the mouth closed") if solo else "After the line the speaker relaxes with the mouth closed and the other keeps listening naturally")
                + ("" if ang == "A1" else "; the baby keeps sleeping") + f". DELIVERY of this line: {DELIV[n]}; a real person talking, not acting for the camera. Same voices as always, natural hall acoustics, no music. VIDEO SUFFIX.")
     out.append(AUDIO)
-    out.append(NEG)
+    out.append(NEG + (" The phone never multiplies or vanishes; no readable text or app interface on its screen." if n >= 10 else ""))   # điện thoại chỉ có từ cảnh 10; trước đó KHÔNG nhắc tới nó dù để cấm (Muse vẽ theo danh từ nó đọc được, 05/11)
 
 out.append("""
 ===== PHAN 2: NGUOI ME + GIA SU AI (GHEP 2 LOP) | vao: nhoe 0.5 =====
@@ -308,16 +307,16 @@ nghe: moi canh
 Vertical short-form social video look, bright natural daylight, crisp focus on the face, realistic skin, hair and fabric detail for the real person, glossy clean high-end CGI for the robot. No text, captions, logos, icons or watermarks anywhere in the frame.
 
 [NHAN VAT HOC]:
-{{TEN_HOC}}: {{NGUOI_HOC}}, carrying {{DAO_BE}} on her chest, {{DAO_TUI}} on her left shoulder. She films herself selfie-style with the phone's front camera held at arm's length in her right hand: her extended right arm comes in from the lower-left corner of the frame (the phone itself is not visible), her left hand rests on the baby's back. Slightly high angle, framed from the waist up; her head is a little left of centre with the top of the head at about one fifth of the frame height; the top-right corner of the frame (right third, top quarter) shows only calm background, because it is covered later by a small tutor window; her head always stays clearly left of that corner and she never leans toward the right. Behind her: {{NEN_HOC}}. The camera stays steady (almost no shake). She looks into the lens while speaking, as if talking to the AI tutor on the phone; when she has to think of an English word she glances briefly up and to the side, then back to the lens. Small natural nods and facial expressions while speaking; her left hand may lift from the baby for a small gesture and always comes back to rest on the baby. The baby sleeps the whole time. VOICE: {{GIONG_HOC}}, the same timbre, pitch and loudness in every clip; she speaks a little slower here, like someone practising a foreign language, with small natural hesitations.
+{{TEN_HOC}}: {{NGUOI_HOC}}, carrying {{DAO_BE}} on her chest, {{DAO_TUI}} on her left shoulder. She films herself selfie-style with the phone's front camera held at arm's length in her right hand: her extended right arm comes in from the lower-left corner of the frame (the phone itself is not visible), her left hand rests on the baby's back. Slightly high angle, framed from the waist up; her head is a little left of centre with the top of the head at about one fifth of the frame height; the top-right corner of the frame (right third, top quarter) shows only the calm, plain airport background: nothing is drawn there, no window, no picture, no screen, no avatar, no face, no inset or overlay of any kind; her head always stays clearly left of that corner and she never leans toward the right. Behind her: {{NEN_HOC}}. The camera stays steady (almost no shake). She looks into the lens while speaking, as if talking to the AI tutor on the phone; when she has to think of an English word she glances briefly up and to the side, then back to the lens. Small natural nods and facial expressions while speaking; her left hand may lift from the baby for a small gesture and always comes back to rest on the baby. The baby sleeps the whole time. VOICE: {{GIONG_HOC}}, the same timbre, pitch and loudness in every clip; she speaks a little slower here, like someone practising a foreign language, with small natural hesitations.
 
 [NGHE HOC]:
-{{TEN_HOC}} listens to the AI tutor: friendly attentive expression and a soft smile, eyes on the lens, slow natural blinks, a small nod now and then, left hand resting on the baby. Reacts visibly and naturally to what is being said: nods along, raises the eyebrows, smiles, tilts the head, small natural shifts of the shoulders. Mouth stays closed the whole time.
+{{TEN_HOC}} listens to the AI tutor: friendly attentive expression and a soft smile, eyes on the lens, slow natural blinks, a small nod now and then, left hand resting on the baby. The lips stay gently pressed together the whole clip; the head stays mostly still (only the small nod or tilt above), no talking-like head bobbing, never mirrors the speaker.
 
 [NHAN VAT DAY]:
 {{TEN_DAY}}: {{NGUOI_DAY}}. Portrait-oriented frame (taller than wide): the robot stands upright, head and upper body down to the waist, centred, head in the upper third, arms relaxed at the sides. Behind it: {{NEN_DAY}}. The camera is locked off and never moves. The robot looks straight into the lens. While speaking it moves its lips in clear sync with the words, with small head tilts, a warm smile and slow blinks, like a patient friendly teacher. VOICE: {{GIONG_DAY}}, the same timbre, pitch and loudness in every clip.
 
 [NGHE DAY]:
-{{TEN_DAY}} listens calmly: stands, looking into the lens, a gentle closed-mouth smile, slow blinks, a tiny head tilt now and then, arms at the sides. Reacts visibly and naturally to what is being said: nods along, raises the eyebrows, smiles, tilts the head, small natural shifts of the shoulders. Mouth stays closed the whole time.
+{{TEN_DAY}} listens calmly: stands, looking into the lens, a gentle closed-mouth smile, slow blinks, a tiny head tilt now and then, arms at the sides. The lips stay gently pressed together the whole clip; the head stays mostly still (only the small nod or tilt above), no talking-like head bobbing, never mirrors the speaker.
 
 [VIDEO SUFFIX]:
 Natural spontaneous conversational delivery, not text-to-speech, not an announcer: the mother about 3 words per second with small hesitations, the tutor about 3.5 words per second, warm and encouraging; the line starts right away, light natural breaths, a smile audible in the voice when the line is positive. Clean close voice, like a video call in a quiet hall, no music, no background sound effects, no airport announcements, no baby sounds, no strong echo.

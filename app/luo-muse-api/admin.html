@@ -943,16 +943,19 @@ function quotaBadge(a){
   if (!q || !q.found){
     return '<span class="badge mute" title="Chọn Hạn mức để kiểm tra">Chưa kiểm tra</span>';
   }
-  const pct = (q.weekly_used_pct != null) ? q.weekly_used_pct : null;
+  // Hạn mức chính là token Extra; chưa có Extra thì lấy hạn mức tuần
+  const pct = q.extra_used_pct ?? q.weekly_used_pct ?? null;
   const cls = pct == null ? 'info' : pct < 50 ? 'ok' : pct < 80 ? 'warn' : 'bad';
   const plan = (q.plan || '').replace(/\s*plan\s*$/i, '') || '—';
   let title = `Gói: ${q.plan || '?'}`;
   if (q.weekly_reset) title += `\nĐặt lại hạn mức tuần: ${q.weekly_reset}`;
-  if (pct != null) title += `\nĐã dùng tuần này: ${pct}%`;
+  if (q.weekly_used_pct != null) title += `\nĐã dùng tuần này: ${q.weekly_used_pct}%`;
+  if (a.video_count != null) title += `\nSố video: ${a.video_count} / ~100 (hôm nay, từ 00:00)`;
   if (q.extra_left) title += `\nToken bổ sung: còn ${q.extra_left} (đã dùng ${q.extra_used_pct ?? '?'}%)`;
   if (q.checked_at) title += `\nKiểm tra lúc: ${fmtTime(q.checked_at)}`;
-  const main = pct != null ? `${plan} · đã dùng ${pct}%` : plan;
-  const sub = q.extra_left ? `<div class="mono" style="font-size:11px;color:var(--muted);margin-top:2px">+${esc(q.extra_left)}</div>` : '';
+  const main = pct != null ? `${plan} · ${q.extra_used_pct != null ? 'Extra' : 'tuần'} đã dùng ${pct}%` : plan;
+  const vids = a.video_count ? ` · ${a.video_count} video` : '';
+  const sub = (q.extra_left || vids) ? `<div class="mono" style="font-size:11px;color:${(a.video_count || 0) >= 80 ? 'var(--warn, #f59e0b)' : 'var(--muted)'};margin-top:2px">${q.extra_left ? 'còn ' + esc(q.extra_left.replace(/\s*left$/i, '')) : ''}${vids}</div>` : '';
   return `<span class="badge ${cls}" title="${esc(title)}">${esc(main)}</span>${sub}`;
 }
 
@@ -961,8 +964,9 @@ async function queryQuota(aid, btn){
   try{
     const q = await api(`/admin/accounts/${aid}/quota`, {method:'POST'});
     if (q.found){
-      const extra = q.extra_left ? `, token bổ sung còn ${q.extra_left}` : '';
-      toast(`Hạn mức ${q.plan || '?'}, đã dùng ${q.weekly_used_pct ?? '?'}% tuần này${extra}`, 'ok');
+      toast(q.extra_used_pct != null
+        ? `Token Extra đã dùng ${q.extra_used_pct}%${q.extra_left ? ', còn ' + q.extra_left.replace(/\s*left$/i, '') : ''} (tuần: ${q.weekly_used_pct ?? '?'}%)`
+        : `Hạn mức ${q.plan || '?'}, đã dùng ${q.weekly_used_pct ?? '?'}% tuần này`, 'ok');
     }else{
       toast('Không tìm thấy thông tin hạn mức trên trang Muse.', 'warn');
     }

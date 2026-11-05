@@ -174,7 +174,7 @@ class AccountPoolManager:
 
 GEN_LOCK = ConcurrencyLock(limit=CFG.max_concurrency)
 ACCOUNT_POOL = AccountPoolManager(store)
-QUOTA_RE = re.compile(r"24-hour limit|budget is (?:still )?exhausted|video budget|quota (?:is )?exhausted", re.I)
+QUOTA_RE = re.compile(r"24-hour limit|budget is (?:still )?exhausted|video budget|quota (?:is )?exhausted|limit for the (?:last|past) 24 hours|(?:video|daily|generation) limit (?:is |has been )?reached", re.I)
 
 
 class PinRegistry:
@@ -1066,6 +1066,8 @@ def _run_generation_locked(prompt: str, kind: str, timeout: int,
                                       reference_image=reference_image,
                                       **({"session": session} if session else {}))
                 store.mark(cur_acc["id"], True, "")
+                if kind == "video":
+                    store.record_video(cur_acc["id"])
                 _sync_cookies(cur_acc["id"])
                 keep_session = bool(session)
                 return res, cur_acc["id"]
