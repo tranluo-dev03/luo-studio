@@ -2293,23 +2293,23 @@ def _cleanup_sync(aid: str, dry_run: bool = False, force: bool = False) -> dict:
         return {"ok": False, "id": aid, "skipped": "tài khoản đang gen"}
     with CLEANUP_LOCK:
         engine.start()
-        # Dọn tay khi chưa cấu hình: dùng mức gợi ý (giữ 20 hội thoại, media > 2 ngày).
-        keep = CFG.thread_keep if CFG.thread_keep > 0 else (20 if force else 10 ** 9)
-        days = CFG.media_keep_days if CFG.media_keep_days > 0 else (2.0 if force else 0.0)
+        # Dọn tay khi tự dọn đang tắt (THREAD_KEEP=0): vẫn giữ 10 hội thoại mới nhất.
+        keep = CFG.thread_keep if CFG.thread_keep > 0 else 10
         res = engine.cleanup_account(aid, acc["cookies"], acc.get("cookies_exp"), keep_threads=keep,
-                                     media_days=days, dry_run=dry_run)
+                                     media_with_threads=CFG.cleanup_media, media_days=CFG.media_keep_days,
+                                     dry_run=dry_run)
     res.update(id=aid, label=acc.get("label", aid), at=int(time.time()))
     if not dry_run:
         store.update_account(aid, cleanup=res)
         log.info("【dọn tài khoản】%s: xoá %s/%s hội thoại, %s/%s file media (%.1f s)%s", acc.get("label", aid),
-                 res.get("threads_deleted"), res.get("threads_total"), res.get("media_deleted"), res.get("media_total"),
+                 res.get("threads_deleted"), res.get("threads_total"), res.get("media_deleted"), res.get("media_delete"),
                  res.get("seconds") or 0, "" if res.get("ok") else f" lỗi: {res.get('error')}")
     return res
 
 
 def _auto_cleanup_sync():
     """Tự dọn các tài khoản đang bật và đang rảnh, mỗi tài khoản tối đa một lần mỗi CFG.cleanup_every giây."""
-    if CFG.thread_keep <= 0 and CFG.media_keep_days <= 0:
+    if CFG.thread_keep <= 0:
         return
     now = time.time()
     for acc in [a for a in store.accounts if a.get("enabled", True) and a.get("cookies")]:

@@ -35,11 +35,12 @@ Thời gian Muse vẽ (đo bằng mốc giờ của chính Muse) dao động 18�
 - **CDP**: socket chết thì báo lỗi ngay thay vì quay vòng tới hết thời gian chờ; tab phục vụ 40 lượt thì được thay mới.
 - Kết quả task có thêm `timing` (thời gian từng bước), `muse_thread`, `local_path`, `via` (rpc/dom).
 
-### Dọn tài khoản Muse (mặc định TẮT)
+### Dọn tài khoản Muse (tự chạy, giữ 10 hội thoại mới nhất)
 - Tài khoản dùng lâu tích nhiều thứ trên VM của Muse (đo 2026-11-06 trên 5 tài khoản): 180–303 hội thoại và 417–680 file trong `workspace/imagine_media` (310–570 MB); mỗi lần tải trang phải nạp danh sách hội thoại, và trợ lý của Muse còn tự cắt / kiểm tra lại video theo thói quen đã "học" (file `*-trimmed-5s.mp4`, `first_frame_check.png`), nên tài khoản mới thường nhanh hơn.
-- `POST /admin/accounts/{id}/cleanup` (thêm `?dry_run=true` để chỉ đếm): xoá hội thoại cũ, giữ 20 hội thoại mới nhất + hội thoại đang chạy / ghim / hội thoại chính / đang được LUO dùng; xoá file media trong `imagine_media` cũ hơn 2 ngày (Studio đã có bản sao trên máy). Thư mục bộ nhớ nội bộ của Muse không bị đụng tới.
-- Tự dọn khi tài khoản rảnh (tối đa 30 phút/lần) chỉ khi bật trong `userdata\api\.env`: `MUSE2API_THREAD_KEEP=20`, `MUSE2API_MEDIA_KEEP_DAYS=2`. Xoá trên Muse không hoàn tác được nên mặc định tắt.
-- Chưa đo tốc độ trước/sau khi dọn trên cùng một tài khoản (xoá thật cần người dùng đồng ý). Chạy thử `dry_run` trên tài khoản 396: 220 hội thoại, sẽ xoá 199.
+- **Tự dọn khi tài khoản rảnh** (khi mở LUO rồi tối đa 30 phút/lần, bỏ qua tài khoản đang gen): giữ **10 hội thoại mới nhất** cùng hội thoại đang chạy / ghim / hội thoại chính / đang được LUO dùng, xoá các hội thoại còn lại **kèm file media của chính các hội thoại đó** (kết quả, bản trợ lý tự xử lý, tham chiếu đã tải lên; chỉ trong `imagine_media/` và `uploads/`; file mà hội thoại được giữ còn nhắc tới thì giữ). Studio đã có bản sao trên máy. Thư mục bộ nhớ nội bộ của Muse không bị đụng tới. Hội thoại không đọc được lịch sử thì không xoá.
+- Xoá trên Muse **không hoàn tác được**. Tắt hẳn: `MUSE2API_THREAD_KEEP=0` trong `userdata\api\.env`; đổi số hội thoại giữ lại: `MUSE2API_THREAD_KEEP=<n>`; không xoá media: `MUSE2API_CLEANUP_MEDIA=0`; xoá thêm mọi media cũ hơn X ngày: `MUSE2API_MEDIA_KEEP_DAYS=X`.
+- Dọn tay / xem trước: `POST /admin/accounts/{id}/cleanup` (`?dry_run=true` chỉ đếm). Chạy thử chỉ đếm trên tài khoản 396: 220 hội thoại, sẽ xoá 209 và 228 file media (trên 485), mất 21 s.
+- Chưa đo tốc độ trước/sau khi dọn trên cùng một tài khoản.
 
 ### Thêm (các thay đổi trước đó, phát hành cùng 1.2.0)
 - **Ghép 2 lớp: file dựng dở không còn làm hỏng lần chạy sau** (`split.py`): clip căn khớp (`_khop`) và clip khoá miệng (`_khoa`) ghi ra file tạm rồi mới đổi tên; khi dùng lại, file phải đọc được, nếu không thì tự xoá và làm lại. Trước đây tắt LUO giữa lúc ghi để lại file thiếu "moov atom", lần chạy sau dùng luôn và báo lỗi ffprobe.

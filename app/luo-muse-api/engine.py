@@ -634,15 +634,20 @@ class MuseEngine:
             if self._tab is t:
                 self._checkin(t)
 
-    def cleanup_account(self, account_id: str, cookies: dict, expires: dict | None = None, *, keep_threads: int = 20,
-                        min_age_s: float = 1800.0, media_days: float = 2.0, dry_run: bool = False) -> dict:
-        """Dọn tài khoản trên VM Muse: hội thoại cũ và file media cũ trong workspace/imagine_media.
+    MEDIA_DIRS = ("workspace/imagine_media/", "workspace/uploads/")
+
+    def cleanup_account(self, account_id: str, cookies: dict, expires: dict | None = None, *, keep_threads: int = 10,
+                        min_age_s: float = 1800.0, media_with_threads: bool = True, media_days: float = 0.0,
+                        dry_run: bool = False) -> dict:
+        """Dọn tài khoản trên VM Muse: hội thoại cũ, kèm file media của chính các hội thoại đó.
 
         Tài khoản dùng lâu tích hàng trăm hội thoại (đo 2026-11-06: 180–303/tài khoản) và 400–700 file media (300–570 MB);
         mỗi lần tải trang phải nạp danh sách hội thoại, trợ lý của Muse duyệt workspace khi tìm file. Giữ lại:
         `keep_threads` hội thoại mới nhất, hội thoại trẻ hơn `min_age_s`, hội thoại đang chạy / ghim / hội thoại chính /
-        đang được tab của LUO giữ. Media: chỉ file (không thư mục) trong imagine_media cũ hơn `media_days` ngày
-        (Studio đã tải bản sao về máy). media_days <= 0 thì không xoá media."""
+        đang được tab của LUO giữ.
+        media_with_threads: xoá file media mà hội thoại bị xoá nhắc tới (kết quả, bản trợ lý tự xử lý, tham chiếu đã tải lên),
+        chỉ trong imagine_media/ và uploads/, trừ file mà hội thoại được giữ lại vẫn nhắc tới. Studio đã có bản sao trên máy.
+        media_days > 0: xoá thêm mọi file trong imagine_media cũ hơn số ngày đó (kể cả file không thuộc hội thoại nào)."""
         t0 = time.time()
         try:
             t = self._checkout(account_id, cookies, expires, wait=10)
@@ -671,22 +676,39 @@ class MuseEngine:
                     continue
                 victims.append(s["id"])
             out.update(threads_total=len(sessions), threads_delete=len(victims))
-            files = []
+            files: set[str] = set()
+            if media_with_threads and victims:
+                keep_ids = [s["id"] for s in sessions if s["id"] not in set(victims)]
+                media_of = {}
+                for group in (victims, keep_ids):
+                    for i in range(0, len(group), 50):
+                        r = p.js(f"window.__luo.threadMedia({dom.q(group[i:i + 50])})", await_promise=True, timeout=300) or {}
+                        media_of.update(r if isinstance(r, dict) else {})
+                # Hội thoại không đọc được lịch sử: không xoá hội thoại đó (không biết nó giữ file nào).
+                unreadable = [v for v in victims if media_of.get(v) is None]
+                victims = [v for v in victims if media_of.get(v) is not None]
+                if any(media_of.get(k) is None for k in keep_ids):
+                    log.warning("【dọn tài khoản】không đọc được lịch sử một số hội thoại được giữ — chỉ xoá file chắc chắn không dùng chung")
+                still_used = {pth for k in keep_ids for pth in (media_of.get(k) or [])}
+                files = {pth for v in victims for pth in media_of[v]
+                         if pth.startswith(self.MEDIA_DIRS) and pth not in still_used}
+                out.update(threads_delete=len(victims), threads_unreadable=len(unreadable))
             if media_days and media_days > 0:
                 entries = p.js("window.__luo.listDir('workspace/imagine_media')", await_promise=True, timeout=120) or []
                 cutoff = now_ms - media_days * 86400 * 1000
-                old = [e for e in entries if isinstance(e, dict) and not e.get("dir") and e.get("mtime") and e["mtime"] < cutoff]
-                files = [f"workspace/imagine_media/{e['name']}" for e in old]
-                out.update(media_total=sum(1 for e in entries if isinstance(e, dict) and not e.get("dir")),
-                           media_delete=len(files), media_delete_mb=round(sum(e.get("size") or 0 for e in old) / 1e6, 1))
+                files |= {f"workspace/imagine_media/{e['name']}" for e in entries
+                          if isinstance(e, dict) and not e.get("dir") and e.get("mtime") and e["mtime"] < cutoff}
+            files_list = sorted(files)
+            out.update(media_delete=len(files_list))
             if not dry_run:
                 done_t = done_f = 0
+                # Xoá file trước: xoá hội thoại xong thì không còn lịch sử để biết file nào thuộc nó.
+                for i in range(0, len(files_list), 100):
+                    r = p.js(f"window.__luo.deleteFiles({dom.q(files_list[i:i + 100])})", await_promise=True, timeout=300) or []
+                    done_f += sum(1 for x in r if isinstance(x, dict) and x.get("ok"))
                 for i in range(0, len(victims), 100):
                     r = p.js(f"window.__luo.deleteSessions({dom.q(victims[i:i + 100])})", await_promise=True, timeout=300) or []
                     done_t += sum(1 for x in r if isinstance(x, dict) and x.get("ok"))
-                for i in range(0, len(files), 100):
-                    r = p.js(f"window.__luo.deleteFiles({dom.q(files[i:i + 100])})", await_promise=True, timeout=300) or []
-                    done_f += sum(1 for x in r if isinstance(x, dict) and x.get("ok"))
                 out.update(threads_deleted=done_t, media_deleted=done_f)
                 # Trang đang hiện danh sách cũ: lần sau mở hội thoại mới qua router, không cần tải lại.
         except MuseAuthError as exc:

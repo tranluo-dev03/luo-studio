@@ -44,7 +44,7 @@ var ov=document.querySelector('[data-testid="hatch-composer-placeholder-overlay"
 
 PAGE_HELPER = r"""
 (() => {
-  if (window.__luo && window.__luo.v === 4) return true;
+  if (window.__luo && window.__luo.v === 5) return true;
   const VID = /\.(mp4|webm|mov|m4v)$/i, IMG = /\.(webp|png|jpe?g|gif|avif)$/i;
   const MEDIA_RE = /(?:sandbox:\/\/)?(workspace\/[^\s"'()<>\]\[]+?\.(?:mp4|webm|mov|m4v|webp|png|jpe?g|gif|avif))/ig;
   const norm = (p) => String(p || '').replace(/^sandbox:\/\//, '').replace(/^\/+/, '');
@@ -77,7 +77,7 @@ PAGE_HELPER = r"""
     await Promise.all(Array.from({length: Math.min(n, items.length)}, async () => { while (i < items.length) { const it = items[i++]; out.push(await fn(it)); } }));
     return out; };
   window.__luo = {
-    v: 4,
+    v: 5,
     // ---- dọn tài khoản (hội thoại cũ, media cũ trên VM) ----
     listSessions: async (maxPages) => {
       const all = []; let cursor = null, pages = 0;
@@ -87,6 +87,16 @@ PAGE_HELPER = r"""
              pinned: !!x.pinned, primary: !!x.is_primary, archived: !!x.archived, status: x.status || '', thread: x.is_thread !== false});
            cursor = r && r.next_cursor && a.length ? r.next_cursor : null; } while (cursor && pages < (maxPages || 30));
       return all;
+    },
+    // File media mà mỗi hội thoại nhắc tới (kết quả của trợ lý, bản đã xử lý, tham chiếu tải lên): {sid: [paths]}.
+    threadMedia: async (ids) => {
+      const out = {};
+      await pool(ids, 4, async (sid) => {
+        try { const h = await call('chat.history', {session_id: sid, limit: 200});
+              const found = []; collect((h && (h.chat_events || h.events)) || [], found, 0);
+              out[sid] = [...new Set(found.map(m => m.path).filter(Boolean))]; }
+        catch (e) { out[sid] = null; } });
+      return out;
     },
     // Đã kiểm chứng 2026-11-06: VM đòi trường method = '/api/session/delete'.
     deleteSessions: async (ids) => pool(ids, 4, async (id) => {
