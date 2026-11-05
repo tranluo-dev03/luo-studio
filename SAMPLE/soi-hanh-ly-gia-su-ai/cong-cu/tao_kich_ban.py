@@ -4,9 +4,12 @@ Camera đo trên video mẫu (OpenCV, điểm nền): chỉ đoạn mở đầu 
 toàn cảnh đứng yên tuyệt đối, cận hai người chỉ rung vài px. Cú lia nhanh từ nhân viên sang người mẹ làm bằng "Chuyển cảnh: lia phải" ở cảnh 2
 (ffmpeg, types/_chung/nhieu_phan.whip_pan; video mẫu cũng cắt ngay giữa cú lia), cảnh 1 camera đứng yên tuyệt đối (lần chạy thật: Muse biến "nghiêng theo tay" thành lia sang mẹ con, ngón tay trông như chỉ vào em bé)."""
 import os
+import re
 import sys
 
-OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "KICH-BAN-SOI-HANH-LY-GIA-SU-AI.txt")
+_args = [a for a in sys.argv[1:] if not a.startswith("--")]   # --khong-be: bản không em bé (xem cuối file)
+OUT = _args[0] if _args else os.path.join(os.path.dirname(os.path.abspath(__file__)), "..",
+                                          "KICH-BAN-SOI-HANH-LY-GIA-SU-AI-KHONG-BE.txt" if "--khong-be" in sys.argv else "KICH-BAN-SOI-HANH-LY-GIA-SU-AI.txt")
 
 HEAD = """[HAU KY]:
 loai: soi-hanh-ly-gia-su-ai
@@ -324,5 +327,87 @@ Natural spontaneous conversational delivery, not text-to-speech, not an announce
 [NEGATIVE]:
 text, letters, captions, subtitles, logos, icons, signs with readable words, watermark; phone or app interface in the frame; camera cuts, zoom, push-in, strong shake; a second person in the foreground; people walking in the background; the baby waking, crying or moving; face morphing, outfit change, hair change, age or style drift; distorted face; extra or missing fingers or arms; jerky or exaggerated gestures; hands touching the face or hair; slow, dragged or stretched speech; flat monotone, robotic or announcer voice; background music; echo or reverb
 """)
-open(OUT, "w", encoding="utf-8").write("\n".join(out))
-print("ok", len(SC))
+text = "\n".join(out)
+
+# ---------------------------------------------------------------------------------------------------------------------------------
+# BẢN KHÔNG EM BÉ (05/11/2026, bộ 20 biến thể "Check luggage": biến thể 1-15 là hành khách nam/nữ không địu con, 16-20 địu con).
+# Chạy với --khong-be: bỏ mọi chỗ nhắc em bé, "người mẹ" -> "hành khách", tay đặt lên quai túi thay cho lưng em bé,
+# đại từ của hành khách thành token để dùng cho cả nam lẫn nữ: {{HE_HOC}} she/he, {{HE_HOC_C}} She/He, {{HIS_HOC}} her/his (sở hữu),
+# {{HIM_HOC}} her/him (tân ngữ), {{HIMSELF_HOC}} herself/himself. Biến thể của bản này KHÔNG có khoá DAO_BE.
+# Mọi câu về nhân viên (he/his) giữ nguyên. Sau khi thay, kiểm tra không còn chữ baby / mother / em bé / she / her.
+KHONG_BE = [   # thay theo thứ tự (cụm dài trước)
+    (", carrying {{DAO_BE}} on her chest, {{DAO_TUI}} on her left shoulder", ", {{DAO_TUI}} on her left shoulder"),
+    (", carrying {{DAO_BE}} on her chest, {{DAO_TUI}} on her shoulder", ", {{DAO_TUI}} on her shoulder"),
+    (", carrying {{DAO_BE}}, {{DAO_TUI}} on her shoulder", ", {{DAO_TUI}} on her shoulder"),
+    ("her left hand may lift from the baby for a small gesture and always comes back to rest on the baby",
+     "her left hand may lift from the bag strap for a small gesture and always comes back to rest on it"),
+    ("her left hand rests on the baby's back", "her left hand rests on the strap of her bag"),
+    ("left hand resting on the baby", "left hand resting on the strap of her bag"),
+    ("one hand resting on the baby's back", "one hand resting on the strap of her bag"),
+    ("one hand on the baby's back", "one hand on the strap of her bag"),
+    ("with both hands still on the baby", "with both hands still resting on the strap of her bag"),
+    ("lifts her right hand off the baby", "lifts her right hand off the bag strap"),
+    ("rests it on the baby's back again", "rests it on the bag strap again"),
+    ("rests it on the baby again", "rests it on the bag strap again"),
+    ("brings one hand back to the baby's back", "brings one hand back to the bag strap"),
+    ("rests her other hand on the baby", "rests her other hand on the bag strap"),
+    ("Mouths closed, calm natural expressions, the baby asleep", "Mouths closed, calm natural expressions"),
+    ("Mouths closed, the baby asleep", "Mouths closed"),
+    ("; the baby keeps sleeping", ""),
+    (" The baby sleeps the whole time and makes no sound.", ""),
+    (" The baby sleeps the whole time.", ""),
+    ("The suitcases, the bags and the baby stay", "The suitcases and the bags stay"),
+    (", no baby sounds", ""),
+    ("pointing at the baby, the mother or any person", "pointing at the traveller or any person"),
+    (" or at a person or the baby", " or at a person"),
+    ("the baby waking, crying, moving or disappearing; ", ""),
+    ("the baby waking, crying or moving; ", ""),
+    ("the baby waking or crying; ", ""),
+    ("never toward the edge of the frame, the mother or the baby", "never toward the edge of the frame or the traveller"),
+    ("never points toward the mother or the baby", "never points toward the traveller"),
+    ("the mother and the baby never enter the frame", "the traveller never enters the frame"),
+    ("no baby at the edge of the frame", "nobody at the edge of the frame"),
+    # tiếng Việt (ghi chú, diễn biến, khung đầu/cuối)
+    (", không tiếng em bé", ""),
+    ("người mẹ địu con nhỏ", "hành khách"),
+    ("không chĩa về phía người mẹ hay em bé", "không chĩa về phía hành khách"),
+    ("một tay trên lưng em bé", "một tay trên quai túi"),
+    ("hai tay vẫn trên lưng em bé", "hai tay vẫn trên quai túi"),
+    ("tay phải rời lưng em bé", "tay phải rời quai túi"),
+    ("rời tay khỏi lưng em bé", "rời tay khỏi quai túi"),
+    ("đưa tay phải về lưng em bé", "đưa tay phải về quai túi"),
+    ("tay phải rời em bé", "tay phải rời quai túi"),
+    ("rồi đặt lại lên lưng em bé", "rồi đặt lại lên quai túi"),
+    ("rồi đặt lại lên lưng bé", "rồi đặt lại lên quai túi"),
+    ("tay kia đặt lên lưng em bé", "tay kia đặt lên quai túi"),
+    ("mẹ con", "hành khách"),
+    # người mẹ -> hành khách
+    ("NGUOI ME", "HANH KHACH"), ("người mẹ", "hành khách"), ("Người mẹ", "Hành khách"),
+    ("the mother's", "the traveller's"), ("the mother", "the traveller"), ("The mother", "The traveller"),
+    ("OF THE MOTHER", "OF THE TRAVELLER"), ("VOICE LOCK MOTHER", "VOICE LOCK TRAVELLER"),
+]
+_OBJ_AFTER = re.compile(r"\s*(?:[,.:;)]|to\b|at\b|again\b|$)")
+
+
+def _pronouns(s):
+    """she/her/herself của hành khách -> token. 'her' + dấu câu / to / at -> tân ngữ, còn lại sở hữu."""
+    def her(m):
+        tok = "HIM_HOC" if _OBJ_AFTER.match(s, m.end()) else "HIS_HOC"
+        return "{{" + tok + ("_C" if m.group(0)[0] == "H" else "") + "}}"
+    s = re.sub(r"\bherself\b", "{{HIMSELF_HOC}}", s)
+    s = re.sub(r"\b[Hh]er\b", her, s)
+    s = re.sub(r"\bshe\b", "{{HE_HOC}}", s)
+    return re.sub(r"\bShe\b", "{{HE_HOC_C}}", s)
+
+
+if "--khong-be" in sys.argv:
+    head, body = text.split("===== PHAN 1", 1)   # ghi chú tiếng Việt ở đầu: chỉ thay chữ, không token hoá đại từ
+    head = head.replace("người mẹ", "hành khách").replace("em bé", "").replace("địu con nhỏ", "")
+    for a, b in KHONG_BE:
+        head, body = head.replace(a, b), body.replace(a, b)
+    text = head + "===== PHAN 1" + _pronouns(body)
+    left = sorted(set(re.findall(r"\b(?:bab\w*|mother\w*|she|her|herself)\b|em bé|lưng bé|người mẹ|\{\{DAO_BE\}\}", text, re.I)))
+    if left:
+        raise SystemExit(f"bản không em bé còn sót: {left}")
+open(OUT, "w", encoding="utf-8").write(text)
+print("ok", len(SC), OUT)

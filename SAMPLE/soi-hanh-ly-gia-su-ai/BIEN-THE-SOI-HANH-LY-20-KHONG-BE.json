@@ -1,0 +1,4127 @@
+[
+  {
+    "name": "soi-hanh-ly-bien-the-01-nam-52-polo",
+    "TEN_HOC": "the traveller",
+    "VAI_HOC": "traveller",
+    "NGUOI_HOC": "a Mexican man of about 52, medium build with a slight belly, a round face, unevenly sun-tanned brown skin, short black hair streaked with grey and a slightly receding hairline, crow's feet and clear smile lines, visible pores and a few dark spots, a plain polo shirt and jeans, clean, neat everyday style",
+    "GIONG_HOC": "a warm, steady Mexican man's voice in his early fifties, low-mid pitch (around 110-130 Hz), slightly husky, friendly and unhurried; a real Mexican man speaking English as a second language, a natural Mexican accent with Spanish vowels and a soft r, not exaggerated; quick and a little nervous at the checkpoint, warming up and quietly proud when talking about the tutor; a real person, not an actor",
+    "POS_HOC": "RIGHT",
+    "TEN_CANBO": "the security officer",
+    "NGUOI_CANBO": "a Latino man in his forties, short dark hair slightly greying at the sides, light stubble, a firm face, a royal-blue airport security uniform shirt with dark epaulettes and a plain round shoulder patch, a black tie, a plain silver badge with no lettering, black trousers",
+    "GIONG_CANBO": "a real American airport security officer's voice, low baritone (around 130-150 Hz), a little tired from a long shift, even and unhurried, never theatrical: statements fall in pitch at the end, yes/no questions lift slightly at the end; mostly flat and routine, warming up a little when he compliments her",
+    "VAI_CANBO": "officer",
+    "POS_CANBO": "LEFT",
+    "NGHE_CANBO": "stands behind the conveyor with his right hand resting on the edge of the scanner, head turned toward the mother, mouth closed; his eyes follow whatever she touches or holds up (the suitcase, the phone) and come back to her face, with small natural reactions",
+    "DAO_VALI": "a dark navy-blue hard-shell suitcase",
+    "DAO_VALI_2": "a tan brown hard-shell suitcase",
+    "DAO_DIEN_THOAI": "a smartphone in a dark case; its screen shows a live video call with the AI tutor, the very same robot as everywhere else in this video: {{NGUOI_DAY}}, seen from the waist up in front of {{NEN_DAY}}; it is only a picture on the phone screen, never a person in the scene; no text, no buttons",
+    "NEN_SOI": "a bright modern airport security checkpoint: a grey X-ray baggage scanner with a roller conveyor, a small monitor showing a blurry grey X-ray image, tall glass windows, white columns, dark-blue hanging signs with no readable text, retractable queue belts and a line of travellers standing still in the far background",
+    "NEN_HOC": "a bright, nearly empty modern airport check-in hall, softly out of focus: tall glass windows, white columns, a glossy pale floor reflecting the light and a row of grey check-in counters in the distance",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot with glossy white armour panels and black mechanical joints at the neck, shoulders and waist, a smooth pale porcelain face with soft light-blue eyes and finely sculpted expressive lips, a calm friendly expression",
+    "NEN_DAY": "a bright white studio backdrop with soft grey shading and a thin glowing white circular halo ring behind the head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "GIONG_DAY": "a bright, light, friendly young woman's voice, clearly lighter than the traveller's, smooth and clear with only a faint synthetic polish, patient and encouraging like a kind language teacher on a video call, neutral American accent",
+    "NGHE_HOC": "stands with one hand resting on the strap of his bag, mouth closed; his eyes follow whatever the officer points at (the suitcase) and come back to the officer's face, with a natural, slightly worried or smiling face that matches the moment",
+    "DAO_GIU": "His free hand rests on the strap of his bag or does the clip's action only: no hand ever goes to the head, face or hair.",
+    "DAO_NGHI": "the traveller standing with one hand resting on the bag strap, the officer standing still behind the conveyor",
+    "NHIN_CANBO": "keeps his head turned toward the traveller in three-quarter profile, looking at the traveller's face (or at the suitcase or phone the clip names); his face never turns to the camera or out of the frame",
+    "NHIN_HOC": "looks at the officer's face, eyes level, never into the lens (except when the clip's action is to look at the suitcase or the phone)",
+    "NHIN_HOC@2": "looks straight into the lens, as if talking to the AI tutor on the phone he is holding",
+    "HE_HOC": "he",
+    "HE_HOC_C": "He",
+    "HIS_HOC": "his",
+    "HIM_HOC": "him",
+    "HIMSELF_HOC": "himself",
+    "DAO_TUI": "a dark-grey canvas shoulder bag",
+    "LUOT": [
+      {
+        "who": "canbo",
+        "text": "Is this your bag?",
+        "emo": "routine, calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes, it is.",
+        "emo": "worried",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "The scanner detected something. Please open your bag.",
+        "emo": "calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. It might be batteries. Would you like me to take them out?",
+        "emo": "helpful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Yes. Is this your first time in America?",
+        "emo": "interested",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes. I'm here visiting my daughter.",
+        "emo": "warm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Your English is really good, by the way.",
+        "emo": "impressed",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I've been practicing with an AI tutor.",
+        "emo": "proud, cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "What's that?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I talk to it for about 15 minutes a day, and it corrects me while I speak.",
+        "emo": "enthusiastic",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "After just three weeks, I started speaking this confidently.",
+        "emo": "proud",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Is it expensive, though?",
+        "emo": "doubtful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "No, no, it's free. Let me show you how it works.",
+        "emo": "cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "More or less.",
+        "emo": "hesitant",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I have 52.",
+        "emo": "unsure",
+        "c": "white",
+        "fx": "wrong",
+        "icon": "x",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 52.",
+        "emo": "patient, encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I am 52.",
+        "emo": "confident",
+        "c": "white",
+        "fx": "right",
+        "icon": "check",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "warm, friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "embarrassed",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar, anytime, anywhere.",
+        "emo": "confident, warm",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "delighted",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll speak like a native in no time.",
+        "emo": "reassuring",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "https://prnt.sc/v9ZGXXiglwbd"
+      ],
+      "NGUOI_DAY": [
+        {
+          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/soi-hanh-ly-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "name": "ROBOT-GIA-SU-AI.png"
+        }
+      ]
+    }
+  },
+  {
+    "name": "soi-hanh-ly-bien-the-02-nam-58-caro",
+    "TEN_HOC": "the traveller",
+    "VAI_HOC": "traveller",
+    "NGUOI_HOC": "a Mexican man of about 58, a solid build with fairly broad shoulders, a square face with clear cheekbones, deep tan skin with natural signs of ageing, salt-and-pepper hair thinning slightly on top, a moustache and light stubble, slightly deep-set eyes with bags under them and forehead wrinkles, a short-sleeved checked shirt and old but clean khaki trousers, a modest everyday look",
+    "GIONG_HOC": "a deep, slightly gravelly Mexican man's voice in his late fifties, low pitch (around 100-120 Hz), calm and plain-spoken; a real Mexican man speaking English as a second language, a natural Mexican accent with Spanish vowels and a soft r, not exaggerated; quick and a little nervous at the checkpoint, warming up and quietly proud when talking about the tutor; a real person, not an actor",
+    "POS_HOC": "RIGHT",
+    "TEN_CANBO": "the security officer",
+    "NGUOI_CANBO": "a Latino man in his forties, short dark hair slightly greying at the sides, light stubble, a firm face, a royal-blue airport security uniform shirt with dark epaulettes and a plain round shoulder patch, a black tie, a plain silver badge with no lettering, black trousers",
+    "GIONG_CANBO": "a real American airport security officer's voice, low baritone (around 130-150 Hz), a little tired from a long shift, even and unhurried, never theatrical: statements fall in pitch at the end, yes/no questions lift slightly at the end; mostly flat and routine, warming up a little when he compliments her",
+    "VAI_CANBO": "officer",
+    "POS_CANBO": "LEFT",
+    "NGHE_CANBO": "stands behind the conveyor with his right hand resting on the edge of the scanner, head turned toward the mother, mouth closed; his eyes follow whatever she touches or holds up (the suitcase, the phone) and come back to her face, with small natural reactions",
+    "DAO_VALI": "a dark navy-blue hard-shell suitcase",
+    "DAO_VALI_2": "a tan brown hard-shell suitcase",
+    "DAO_DIEN_THOAI": "a smartphone in a dark case; its screen shows a live video call with the AI tutor, the very same robot as everywhere else in this video: {{NGUOI_DAY}}, seen from the waist up in front of {{NEN_DAY}}; it is only a picture on the phone screen, never a person in the scene; no text, no buttons",
+    "NEN_SOI": "a bright modern airport security checkpoint: a grey X-ray baggage scanner with a roller conveyor, a small monitor showing a blurry grey X-ray image, tall glass windows, white columns, dark-blue hanging signs with no readable text, retractable queue belts and a line of travellers standing still in the far background",
+    "NEN_HOC": "a bright, nearly empty modern airport check-in hall, softly out of focus: tall glass windows, white columns, a glossy pale floor reflecting the light and a row of grey check-in counters in the distance",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot with glossy white armour panels and black mechanical joints at the neck, shoulders and waist, a smooth pale porcelain face with soft light-blue eyes and finely sculpted expressive lips, a calm friendly expression",
+    "NEN_DAY": "a bright white studio backdrop with soft grey shading and a thin glowing white circular halo ring behind the head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "GIONG_DAY": "a bright, light, friendly young woman's voice, clearly lighter than the traveller's, smooth and clear with only a faint synthetic polish, patient and encouraging like a kind language teacher on a video call, neutral American accent",
+    "NGHE_HOC": "stands with one hand resting on the strap of his bag, mouth closed; his eyes follow whatever the officer points at (the suitcase) and come back to the officer's face, with a natural, slightly worried or smiling face that matches the moment",
+    "DAO_GIU": "His free hand rests on the strap of his bag or does the clip's action only: no hand ever goes to the head, face or hair.",
+    "DAO_NGHI": "the traveller standing with one hand resting on the bag strap, the officer standing still behind the conveyor",
+    "NHIN_CANBO": "keeps his head turned toward the traveller in three-quarter profile, looking at the traveller's face (or at the suitcase or phone the clip names); his face never turns to the camera or out of the frame",
+    "NHIN_HOC": "looks at the officer's face, eyes level, never into the lens (except when the clip's action is to look at the suitcase or the phone)",
+    "NHIN_HOC@2": "looks straight into the lens, as if talking to the AI tutor on the phone he is holding",
+    "HE_HOC": "he",
+    "HE_HOC_C": "He",
+    "HIS_HOC": "his",
+    "HIM_HOC": "him",
+    "HIMSELF_HOC": "himself",
+    "DAO_TUI": "a worn brown canvas shoulder bag",
+    "LUOT": [
+      {
+        "who": "canbo",
+        "text": "Is this your bag?",
+        "emo": "routine, calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes, it is.",
+        "emo": "worried",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "The scanner detected something. Please open your bag.",
+        "emo": "calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. It might be batteries. Would you like me to take them out?",
+        "emo": "helpful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Yes. Is this your first time in America?",
+        "emo": "interested",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes. I'm here visiting my daughter.",
+        "emo": "warm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Your English is really good, by the way.",
+        "emo": "impressed",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I've been practicing with an AI tutor.",
+        "emo": "proud, cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "What's that?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I talk to it for about 15 minutes a day, and it corrects me while I speak.",
+        "emo": "enthusiastic",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "After just three weeks, I started speaking this confidently.",
+        "emo": "proud",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Is it expensive, though?",
+        "emo": "doubtful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "No, no, it's free. Let me show you how it works.",
+        "emo": "cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "More or less.",
+        "emo": "hesitant",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I have 58.",
+        "emo": "unsure",
+        "c": "white",
+        "fx": "wrong",
+        "icon": "x",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 58.",
+        "emo": "patient, encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I am 58.",
+        "emo": "confident",
+        "c": "white",
+        "fx": "right",
+        "icon": "check",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "warm, friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "embarrassed",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar, anytime, anywhere.",
+        "emo": "confident, warm",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "delighted",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll speak like a native in no time.",
+        "emo": "reassuring",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "https://prnt.sc/OGLg28JuAOvD"
+      ],
+      "NGUOI_DAY": [
+        {
+          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/soi-hanh-ly-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "name": "ROBOT-GIA-SU-AI.png"
+        }
+      ]
+    }
+  },
+  {
+    "name": "soi-hanh-ly-bien-the-03-nam-47-ao-khoac",
+    "TEN_HOC": "the traveller",
+    "VAI_HOC": "traveller",
+    "NGUOI_HOC": "a Mexican man of about 47, a slightly heavy build with a round belly, a chubby face with a slight double chin, olive-brown skin with small dark marks and uneven texture, slightly curly black hair with a few grey strands, not too closely shaved stubble, a natural, slightly tired look, a plain T-shirt under a light jacket, simple casual clothes",
+    "GIONG_HOC": "a friendly, slightly nasal Mexican man's voice in his late forties, mid-low pitch (around 115-135 Hz), relaxed, a little tired; a real Mexican man speaking English as a second language, a natural Mexican accent with Spanish vowels and a soft r, not exaggerated; quick and a little nervous at the checkpoint, warming up and quietly proud when talking about the tutor; a real person, not an actor",
+    "POS_HOC": "RIGHT",
+    "TEN_CANBO": "the security officer",
+    "NGUOI_CANBO": "a Latino man in his forties, short dark hair slightly greying at the sides, light stubble, a firm face, a royal-blue airport security uniform shirt with dark epaulettes and a plain round shoulder patch, a black tie, a plain silver badge with no lettering, black trousers",
+    "GIONG_CANBO": "a real American airport security officer's voice, low baritone (around 130-150 Hz), a little tired from a long shift, even and unhurried, never theatrical: statements fall in pitch at the end, yes/no questions lift slightly at the end; mostly flat and routine, warming up a little when he compliments her",
+    "VAI_CANBO": "officer",
+    "POS_CANBO": "LEFT",
+    "NGHE_CANBO": "stands behind the conveyor with his right hand resting on the edge of the scanner, head turned toward the mother, mouth closed; his eyes follow whatever she touches or holds up (the suitcase, the phone) and come back to her face, with small natural reactions",
+    "DAO_VALI": "a dark navy-blue hard-shell suitcase",
+    "DAO_VALI_2": "a tan brown hard-shell suitcase",
+    "DAO_DIEN_THOAI": "a smartphone in a dark case; its screen shows a live video call with the AI tutor, the very same robot as everywhere else in this video: {{NGUOI_DAY}}, seen from the waist up in front of {{NEN_DAY}}; it is only a picture on the phone screen, never a person in the scene; no text, no buttons",
+    "NEN_SOI": "a bright modern airport security checkpoint: a grey X-ray baggage scanner with a roller conveyor, a small monitor showing a blurry grey X-ray image, tall glass windows, white columns, dark-blue hanging signs with no readable text, retractable queue belts and a line of travellers standing still in the far background",
+    "NEN_HOC": "a bright, nearly empty modern airport check-in hall, softly out of focus: tall glass windows, white columns, a glossy pale floor reflecting the light and a row of grey check-in counters in the distance",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot with glossy white armour panels and black mechanical joints at the neck, shoulders and waist, a smooth pale porcelain face with soft light-blue eyes and finely sculpted expressive lips, a calm friendly expression",
+    "NEN_DAY": "a bright white studio backdrop with soft grey shading and a thin glowing white circular halo ring behind the head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "GIONG_DAY": "a bright, light, friendly young woman's voice, clearly lighter than the traveller's, smooth and clear with only a faint synthetic polish, patient and encouraging like a kind language teacher on a video call, neutral American accent",
+    "NGHE_HOC": "stands with one hand resting on the strap of his bag, mouth closed; his eyes follow whatever the officer points at (the suitcase) and come back to the officer's face, with a natural, slightly worried or smiling face that matches the moment",
+    "DAO_GIU": "His free hand rests on the strap of his bag or does the clip's action only: no hand ever goes to the head, face or hair.",
+    "DAO_NGHI": "the traveller standing with one hand resting on the bag strap, the officer standing still behind the conveyor",
+    "NHIN_CANBO": "keeps his head turned toward the traveller in three-quarter profile, looking at the traveller's face (or at the suitcase or phone the clip names); his face never turns to the camera or out of the frame",
+    "NHIN_HOC": "looks at the officer's face, eyes level, never into the lens (except when the clip's action is to look at the suitcase or the phone)",
+    "NHIN_HOC@2": "looks straight into the lens, as if talking to the AI tutor on the phone he is holding",
+    "HE_HOC": "he",
+    "HE_HOC_C": "He",
+    "HIS_HOC": "his",
+    "HIM_HOC": "him",
+    "HIMSELF_HOC": "himself",
+    "DAO_TUI": "a black nylon shoulder bag",
+    "LUOT": [
+      {
+        "who": "canbo",
+        "text": "Is this your bag?",
+        "emo": "routine, calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes, it is.",
+        "emo": "worried",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "The scanner detected something. Please open your bag.",
+        "emo": "calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. It might be batteries. Would you like me to take them out?",
+        "emo": "helpful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Yes. Is this your first time in America?",
+        "emo": "interested",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes. I'm here visiting my daughter.",
+        "emo": "warm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Your English is really good, by the way.",
+        "emo": "impressed",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I've been practicing with an AI tutor.",
+        "emo": "proud, cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "What's that?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I talk to it for about 15 minutes a day, and it corrects me while I speak.",
+        "emo": "enthusiastic",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "After just three weeks, I started speaking this confidently.",
+        "emo": "proud",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Is it expensive, though?",
+        "emo": "doubtful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "No, no, it's free. Let me show you how it works.",
+        "emo": "cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "More or less.",
+        "emo": "hesitant",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I have 47.",
+        "emo": "unsure",
+        "c": "white",
+        "fx": "wrong",
+        "icon": "x",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 47.",
+        "emo": "patient, encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I am 47.",
+        "emo": "confident",
+        "c": "white",
+        "fx": "right",
+        "icon": "check",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "warm, friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "embarrassed",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar, anytime, anywhere.",
+        "emo": "confident, warm",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "delighted",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll speak like a native in no time.",
+        "emo": "reassuring",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "https://prnt.sc/MUrHKt3FBhXA"
+      ],
+      "NGUOI_DAY": [
+        {
+          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/soi-hanh-ly-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "name": "ROBOT-GIA-SU-AI.png"
+        }
+      ]
+    }
+  },
+  {
+    "name": "soi-hanh-ly-bien-the-04-nam-55-so-mi",
+    "TEN_HOC": "the traveller",
+    "VAI_HOC": "traveller",
+    "NGUOI_HOC": "a Mexican man of about 55, a thin build with slightly sloping shoulders, a long, slightly gaunt face with high cheekbones, sun-tanned brown skin with many fine wrinkles and darker skin under the eyes, short black-and-grey hair thinning a little at both temples, a cotton shirt with rolled-up sleeves and faded jeans, neat but plain",
+    "GIONG_HOC": "a soft-spoken, slightly raspy Mexican man's voice in his mid fifties, mid-low pitch (around 110-130 Hz), modest and polite; a real Mexican man speaking English as a second language, a natural Mexican accent with Spanish vowels and a soft r, not exaggerated; quick and a little nervous at the checkpoint, warming up and quietly proud when talking about the tutor; a real person, not an actor",
+    "POS_HOC": "RIGHT",
+    "TEN_CANBO": "the security officer",
+    "NGUOI_CANBO": "a Latino man in his forties, short dark hair slightly greying at the sides, light stubble, a firm face, a royal-blue airport security uniform shirt with dark epaulettes and a plain round shoulder patch, a black tie, a plain silver badge with no lettering, black trousers",
+    "GIONG_CANBO": "a real American airport security officer's voice, low baritone (around 130-150 Hz), a little tired from a long shift, even and unhurried, never theatrical: statements fall in pitch at the end, yes/no questions lift slightly at the end; mostly flat and routine, warming up a little when he compliments her",
+    "VAI_CANBO": "officer",
+    "POS_CANBO": "LEFT",
+    "NGHE_CANBO": "stands behind the conveyor with his right hand resting on the edge of the scanner, head turned toward the mother, mouth closed; his eyes follow whatever she touches or holds up (the suitcase, the phone) and come back to her face, with small natural reactions",
+    "DAO_VALI": "a dark navy-blue hard-shell suitcase",
+    "DAO_VALI_2": "a tan brown hard-shell suitcase",
+    "DAO_DIEN_THOAI": "a smartphone in a dark case; its screen shows a live video call with the AI tutor, the very same robot as everywhere else in this video: {{NGUOI_DAY}}, seen from the waist up in front of {{NEN_DAY}}; it is only a picture on the phone screen, never a person in the scene; no text, no buttons",
+    "NEN_SOI": "a bright modern airport security checkpoint: a grey X-ray baggage scanner with a roller conveyor, a small monitor showing a blurry grey X-ray image, tall glass windows, white columns, dark-blue hanging signs with no readable text, retractable queue belts and a line of travellers standing still in the far background",
+    "NEN_HOC": "a bright, nearly empty modern airport check-in hall, softly out of focus: tall glass windows, white columns, a glossy pale floor reflecting the light and a row of grey check-in counters in the distance",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot with glossy white armour panels and black mechanical joints at the neck, shoulders and waist, a smooth pale porcelain face with soft light-blue eyes and finely sculpted expressive lips, a calm friendly expression",
+    "NEN_DAY": "a bright white studio backdrop with soft grey shading and a thin glowing white circular halo ring behind the head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "GIONG_DAY": "a bright, light, friendly young woman's voice, clearly lighter than the traveller's, smooth and clear with only a faint synthetic polish, patient and encouraging like a kind language teacher on a video call, neutral American accent",
+    "NGHE_HOC": "stands with one hand resting on the strap of his bag, mouth closed; his eyes follow whatever the officer points at (the suitcase) and come back to the officer's face, with a natural, slightly worried or smiling face that matches the moment",
+    "DAO_GIU": "His free hand rests on the strap of his bag or does the clip's action only: no hand ever goes to the head, face or hair.",
+    "DAO_NGHI": "the traveller standing with one hand resting on the bag strap, the officer standing still behind the conveyor",
+    "NHIN_CANBO": "keeps his head turned toward the traveller in three-quarter profile, looking at the traveller's face (or at the suitcase or phone the clip names); his face never turns to the camera or out of the frame",
+    "NHIN_HOC": "looks at the officer's face, eyes level, never into the lens (except when the clip's action is to look at the suitcase or the phone)",
+    "NHIN_HOC@2": "looks straight into the lens, as if talking to the AI tutor on the phone he is holding",
+    "HE_HOC": "he",
+    "HE_HOC_C": "He",
+    "HIS_HOC": "his",
+    "HIM_HOC": "him",
+    "HIMSELF_HOC": "himself",
+    "DAO_TUI": "a tan canvas shoulder bag",
+    "LUOT": [
+      {
+        "who": "canbo",
+        "text": "Is this your bag?",
+        "emo": "routine, calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes, it is.",
+        "emo": "worried",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "The scanner detected something. Please open your bag.",
+        "emo": "calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. It might be batteries. Would you like me to take them out?",
+        "emo": "helpful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Yes. Is this your first time in America?",
+        "emo": "interested",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes. I'm here visiting my daughter.",
+        "emo": "warm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Your English is really good, by the way.",
+        "emo": "impressed",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I've been practicing with an AI tutor.",
+        "emo": "proud, cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "What's that?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I talk to it for about 15 minutes a day, and it corrects me while I speak.",
+        "emo": "enthusiastic",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "After just three weeks, I started speaking this confidently.",
+        "emo": "proud",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Is it expensive, though?",
+        "emo": "doubtful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "No, no, it's free. Let me show you how it works.",
+        "emo": "cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "More or less.",
+        "emo": "hesitant",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I have 55.",
+        "emo": "unsure",
+        "c": "white",
+        "fx": "wrong",
+        "icon": "x",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 55.",
+        "emo": "patient, encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I am 55.",
+        "emo": "confident",
+        "c": "white",
+        "fx": "right",
+        "icon": "check",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "warm, friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "embarrassed",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar, anytime, anywhere.",
+        "emo": "confident, warm",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "delighted",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll speak like a native in no time.",
+        "emo": "reassuring",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "https://prnt.sc/LD74D9P5fHeG"
+      ],
+      "NGUOI_DAY": [
+        {
+          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/soi-hanh-ly-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "name": "ROBOT-GIA-SU-AI.png"
+        }
+      ]
+    }
+  },
+  {
+    "name": "soi-hanh-ly-bien-the-05-nam-60-polo-cu",
+    "TEN_HOC": "the traveller",
+    "VAI_HOC": "traveller",
+    "NGUOI_HOC": "a Mexican man of about 60, a heavy build with a fairly big belly and a short neck, a wide face with slightly sagging cheeks, dark brown skin with age spots and deep wrinkles around the mouth and eyes, mostly grey hair thinning on top, a salt-and-pepper moustache, a calm composed face, a well-worn but clean polo shirt and dark trousers, everyday style",
+    "GIONG_HOC": "a deep, calm, unhurried Mexican man's voice around sixty, low pitch (around 95-115 Hz), a little breathy, gentle; a real Mexican man speaking English as a second language, a natural Mexican accent with Spanish vowels and a soft r, not exaggerated; quick and a little nervous at the checkpoint, warming up and quietly proud when talking about the tutor; a real person, not an actor",
+    "POS_HOC": "RIGHT",
+    "TEN_CANBO": "the security officer",
+    "NGUOI_CANBO": "a Latino man in his forties, short dark hair slightly greying at the sides, light stubble, a firm face, a royal-blue airport security uniform shirt with dark epaulettes and a plain round shoulder patch, a black tie, a plain silver badge with no lettering, black trousers",
+    "GIONG_CANBO": "a real American airport security officer's voice, low baritone (around 130-150 Hz), a little tired from a long shift, even and unhurried, never theatrical: statements fall in pitch at the end, yes/no questions lift slightly at the end; mostly flat and routine, warming up a little when he compliments her",
+    "VAI_CANBO": "officer",
+    "POS_CANBO": "LEFT",
+    "NGHE_CANBO": "stands behind the conveyor with his right hand resting on the edge of the scanner, head turned toward the mother, mouth closed; his eyes follow whatever she touches or holds up (the suitcase, the phone) and come back to her face, with small natural reactions",
+    "DAO_VALI": "a dark navy-blue hard-shell suitcase",
+    "DAO_VALI_2": "a tan brown hard-shell suitcase",
+    "DAO_DIEN_THOAI": "a smartphone in a dark case; its screen shows a live video call with the AI tutor, the very same robot as everywhere else in this video: {{NGUOI_DAY}}, seen from the waist up in front of {{NEN_DAY}}; it is only a picture on the phone screen, never a person in the scene; no text, no buttons",
+    "NEN_SOI": "a bright modern airport security checkpoint: a grey X-ray baggage scanner with a roller conveyor, a small monitor showing a blurry grey X-ray image, tall glass windows, white columns, dark-blue hanging signs with no readable text, retractable queue belts and a line of travellers standing still in the far background",
+    "NEN_HOC": "a bright, nearly empty modern airport check-in hall, softly out of focus: tall glass windows, white columns, a glossy pale floor reflecting the light and a row of grey check-in counters in the distance",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot with glossy white armour panels and black mechanical joints at the neck, shoulders and waist, a smooth pale porcelain face with soft light-blue eyes and finely sculpted expressive lips, a calm friendly expression",
+    "NEN_DAY": "a bright white studio backdrop with soft grey shading and a thin glowing white circular halo ring behind the head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "GIONG_DAY": "a bright, light, friendly young woman's voice, clearly lighter than the traveller's, smooth and clear with only a faint synthetic polish, patient and encouraging like a kind language teacher on a video call, neutral American accent",
+    "NGHE_HOC": "stands with one hand resting on the strap of his bag, mouth closed; his eyes follow whatever the officer points at (the suitcase) and come back to the officer's face, with a natural, slightly worried or smiling face that matches the moment",
+    "DAO_GIU": "His free hand rests on the strap of his bag or does the clip's action only: no hand ever goes to the head, face or hair.",
+    "DAO_NGHI": "the traveller standing with one hand resting on the bag strap, the officer standing still behind the conveyor",
+    "NHIN_CANBO": "keeps his head turned toward the traveller in three-quarter profile, looking at the traveller's face (or at the suitcase or phone the clip names); his face never turns to the camera or out of the frame",
+    "NHIN_HOC": "looks at the officer's face, eyes level, never into the lens (except when the clip's action is to look at the suitcase or the phone)",
+    "NHIN_HOC@2": "looks straight into the lens, as if talking to the AI tutor on the phone he is holding",
+    "HE_HOC": "he",
+    "HE_HOC_C": "He",
+    "HIS_HOC": "his",
+    "HIM_HOC": "him",
+    "HIMSELF_HOC": "himself",
+    "DAO_TUI": "a black leather shoulder bag",
+    "LUOT": [
+      {
+        "who": "canbo",
+        "text": "Is this your bag?",
+        "emo": "routine, calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes, it is.",
+        "emo": "worried",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "The scanner detected something. Please open your bag.",
+        "emo": "calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. It might be batteries. Would you like me to take them out?",
+        "emo": "helpful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Yes. Is this your first time in America?",
+        "emo": "interested",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes. I'm here visiting my daughter.",
+        "emo": "warm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Your English is really good, by the way.",
+        "emo": "impressed",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I've been practicing with an AI tutor.",
+        "emo": "proud, cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "What's that?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I talk to it for about 15 minutes a day, and it corrects me while I speak.",
+        "emo": "enthusiastic",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "After just three weeks, I started speaking this confidently.",
+        "emo": "proud",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Is it expensive, though?",
+        "emo": "doubtful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "No, no, it's free. Let me show you how it works.",
+        "emo": "cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "More or less.",
+        "emo": "hesitant",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I have 60.",
+        "emo": "unsure",
+        "c": "white",
+        "fx": "wrong",
+        "icon": "x",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 60.",
+        "emo": "patient, encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I am 60.",
+        "emo": "confident",
+        "c": "white",
+        "fx": "right",
+        "icon": "check",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "warm, friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "embarrassed",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar, anytime, anywhere.",
+        "emo": "confident, warm",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "delighted",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll speak like a native in no time.",
+        "emo": "reassuring",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "https://prnt.sc/thpld3uXXFEg"
+      ],
+      "NGUOI_DAY": [
+        {
+          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/soi-hanh-ly-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "name": "ROBOT-GIA-SU-AI.png"
+        }
+      ]
+    }
+  },
+  {
+    "name": "soi-hanh-ly-bien-the-06-nu-73-cardigan-navy",
+    "TEN_HOC": "the traveller",
+    "VAI_HOC": "traveller",
+    "NGUOI_HOC": "a Mexican woman of about 73, of average height and slightly thin, narrow shoulders, small arms and a slight natural stoop, a long narrow face with high cheekbones, slightly hollow cheeks and a small chin, dark sun-tanned brown skin with age spots and clear wrinkles on the forehead, around the eyes, mouth and neck, slightly deep-set eyes with drooping lids, thin lips, almost completely white hair in a short chin-length bob with a side parting, neatly combed, no heavy make-up, a cream-white round-neck cotton T-shirt under a slim navy-blue cardigan worn open, straight-cut dark-blue jeans and minimal white sneakers, modern, tidy and comfortable, not traditional and not formal",
+    "GIONG_HOC": "a soft, slightly thin and wavering Mexican grandmother's voice in her seventies, mid pitch (around 180-210 Hz), gentle and kind; a real Mexican woman speaking English as a second language, a natural Mexican accent with Spanish vowels and a soft r, not exaggerated; quick and a little nervous at the checkpoint, warming up and quietly proud when talking about the tutor; a real person, not an actor",
+    "POS_HOC": "RIGHT",
+    "TEN_CANBO": "the security officer",
+    "NGUOI_CANBO": "a Latino man in his forties, short dark hair slightly greying at the sides, light stubble, a firm face, a royal-blue airport security uniform shirt with dark epaulettes and a plain round shoulder patch, a black tie, a plain silver badge with no lettering, black trousers",
+    "GIONG_CANBO": "a real American airport security officer's voice, low baritone (around 130-150 Hz), a little tired from a long shift, even and unhurried, never theatrical: statements fall in pitch at the end, yes/no questions lift slightly at the end; mostly flat and routine, warming up a little when he compliments her",
+    "VAI_CANBO": "officer",
+    "POS_CANBO": "LEFT",
+    "NGHE_CANBO": "stands behind the conveyor with his right hand resting on the edge of the scanner, head turned toward the mother, mouth closed; his eyes follow whatever she touches or holds up (the suitcase, the phone) and come back to her face, with small natural reactions",
+    "DAO_VALI": "a dark navy-blue hard-shell suitcase",
+    "DAO_VALI_2": "a tan brown hard-shell suitcase",
+    "DAO_DIEN_THOAI": "a smartphone in a dark case; its screen shows a live video call with the AI tutor, the very same robot as everywhere else in this video: {{NGUOI_DAY}}, seen from the waist up in front of {{NEN_DAY}}; it is only a picture on the phone screen, never a person in the scene; no text, no buttons",
+    "NEN_SOI": "a bright modern airport security checkpoint: a grey X-ray baggage scanner with a roller conveyor, a small monitor showing a blurry grey X-ray image, tall glass windows, white columns, dark-blue hanging signs with no readable text, retractable queue belts and a line of travellers standing still in the far background",
+    "NEN_HOC": "a bright, nearly empty modern airport check-in hall, softly out of focus: tall glass windows, white columns, a glossy pale floor reflecting the light and a row of grey check-in counters in the distance",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot with glossy white armour panels and black mechanical joints at the neck, shoulders and waist, a smooth pale porcelain face with soft light-blue eyes and finely sculpted expressive lips, a calm friendly expression",
+    "NEN_DAY": "a bright white studio backdrop with soft grey shading and a thin glowing white circular halo ring behind the head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "GIONG_DAY": "a bright, light, friendly young woman's voice, clearly lighter than the traveller's, smooth and clear with only a faint synthetic polish, patient and encouraging like a kind language teacher on a video call, neutral American accent",
+    "NGHE_HOC": "stands with one hand resting on the strap of her bag, mouth closed; her eyes follow whatever the officer points at (the suitcase) and come back to the officer's face, with a natural, slightly worried or smiling face that matches the moment",
+    "DAO_GIU": "Her free hand rests on the strap of her bag or does the clip's action only: no hand ever goes to the head, face or hair.",
+    "DAO_NGHI": "the traveller standing with one hand resting on the bag strap, the officer standing still behind the conveyor",
+    "NHIN_CANBO": "keeps his head turned toward the traveller in three-quarter profile, looking at the traveller's face (or at the suitcase or phone the clip names); his face never turns to the camera or out of the frame",
+    "NHIN_HOC": "looks at the officer's face, eyes level, never into the lens (except when the clip's action is to look at the suitcase or the phone)",
+    "NHIN_HOC@2": "looks straight into the lens, as if talking to the AI tutor on the phone she is holding",
+    "HE_HOC": "she",
+    "HE_HOC_C": "She",
+    "HIS_HOC": "her",
+    "HIM_HOC": "her",
+    "HIMSELF_HOC": "herself",
+    "DAO_TUI": "a small brown leather shoulder bag",
+    "LUOT": [
+      {
+        "who": "canbo",
+        "text": "Is this your bag?",
+        "emo": "routine, calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes, it is.",
+        "emo": "worried",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "The scanner detected something. Please open your bag.",
+        "emo": "calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. It might be batteries. Would you like me to take them out?",
+        "emo": "helpful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Yes. Is this your first time in America?",
+        "emo": "interested",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes. I'm here visiting my daughter.",
+        "emo": "warm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Your English is really good, by the way.",
+        "emo": "impressed",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I've been practicing with an AI tutor.",
+        "emo": "proud, cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "What's that?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I talk to it for about 15 minutes a day, and it corrects me while I speak.",
+        "emo": "enthusiastic",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "After just three weeks, I started speaking this confidently.",
+        "emo": "proud",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Is it expensive, though?",
+        "emo": "doubtful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "No, no, it's free. Let me show you how it works.",
+        "emo": "cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "More or less.",
+        "emo": "hesitant",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I have 73.",
+        "emo": "unsure",
+        "c": "white",
+        "fx": "wrong",
+        "icon": "x",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 73.",
+        "emo": "patient, encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I am 73.",
+        "emo": "confident",
+        "c": "white",
+        "fx": "right",
+        "icon": "check",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "warm, friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "embarrassed",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar, anytime, anywhere.",
+        "emo": "confident, warm",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "delighted",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll speak like a native in no time.",
+        "emo": "reassuring",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "https://prnt.sc/h8gufAS-bDq2"
+      ],
+      "NGUOI_DAY": [
+        {
+          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/soi-hanh-ly-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "name": "ROBOT-GIA-SU-AI.png"
+        }
+      ]
+    }
+  },
+  {
+    "name": "soi-hanh-ly-bien-the-07-nu-62-so-mi-hoa",
+    "TEN_HOC": "the traveller",
+    "VAI_HOC": "traveller",
+    "NGUOI_HOC": "a Mexican woman of about 62, short and slightly plump, rounded shoulders, a wide face with a slight double chin, sun-tanned brown skin with many fine wrinkles on the forehead, around the eyes and on the neck, fairly thick salt-and-pepper hair cut at the nape, naturally a little wavy and not styled, slightly deep-set eyes with darker skin under them, a calm, slightly tired face, a small-flower-print shirt, loose khaki trousers and simple sandals, a modest older woman's style",
+    "GIONG_HOC": "a warm, slightly husky Mexican woman's voice in her early sixties, mid-low pitch (around 170-200 Hz), motherly and easygoing; a real Mexican woman speaking English as a second language, a natural Mexican accent with Spanish vowels and a soft r, not exaggerated; quick and a little nervous at the checkpoint, warming up and quietly proud when talking about the tutor; a real person, not an actor",
+    "POS_HOC": "RIGHT",
+    "TEN_CANBO": "the security officer",
+    "NGUOI_CANBO": "a Latino man in his forties, short dark hair slightly greying at the sides, light stubble, a firm face, a royal-blue airport security uniform shirt with dark epaulettes and a plain round shoulder patch, a black tie, a plain silver badge with no lettering, black trousers",
+    "GIONG_CANBO": "a real American airport security officer's voice, low baritone (around 130-150 Hz), a little tired from a long shift, even and unhurried, never theatrical: statements fall in pitch at the end, yes/no questions lift slightly at the end; mostly flat and routine, warming up a little when he compliments her",
+    "VAI_CANBO": "officer",
+    "POS_CANBO": "LEFT",
+    "NGHE_CANBO": "stands behind the conveyor with his right hand resting on the edge of the scanner, head turned toward the mother, mouth closed; his eyes follow whatever she touches or holds up (the suitcase, the phone) and come back to her face, with small natural reactions",
+    "DAO_VALI": "a dark navy-blue hard-shell suitcase",
+    "DAO_VALI_2": "a tan brown hard-shell suitcase",
+    "DAO_DIEN_THOAI": "a smartphone in a dark case; its screen shows a live video call with the AI tutor, the very same robot as everywhere else in this video: {{NGUOI_DAY}}, seen from the waist up in front of {{NEN_DAY}}; it is only a picture on the phone screen, never a person in the scene; no text, no buttons",
+    "NEN_SOI": "a bright modern airport security checkpoint: a grey X-ray baggage scanner with a roller conveyor, a small monitor showing a blurry grey X-ray image, tall glass windows, white columns, dark-blue hanging signs with no readable text, retractable queue belts and a line of travellers standing still in the far background",
+    "NEN_HOC": "a bright, nearly empty modern airport check-in hall, softly out of focus: tall glass windows, white columns, a glossy pale floor reflecting the light and a row of grey check-in counters in the distance",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot with glossy white armour panels and black mechanical joints at the neck, shoulders and waist, a smooth pale porcelain face with soft light-blue eyes and finely sculpted expressive lips, a calm friendly expression",
+    "NEN_DAY": "a bright white studio backdrop with soft grey shading and a thin glowing white circular halo ring behind the head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "GIONG_DAY": "a bright, light, friendly young woman's voice, clearly lighter than the traveller's, smooth and clear with only a faint synthetic polish, patient and encouraging like a kind language teacher on a video call, neutral American accent",
+    "NGHE_HOC": "stands with one hand resting on the strap of her bag, mouth closed; her eyes follow whatever the officer points at (the suitcase) and come back to the officer's face, with a natural, slightly worried or smiling face that matches the moment",
+    "DAO_GIU": "Her free hand rests on the strap of her bag or does the clip's action only: no hand ever goes to the head, face or hair.",
+    "DAO_NGHI": "the traveller standing with one hand resting on the bag strap, the officer standing still behind the conveyor",
+    "NHIN_CANBO": "keeps his head turned toward the traveller in three-quarter profile, looking at the traveller's face (or at the suitcase or phone the clip names); his face never turns to the camera or out of the frame",
+    "NHIN_HOC": "looks at the officer's face, eyes level, never into the lens (except when the clip's action is to look at the suitcase or the phone)",
+    "NHIN_HOC@2": "looks straight into the lens, as if talking to the AI tutor on the phone she is holding",
+    "HE_HOC": "she",
+    "HE_HOC_C": "She",
+    "HIS_HOC": "her",
+    "HIM_HOC": "her",
+    "HIMSELF_HOC": "herself",
+    "DAO_TUI": "a faded red cloth shoulder bag",
+    "LUOT": [
+      {
+        "who": "canbo",
+        "text": "Is this your bag?",
+        "emo": "routine, calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes, it is.",
+        "emo": "worried",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "The scanner detected something. Please open your bag.",
+        "emo": "calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. It might be batteries. Would you like me to take them out?",
+        "emo": "helpful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Yes. Is this your first time in America?",
+        "emo": "interested",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes. I'm here visiting my daughter.",
+        "emo": "warm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Your English is really good, by the way.",
+        "emo": "impressed",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I've been practicing with an AI tutor.",
+        "emo": "proud, cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "What's that?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I talk to it for about 15 minutes a day, and it corrects me while I speak.",
+        "emo": "enthusiastic",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "After just three weeks, I started speaking this confidently.",
+        "emo": "proud",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Is it expensive, though?",
+        "emo": "doubtful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "No, no, it's free. Let me show you how it works.",
+        "emo": "cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "More or less.",
+        "emo": "hesitant",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I have 62.",
+        "emo": "unsure",
+        "c": "white",
+        "fx": "wrong",
+        "icon": "x",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 62.",
+        "emo": "patient, encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I am 62.",
+        "emo": "confident",
+        "c": "white",
+        "fx": "right",
+        "icon": "check",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "warm, friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "embarrassed",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar, anytime, anywhere.",
+        "emo": "confident, warm",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "delighted",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll speak like a native in no time.",
+        "emo": "reassuring",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "https://prnt.sc/My4vuU4jNcaY"
+      ],
+      "NGUOI_DAY": [
+        {
+          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/soi-hanh-ly-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "name": "ROBOT-GIA-SU-AI.png"
+        }
+      ]
+    }
+  },
+  {
+    "name": "soi-hanh-ly-bien-the-08-nu-68-bui-toc",
+    "TEN_HOC": "the traveller",
+    "VAI_HOC": "traveller",
+    "NGUOI_HOC": "a Mexican woman of about 68, thin with slightly sloping shoulders and small arms, a long face with high cheekbones, dark brown skin with age spots and clear wrinkles on the forehead, at the corners of the eyes and around the mouth, thin grey-and-black hair in a low bun at the nape with a few loose wisps, thin lips, slightly deep-set eyes, a calm, experienced face, a light-coloured cotton blouse, loose cloth trousers and old but clean walking shoes",
+    "GIONG_HOC": "a calm, low, slightly dry Mexican woman's voice in her late sixties, mid-low pitch (around 165-195 Hz), measured and composed; a real Mexican woman speaking English as a second language, a natural Mexican accent with Spanish vowels and a soft r, not exaggerated; quick and a little nervous at the checkpoint, warming up and quietly proud when talking about the tutor; a real person, not an actor",
+    "POS_HOC": "RIGHT",
+    "TEN_CANBO": "the security officer",
+    "NGUOI_CANBO": "a Latino man in his forties, short dark hair slightly greying at the sides, light stubble, a firm face, a royal-blue airport security uniform shirt with dark epaulettes and a plain round shoulder patch, a black tie, a plain silver badge with no lettering, black trousers",
+    "GIONG_CANBO": "a real American airport security officer's voice, low baritone (around 130-150 Hz), a little tired from a long shift, even and unhurried, never theatrical: statements fall in pitch at the end, yes/no questions lift slightly at the end; mostly flat and routine, warming up a little when he compliments her",
+    "VAI_CANBO": "officer",
+    "POS_CANBO": "LEFT",
+    "NGHE_CANBO": "stands behind the conveyor with his right hand resting on the edge of the scanner, head turned toward the mother, mouth closed; his eyes follow whatever she touches or holds up (the suitcase, the phone) and come back to her face, with small natural reactions",
+    "DAO_VALI": "a dark navy-blue hard-shell suitcase",
+    "DAO_VALI_2": "a tan brown hard-shell suitcase",
+    "DAO_DIEN_THOAI": "a smartphone in a dark case; its screen shows a live video call with the AI tutor, the very same robot as everywhere else in this video: {{NGUOI_DAY}}, seen from the waist up in front of {{NEN_DAY}}; it is only a picture on the phone screen, never a person in the scene; no text, no buttons",
+    "NEN_SOI": "a bright modern airport security checkpoint: a grey X-ray baggage scanner with a roller conveyor, a small monitor showing a blurry grey X-ray image, tall glass windows, white columns, dark-blue hanging signs with no readable text, retractable queue belts and a line of travellers standing still in the far background",
+    "NEN_HOC": "a bright, nearly empty modern airport check-in hall, softly out of focus: tall glass windows, white columns, a glossy pale floor reflecting the light and a row of grey check-in counters in the distance",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot with glossy white armour panels and black mechanical joints at the neck, shoulders and waist, a smooth pale porcelain face with soft light-blue eyes and finely sculpted expressive lips, a calm friendly expression",
+    "NEN_DAY": "a bright white studio backdrop with soft grey shading and a thin glowing white circular halo ring behind the head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "GIONG_DAY": "a bright, light, friendly young woman's voice, clearly lighter than the traveller's, smooth and clear with only a faint synthetic polish, patient and encouraging like a kind language teacher on a video call, neutral American accent",
+    "NGHE_HOC": "stands with one hand resting on the strap of her bag, mouth closed; her eyes follow whatever the officer points at (the suitcase) and come back to the officer's face, with a natural, slightly worried or smiling face that matches the moment",
+    "DAO_GIU": "Her free hand rests on the strap of her bag or does the clip's action only: no hand ever goes to the head, face or hair.",
+    "DAO_NGHI": "the traveller standing with one hand resting on the bag strap, the officer standing still behind the conveyor",
+    "NHIN_CANBO": "keeps his head turned toward the traveller in three-quarter profile, looking at the traveller's face (or at the suitcase or phone the clip names); his face never turns to the camera or out of the frame",
+    "NHIN_HOC": "looks at the officer's face, eyes level, never into the lens (except when the clip's action is to look at the suitcase or the phone)",
+    "NHIN_HOC@2": "looks straight into the lens, as if talking to the AI tutor on the phone she is holding",
+    "HE_HOC": "she",
+    "HE_HOC_C": "She",
+    "HIS_HOC": "her",
+    "HIM_HOC": "her",
+    "HIMSELF_HOC": "herself",
+    "DAO_TUI": "a dark-green cloth shoulder bag",
+    "LUOT": [
+      {
+        "who": "canbo",
+        "text": "Is this your bag?",
+        "emo": "routine, calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes, it is.",
+        "emo": "worried",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "The scanner detected something. Please open your bag.",
+        "emo": "calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. It might be batteries. Would you like me to take them out?",
+        "emo": "helpful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Yes. Is this your first time in America?",
+        "emo": "interested",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes. I'm here visiting my daughter.",
+        "emo": "warm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Your English is really good, by the way.",
+        "emo": "impressed",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I've been practicing with an AI tutor.",
+        "emo": "proud, cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "What's that?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I talk to it for about 15 minutes a day, and it corrects me while I speak.",
+        "emo": "enthusiastic",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "After just three weeks, I started speaking this confidently.",
+        "emo": "proud",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Is it expensive, though?",
+        "emo": "doubtful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "No, no, it's free. Let me show you how it works.",
+        "emo": "cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "More or less.",
+        "emo": "hesitant",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I have 68.",
+        "emo": "unsure",
+        "c": "white",
+        "fx": "wrong",
+        "icon": "x",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 68.",
+        "emo": "patient, encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I am 68.",
+        "emo": "confident",
+        "c": "white",
+        "fx": "right",
+        "icon": "check",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "warm, friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "embarrassed",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar, anytime, anywhere.",
+        "emo": "confident, warm",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "delighted",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll speak like a native in no time.",
+        "emo": "reassuring",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "https://prnt.sc/chA176Je6xMF"
+      ],
+      "NGUOI_DAY": [
+        {
+          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/soi-hanh-ly-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "name": "ROBOT-GIA-SU-AI.png"
+        }
+      ]
+    }
+  },
+  {
+    "name": "soi-hanh-ly-bien-the-09-nu-73-toc-ngan",
+    "TEN_HOC": "the traveller",
+    "VAI_HOC": "traveller",
+    "NGUOI_HOC": "a Mexican woman of about 73, small and slightly thin with a gentle stoop, an oval face with sagging cheeks, olive-brown skin with many deep wrinkles, brown spots and uneven texture, mostly grey hair cut short at the ears and a little thin on top, bags under the eyes, deep smile lines, clear wrinkles on the neck, a kind but slightly tired look, a thin cardigan over a T-shirt, dark trousers and low flat shoes",
+    "GIONG_HOC": "a gentle, slightly shaky Mexican grandmother's voice in her seventies, mid pitch (around 175-205 Hz), soft and sweet; a real Mexican woman speaking English as a second language, a natural Mexican accent with Spanish vowels and a soft r, not exaggerated; quick and a little nervous at the checkpoint, warming up and quietly proud when talking about the tutor; a real person, not an actor",
+    "POS_HOC": "RIGHT",
+    "TEN_CANBO": "the security officer",
+    "NGUOI_CANBO": "a Latino man in his forties, short dark hair slightly greying at the sides, light stubble, a firm face, a royal-blue airport security uniform shirt with dark epaulettes and a plain round shoulder patch, a black tie, a plain silver badge with no lettering, black trousers",
+    "GIONG_CANBO": "a real American airport security officer's voice, low baritone (around 130-150 Hz), a little tired from a long shift, even and unhurried, never theatrical: statements fall in pitch at the end, yes/no questions lift slightly at the end; mostly flat and routine, warming up a little when he compliments her",
+    "VAI_CANBO": "officer",
+    "POS_CANBO": "LEFT",
+    "NGHE_CANBO": "stands behind the conveyor with his right hand resting on the edge of the scanner, head turned toward the mother, mouth closed; his eyes follow whatever she touches or holds up (the suitcase, the phone) and come back to her face, with small natural reactions",
+    "DAO_VALI": "a dark navy-blue hard-shell suitcase",
+    "DAO_VALI_2": "a tan brown hard-shell suitcase",
+    "DAO_DIEN_THOAI": "a smartphone in a dark case; its screen shows a live video call with the AI tutor, the very same robot as everywhere else in this video: {{NGUOI_DAY}}, seen from the waist up in front of {{NEN_DAY}}; it is only a picture on the phone screen, never a person in the scene; no text, no buttons",
+    "NEN_SOI": "a bright modern airport security checkpoint: a grey X-ray baggage scanner with a roller conveyor, a small monitor showing a blurry grey X-ray image, tall glass windows, white columns, dark-blue hanging signs with no readable text, retractable queue belts and a line of travellers standing still in the far background",
+    "NEN_HOC": "a bright, nearly empty modern airport check-in hall, softly out of focus: tall glass windows, white columns, a glossy pale floor reflecting the light and a row of grey check-in counters in the distance",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot with glossy white armour panels and black mechanical joints at the neck, shoulders and waist, a smooth pale porcelain face with soft light-blue eyes and finely sculpted expressive lips, a calm friendly expression",
+    "NEN_DAY": "a bright white studio backdrop with soft grey shading and a thin glowing white circular halo ring behind the head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "GIONG_DAY": "a bright, light, friendly young woman's voice, clearly lighter than the traveller's, smooth and clear with only a faint synthetic polish, patient and encouraging like a kind language teacher on a video call, neutral American accent",
+    "NGHE_HOC": "stands with one hand resting on the strap of her bag, mouth closed; her eyes follow whatever the officer points at (the suitcase) and come back to the officer's face, with a natural, slightly worried or smiling face that matches the moment",
+    "DAO_GIU": "Her free hand rests on the strap of her bag or does the clip's action only: no hand ever goes to the head, face or hair.",
+    "DAO_NGHI": "the traveller standing with one hand resting on the bag strap, the officer standing still behind the conveyor",
+    "NHIN_CANBO": "keeps his head turned toward the traveller in three-quarter profile, looking at the traveller's face (or at the suitcase or phone the clip names); his face never turns to the camera or out of the frame",
+    "NHIN_HOC": "looks at the officer's face, eyes level, never into the lens (except when the clip's action is to look at the suitcase or the phone)",
+    "NHIN_HOC@2": "looks straight into the lens, as if talking to the AI tutor on the phone she is holding",
+    "HE_HOC": "she",
+    "HE_HOC_C": "She",
+    "HIS_HOC": "her",
+    "HIM_HOC": "her",
+    "HIMSELF_HOC": "herself",
+    "DAO_TUI": "a small black leather shoulder bag",
+    "LUOT": [
+      {
+        "who": "canbo",
+        "text": "Is this your bag?",
+        "emo": "routine, calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes, it is.",
+        "emo": "worried",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "The scanner detected something. Please open your bag.",
+        "emo": "calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. It might be batteries. Would you like me to take them out?",
+        "emo": "helpful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Yes. Is this your first time in America?",
+        "emo": "interested",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes. I'm here visiting my daughter.",
+        "emo": "warm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Your English is really good, by the way.",
+        "emo": "impressed",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I've been practicing with an AI tutor.",
+        "emo": "proud, cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "What's that?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I talk to it for about 15 minutes a day, and it corrects me while I speak.",
+        "emo": "enthusiastic",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "After just three weeks, I started speaking this confidently.",
+        "emo": "proud",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Is it expensive, though?",
+        "emo": "doubtful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "No, no, it's free. Let me show you how it works.",
+        "emo": "cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "More or less.",
+        "emo": "hesitant",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I have 73.",
+        "emo": "unsure",
+        "c": "white",
+        "fx": "wrong",
+        "icon": "x",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 73.",
+        "emo": "patient, encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I am 73.",
+        "emo": "confident",
+        "c": "white",
+        "fx": "right",
+        "icon": "check",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "warm, friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "embarrassed",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar, anytime, anywhere.",
+        "emo": "confident, warm",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "delighted",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll speak like a native in no time.",
+        "emo": "reassuring",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "https://prnt.sc/9tOFRf4zboZW"
+      ],
+      "NGUOI_DAY": [
+        {
+          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/soi-hanh-ly-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "name": "ROBOT-GIA-SU-AI.png"
+        }
+      ]
+    }
+  },
+  {
+    "name": "soi-hanh-ly-bien-the-10-nu-50-duoi-ngua",
+    "TEN_HOC": "the traveller",
+    "VAI_HOC": "traveller",
+    "NGUOI_HOC": "a Mexican woman of about 50, medium and slightly full build, moderately broad shoulders, a slightly square face with clear cheekbones, unevenly sun-tanned brown skin with visible pores, a few dark marks and wrinkles around the eyes, thick black hair with a few grey strands, past the shoulders, tied in a low ponytail, no or very light make-up, natural lines on the lips, a plain polo shirt, faded blue jeans and simple sneakers, everyday style",
+    "GIONG_HOC": "a clear, friendly Mexican woman's voice around fifty, mid pitch (around 190-220 Hz), practical and warm; a real Mexican woman speaking English as a second language, a natural Mexican accent with Spanish vowels and a soft r, not exaggerated; quick and a little nervous at the checkpoint, warming up and quietly proud when talking about the tutor; a real person, not an actor",
+    "POS_HOC": "RIGHT",
+    "TEN_CANBO": "the security officer",
+    "NGUOI_CANBO": "a Latino man in his forties, short dark hair slightly greying at the sides, light stubble, a firm face, a royal-blue airport security uniform shirt with dark epaulettes and a plain round shoulder patch, a black tie, a plain silver badge with no lettering, black trousers",
+    "GIONG_CANBO": "a real American airport security officer's voice, low baritone (around 130-150 Hz), a little tired from a long shift, even and unhurried, never theatrical: statements fall in pitch at the end, yes/no questions lift slightly at the end; mostly flat and routine, warming up a little when he compliments her",
+    "VAI_CANBO": "officer",
+    "POS_CANBO": "LEFT",
+    "NGHE_CANBO": "stands behind the conveyor with his right hand resting on the edge of the scanner, head turned toward the mother, mouth closed; his eyes follow whatever she touches or holds up (the suitcase, the phone) and come back to her face, with small natural reactions",
+    "DAO_VALI": "a dark navy-blue hard-shell suitcase",
+    "DAO_VALI_2": "a tan brown hard-shell suitcase",
+    "DAO_DIEN_THOAI": "a smartphone in a dark case; its screen shows a live video call with the AI tutor, the very same robot as everywhere else in this video: {{NGUOI_DAY}}, seen from the waist up in front of {{NEN_DAY}}; it is only a picture on the phone screen, never a person in the scene; no text, no buttons",
+    "NEN_SOI": "a bright modern airport security checkpoint: a grey X-ray baggage scanner with a roller conveyor, a small monitor showing a blurry grey X-ray image, tall glass windows, white columns, dark-blue hanging signs with no readable text, retractable queue belts and a line of travellers standing still in the far background",
+    "NEN_HOC": "a bright, nearly empty modern airport check-in hall, softly out of focus: tall glass windows, white columns, a glossy pale floor reflecting the light and a row of grey check-in counters in the distance",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot with glossy white armour panels and black mechanical joints at the neck, shoulders and waist, a smooth pale porcelain face with soft light-blue eyes and finely sculpted expressive lips, a calm friendly expression",
+    "NEN_DAY": "a bright white studio backdrop with soft grey shading and a thin glowing white circular halo ring behind the head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "GIONG_DAY": "a bright, light, friendly young woman's voice, clearly lighter than the traveller's, smooth and clear with only a faint synthetic polish, patient and encouraging like a kind language teacher on a video call, neutral American accent",
+    "NGHE_HOC": "stands with one hand resting on the strap of her bag, mouth closed; her eyes follow whatever the officer points at (the suitcase) and come back to the officer's face, with a natural, slightly worried or smiling face that matches the moment",
+    "DAO_GIU": "Her free hand rests on the strap of her bag or does the clip's action only: no hand ever goes to the head, face or hair.",
+    "DAO_NGHI": "the traveller standing with one hand resting on the bag strap, the officer standing still behind the conveyor",
+    "NHIN_CANBO": "keeps his head turned toward the traveller in three-quarter profile, looking at the traveller's face (or at the suitcase or phone the clip names); his face never turns to the camera or out of the frame",
+    "NHIN_HOC": "looks at the officer's face, eyes level, never into the lens (except when the clip's action is to look at the suitcase or the phone)",
+    "NHIN_HOC@2": "looks straight into the lens, as if talking to the AI tutor on the phone she is holding",
+    "HE_HOC": "she",
+    "HE_HOC_C": "She",
+    "HIS_HOC": "her",
+    "HIM_HOC": "her",
+    "HIMSELF_HOC": "herself",
+    "DAO_TUI": "a brown faux-leather shoulder bag",
+    "LUOT": [
+      {
+        "who": "canbo",
+        "text": "Is this your bag?",
+        "emo": "routine, calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes, it is.",
+        "emo": "worried",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "The scanner detected something. Please open your bag.",
+        "emo": "calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. It might be batteries. Would you like me to take them out?",
+        "emo": "helpful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Yes. Is this your first time in America?",
+        "emo": "interested",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes. I'm here visiting my daughter.",
+        "emo": "warm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Your English is really good, by the way.",
+        "emo": "impressed",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I've been practicing with an AI tutor.",
+        "emo": "proud, cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "What's that?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I talk to it for about 15 minutes a day, and it corrects me while I speak.",
+        "emo": "enthusiastic",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "After just three weeks, I started speaking this confidently.",
+        "emo": "proud",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Is it expensive, though?",
+        "emo": "doubtful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "No, no, it's free. Let me show you how it works.",
+        "emo": "cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "More or less.",
+        "emo": "hesitant",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I have 50.",
+        "emo": "unsure",
+        "c": "white",
+        "fx": "wrong",
+        "icon": "x",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 50.",
+        "emo": "patient, encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I am 50.",
+        "emo": "confident",
+        "c": "white",
+        "fx": "right",
+        "icon": "check",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "warm, friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "embarrassed",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar, anytime, anywhere.",
+        "emo": "confident, warm",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "delighted",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll speak like a native in no time.",
+        "emo": "reassuring",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "https://prnt.sc/b1jhfypLu7fQ"
+      ],
+      "NGUOI_DAY": [
+        {
+          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/soi-hanh-ly-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "name": "ROBOT-GIA-SU-AI.png"
+        }
+      ]
+    }
+  },
+  {
+    "name": "soi-hanh-ly-bien-the-11-nu-21-gen-z",
+    "TEN_HOC": "the traveller",
+    "VAI_HOC": "traveller",
+    "NGUOI_HOC": "a young Mexican Latina woman of about 21, about 155 cm, short and slightly chubby, rounded shoulders, a round wide face with full cheeks, a short chin, a small slightly upturned nose, round brown eyes and thick straight eyebrows, light olive-brown skin with a few small spots and natural pores, jet-black shoulder-length hair cut straight with thick bangs, a fitted pastel-pink baby tee, light-blue high-waisted wide-leg jeans and white sneakers, a cute, lively Gen Z style",
+    "GIONG_HOC": "a bright, bubbly young Mexican woman's voice of about 21, high pitch (around 220-260 Hz), quick and cheerful, a little giggly; a real Mexican woman speaking English as a second language, a natural Mexican accent with Spanish vowels and a soft r, not exaggerated; quick and a little nervous at the checkpoint, warming up and quietly proud when talking about the tutor; a real person, not an actor",
+    "POS_HOC": "RIGHT",
+    "TEN_CANBO": "the security officer",
+    "NGUOI_CANBO": "a Latino man in his forties, short dark hair slightly greying at the sides, light stubble, a firm face, a royal-blue airport security uniform shirt with dark epaulettes and a plain round shoulder patch, a black tie, a plain silver badge with no lettering, black trousers",
+    "GIONG_CANBO": "a real American airport security officer's voice, low baritone (around 130-150 Hz), a little tired from a long shift, even and unhurried, never theatrical: statements fall in pitch at the end, yes/no questions lift slightly at the end; mostly flat and routine, warming up a little when he compliments her",
+    "VAI_CANBO": "officer",
+    "POS_CANBO": "LEFT",
+    "NGHE_CANBO": "stands behind the conveyor with his right hand resting on the edge of the scanner, head turned toward the mother, mouth closed; his eyes follow whatever she touches or holds up (the suitcase, the phone) and come back to her face, with small natural reactions",
+    "DAO_VALI": "a dark navy-blue hard-shell suitcase",
+    "DAO_VALI_2": "a tan brown hard-shell suitcase",
+    "DAO_DIEN_THOAI": "a smartphone in a dark case; its screen shows a live video call with the AI tutor, the very same robot as everywhere else in this video: {{NGUOI_DAY}}, seen from the waist up in front of {{NEN_DAY}}; it is only a picture on the phone screen, never a person in the scene; no text, no buttons",
+    "NEN_SOI": "a bright modern airport security checkpoint: a grey X-ray baggage scanner with a roller conveyor, a small monitor showing a blurry grey X-ray image, tall glass windows, white columns, dark-blue hanging signs with no readable text, retractable queue belts and a line of travellers standing still in the far background",
+    "NEN_HOC": "a bright, nearly empty modern airport check-in hall, softly out of focus: tall glass windows, white columns, a glossy pale floor reflecting the light and a row of grey check-in counters in the distance",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot with glossy white armour panels and black mechanical joints at the neck, shoulders and waist, a smooth pale porcelain face with soft light-blue eyes and finely sculpted expressive lips, a calm friendly expression",
+    "NEN_DAY": "a bright white studio backdrop with soft grey shading and a thin glowing white circular halo ring behind the head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "GIONG_DAY": "a bright, light, friendly young woman's voice, clearly lighter than the traveller's, smooth and clear with only a faint synthetic polish, patient and encouraging like a kind language teacher on a video call, neutral American accent",
+    "NGHE_HOC": "stands with one hand resting on the strap of her bag, mouth closed; her eyes follow whatever the officer points at (the suitcase) and come back to the officer's face, with a natural, slightly worried or smiling face that matches the moment",
+    "DAO_GIU": "Her free hand rests on the strap of her bag or does the clip's action only: no hand ever goes to the head, face or hair.",
+    "DAO_NGHI": "the traveller standing with one hand resting on the bag strap, the officer standing still behind the conveyor",
+    "NHIN_CANBO": "keeps his head turned toward the traveller in three-quarter profile, looking at the traveller's face (or at the suitcase or phone the clip names); his face never turns to the camera or out of the frame",
+    "NHIN_HOC": "looks at the officer's face, eyes level, never into the lens (except when the clip's action is to look at the suitcase or the phone)",
+    "NHIN_HOC@2": "looks straight into the lens, as if talking to the AI tutor on the phone she is holding",
+    "HE_HOC": "she",
+    "HE_HOC_C": "She",
+    "HIS_HOC": "her",
+    "HIM_HOC": "her",
+    "HIMSELF_HOC": "herself",
+    "DAO_TUI": "a small cream crossbody bag",
+    "LUOT": [
+      {
+        "who": "canbo",
+        "text": "Is this your bag?",
+        "emo": "routine, calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes, it is.",
+        "emo": "worried",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "The scanner detected something. Please open your bag.",
+        "emo": "calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. It might be batteries. Would you like me to take them out?",
+        "emo": "helpful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Yes. Is this your first time in America?",
+        "emo": "interested",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes. I'm here visiting my cousin.",
+        "emo": "warm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Your English is really good, by the way.",
+        "emo": "impressed",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I've been practicing with an AI tutor.",
+        "emo": "proud, cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "What's that?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I talk to it for about 15 minutes a day, and it corrects me while I speak.",
+        "emo": "enthusiastic",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "After just three weeks, I started speaking this confidently.",
+        "emo": "proud",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Is it expensive, though?",
+        "emo": "doubtful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "No, no, it's free. Let me show you how it works.",
+        "emo": "cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "More or less.",
+        "emo": "hesitant",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I have 21.",
+        "emo": "unsure",
+        "c": "white",
+        "fx": "wrong",
+        "icon": "x",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 21.",
+        "emo": "patient, encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I am 21.",
+        "emo": "confident",
+        "c": "white",
+        "fx": "right",
+        "icon": "check",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "warm, friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "embarrassed",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar, anytime, anywhere.",
+        "emo": "confident, warm",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "delighted",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll speak like a native in no time.",
+        "emo": "reassuring",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "https://prnt.sc/OeaMTbXOZbn1"
+      ],
+      "NGUOI_DAY": [
+        {
+          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/soi-hanh-ly-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "name": "ROBOT-GIA-SU-AI.png"
+        }
+      ]
+    }
+  },
+  {
+    "name": "soi-hanh-ly-bien-the-12-nu-28-burgundy",
+    "TEN_HOC": "the traveller",
+    "VAI_HOC": "traveller",
+    "NGUOI_HOC": "a Mexican Latina woman of about 28, about 168 cm, a full curvy figure with wide hips, a diamond-shaped face with high cheekbones, a clear jawline and a slightly pointed chin, deep bronze-brown skin with natural texture and a few small pigment spots, almond-shaped brown eyes, clearly arched eyebrows, full lips, thick black hair down to the middle of the back in big loose waves with a deep side parting, a fitted square-neck burgundy top, black high-waisted jeans, short black leather boots, a black leather belt and medium gold earrings, light make-up with brown-pink lipstick, a modern, confident Latina style",
+    "GIONG_HOC": "a smooth, warm, slightly low Mexican woman's voice of about 28, mid pitch (around 185-215 Hz), confident and easy; a real Mexican woman speaking English as a second language, a natural Mexican accent with Spanish vowels and a soft r, not exaggerated; quick and a little nervous at the checkpoint, warming up and quietly proud when talking about the tutor; a real person, not an actor",
+    "POS_HOC": "RIGHT",
+    "TEN_CANBO": "the security officer",
+    "NGUOI_CANBO": "a Latino man in his forties, short dark hair slightly greying at the sides, light stubble, a firm face, a royal-blue airport security uniform shirt with dark epaulettes and a plain round shoulder patch, a black tie, a plain silver badge with no lettering, black trousers",
+    "GIONG_CANBO": "a real American airport security officer's voice, low baritone (around 130-150 Hz), a little tired from a long shift, even and unhurried, never theatrical: statements fall in pitch at the end, yes/no questions lift slightly at the end; mostly flat and routine, warming up a little when he compliments her",
+    "VAI_CANBO": "officer",
+    "POS_CANBO": "LEFT",
+    "NGHE_CANBO": "stands behind the conveyor with his right hand resting on the edge of the scanner, head turned toward the mother, mouth closed; his eyes follow whatever she touches or holds up (the suitcase, the phone) and come back to her face, with small natural reactions",
+    "DAO_VALI": "a dark navy-blue hard-shell suitcase",
+    "DAO_VALI_2": "a tan brown hard-shell suitcase",
+    "DAO_DIEN_THOAI": "a smartphone in a dark case; its screen shows a live video call with the AI tutor, the very same robot as everywhere else in this video: {{NGUOI_DAY}}, seen from the waist up in front of {{NEN_DAY}}; it is only a picture on the phone screen, never a person in the scene; no text, no buttons",
+    "NEN_SOI": "a bright modern airport security checkpoint: a grey X-ray baggage scanner with a roller conveyor, a small monitor showing a blurry grey X-ray image, tall glass windows, white columns, dark-blue hanging signs with no readable text, retractable queue belts and a line of travellers standing still in the far background",
+    "NEN_HOC": "a bright, nearly empty modern airport check-in hall, softly out of focus: tall glass windows, white columns, a glossy pale floor reflecting the light and a row of grey check-in counters in the distance",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot with glossy white armour panels and black mechanical joints at the neck, shoulders and waist, a smooth pale porcelain face with soft light-blue eyes and finely sculpted expressive lips, a calm friendly expression",
+    "NEN_DAY": "a bright white studio backdrop with soft grey shading and a thin glowing white circular halo ring behind the head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "GIONG_DAY": "a bright, light, friendly young woman's voice, clearly lighter than the traveller's, smooth and clear with only a faint synthetic polish, patient and encouraging like a kind language teacher on a video call, neutral American accent",
+    "NGHE_HOC": "stands with one hand resting on the strap of her bag, mouth closed; her eyes follow whatever the officer points at (the suitcase) and come back to the officer's face, with a natural, slightly worried or smiling face that matches the moment",
+    "DAO_GIU": "Her free hand rests on the strap of her bag or does the clip's action only: no hand ever goes to the head, face or hair.",
+    "DAO_NGHI": "the traveller standing with one hand resting on the bag strap, the officer standing still behind the conveyor",
+    "NHIN_CANBO": "keeps his head turned toward the traveller in three-quarter profile, looking at the traveller's face (or at the suitcase or phone the clip names); his face never turns to the camera or out of the frame",
+    "NHIN_HOC": "looks at the officer's face, eyes level, never into the lens (except when the clip's action is to look at the suitcase or the phone)",
+    "NHIN_HOC@2": "looks straight into the lens, as if talking to the AI tutor on the phone she is holding",
+    "HE_HOC": "she",
+    "HE_HOC_C": "She",
+    "HIS_HOC": "her",
+    "HIM_HOC": "her",
+    "HIMSELF_HOC": "herself",
+    "DAO_TUI": "a black leather shoulder bag",
+    "LUOT": [
+      {
+        "who": "canbo",
+        "text": "Is this your bag?",
+        "emo": "routine, calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes, it is.",
+        "emo": "worried",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "The scanner detected something. Please open your bag.",
+        "emo": "calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. It might be batteries. Would you like me to take them out?",
+        "emo": "helpful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Yes. Is this your first time in America?",
+        "emo": "interested",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes. I'm here visiting my sister.",
+        "emo": "warm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Your English is really good, by the way.",
+        "emo": "impressed",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I've been practicing with an AI tutor.",
+        "emo": "proud, cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "What's that?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I talk to it for about 15 minutes a day, and it corrects me while I speak.",
+        "emo": "enthusiastic",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "After just three weeks, I started speaking this confidently.",
+        "emo": "proud",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Is it expensive, though?",
+        "emo": "doubtful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "No, no, it's free. Let me show you how it works.",
+        "emo": "cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "More or less.",
+        "emo": "hesitant",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I have 28.",
+        "emo": "unsure",
+        "c": "white",
+        "fx": "wrong",
+        "icon": "x",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 28.",
+        "emo": "patient, encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I am 28.",
+        "emo": "confident",
+        "c": "white",
+        "fx": "right",
+        "icon": "check",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "warm, friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "embarrassed",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar, anytime, anywhere.",
+        "emo": "confident, warm",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "delighted",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll speak like a native in no time.",
+        "emo": "reassuring",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "https://prnt.sc/nuRL7PGR89bQ"
+      ],
+      "NGUOI_DAY": [
+        {
+          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/soi-hanh-ly-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "name": "ROBOT-GIA-SU-AI.png"
+        }
+      ]
+    }
+  },
+  {
+    "name": "soi-hanh-ly-bien-the-13-nu-25-tomboy",
+    "TEN_HOC": "the traveller",
+    "VAI_HOC": "traveller",
+    "NGUOI_HOC": "a Mexican Latina woman of about 25, about 172 cm, tall and lean, fairly broad straight shoulders, long arms and legs, a rectangular face with a high forehead, a square jaw and a wide chin, a long, slightly arched nose, small deep-set brown eyes and thick straight eyebrows, medium olive-brown skin with light freckles, a few acne marks and natural pores, a short layered black wolf cut, longer at the nape, with messy bangs, an oversized plain white T-shirt, loose black cargo trousers, chunky grey-white sneakers, a thin silver chain and a black sports watch, no make-up, a strong tomboy streetwear style",
+    "GIONG_HOC": "a low, cool, slightly husky young Mexican woman's voice of about 25, mid-low pitch (around 170-200 Hz), relaxed and laid-back; a real Mexican woman speaking English as a second language, a natural Mexican accent with Spanish vowels and a soft r, not exaggerated; quick and a little nervous at the checkpoint, warming up and quietly proud when talking about the tutor; a real person, not an actor",
+    "POS_HOC": "RIGHT",
+    "TEN_CANBO": "the security officer",
+    "NGUOI_CANBO": "a Latino man in his forties, short dark hair slightly greying at the sides, light stubble, a firm face, a royal-blue airport security uniform shirt with dark epaulettes and a plain round shoulder patch, a black tie, a plain silver badge with no lettering, black trousers",
+    "GIONG_CANBO": "a real American airport security officer's voice, low baritone (around 130-150 Hz), a little tired from a long shift, even and unhurried, never theatrical: statements fall in pitch at the end, yes/no questions lift slightly at the end; mostly flat and routine, warming up a little when he compliments her",
+    "VAI_CANBO": "officer",
+    "POS_CANBO": "LEFT",
+    "NGHE_CANBO": "stands behind the conveyor with his right hand resting on the edge of the scanner, head turned toward the mother, mouth closed; his eyes follow whatever she touches or holds up (the suitcase, the phone) and come back to her face, with small natural reactions",
+    "DAO_VALI": "a dark navy-blue hard-shell suitcase",
+    "DAO_VALI_2": "a tan brown hard-shell suitcase",
+    "DAO_DIEN_THOAI": "a smartphone in a dark case; its screen shows a live video call with the AI tutor, the very same robot as everywhere else in this video: {{NGUOI_DAY}}, seen from the waist up in front of {{NEN_DAY}}; it is only a picture on the phone screen, never a person in the scene; no text, no buttons",
+    "NEN_SOI": "a bright modern airport security checkpoint: a grey X-ray baggage scanner with a roller conveyor, a small monitor showing a blurry grey X-ray image, tall glass windows, white columns, dark-blue hanging signs with no readable text, retractable queue belts and a line of travellers standing still in the far background",
+    "NEN_HOC": "a bright, nearly empty modern airport check-in hall, softly out of focus: tall glass windows, white columns, a glossy pale floor reflecting the light and a row of grey check-in counters in the distance",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot with glossy white armour panels and black mechanical joints at the neck, shoulders and waist, a smooth pale porcelain face with soft light-blue eyes and finely sculpted expressive lips, a calm friendly expression",
+    "NEN_DAY": "a bright white studio backdrop with soft grey shading and a thin glowing white circular halo ring behind the head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "GIONG_DAY": "a bright, light, friendly young woman's voice, clearly lighter than the traveller's, smooth and clear with only a faint synthetic polish, patient and encouraging like a kind language teacher on a video call, neutral American accent",
+    "NGHE_HOC": "stands with one hand resting on the strap of her bag, mouth closed; her eyes follow whatever the officer points at (the suitcase) and come back to the officer's face, with a natural, slightly worried or smiling face that matches the moment",
+    "DAO_GIU": "Her free hand rests on the strap of her bag or does the clip's action only: no hand ever goes to the head, face or hair.",
+    "DAO_NGHI": "the traveller standing with one hand resting on the bag strap, the officer standing still behind the conveyor",
+    "NHIN_CANBO": "keeps his head turned toward the traveller in three-quarter profile, looking at the traveller's face (or at the suitcase or phone the clip names); his face never turns to the camera or out of the frame",
+    "NHIN_HOC": "looks at the officer's face, eyes level, never into the lens (except when the clip's action is to look at the suitcase or the phone)",
+    "NHIN_HOC@2": "looks straight into the lens, as if talking to the AI tutor on the phone she is holding",
+    "HE_HOC": "she",
+    "HE_HOC_C": "She",
+    "HIS_HOC": "her",
+    "HIM_HOC": "her",
+    "HIMSELF_HOC": "herself",
+    "DAO_TUI": "a black canvas sling bag",
+    "LUOT": [
+      {
+        "who": "canbo",
+        "text": "Is this your bag?",
+        "emo": "routine, calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes, it is.",
+        "emo": "worried",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "The scanner detected something. Please open your bag.",
+        "emo": "calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. It might be batteries. Would you like me to take them out?",
+        "emo": "helpful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Yes. Is this your first time in America?",
+        "emo": "interested",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes. I'm here visiting my brother.",
+        "emo": "warm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Your English is really good, by the way.",
+        "emo": "impressed",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I've been practicing with an AI tutor.",
+        "emo": "proud, cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "What's that?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I talk to it for about 15 minutes a day, and it corrects me while I speak.",
+        "emo": "enthusiastic",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "After just three weeks, I started speaking this confidently.",
+        "emo": "proud",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Is it expensive, though?",
+        "emo": "doubtful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "No, no, it's free. Let me show you how it works.",
+        "emo": "cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "More or less.",
+        "emo": "hesitant",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I have 25.",
+        "emo": "unsure",
+        "c": "white",
+        "fx": "wrong",
+        "icon": "x",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 25.",
+        "emo": "patient, encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I am 25.",
+        "emo": "confident",
+        "c": "white",
+        "fx": "right",
+        "icon": "check",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "warm, friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "embarrassed",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar, anytime, anywhere.",
+        "emo": "confident, warm",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "delighted",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll speak like a native in no time.",
+        "emo": "reassuring",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "https://prnt.sc/WSc4cnNLpU77"
+      ],
+      "NGUOI_DAY": [
+        {
+          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/soi-hanh-ly-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "name": "ROBOT-GIA-SU-AI.png"
+        }
+      ]
+    }
+  },
+  {
+    "name": "soi-hanh-ly-bien-the-14-nu-35-minimal",
+    "TEN_HOC": "the traveller",
+    "VAI_HOC": "traveller",
+    "NGUOI_HOC": "a Mexican Latina woman of about 35, about 163 cm, slender and slightly thin, small shoulders and a long neck, a long oval face with slightly hollow cheeks, a wide forehead, a long chin and a high nose with a slightly hooked tip, light golden-brown skin with a few pigment spots, faint wrinkles around the eyes and natural smile lines, small brown eyes with slightly hooded lids and thin natural eyebrows, straight chestnut-brown hair in a chin-length bob with a centre parting, neatly combed, a loose cream silk shirt with the top button open and sleeves slightly rolled, black high-waisted wide-leg trousers, a thin leather belt, black loafers and small gold earrings, a minimalist, elegant style",
+    "GIONG_HOC": "a calm, precise, mid-pitched Mexican woman's voice of about 35 (around 190-220 Hz), composed and a little serious; a real Mexican woman speaking English as a second language, a natural Mexican accent with Spanish vowels and a soft r, not exaggerated; quick and a little nervous at the checkpoint, warming up and quietly proud when talking about the tutor; a real person, not an actor",
+    "POS_HOC": "RIGHT",
+    "TEN_CANBO": "the security officer",
+    "NGUOI_CANBO": "a Latino man in his forties, short dark hair slightly greying at the sides, light stubble, a firm face, a royal-blue airport security uniform shirt with dark epaulettes and a plain round shoulder patch, a black tie, a plain silver badge with no lettering, black trousers",
+    "GIONG_CANBO": "a real American airport security officer's voice, low baritone (around 130-150 Hz), a little tired from a long shift, even and unhurried, never theatrical: statements fall in pitch at the end, yes/no questions lift slightly at the end; mostly flat and routine, warming up a little when he compliments her",
+    "VAI_CANBO": "officer",
+    "POS_CANBO": "LEFT",
+    "NGHE_CANBO": "stands behind the conveyor with his right hand resting on the edge of the scanner, head turned toward the mother, mouth closed; his eyes follow whatever she touches or holds up (the suitcase, the phone) and come back to her face, with small natural reactions",
+    "DAO_VALI": "a dark navy-blue hard-shell suitcase",
+    "DAO_VALI_2": "a tan brown hard-shell suitcase",
+    "DAO_DIEN_THOAI": "a smartphone in a dark case; its screen shows a live video call with the AI tutor, the very same robot as everywhere else in this video: {{NGUOI_DAY}}, seen from the waist up in front of {{NEN_DAY}}; it is only a picture on the phone screen, never a person in the scene; no text, no buttons",
+    "NEN_SOI": "a bright modern airport security checkpoint: a grey X-ray baggage scanner with a roller conveyor, a small monitor showing a blurry grey X-ray image, tall glass windows, white columns, dark-blue hanging signs with no readable text, retractable queue belts and a line of travellers standing still in the far background",
+    "NEN_HOC": "a bright, nearly empty modern airport check-in hall, softly out of focus: tall glass windows, white columns, a glossy pale floor reflecting the light and a row of grey check-in counters in the distance",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot with glossy white armour panels and black mechanical joints at the neck, shoulders and waist, a smooth pale porcelain face with soft light-blue eyes and finely sculpted expressive lips, a calm friendly expression",
+    "NEN_DAY": "a bright white studio backdrop with soft grey shading and a thin glowing white circular halo ring behind the head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "GIONG_DAY": "a bright, light, friendly young woman's voice, clearly lighter than the traveller's, smooth and clear with only a faint synthetic polish, patient and encouraging like a kind language teacher on a video call, neutral American accent",
+    "NGHE_HOC": "stands with one hand resting on the strap of her bag, mouth closed; her eyes follow whatever the officer points at (the suitcase) and come back to the officer's face, with a natural, slightly worried or smiling face that matches the moment",
+    "DAO_GIU": "Her free hand rests on the strap of her bag or does the clip's action only: no hand ever goes to the head, face or hair.",
+    "DAO_NGHI": "the traveller standing with one hand resting on the bag strap, the officer standing still behind the conveyor",
+    "NHIN_CANBO": "keeps his head turned toward the traveller in three-quarter profile, looking at the traveller's face (or at the suitcase or phone the clip names); his face never turns to the camera or out of the frame",
+    "NHIN_HOC": "looks at the officer's face, eyes level, never into the lens (except when the clip's action is to look at the suitcase or the phone)",
+    "NHIN_HOC@2": "looks straight into the lens, as if talking to the AI tutor on the phone she is holding",
+    "HE_HOC": "she",
+    "HE_HOC_C": "She",
+    "HIS_HOC": "her",
+    "HIM_HOC": "her",
+    "HIMSELF_HOC": "herself",
+    "DAO_TUI": "a structured black leather shoulder bag",
+    "LUOT": [
+      {
+        "who": "canbo",
+        "text": "Is this your bag?",
+        "emo": "routine, calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes, it is.",
+        "emo": "worried",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "The scanner detected something. Please open your bag.",
+        "emo": "calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. It might be batteries. Would you like me to take them out?",
+        "emo": "helpful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Yes. Is this your first time in America?",
+        "emo": "interested",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes. I'm here visiting my sister.",
+        "emo": "warm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Your English is really good, by the way.",
+        "emo": "impressed",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I've been practicing with an AI tutor.",
+        "emo": "proud, cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "What's that?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I talk to it for about 15 minutes a day, and it corrects me while I speak.",
+        "emo": "enthusiastic",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "After just three weeks, I started speaking this confidently.",
+        "emo": "proud",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Is it expensive, though?",
+        "emo": "doubtful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "No, no, it's free. Let me show you how it works.",
+        "emo": "cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "More or less.",
+        "emo": "hesitant",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I have 35.",
+        "emo": "unsure",
+        "c": "white",
+        "fx": "wrong",
+        "icon": "x",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 35.",
+        "emo": "patient, encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I am 35.",
+        "emo": "confident",
+        "c": "white",
+        "fx": "right",
+        "icon": "check",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "warm, friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "embarrassed",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar, anytime, anywhere.",
+        "emo": "confident, warm",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "delighted",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll speak like a native in no time.",
+        "emo": "reassuring",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "https://prnt.sc/JBWy5J26DNyH"
+      ],
+      "NGUOI_DAY": [
+        {
+          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/soi-hanh-ly-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "name": "ROBOT-GIA-SU-AI.png"
+        }
+      ]
+    }
+  },
+  {
+    "name": "soi-hanh-ly-bien-the-15-nu-30-artistic",
+    "TEN_HOC": "the traveller",
+    "VAI_HOC": "traveller",
+    "NGUOI_HOC": "a Mexican Latina woman of about 30, about 160 cm, sturdy and slightly heavy-set, full arms, sloping shoulders and a not-too-small waist, a pear-shaped face with a wide lower jaw, a narrow forehead, slightly asymmetric cheeks and a round chin, dark brown skin with visible pores, a few dark marks and natural pigment spots, slightly deep-set dark-brown eyes with heavy lids, a wide nose, an upper lip thinner than the lower lip, very thick naturally curly shoulder-length hair dyed copper-brown with clearly visible black roots, a black tank top under an open oversized olive-green linen shirt, straight charcoal-grey jeans, low black leather boots, big round glasses, asymmetric silver earrings, a thin necklace and a small tattoo on the forearm, an artistic alternative style",
+    "GIONG_HOC": "a lively, slightly raspy Mexican woman's voice of about 30, mid pitch (around 185-215 Hz), curious and playful; a real Mexican woman speaking English as a second language, a natural Mexican accent with Spanish vowels and a soft r, not exaggerated; quick and a little nervous at the checkpoint, warming up and quietly proud when talking about the tutor; a real person, not an actor",
+    "POS_HOC": "RIGHT",
+    "TEN_CANBO": "the security officer",
+    "NGUOI_CANBO": "a Latino man in his forties, short dark hair slightly greying at the sides, light stubble, a firm face, a royal-blue airport security uniform shirt with dark epaulettes and a plain round shoulder patch, a black tie, a plain silver badge with no lettering, black trousers",
+    "GIONG_CANBO": "a real American airport security officer's voice, low baritone (around 130-150 Hz), a little tired from a long shift, even and unhurried, never theatrical: statements fall in pitch at the end, yes/no questions lift slightly at the end; mostly flat and routine, warming up a little when he compliments her",
+    "VAI_CANBO": "officer",
+    "POS_CANBO": "LEFT",
+    "NGHE_CANBO": "stands behind the conveyor with his right hand resting on the edge of the scanner, head turned toward the mother, mouth closed; his eyes follow whatever she touches or holds up (the suitcase, the phone) and come back to her face, with small natural reactions",
+    "DAO_VALI": "a dark navy-blue hard-shell suitcase",
+    "DAO_VALI_2": "a tan brown hard-shell suitcase",
+    "DAO_DIEN_THOAI": "a smartphone in a dark case; its screen shows a live video call with the AI tutor, the very same robot as everywhere else in this video: {{NGUOI_DAY}}, seen from the waist up in front of {{NEN_DAY}}; it is only a picture on the phone screen, never a person in the scene; no text, no buttons",
+    "NEN_SOI": "a bright modern airport security checkpoint: a grey X-ray baggage scanner with a roller conveyor, a small monitor showing a blurry grey X-ray image, tall glass windows, white columns, dark-blue hanging signs with no readable text, retractable queue belts and a line of travellers standing still in the far background",
+    "NEN_HOC": "a bright, nearly empty modern airport check-in hall, softly out of focus: tall glass windows, white columns, a glossy pale floor reflecting the light and a row of grey check-in counters in the distance",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot with glossy white armour panels and black mechanical joints at the neck, shoulders and waist, a smooth pale porcelain face with soft light-blue eyes and finely sculpted expressive lips, a calm friendly expression",
+    "NEN_DAY": "a bright white studio backdrop with soft grey shading and a thin glowing white circular halo ring behind the head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "GIONG_DAY": "a bright, light, friendly young woman's voice, clearly lighter than the traveller's, smooth and clear with only a faint synthetic polish, patient and encouraging like a kind language teacher on a video call, neutral American accent",
+    "NGHE_HOC": "stands with one hand resting on the strap of her bag, mouth closed; her eyes follow whatever the officer points at (the suitcase) and come back to the officer's face, with a natural, slightly worried or smiling face that matches the moment",
+    "DAO_GIU": "Her free hand rests on the strap of her bag or does the clip's action only: no hand ever goes to the head, face or hair.",
+    "DAO_NGHI": "the traveller standing with one hand resting on the bag strap, the officer standing still behind the conveyor",
+    "NHIN_CANBO": "keeps his head turned toward the traveller in three-quarter profile, looking at the traveller's face (or at the suitcase or phone the clip names); his face never turns to the camera or out of the frame",
+    "NHIN_HOC": "looks at the officer's face, eyes level, never into the lens (except when the clip's action is to look at the suitcase or the phone)",
+    "NHIN_HOC@2": "looks straight into the lens, as if talking to the AI tutor on the phone she is holding",
+    "HE_HOC": "she",
+    "HE_HOC_C": "She",
+    "HIS_HOC": "her",
+    "HIM_HOC": "her",
+    "HIMSELF_HOC": "herself",
+    "DAO_TUI": "a mustard-yellow canvas tote bag",
+    "LUOT": [
+      {
+        "who": "canbo",
+        "text": "Is this your bag?",
+        "emo": "routine, calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes, it is.",
+        "emo": "worried",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "The scanner detected something. Please open your bag.",
+        "emo": "calm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. It might be batteries. Would you like me to take them out?",
+        "emo": "helpful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Yes. Is this your first time in America?",
+        "emo": "interested",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes. I'm here visiting my best friend.",
+        "emo": "warm",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Your English is really good, by the way.",
+        "emo": "impressed",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I've been practicing with an AI tutor.",
+        "emo": "proud, cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "What's that?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I talk to it for about 15 minutes a day, and it corrects me while I speak.",
+        "emo": "enthusiastic",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "After just three weeks, I started speaking this confidently.",
+        "emo": "proud",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Is it expensive, though?",
+        "emo": "doubtful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "No, no, it's free. Let me show you how it works.",
+        "emo": "cheerful",
+        "c": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "More or less.",
+        "emo": "hesitant",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I have 30.",
+        "emo": "unsure",
+        "c": "white",
+        "fx": "wrong",
+        "icon": "x",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 30.",
+        "emo": "patient, encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I am 30.",
+        "emo": "confident",
+        "c": "white",
+        "fx": "right",
+        "icon": "check",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "encouraging",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "warm, friendly",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "embarrassed",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar, anytime, anywhere.",
+        "emo": "confident, warm",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "delighted",
+        "c": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll speak like a native in no time.",
+        "emo": "reassuring",
+        "c": "yellow",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "https://prnt.sc/jrxSnyOoTSWB"
+      ],
+      "NGUOI_DAY": [
+        {
+          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/soi-hanh-ly-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "name": "ROBOT-GIA-SU-AI.png"
+        }
+      ]
+    }
+  }
+]

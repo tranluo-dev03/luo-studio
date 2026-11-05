@@ -30,6 +30,10 @@ Giữa phần 1 và 2: nhoè chuyển động 0,5 giây. Bố cục phần 2: ô
 | `KICH-BAN-SOI-HANH-LY-GIA-SU-AI.txt` | Kịch bản: `[HAU KY] loai: soi-hanh-ly-gia-su-ai` + `===== PHAN 1 =====` (13 CẢNH) + `===== PHAN 2 ... \| vao: nhoe 0.5 =====` (`[GHEP HAI LOP]`) |
 | `BIEN-THE-SOI-HANH-LY-GIA-SU-AI.json` | 2 biến thể (cùng lời, khác nhân vật/đồ vật), 28 lượt; mỗi lượt có `"phan"`, `"c"`, `"fx"`, tuỳ chọn `"icon"` |
 | `cong-cu/tao_kich_ban.py` | Sinh lại kịch bản từ bảng 13 cảnh (góc máy, hành động, EYE LINE từng cảnh). Sửa ở đây rồi chạy, không sửa tay file `.txt` |
+| `KICH-BAN-SOI-HANH-LY-GIA-SU-AI-KHONG-BE.txt` | Bản kịch bản KHÔNG em bé (hành khách nam hoặc nữ, tay đặt lên quai túi; đại từ thành token `HE_HOC`, `HE_HOC_C`, `HIS_HOC`, `HIM_HOC`, `HIMSELF_HOC`). Sinh bằng `cong-cu/tao_kich_ban.py --khong-be`, không sửa tay |
+| `BIEN-THE-SOI-HANH-LY-20-KHONG-BE.json` | Bộ "20 biến thể Check luggage" (05/11/2026), biến thể 1-15 (5 nam, 10 nữ, không địu con): dùng với kịch bản KHONG-BE |
+| `BIEN-THE-SOI-HANH-LY-20-DIU-CON.json` | Biến thể 16-20 (người mẹ địu con): dùng với kịch bản có em bé |
+| `cong-cu/tao_bien_the_20.py` | Sinh 2 file trên từ bảng: chỉ đổi hành khách + giọng, tuổi trong câu "I have / I am", câu "visiting my ..." hợp tuổi; ảnh tham chiếu `NGUOI_HOC` = link prnt.sc từng biến thể, `NGUOI_DAY` = `ROBOT-GIA-SU-AI.png` |
 | `PHAN-TICH-VIDEO-MAU.md` | Bảng từng cảnh, bố cục/vị trí, hiệu ứng, bảng lượt thoại + hành động, bảng "video gốc → kịch bản" |
 | `PROMPT-CHO-AGENT.txt` | Quy tắc riêng để agent viết biến thể mới |
 

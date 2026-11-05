@@ -389,7 +389,7 @@ def run_split(vdata, template, out_dir, opts, emit, cancel):
                             ident=base[k] if chain else None, spare=spare, orig=att[k][0])   # có khoá miệng thì không cần đo miệng + gen lại (đỡ tốn lượt gen)
             if chain:   # khớp khung đầu clip nghe với khung người xem vừa thấy
                 fa = P(f"scene{n}_listen_{k}_khop.mp4")
-                if not os.path.exists(fa) or os.path.getmtime(fa) < os.path.getmtime(f):
+                if not _fresh(fa, f):
                     emit("log", msg=f"Cảnh {n}: khớp clip nghe {k} với khung nối ({align_to_tail(f, seen[k], fa, base[k])})")
                 f = fa
             if _lock_on(cfg, k):
@@ -489,7 +489,7 @@ def run_split(vdata, template, out_dir, opts, emit, cancel):
         src_f = spk_f
         if chain:   # Muse không giữ đúng khung đầu (tự thu khung, đổi màu): căn khớp hình + màu về khung người xem vừa thấy, hoà 0,2s đầu
             src_f = P(f"scene{n}_spk_khop.mp4")
-            if not os.path.exists(src_f) or os.path.getmtime(src_f) < os.path.getmtime(spk_f):
+            if not _fresh(src_f, spk_f):
                 emit("log", msg=f"Cảnh {n}: khớp clip {spk} với khung nối ({align_to_tail(spk_f, seen[spk], src_f, base[spk])})")
         elif opts.get("normalize", True):   # cân màu từng nhân vật về clip đầu tiên của chính nhân vật đó
             c_start, c_end = E.color_stats(spk_f, [0.04, 0.2, 0.4]), E.color_stats(spk_f, [-0.6, -0.35, -0.1])
@@ -700,7 +700,7 @@ def align_to_tail(src, tail_png, out, base_png=None, blend=0.2, pull=0.35):
     n, nb = len(frames), max(1, int(round(blend * fps)))
     proc = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{w}x{h}", "-r", f"{fps:.6f}", "-i", "-",
                              "-i", src, "-map", "0:v", "-map", "1:a?", "-c:v", "libx264", "-crf", "16", "-preset", "fast", "-pix_fmt", "yuv420p",
-                             "-c:a", "copy", "-shortest", out], stdin=subprocess.PIPE, stderr=subprocess.PIPE)
+                             "-c:a", "copy", "-shortest", "-f", "mp4", out + ".dang-ghi"], stdin=subprocess.PIPE, stderr=subprocess.PIPE)
     try:
         for i, f in enumerate(frames):
             u = i / max(1, n - 1)
@@ -718,9 +718,12 @@ def align_to_tail(src, tail_png, out, base_png=None, blend=0.2, pull=0.35):
         err = proc.stderr.read().decode("utf-8", "replace")
         if proc.wait():
             raise RuntimeError(f"ffmpeg lỗi khi căn khớp clip: {err[-300:]}")
+        os.replace(out + ".dang-ghi", out)
     finally:
         if proc.poll() is None:
             proc.kill()
+        if os.path.exists(out + ".dang-ghi"):
+            os.remove(out + ".dang-ghi")
     return f"{note}, màu khớp khung nối, hoà {blend:.1f}s"
 
 
@@ -871,6 +874,19 @@ _LIPS = [61, 146, 91, 181, 84, 17, 314, 405, 321, 375, 291, 409, 270, 269, 267, 
 _ANCHOR = [1, 2, 4, 5, 6, 98, 327, 195, 168, 205, 425, 50, 280, 234, 454, 10, 33, 263, 133, 362]   # mũi, má, mắt, trán: bám theo đầu, không theo hàm/môi
 
 
+def _fresh(out, src):
+    """File dẫn xuất `out` dùng lại được: có, không cũ hơn `src`, và đọc được (file dở do tắt LUO giữa chừng: thiếu moov atom -> xoá để làm lại)."""
+    if not os.path.exists(out) or os.path.getmtime(out) < os.path.getmtime(src):
+        return False
+    try:
+        if E.duration(out) > 0:
+            return True
+    except Exception:  # noqa: BLE001 - ffprobe không đọc được
+        pass
+    os.remove(out)
+    return False
+
+
 def _lock_on(cfg, k):
     """Có khoá miệng clip nghe của nhân vật k không ("khoa mieng: co" = mọi nhân vật, "khoa mieng: HOC" = chỉ HOC)."""
     return k in cfg["lock"] if isinstance(cfg["lock"], set) else bool(cfg["lock"])
@@ -879,7 +895,7 @@ def _lock_on(cfg, k):
 def _locked(f, emit, pre, k):
     """Bản đã khoá miệng của clip nghe `f` (tạo nếu chưa có / cũ hơn clip); lỗi thì dùng clip gốc."""
     fl = f[:-4] + "_khoa.mp4"
-    if os.path.exists(fl) and os.path.getmtime(fl) >= os.path.getmtime(f):
+    if _fresh(fl, f):
         return fl
     try:
         r = lock_mouth(f, fl)
@@ -946,7 +962,7 @@ def lock_mouth(src, out, grow=1.45, feather=0.35, ease=0.3):
     ring = cv2.dilate((mask > 0.01).astype(np.uint8), np.ones((k, k), np.uint8)) - (mask > 0.01).astype(np.uint8)
     proc = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{w}x{h}", "-r", f"{fps:.6f}", "-i", "-",
                              "-i", src, "-map", "0:v", "-map", "1:a?", "-c:v", "libx264", "-crf", "16", "-preset", "fast", "-pix_fmt", "yuv420p",
-                             "-c:a", "copy", "-shortest", out], stdin=subprocess.PIPE, stderr=subprocess.PIPE)
+                             "-c:a", "copy", "-shortest", "-f", "mp4", out + ".dang-ghi"], stdin=subprocess.PIPE, stderr=subprocess.PIPE)
     done, M = 0, None
     try:
         for i, f in enumerate(frames):
@@ -966,9 +982,12 @@ def lock_mouth(src, out, grow=1.45, feather=0.35, ease=0.3):
         err = proc.stderr.read().decode("utf-8", "replace")
         if proc.wait():
             raise RuntimeError(f"ffmpeg lỗi khi khoá miệng: {err[-300:]}")
+        os.replace(out + ".dang-ghi", out)
     finally:
         if proc.poll() is None:
             proc.kill()
+        if os.path.exists(out + ".dang-ghi"):
+            os.remove(out + ".dang-ghi")
     return done, len(frames)
 
 
