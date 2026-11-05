@@ -133,13 +133,13 @@ Vertical short-form social video look, bright even indoor light, crisp focus on 
 {{TEN_HOC}}: {{NGUOI_HOC}}. The traveller sits behind {{QUAY_HOC}}, facing the camera straight on, framed from the waist up, both hands resting flat on the counter; {{DAO_QUAY}} lie still on the counter in front of the traveller. The camera is fixed at counter height, chest level, and never moves. The traveller's head is slightly left of centre in the upper half of the frame; the top-right corner of the frame (right third, top quarter) shows only calm background, because it is covered later by a small tutor window; the head always stays clearly left of that corner and the traveller never leans toward the right. Behind the traveller: {{NEN_HOC}}. The traveller looks straight into the lens while speaking, as if talking to the AI on the phone in front of them. Small natural hand gestures are allowed while speaking, and the hands always come back to rest flat on the counter. VOICE: {{GIONG_HOC}}, the same timbre, pitch and loudness in every clip.
 
 [NGHE HOC]:
-{{TEN_HOC}} listens to the AI tutor: friendly attentive expression and a soft smile, eyes on the lens, slow natural blinks, a small nod now and then, both hands resting flat on the counter. The lips stay gently pressed together the whole clip; the head stays mostly still (only the small nod or tilt above), no talking-like head bobbing, never mirrors the speaker.
+{{TEN_HOC}} listens to the AI tutor: friendly attentive expression and a soft smile, eyes on the lens, slow natural blinks, a small nod now and then, both hands resting flat on the counter. The lips stay gently pressed together the whole clip; the head stays mostly still (only the small nod or tilt above).
 
 [NHAN VAT DAY]:
 {{TEN_DAY}}: {{NGUOI_DAY}}. Portrait-oriented frame (taller than wide): the robot stands upright, head and upper body down to the waist, centred, head in the upper third, arms relaxed at the sides. Behind it: {{NEN_DAY}}. The camera is locked off and never moves. While speaking the robot moves its lips in clear sync with the words, with small head tilts and slow blinks. VOICE: {{GIONG_DAY}}, the same timbre, pitch and loudness in every clip.
 
 [NGHE DAY]:
-{{TEN_DAY}} listens calmly: stands, a gentle closed-mouth smile, slow blinks, a tiny head tilt now and then, arms at the sides. The lips stay gently pressed together the whole clip; the head stays mostly still (only the small nod or tilt above), no talking-like head bobbing, never mirrors the speaker.
+{{TEN_DAY}} listens calmly: stands, a gentle closed-mouth smile, slow blinks, a tiny head tilt now and then, arms at the sides. The lips stay gently pressed together the whole clip; the head stays mostly still (only the small nod or tilt above).
 
 [VIDEO SUFFIX]:
 Natural spontaneous conversational delivery, not text-to-speech, clear and brisk (about 3.5 words per second, short lines up to 5), the line starts right away, light natural breaths, a smile audible in the voice when the line is positive. Clean voice only, no music, no background sound effects, no airport announcements, no echo.
