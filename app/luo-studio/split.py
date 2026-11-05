@@ -231,6 +231,7 @@ def run_split(vdata, template, out_dir, opts, emit, cancel):
     if only:
         luot = luot[:only]
     E._TL.cancel = cancel
+    E.set_prompt_prefix(opts)
     api = E.Api(opts["api_url"], opts["api_key"])
     pin, pin_prefer = opts.get("pin"), opts.get("pin_prefer")
     refs = [G.data_url(p) for p in opts.get("refs", []) if p and os.path.exists(p)]

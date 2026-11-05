@@ -164,6 +164,22 @@ _QUOTA_RE = re.compile(r"24-hour limit|budget is (?:still )?exhausted|video budg
 
 _TL = threading.local()
 
+# Muse (04/11/2026) là agent có bộ nhớ: nó tóm tắt prompt rồi mới gọi công cụ tạo media, trộn MEMORY.md / AGENTS.md / Goal của cả loạt video vào,
+# nên mỗi lần gen Muse đọc một prompt khác nhau -> clip khác nhau, người nghe nhép miệng theo lời của cảnh. Câu dẫn này đặt trước MỌI prompt
+# (mọi thể loại; tắt bằng cài đặt "muse_directive": false).
+MEDIA_DIRECTIVE = (
+    "[DIRECT MEDIA REQUEST] Call the media generation tool exactly once and give it the full request text below as its prompt, "
+    "VERBATIM, word for word: do not summarize, shorten, paraphrase, translate or add anything. Do not read or use MEMORY.md, "
+    "AGENTS.md, goals, notes, earlier chats, or earlier images and videos from the library; use only the files attached to this "
+    "message, in the order given. Do not add any dialogue, speech, action or person that the request does not ask for. "
+    "Do not launch subagents, do not draft follow-up clips, do not write memory or notes about this request. "
+    "Reply only with the generated file.\n\n--- REQUEST ---\n")
+
+
+def set_prompt_prefix(opts):
+    """Đặt câu dẫn Muse cho luồng gen hiện tại theo cài đặt (gọi ở đầu run_variant / run_split)."""
+    _TL.prompt_prefix = MEDIA_DIRECTIVE if (opts or {}).get("muse_directive", True) else ""
+
 
 def crun(cmd, capture_output=False, text=False, encoding=None, errors=None, **kw):
     """subprocess.run có thể huỷ: nếu luồng hiện tại có cờ huỷ (set trong run_variant) thì kill tiến trình và ném Cancelled."""
@@ -827,7 +843,23 @@ def voice_span(path, expected):
             os.remove(wav)
         except OSError:
             pass
-    hit = [(a, b) for t, a, b in words if (has_num and t.isdigit()) or any(difflib.SequenceMatcher(None, t, e).ratio() >= 0.78 for e in exp)]
+    same = lambda t, e: (has_num and t.isdigit() and e.isdigit()) or difflib.SequenceMatcher(None, t, e).ratio() >= 0.78
+    hit = [(a, b) for t, a, b in words if any(same(t, e) for e in exp)]
+    # Muse hay nói THÊM một từ của câu sau quãng nghỉ ("How old are you? ... How?", 05/11): từ đó cũng khớp lời thoại nên trước đây được giữ
+    # lại thành "thừa thoại". Nay: khi đã nghe đủ (>= 90%) các từ của câu theo đúng thứ tự mà sau đó có quãng nghỉ >= 0,6 s rồi mới có tiếng
+    # tiếp, thì câu kết thúc trước quãng nghỉ đó; mọi thứ sau bị cắt bỏ. Câu nói thật không có quãng nghỉ dài như vậy ở giữa.
+    need, k, cut_after = max(1, int(round(0.9 * len(exp)))), 0, None
+    for i, (t, a, b) in enumerate((x for x in words if any(same(x[0], e) for e in exp))):
+        if cut_after is not None:
+            break
+        if k < len(exp) and same(t, exp[k]):
+            k += 1
+        elif k < len(exp) and k + 1 < len(exp) and same(t, exp[k + 1]):   # Whisper bỏ sót một từ
+            k += 2
+        if k >= need and i + 1 < len(hit) and hit[i + 1][0] - b >= 0.6:
+            cut_after = i
+    if cut_after is not None:
+        hit = hit[:cut_after + 1]
     # Whisper ở đây là bản tiếng Anh (small.en). Với câu tiếng Tây Ban Nha nó chỉ khớp vài từ giữa câu: từ khớp đầu muộn hơn lời thật (mất đầu câu,
     # "El inglés", "Descarga Talka"), từ khớp cuối sớm hơn lời thật (mất đuôi câu, "fácil"), hoặc khớp quá ít -> trước đây trả None và cắt theo cách
     # thường, để lại đoạn nghỉ dài. Bổ sung lúc có tiếng nói thật theo năng lượng âm thanh (không phụ thuộc ngôn ngữ).
@@ -835,7 +867,7 @@ def voice_span(path, expected):
         return (onset, offset) if onset is not None and offset is not None and offset - onset > 0.5 else None
     start = onset if onset is not None and onset < hit[0][0] else hit[0][0]
     end = hit[-1][1]
-    if offset is not None and end < offset <= end + 1.5:   # tiếng nói còn tiếp sau từ khớp cuối (từ cuối Whisper không nhận ra)
+    if cut_after is None and offset is not None and end < offset <= end + 1.5:   # tiếng nói còn tiếp sau từ khớp cuối (từ cuối Whisper không nhận ra)
         end = offset
     return start, end
 
@@ -1054,6 +1086,15 @@ def speech_issues(expected, path):
     extra = [h for h in hrd if not any(near(h, e) for e in exp)]
     if len(extra) >= 2:
         out.append((f'thừa từ ngoài lời thoại ({" ".join(extra[:5])})', f'extra words not in the line were said ({" ".join(extra[:5])})'))
+    # từ CỦA CÂU được nói nhiều lần hơn trong câu, dù không liền nhau ("How old are you? ... How?", 05/11): trước đây lọt vì vừa không lặp liền, vừa không lạ
+    cnt = {}
+    for h in hrd:   # mỗi từ nghe được chỉ tính cho MỘT từ của câu, từ giống nhất (near() cho "show" ~ "how": không được đếm "show" vào "how")
+        best = max((e for e in dict.fromkeys(exp) if near(h, e)), key=lambda e: (h == e, difflib.SequenceMatcher(None, h, e).ratio()), default=None)
+        if best is not None:
+            cnt[best] = cnt.get(best, 0) + 1
+    over = [e for e in dict.fromkeys(exp) if cnt.get(e, 0) > exp.count(e) and (len(e) > 1 or cnt[e] > exp.count(e) + 1)]   # từ 1 chữ ("a", "I") Whisper hay nghe thừa một lần: bỏ qua
+    if over and not any("nói lặp" in v for v, _ in out):
+        out.append((f'nói thừa từ của câu ({" ".join(over[:5])})', f'these words of the line were said more times than in the line ({" ".join(over[:5])})'))
     hit = sum(1 for e in exp if any(near(e, h) for h in hrd)) / len(exp)
     if hit < 0.7:
         out.append((f"thiếu lời (chỉ nghe được {hit:.0%})", "part of the line was missing"))
@@ -1121,6 +1162,81 @@ def head_check(clip, cut, factor=1.0, span=1.2):
     if a is None or b is None:
         return None
     return round(b - a, 1), f"đầu clip gốc {a:.0f}dB, sau cắt {b:.0f}dB"
+
+
+def camera_drift(path, fps=4, w=360, h=640):
+    """Máy quay có trôi / lia / đẩy vào trong clip không, so với khung ĐẦU: (dịch ngang lớn nhất theo tỉ lệ bề ngang, dịch dọc theo tỉ lệ chiều cao, |log(tỉ lệ zoom)|
+    lớn nhất, số điểm nền khớp ít nhất). Khớp điểm đặc trưng ORB giữa khung đầu và từng khung (4 khung/giây), ước lượng phép dời+xoay+phóng bằng RANSAC: điểm
+    khớp chủ yếu nằm trên nền tĩnh (biển, cột, máy móc) nên người cử động không làm lệch. Dịch đo ở tâm khung (gồm cả phần do zoom). Đo thật (soi hành lý 05/11):
+    máy đứng yên ≤ 1,2% / zoom ≤ 2%; máy lia (cảnh 1) 74%; máy đẩy vào (cảnh 13) 52%, zoom lớn, chỉ còn 5 điểm khớp. None nếu không đọc được clip."""
+    import cv2
+    fr = _gray_frames(path, 0.0, max(0.5, video_duration(path)), fps, w, h).astype(np.uint8)
+    if len(fr) < 2:
+        return None
+    orb = cv2.ORB_create(1500)
+    bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
+    k0, d0 = orb.detectAndCompute(fr[0], None)
+    if d0 is None or len(k0) < 20:
+        return None
+    dx = dy = dz = 0.0
+    inl_min = 10 ** 6
+    for f in fr[1:]:
+        k1, d1 = orb.detectAndCompute(f, None)
+        m = bf.match(d0, d1) if d1 is not None else []
+        if len(m) < 20:
+            inl_min = min(inl_min, len(m))
+            continue
+        p0 = np.float32([k0[x.queryIdx].pt for x in m])
+        p1 = np.float32([k1[x.trainIdx].pt for x in m])
+        M, inl = cv2.estimateAffinePartial2D(p0, p1, method=cv2.RANSAC, ransacReprojThreshold=3)
+        if M is None:
+            inl_min = 0
+            continue
+        s = float(np.hypot(M[0, 0], M[0, 1]))
+        cx, cy = w / 2, h / 2
+        nx, ny = M[0, 0] * cx + M[0, 1] * cy + M[0, 2], M[1, 0] * cx + M[1, 1] * cy + M[1, 2]
+        dx, dy, dz = max(dx, abs(nx - cx) / w), max(dy, abs(ny - cy) / h), max(dz, abs(float(np.log(max(s, 1e-6)))))
+        inl_min = min(inl_min, int(inl.sum()) if inl is not None else 0)
+    return round(dx, 3), round(dy, 3), round(dz, 3), inl_min
+
+
+CAM_MAX = (0.035, 0.035, 0.05, 15)   # ngưỡng máy trôi (dịch ngang, dịch dọc, zoom, số điểm nền khớp TỐI THIỂU) cho clip "máy đứng yên"; cầm tay rung nhẹ vẫn dưới mức này
+
+
+def camera_retry(path, regen, emit, n, retries=1, limits=CAM_MAX):
+    """Clip phải quay máy đứng yên: đo máy trôi; vượt ngưỡng thì gen lại kèm ghi chú (tối đa `retries` lần), giữ lần ít trôi nhất."""
+    tried = []
+    for k in range(retries + 1):
+        try:
+            d = camera_drift(path)
+        except Exception as ex:  # noqa: BLE001 - không đo được: bỏ qua
+            emit("log", msg=f"Cảnh {n}: không đo được máy trôi ({ex})", level="warn")
+            return
+        if d is None:
+            return
+        bad = [nm for nm, v, lim in zip(("ngang", "dọc", "zoom"), d, limits) if v > lim] + (["khung đổi hẳn"] if d[3] < limits[3] else [])
+        desc = f"ngang {100 * d[0]:.1f}%, dọc {100 * d[1]:.1f}%, zoom {100 * d[2]:.1f}%, {d[3]} điểm nền khớp"
+        if not bad:
+            if k:
+                emit("log", msg=f"Cảnh {n}: lần {k + 1} máy đứng yên ({desc})")
+            break
+        emit("log", msg=f"Cảnh {n}: lần {k + 1} máy trôi ({', '.join(bad)}: {desc})", level="warn")
+        keep = f"{path}.cam{k}"
+        shutil.copyfile(path, keep)
+        tried.append((max([v / lim for v, lim in zip(d, limits)] + [limits[3] / max(d[3], 1)]), k, keep))
+        if k == retries:
+            best = min(tried)
+            shutil.copyfile(best[2], path)
+            emit("log", msg=f"Cảnh {n}: máy vẫn trôi sau {retries} lần gen lại, giữ lần ít trôi nhất. Bấm gen lại cảnh này nếu thấy khung hình đổi", level="warn")
+            break
+        emit("scene", n=n, state="video", pct=0, note=f"gen lại (máy trôi) {k + 1}")
+        regen("IMPORTANT RETRY NOTE: in the previous attempt the camera moved (it drifted, panned or pushed in toward the people). The camera is LOCKED on a tripod: "
+              "the framing of the start frame stays pixel-for-pixel the same for the whole clip; nothing at the edges of the frame enters or leaves; only the people move inside the frame.")
+    for _, _, f in tried:
+        try:
+            os.remove(f)
+        except OSError:
+            pass
 
 
 def speed_factor(syll, spoken, max_speed=1.25, ok_rate=3.4, target_rate=4.0, soften=0.7, top_rate=4.8):
@@ -1346,6 +1462,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
         scenes = [s for s in scenes if s["n"] <= only]
     open(os.path.join(out_dir, "script.txt"), "w", encoding="utf-8").write(text)
     _TL.cancel = cancel
+    set_prompt_prefix(opts)
     api = Api(opts["api_url"], opts["api_key"])
     base_session = f"studio-{int(time.time())}-{uuid.uuid4().hex[:6]}"  # duy nhất để chạy song song không đụng phiên
     chat_every = int(opts.get("chat_every", 1))  # mở chat Muse mới sau mỗi N cảnh (0 = cả video dùng chung một chat)
@@ -1488,8 +1605,21 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                       "Never draw the grey shapes, the line or any of its colours, and never make the character larger or closer than the guide.")
         if wide_ref and os.path.exists(wide_ref):
             ref_imgs = ref_imgs + [G.data_url(wide_ref)]
-            img_p += (f"\n\nreference image #{len(ref_imgs)} is a WIDE OVERVIEW of this same set from an earlier shot: keep the same place, the same props (colours, sizes and positions) "
-                      "and the same people and clothing as in it. It is for consistency only: use the framing written in this prompt and show only the people this prompt names.")
+            img_p += (f"\n\nreference image #{len(ref_imgs)} is a WIDE OVERVIEW of this same set from an earlier shot: keep the same place, the same props (colours, sizes, positions "
+                      "and their order from front to back) and the same people and clothing as in it. It is for consistency only: use the framing written in this prompt and show only the people this prompt names.")
+        # "Ảnh bố cục: <cảnh m>": khung đầu đã gen của cảnh m (cùng bối cảnh, góc khác) gửi kèm khi vẽ khung đầu mới -> giữ đúng thứ tự vali, vị trí người, máy móc
+        # khi đổi góc máy (soi hành lý 05/11: cảnh 8 góc cận vẽ lại từ chữ, vali đổi thứ tự so với cảnh 3). Ảnh tổng quan 16:9 không đủ: Muse vẫn xếp lại đồ.
+        lay = re.search(r"\d+", str(sc["f"].get("Ảnh bố cục", "")))
+        if lay and has_img:
+            lay_f = next((P(f"scene{int(lay.group(0))}_{k}.png") for k in ("start", "last") if os.path.exists(P(f"scene{int(lay.group(0))}_{k}.png"))), None)
+            if lay_f:
+                ref_imgs = ref_imgs + [G.data_url(lay_f)]
+                img_p += (f"\n\nreference image #{len(ref_imgs)} is a FRAME OF THIS SAME SCENE already shot from another camera angle: it shows the true layout of the set, which objects "
+                          "lie where (in which order, front to back and left to right), who stands where and what they wear. Keep every object and person at the same place in the room "
+                          "as in it, seen from the angle written in this prompt; do not add, remove, swap or rearrange anything. Never show that frame itself.")
+                emit("log", msg=f"Cảnh {n}: khung đầu vẽ kèm ảnh bố cục của cảnh {lay.group(0)}")
+            else:
+                emit("log", msg=f"Cảnh {n}: không có khung đầu của cảnh {lay.group(0)} để làm ảnh bố cục", level="warn")
         spk_auds = [a for g, a in att_auds if g in ((turn or {}).get("who"), "other", "scene")]
 
         def attempt(label, fn):
@@ -1657,7 +1787,15 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                         speech_note[0] = "\n\n" + note
                         os.remove(vid_f)
                         attempt("video", gv)
-                    speech_retry(vid_f, turn["text"], regen, emit, n, int(opts.get("speech_retries", 1)))
+                    speech_retry(vid_f, turn["text"], regen, emit, n, int(opts.get("speech_retries", SPEECH_RETRIES)))
+                    speech_note[0] = ""
+                if opts.get("check_camera", True) and not wide_p and not sc["f"].get("Lia nhanh") and not re.search(r"CAMERA MOVE", base_vid_p):   # cảnh máy đứng yên: máy trôi / đẩy vào thì gen lại
+
+                    def regen_cam(note):
+                        speech_note[0] = "\n\n" + note
+                        os.remove(vid_f)
+                        attempt("video", gv)
+                    camera_retry(vid_f, regen_cam, emit, n, int(opts.get("camera_retries", 1)))
                     speech_note[0] = ""
                 if not (opts.get("check_overlap", True) and not mouth_off and turn and spoken and spk_key in chars) or wide_p or swap:   # swap: hình lấy từ clip câm nên không đo miệng clip giọng   # cảnh lia máy: mặt chạy khỏi vị trí cố định, không đo được
                     break

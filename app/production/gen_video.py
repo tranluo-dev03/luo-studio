@@ -46,10 +46,11 @@ LOCKS = ["STYLE LOCK", "CHAR LOCK", "SET LOCK", "VIDEO SUFFIX", "NEGATIVE"]
 # "Ảnh tổng quan" (prompt ảnh ngang 16:9 cả bố cục) + "Khung đầu cắt" (trái / giữa / phải / 0..1): cảnh lia máy, engine gen ảnh ngang, cắt khung đầu từ đó và gửi kèm bước gen video
 # "Lia nhanh" (số lần, vd. "4"): sau khi cắt, engine dò đoạn camera lia sau từ cuối, tua nhanh N lần + nhoè ngang (Muse thường lia chậm, không có lực)
 # "Lia theo tay" (giây, vd. "1"): đi kèm "Lia nhanh": ngay trước cú vụt, máy đẩy vào và trôi về phía phải-dưới theo tay nhân vật N giây (Muse thường để máy đứng yên khi nhân vật chỉ tay)
+# "Ảnh bố cục: 3": khi vẽ khung đầu mới (đổi góc máy), gửi kèm khung đầu đã gen của cảnh 3 để giữ đúng thứ tự đồ vật, vị trí người
 # "Giữ yên dưới": đã bỏ (04/11, dán khung đầu làm tay cũ hiện mờ). Vẫn nhận tên trường để kịch bản cũ không lẫn dòng này vào trường khác, nhưng không làm gì.
 # "Mở đầu ảnh" / "Mở đầu video" / "Mở đầu dài" (giây, mặc định 1.5): đoạn không lời gen riêng rồi ghép trước clip của cảnh (vd. hành lý trôi ra khỏi máy soi trước câu hỏi), không cần thêm lượt thoại
 FIELDS = ["Bối cảnh", "Voice", "Khung đầu", "Khung cuối", "Diễn biến", "Prompt ảnh", "Prompt video", "Audio", "Negative prompt", "Chuyển cảnh", "Lớp phủ", "Giữ sau lời",
-          "Ảnh tổng quan", "Khung đầu cắt", "Lia nhanh", "Lia theo tay", "Mở đầu ảnh", "Mở đầu video", "Mở đầu dài", "Giữ yên dưới"]
+          "Ảnh tổng quan", "Khung đầu cắt", "Lia nhanh", "Lia theo tay", "Mở đầu ảnh", "Mở đầu video", "Mở đầu dài", "Giữ yên dưới", "Ảnh bố cục"]
 
 
 def parse_script(text):
@@ -122,7 +123,7 @@ def muse_video_prompt(prompt, neg, dur, n_refs):
     # chỉ coi là clip câm khi prompt nói rõ CẢ CLIP không có âm thanh ("the silent character", "makes no sound" KHÔNG tính)
     silent = re.search(r"(?:\bSILENT CLIP\b|\bsilent (?:video|clip)\b|\bno audio at all\b|\bwithout any (?:audio|sound)\b|\bmuted (?:video|clip)\b)", prompt, re.I)
     audio = ("SILENT CLIP: Return a video with no audio at all: no speech, no music, no sound effects." if silent else
-             "AUDIO IS REQUIRED: Return a video with audible, synchronized sound; do not make a silent clip. Follow the requested audio direction exactly and make every requested sound clearly audible; if it says no music or speech only, add no music. Do not add spoken dialogue unless the prompt asks for it.")
+             "AUDIO IS REQUIRED: Return a video with audible, synchronized sound; do not make a silent clip. Follow the requested audio direction exactly and make every requested sound clearly audible; if it says no music or speech only, add no music. Do not add spoken dialogue unless the prompt asks for it. If the prompt gives a spoken line, it is said EXACTLY ONCE, word for word, and nothing else is said: after its last word the speaker stays quiet, mouth closed, and holds the pose until the clip ends; no extra word, no repeated word, no humming, no second line.")
     ref = ("\n\nUse the attached reference image" + ("" if n_refs == 1 else "s") + " as visual guidance.") if n_refs else ""
     single = (f"Make ONE NEW, SEPARATE clip of exactly {dur} seconds. Starting from the given start frame is fine, but do NOT extend, combine, merge or stitch any earlier video from this chat: "
               "the output must contain only this new clip, never the previous clips joined together.")
