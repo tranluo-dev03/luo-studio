@@ -286,7 +286,7 @@ class Api(G.Api):
         tid = task.get("task_id") or task.get("id")
         last = None
         while True:
-            for _ in range(6):
+            for _ in range(2):   # hỏi mỗi 1 s (trước 3 s): kết quả về sớm hơn trung bình ~1 s mỗi bước gen
                 if cancel and cancel.is_set():
                     raise Cancelled()
                 time.sleep(0.5)
@@ -298,6 +298,9 @@ class Api(G.Api):
                 last = (s, pr)
                 on_status(s, pr)
             if s == "completed":
+                local = G.local_result(self.url, st)   # LUO-API cùng máy: đọc thẳng file, không tải lại qua HTTP
+                if local is not None:
+                    return local
                 url = st.get("url") or (st.get("video") or {}).get("url") or (st.get("result") or {}).get("url") or ((st.get("data") or [{}])[0]).get("url")
                 if not url:
                     raise RuntimeError("API không trả về file")

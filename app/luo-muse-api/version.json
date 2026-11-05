@@ -1,10 +1,11 @@
 {
-  "version": "1.0.0",
-  "updated_at": "2026-10-15",
+  "version": "1.2.0",
+  "updated_at": "2026-11-06",
   "repo": "https://github.com/czg86389-hub/muse2api",
   "highlights": [
-    "LUO-API 1.0.0: bản phát hành đầu tiên đi kèm LUO-AI 1.0.0",
-    "Session: mỗi biến thể dùng chung một chat Muse cho ảnh và video",
-    "Hỗ trợ nhiều ảnh tham chiếu (reference_images) và raw_prompt"
+    "LUO-API 1.2.0: mỗi tài khoản một browser context giữ tab ấm, nhiều việc song song trên một tài khoản (MUSE2API_ACCOUNT_PARALLEL, mặc định 2)",
+    "Theo dõi kết quả và tải file qua RPC nội bộ của trang muse.ai (sessions.get, chat.history, fs.raw), không đợi trang vẽ video; đường DOM cũ giữ làm dự phòng",
+    "Ô soạn tin mới của Muse: gắn tham chiếu bằng DOM.setFileInputFiles, đếm/xoá đính kèm đúng; không bao giờ trả lại chính tham chiếu làm kết quả",
+    "tasks.json ghi theo lô ở luồng nền, gọn và tỉa còn 600 tác vụ (trước: ghi lại toàn bộ 31 MB mỗi lần cập nhật tiến độ)"
   ]
 }

@@ -102,7 +102,12 @@ class Config:
     image_timeout: int = field(default_factory=lambda: int(_env("MUSE2API_IMAGE_TIMEOUT", "240")))
     video_timeout: int = field(default_factory=lambda: int(_env("MUSE2API_VIDEO_TIMEOUT", "600")))
     chat_timeout: int = field(default_factory=lambda: int(_env("MUSE2API_CHAT_TIMEOUT", "300")))
-    max_concurrency: int = field(default_factory=lambda: max(1, int(_env("MUSE2API_CONCURRENCY", "2"))))
+    # Tổng số việc gen chạy cùng lúc (mọi tài khoản). Số thật còn bị giới hạn bởi số tài khoản x account_parallel,
+    # nên mặc định để rộng; mỗi tab Chromium tốn ~300 MB RAM.
+    max_concurrency: int = field(default_factory=lambda: max(1, int(_env("MUSE2API_CONCURRENCY", "8"))))
+    # Số việc song song trên MỘT tài khoản (mỗi việc một tab, cửa sổ riêng). Một tài khoản là một VM của Muse:
+    # đo của muse2api (www222fff): 1 việc ~5 s phản hồi, 3 việc cùng lúc ~20 s, 10 việc 33–95 s. Mặc định 2.
+    account_parallel: int = field(default_factory=lambda: max(1, int(_env("MUSE2API_ACCOUNT_PARALLEL", "2"))))
 
     # 工具调用（function calling）协议适配开关，**默认关闭**。
     # 实测 muse.ai 的助手会明确拒绝输出"伪工具调用"（原话：「我不会按这种 JSON

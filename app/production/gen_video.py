@@ -21,7 +21,7 @@ hết lời; tắt bằng --no-trim) rồi ghép thành raw.mp4. Khung cuối n�
 API key đọc từ ../luo-muse-api/.env (MUSE2API_KEY) hoặc biến môi trường MUSE2API_KEY; không in ra.
 Chạy lại cùng --out thì bỏ qua các bước đã xong (resume).
 """
-import argparse, base64, json, mimetypes, os, re, shutil, subprocess, sys, time, urllib.request, urllib.error
+import argparse, base64, json, mimetypes, os, re, shutil, subprocess, sys, time, urllib.parse, urllib.request, urllib.error
 
 for _s in (sys.stdout, sys.stderr):
     try:
@@ -182,13 +182,16 @@ class Api:
         log(f"    task {tid} đã nhận")
         last = ""
         while True:
-            time.sleep(3)
+            time.sleep(1)
             st = self.req(f"{path}/{tid}")
             s = st.get("status")
             if s != last:
                 last = s
                 log(f"    {kind}: {s}{'' if st.get('progress') is None else ' ' + str(st['progress']) + '%'}")
             if s == "completed":
+                local = local_result(self.url, st)
+                if local is not None:
+                    return local
                 url = st.get("url") or (st.get("video") or {}).get("url") or (st.get("result") or {}).get("url") or ((st.get("data") or [{}])[0]).get("url")
                 if not url:
                     raise RuntimeError("API không trả về địa chỉ file")
@@ -197,6 +200,28 @@ class Api:
                 raise RuntimeError(str(st.get("error") or "API báo lỗi"))
             if time.time() > deadline:
                 raise RuntimeError("Hết thời gian chờ")
+
+
+def local_result(api_url, st):
+    """LUO-API chạy trên chính máy này (127.0.0.1 / localhost) và báo đường dẫn file kết quả: đọc thẳng file
+    thay vì tải lại qua HTTP. Không đọc được thì trả None (gọi download như cũ)."""
+    try:
+        host = (urllib.parse.urlsplit(api_url).hostname or "").lower()
+    except Exception:
+        return None
+    if host not in ("127.0.0.1", "localhost", "::1"):
+        return None
+    path = st.get("local_path") or (st.get("result") or {}).get("local_path")
+    if not path or not os.path.isfile(path):
+        return None
+    want = (st.get("result") or {}).get("bytes") or (st.get("result") or {}).get("size")
+    try:
+        data = open(path, "rb").read()
+    except OSError:
+        return None
+    if want and len(data) != int(want):
+        return None
+    return data
 
 
 class ApiError(Exception):
