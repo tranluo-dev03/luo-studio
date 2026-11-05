@@ -37,3 +37,6 @@ Robot AI ngồi bàn quán cà phê, đọc từng cặp câu: **câu tiếng m�
 4. `ai-tutor-pt-hoc-anh-robot-moi`: **đổi AI**: robot bạc mặt màn hình, áo Brazil.
 5. `ai-tutor-es-hoc-anh-robot-hoodie`: **đổi AI + bộ từ**: robot áo hoodie thêu hoa văn Mexico, người nói tiếng Tây Ban Nha học tiếng Anh, 7 cặp (Hola, Buenos días...).
 6–16. `ai-tutor-es-hoc-anh-bt03…bt13`: người nói tiếng Tây Ban Nha học tiếng Anh, mỗi biến thể một robot/bối cảnh và 7 cặp từ theo chủ đề (buổi sáng, buổi tối, mệnh lệnh, gia đình, bữa sáng, nhà hàng, siêu thị, mua áo, trả tiền, văn phòng, thời tiết). Dữ liệu ở `cong-cu/them-bien-the.py` (chạy lại sau khi chạy `tao-kich-ban.py`). 7 cặp + câu kết chia thành 4 cảnh (2, 2, 2, 1).
+
+## 30 biến thể (đổi bộ từ + đổi robot + đổi nền)
+`BIEN-THE-AI-TUTOR-NGOI-DOC-30.json`: 30 biến thể `ai-tutor-es-hoc-anh-bt01…bt30`, mỗi biến thể 7 cặp từ + câu kết, gắn 2 ảnh tham chiếu `refs.NGUOI_DAY` (robot) và `refs.NEN` (nền) từ Drive. Bản ảnh đã tải sẵn trong `anh-mau/`. Tạo lại: `python -I cong-cu/tao-30-bien-the.py` (đọc `cong-cu/30-bo-tu-vung.csv`).

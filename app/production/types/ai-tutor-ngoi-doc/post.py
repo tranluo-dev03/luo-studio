@@ -54,9 +54,11 @@ def _api():
 def board_prompt(deco):
     return ("Generate exactly one still image (the image itself, not a description of it). A cheerful classroom-style wall board seen straight on, "
             "a WIDE HORIZONTAL LANDSCAPE rectangle, about 1.7 times as wide as it is tall including the decoration on top (like a whiteboard or TV screen, NOT portrait, NOT square), "
-            "centered and filling most of the frame width: a thick rounded wooden frame with a bright painted stripe pattern on its inner border, "
-            "and a large, completely blank, plain white rectangular panel inside it (absolutely no text, letters or marks on the panel). "
-            f"Decoration on top of the frame: {deco}. "
+            "centered and filling the whole frame width: a thick rounded wooden frame with a bright painted stripe pattern on its inner border, "
+            "and a HUGE, completely blank, plain white rectangular panel inside it that takes up about 80 percent of the board's height (absolutely no text, letters or marks on the panel). "
+            f"Decoration on top of the frame, drawn SMALL and kept low: {deco}. Each small flag is only about 6 percent of the board's width, the mascot is small "
+            "(no taller than about 10 percent of the board's height), all of them sit right on the top edge of the frame; the decoration together is never taller than about 12 percent of the board's height. "
+            "Draw the decoration crisp and undistorted. "
             "The whole board is isolated on a perfectly flat, evenly lit, pure chroma-key magenta (#FF00FF) background, with no shadow on the background "
             "and no other objects. No text, letters, numbers, brand names or logos anywhere in the image. Output only the generated image, with no written reply.")
 
@@ -93,12 +95,15 @@ def make_board(deco, cache_png, log=print):
             else:
                 open(raw_png, "wb").write(b)
         im = _key(raw_png)
-        if best is None or im.width / im.height > best[0].width / best[0].height:
-            best = (im, raw_png + f".{attempt}")
+        ratio = im.width / im.height
+        deco_h = find_inner(im)[1] / im.height   # phần trang trí + viền trên chiếm bao nhiêu chiều cao bảng
+        score = (min(ratio, 1.4), -deco_h)
+        if best is None or score > best[2]:
+            best = (im, raw_png + f".{attempt}", score)
             shutil.copy(raw_png, best[1])
-        if 1.4 <= im.width / im.height <= 2.1:
+        if 1.4 <= ratio <= 2.1 and deco_h <= 0.22:
             break
-        log(f"Khung bảng chưa đủ ngang ({im.width}x{im.height}), gen lại...")
+        log(f"Khung bảng chưa đạt ({im.width}x{im.height}, trang trí cao {deco_h:.0%}), gen lại...")
         os.remove(raw_png)
     im = best[0]
     shutil.copy(best[1], raw_png)
@@ -123,14 +128,24 @@ def find_inner(im):
 
 
 def fit_board(board, inner):
-    """Đưa khung bảng AI về khung cố định (rộng 88%, cao 30% khung hình), đặt ở vị trí cố định (đỉnh 3%).
+    """Đưa khung bảng AI về khung cố định (rộng 96%, cao 29% khung hình), đặt ở vị trí cố định (đỉnh 1%).
     Phóng đều theo chiều rộng (không méo cờ/linh vật), rồi chỉ kéo/co dải lòng trắng + viền hai bên theo chiều dọc
     để đủ chiều cao cố định. Trả về (ảnh RGBA W x H, lòng trắng (x0, y0, x1, y1) trong khung hình)."""
-    BW, BH = int(W * 0.88), int(H * 0.30)
+    BW, BH = int(W * 0.96), int(H * 0.29)   # bảng chỉ nằm ở phần trên (đáy ~30% khung hình), không che mặt robot (đỉnh đầu ~34%)
     k = BW / board.width
     x0, y0, x1, y1 = [int(v * k) for v in inner]
     board = board.resize((BW, max(1, int(board.height * k))), Image.LANCZOS)
     top, bot = y0, board.height - y1
+    cap_b = int(BH * 0.07)   # chỉ viền dưới (sọc) được ép mỏng; cờ + linh vật KHÔNG bị méo: nếu quá cao thì thu cả bảng đều ở bước dưới
+    parts = [board.crop((0, 0, board.width, y0)), board.crop((0, y0, board.width, y1)), board.crop((0, y1, board.width, board.height))]
+    if bot > cap_b:
+        parts[2] = parts[2].resize((board.width, cap_b), Image.LANCZOS)
+        bot = cap_b
+    board = Image.new("RGBA", (board.width, top + parts[1].height + bot), (0, 0, 0, 0))
+    board.alpha_composite(parts[0], (0, 0))
+    board.alpha_composite(parts[1], (0, top))
+    board.alpha_composite(parts[2], (0, top + parts[1].height))
+    y0, y1 = top, top + parts[1].height
     if top + bot + 140 > BH:   # phần trên/dưới quá cao: thu cả khung lại cho vừa chiều cao, giữ đúng tỉ lệ
         k2 = (BH - 140) / (top + bot)
         board = board.resize((max(1, int(board.width * k2)), max(1, int(board.height * k2))), Image.LANCZOS)
@@ -142,7 +157,7 @@ def fit_board(board, inner):
     out.alpha_composite(board.crop((0, 0, board.width, y0)), (0, 0))
     out.alpha_composite(mid, (0, y0))
     out.alpha_composite(board.crop((0, y1, board.width, board.height)), (0, y0 + mid_h))
-    bx, by = (W - out.width) // 2, int(H * 0.03)
+    bx, by = (W - out.width) // 2, int(H * 0.01)
     frame = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     frame.alpha_composite(out, (bx, by))
     return frame, (bx + x0, by + y0, bx + x1, by + y0 + mid_h)
@@ -168,8 +183,8 @@ def _fit(d, text, px, maxw):
     return _font(px)
 
 
-TEXT_W = 0.80   # chữ chiếm tối đa 80% bề rộng lòng bảng (lề ~10% mỗi bên)
-ROWS = (("native", 0.17), ("target", 0.27), ("pron", 0.15), ("closing", 0.30))   # (dòng, cỡ chữ theo chiều cao lòng bảng)
+TEXT_W = 0.90   # chữ chiếm tối đa 90% bề rộng lòng bảng (lề ~10% mỗi bên)
+ROWS = (("native", 0.20), ("target", 0.30), ("pron", 0.18), ("closing", 0.34))   # (dòng, cỡ chữ theo chiều cao lòng bảng)
 
 
 def text_sizes(inner, pairs, closing):
@@ -212,10 +227,10 @@ def render_card(board, inner, pair, sizes, closing=None):
         line(closing, "closing", 0.5, (255, 210, 0, 255), stroke=(90, 40, 0, 255))
         return im
     native, target, pron = pair
-    line(native, "native", 0.17, (20, 20, 20, 255), under=True)
+    line(native, "native", 0.18, (20, 20, 20, 255), under=True)
     line(target, "target", 0.50, (226, 44, 36, 255))
     if pron:
-        line(pron, "pron", 0.80, (226, 44, 36, 255))
+        line(pron, "pron", 0.82, (226, 44, 36, 255))
     return im
 
 
