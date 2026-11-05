@@ -1050,29 +1050,69 @@ _NUMW = {w: str(i) for i, w in enumerate("zero one two three four five six seven
 _NUMW.update({w: str(10 * i) for i, w in enumerate("x x twenty thirty forty fifty sixty seventy eighty ninety".split()) if i >= 2})
 
 
+_CONTR = {"won't": "will not", "can't": "can not", "cannot": "can not", "shan't": "shall not", "let's": "let us", "gonna": "going to", "wanna": "want to"}
+_FILLERS = {"um", "umm", "uh", "uhh", "ah", "oh", "hmm", "hm", "er", "erm", "mm", "mhm"}
+SPEECH_RETRIES = 2   # gen lại tối đa khi lời nói sai (lặp / thừa / thiếu chữ); giữ lần ít lỗi nhất
+
+
 def _speech_tokens(text):
-    """Từ thường viết thường; số (chữ hay chữ số) quy về chữ số để "ten" khớp "10"."""
-    return [_NUMW.get(w, w) for w in re.findall(r"[a-z0-9']+", str(text).lower().replace("-", " ")) if w.strip("'")]
+    """Từ thường viết thường, bỏ tiếng ừm/à; viết tắt mở ra ("I'm" = "I am", "don't" = "do not") để chữ viết khác nhau không bị tính là sai;
+    số (chữ hay chữ số) quy về chữ số, "sixty eight" gộp thành "68" để khớp "68"."""
+    s = str(text).lower().replace("’", "'").replace("-", " ")
+    s = re.sub(r"\b(" + "|".join(map(re.escape, _CONTR)) + r")\b", lambda m: _CONTR[m.group(1)], s)
+    s = re.sub(r"n't\b", " not", s)
+    s = re.sub(r"'(re|m|ll|ve|d|s)\b", lambda m: " " + {"re": "are", "m": "am", "ll": "will", "ve": "have", "d": "would", "s": "is"}[m.group(1)], s)
+    out = []
+    for w in re.findall(r"[a-z0-9']+", s):
+        w = _NUMW.get(w.strip("'"), w.strip("'"))
+        if not w or w in _FILLERS:
+            continue
+        if out and w.isdigit() and len(w) == 1 and w != "0" and out[-1].isdigit() and len(out[-1]) == 2 and out[-1].endswith("0") and out[-1] != "10":
+            out[-1] = str(int(out[-1]) + int(w))   # "sixty" "eight" -> "68"
+        else:
+            out.append(w)
+    return out
 
 
 def speech_issues(expected, path):
-    """Lỗi lời nói của clip so với câu mong đợi (Whisper): từ/cụm bị nói lặp (mà câu gốc không lặp), thừa >= 2 từ lạ, hoặc thiếu nhiều lời.
-    Trả về danh sách (mô tả tiếng Việt cho nhật ký, mô tả tiếng Anh cho ghi chú gen lại) (rỗng = đạt); None nếu không kiểm được (câu quá ngắn, không có Whisper)."""
+    """Lỗi lời nói của clip so với câu mong đợi (Whisper): từ/cụm bị nói lặp (mà câu gốc không lặp), thừa dù chỉ 1 từ lạ, hoặc thiếu dù chỉ 1 từ
+    (lời phải đúng từng chữ, 04/11/2026). Viết tắt, số, tiếng ừm/à đã chuẩn hoá trong _speech_tokens; chữ "nghe" được ở đoạn im cách xa câu thoại (> 1,2 giây,
+    Whisper hay bịa "Thank you" ở đó) không tính là thừa.
+    Trả về danh sách (mô tả tiếng Việt cho nhật ký, mô tả tiếng Anh cho ghi chú gen lại) (rỗng = đạt); None nếu không kiểm được (câu rỗng, không có Whisper)."""
     import difflib
     exp = _speech_tokens(expected)
-    if len(exp) < 3:
+    if not exp:
         return None
     wav = path + ".sp.wav"
     sh(["ffmpeg", "-y", "-i", path, "-vn", "-ac", "1", "-ar", "16000", wav])
     try:
-        hrd = _speech_tokens(" ".join(_transcribe(wav, False)["text"]))
+        res = _transcribe(wav, True)
     finally:
         try:
             os.remove(wav)
         except OSError:
             pass
+    near = lambda a, b: a == b or (len(a) > 2 and len(b) > 2 and difflib.SequenceMatcher(None, a, b).ratio() >= 0.75)
+    timed = [(t, float(w[1]), float(w[2])) for w in (res.get("words") or []) for t in _speech_tokens(w[0])]
+    if not timed:   # bản Whisper không trả mốc thời gian: dùng chữ thường
+        timed = [(t, 0.0, 0.0) for t in _speech_tokens(" ".join(res.get("text") or []))]
+    hit_t = [(s, e) for t, s, e in timed if any(near(t, x) for x in exp)]
+    if hit_t:   # bỏ chữ ở đoạn im xa câu thoại (Whisper bịa khi không có lời)
+        lo, hi = min(s for s, _ in hit_t) - 1.2, max(e for _, e in hit_t) + 1.2
+        timed = [x for x in timed if lo <= x[1] <= hi]
+    hrd = [t for t, _, _ in timed]
     if not hrd:
         return [("không nghe thấy lời", "no speech was heard")]
+
+    def join_compounds(a, other):   # từ ghép viết liền / rời khác nhau giữa kịch bản và Whisper ("anytime" / "any time")
+        o, out = set(other), []
+        for t in a:
+            if out and out[-1] + t in o and out[-1] not in o:
+                out[-1] += t
+            else:
+                out.append(t)
+        return out
+    hrd, exp = join_compounds(hrd, exp), join_compounds(exp, hrd)
     out, es = [], " " + " ".join(exp) + " "
     for n in (4, 3, 2, 1):   # cụm dài trước: "what I'm here for, what I'm here for"
         for i in range(len(hrd) - 2 * n + 1):
@@ -1082,9 +1122,8 @@ def speech_issues(expected, path):
                 break
         if out:
             break
-    near = lambda a, b: a == b or difflib.SequenceMatcher(None, a, b).ratio() >= 0.75
     extra = [h for h in hrd if not any(near(h, e) for e in exp)]
-    if len(extra) >= 2:
+    if extra:
         out.append((f'thừa từ ngoài lời thoại ({" ".join(extra[:5])})', f'extra words not in the line were said ({" ".join(extra[:5])})'))
     # từ CỦA CÂU được nói nhiều lần hơn trong câu, dù không liền nhau ("How old are you? ... How?", 05/11): trước đây lọt vì vừa không lặp liền, vừa không lạ
     cnt = {}
@@ -1095,9 +1134,9 @@ def speech_issues(expected, path):
     over = [e for e in dict.fromkeys(exp) if cnt.get(e, 0) > exp.count(e) and (len(e) > 1 or cnt[e] > exp.count(e) + 1)]   # từ 1 chữ ("a", "I") Whisper hay nghe thừa một lần: bỏ qua
     if over and not any("nói lặp" in v for v, _ in out):
         out.append((f'nói thừa từ của câu ({" ".join(over[:5])})', f'these words of the line were said more times than in the line ({" ".join(over[:5])})'))
-    hit = sum(1 for e in exp if any(near(e, h) for h in hrd)) / len(exp)
-    if hit < 0.7:
-        out.append((f"thiếu lời (chỉ nghe được {hit:.0%})", "part of the line was missing"))
+    miss = [e for e in exp if not any(near(e, h) for h in hrd)]
+    if miss:
+        out.append((f'thiếu lời ({" ".join(miss[:5])})', f'these words of the line were missing: {" ".join(miss[:5])}'))
     return out
 
 
@@ -1250,9 +1289,38 @@ def speed_factor(syll, spoken, max_speed=1.25, ok_rate=3.4, target_rate=4.0, sof
     return round(f, 3) if f > 1.03 else 1.0
 
 
-def smart_cut(src, cut_path, last_png, lo=0.15, hi=0.8, fps=24, syll=None, speedfix=True, vf_extra="", max_speed=1.25, span=None, head_margin=0.2):
+def _first_closed_mouth(src, t0, t1, limit=0.04, fps=24):
+    """Mốc (giây) của khung đầu tiên trong [t0, t1] mà người trong khung (một người, cả khung hình) khép miệng; t0 đã khép thì trả t0.
+    None nếu không có khung khép miệng hoặc không dò được mặt / không chạy được mediapipe."""
+    try:
+        import cv2
+        import face_mesh as FM
+        W, H = 360, 640
+        d = crun(["ffmpeg", "-v", "error", "-ss", f"{max(0.0, t0):.3f}", "-t", f"{max(0.1, t1 - t0):.3f}", "-i", src, "-vf", f"fps={fps},scale={W}:{H}",
+                  "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True).stdout
+        n = len(d) // (W * H * 3)
+        if n == 0:
+            return None
+        fr = np.frombuffer(d[: n * W * H * 3], np.uint8).reshape(n, H, W, 3)
+        with _MP_LOCK:
+            fm = FM.landmarker(min_conf=0.3)
+            try:
+                for i, f in enumerate(fr):
+                    g = fm.mouth_gap(cv2.resize(f, None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC))
+                    if g is not None and g < limit:
+                        return max(0.0, t0) + i / fps
+            finally:
+                fm.close()
+    except Exception:  # noqa: BLE001
+        return None
+    return None
+
+
+def smart_cut(src, cut_path, last_png, lo=0.15, hi=0.8, fps=24, syll=None, speedfix=True, vf_extra="", max_speed=1.25, span=None, head_margin=0.2, close_mouth=0.0):
     """Cắt đuôi sau lời nói. Điểm cắt = khung ít chuyển động nhất trong [hết lời+lo, hết lời+hi].
-    Khung cuối của clip đã cắt (last_png) là khung đầu cho clip kế."""
+    Khung cuối của clip đã cắt (last_png) là khung đầu cho clip kế.
+    close_mouth > 0 (clip MỘT người, chế độ ghép 2 lớp): khung cắt còn hé miệng thì cắt muộn thêm tối đa chừng ấy giây tới khung khép miệng đầu tiên.
+    Không làm thì clip nghe cảnh sau của chính người này bắt đầu từ khung hé miệng và Muse giữ môi hé/mấp máy cả clip (05/11/2026, chia-doi BT12 cảnh 2)."""
     total = duration(src)
     st, en = _silences(src)
     speech_end = total
@@ -1275,6 +1343,10 @@ def smart_cut(src, cut_path, last_png, lo=0.15, hi=0.8, fps=24, syll=None, speed
             k = int(np.where(score <= score.min() * 1.2 + 0.05)[0][0]) + 1          # khung yên tĩnh SỚM nhất (cắt càng sớm càng gọn)
             cut_t = w0 + (k + 1) / fps                                  # cắt sau khung k (giữ khung k làm khung cuối)
     cut_t = max(0.6, min(total, cut_t))
+    if close_mouth and cut_t < total - 0.05:   # khung cuối còn hé miệng: kéo điểm cắt tới khung khép miệng đầu tiên (tối đa close_mouth giây)
+        t_closed = _first_closed_mouth(src, cut_t - 1 / fps, min(total - 0.04, cut_t + close_mouth))
+        if t_closed is not None and t_closed > cut_t:
+            cut_t = min(total, t_closed + 1 / fps)
     # Muse hay kéo giãn clip cho đủ độ dài: phần lớn là KHOẢNG NGẮT dài giữa các cụm từ chứ không phải giọng nói chậm. Nên:
     #  - khoảng ngắt dài (>=0.55s) được tua nhanh (tối đa x2, hình gần như đứng yên nên không lộ), giọng nói giữ nguyên tốc độ;
     #  - chỉ khi nhịp nói THẬT (tính riêng phần có tiếng) vẫn chậm mới tăng nhẹ tốc độ giọng, tối đa `max_speed`.
@@ -1925,6 +1997,15 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
             emit("log", msg=f"Cảnh {n}: giữ ~{tail:.1f}s sau lời nói (trường \"Giữ sau lời\")")
         info = smart_cut(vid_f, cut_f, last_f, syll=syll, speedfix=opts.get("speedfix", True), vf_extra=vf_fix, max_speed=float(opts.get("speed_max", 1.25)),
                          span=span, lo=lo, hi=hi, head_margin=margin * 0.7) if opts.get("cut", True) and spoken else None
+        if info is not None and span and opts.get("check_speech", True):   # cắt sát lời có thể xén mất chữ đầu/cuối: kiểm lại bản đã cắt
+            try:
+                lost = [v for v, _ in (speech_issues(turn["text"], cut_f) or []) if v.startswith(("thiếu", "không nghe"))]
+            except Exception:  # noqa: BLE001 - không có Whisper: bỏ qua
+                lost = []
+            if lost:
+                emit("log", msg=f"Cảnh {n}: bản cắt sát lời bị mất chữ ({'; '.join(lost)}), cắt lại rộng hơn", level="warn")
+                info = smart_cut(vid_f, cut_f, last_f, syll=syll, speedfix=opts.get("speedfix", True), vf_extra=vf_fix, max_speed=float(opts.get("speed_max", 1.25)),
+                                 span=None, lo=max(lo, 0.15), hi=max(hi, 0.8), head_margin=margin * 0.7)
         if info is None:
             if vf_fix:
                 sh_enc(["ffmpeg", "-y", "-i", vid_f, "-vf", vf_fix, "-c:v", "libx264", "-crf", "17", "-pix_fmt", "yuv420p", "-c:a", "copy", cut_f])
