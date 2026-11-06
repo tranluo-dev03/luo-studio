@@ -1053,6 +1053,55 @@ def poster(pid, vn, which):
     return dst if os.path.exists(dst) else None
 
 
+def redo_only(pid, vname, n):
+    """CHỈ làm lại cảnh n: xoá file của đúng cảnh đó và video đã ghép; các cảnh khác giữ nguyên, lần chạy sau thấy đã có file nên bỏ qua.
+    Video nhiều phần: chỉ cần xoá scene<n>_* ở thư mục chạy, nhieu_phan tự dọn file của cảnh đó trong phan<k>/ (cảnh nào thiếu scene<N>_cut.mp4 ở thư mục chạy thì gen lại).
+    (06/11/2026: "Làm lại từ cảnh 8" xoá cả cảnh 8-25, gồm toàn bộ phần 2 không liên quan.)"""
+    d = run_dir(pid, vname)
+    for f in os.listdir(d):
+        m = re.match(r"scene(\d+)_", f)
+        if m and int(m.group(1)) == n or f in ("raw.mp4", "final.mp4", "scenes.json", safe_name(vname) + ".mp4"):
+            try:
+                os.remove(os.path.join(d, f))
+            except OSError:
+                pass
+
+
+def redo_chain_note(pid, vname, n):
+    """Cảnh sau cảnh n có nối tiếp từ khung cuối của cảnh n không (làm lại riêng cảnh n thì chỗ nối có thể khựng). Trả về câu cảnh báo hoặc ""."""
+    d = run_dir(pid, vname)
+    try:
+        part_dir, local, count = d, n, 0
+        pj = os.path.join(d, "phan.json")
+        if os.path.exists(pj):
+            marks = json.load(open(pj, encoding="utf-8"))
+            m = next((x for x in marks if x.get("scene") == n), None)
+            if not m:
+                return ""
+            part_dir, local, count = os.path.join(d, f"phan{m['phan']}"), m["local"], sum(1 for x in marks if x.get("phan") == m["phan"])
+        elif os.path.exists(os.path.join(d, "variant.json")):
+            count = len(json.load(open(os.path.join(d, "variant.json"), encoding="utf-8")).get("LUOT", []))
+        if count and local >= count:   # cảnh cuối (của phần): không có cảnh sau nối vào
+            return ""
+        sf = os.path.join(part_dir, "script.txt")
+        if not os.path.exists(sf):
+            return ""
+        text = open(sf, encoding="utf-8").read()
+        import split as SP
+        if SP.is_split(text):
+            cfg, _ = SP.parse(text)
+            if cfg["join"][0] == "chain":
+                return f"Cảnh {n + 1} ghép 2 lớp nối liền từ khung cuối cảnh {n}: chỗ nối có thể khựng; nên làm lại cả cảnh {n + 1}."
+            return ""
+        _, scenes = E.G.parse_script(text)
+        nxt = next((s for s in scenes if s["n"] == local + 1), None)
+        if nxt and "Prompt ảnh" not in nxt["f"] and "Khung đầu từ cảnh" not in nxt["f"]:
+            return f"Cảnh {n + 1} nối tiếp từ khung cuối cảnh {n} (không có khung đầu riêng): chỗ nối có thể khựng; nên làm lại cả cảnh {n + 1}."
+    except Exception:  # noqa: BLE001 - chỉ là cảnh báo
+        return ""
+    return ""
+
+
 def redo_from(pid, vname, n):
     d = run_dir(pid, vname)
     for f in os.listdir(d):
@@ -1432,9 +1481,11 @@ class H(BaseHTTPRequestHandler):
                     if not stop_and_wait(it):  # video đang chạy: dừng nó trước rồi làm lại từ cảnh được chọn
                         return self.send_json({"error": "Video đang bận, chưa dừng được. Thử lại sau vài giây."}, 409)
                     frm = int(b.get("from", 1))
-                    redo_from(it["project"], it["variant"], frm)
+                    only = bool(b.get("only"))   # "Chỉ làm lại cảnh này": giữ các cảnh khác
+                    warn = redo_chain_note(it["project"], it["variant"], frm) if only else ""
+                    (redo_only if only else redo_from)(it["project"], it["variant"], frm)
                     with LOCK:
-                        notes = {k: v for k, v in (it.get("notes") or {}).items() if int(k) < frm}  # ghi chú của các cảnh sẽ làm lại cũ đi; giữ ghi chú của cảnh trước đó
+                        notes = {k: v for k, v in (it.get("notes") or {}).items() if (int(k) != frm if only else int(k) < frm)}  # ghi chú của các cảnh sẽ làm lại cũ đi
                         note = str(b.get("note", "")).strip()
                         if note:
                             notes[str(frm)] = note
@@ -1442,7 +1493,7 @@ class H(BaseHTTPRequestHandler):
                         it.update({"state": "queued", "scenes": [], "raw": "", "final": "", "error": ""})
                     qsave()
                     queue_start([it["id"]])
-                    return self.send_json({"ok": True})
+                    return self.send_json({"ok": True, "warn": warn})
             except RuntimeError as e:
                 return self.send_json({"error": str(e)}, 409)
         if a == "post" and m == "POST":

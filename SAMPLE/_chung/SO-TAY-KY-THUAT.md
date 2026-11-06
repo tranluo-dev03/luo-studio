@@ -204,7 +204,7 @@ Khai trong kịch bản: `[HAU KY]:\nloai: <mã>` (token chỉ dùng cho hậu k
 | Tay/chi tiết lạ ở mép khung | Chép chi tiết video gốc ("cẳng tay bố ở mép dưới") | Cảnh cận: "ONLY <người> is in the frame: no hands or arms of anyone else" |
 | Phụ đề hiện sớm, chạy trong đoạn không lời đầu cảnh | Căn phụ đề từ đầu cảnh, không biết có đoạn "Mở đầu" | Engine ghi `scene<N>_cut.mp4.pre`; `scenes.json` có `speech`; căn phụ đề từ mốc đó |
 | Clip "mới" giống từng byte clip cũ | Muse lỗi 502, LUO-API xin "gắn file" → Muse gắn file cũ trong chat | LUO-API: `GEN_FAILED_RE` → báo lỗi để gen lại. Nghi ngờ: `md5sum` clip mới với bản cũ |
-| Làm lại vài cảnh rời rạc mà mất cả cảnh tốt | `nhieu_phan` coi `scene<N>_cut.mp4` ở THƯ MỤC GỐC lượt chạy là "cảnh đã xong"; thiếu file đó thì xoá file cảnh trong `phan<k>/` | Chỉ xoá đúng cảnh cần làm lại ở CẢ thư mục gốc lẫn `phan<k>/`; không dọn hết thư mục gốc |
+| Làm lại vài cảnh rời rạc mà mất cả cảnh tốt | `nhieu_phan` coi `scene<N>_cut.mp4` ở THƯ MỤC GỐC lượt chạy là "cảnh đã xong"; thiếu file đó thì xoá file cảnh trong `phan<k>/` | Trong Studio dùng nút **"Chỉ làm lại cảnh này"** (hộp Gen lại cảnh N; server `redo_only`): chỉ xoá file cảnh đó, các cảnh khác bỏ qua vì đã có file. Nút cũ "Gen lại từ cảnh này" xoá cảnh N và MỌI cảnh sau (kể cả phần 2 không liên quan). Cảnh sau nối tiếp từ khung cuối cảnh N (cảnh thường không có `Prompt ảnh`/`Khung đầu từ cảnh`, ghép 2 lớp `noi: lien`) thì Studio cảnh báo nên làm lại cả cảnh đó. Tự xoá tay thì xoá đúng cảnh ở CẢ thư mục gốc lẫn `phan<k>/` |
 
 ---
 

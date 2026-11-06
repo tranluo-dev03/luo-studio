@@ -687,6 +687,9 @@ async function traceModal(it, n) {
     : `<tr class="lv${r.lv} ${r.prev ? "old" : ""} ${r === hot ? "hot" : ""} ${r.bad ? "bad" : ""}"><td class="nm">${esc(r.name)}${r.live ? ' <i class="spin sm"></i>' : ""}</td>
       <td class="at">${r.lv === 0 && r.t ? (r.prev ? "" : "+" + fmtS(r.t - first)) : ""}</td><td class="du">${fmtS(r.d)}</td>
       <td class="br"><div style="width:${r.d ? Math.min(100, r.d / max * 100) : 0}%"></div></td><td class="in">${esc(r.info || "")}</td></tr>`;
+  // bảng tự làm mới mỗi 2 giây bằng cách vẽ lại cả hộp: giữ vị trí cuộn của người dùng (trước đây cuộn xuống rồi bị nhảy về đầu)
+  const keep = S.traceN === `${it.id}:${n}` && $("#trbox") ? [["#modal", $("#modal")], ["#trbox", $("#trbox")], [".trwrap", $(".trwrap")]].map(([k, el]) => [k, el ? el.scrollTop : 0, el ? el.scrollLeft : 0]) : null;
+  S.traceN = `${it.id}:${n}`;
   openModal(`<div class="mbox trbox" id="trbox"><h2>Các bước của cảnh ${n} <span class="grow"></span><button class="btn sm ghost" id="trref">${ico("redo")}Làm mới</button><button class="ib" id="mx">${ico("x")}</button></h2>
     <p class="trtx">${esc(d.text || "")}</p>
     ${tr.length ? `<div class="trsum"><span>Tổng <b>${fmtS(total)}</b></span><span>Muse vẽ <b>${fmtS(muse)}</b></span><span>Chờ hàng đợi / tài khoản <b>${fmtS(wait)}</b></span><span>Xử lý trên máy <b>${fmtS(loc)}</b></span>
@@ -694,6 +697,7 @@ async function traceModal(it, n) {
     <div class="trwrap"><table class="trtab"><thead><tr><th>Bước</th><th>Bắt đầu</th><th>Thời gian</th><th></th><th>Chi tiết</th></tr></thead><tbody>${rows.map(tr2).join("")}</tbody></table></div>`
     : `<div style="color:var(--mute);padding:18px 0">Cảnh này chưa có bước nào được ghi. Trace chỉ có cho các cảnh gen từ bản này trở đi.</div>`}
     ${live ? `<div class="trlive">Cảnh đang chạy, bảng tự làm mới mỗi 2 giây.</div>` : ""}</div>`);
+  if (keep) keep.forEach(([k, y, x]) => { const el = $(k); if (el) { el.scrollTop = y; el.scrollLeft = x; } });
   clearTimeout(S.traceT);
   if (live) S.traceT = setTimeout(() => { if ($("#trbox")) traceModal(it, n); }, 2000);
   $("#modal").onclick = e => {
@@ -706,18 +710,24 @@ const REDO_CHIPS = ["Nhân vật còn lại ngậm miệng hoàn toàn, không m
 function redoModal(it, n) {
   const sc = (it.scenes || []).find(x => x.n === n) || {}, old = (it.notes || {})[String(n)] || "";
   openModal(`<div class="mbox"><h2>Gen lại cảnh ${n} <button class="ib" id="mx">${ico("x")}</button></h2>
-    <p style="color:var(--mute);margin-bottom:12px">Cảnh ${n}: <i>${esc(sc.text || "")}</i><br>Cảnh này và các cảnh sau sẽ được gen lại (các cảnh sau nối tiếp từ khung cuối của cảnh này).${it.state === "running" ? "<br><b>Video đang chạy sẽ được dừng trước rồi gen lại từ cảnh này.</b>" : ""}</p>
+    <p style="color:var(--mute);margin-bottom:12px">Cảnh ${n}: <i>${esc(sc.text || "")}</i><br><b>Chỉ làm lại cảnh này</b>: giữ nguyên mọi cảnh khác (dùng khi cảnh sau có khung đầu riêng, không nối tiếp cảnh này).<br><b>Gen lại từ cảnh này</b>: cảnh này và TẤT CẢ các cảnh sau đều gen lại.${it.state === "running" ? "<br><b>Video đang chạy sẽ được dừng trước.</b>" : ""}</p>
     <div class="f"><label>Yêu cầu sửa cho lần gen lại này <small style="opacity:.6">(tuỳ chọn, viết tiếng Việt hay tiếng Anh đều được)</small></label>
       <textarea id="rn" rows="4" placeholder="Ví dụ: Người học không được mấp máy miệng khi robot nói; giọng robot vui hơn…">${esc(old)}</textarea></div>
     <div class="att" style="margin-top:8px">${REDO_CHIPS.map((c, i) => `<span class="addatt" data-chip="${i}" style="cursor:pointer">${esc(c)}</span>`).join("")}</div>
-    <div class="row2" style="margin-top:18px;justify-content:flex-end"><button class="btn ghost" id="rc">Huỷ</button><button class="btn primary" id="rok">${ico("redo")}Gen lại</button></div></div>`);
+    <div class="row2" style="margin-top:18px;justify-content:flex-end"><button class="btn ghost" id="rc">Huỷ</button><button class="btn" id="rok">${ico("redo")}Gen lại từ cảnh này</button><button class="btn primary" id="rone">${ico("redo")}Chỉ làm lại cảnh này</button></div></div>`);
   $("#modal").onclick = async e => {
     if (e.target.closest("#mx, #rc")) return closeModal();
     const ch = e.target.closest("[data-chip]");
     if (ch) { const ta = $("#rn"), t = REDO_CHIPS[+ch.dataset.chip]; if (!ta.value.includes(t)) ta.value = (ta.value.trim() ? ta.value.trim() + "; " : "") + t; return; }
-    if (e.target.closest("#rok")) {
+    const one = e.target.closest("#rone");
+    if (one || e.target.closest("#rok")) {
       const note = $("#rn").value.trim();
-      try { await api("queue/redo", { body: { id: it.id, from: n, note } }); closeModal(); toast(note ? `Đã đưa cảnh ${n} vào hàng chờ gen lại kèm yêu cầu sửa` : `Đã đưa cảnh ${n} vào hàng chờ gen lại`); await pollQueue(); }
+      try {
+        const r = await api("queue/redo", { body: { id: it.id, from: n, note, only: !!one } }); closeModal();
+        toast((one ? `Chỉ làm lại cảnh ${n}, giữ các cảnh khác` : `Đã đưa cảnh ${n} và các cảnh sau vào hàng chờ gen lại`) + (note ? " (kèm yêu cầu sửa)" : ""));
+        if (r && r.warn) toast(r.warn, 1);
+        await pollQueue();
+      }
       catch (er) { toast(er.message, 1); }
     }
   };
@@ -742,13 +752,14 @@ function drawDetail(it) {
     const t = sceneSecs(s, it);
     return `<div class="sc ${st} ${act ? "active" : ""}"><div class="th">${thumb}<span class="num">${s.n}</span><span class="wh" style="background:${s.who === "hoc" ? "var(--hoc)" : !s.who || s.who === "day" ? "var(--day)" : CHAR_DOTS[0]}" title="${esc(s.who || "")}"></span>${s.clip ? `<div class="play" data-play="${s.clip}">${ico("play")}</div>` : ""}</div>
       <div class="bd"><div class="tx">${esc(s.text)}</div>${s.account ? `<div class="acc" title="Tài khoản Muse đã gen cảnh này">${ico("user")}${esc(s.account)}</div>` : ""}<div class="mini"><div style="width:${pc}%"></div></div><div class="st"><span>${STATE[st] || st}${["image", "video"].includes(st) && s.pct ? " " + s.pct + "%" : ""}${s.note ? " · " + esc(s.note) : ""}</span><span class="tm">${st !== "wait" ? `<button class="trbtn" data-trace="${s.n}" title="Xem từng bước gen của cảnh này và thời gian mỗi bước">${ico("clock")}Các bước</button>` : ""}<b data-tm="scene:${it.id}:${s.n}">${t ? fmtDur(t) : ""}</b>${s.secs ? ` · ${s.secs}s` : ""}</span></div></div>
-      ${st === "done" || (st === "error" && !running) ? `<button class="ib redo" data-redo="${s.n}" title="${running ? "Dừng video đang chạy và gen lại từ cảnh này" : "Gen lại từ cảnh này (có thể thêm yêu cầu sửa)"}">${ico("redo")}</button>` : ""}</div>`;
+      ${st === "done" || (st === "error" && !running) ? `<button class="ib redo" data-redo="${s.n}" title="${running ? "Dừng video đang chạy rồi gen lại cảnh này" : "Gen lại cảnh này: chỉ riêng cảnh này hoặc từ cảnh này trở đi (có thể thêm yêu cầu sửa)"}">${ico("redo")}</button>` : ""}</div>`;
   }).join("")}</div>` : "";
   const err = it.error ? `<div class="tag bad" style="margin-bottom:14px;white-space:normal">${esc(it.error)}</div>` : "";
   const logs = (it.log || []).slice(-60).map(l => `<div class="${l.level}">${l.t}  ${esc(l.msg)}</div>`).join("");
+  const ol = $(".log"), logY = ol && ol.scrollHeight - ol.scrollTop - ol.clientHeight > 40 ? ol.scrollTop : null;   // đang cuộn lên đọc: giữ chỗ; đang ở cuối: theo dòng mới
   v.innerHTML = `<div class="runhead"><button class="btn ghost" id="dback">${ico("back")}Hàng đợi</button><span class="tag mute">${esc(it.pname)}</span><div class="bar"><div style="width:${it.kind === "post" ? (running ? 60 : 100) : (tot ? Math.round(done / tot * 100) : 0)}%"></div></div>${it.kind === "gen" ? `<span class="tag">${done}/${tot}</span>` : ""}</div>${err}${res}${grid}
     <details ${S.logOpen ? "open" : ""} id="logd"><summary style="cursor:pointer;color:var(--mute);margin-top:20px">Nhật ký</summary><div class="log">${logs}</div></details>`;
-  const nl = $(".log"); if (nl) nl.scrollTop = nl.scrollHeight;
+  const nl = $(".log"); if (nl) nl.scrollTop = logY != null ? logY : nl.scrollHeight;
   $("#logd").ontoggle = e => { S.logOpen = e.target.open; };
   v.onclick = async e => {
     let x;
