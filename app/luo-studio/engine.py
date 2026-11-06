@@ -155,8 +155,25 @@ class Cancelled(Exception):
     pass
 
 
-class QuotaExceeded(Exception):
+class AccountError(Exception):
+    """Lỗi do TÀI KHOẢN Muse (phiên/cookie hỏng, tài khoản không được tạo video, hết hạn mức): thử lại trên cùng tài khoản vô ích.
+    Studio dừng video, bỏ tài khoản này khỏi lựa chọn của video rồi chạy tiếp ngay bằng tài khoản khác đang bật (server._run_item)."""
+    def __init__(self, msg, account=None, kind="account"):
+        super().__init__(msg)
+        self.account, self.kind = account, kind
+
+
+class QuotaExceeded(AccountError):
     """Muse báo hết hạn mức tạo video (giới hạn 24 giờ): thử lại hay gen lại đều vô ích và còn tốn thêm."""
+    def __init__(self, msg, account=None):
+        super().__init__(msg, account, "quota")
+
+
+# Tuỳ chọn tài khoản theo pin của video (server.gen_item đặt, Api.generate đọc): {"pin_account": id chọn tay, "pin_avoid": [id vừa lỗi]}.
+# Theo pin (không theo luồng) để mọi đường gen của video đều nhận: run_variant, ghép 2 lớp, code gen riêng của thể loại.
+PIN_EXTRA = {}
+# LUO-API cũ chưa trả error_kind: nhận lỗi tài khoản theo nội dung (phiên bị đăng xuất, cookie hỏng, tài khoản không được tạo video).
+_ACCOUNT_ERR_RE = re.compile(r"会话已被 muse\.ai 登出|会话认证失败|重新导入 cookie|指定账号 .* 不存在或已禁用|Tài khoản đã chọn .* không tồn tại", re.I)
 
 
 _QUOTA_RE = re.compile(r"24-hour limit|budget is (?:still )?exhausted|video budget|quota (?:is )?exhausted|hết hạn mức|limit for the (?:last|past) 24 hours|(?:video|daily|generation) limit (?:is |has been )?reached", re.I)
@@ -257,6 +274,29 @@ def has_audio(path):
 # ------------------------------------------------------------------ API với huỷ + tiến độ
 class Api(G.Api):
     def generate(self, kind, prompt, refs, session, duration=None, timeout=900, on_status=None, cancel=None, audios=None, on_account=None, pin=None, pin_prefer=None, aspect="9:16"):
+        """Gen một ảnh/video qua LUO-API. Mỗi lệnh gen được ghi vào trace của cảnh đang chạy (server._emit_for, sự kiện "trace"): lúc gửi, lúc xong,
+        thời gian chờ hàng đợi API, các mốc của LUO-API (mở tab, gửi prompt, Muse vẽ, tải file) và lúc Studio nhận file, để xem cảnh chậm ở bước nào."""
+        rec = {"kind": kind, "t0": time.time(), "refs": len(refs or []), "n429": 0}
+        try:
+            out = self._gen(rec, kind, prompt, refs, session, duration, timeout, on_status, cancel, audios, on_account, pin, pin_prefer, aspect)
+            rec["ok"] = True
+            return out
+        except Cancelled:
+            rec["err"] = "Đã dừng"
+            raise
+        except Exception as e:
+            rec["err"] = str(e)[:200]
+            raise
+        finally:
+            rec["t1"] = time.time()
+            tr = getattr(_TL, "trace", None)
+            if tr:
+                try:
+                    tr("trace", api=rec)
+                except Exception:  # noqa: BLE001 - trace không được làm hỏng việc gen
+                    pass
+
+    def _gen(self, rec, kind, prompt, refs, session, duration, timeout, on_status, cancel, audios, on_account, pin, pin_prefer, aspect):
         prompt = getattr(_TL, "prompt_prefix", "") + prompt   # câu dẫn riêng của một thể loại (gen.py của thể loại đặt, mặc định không có)
         body = {"prompt": prompt, "model": "muse-video" if kind == "video" else "muse-image", "aspect_ratio": aspect,
                 "raw_prompt": True, "timeout": min(int(timeout), 600), "session": session}  # API nhận tối đa 600s; thời gian chờ phía app (deadline) vẫn theo `timeout`
@@ -264,6 +304,12 @@ class Api(G.Api):
             body["pin"] = pin
             if pin_prefer:
                 body["pin_prefer"] = pin_prefer
+            ex = PIN_EXTRA.get(pin) or {}
+            if ex.get("pin_account"):   # người dùng chọn tay tài khoản cho video
+                body["pin_account"] = ex["pin_account"]
+                body.pop("pin_prefer", None)
+            if ex.get("pin_avoid"):     # tài khoản vừa lỗi với video: LUO-API chọn tài khoản khác
+                body["pin_avoid"] = list(ex["pin_avoid"])
         if kind == "video":
             body["duration"] = duration
         if refs:
@@ -280,30 +326,44 @@ class Api(G.Api):
                 break
             except G.ApiError as e:
                 if e.code == 429 and time.time() < deadline:
+                    rec["n429"] += 1   # API báo hàng đợi đầy: chờ 5 s rồi gửi lại
                     time.sleep(5)
                     continue
                 raise
         tid = task.get("task_id") or task.get("id")
+        rec.update(id=tid, t_sub=time.time())
         last = None
         while True:
-            for _ in range(6):
+            for _ in range(2):   # hỏi mỗi 1 s (trước 3 s): kết quả về sớm hơn trung bình ~1 s mỗi bước gen
                 if cancel and cancel.is_set():
                     raise Cancelled()
                 time.sleep(0.5)
             st = self.req(f"{path}/{tid}")
             s, pr = st.get("status"), st.get("progress")
+            for k in ("account_label", "queue_wait", "elapsed", "timing", "via", "error_kind"):
+                if st.get(k) is not None:
+                    rec[k] = st[k]
             if on_account and st.get("account"):   # LUO-API báo tài khoản Muse đang gen task này (id + nhãn gợi nhớ, không có cookie)
                 on_account(st["account"], st.get("account_label") or st["account"])
             if on_status and (s, pr) != last:
                 last = (s, pr)
                 on_status(s, pr)
             if s == "completed":
+                rec["t_seen"] = time.time()   # lúc Studio thấy task xong (hỏi mỗi 1 s); sau đó là đọc / tải file về
+                local = G.local_result(self.url, st)   # LUO-API cùng máy: đọc thẳng file, không tải lại qua HTTP
+                if local is not None:
+                    return local
                 url = st.get("url") or (st.get("video") or {}).get("url") or (st.get("result") or {}).get("url") or ((st.get("data") or [{}])[0]).get("url")
                 if not url:
                     raise RuntimeError("API không trả về file")
                 return self.download(url)
             if s in ("failed", "error"):
-                raise RuntimeError(str(st.get("error") or "API báo lỗi"))
+                msg, kind = str(st.get("error") or "API báo lỗi"), st.get("error_kind")
+                if kind == "quota" or (kind is None and _QUOTA_RE.search(msg)):
+                    raise QuotaExceeded(f"Muse báo hết hạn mức tạo video (giới hạn 24 giờ): {msg[:160]}", st.get("account"))
+                if kind == "account" or (kind is None and _ACCOUNT_ERR_RE.search(msg)):
+                    raise AccountError(f"Lỗi tài khoản Muse: {msg[:200]}", st.get("account"))
+                raise RuntimeError(msg)
             if time.time() > deadline:
                 raise RuntimeError("Hết thời gian chờ")
 
@@ -344,7 +404,7 @@ def fit_start_frame(api, img_f, session, opts, emit, n, pin, pin_prefer, cancel,
                 emit("log", msg=f"Cảnh {n}: đã mở rộng nền, đỉnh đầu ở {t2 * 100:.0f}% khung")
                 break
             emit("log", msg=f"Cảnh {n}: Muse vẽ nối nền chưa đúng cỡ (đỉnh đầu {'?' if t2 is None else f'{t2 * 100:.0f}%'}), thử lại {i}/{opts['retries'] + 1}", level="warn")
-        except Cancelled:
+        except (Cancelled, AccountError):
             raise
         except Exception as e:  # noqa: BLE001
             emit("log", msg=f"Cảnh {n}: vẽ nối nền lỗi: {e}", level="warn")
@@ -481,6 +541,13 @@ def scene_tokens(template):
     return {int(h.group(1)): set(_TOK.findall(template[h.start(): hs[i + 1].start() if i + 1 < len(hs) else len(template)])) for i, h in enumerate(hs)}
 
 
+def scene_tokens_main(template):
+    """Như scene_tokens nhưng bỏ các dòng "Mở đầu ..." (đoạn không lời gen riêng): người chỉ có mặt ở đoạn mở đầu (vd. cảnh sát đi về) không tính là
+    có mặt trong clip thoại của cảnh (canh-sat-gia-su-ai 06/11, cảnh 9: cảnh sát đã đi khỏi nhưng vẫn được tả "đứng ở cửa sổ")."""
+    body = "\n".join(l for l in template.splitlines() if not l.startswith("Mở đầu"))
+    return scene_tokens(body)
+
+
 def scene_ref_filter(toks, people, all_toks):
     """keep(token, nhóm) cho attachments(): chỉ gửi ảnh tham chiếu của nhân vật/nền có trong cảnh.
     Gửi cả ảnh người không có mặt làm Muse trộn mặt (vd. mặt cô gái lẫn vào cảnh sát). `people`: khoá nhân vật có mặt (NGUOI_<khoá>).
@@ -582,14 +649,17 @@ def role_names(v, day):
     return (rd, rh) if day else (rh, rd)
 
 
-def speaker_lock(v, turn):
+def speaker_lock(v, turn, present=None):
     """Khối đầu prompt video, viết theo mẫu video call (master-ugc-ai-call): MỘT câu khẳng định ai nói gì + người kia im và đang làm việc riêng.
     Không liệt kê hàng loạt điều cấm (khiến Muse hiểu người nghe cũng 'có phần' trong lời thoại).
     Số nhân vật bất kỳ: mỗi nhân vật có khoá (day, hoc hoặc khoá khác) và các token TEN_/POS_/GIONG_/VAI_/NGHE_<KHOÁ>; một người nói, tất cả còn lại im lặng."""
     k = MV.ck(turn.get("who"))
     chars = MV.chars_of(v)
     letter = {c: chr(65 + i) for i, c in enumerate(chars)}
-    lis = [c for c in chars if c != k]
+    # present: nhân vật có mặt trong cảnh (biến thể bật "nguoi_theo_canh"). Không lọc thì người vắng mặt cũng được tả "đang im lặng trong khung"
+    # và Muse vẽ thêm họ vào cảnh cận (canh-sat-gia-su-ai 06/11: cảnh sát và bé hiện sau cửa sổ ở cảnh cận mặt bố). None = như cũ.
+    lis = [c for c in chars if c != k and (present is None or c in present)]
+    shown = [c for c in chars if present is None or c in present or c == k]
     spk, spos, role_s = v.get(f"TEN_{k}"), MV.cpos(v, k), MV.crole(v, k)
     contrast = voice_contrast(v, k == "DAY") if {k, *lis} == {"DAY", "HOC"} else pair_contrast(v, k)
     quiet = ""
@@ -615,7 +685,7 @@ def speaker_lock(v, turn):
                   f"at the {role_l}'s own pace regardless of the dialogue. ")
     resting = " and ".join(f"VOICE {letter[c]}" for c in lis) + (" is" if len(lis) == 1 else " are") + " resting in this clip."
     back = MV.back_view(v, turn["who"])   # người nói quay lưng về camera (QUAY_LUNG_<khoá>): không nhắc miệng / nét mặt, kẻo Muse xoay mặt họ ra
-    return ("SPEAKER MAP: " + "; ".join(f"VOICE {letter[c]} belongs to the {MV.cpos(v, c)} character ({v.get(f'TEN_{c}')})" for c in chars) + ". "
+    return ("SPEAKER MAP: " + "; ".join(f"VOICE {letter[c]} belongs to the {MV.cpos(v, c)} character ({v.get(f'TEN_{c}')})" for c in shown) + ". "
             f"In this clip only VOICE {letter[k]} is heard, " + (f"spoken by the {spos} character ({spk}), who has their back to the camera. " if back else f"coming from the mouth of the {spos} character ({spk}). ")
             + f"The {role_s} ({spos}) says the line once, "
             f"{MV.speaker_how(v, turn['who'], turn.get('text', ''), turn.get('emo', ''))}. "
@@ -1603,6 +1673,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
     ref_scene = None           # cảnh làm chuẩn màu hiện tại (để ghi nhật ký)
     palette = None             # bảng màu chung của cả video (ảnh tổng quan trung tính nếu có, không thì khung đầu cảnh đầu tiên): các khung đầu sau kéo sắc về đây
     s_toks = scene_tokens(template)
+    s_toks_main = scene_tokens_main(template) if vdata.get("nguoi_theo_canh") else s_toks   # người có mặt trong clip thoại (bỏ đoạn mở đầu)
     all_toks = set().union(*s_toks.values()) if s_toks else set()
     prev_people = None         # nhân vật có mặt ở cảnh trước (cảnh nối tiếp không nhắc tên ai thì coi như giữ nguyên)
     prev_bg = None             # token nền (NEN_*) của cảnh trước
@@ -1662,7 +1733,11 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
             if swap:
                 vid_b = silent_prompt(unfreeze_listener(body) if vdata.get("listen") == "idle" else body, vdata, turn["who"], said)
                 neg_b = silent_negative(neg)
-            vid_p = speaker_lock(vdata, turn) + "\n\n" + (unfreeze_listener(body) if vdata.get("listen") == "idle" else body)
+            here = None
+            if vdata.get("nguoi_theo_canh"):   # chỉ tả người im lặng có tên trong cảnh (TEN_/NGUOI_<khoá>); cảnh không nêu tên ai thì như cũ
+                stk = s_toks_main.get(n, set())
+                here = {c for c in chars if f"NGUOI_{c}" in stk or f"TEN_{c}" in stk} or None
+            vid_p = speaker_lock(vdata, turn, here) + "\n\n" + (unfreeze_listener(body) if vdata.get("listen") == "idle" else body)
             neg = compact_negative(unfreeze_negative(neg) if vdata.get("listen") == "idle" else neg)
         dur = G.auto_duration(syll) if syll else next((d for d in ALLOWED if d >= sc["seconds"]), 10)
         if fix_note:  # người dùng yêu cầu sửa riêng cho cảnh này khi làm lại: đặt đầu prompt video, ưu tiên cao nhất
@@ -1730,8 +1805,8 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
             for i in range(1, opts["retries"] + 2):
                 try:
                     return fn()
-                except Cancelled:
-                    raise
+                except (Cancelled, AccountError):
+                    raise   # lỗi tài khoản: thử lại trên cùng tài khoản vô ích, để server đổi tài khoản
                 except Exception as e:
                     emit("log", msg=f"Cảnh {n} {label}: {e}", level="warn")
                     if _QUOTA_RE.search(str(e)):

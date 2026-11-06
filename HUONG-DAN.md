@@ -48,8 +48,13 @@ Mỗi biến thể = một video.
 
 ### Bước 4: Gen
 1. Tick các biến thể → **Thêm vào hàng đợi**.
-2. Tab **Hàng đợi** → chọn **Song song** (không lớn hơn số tài khoản Muse) → **Bắt đầu**.
+2. Tab **Hàng đợi** → chọn **Song song** (tối đa **số tài khoản Muse × 2**: từ bản 1.2.0 mỗi tài khoản chạy được 2 video cùng lúc) → **Bắt đầu**.
 3. Bấm vào thẻ video để xem từng cảnh. Cảnh nào sai → bấm **gen lại cảnh** (mũi tên vòng), có thể ghi yêu cầu sửa.
+   Cảnh chạy lâu → bấm **Các bước** trên cảnh đó để xem bảng từng bước và thời gian (Muse vẽ, chờ tài khoản, xử lý trên máy…), bước lâu nhất tô vàng.
+4. Muốn gen video bằng tài khoản khác: bấm dòng tài khoản trên thẻ video (hoặc nút tài khoản ở đầu trang video) → chọn tài khoản, hoặc **Tự động**.
+   Video đang chạy sẽ chạy tiếp ngay bằng tài khoản mới, giữ các cảnh đã xong.
+
+> Tài khoản lỗi (cookie hỏng, hết hạn mức) thì video **tự đổi sang tài khoản khác** đang bật. Lỗi khác thì video tự xếp lại hàng chờ và chạy lại sau vài phút, các video khác vẫn chạy tiếp, nên để chạy qua đêm được.
 
 > **Chạy thử 1 biến thể trước**, ưng rồi mới chạy cả nhóm (tiết kiệm lượt Muse).
 
@@ -80,8 +85,8 @@ Hậu kỳ **tự chạy** ngay khi gen xong và ghép xong clip (không cần b
 | Chấm đỏ "API chưa kết nối" | Đóng hẳn LUO Studio, mở lại. Vẫn lỗi: chạy `Chan doan.bat`, gửi file `userdata\logs\chan-doan.txt` |
 | "Chưa có tài khoản Muse" | Làm mục 2 |
 | Thẻ tài khoản báo "Lỗi đăng nhập" | Cookie hết hạn: đăng nhập lại muse.ai, lấy cookie mới, bấm **Cập nhật cookie** |
-| "Hết hạn mức" | Tài khoản hết lượt: đợi ngày reset (xem thẻ tài khoản) hoặc **Chạy tiếp** bằng tài khoản khác |
-| Video đứng "Đang chờ" lâu | Không còn tài khoản dùng được, hoặc Song song lớn hơn số tài khoản |
+| "Hết hạn mức" | Video tự đổi sang tài khoản khác đang bật. Hết tài khoản thì đợi ngày reset (xem thẻ tài khoản) |
+| Video đứng "Đang chờ" lâu | Không còn tài khoản dùng được, hoặc Song song lớn hơn số tài khoản × 2 |
 | "Hết thời gian chờ" | Muse chậm: tăng "Chờ tối đa mỗi bước" trong **Cài đặt**, giảm Song song |
 | Nhân vật nói sai lời / hai người cùng nói | Gen lại cảnh đó (kèm yêu cầu sửa) |
 | Hậu kỳ lần đầu lâu | Máy đang tải mô hình nhận dạng giọng, đợi vài phút |

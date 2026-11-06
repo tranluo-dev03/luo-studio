@@ -25,7 +25,7 @@ import engine as E  # noqa: E402
 import face_mesh as FM  # noqa: E402
 
 LOCK = threading.RLock()
-DEFAULT_SETTINGS = {"api_url": os.environ.get("LUO_API_URL", "http://127.0.0.1:18610"), "api_key": "", "timeout": 900, "retries": 2, "cut": True, "speedfix": True, "normalize": True, "color_mode": "anchor", "color_strength": 1.0, "video_char_refs": True, "listen_mode": "idle", "check_overlap": True, "mouth_note": "", "overlap_retries": 2, "mouth_sens": "normal", "precise_cut": True, "muse_directive": True, "check_camera": True, "fx_hook": True, "cut_margin": 0.5, "voice_split": True, "export_dir": "", "speed_max": 1.25, "chat_every": 1, "parallel": 1, "fx_ding": False, "fx_pop": False,
+DEFAULT_SETTINGS = {"api_url": os.environ.get("LUO_API_URL", "http://127.0.0.1:18610"), "api_key": "", "timeout": 900, "retries": 2, "cut": True, "speedfix": True, "normalize": True, "color_mode": "anchor", "color_strength": 1.0, "video_char_refs": True, "listen_mode": "idle", "check_overlap": True, "mouth_note": "", "overlap_retries": 2, "mouth_sens": "normal", "precise_cut": True, "muse_directive": True, "check_camera": True, "fx_hook": True, "cut_margin": 0.5, "voice_split": True, "export_dir": "", "speed_max": 1.25, "chat_every": 1, "parallel": 1, "fx_ding": False, "fx_pop": False, "auto_retry": 3,
                     "logo": "", "endcard": "", "topbar": "", "whisper": "auto"}
 
 # ------------------------------------------------------------------ lưu trữ
@@ -288,6 +288,10 @@ QUOTA = {"hit": 0.0}   # lần cuối Muse báo hết hạn mức
 ICANCEL = {}     # id mục đang chạy -> ItemCancel (dừng riêng một mục)
 PENDING = []     # id mục đang chờ luồng trống (thứ tự bấm chạy)
 ACTIVE = set()   # id mục đang chạy (gen chiếm luồng; hậu kỳ chạy riêng, không chiếm luồng)
+WAKE = {"t": 0.0}   # lúc hẹn gọi lại schedule() cho mục tự chạy lại sau lỗi (retry_at)
+AUTO_DELAY = 120    # lỗi không phải do tài khoản: chạy lại sau 2 phút, 4 phút, 6 phút…
+# Lỗi cố định (kịch bản / dự án sai): chạy lại cũng lỗi y như vậy, không tự xếp lại hàng chờ
+NO_RETRY_RE = re.compile(r"Thiếu khối|lượt thoại nhưng script cần|Dự án đã bị xoá|Biến thể đã bị xoá|Không tìm thấy dự án|ffmpeg: |ffprobe: |No such file|Permission denied")
 
 
 class ItemCancel:
@@ -310,7 +314,7 @@ def busy():
 
 def qsave():
     with LOCK:
-        keep = [{k: v for k, v in it.items() if k != "log"} for it in QUEUE]
+        keep = [{k: v for k, v in it.items() if k not in ("log", "_requeue", "_prev_trace", "_trace_n")} for it in QUEUE]
     try:
         jwrite(QFILE, {"items": keep})
     except OSError:
@@ -378,20 +382,79 @@ def queue_view():
     with LOCK:
         items = []
         for it in QUEUE:
-            c = dict(it)
+            c = {k: v for k, v in it.items() if k not in ("_prev_trace", "_trace_n")}
             c["log"] = it["log"][-40:]
+            # trace từng bước nặng: không gửi theo mỗi lần hỏi hàng đợi, giao diện lấy riêng qua /api/queue/trace khi bấm xem
+            c["scenes"] = [{k: v for k, v in sc.items() if k != "trace"} for sc in it.get("scenes", [])]
             items.append(c)
         return {"items": items, "batch": dict(BATCH), "now": time.time(), "busy": busy()}
+
+
+TRACE_STEP = {"image": "Gen ảnh", "video": "Gen video", "cut": "Cắt & kiểm tra"}
+TRACE_MAX = 80   # số dòng trace tối đa mỗi cảnh (bỏ dòng cũ nhất)
+
+
+def _trace_scene(it, sc, kw):
+    """Ghi trace từng bước của một cảnh (gọi trong LOCK, trước khi cập nhật sc): mỗi lần cảnh đổi bước (trạng thái hoặc ghi chú, vd. "thử lại 1/2",
+    "kiểm tra giọng") thì đóng bước cũ (ghi thời lượng) và mở bước mới. Chỉ đổi % tiến độ thì không tính là bước mới."""
+    now = time.time()
+    tr = sc.setdefault("trace", [])
+    st = kw.get("state", sc.get("state"))
+    note = kw["note"] if "note" in kw else (sc.get("note", "") if st == sc.get("state") else "")
+    if "state" not in kw and "note" not in kw:
+        return
+    cur = tr[-1] if tr and tr[-1].get("open") else None
+    key = [st, note or ""]
+    if cur and cur.get("key") == key:
+        return
+    if cur:
+        cur["d"] = round(now - cur["t"], 2)
+        cur.pop("open", None)
+    if st in TRACE_STEP:
+        if tr and tr[-1].get("prev"):   # dòng đầu tiên của lần chạy này sau trace của lần trước
+            tr.append({"t": now, "sep": True, "step": "Chạy lại / chạy tiếp"})
+        tr.append({"t": now, "key": key, "step": TRACE_STEP[st] + (f" · {note}" if note else ""), "open": True, "api": []})
+        it["_trace_n"] = sc["n"]
+    del tr[:-TRACE_MAX]
+
+
+def _trace_close(it):
+    """Video dừng / lỗi giữa chừng: đóng bước đang mở của mọi cảnh (ghi thời lượng tới lúc dừng và kết quả của video)."""
+    now = time.time()
+    why = ("lỗi tài khoản, đổi tài khoản" if it.get("_requeue") == 0 else "lỗi, tự chạy lại") if "_requeue" in it else         {"stopped": "dừng", "error": "lỗi"}.get(it.get("state"), it.get("state") or "")
+    with LOCK:
+        for sc in it.get("scenes", []):
+            for r in sc.get("trace") or []:
+                if r.get("open"):
+                    r["d"] = round(now - r["t"], 2)
+                    r.pop("open", None)
+                    r["end"] = why
 
 
 def _emit_for(it):
     def emit(ev, **kw):
         with LOCK:
             if ev == "scene_init":
+                prev = it.pop("_prev_trace", None) or {}
                 it["scenes"] = kw["scenes"]
+                for sc in it["scenes"]:   # chạy tiếp: giữ trace của lần chạy trước (đánh dấu "prev") để vẫn xem được cảnh đã xong
+                    old = prev.get(sc["n"]) or prev.get(str(sc["n"]))
+                    if old:
+                        sc["trace"] = [dict(r, prev=True) for r in old if not r.get("open")]
+            elif ev == "trace":   # một lệnh gen của Api.generate: gắn vào bước đang mở của cảnh đang chạy
+                sc = next((x for x in it.get("scenes", []) if x["n"] == it.get("_trace_n")), None)
+                tr = (sc or {}).get("trace") or []
+                step = tr[-1] if tr and tr[-1].get("open") else None
+                if step is None and sc is not None:
+                    step = {"t": kw["api"].get("t0", time.time()), "step": "Gen", "api": []}
+                    tr.append(step)
+                    sc["trace"] = tr
+                if step is not None:
+                    step.setdefault("api", []).append(kw["api"])
             elif ev == "scene":
                 sc = next((x for x in it["scenes"] if x["n"] == kw["n"]), None)
                 if sc:
+                    _trace_scene(it, sc, kw)
                     st = kw.get("state")
                     if st in ("image", "video", "cut", "done") and not sc.get("t0"):
                         sc["t0"] = time.time()
@@ -421,11 +484,22 @@ def gen_item(it, cx):
     cp = custom_post(p)   # thể loại có wireframe bố cục riêng (types/<mã>/assets/layout.png) thì gửi kèm lệnh gen ảnh khung đầu
     if cp and os.path.exists(os.path.join(os.path.dirname(cp), "assets", "layout.png")):
         opts["layout_ref"] = os.path.join(os.path.dirname(cp), "assets", "layout.png")
-    # Một video = một tài khoản Muse: mọi cảnh ghim vào cùng tài khoản; chạy tiếp thì ưu tiên tài khoản cũ
-    opts["pin"], opts["pin_prefer"] = f"video-{it['id']}", it.get("account_id")
+    # Một video = một tài khoản Muse: mọi cảnh ghim vào cùng tài khoản; chạy tiếp thì ưu tiên tài khoản cũ.
+    # Người dùng chọn tay tài khoản (account_pick) thì ép đúng tài khoản đó; tài khoản vừa lỗi với video (avoid) thì không chọn lại.
+    pick = (it.get("account_pick") or {}).get("id")
+    avoid = [a for a in (it.get("avoid") or []) if a and a != pick]
+    old = it.get("account_id")
+    opts["pin"], opts["pin_prefer"] = f"video-{it['id']}", pick or (old if old not in avoid else None)
+    E.PIN_EXTRA[opts["pin"]] = {"pin_account": pick, "pin_avoid": avoid}
+    if pick:
+        qlog(it, f"Gen bằng tài khoản chọn tay: {(it.get('account_pick') or {}).get('name') or pick}")
+    emit = _emit_for(it)
+    E._TL.trace = emit   # Api.generate ghi từng lệnh gen vào trace của cảnh (cùng luồng với run_variant)
     try:
-        E.run_variant(v, template_text(p["template"]), run_dir(it["project"], it["variant"]), opts, _emit_for(it), cx)
+        E.run_variant(v, template_text(p["template"]), run_dir(it["project"], it["variant"]), opts, emit, cx)
     finally:
+        E._TL.trace = None
+        E.PIN_EXTRA.pop(opts["pin"], None)
         E.release_pin(opts, opts["pin"])
     it["raw"] = "raw.mp4"
 
@@ -663,7 +737,7 @@ def _finish_post(it, final):
         qlog(it, f"Không xuất được bản mang tên biến thể: {e}", "warn")
 
 
-def _discard_inflight(it):
+def _discard_inflight(it, hint=True):
     """Dừng giữa chừng: bỏ clip dở của cảnh đang gen để lần tiếp tục tạo lệnh gen mới cho đúng video đó (giữ các cảnh đã xong và ảnh khung đầu)."""
     if it.get("kind") != "gen":
         return
@@ -676,7 +750,8 @@ def _discard_inflight(it):
             os.remove(os.path.join(d, f"scene{cur['n']}_{suffix}"))
         except OSError:
             pass
-    qlog(it, f"Đã dừng ở cảnh {cur['n']}. Bấm Chạy tiếp để gen lại video cảnh này và đi tiếp.")
+    if hint:   # tự chạy lại / tự đổi tài khoản thì không cần nhắc bấm Chạy tiếp
+        qlog(it, f"Đã dừng ở cảnh {cur['n']}. Bấm Chạy tiếp để gen lại video cảnh này và đi tiếp.")
 
 
 def _run_item(iid):
@@ -685,8 +760,10 @@ def _run_item(iid):
         return
     cx = ICANCEL[iid] = ItemCancel()
     with LOCK:
-        it.update({"state": "running", "error": "", "started": time.time(), "ended": 0.0, "stopping": False})
+        it.pop("_requeue", None)
+        it.update({"state": "running", "error": "", "started": time.time(), "ended": 0.0, "stopping": False, "retry_at": 0})
         if it["kind"] == "gen" and not it.get("only_post"):
+            it["_prev_trace"] = {sc["n"]: sc["trace"] for sc in it.get("scenes", []) if sc.get("trace")}
             it["scenes"] = []
         if it["kind"] == "gen":
             it["phase"] = "post" if it.get("only_post") else "gen"
@@ -705,23 +782,37 @@ def _run_item(iid):
         else:
             post_item(it, it.get("opts") or {}, cx)
         it["state"] = "done"
+        it["auto_tries"], it["avoid"] = 0, []
         qlog(it, "Xong")
     except E.Cancelled:
         it["state"] = "stopped"
         _discard_inflight(it)
-    except E.QuotaExceeded as e:
-        # Mỗi video một tài khoản: chỉ dừng video này, các video khác đang dùng tài khoản khác chạy tiếp. Giữ các cảnh đã xong; Chạy tiếp thì LUO-API
-        # chọn tài khoản khác (tài khoản vừa hết hạn mức bị tránh nếu còn tài khoản khác).
-        it["state"] = "stopped"
-        it["error"] = str(e)[:300]
-        qlog(it, f"Dừng vì tài khoản {it.get('account') or '?'} hết hạn mức Muse: {e}", "error")
-        _discard_inflight(it)
-        QUOTA["hit"] = time.time()
+    except E.AccountError as e:
+        # Lỗi do tài khoản (phiên hỏng, không được tạo video, hết hạn mức): chỉ dừng video này, giữ các cảnh đã xong, bỏ tài khoản lỗi khỏi
+        # lựa chọn của video rồi chạy tiếp NGAY bằng tài khoản khác đang bật. Hết tài khoản để đổi thì LUO-API báo lỗi thường -> tự chạy lại sau.
+        if e.kind == "quota":
+            QUOTA["hit"] = time.time()
+        bad = e.account or it.get("account_id")
+        if not bad:
+            _fail_or_retry(it, e)
+        else:
+            name = it.get("account") if bad == it.get("account_id") else bad
+            with LOCK:
+                if (it.get("account_pick") or {}).get("id") == bad:
+                    it.pop("account_pick", None)
+                    qlog(it, f"Bỏ tài khoản chọn tay {name} vì nó lỗi", "warn")
+                av = it.setdefault("avoid", [])
+                if bad not in av:
+                    av.append(bad)
+            it["state"] = "stopped"
+            it["error"] = str(e)[:300]
+            it["_requeue"] = 0
+            _discard_inflight(it, hint=False)
+            qlog(it, f"{'Hết hạn mức' if e.kind == 'quota' else 'Lỗi tài khoản'} {name}: {e}. Tự đổi sang tài khoản khác đang bật và chạy tiếp từ cảnh đang dở", "warn")
     except Exception as e:  # noqa: BLE001
-        it["state"] = "error"
-        it["error"] = str(e)[:300]
-        qlog(it, f"Lỗi - {e}", "error")
+        _fail_or_retry(it, e)
     finally:
+        _trace_close(it)
         ICANCEL.pop(iid, None)
         it.pop("only_post", None)
         it["phase"] = ""
@@ -729,6 +820,26 @@ def _run_item(iid):
         it["ended"] = time.time()
         it["elapsed"] = round(it["ended"] - it["started"], 1)
         qsave()
+
+
+def _fail_or_retry(it, e):
+    """Lỗi không phải do tài khoản (hoặc không còn tài khoản để đổi): không dừng cả lượt chạy. Video này tạm dừng, giữ các cảnh đã xong và tự
+    xếp lại cuối hàng chờ, chạy lại sau vài phút (tối đa cài đặt auto_retry lần), các video khác vẫn chạy tiếp. Lỗi cố định thì báo lỗi luôn."""
+    msg = str(e)
+    n, maxn = int(it.get("auto_tries") or 0), max(0, int(settings().get("auto_retry", 3) or 0))
+    if NO_RETRY_RE.search(msg) or n >= maxn or it.get("kind") != "gen":
+        it["state"] = "error"
+        it["error"] = msg[:300]
+        qlog(it, f"Lỗi - {e}" + (f" (đã tự chạy lại {n} lần)" if n else ""), "error")
+        return
+    delay = AUTO_DELAY * (n + 1)
+    it["auto_tries"] = n + 1
+    it["state"] = "stopped"
+    it["error"] = msg[:300]
+    it["avoid"] = []   # vòng sau thử lại mọi tài khoản (cookie có thể đã được sửa, hạn mức có thể đã hồi)
+    it["_requeue"] = delay
+    _discard_inflight(it, hint=False)
+    qlog(it, f"Lỗi - {e}. Tự xếp lại hàng chờ, chạy lại sau {delay // 60} phút (lần {n + 1}/{maxn}); các video khác vẫn chạy tiếp", "warn")
 
 
 def _slots():
@@ -741,21 +852,53 @@ def _worker(iid):
     finally:
         with LOCK:
             ACTIVE.discard(iid)
+            it = qfind(iid)
+            if it is not None and "_requeue" in it:   # tự chạy lại: đổi tài khoản thì chạy ngay (đầu hàng chờ), lỗi khác thì sau vài phút (cuối hàng chờ)
+                delay = it.pop("_requeue")
+                it["state"] = "waiting"
+                it["retry_at"] = time.time() + delay if delay else 0
+                if iid not in PENDING:
+                    PENDING.append(iid) if delay else PENDING.insert(0, iid)
+                if iid not in BATCH["ids"]:
+                    BATCH["ids"].append(iid)
+                BATCH["state"] = "running"
+        qsave()
         schedule()
+
+
+def _wake():
+    WAKE["t"] = 0.0
+    schedule()
 
 
 def schedule():
     """Còn luồng trống thì lấy mục chờ kế tiếp ra chạy; hết việc thì đóng lượt chạy."""
     with LOCK:
         used = sum(1 for i in ACTIVE if (qfind(i) or {}).get("kind") == "gen")
-        while PENDING and used < _slots():
-            iid = PENDING.pop(0)
+        now, wake, i = time.time(), 0.0, 0
+        while i < len(PENDING) and used < _slots():
+            iid = PENDING[i]
             it = qfind(iid)
             if not it or it["state"] != "waiting":
+                PENDING.pop(i)
                 continue
+            ra = float(it.get("retry_at") or 0)
+            if ra > now:   # đang chờ tự chạy lại sau lỗi: nhường luồng cho mục sau
+                wake = min(wake or ra, ra)
+                i += 1
+                continue
+            PENDING.pop(i)
+            it["retry_at"] = 0
             ACTIVE.add(iid)
             used += 1
             threading.Thread(target=_worker, args=(iid,), daemon=True).start()
+        if not wake:
+            wake = min((float((qfind(x) or {}).get("retry_at") or 0) for x in PENDING if float((qfind(x) or {}).get("retry_at") or 0) > now), default=0.0)
+        if wake and (not WAKE["t"] or WAKE["t"] < now or wake < WAKE["t"]):
+            WAKE["t"] = wake
+            t = threading.Timer(max(1.0, wake - now + 0.5), _wake)
+            t.daemon = True
+            t.start()
         if not ACTIVE and not PENDING and BATCH["state"] == "running":
             BATCH.update({"state": "done", "ended": time.time()})
         BATCH["parallel"] = _slots()
@@ -775,7 +918,9 @@ def queue_start(ids, parallel=None):
             BATCH.update({"state": "running", "started": time.time(), "ended": 0.0, "ids": []})
         BATCH["state"] = "running"
         for iid in ids:
-            qfind(iid)["state"] = "waiting"
+            it = qfind(iid)
+            it["state"] = "waiting"
+            it.update({"retry_at": 0, "auto_tries": 0, "avoid": []})   # người dùng bấm chạy: đếm lại số lần tự chạy lại, thử lại mọi tài khoản
             PENDING.append(iid)
             BATCH["ids"].append(iid)
     qsave()
@@ -792,6 +937,7 @@ def stop_items(ids=None):
                 it = qfind(iid)
                 if it and it["state"] == "waiting":
                     it["state"] = "queued"
+                    it["retry_at"] = 0
         for iid in targets:
             cx, it = ICANCEL.get(iid), qfind(iid)
             if cx and it:
@@ -800,6 +946,41 @@ def stop_items(ids=None):
                 qlog(it, "Đang dừng…")
     qsave()
     schedule()
+
+
+def stop_and_wait(it, secs=30):
+    """Dừng một video đang chạy và chờ nó dừng hẳn. False nếu chưa dừng được."""
+    if it["state"] != "running":
+        return True
+    stop_items([it["id"]])
+    for _ in range(int(secs / 0.3)):
+        if it["state"] != "running":
+            return True
+        time.sleep(0.3)
+    return it["state"] != "running"
+
+
+def set_item_account(iid, acc_id, label=""):
+    """Người dùng chọn tay tài khoản Muse cho một video (acc_id rỗng = về tự động). Video đang chạy thì dừng rồi chạy tiếp ngay bằng tài khoản mới
+    (giữ các cảnh đã xong); video đang lỗi / đã dừng thì chạy tiếp luôn; video chưa chạy thì chỉ ghi lại, dùng khi bắt đầu."""
+    it = qfind(iid)
+    if not it or it.get("kind") != "gen":
+        raise RuntimeError("Không đổi được tài khoản cho mục này")
+    was = it["state"]
+    if was == "running" and not stop_and_wait(it):
+        raise RuntimeError("Video đang bận, chưa dừng được. Thử lại sau vài giây.")
+    with LOCK:
+        if acc_id:
+            it["account_pick"] = {"id": acc_id, "name": label or acc_id}
+            it["avoid"] = [a for a in (it.get("avoid") or []) if a != acc_id]
+        else:
+            it.pop("account_pick", None)
+    qlog(it, f"Chọn tay tài khoản {label or acc_id} cho video" if acc_id else "Bỏ chọn tay: tài khoản tự động")
+    qsave()
+    if was in ("running", "error", "stopped") and it["state"] not in ("running", "waiting"):
+        queue_start([iid])
+        return True
+    return False
 
 
 def start_post(pid, vname, opts):
@@ -1216,6 +1397,15 @@ class H(BaseHTTPRequestHandler):
             sub = parts[1] if len(parts) > 1 else ""
             if m == "GET" and not sub:
                 return self.send_json(queue_view())
+            if m == "GET" and sub == "trace":   # trace từng bước của một cảnh (bảng "Các bước" trong trang chi tiết video)
+                it = qfind((q.get("id") or [""])[0])
+                n = int((q.get("n") or ["0"])[0] or 0)
+                with LOCK:
+                    sc = next((x for x in (it or {}).get("scenes", []) if x["n"] == n), None)
+                    if not sc:
+                        return self.send_json({"error": "Không tìm thấy cảnh"}, 404)
+                    return self.send_json({"n": n, "text": sc.get("text", ""), "state": sc.get("state"), "now": time.time(),
+                                           "trace": json.loads(json.dumps(sc.get("trace") or []))})
             b = self.body()
             try:
                 if sub == "add":
@@ -1226,18 +1416,15 @@ class H(BaseHTTPRequestHandler):
                 if sub == "remove":
                     queue_remove(b.get("ids", []))
                     return self.send_json({"ok": True})
+                if sub == "account":   # chọn tay tài khoản Muse cho một video
+                    started = set_item_account(b["id"], str(b.get("account_id") or "").strip(), str(b.get("label") or "").strip())
+                    return self.send_json({"ok": True, "started": started})
                 if sub == "redo":
                     it = qfind(b["id"])
                     if not it:
                         return self.send_json({"error": "Không làm lại được mục này"}, 409)
-                    if it["state"] == "running":  # video đang chạy: dừng nó trước rồi làm lại từ cảnh được chọn
-                        stop_items([it["id"]])
-                        for _ in range(100):
-                            if it["state"] != "running":
-                                break
-                            time.sleep(0.3)
-                        if it["state"] == "running":
-                            return self.send_json({"error": "Video đang bận, chưa dừng được. Thử lại sau vài giây."}, 409)
+                    if not stop_and_wait(it):  # video đang chạy: dừng nó trước rồi làm lại từ cảnh được chọn
+                        return self.send_json({"error": "Video đang bận, chưa dừng được. Thử lại sau vài giây."}, 409)
                     frm = int(b.get("from", 1))
                     redo_from(it["project"], it["variant"], frm)
                     with LOCK:

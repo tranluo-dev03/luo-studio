@@ -279,8 +279,8 @@ def run_split(vdata, template, out_dir, opts, emit, cancel):
         for i in range(1, opts["retries"] + 2):
             try:
                 return fn()
-            except E.Cancelled:
-                raise
+            except (E.Cancelled, E.AccountError):
+                raise   # lỗi tài khoản: để server đổi tài khoản
             except Exception as e:  # noqa: BLE001
                 emit("log", msg=f"{'Cảnh ' + str(n) if n else 'Chuẩn bị'} {label}: {e}", level="warn")
                 if E._QUOTA_RE.search(str(e)):

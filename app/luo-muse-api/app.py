@@ -45,7 +45,7 @@ from fastapi.responses import (FileResponse, HTMLResponse, JSONResponse,
 from pydantic import BaseModel, Field
 
 from config import CFG
-from engine import ESSENTIAL_COOKIES, MuseAuthError, MuseEngine, MuseGenerationError
+from engine import ESSENTIAL_COOKIES, REFUSAL_TEXT_RE, MuseAuthError, MuseEngine, MuseGenerationError
 from store import Store, account_expiry, min_expiry
 
 import sys
@@ -57,7 +57,7 @@ if not log.handlers:
     log.addHandler(_h)
 
 CFG.ensure_dirs()
-app = FastAPI(title="LUO-API", version="1.0.0")
+app = FastAPI(title="LUO-API", version="1.2.1")
 
 # Cookie 助手脚本从 muse.ai 页面发起导入请求，需要放行该来源；
 # 浏览器扩展从 chrome-extension:// 发起，也一并放行。
@@ -121,16 +121,27 @@ class ConcurrencyLock:
 
 
 class AccountPoolManager:
-    """账号并发冲突管理器：确保同一账号不会同时被两个并发任务操作，多账号则并行执行。"""
-    def __init__(self, store_instance):
+    """账号并发调度：mỗi tài khoản chạy tối đa CFG.account_parallel việc cùng lúc (mỗi việc một tab).
+    Chọn tài khoản đang rảnh hẳn trước (trải đều tải), hết thì mới xếp thêm việc vào tài khoản đang chạy chưa đầy."""
+    def __init__(self, store_instance, per_account: int = 1):
         self.store = store_instance
-        self.busy_accounts: set[str] = set()
+        self.per_account = max(1, per_account)
+        self.load: dict[str, int] = {}
         self.cond = threading.Condition()
+
+    @property
+    def busy_accounts(self) -> set[str]:
+        """Tương thích: tài khoản đã đầy."""
+        return {k for k, n in self.load.items() if n >= self.per_account}
+
+    def _take(self, acc: dict) -> dict:
+        self.load[acc["id"]] = self.load.get(acc["id"], 0) + 1
+        return acc
 
     def acquire(self, account_id: str | None = None, preferred_id: str | None = None,
                 rotate: bool = True, force_rotate: bool = False,
                 timeout: float = 60.0, avoid=None) -> dict:
-        """avoid: hàm trả về tập id tài khoản không được chọn (vd. đã ghim cho video khác); gọi lại mỗi vòng chờ vì có thể đổi trong lúc chờ."""
+        """avoid: hàm trả về tập id tài khoản không được chọn (vd. đã ghim đầy cho video khác); gọi lại mỗi vòng chờ."""
         deadline = time.monotonic() + timeout
         with self.cond:
             while True:
@@ -142,21 +153,21 @@ class AccountPoolManager:
                     acc = self.store.get_account(account_id)
                     if not acc or not acc.get("enabled", True):
                         raise MuseAuthError(f"指定账号 {account_id} 不存在或已禁用")
-                    if account_id not in self.busy_accounts:
-                        self.busy_accounts.add(account_id)
-                        return acc
+                    if self.load.get(account_id, 0) < self.per_account:
+                        return self._take(acc)
                 else:
-                    blocked = self.busy_accounts | (avoid() if avoid else set())
-                    pref = preferred_id if preferred_id not in blocked else None
-                    acc = self.store.pick_account(
-                        preferred_id=pref,
-                        rotate=rotate,
-                        force_rotate=force_rotate,
-                        exclude_ids=blocked
-                    )
+                    avoided = avoid() if avoid else set()
+                    full = self.busy_accounts | avoided
+                    started = {k for k, n in self.load.items() if n > 0}
+                    acc = None
+                    for blocked in (full | started, full):   # rảnh hẳn trước, rồi tới tài khoản còn chỗ
+                        pref = preferred_id if preferred_id not in blocked else None
+                        acc = self.store.pick_account(preferred_id=pref, rotate=rotate,
+                                                      force_rotate=force_rotate, exclude_ids=blocked)
+                        if acc:
+                            break
                     if acc:
-                        self.busy_accounts.add(acc["id"])
-                        return acc
+                        return self._take(acc)
 
                 live = [a for a in self.store.accounts if a.get("enabled", True) and a.get("cookies")]
                 if not live:
@@ -168,18 +179,45 @@ class AccountPoolManager:
         if not account_id:
             return
         with self.cond:
-            self.busy_accounts.discard(account_id)
+            n = self.load.get(account_id, 0) - 1
+            if n > 0:
+                self.load[account_id] = n
+            else:
+                self.load.pop(account_id, None)
             self.cond.notify_all()
 
 
 GEN_LOCK = ConcurrencyLock(limit=CFG.max_concurrency)
-ACCOUNT_POOL = AccountPoolManager(store)
+ACCOUNT_POOL = AccountPoolManager(store, per_account=CFG.account_parallel)
+API_VERSION = "1.2.1"
 QUOTA_RE = re.compile(r"24-hour limit|budget is (?:still )?exhausted|video budget|quota (?:is )?exhausted|limit for the (?:last|past) 24 hours|(?:video|daily|generation) limit (?:is |has been )?reached", re.I)
 
 
+ACCOUNT_REFUSAL_RE = re.compile(r"isn.t available|not available for|not enabled for|upgrade|subscription|waitlist", re.I)
+
+
+def error_kind(exc) -> str:
+    """Loại lỗi để client (LUO Studio) quyết định: "account" = lỗi của tài khoản (phiên/cookie hỏng, tài khoản không được tạo
+    video) -> đổi tài khoản khác; "quota" = hết hạn mức -> đổi tài khoản khác; "no_account" = không còn tài khoản nào dùng được;
+    "busy" = chờ tài khoản rảnh quá lâu; "other" = lỗi khác (prompt, mạng, Muse lỗi tạm)."""
+    msg = str(exc)
+    if "Không còn tài khoản" in msg or "没有可用账号" in msg:
+        return "no_account"
+    if isinstance(exc, MuseAuthError):
+        return "account"
+    if QUOTA_RE.search(msg):
+        return "quota"
+    if "等待空闲账号超时" in msg or "等待浏览器队列超时" in msg:
+        return "busy"
+    if "仅返回" in msg and ACCOUNT_REFUSAL_RE.search(msg):
+        return "account"
+    return "other"
+
+
 class PinRegistry:
-    """Ghim tài khoản theo `pin` (LUO Studio dùng một pin cho mỗi video): request đầu tiên chọn một tài khoản CHƯA bị video khác ghim, các request sau dùng
-    đúng tài khoản đó và không tự đổi sang tài khoản khác khi lỗi. Tài khoản báo hết hạn mức thì các pin MỚI tránh nó (nếu còn tài khoản khác)."""
+    """Ghim tài khoản theo `pin` (LUO Studio dùng một pin cho mỗi video): mọi cảnh của một video dùng đúng một tài khoản và không tự đổi
+    tài khoản khi lỗi. Từ 1.2.0 một tài khoản nhận tối đa CFG.account_parallel video cùng lúc (trước đây 1): pin mới ưu tiên tài khoản chưa
+    có video nào, hết thì tài khoản còn chỗ. Tài khoản báo hết hạn mức thì các pin MỚI tránh nó (nếu còn tài khoản khác)."""
     IDLE = 3 * 3600        # pin không dùng quá lâu (Studio bị tắt ngang) thì tự bỏ
     EXHAUSTED_FOR = 3 * 3600
 
@@ -217,15 +255,27 @@ class PinRegistry:
         with self._lock:
             self._exhausted[acc_id] = time.time()
 
-    def avoid_for(self, pin: str):
-        """Hàm cho ACCOUNT_POOL.acquire(avoid=...): tránh tài khoản đã ghim cho pin khác (bắt buộc) và tài khoản vừa hết hạn mức (nếu còn lựa chọn khác)."""
+    def avoid_for(self, pin: str, extra=None):
+        """Hàm cho ACCOUNT_POOL.acquire(avoid=...): tránh tài khoản đã đầy video ghim (bắt buộc), tài khoản đã có video khác
+        và tài khoản vừa hết hạn mức (nếu còn lựa chọn khác). extra: tài khoản vừa lỗi với chính video này (luôn tránh)."""
+        limit = max(1, int(getattr(CFG, "account_parallel", 1) or 1))
+        extra = set(extra or ())
+
         def f():
             with self._lock:
                 self._expire()
-                hard = {v["acc"] for k, v in self._pins.items() if k != pin}
-                soft = set(self._exhausted)
+                counts: dict[str, int] = {}
+                for k, v in self._pins.items():
+                    if k != pin:
+                        counts[v["acc"]] = counts.get(v["acc"], 0) + 1
+                exhausted = set(self._exhausted)
+            full = {a for a, n in counts.items() if n >= limit} | extra
+            used = set(counts)
             live = {a["id"] for a in store.accounts if a.get("enabled", True) and a.get("cookies")}
-            return hard | soft if live - hard - soft else hard
+            for blocked in (full | used | exhausted, full | exhausted):
+                if live - blocked:
+                    return blocked
+            return full
         return f
 
     def snapshot(self) -> dict:
@@ -361,6 +411,7 @@ def _renew_and_persist(acc_id: str, wake_vm: bool = True, force: bool = False) -
                                  ok=True if res.get("ok") else acc.get("ok"),
                                  synced_at=int(now))
             store.touch_keepalive(acc_id, True, f"会话正常 (VM: {res.get('vm_state') or 'RUNNING'})")
+            engine.update_cookies(acc_id, res["cookies"], res.get("cookies_exp"))
     except MuseAuthError as exc:
         store.mark(acc_id, False, str(exc))
         raise
@@ -489,6 +540,8 @@ class ImageRequest(BaseModel):
     session: str | None = Field(default=None, max_length=128)  # cùng session = cùng một chat/tab Muse
     pin: str | None = Field(default=None, max_length=128)       # cùng pin = cùng MỘT tài khoản Muse (vd. mọi cảnh của một video), không tự đổi tài khoản
     pin_prefer: str | None = Field(default=None, max_length=64)  # tài khoản muốn dùng khi pin chưa có tài khoản (chạy tiếp video cũ)
+    pin_account: str | None = Field(default=None, max_length=64)  # người dùng chọn tay tài khoản cho video: ép pin sang đúng tài khoản này
+    pin_avoid: list[str] | None = None                            # tài khoản vừa lỗi với video này: không chọn lại (tự đổi tài khoản)
     async_: bool = Field(False, alias="async")
 
 
@@ -511,6 +564,8 @@ class VideoRequest(BaseModel):
     session: str | None = Field(default=None, max_length=128)  # cùng session = cùng một chat/tab Muse
     pin: str | None = Field(default=None, max_length=128)       # cùng pin = cùng MỘT tài khoản Muse (vd. mọi cảnh của một video), không tự đổi tài khoản
     pin_prefer: str | None = Field(default=None, max_length=64)  # tài khoản muốn dùng khi pin chưa có tài khoản (chạy tiếp video cũ)
+    pin_account: str | None = Field(default=None, max_length=64)  # người dùng chọn tay tài khoản cho video: ép pin sang đúng tài khoản này
+    pin_avoid: list[str] | None = None                            # tài khoản vừa lỗi với video này: không chọn lại (tự đổi tài khoản)
 
 
 class ChatMessage(BaseModel):
@@ -970,7 +1025,8 @@ def _run_generation(prompt: str, kind: str, timeout: int,
                     reference_image: str | None = None,
                     on_acquired=None, session: str | None = None,
                     on_account=None, pin: str | None = None,
-                    pin_prefer: str | None = None) -> tuple[dict, str | None]:
+                    pin_prefer: str | None = None, pin_account: str | None = None,
+                    pin_avoid=None) -> tuple[dict, str | None]:
     # Browser ownership covers account selection, retry and cleanup, not just generate().
     deadline = time.monotonic() + max(1, timeout)
     if not GEN_LOCK.acquire(timeout=max(1, timeout)):
@@ -984,7 +1040,8 @@ def _run_generation(prompt: str, kind: str, timeout: int,
         return _run_generation_locked(prompt, kind, timeout, account_id,
                                       on_progress, reference_image, deadline=deadline,
                                       session=session, on_account=on_account,
-                                      pin=pin, pin_prefer=pin_prefer)
+                                      pin=pin, pin_prefer=pin_prefer,
+                                      pin_account=pin_account, pin_avoid=pin_avoid)
     finally:
         GEN_LOCK.release()
 
@@ -993,7 +1050,8 @@ def _run_generation_locked(prompt: str, kind: str, timeout: int,
                     account_id: str | None = None, on_progress=None,
                     reference_image: str | None = None, deadline=None,
                     session: str | None = None, on_account=None,
-                    pin: str | None = None, pin_prefer: str | None = None) -> tuple[dict, str | None]:
+                    pin: str | None = None, pin_prefer: str | None = None,
+                    pin_account: str | None = None, pin_avoid=None) -> tuple[dict, str | None]:
     def _notify(a):
         # báo tài khoản đang gen cho task (chỉ id + nhãn, không lộ cookie)
         if on_account and a:
@@ -1004,6 +1062,28 @@ def _run_generation_locked(prompt: str, kind: str, timeout: int,
     remaining_wait = int(deadline - time.monotonic()) if deadline is not None else timeout
     keep_session = False
     same_acc_retry = False
+    avoid_ids = {a for a in (pin_avoid or ()) if a and a != pin_account}
+    if pin and pin_account and not account_id:
+        # người dùng chọn tay tài khoản cho video: ép pin sang tài khoản đó; chat của session trên tài khoản cũ không dùng được nữa
+        acc_sel = store.get_account(pin_account)
+        if not acc_sel or not acc_sel.get("enabled", True) or not acc_sel.get("cookies"):
+            raise MuseAuthError(f"Tài khoản đã chọn {pin_account} không tồn tại, đã tắt hoặc chưa có cookie")
+        if PINS.account_of(pin) != pin_account:
+            PINS.set(pin, pin_account)
+            log.info("【pin】%s 手动指定账号 %s", pin, pin_account)
+        if session and engine.session_account(session) not in (None, pin_account):
+            engine.drop_session(session)
+    elif pin and avoid_ids:
+        # tài khoản vừa lỗi với video này: bỏ ghim cũ (nếu trúng) và chat cũ trên đó, chọn tài khoản khác đang bật
+        if PINS.account_of(pin) in avoid_ids:
+            PINS.release(pin)
+        if session and engine.session_account(session) in avoid_ids:
+            engine.drop_session(session)
+        live = {a["id"] for a in store.accounts if a.get("enabled", True) and a.get("cookies")}
+        if not live - avoid_ids:
+            raise MuseGenerationError("Không còn tài khoản Muse nào khác đang bật để đổi sang (các tài khoản đều vừa lỗi với video này)")
+        if pin_prefer in avoid_ids:
+            pin_prefer = None
     if pin and not account_id:
         account_id = PINS.account_of(pin)   # video đã có tài khoản: dùng đúng tài khoản đó
     if session and not account_id:
@@ -1011,7 +1091,7 @@ def _run_generation_locked(prompt: str, kind: str, timeout: int,
     if pin and not account_id:
         # cảnh đầu của video: chọn tài khoản chưa bị video khác ghim (ưu tiên tài khoản cũ khi chạy tiếp) rồi ghim lại
         acc = ACCOUNT_POOL.acquire(preferred_id=pin_prefer, rotate=False, timeout=max(1, remaining_wait),
-                                   avoid=PINS.avoid_for(pin))
+                                   avoid=PINS.avoid_for(pin, avoid_ids))
         PINS.set(pin, acc["id"])
         log.info("【pin】%s 固定使用账号 %s (%s)", pin, acc.get("label"), acc["id"])
     else:
@@ -1026,6 +1106,8 @@ def _run_generation_locked(prompt: str, kind: str, timeout: int,
             if deadline is not None and time.monotonic() >= deadline:
                 raise MuseGenerationError("任务总等待时限已到，停止重试")
             if attempt > 0:
+                if last_exc and "仅返回文本" in str(last_exc) and REFUSAL_TEXT_RE.search(str(last_exc)):
+                    break   # Muse từ chối hẳn (vd. tài khoản không được tạo video): thử lại chỉ tốn thêm một lượt
                 if last_exc and "未产出媒体附件，仅返回了文本回复" in str(last_exc):
                     break
                 rem = int(deadline - time.monotonic()) if deadline is not None else timeout
@@ -1074,7 +1156,7 @@ def _run_generation_locked(prompt: str, kind: str, timeout: int,
             except MuseAuthError as exc:
                 last_exc = exc
                 store.mark(cur_acc["id"], False, str(exc))
-                engine.close_current_page()
+                engine.close_current_page(dispose=True)
                 if session:
                     engine.drop_session(session)
             except MuseGenerationError as exc:
@@ -1170,8 +1252,9 @@ def _queue_image(req: ImageRequest, prompt: str, reference_image: str | None,
     def worker():
         timing = {"t0": time.time()}
         def _on_acquired():
-            timing["t0"] = time.time()
-            store.update_task(tid, status="processing", progress=5)
+            # queue_wait: thời gian task nằm chờ hàng đợi trình duyệt của API (để Studio hiện trong bảng trace từng bước)
+            qw, timing["t0"] = time.time() - timing["t0"], time.time()
+            store.update_task(tid, status="processing", progress=5, queue_wait=round(qw, 2))
         try:
             res, acc_id = _run_generation(
                 prompt, "image", req.timeout or CFG.image_timeout,
@@ -1179,16 +1262,19 @@ def _queue_image(req: ImageRequest, prompt: str, reference_image: str | None,
                 on_progress=lambda p: store.update_task(tid, progress=p),
                 on_acquired=_on_acquired, session=req.session,
                 pin=req.pin, pin_prefer=req.pin_prefer,
+                pin_account=req.pin_account, pin_avoid=req.pin_avoid,
                 on_account=lambda a: store.update_task(
                     tid, account=a["id"], account_label=a.get("label") or a["id"]))
             # Store only media metadata, not large base64 payloads or reference credentials.
             store.update_task(tid, status="completed", progress=100, account=acc_id,
                               elapsed=round(time.time() - timing["t0"], 1),
                               url=media_url(res["filename"]),
+                              local_path=res.get("path"), muse_thread=res.get("muse_thread"),
+                              timing=res.get("timing"), via=res.get("via"),
                               result={**{k: res[k] for k in ("filename", "size", "kind")},
-                                      "url": media_url(res["filename"])})
+                                      "url": media_url(res["filename"]), "local_path": res.get("path")})
         except Exception as exc:  # noqa: BLE001
-            store.update_task(tid, status="failed", error=str(exc),
+            store.update_task(tid, status="failed", error=str(exc), error_kind=error_kind(exc),
                               elapsed=round(time.time() - timing["t0"], 1))
 
     threading.Thread(target=worker, daemon=True).start()
@@ -1334,8 +1420,8 @@ async def create_video(req: VideoRequest, _=Depends(auth)):
     def worker():
         timing = {"t0": time.time()}
         def _on_acquired():
-            timing["t0"] = time.time()
-            store.update_task(task["id"], status="processing", progress=15)
+            qw, timing["t0"] = time.time() - timing["t0"], time.time()
+            store.update_task(task["id"], status="processing", progress=15, queue_wait=round(qw, 2))
         try:
             def prog_cb(p):
                 store.update_task(task["id"], progress=p)
@@ -1343,6 +1429,7 @@ async def create_video(req: VideoRequest, _=Depends(auth)):
                                           reference_image=ref_img, on_acquired=_on_acquired,
                                           session=req.session,
                                           pin=req.pin, pin_prefer=req.pin_prefer,
+                                          pin_account=req.pin_account, pin_avoid=req.pin_avoid,
                                           on_account=lambda a: store.update_task(
                                               task["id"], account=a["id"],
                                               account_label=a.get("label") or a["id"]))
@@ -1351,11 +1438,13 @@ async def create_video(req: VideoRequest, _=Depends(auth)):
                               elapsed=round(time.time() - timing["t0"], 1),
                               url=vurl,
                               video={"url": vurl},
+                              local_path=res.get("path"), muse_thread=res.get("muse_thread"),
+                              timing=res.get("timing"), via=res.get("via"),
                               result={"url": vurl,
-                                      "filename": res["filename"],
+                                      "filename": res["filename"], "local_path": res.get("path"),
                                       "bytes": res["size"], "kind": res["kind"]})
         except Exception as exc:  # noqa: BLE001
-            store.update_task(task["id"], status="failed",
+            store.update_task(task["id"], status="failed", error_kind=error_kind(exc),
                               elapsed=round(time.time() - timing["t0"], 1), error=str(exc))
 
     threading.Thread(target=worker, daemon=True).start()
@@ -1732,6 +1821,9 @@ def admin_status(_=Depends(auth)):
         "media_count": len(os.listdir(CFG.media_dir))
         if os.path.isdir(CFG.media_dir) else 0,
         "browser_running": bool(engine.proc and engine.proc.poll() is None),
+        "version": API_VERSION,
+        "tabs": engine.pool_status(),
+        "account_parallel": CFG.account_parallel,
         "essential_cookies": list(ESSENTIAL_COOKIES),
         "base_url": f"{base}/v1" if base else "",
         "config": {"site": CFG.site_url, "cdp_port": CFG.cdp_port,
@@ -1813,12 +1905,12 @@ async def test_account(aid: str, _=Depends(auth)):
         with GEN_LOCK:
             try:
                 engine.start()
-                engine.refresh(acc["cookies"], acc.get("cookies_exp"))
+                engine.refresh(acc["cookies"], acc.get("cookies_exp"), account_id=aid)
                 synced = _sync_cookies(aid)
                 quota = None
                 try:  # 顺带刷新额度；读不到不影响测试结论
                     quota = engine.quota(acc["cookies"],
-                                         acc.get("cookies_exp"))
+                                         acc.get("cookies_exp"), account_id=aid)
                     quota["checked_at"] = int(time.time())
                     store.update_account(aid, quota=quota)
                 except Exception:  # noqa: BLE001
@@ -1828,10 +1920,13 @@ async def test_account(aid: str, _=Depends(auth)):
                         "synced": synced, "quota": quota}
             except MuseAuthError as exc:
                 store.mark(aid, False, str(exc)[:200])
+                engine.close_current_page(dispose=True)
                 return {"ok": False, "message": str(exc)[:200]}
             except Exception as exc:  # noqa: BLE001
                 store.touch_keepalive(aid, None, f"测试未确认（保留账号状态）: {str(exc)[:200]}")
                 return {"ok": False, "message": str(exc)[:200]}
+            finally:
+                engine.close_current_page()
 
     res = await asyncio.to_thread(_probe)
     if not res["ok"]:
@@ -1873,10 +1968,12 @@ def relogin(_=Depends(auth)):
         raise HTTPException(400, "没有可用账号")
     try:
         engine.start()
-        engine.refresh(acc["cookies"], acc.get("cookies_exp"))
+        engine.refresh(acc["cookies"], acc.get("cookies_exp"), account_id=acc["id"])
         return {"ok": True, "account": acc["id"]}
     except Exception as exc:  # noqa: BLE001
         return JSONResponse({"ok": False, "error": str(exc)}, status_code=502)
+    finally:
+        engine.close_current_page()
 
 
 # ------------------------- 管理：额度 -------------------------
@@ -1897,7 +1994,7 @@ async def query_quota(aid: str, _=Depends(auth)):
     def _probe():
         with GEN_LOCK:
             engine.start()
-            q = engine.quota(acc["cookies"], acc.get("cookies_exp"))
+            q = engine.quota(acc["cookies"], acc.get("cookies_exp"), account_id=aid)
             q["checked_at"] = int(time.time())
             store.update_account(aid, quota=q)
             return q
@@ -2141,11 +2238,12 @@ def _probe_account_sync(aid: str, check_quota: bool = False) -> dict:
         )
         vm_state = res.get("vm_state") or "RUNNING"
         store.touch_keepalive(aid, True, f"会话有效 · 自动保活 (VM: {vm_state})")
+        engine.update_cookies(aid, res["cookies"], res.get("cookies_exp"))
         quota = acc.get("quota")
         if check_quota and GEN_LOCK.acquire(blocking=False):
             try:
                 engine.start()
-                quota = engine.quota(res["cookies"], res["cookies_exp"])
+                quota = engine.quota(res["cookies"], res["cookies_exp"], account_id=aid)
                 quota["checked_at"] = int(time.time())
                 store.update_account(aid, quota=quota)
             except Exception as qe:  # noqa: BLE001
@@ -2221,24 +2319,69 @@ async def run_keepalive_all(force: bool = False) -> dict:
 
 
 def _warmup_browser_sync():
-    """后台静默预热浏览器与首个可用账号的 WebSocket 隧道，使重启后首条请求也秒回。"""
-    if getattr(engine, "current_acc_id", None) and engine.page is not None:
-        return
-    acc = store.pick_account(rotate=False)
+    """Mở sẵn một tab ấm (đã tải muse.ai, đã nối VM) cho MỖI tài khoản đang bật chưa có tab, để việc đầu tiên không phải
+    chờ trình duyệt khởi động + tải trang. Không giữ GEN_LOCK: chỉ dùng tab rảnh, không tranh với việc đang chạy."""
+    pool = engine.pool_status() if engine._browser_alive() else {}
+    for acc in [a for a in store.accounts if a.get("enabled", True) and a.get("cookies")]:
+        if pool.get(acc["id"], {}).get("tabs"):
+            continue
+        try:
+            log.info("【浏览器预热】预热账号 %s (%s) 的热备标签页...", acc.get("label"), acc["id"])
+            refreshed = _renew_and_persist(acc["id"], wake_vm=True, force=False) or acc
+            engine.start()
+            if engine.warm(acc["id"], refreshed["cookies"], refreshed.get("cookies_exp")):
+                log.info("【浏览器预热】账号 %s (%s) 热备标签页已就绪", acc.get("label"), acc["id"])
+        except Exception as exc:  # noqa: BLE001
+            log.warning("【浏览器预热】账号 %s 预热异常: %s", acc.get("label"), exc)
+
+
+CLEANUP_LOCK = threading.Lock()
+
+
+def _cleanup_sync(aid: str, dry_run: bool = False, force: bool = False) -> dict:
+    """Dọn hội thoại cũ + media cũ trên VM của một tài khoản (xem MuseEngine.cleanup_account)."""
+    acc = store.get_account(aid)
     if not acc or not acc.get("cookies"):
-        return
-    if not GEN_LOCK.acquire(blocking=False):
-        return
-    try:
-        log.info("【浏览器预热】正在后台预热账号 %s (%s) 的热备标签页...", acc.get("label"), acc["id"])
-        refreshed = _renew_and_persist(acc["id"], wake_vm=True, force=False) or acc
+        return {"ok": False, "id": aid, "error": "账号无有效 cookie"}
+    if not force and not dry_run and ACCOUNT_POOL.load.get(aid):
+        return {"ok": False, "id": aid, "skipped": "tài khoản đang gen"}
+    with CLEANUP_LOCK:
         engine.start()
-        engine.ensure_page(refreshed["cookies"], refreshed.get("cookies_exp"), account_id=acc["id"])
-        log.info("【浏览器预热】账号 %s (%s) 热备标签页与 WebSocket 已就绪", acc.get("label"), acc["id"])
-    except Exception as exc:  # noqa: BLE001
-        log.warning("【浏览器预热】预热异常: %s", exc)
-    finally:
-        GEN_LOCK.release()
+        # Dọn tay khi tự dọn đang tắt (THREAD_KEEP=0): vẫn giữ 10 hội thoại mới nhất.
+        keep = CFG.thread_keep if CFG.thread_keep > 0 else 10
+        res = engine.cleanup_account(aid, acc["cookies"], acc.get("cookies_exp"), keep_threads=keep,
+                                     media_with_threads=CFG.cleanup_media, media_days=CFG.media_keep_days,
+                                     dry_run=dry_run)
+    res.update(id=aid, label=acc.get("label", aid), at=int(time.time()))
+    if not dry_run:
+        store.update_account(aid, cleanup=res)
+        log.info("【dọn tài khoản】%s: xoá %s/%s hội thoại, %s/%s file media (%.1f s)%s", acc.get("label", aid),
+                 res.get("threads_deleted"), res.get("threads_total"), res.get("media_deleted"), res.get("media_delete"),
+                 res.get("seconds") or 0, "" if res.get("ok") else f" lỗi: {res.get('error')}")
+    return res
+
+
+def _auto_cleanup_sync():
+    """Tự dọn các tài khoản đang bật và đang rảnh, mỗi tài khoản tối đa một lần mỗi CFG.cleanup_every giây."""
+    if CFG.thread_keep <= 0:
+        return
+    now = time.time()
+    for acc in [a for a in store.accounts if a.get("enabled", True) and a.get("cookies")]:
+        last = (acc.get("cleanup") or {}).get("at") or 0
+        if now - last < CFG.cleanup_every or ACCOUNT_POOL.load.get(acc["id"]):
+            continue
+        try:
+            _cleanup_sync(acc["id"])
+        except Exception as exc:  # noqa: BLE001
+            log.warning("【dọn tài khoản】%s lỗi: %s", acc.get("label"), exc)
+
+
+@app.post("/admin/accounts/{aid}/cleanup")
+async def cleanup_account(aid: str, dry_run: bool = False, _=Depends(auth)):
+    """Dọn hội thoại cũ và media cũ trên VM Muse của tài khoản. dry_run=true: chỉ đếm, không xoá."""
+    if not store.get_account(aid):
+        raise HTTPException(404, "账号不存在")
+    return await asyncio.to_thread(_cleanup_sync, aid, dry_run, True)
 
 
 async def _keepalive_loop():
@@ -2252,8 +2395,8 @@ async def _keepalive_loop():
     while True:
         try:
             await run_keepalive_all(force=False)
-            if not getattr(engine, "current_acc_id", None) or engine.page is None:
-                await asyncio.to_thread(_warmup_browser_sync)
+            await asyncio.to_thread(_warmup_browser_sync)
+            await asyncio.to_thread(_auto_cleanup_sync)
         except Exception as e:  # noqa: BLE001
             log.error("【自动保活守护进程】轮询异常: %s", e)
         await asyncio.sleep(900)
@@ -2623,4 +2766,8 @@ async def _startup():
 
 @app.on_event("shutdown")
 def _shutdown():
+    try:
+        store.flush_tasks()
+    except Exception:  # noqa: BLE001
+        pass
     engine.stop()

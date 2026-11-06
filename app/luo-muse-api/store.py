@@ -8,11 +8,19 @@ import threading
 import time
 import uuid
 
-_LOCK = threading.Lock()
+_LOCK = threading.RLock()
 
-# 决定账号生死的核心 cookie（与 engine.ESSENTIAL_COOKIES 保持一致）
-ESSENTIAL_COOKIES = ("hatch_sess", "hatch_gw", "hatch_vml",
-                     "hatch_native_auth_device")
+# 决定账号生死的核心 cookie（与 engine.ESSENTIAL_COOKIES 保持一致）。
+# Từ 10/2026 Muse không còn đặt hatch_gw / hatch_vml cho mọi phiên: có thì dùng, không có không coi là thiếu.
+ESSENTIAL_COOKIES = ("hatch_sess", "hatch_native_auth_device")
+EXPIRY_COOKIES = ("hatch_sess", "hatch_gw", "hatch_vml", "hatch_native_auth_device")
+
+# Lịch sử tác vụ: giữ N tác vụ mới nhất; tác vụ đã xong chỉ lưu 1500 ký tự prompt.
+# (Trước 1.2.0 mỗi lần cập nhật tiến độ ghi lại TOÀN BỘ tasks.json — 31 MB trên máy thật, ~0,25 s CPU mỗi lần,
+# 0,6 s/lần cho mỗi việc đang chạy, giữ khoá chung — làm chậm cả các luồng đang điều khiển trình duyệt.)
+TASK_KEEP = 600
+TASK_PROMPT_KEEP = 1500
+FLUSH_EVERY = 2.0
 
 
 def _is_pos(v) -> bool:
@@ -39,7 +47,7 @@ def min_expiry(cookies_exp: dict | None) -> int | None:
     if not cookies_exp:
         return None
     vals = []
-    for name in ESSENTIAL_COOKIES:
+    for name in EXPIRY_COOKIES:
         v = cookies_exp.get(name)
         try:
             v = int(v)
@@ -86,17 +94,36 @@ def _read(path: str, default):
         return default
 
 
-def _write(path: str, obj):
+def _write(path: str, obj, indent: int | None = 1):
     d = os.path.dirname(path)
     os.makedirs(d, exist_ok=True)
     fd, tmp = tempfile.mkstemp(dir=d)
     try:
         with os.fdopen(fd, "w", encoding="utf-8") as f:
-            json.dump(obj, f, ensure_ascii=False, indent=1)
-        os.replace(tmp, path)
+            json.dump(obj, f, ensure_ascii=False, indent=indent)
+        for _ in range(5):   # Windows: file đích đang bị đọc (antivirus, trình xem) thì đổi tên lỗi tạm thời
+            try:
+                os.replace(tmp, path)
+                break
+            except PermissionError:
+                time.sleep(0.2)
+        else:
+            os.replace(tmp, path)
     finally:
         if os.path.exists(tmp):
             os.unlink(tmp)
+
+
+def _slim_task(t: dict) -> dict:
+    """Bản lưu đĩa của một tác vụ: tác vụ đã xong không cần prompt đầy đủ (gửi Muse rồi)."""
+    if t.get("status") in ("queued", "processing"):
+        return t
+    out = dict(t)
+    out.pop("api_prompt", None)
+    p = out.get("prompt")
+    if isinstance(p, str) and len(p) > TASK_PROMPT_KEEP:
+        out["prompt"] = p[:TASK_PROMPT_KEEP] + "…"
+    return out
 
 
 class Store:
@@ -108,7 +135,40 @@ class Store:
             if _is_pos(ce.get("hatch_vml")):
                 a["expires_at"] = int(ce["hatch_vml"])
         self.tasks: dict[str, dict] = _read(cfg.tasks_file, {})
+        self._prune_tasks()
+        self._tasks_dirty = threading.Event()
+        self._flusher = threading.Thread(target=self._flush_loop, name="store-flush", daemon=True)
+        self._flusher.start()
         self._backfill_video_log()
+
+    # ---------- ghi tasks.json theo lô ----------
+    def _prune_tasks(self):
+        if len(self.tasks) <= TASK_KEEP:
+            return
+        keep = sorted(self.tasks.values(), key=lambda t: t.get("created_at") or 0, reverse=True)[:TASK_KEEP]
+        active = {k: v for k, v in self.tasks.items() if v.get("status") in ("queued", "processing")}
+        self.tasks = {t["id"]: t for t in keep}
+        self.tasks.update(active)
+
+    def _mark_tasks_dirty(self):
+        self._tasks_dirty.set()
+
+    def _flush_loop(self):
+        while True:
+            self._tasks_dirty.wait()
+            time.sleep(FLUSH_EVERY)
+            self._tasks_dirty.clear()
+            try:
+                self.flush_tasks()
+            except Exception:  # noqa: BLE001
+                self._tasks_dirty.set()
+                time.sleep(5)
+
+    def flush_tasks(self):
+        with _LOCK:
+            self._prune_tasks()
+            snap = {k: _slim_task(v) for k, v in self.tasks.items()}
+        _write(self.cfg.tasks_file, snap, indent=None)
 
     def _backfill_video_log(self):
         """旧账号还没有当天视频计数：从任务记录里补出今天成功的视频数（只补一次）。"""
@@ -313,18 +373,19 @@ class Store:
                  "status": "queued", "created_at": int(time.time()),
                  "updated_at": int(time.time()), "result": None, "error": None}
             self.tasks[tid] = t
-            _write(self.cfg.tasks_file, self.tasks)
-            return t
+        self._mark_tasks_dirty()
+        return t
 
     def update_task(self, tid: str, **kw):
+        """Cập nhật trong bộ nhớ (API đọc từ đây); luồng nền ghi đĩa sau tối đa ~2 s."""
         with _LOCK:
             t = self.tasks.get(tid)
             if not t:
                 return None
             t.update(kw)
             t["updated_at"] = int(time.time())
-            _write(self.cfg.tasks_file, self.tasks)
-            return t
+        self._mark_tasks_dirty()
+        return t
 
     def get_task(self, tid: str) -> dict | None:
         return self.tasks.get(tid)
@@ -336,11 +397,11 @@ class Store:
 
     def delete_task(self, tid: str) -> bool:
         with _LOCK:
-            if tid in self.tasks:
-                del self.tasks[tid]
-                _write(self.cfg.tasks_file, self.tasks)
-                return True
-            return False
+            if tid not in self.tasks:
+                return False
+            del self.tasks[tid]
+        self._mark_tasks_dirty()
+        return True
 
     def clear_tasks(self, keep: int = 0) -> int:
         with _LOCK:
@@ -349,5 +410,5 @@ class Store:
             keep_ids = {t["id"] for t in items[:keep]}
             removed = len(self.tasks) - len(keep_ids)
             self.tasks = {k: v for k, v in self.tasks.items() if k in keep_ids}
-            _write(self.cfg.tasks_file, self.tasks)
-            return max(0, removed)
+        self._mark_tasks_dirty()
+        return max(0, removed)

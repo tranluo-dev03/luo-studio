@@ -102,7 +102,21 @@ class Config:
     image_timeout: int = field(default_factory=lambda: int(_env("MUSE2API_IMAGE_TIMEOUT", "240")))
     video_timeout: int = field(default_factory=lambda: int(_env("MUSE2API_VIDEO_TIMEOUT", "600")))
     chat_timeout: int = field(default_factory=lambda: int(_env("MUSE2API_CHAT_TIMEOUT", "300")))
-    max_concurrency: int = field(default_factory=lambda: max(1, int(_env("MUSE2API_CONCURRENCY", "2"))))
+    # Tổng số việc gen chạy cùng lúc (mọi tài khoản). Số thật còn bị giới hạn bởi số tài khoản x account_parallel,
+    # nên mặc định để rộng; mỗi tab Chromium tốn ~300 MB RAM.
+    max_concurrency: int = field(default_factory=lambda: max(1, int(_env("MUSE2API_CONCURRENCY", "8"))))
+    # Số việc song song trên MỘT tài khoản (mỗi việc một tab, cửa sổ riêng). Một tài khoản là một VM của Muse:
+    # đo của muse2api (www222fff): 1 việc ~5 s phản hồi, 3 việc cùng lúc ~20 s, 10 việc 33–95 s. Mặc định 2.
+    account_parallel: int = field(default_factory=lambda: max(1, int(_env("MUSE2API_ACCOUNT_PARALLEL", "2"))))
+    # Dọn tài khoản trên VM Muse (tự chạy khi tài khoản rảnh, tối đa mỗi 30 phút): giữ N hội thoại mới nhất và xoá
+    # các hội thoại cũ hơn, KÈM file media của chính các hội thoại đó (Studio đã có bản sao trên máy).
+    # Xoá trên Muse không hoàn tác được. Tắt: MUSE2API_THREAD_KEEP=0. Không xoá media: MUSE2API_CLEANUP_MEDIA=0.
+    # Xem trước (chỉ đếm): POST /admin/accounts/{id}/cleanup?dry_run=true.
+    thread_keep: int = field(default_factory=lambda: max(0, int(_env("MUSE2API_THREAD_KEEP", "10"))))
+    cleanup_media: bool = field(default_factory=lambda: _env("MUSE2API_CLEANUP_MEDIA", "1").strip() != "0")
+    # Xoá thêm mọi file imagine_media cũ hơn X ngày, kể cả file không thuộc hội thoại nào (0 = không).
+    media_keep_days: float = field(default_factory=lambda: max(0.0, float(_env("MUSE2API_MEDIA_KEEP_DAYS", "0"))))
+    cleanup_every: int = field(default_factory=lambda: max(300, int(_env("MUSE2API_CLEANUP_EVERY", "1800"))))
 
     # 工具调用（function calling）协议适配开关，**默认关闭**。
     # 实测 muse.ai 的助手会明确拒绝输出"伪工具调用"（原话：「我不会按这种 JSON

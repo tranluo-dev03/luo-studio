@@ -52,3 +52,20 @@ Giống `san-bay-gia-su-ai` (xem `SAMPLE/san-bay-gia-su-ai/README.md`):
 - **Chưa chạy thật trên Muse**; đã mô phỏng luồng gen 2 phần, làm lại cảnh, hậu kỳ.
 - Hướng nhìn: mỗi cảnh phần 1 có dòng "Hướng nhìn" và EYE LINE riêng trong Prompt ảnh / Prompt video (người nói nhìn người mình đang nói chuyện, không quay ra camera), thêm sau lỗi quay mặt đi ở san-bay-gia-su-ai.
 - Biến thể khai `NHIN_<khoá>` (hướng nhìn khi nói; Studio chèn vào câu lệnh người nói) và `NHIN_HOC@2` (hướng nhìn của người dùng ở phần 2: nhìn ống kính).
+
+## Lần chạy thật đầu tiên (06/11/2026, v1 → v7) — bài học
+
+Chạy thử biến thể `bo-con-xe-do-gia-su-ai` end-to-end, so từng cảnh với video gốc bằng `cong-cu/so_sanh.py` (8 khung gốc ↔ 8 khung gen).
+
+| Lỗi thấy khi so | Nguyên nhân | Sửa |
+|---|---|---|
+| Bé ngồi sai ghế / bị vẽ ra ngoài cửa sổ ở góc A | Câu "bé luôn ngồi cạnh bố" nằm trong khoá chung, gửi cho MỌI cảnh | Bỏ khỏi khoá chung; vị trí bé chỉ ghi ở góc có bé (B, D, E, F); góc A/A2 ghi "không có trẻ em" |
+| Cảnh 2 ra góc nhìn qua kính chắn gió | Ảnh bố cục chung (`anh/TOANCANH.png`) gắn vào `XE`: Muse chép nguyên khung hình | Bỏ ảnh bố cục chung khỏi `refs`; chỉ giữ 4 ảnh nhân vật (`anh/<KHOÁ>.png`, gen bằng `cong-cu/gen_anh_tham_chieu.py`) |
+| Góc máy khác gốc | Kịch bản cũ dùng 4 góc chung | `cong-cu/goc_may.py`: bảng 14 shot gốc → góc A, A2, B, C, C2, D, E, F cho 12 cảnh; thêm shot không lời bố đưa giấy tờ (đầu cảnh 8), cảnh sát đi về nhìn từ trong xe (đầu cảnh 9) |
+| Mặt gần người thật | Khoá phong cách yếu | STYLE LOCK: "Pixar-style 3D CARTOON exactly like the reference images", cấm mặt bán thực |
+| Cảnh cận bị thêm cảnh sát/bé ở cửa sổ, máy lia lộ người khác | (1) Engine tả MỌI nhân vật "đang im lặng trong khung" (SPEAKER MAP); (2) hướng nhìn ghi "nhìn cảnh sát ở cửa sổ" | (1) `engine.py`: biến thể bật `"nguoi_theo_canh": true` → chỉ tả người có tên trong cảnh, bỏ qua dòng "Mở đầu"; (2) hướng nhìn cảnh cận chỉ tả hướng mắt; `CAMERA LOCK` cho cảnh cận và A2 |
+| Cảnh cận bị lỏng khung | Ảnh tổng quan 16:9 rồi cắt giữa | Ảnh tổng quan chỉ cho góc rộng (A, A2, B) |
+| Clip "mới" giống từng byte clip cũ | Muse lỗi 502, LUO-API xin "gắn file" → Muse gắn file cũ trong chat | `luo-muse-api/engine.py`: `GEN_FAILED_RE` → báo lỗi để Studio gen lại |
+
+Đã đạt (so với gốc): cảnh 1–8. Còn khác: cảnh 4 cận vừa (gốc cận cực sát), cảnh 3/6 phía sau có thể nhiều xe cảnh sát. Cảnh 9–12 và phần 2 đang chạy.
+Sửa kịch bản giữa chừng: chạy `cong-cu/goc_may.py`, chép kịch bản đè `userdata/studio/types/<loại>.txt`, xoá `phan1/scene<N>_*` từ cảnh cần làm lại, bấm chạy tiếp.
