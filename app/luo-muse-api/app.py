@@ -1252,8 +1252,9 @@ def _queue_image(req: ImageRequest, prompt: str, reference_image: str | None,
     def worker():
         timing = {"t0": time.time()}
         def _on_acquired():
-            timing["t0"] = time.time()
-            store.update_task(tid, status="processing", progress=5)
+            # queue_wait: thời gian task nằm chờ hàng đợi trình duyệt của API (để Studio hiện trong bảng trace từng bước)
+            qw, timing["t0"] = time.time() - timing["t0"], time.time()
+            store.update_task(tid, status="processing", progress=5, queue_wait=round(qw, 2))
         try:
             res, acc_id = _run_generation(
                 prompt, "image", req.timeout or CFG.image_timeout,
@@ -1419,8 +1420,8 @@ async def create_video(req: VideoRequest, _=Depends(auth)):
     def worker():
         timing = {"t0": time.time()}
         def _on_acquired():
-            timing["t0"] = time.time()
-            store.update_task(task["id"], status="processing", progress=15)
+            qw, timing["t0"] = time.time() - timing["t0"], time.time()
+            store.update_task(task["id"], status="processing", progress=15, queue_wait=round(qw, 2))
         try:
             def prog_cb(p):
                 store.update_task(task["id"], progress=p)

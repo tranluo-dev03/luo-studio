@@ -631,6 +631,77 @@ function drawQueue() {
   };
 }
 
+
+// ------------------------------------------------------------------ trace từng bước của một cảnh (bảng "Các bước")
+const fmtS = d => d == null || isNaN(d) ? "—" : d < 60 ? (Math.max(0, d)).toFixed(1) + "s" : fmtDur(d);
+// Tách một lệnh gen (bản ghi của Api.generate + mốc của LUO-API) thành các bước con theo thứ tự thời gian. Mốc của LUO-API tính từ lúc nó
+// bắt đầu gen (sau khi có tài khoản), nên phần "chờ tài khoản" = elapsed - mốc cuối.
+function apiParts(r) {
+  const out = [], tm = r.timing || {}, t1 = r.t1 || r.t0, sub = r.t_sub || r.t0;
+  const add = (name, d, info = "") => { if (d != null && !isNaN(d) && d >= 0.05) out.push({ name, d, info }); };
+  add("Gửi lệnh tới LUO-API", sub - r.t0, r.n429 ? `hàng đợi API đầy, gửi lại ${r.n429} lần (chờ 5s mỗi lần)` : "");
+  add("Chờ hàng đợi LUO-API", r.queue_wait, "chờ tới lượt trình duyệt của API (số việc gen cùng lúc)");
+  const marks = [["thread_ready", "Mở tab / chat Muse", "lấy tab của tài khoản, mở hội thoại mới"], ["attached", "Đính ảnh tham chiếu", r.refs ? r.refs + " ảnh" : ""],
+    ["confirmed", "Gửi prompt, chờ Muse nhận", ""], ["media_seen", "Muse vẽ", tm.muse_render != null ? "Muse tự đo: " + fmtS(tm.muse_render) : ""],
+    ["downloaded", "Tải file từ Muse về API", r.via ? "qua " + r.via : ""]];
+  const last = Math.max(0, ...marks.map(([k]) => tm[k] ?? 0));
+  if (r.elapsed != null && last) add("Chờ tài khoản, gia hạn phiên", r.elapsed - last, "chờ tài khoản rảnh, làm mới cookie, đánh thức máy Muse");
+  let prev = 0;
+  for (const [k, name, info] of marks) if (tm[k] != null) { add(name, tm[k] - prev, info); prev = tm[k]; }
+  if (!last && r.elapsed != null) add("Xử lý ở LUO-API", r.elapsed, r.err ? "không có mốc chi tiết (lệnh lỗi)" : "");
+  const apiEnd = sub + (r.queue_wait || 0) + (r.elapsed || 0);
+  if (r.t_seen) { add("Studio nhận kết quả", r.t_seen - apiEnd, "hỏi trạng thái mỗi 1s"); add("Đọc / tải file về Studio", t1 - r.t_seen); }
+  else if (r.elapsed != null) add("Studio nhận kết quả", t1 - apiEnd);
+  return out;
+}
+async function traceModal(it, n) {
+  let d;
+  try { d = await api(`queue/trace?id=${encodeURIComponent(it.id)}&n=${n}`); } catch (e) { return toast(e.message, 1); }
+  const tr = d.trace || [], now = d.now, live = tr.some(r => r.open);
+  const dur = r => r.d != null ? r.d : r.open ? now - r.t : null;
+  // các dòng của bảng: bước (cấp 0), lệnh gen (cấp 1), bước con của lệnh gen / xử lý trên máy (cấp 2)
+  const rows = [], prevRows = tr.filter(r => r.prev), first = (tr.find(r => !r.prev && !r.sep) || tr[0] || {}).t || now;
+  if (prevRows.length) rows.push({ sep: "Lần chạy trước" });
+  for (const r of tr) {
+    if (r.sep) { rows.push({ sep: r.step }); continue; }
+    const sd = dur(r), apis = r.api || [];
+    rows.push({ lv: 0, name: r.step, t: r.t, d: sd, info: r.open ? "đang chạy…" : r.end ? "video " + r.end + " ở bước này" : "", prev: r.prev, live: r.open });
+    let used = 0;
+    apis.forEach((a, i) => {
+      const tot = (a.t1 || now) - a.t0; used += tot;
+      rows.push({ lv: 1, name: `Lệnh gen ${a.kind === "video" ? "video" : "ảnh"}${apis.length > 1 ? " #" + (i + 1) : ""}`, t: a.t0, d: tot, prev: r.prev,
+        info: [a.account_label ? "tài khoản " + a.account_label : "", a.err ? "lỗi: " + a.err : a.ok ? "xong" : ""].filter(Boolean).join(" · "), bad: !!a.err });
+      apiParts(a).forEach(p => rows.push({ lv: 2, name: p.name, d: p.d, info: p.info, prev: r.prev, leaf: 1 }));
+    });
+    const local = sd != null ? sd - used : null;
+    if (apis.length && local != null && local >= 0.5) rows.push({ lv: 2, name: "Xử lý trên máy Studio", d: local, info: "kiểm tra lời nói / miệng / máy trôi, cắt, cân màu", prev: r.prev, leaf: 1 });
+    if (!apis.length) rows[rows.length - 1].leaf = 1;
+  }
+  const cur = rows.filter(r => !r.sep && !r.prev);
+  const total = cur.filter(r => r.lv === 0).reduce((a, r) => a + (r.d || 0), 0);
+  const leaves = cur.filter(r => r.leaf && r.d != null), hot = leaves.reduce((a, r) => (!a || r.d > a.d ? r : a), null);
+  const sum = name => leaves.filter(r => r.name === name).reduce((a, r) => a + r.d, 0);
+  const muse = sum("Muse vẽ"), wait = sum("Chờ hàng đợi LUO-API") + sum("Chờ tài khoản, gia hạn phiên") + sum("Gửi lệnh tới LUO-API"), loc = sum("Xử lý trên máy Studio");
+  const max = Math.max(1, ...cur.filter(r => r.lv === 0).map(r => r.d || 0));
+  const tr2 = r => r.sep ? `<tr class="trsep"><td colspan="5">${esc(r.sep)}</td></tr>`
+    : `<tr class="lv${r.lv} ${r.prev ? "old" : ""} ${r === hot ? "hot" : ""} ${r.bad ? "bad" : ""}"><td class="nm">${esc(r.name)}${r.live ? ' <i class="spin sm"></i>' : ""}</td>
+      <td class="at">${r.lv === 0 && r.t ? (r.prev ? "" : "+" + fmtS(r.t - first)) : ""}</td><td class="du">${fmtS(r.d)}</td>
+      <td class="br"><div style="width:${r.d ? Math.min(100, r.d / max * 100) : 0}%"></div></td><td class="in">${esc(r.info || "")}</td></tr>`;
+  openModal(`<div class="mbox trbox" id="trbox"><h2>Các bước của cảnh ${n} <span class="grow"></span><button class="btn sm ghost" id="trref">${ico("redo")}Làm mới</button><button class="ib" id="mx">${ico("x")}</button></h2>
+    <p class="trtx">${esc(d.text || "")}</p>
+    ${tr.length ? `<div class="trsum"><span>Tổng <b>${fmtS(total)}</b></span><span>Muse vẽ <b>${fmtS(muse)}</b></span><span>Chờ hàng đợi / tài khoản <b>${fmtS(wait)}</b></span><span>Xử lý trên máy <b>${fmtS(loc)}</b></span>
+      ${hot ? `<span class="hotk">Lâu nhất: <b>${esc(hot.name)}</b> ${fmtS(hot.d)}</span>` : ""}</div>
+    <div class="trwrap"><table class="trtab"><thead><tr><th>Bước</th><th>Bắt đầu</th><th>Thời gian</th><th></th><th>Chi tiết</th></tr></thead><tbody>${rows.map(tr2).join("")}</tbody></table></div>`
+    : `<div style="color:var(--mute);padding:18px 0">Cảnh này chưa có bước nào được ghi. Trace chỉ có cho các cảnh gen từ bản này trở đi.</div>`}
+    ${live ? `<div class="trlive">Cảnh đang chạy, bảng tự làm mới mỗi 2 giây.</div>` : ""}</div>`);
+  clearTimeout(S.traceT);
+  if (live) S.traceT = setTimeout(() => { if ($("#trbox")) traceModal(it, n); }, 2000);
+  $("#modal").onclick = e => {
+    if (e.target.closest("#mx")) { clearTimeout(S.traceT); return closeModal(); }
+    if (e.target.closest("#trref")) return traceModal(it, n);
+  };
+}
+
 const REDO_CHIPS = ["Nhân vật còn lại ngậm miệng hoàn toàn, không mấp máy theo", "Nhân vật còn lại không gật đầu, không cười, không nhìn theo", "Giọng nói tự nhiên, nhiều cảm xúc hơn", "Biểu cảm của người nói rõ và sinh động hơn", "Giữ đúng khuôn mặt và quần áo như khung đầu", "Nói rõ từng từ, không bỏ sót chữ đầu câu"];
 function redoModal(it, n) {
   const sc = (it.scenes || []).find(x => x.n === n) || {}, old = (it.notes || {})[String(n)] || "";
@@ -670,7 +741,7 @@ function drawDetail(it) {
     const thumb = s.thumb ? `<img loading="lazy" src="${media(it.project, it.variant, s.thumb)}?t=${s.secs || s.pct || 0}">` : (act ? `<div class="spin"></div>` : ico("img"));
     const t = sceneSecs(s, it);
     return `<div class="sc ${st} ${act ? "active" : ""}"><div class="th">${thumb}<span class="num">${s.n}</span><span class="wh" style="background:${s.who === "hoc" ? "var(--hoc)" : !s.who || s.who === "day" ? "var(--day)" : CHAR_DOTS[0]}" title="${esc(s.who || "")}"></span>${s.clip ? `<div class="play" data-play="${s.clip}">${ico("play")}</div>` : ""}</div>
-      <div class="bd"><div class="tx">${esc(s.text)}</div>${s.account ? `<div class="acc" title="Tài khoản Muse đã gen cảnh này">${ico("user")}${esc(s.account)}</div>` : ""}<div class="mini"><div style="width:${pc}%"></div></div><div class="st"><span>${STATE[st] || st}${["image", "video"].includes(st) && s.pct ? " " + s.pct + "%" : ""}${s.note ? " · " + esc(s.note) : ""}</span><span class="tm"><b data-tm="scene:${it.id}:${s.n}">${t ? fmtDur(t) : ""}</b>${s.secs ? ` · ${s.secs}s` : ""}</span></div></div>
+      <div class="bd"><div class="tx">${esc(s.text)}</div>${s.account ? `<div class="acc" title="Tài khoản Muse đã gen cảnh này">${ico("user")}${esc(s.account)}</div>` : ""}<div class="mini"><div style="width:${pc}%"></div></div><div class="st"><span>${STATE[st] || st}${["image", "video"].includes(st) && s.pct ? " " + s.pct + "%" : ""}${s.note ? " · " + esc(s.note) : ""}</span><span class="tm">${st !== "wait" ? `<button class="trbtn" data-trace="${s.n}" title="Xem từng bước gen của cảnh này và thời gian mỗi bước">${ico("clock")}Các bước</button>` : ""}<b data-tm="scene:${it.id}:${s.n}">${t ? fmtDur(t) : ""}</b>${s.secs ? ` · ${s.secs}s` : ""}</span></div></div>
       ${st === "done" || (st === "error" && !running) ? `<button class="ib redo" data-redo="${s.n}" title="${running ? "Dừng video đang chạy và gen lại từ cảnh này" : "Gen lại từ cảnh này (có thể thêm yêu cầu sửa)"}">${ico("redo")}</button>` : ""}</div>`;
   }).join("")}</div>` : "";
   const err = it.error ? `<div class="tag bad" style="margin-bottom:14px;white-space:normal">${esc(it.error)}</div>` : "";
@@ -686,6 +757,7 @@ function drawDetail(it) {
     if (e.target.closest("#dstop")) { toast("Đang dừng video này…"); await api("stop", { body: { id: it.id } }); return pollQueue(); }
     if (e.target.closest("#dgo")) { try { await api("queue/start", { body: { ids: [it.id] } }); await pollQueue(); } catch (er) { toast(er.message, 1); } return; }
     if ((x = e.target.closest("[data-play]"))) return playModal(media(it.project, it.variant, x.dataset.play), it.variant);
+    if ((x = e.target.closest("[data-trace]"))) return traceModal(it, +x.dataset.trace);
     if ((x = e.target.closest("[data-redo]"))) return redoModal(it, +x.dataset.redo);
     if (e.target.closest("[data-post]")) return postModal(it.project, it.variant);
     if (e.target.closest("[data-openf]")) return api("open", { body: { project: it.project, variant: it.variant } });

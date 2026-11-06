@@ -274,6 +274,29 @@ def has_audio(path):
 # ------------------------------------------------------------------ API với huỷ + tiến độ
 class Api(G.Api):
     def generate(self, kind, prompt, refs, session, duration=None, timeout=900, on_status=None, cancel=None, audios=None, on_account=None, pin=None, pin_prefer=None, aspect="9:16"):
+        """Gen một ảnh/video qua LUO-API. Mỗi lệnh gen được ghi vào trace của cảnh đang chạy (server._emit_for, sự kiện "trace"): lúc gửi, lúc xong,
+        thời gian chờ hàng đợi API, các mốc của LUO-API (mở tab, gửi prompt, Muse vẽ, tải file) và lúc Studio nhận file, để xem cảnh chậm ở bước nào."""
+        rec = {"kind": kind, "t0": time.time(), "refs": len(refs or []), "n429": 0}
+        try:
+            out = self._gen(rec, kind, prompt, refs, session, duration, timeout, on_status, cancel, audios, on_account, pin, pin_prefer, aspect)
+            rec["ok"] = True
+            return out
+        except Cancelled:
+            rec["err"] = "Đã dừng"
+            raise
+        except Exception as e:
+            rec["err"] = str(e)[:200]
+            raise
+        finally:
+            rec["t1"] = time.time()
+            tr = getattr(_TL, "trace", None)
+            if tr:
+                try:
+                    tr("trace", api=rec)
+                except Exception:  # noqa: BLE001 - trace không được làm hỏng việc gen
+                    pass
+
+    def _gen(self, rec, kind, prompt, refs, session, duration, timeout, on_status, cancel, audios, on_account, pin, pin_prefer, aspect):
         prompt = getattr(_TL, "prompt_prefix", "") + prompt   # câu dẫn riêng của một thể loại (gen.py của thể loại đặt, mặc định không có)
         body = {"prompt": prompt, "model": "muse-video" if kind == "video" else "muse-image", "aspect_ratio": aspect,
                 "raw_prompt": True, "timeout": min(int(timeout), 600), "session": session}  # API nhận tối đa 600s; thời gian chờ phía app (deadline) vẫn theo `timeout`
@@ -303,10 +326,12 @@ class Api(G.Api):
                 break
             except G.ApiError as e:
                 if e.code == 429 and time.time() < deadline:
+                    rec["n429"] += 1   # API báo hàng đợi đầy: chờ 5 s rồi gửi lại
                     time.sleep(5)
                     continue
                 raise
         tid = task.get("task_id") or task.get("id")
+        rec.update(id=tid, t_sub=time.time())
         last = None
         while True:
             for _ in range(2):   # hỏi mỗi 1 s (trước 3 s): kết quả về sớm hơn trung bình ~1 s mỗi bước gen
@@ -315,12 +340,16 @@ class Api(G.Api):
                 time.sleep(0.5)
             st = self.req(f"{path}/{tid}")
             s, pr = st.get("status"), st.get("progress")
+            for k in ("account_label", "queue_wait", "elapsed", "timing", "via", "error_kind"):
+                if st.get(k) is not None:
+                    rec[k] = st[k]
             if on_account and st.get("account"):   # LUO-API báo tài khoản Muse đang gen task này (id + nhãn gợi nhớ, không có cookie)
                 on_account(st["account"], st.get("account_label") or st["account"])
             if on_status and (s, pr) != last:
                 last = (s, pr)
                 on_status(s, pr)
             if s == "completed":
+                rec["t_seen"] = time.time()   # lúc Studio thấy task xong (hỏi mỗi 1 s); sau đó là đọc / tải file về
                 local = G.local_result(self.url, st)   # LUO-API cùng máy: đọc thẳng file, không tải lại qua HTTP
                 if local is not None:
                     return local

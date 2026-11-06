@@ -50,6 +50,7 @@ Mỗi biến thể = một video.
 1. Tick các biến thể → **Thêm vào hàng đợi**.
 2. Tab **Hàng đợi** → chọn **Song song** (tối đa **số tài khoản Muse × 2**: từ bản 1.2.0 mỗi tài khoản chạy được 2 video cùng lúc) → **Bắt đầu**.
 3. Bấm vào thẻ video để xem từng cảnh. Cảnh nào sai → bấm **gen lại cảnh** (mũi tên vòng), có thể ghi yêu cầu sửa.
+   Cảnh chạy lâu → bấm **Các bước** trên cảnh đó để xem bảng từng bước và thời gian (Muse vẽ, chờ tài khoản, xử lý trên máy…), bước lâu nhất tô vàng.
 4. Muốn gen video bằng tài khoản khác: bấm dòng tài khoản trên thẻ video (hoặc nút tài khoản ở đầu trang video) → chọn tài khoản, hoặc **Tự động**.
    Video đang chạy sẽ chạy tiếp ngay bằng tài khoản mới, giữ các cảnh đã xong.
 

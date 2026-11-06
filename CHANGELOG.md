@@ -5,6 +5,15 @@ Nguồn sự thật của số phiên bản: dòng đầu của `version.txt` (c
 
 ## [Chưa phát hành]
 
+### Trace từng bước gen của một cảnh
+- Trang chi tiết video: mỗi cảnh có nút **Các bước**. Bấm vào hiện bảng các bước gen của cảnh theo thứ tự (gen ảnh, gen video, gen lại vì lời
+  nói / miệng / máy trôi, cắt & kiểm tra), mỗi bước có lúc bắt đầu và thời gian. Mỗi lệnh gen gửi LUO-API được tách tiếp: gửi lệnh, chờ hàng
+  đợi API, chờ tài khoản / gia hạn phiên, mở tab Muse, đính ảnh tham chiếu, gửi prompt, Muse vẽ (kèm số Muse tự đo), tải file về API, Studio
+  nhận kết quả; phần còn lại của bước là xử lý trên máy Studio. Bước lâu nhất được tô vàng; đầu bảng tóm tắt tổng, Muse vẽ, chờ, xử lý trên máy.
+- Cảnh đang chạy thì bảng tự làm mới mỗi 2 giây. Video chạy tiếp / tự chạy lại thì trace lần trước vẫn giữ (mờ, dưới "Lần chạy trước"), bước
+  bị dừng ghi rõ video dừng, lỗi hay đổi tài khoản ở bước đó.
+- LUO-API: task có thêm `queue_wait` (thời gian chờ hàng đợi trình duyệt của API).
+
 ### Chọn tài khoản cho từng video, tự đổi tài khoản khi lỗi, chạy đêm không dừng cả lượt
 - Hàng đợi: bấm dòng tài khoản trên thẻ video (hoặc nút tài khoản ở đầu trang chi tiết video) để chọn tay tài khoản Muse gen video đó, hoặc về
   "Tự động". Video đang chạy thì dừng rồi chạy tiếp ngay bằng tài khoản mới; video lỗi / đã dừng thì chạy tiếp luôn. Các cảnh đã xong được giữ,

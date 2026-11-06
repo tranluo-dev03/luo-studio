@@ -314,7 +314,7 @@ def busy():
 
 def qsave():
     with LOCK:
-        keep = [{k: v for k, v in it.items() if k not in ("log", "_requeue")} for it in QUEUE]
+        keep = [{k: v for k, v in it.items() if k not in ("log", "_requeue", "_prev_trace", "_trace_n")} for it in QUEUE]
     try:
         jwrite(QFILE, {"items": keep})
     except OSError:
@@ -382,20 +382,79 @@ def queue_view():
     with LOCK:
         items = []
         for it in QUEUE:
-            c = dict(it)
+            c = {k: v for k, v in it.items() if k not in ("_prev_trace", "_trace_n")}
             c["log"] = it["log"][-40:]
+            # trace từng bước nặng: không gửi theo mỗi lần hỏi hàng đợi, giao diện lấy riêng qua /api/queue/trace khi bấm xem
+            c["scenes"] = [{k: v for k, v in sc.items() if k != "trace"} for sc in it.get("scenes", [])]
             items.append(c)
         return {"items": items, "batch": dict(BATCH), "now": time.time(), "busy": busy()}
+
+
+TRACE_STEP = {"image": "Gen ảnh", "video": "Gen video", "cut": "Cắt & kiểm tra"}
+TRACE_MAX = 80   # số dòng trace tối đa mỗi cảnh (bỏ dòng cũ nhất)
+
+
+def _trace_scene(it, sc, kw):
+    """Ghi trace từng bước của một cảnh (gọi trong LOCK, trước khi cập nhật sc): mỗi lần cảnh đổi bước (trạng thái hoặc ghi chú, vd. "thử lại 1/2",
+    "kiểm tra giọng") thì đóng bước cũ (ghi thời lượng) và mở bước mới. Chỉ đổi % tiến độ thì không tính là bước mới."""
+    now = time.time()
+    tr = sc.setdefault("trace", [])
+    st = kw.get("state", sc.get("state"))
+    note = kw["note"] if "note" in kw else (sc.get("note", "") if st == sc.get("state") else "")
+    if "state" not in kw and "note" not in kw:
+        return
+    cur = tr[-1] if tr and tr[-1].get("open") else None
+    key = [st, note or ""]
+    if cur and cur.get("key") == key:
+        return
+    if cur:
+        cur["d"] = round(now - cur["t"], 2)
+        cur.pop("open", None)
+    if st in TRACE_STEP:
+        if tr and tr[-1].get("prev"):   # dòng đầu tiên của lần chạy này sau trace của lần trước
+            tr.append({"t": now, "sep": True, "step": "Chạy lại / chạy tiếp"})
+        tr.append({"t": now, "key": key, "step": TRACE_STEP[st] + (f" · {note}" if note else ""), "open": True, "api": []})
+        it["_trace_n"] = sc["n"]
+    del tr[:-TRACE_MAX]
+
+
+def _trace_close(it):
+    """Video dừng / lỗi giữa chừng: đóng bước đang mở của mọi cảnh (ghi thời lượng tới lúc dừng và kết quả của video)."""
+    now = time.time()
+    why = ("lỗi tài khoản, đổi tài khoản" if it.get("_requeue") == 0 else "lỗi, tự chạy lại") if "_requeue" in it else         {"stopped": "dừng", "error": "lỗi"}.get(it.get("state"), it.get("state") or "")
+    with LOCK:
+        for sc in it.get("scenes", []):
+            for r in sc.get("trace") or []:
+                if r.get("open"):
+                    r["d"] = round(now - r["t"], 2)
+                    r.pop("open", None)
+                    r["end"] = why
 
 
 def _emit_for(it):
     def emit(ev, **kw):
         with LOCK:
             if ev == "scene_init":
+                prev = it.pop("_prev_trace", None) or {}
                 it["scenes"] = kw["scenes"]
+                for sc in it["scenes"]:   # chạy tiếp: giữ trace của lần chạy trước (đánh dấu "prev") để vẫn xem được cảnh đã xong
+                    old = prev.get(sc["n"]) or prev.get(str(sc["n"]))
+                    if old:
+                        sc["trace"] = [dict(r, prev=True) for r in old if not r.get("open")]
+            elif ev == "trace":   # một lệnh gen của Api.generate: gắn vào bước đang mở của cảnh đang chạy
+                sc = next((x for x in it.get("scenes", []) if x["n"] == it.get("_trace_n")), None)
+                tr = (sc or {}).get("trace") or []
+                step = tr[-1] if tr and tr[-1].get("open") else None
+                if step is None and sc is not None:
+                    step = {"t": kw["api"].get("t0", time.time()), "step": "Gen", "api": []}
+                    tr.append(step)
+                    sc["trace"] = tr
+                if step is not None:
+                    step.setdefault("api", []).append(kw["api"])
             elif ev == "scene":
                 sc = next((x for x in it["scenes"] if x["n"] == kw["n"]), None)
                 if sc:
+                    _trace_scene(it, sc, kw)
                     st = kw.get("state")
                     if st in ("image", "video", "cut", "done") and not sc.get("t0"):
                         sc["t0"] = time.time()
@@ -434,9 +493,12 @@ def gen_item(it, cx):
     E.PIN_EXTRA[opts["pin"]] = {"pin_account": pick, "pin_avoid": avoid}
     if pick:
         qlog(it, f"Gen bằng tài khoản chọn tay: {(it.get('account_pick') or {}).get('name') or pick}")
+    emit = _emit_for(it)
+    E._TL.trace = emit   # Api.generate ghi từng lệnh gen vào trace của cảnh (cùng luồng với run_variant)
     try:
-        E.run_variant(v, template_text(p["template"]), run_dir(it["project"], it["variant"]), opts, _emit_for(it), cx)
+        E.run_variant(v, template_text(p["template"]), run_dir(it["project"], it["variant"]), opts, emit, cx)
     finally:
+        E._TL.trace = None
         E.PIN_EXTRA.pop(opts["pin"], None)
         E.release_pin(opts, opts["pin"])
     it["raw"] = "raw.mp4"
@@ -675,7 +737,7 @@ def _finish_post(it, final):
         qlog(it, f"Không xuất được bản mang tên biến thể: {e}", "warn")
 
 
-def _discard_inflight(it):
+def _discard_inflight(it, hint=True):
     """Dừng giữa chừng: bỏ clip dở của cảnh đang gen để lần tiếp tục tạo lệnh gen mới cho đúng video đó (giữ các cảnh đã xong và ảnh khung đầu)."""
     if it.get("kind") != "gen":
         return
@@ -688,7 +750,8 @@ def _discard_inflight(it):
             os.remove(os.path.join(d, f"scene{cur['n']}_{suffix}"))
         except OSError:
             pass
-    qlog(it, f"Đã dừng ở cảnh {cur['n']}. Bấm Chạy tiếp để gen lại video cảnh này và đi tiếp.")
+    if hint:   # tự chạy lại / tự đổi tài khoản thì không cần nhắc bấm Chạy tiếp
+        qlog(it, f"Đã dừng ở cảnh {cur['n']}. Bấm Chạy tiếp để gen lại video cảnh này và đi tiếp.")
 
 
 def _run_item(iid):
@@ -700,6 +763,7 @@ def _run_item(iid):
         it.pop("_requeue", None)
         it.update({"state": "running", "error": "", "started": time.time(), "ended": 0.0, "stopping": False, "retry_at": 0})
         if it["kind"] == "gen" and not it.get("only_post"):
+            it["_prev_trace"] = {sc["n"]: sc["trace"] for sc in it.get("scenes", []) if sc.get("trace")}
             it["scenes"] = []
         if it["kind"] == "gen":
             it["phase"] = "post" if it.get("only_post") else "gen"
@@ -743,11 +807,12 @@ def _run_item(iid):
             it["state"] = "stopped"
             it["error"] = str(e)[:300]
             it["_requeue"] = 0
-            _discard_inflight(it)
+            _discard_inflight(it, hint=False)
             qlog(it, f"{'Hết hạn mức' if e.kind == 'quota' else 'Lỗi tài khoản'} {name}: {e}. Tự đổi sang tài khoản khác đang bật và chạy tiếp từ cảnh đang dở", "warn")
     except Exception as e:  # noqa: BLE001
         _fail_or_retry(it, e)
     finally:
+        _trace_close(it)
         ICANCEL.pop(iid, None)
         it.pop("only_post", None)
         it["phase"] = ""
@@ -773,7 +838,7 @@ def _fail_or_retry(it, e):
     it["error"] = msg[:300]
     it["avoid"] = []   # vòng sau thử lại mọi tài khoản (cookie có thể đã được sửa, hạn mức có thể đã hồi)
     it["_requeue"] = delay
-    _discard_inflight(it)
+    _discard_inflight(it, hint=False)
     qlog(it, f"Lỗi - {e}. Tự xếp lại hàng chờ, chạy lại sau {delay // 60} phút (lần {n + 1}/{maxn}); các video khác vẫn chạy tiếp", "warn")
 
 
@@ -1332,6 +1397,15 @@ class H(BaseHTTPRequestHandler):
             sub = parts[1] if len(parts) > 1 else ""
             if m == "GET" and not sub:
                 return self.send_json(queue_view())
+            if m == "GET" and sub == "trace":   # trace từng bước của một cảnh (bảng "Các bước" trong trang chi tiết video)
+                it = qfind((q.get("id") or [""])[0])
+                n = int((q.get("n") or ["0"])[0] or 0)
+                with LOCK:
+                    sc = next((x for x in (it or {}).get("scenes", []) if x["n"] == n), None)
+                    if not sc:
+                        return self.send_json({"error": "Không tìm thấy cảnh"}, 404)
+                    return self.send_json({"n": n, "text": sc.get("text", ""), "state": sc.get("state"), "now": time.time(),
+                                           "trace": json.loads(json.dumps(sc.get("trace") or []))})
             b = self.body()
             try:
                 if sub == "add":
