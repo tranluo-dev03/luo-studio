@@ -1,8 +1,10 @@
 {
-  "version": "1.2.0",
+  "version": "1.2.1",
   "updated_at": "2026-11-06",
   "repo": "https://github.com/czg86389-hub/muse2api",
   "highlights": [
+    "LUO-API 1.2.1: yêu cầu gen nhận pin_account (chọn tay tài khoản cho video) và pin_avoid (tài khoản vừa lỗi không chọn lại); task lỗi có error_kind (account, quota, no_account, busy, other)",
+    "Task có queue_wait (thời gian chờ hàng đợi trình duyệt) để Studio hiện trace từng bước của cảnh",
     "LUO-API 1.2.0: mỗi tài khoản một browser context giữ tab ấm, nhiều việc song song trên một tài khoản (MUSE2API_ACCOUNT_PARALLEL, mặc định 2)",
     "Theo dõi kết quả và tải file qua RPC nội bộ của trang muse.ai (sessions.get, chat.history, fs.raw), không đợi trang vẽ video; đường DOM cũ giữ làm dự phòng",
     "Ô soạn tin mới của Muse: gắn tham chiếu bằng DOM.setFileInputFiles, đếm/xoá đính kèm đúng; không bao giờ trả lại chính tham chiếu làm kết quả",

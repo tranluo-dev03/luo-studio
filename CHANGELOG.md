@@ -5,6 +5,8 @@ Nguồn sự thật của số phiên bản: dòng đầu của `version.txt` (c
 
 ## [Chưa phát hành]
 
+## [1.2.1] - 2026-11-06
+
 ### Trace từng bước gen của một cảnh
 - Trang chi tiết video: mỗi cảnh có nút **Các bước**. Bấm vào hiện bảng các bước gen của cảnh theo thứ tự (gen ảnh, gen video, gen lại vì lời
   nói / miệng / máy trôi, cắt & kiểm tra), mỗi bước có lúc bắt đầu và thời gian. Mỗi lệnh gen gửi LUO-API được tách tiếp: gửi lệnh, chờ hàng
