@@ -834,23 +834,43 @@ async function pageApi() {
       ${vid(a)}
       <div class="apmeta">Dùng ${a.use_count || 0} lần · lần cuối ${ago2(a.last_used)}${dd != null ? ` · cookie còn ~${dd} ngày` : ""}</div>
       ${a.note ? `<div class="apnote ${bad ? "bad" : ""}" title="${esc(a.note)}">${esc(viNote(a.note))}</div>` : ""}
-      <div class="apact"><button class="btn sm" data-aptest="${a.id}">Kiểm tra phiên</button><button class="btn sm" data-apq="${a.id}">Đo hạn mức</button><button class="btn sm" data-apck="${a.id}">Cập nhật cookie</button><button class="btn sm ghost" data-apren="${a.id}">Đổi tên</button><button class="ib danger" data-apdel="${a.id}" title="Xoá tài khoản">${ico("trash")}</button></div></div>`; };
+      <div class="apact"><button class="btn sm" data-aptest="${a.id}">Kiểm tra phiên</button><button class="btn sm" data-apq="${a.id}">Đo hạn mức</button><button class="btn sm primary" data-apview="${a.id}" title="Mở Chrome đã đăng nhập tài khoản này để xem trực tiếp Muse, các đoạn chat">Xem trên Chrome</button><button class="btn sm" data-apck="${a.id}" title="Mở Chrome sạch để đăng nhập lại tài khoản này, LUO tự lấy cookie mới">Đăng nhập lại</button><button class="btn sm ghost" data-apren="${a.id}">Đổi tên</button><button class="ib danger" data-apdel="${a.id}" title="Xoá tài khoản">${ico("trash")}</button></div></div>`; };
   const task = t => `<tr><td>${ago(t.created_at)}</td><td>${esc(t.kind || "")}</td><td><span class="tag ${t.status === "completed" || t.status === "succeeded" ? "ok" : t.status === "failed" ? "bad" : t.status === "processing" ? "" : "mute"}">${TASK_VI[t.status] || esc(t.status)}</span></td><td>${t.elapsed ? Math.round(t.elapsed) + "s" : "—"}</td><td class="aperr" title="${esc(String(t.error || ""))}">${esc(String(t.error || "").slice(0, 90))}</td><td><button class="ib" data-aptd="${t.id}" title="Xoá khỏi danh sách">${ico("x")}</button></td></tr>`;
   v.innerHTML = `${warn}${vwarn}<div class="apsum"><div class="card"><small>Tài khoản dùng được</small><b>${usable.length}<span>/ ${accs.length}</span></b></div><div class="card"><small>Đang bật</small><b>${on.length}</b></div>
       <div class="card"><small>Task đang chờ / xử lý</small><b>${cnt("queued")}<span>/ ${cnt("processing")}</span></b></div><div class="card"><small>Task lỗi gần đây</small><b>${cnt("failed")}</b></div>
       <div class="card"><small>Trình duyệt API</small><b style="font-size:16px">${d.browser_running ? "Đang chạy" : "Chưa mở"}</b></div></div>
-    <h3 class="aph">Tài khoản Muse</h3><div class="apgrid">${accs.map(acc).join("") || `<div class="empty" style="grid-column:1/-1"><div>Chưa có tài khoản. Bấm "Thêm tài khoản" và dán cookie.</div></div>`}</div>
+    <h3 class="aph">Tài khoản Muse</h3><div class="apgrid">${accs.map(acc).join("") || `<div class="empty" style="grid-column:1/-1"><div>Chưa có tài khoản. Bấm "Thêm tài khoản", đặt tên rồi bấm Đăng nhập.</div></div>`}</div>
     <h3 class="aph">Task gần đây</h3><div class="card" style="padding:0"><table class="gt" style="width:100%"><thead><tr><th>Lúc</th><th>Loại</th><th>Trạng thái</th><th>Thời gian</th><th>Lỗi</th><th></th></tr></thead><tbody>${tk.map(task).join("") || `<tr><td colspan="6" style="padding:18px;color:var(--mute)">Chưa có task</td></tr>`}</tbody></table></div>`;
   const run = async (btn, fn, ok) => { if (btn) btn.disabled = true; try { const r = await fn(); if (ok) toast(typeof ok === "function" ? ok(r) : ok); } catch (e) { toast(e.message, 1); } await pageApi(); };
-  const cookieModal = (id, label) => { openModal(`<div class="mbox"><h2>${id ? "Cập nhật cookie · " + esc(label) : "Thêm tài khoản"} <button class="ib" id="mx">${ico("x")}</button></h2>
+  // Thêm / đăng nhập lại tài khoản: LUO-API mở một cửa sổ Chrome sạch ở muse.ai, người dùng tự đăng nhập, LUO tự lấy cookie, lưu rồi đóng cửa sổ.
+  const cookieModal = (id, label) => { let tok = null, timer = null, busy = false;
+    openModal(`<div class="mbox"><h2>${id ? "Đăng nhập lại · " + esc(label) : "Thêm tài khoản"} <button class="ib" id="mx">${ico("x")}</button></h2>
       ${id ? "" : `<div class="f"><label>Tên gợi nhớ</label><input class="input" id="cl" placeholder="vd. tkc-linh"></div>`}
-      <div class="f" style="margin-top:10px"><label>Cookie (dạng header Cookie: name=value; name2=value2…)</label><textarea id="cc" rows="6" spellcheck="false" placeholder="Dán cookie đã sao chép từ trình duyệt đang đăng nhập Muse"></textarea></div>
-      <details style="margin-top:8px"><summary style="cursor:pointer;color:var(--mute);font-size:12.5px">Cách lấy cookie</summary><ol style="color:var(--dim);font-size:12.5px;line-height:1.6;padding-left:18px;margin-top:6px"><li>Đăng nhập muse.ai trên Chrome hoặc Edge.</li><li>Nhấn F12, mở tab Network, tải lại trang, bấm vào một yêu cầu tới muse.ai.</li><li>Ở Request Headers, sao chép toàn bộ giá trị của dòng <b>Cookie</b>.</li><li>Cookie phải có các mục <code>hatch_sess</code>, <code>hatch_gw</code>, <code>hatch_vml</code>, <code>hatch_native_au</code>.</li></ol></details><p style="color:var(--dim);font-size:12.5px;margin-top:8px">Cookie là thông tin đăng nhập, chỉ dán vào đây và không gửi cho người khác.</p>
-      <div class="row2" style="margin-top:16px;justify-content:flex-end"><button class="btn ghost" id="mc">Huỷ</button><button class="btn primary" id="mok">Lưu</button></div></div>`);
-    $("#modal").onclick = async e => { if (e.target.closest("#mx, #mc")) return closeModal();
+      <p style="color:var(--dim);font-size:13px;line-height:1.6;margin-top:10px">Bấm <b>Đăng nhập</b>: LUO mở một cửa sổ Chrome sạch (không dính tài khoản nào) ở muse.ai. Bạn nhập email và mã xác nhận như bình thường. Đăng nhập xong, LUO tự lấy cookie, lưu tài khoản và tự đóng cửa sổ.</p>
+      <div id="lgst" class="card sec" style="display:none;margin-top:10px;font-size:13px"></div>
+      <details style="margin-top:10px"><summary style="cursor:pointer;color:var(--mute);font-size:12.5px">Hoặc dán cookie thủ công</summary>
+        <textarea id="cc" rows="4" spellcheck="false" style="margin-top:8px;width:100%" placeholder="name=value; name2=value2… (phải có hatch_sess, hatch_native_auth_device)"></textarea>
+        <div class="row2" style="justify-content:flex-end;margin-top:6px"><button class="btn sm" id="mok">Lưu cookie</button></div></details>
+      <div class="row2" style="margin-top:16px;justify-content:flex-end"><button class="btn ghost" id="mc">Huỷ</button><button class="btn primary" id="mlogin">${ico("user")}Đăng nhập</button></div></div>`);
+    const st = (msg, cls) => { const b = $("#lgst"); if (!b) return; b.style.display = ""; b.className = "card sec" + (cls ? " " + cls : ""); b.innerHTML = msg; };
+    const stop = () => { clearInterval(timer); timer = null; };
+    const done = () => { stop(); busy = false; const b = $("#mlogin"); if (b) { b.disabled = false; b.lastChild.textContent = "Đăng nhập lại"; } };
+    const poll = async () => { if (!$("#lgst")) return stop();
+      let r; try { r = await api("muse/accounts/login/" + tok); } catch (e) { st(esc(e.message), "apwarn"); return done(); }
+      const sec = r.elapsed || 0;
+      if (r.state === "waiting" || r.state === "opening") st(`<b>Đang chờ bạn đăng nhập trong cửa sổ Chrome…</b> <span style="color:var(--mute)">${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, "0")}</span><br><span style="color:var(--dim)">Không thấy cửa sổ? Nó có thể nằm sau cửa sổ LUO Studio, xem trên thanh tác vụ.</span>`);
+      else if (r.state === "saving") st("<b>Đã đăng nhập, đang lưu tài khoản…</b>");
+      else if (r.state === "done") { stop(); closeModal(); toast(r.message || "Đã lưu tài khoản"); pageApi(); }
+      else { st(esc(r.message || "Đăng nhập không thành công"), "apwarn"); done(); } };
+    const cancel = () => { if (tok && busy) api(`muse/accounts/login/${tok}/cancel`, { body: {} }).catch(() => {}); stop(); };
+    $("#modal").onclick = async e => { if (e.target.closest("#mx, #mc")) { cancel(); return closeModal(); }
+      if (e.target.closest("#mlogin")) { if (busy) return; busy = true; const b = $("#mlogin"); b.disabled = true; st("Đang mở Chrome…");
+        try { const r = await api("muse/accounts/login", { body: id ? { account_id: id } : { label: ($("#cl").value || "").trim() } }); tok = r.token;
+          if (r.state === "error") { st(esc(r.message), "apwarn"); return done(); }
+          poll(); timer = setInterval(poll, 2000); } catch (er) { st(esc(er.message), "apwarn"); done(); } return; }
       if (e.target.closest("#mok")) { const ck = $("#cc").value.trim(); if (!ck) return toast("Chưa dán cookie", 1);
         try { if (id) await api(`muse/accounts/${id}/cookies`, { body: { cookie_header: ck } }); else { const r = await api("muse/accounts", { body: { label: ($("#cl").value || "").trim(), cookie_header: ck } }); if (r.warning) toast(/缺少核心/.test(r.warning) ? "Cookie còn thiếu các mục quan trọng: " + r.warning.split("：").pop().trim() + ". Hãy sao chép lại cookie đầy đủ từ trình duyệt đang đăng nhập Muse." : r.warning, 1); }
-          closeModal(); toast("Đã lưu"); pageApi(); } catch (er) { toast(er.message, 1); } } }; };
+          cancel(); closeModal(); toast("Đã lưu"); pageApi(); } catch (er) { toast(er.message, 1); } } }; };
   $("#ap-ref").onclick = () => pageApi();
   $("#ap-add").onclick = () => cookieModal();
   $("#ap-ka").onclick = e => run(e.target.closest("button"), () => api("muse/accounts/keepalive", { body: {} }), "Đã gia hạn phiên các tài khoản");
@@ -858,6 +878,7 @@ async function pageApi() {
     if ((x = e.target.closest("[data-aptog]"))) return run(null, () => api("muse/accounts/" + x.dataset.aptog, { method: "PUT", body: { enabled: !x.classList.contains("on") } }));
     if ((x = e.target.closest("[data-aptest]"))) { toast("Đang kiểm tra phiên (mở Muse, có thể mất 1 phút)…"); return run(btn, () => api(`muse/accounts/${x.dataset.aptest}/test`, { body: {} }), r => r.ok ? "Phiên còn hạn" : "Phiên lỗi: " + viNote(r.message)); }
     if ((x = e.target.closest("[data-apq]"))) { toast("Đang đo hạn mức…"); return run(btn, () => api(`muse/accounts/${x.dataset.apq}/quota`, { body: {} }), r => r.extra_used_pct != null ? `Token Extra đã dùng ${r.extra_used_pct}%${r.extra_left ? ", còn " + r.extra_left.replace(/\s*left$/i, "") : ""}` : `Hạn mức tuần ${r.weekly_used_pct ?? "?"}%`); }
+    if ((x = e.target.closest("[data-apview]"))) { toast("Đang mở Chrome của tài khoản…"); return run(btn, () => api(`muse/accounts/${x.dataset.apview}/view`, { body: {} }), r => r.state === "error" ? "Không mở được Chrome: " + r.message : "Đã mở Muse trên Chrome. Đóng cửa sổ khi xem xong."); }
     if ((x = e.target.closest("[data-apck]"))) { const a = accs.find(z => z.id === x.dataset.apck); return cookieModal(a.id, a.label || a.id); }
     if ((x = e.target.closest("[data-apren]"))) { const a = accs.find(z => z.id === x.dataset.apren), nn = prompt("Tên mới cho tài khoản", a.label || ""); if (nn != null) return run(null, () => api("muse/accounts/" + a.id, { method: "PUT", body: { label: nn.trim() } })); return; }
     if ((x = e.target.closest("[data-apdel]"))) { const a = accs.find(z => z.id === x.dataset.apdel); if (!confirm(`Xoá tài khoản "${a.label || a.id}"? Việc này không hoàn tác được.`)) return; return run(null, () => api("muse/accounts/" + a.id, { method: "DELETE" }), "Đã xoá tài khoản"); }

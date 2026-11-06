@@ -5,6 +5,18 @@ Nguồn sự thật của số phiên bản: dòng đầu của `version.txt` (c
 
 ## [Chưa phát hành]
 
+## [1.2.2] - 2026-11-06
+
+### Đăng nhập tài khoản Muse bằng Chrome, không cần dán cookie
+- Tab API Muse → **Thêm tài khoản**: đặt tên, bấm **Đăng nhập**. LUO mở một cửa sổ Chrome sạch (hồ sơ trống) ở muse.ai, người dùng tự nhập
+  email và mã. Khi Muse cấp phiên (`/api/session` = assigned), LUO tự lấy cookie (kể cả httpOnly), lưu tài khoản và đóng cửa sổ. Dán cookie
+  thủ công vẫn còn trong mục thu gọn.
+- Mỗi tài khoản có nút **Xem trên Chrome**: mở Chrome bằng hồ sơ riêng của tài khoản, nạp cookie đang lưu, vào thẳng Muse để xem các đoạn chat.
+  Trong lúc mở, cookie mới Muse cấp (gia hạn hoặc đăng nhập lại ngay trong cửa sổ) được tự ghi vào tài khoản.
+- **Cập nhật cookie** đổi thành **Đăng nhập lại** (cùng luồng Chrome sạch). Không có Google Chrome thì dùng trình duyệt của LUO-API (Edge).
+- LUO-API: `browser_login.py`; API `POST /admin/accounts/login`, `GET /admin/accounts/login/{token}`, `POST .../{token}/cancel`,
+  `POST /admin/accounts/{id}/view`. Hồ sơ trình duyệt nằm ở `userdata/profiles/accounts/<id>`, xoá tài khoản thì xoá theo.
+
 ## [1.2.1] - 2026-11-06
 
 ### Trace từng bước gen của một cảnh

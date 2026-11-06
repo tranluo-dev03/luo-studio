@@ -57,7 +57,7 @@ if not log.handlers:
     log.addHandler(_h)
 
 CFG.ensure_dirs()
-app = FastAPI(title="LUO-API", version="1.2.1")
+app = FastAPI(title="LUO-API", version="1.2.2")
 
 # Cookie 助手脚本从 muse.ai 页面发起导入请求，需要放行该来源；
 # 浏览器扩展从 chrome-extension:// 发起，也一并放行。
@@ -77,6 +77,8 @@ app.add_middleware(CORSMiddleware,
 
 store = Store(CFG)
 engine = MuseEngine(CFG)
+from browser_login import LoginBrowsers  # noqa: E402
+logins = LoginBrowsers(CFG, store, engine)
 
 
 class ConcurrencyLock:
@@ -189,7 +191,7 @@ class AccountPoolManager:
 
 GEN_LOCK = ConcurrencyLock(limit=CFG.max_concurrency)
 ACCOUNT_POOL = AccountPoolManager(store, per_account=CFG.account_parallel)
-API_VERSION = "1.2.1"
+API_VERSION = "1.2.2"
 QUOTA_RE = re.compile(r"24-hour limit|budget is (?:still )?exhausted|video budget|quota (?:is )?exhausted|limit for the (?:last|past) 24 hours|(?:video|daily|generation) limit (?:is |has been )?reached", re.I)
 
 
@@ -1835,6 +1837,39 @@ def admin_status(_=Depends(auth)):
 
 
 # ------------------------- 管理：账号池 -------------------------
+# ------------------------- 管理：đăng nhập / xem bằng Chrome thật -------------------------
+@app.post("/admin/accounts/login")
+def login_account(payload: dict = Body(default={}), _=Depends(auth)):
+    """Mở Chrome hồ sơ trống ở muse.ai; người dùng tự đăng nhập, LUO tự lấy cookie và lưu (account_id: đăng nhập lại tài khoản đó)."""
+    logins.reap()
+    aid = str(payload.get("account_id") or "").strip() or None
+    if aid and not store.get_account(aid):
+        raise HTTPException(404, "账号不存在")
+    return logins.start_login(str(payload.get("label") or "").strip(), aid)
+
+
+@app.get("/admin/accounts/login/{token}")
+def login_status(token: str, _=Depends(auth)):
+    r = logins.get(token)
+    if not r:
+        raise HTTPException(404, "Phiên đăng nhập không còn")
+    return r
+
+
+@app.post("/admin/accounts/login/{token}/cancel")
+def login_cancel(token: str, _=Depends(auth)):
+    return {"ok": logins.cancel(token)}
+
+
+@app.post("/admin/accounts/{aid}/view")
+def view_account(aid: str, _=Depends(auth)):
+    """Mở Chrome bằng hồ sơ riêng của tài khoản (nạp cookie đang lưu) để xem trực tiếp Muse."""
+    try:
+        return logins.open_view(aid)
+    except KeyError:
+        raise HTTPException(404, "账号不存在") from None
+
+
 @app.get("/admin/accounts")
 def list_accounts(_=Depends(auth)):
     return {"accounts": store.list_accounts(), "stats": store.stats()}
@@ -1886,7 +1921,10 @@ def patch_account(aid: str, req: AccountPatch, _=Depends(auth)):
 
 @app.delete("/admin/accounts/{aid}")
 def del_account(aid: str, _=Depends(auth)):
+    logins.close_account(aid)
     ok = store.delete_account(aid)
+    if ok:
+        threading.Timer(5, lambda: __import__("shutil").rmtree(logins.account_profile(aid), ignore_errors=True)).start()
     if not ok:
         raise HTTPException(404, "账号不存在")
     return {"deleted": True, "id": aid}
@@ -2766,6 +2804,10 @@ async def _startup():
 
 @app.on_event("shutdown")
 def _shutdown():
+    try:
+        logins.stop_all()
+    except Exception:  # noqa: BLE001
+        pass
     try:
         store.flush_tasks()
     except Exception:  # noqa: BLE001
