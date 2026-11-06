@@ -227,6 +227,61 @@ def compose(out, dur, layers, audio_src, cfg, out_dir):
               "-c:v", "libx264", "-crf", "17", "-preset", "fast", "-c:a", "aac", "-b:a", "192k", out])
 
 
+# ---- ô của nhân vật khác che mặt nhân vật nền (06/11/2026, canh-sat-gia-su-ai phần 2: ô AI 1/3 trên + phụ đề che mắt tài xế)
+SUB_BELOW = 0.07   # dải phụ đề thường đặt ngay dưới ô (tỉ lệ chiều cao khung): mặt cũng không được nằm trong dải này
+
+
+def head_span(png):
+    """(đỉnh đầu, cằm, trái, phải) của khuôn mặt (tỉ lệ 0..1 của ảnh), đỉnh đầu ước lượng thêm phần tóc trên trán; None nếu không dò được mặt."""
+    try:
+        import cv2
+        import face_mesh as FM
+        im = cv2.imread(png)
+        lm = FM.landmarker()
+        try:
+            pts = lm.find(cv2.cvtColor(im, cv2.COLOR_BGR2RGB))
+        finally:
+            lm.close()
+        if not pts:
+            return None
+        ys, xs = [p.y for p in pts], [p.x for p in pts]
+        top, chin = min(ys), max(ys)
+        return max(0.0, top - 0.35 * (chin - top)), chin, min(xs), max(xs)
+    except Exception:  # noqa: BLE001 - máy không chạy được dò mặt: bỏ qua kiểm tra
+        return None
+
+
+def panel_clear_y(cfg, span):
+    """Mép dưới thấp nhất của các ô (cộng dải phụ đề) đè lên mặt nhân vật nền; 0 nếu không ô nào che mặt."""
+    if not span:
+        return 0.0
+    top, chin, l, r = span
+    need = 0.0
+    for k, (x, y, w, h) in cfg["panels"].items():
+        if k == cfg["bg"] or x > r or x + w < l:
+            continue
+        bottom = y + h + SUB_BELOW
+        if top < bottom and chin > y:
+            need = max(need, bottom)
+    return need
+
+
+def shift_down(png, dy_frac):
+    """Dịch ảnh xuống dy_frac chiều cao (cắt phần đáy), lấp dải trên bằng hàng trên cùng kéo giãn + nhoè (dải đó nằm sau ô nên gần như không lộ)."""
+    import cv2
+    import numpy as np
+    im = cv2.imread(png)
+    h, w = im.shape[:2]
+    dy = int(round(h * dy_frac))
+    if dy <= 0:
+        return
+    out = np.empty_like(im)
+    out[dy:] = im[: h - dy]
+    band = cv2.resize(im[: max(4, h // 40)], (w, dy), interpolation=cv2.INTER_LINEAR)
+    out[:dy] = cv2.GaussianBlur(band, (0, 0), 9)
+    cv2.imwrite(png, out)
+
+
 # ------------------------------------------------------------------ chạy một biến thể
 def run_split(vdata, template, out_dir, opts, emit, cancel):
     try:
@@ -347,6 +402,24 @@ def run_split(vdata, template, out_dir, opts, emit, cancel):
             emit("log", msg=f"Chuẩn bị: gen ảnh gốc cho {k} ({vdata.get('TEN_' + k, k)}, tỉ lệ {aspect_of(cfg, k)})")
             emit("scene", n=1, state="image", pct=0, note=f"ảnh gốc {k}")
             gen("image", image_prompt(blocks, k, aspect_of(cfg, k), len(refs) + len(imgs_k), legend_k), None, base[k], aspect_of(cfg, k), ref_list=list(refs) + list(imgs_k))
+            if k == cfg["bg"]:   # ô của nhân vật khác (và dải phụ đề dưới ô) không được che mặt nhân vật nền
+                for fix in range(2):   # 06/11: Muse bỏ qua yêu cầu "đầu ở N%" cả 2 lần gen lại -> chỉ gen lại 1 lần rồi dịch ảnh
+                    span = head_span(base[k])
+                    need = panel_clear_y(cfg, span)
+                    if not need:
+                        break
+                    if fix < 1:
+                        emit("log", msg=f"Ảnh gốc {k}: đỉnh đầu ở {span[0] * 100:.0f}% khung, bị ô che (cần thấp hơn {need * 100:.0f}%): gen lại", level="warn")
+                        os.replace(base[k], base[k] + f".che{fix + 1}.png")
+                        gen("image", image_prompt(blocks, k, aspect_of(cfg, k), len(refs) + len(imgs_k), legend_k)
+                            + f"\n\nCOMPOSITION FIX: the top of the head (including hair) must be at least {need * 100 + 3:.0f}% down from the top edge of the frame "
+                              f"and the whole face below that line; the upper {need * 100:.0f}% of the frame shows only background (it will be covered by another window).",
+                            None, base[k], aspect_of(cfg, k), ref_list=list(refs) + list(imgs_k))
+                    else:
+                        dy = min(0.35, need + 0.03 - span[0])
+                        shutil.copy(base[k], base[k] + ".truoc-dich.png")
+                        shift_down(base[k], dy)
+                        emit("log", msg=f"Ảnh gốc {k}: vẫn bị ô che sau 1 lần gen lại: dịch ảnh xuống {dy * 100:.0f}% để mặt nằm dưới ô", level="warn")
 
     # 2. thư viện clip nghe (chế độ dùng lại): chỉ cho nhân vật có lúc phải nghe
     listeners = [k for k in keys if any(MV.ck(t["who"]) != k for t in luot)]

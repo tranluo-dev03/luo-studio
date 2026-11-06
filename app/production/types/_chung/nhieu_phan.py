@@ -198,7 +198,7 @@ def run(vdata, template, out_dir, opts, emit, cancel, blur_strength=1.0):
         emit("log", msg=f"Phần {k}: {p['name']}")
         E.run_variant(sub_variant(vdata, part_chars(p["text"], p["turns"]), p["turns"], k), p["text"].strip() + "\n", pdir, popts, em, cancel)
         for l in range(1, (popts["only"] or p["count"]) + 1):   # chắc chắn clip từng cảnh đã có ở thư mục chạy (kể cả cảnh dùng lại từ lần trước)
-            for suf in ("cut.mp4", "last.png"):
+            for suf in ("cut.mp4", "last.png", "cut.mp4.pre"):   # .pre: độ dài đoạn không lời đầu cảnh (căn phụ đề)
                 src = os.path.join(pdir, f"scene{l}_{suf}")
                 if os.path.exists(src):
                     _link(src, os.path.join(out_dir, f"scene{off + l}_{suf}"))

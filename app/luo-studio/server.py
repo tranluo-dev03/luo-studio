@@ -585,6 +585,12 @@ def scene_marks(d, raw):
         except Exception:  # noqa: BLE001 - khớp âm thanh lỗi: dùng mốc tính từ độ dài clip
             pass
         marks = [{"turn": i, "start": round(starts[i], 3), "end": round(starts[i + 1] if i + 1 < len(starts) else rawdur, 3)} for i in range(len(starts))]
+        for i, m in enumerate(marks):   # cảnh có đoạn không lời ghép trước (trường "Mở đầu"): lời nói bắt đầu sau đoạn đó
+            try:
+                pre = float(open(clips[i] + ".pre").read().strip())
+                m["speech"] = round(min(m["end"] - 0.3, m["start"] + pre * k), 3)
+            except (OSError, ValueError):
+                pass
         path = os.path.join(d, "scenes.json")
         jwrite(path, marks)
         return path

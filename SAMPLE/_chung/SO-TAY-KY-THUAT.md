@@ -110,6 +110,8 @@ Người quay lưng là người nói → không có miệng để gán giọng 
 | `Mở đầu ảnh/video/dài: 1.5` | Đoạn không lời trước câu nói (vali trôi ra khỏi máy soi) | Ghép cắt cứng, không thêm lượt; chuyển động khác khoá ghi "In this clip only ..." |
 | `Lớp phủ: camera [png]` | Giao diện camera điện thoại + viền bám mặt | Muse không vẽ gì; cảnh chỉ MỘT mặt rõ, đầu ở 1/3 trên |
 | Cảnh không `{{LUOT_n}}`, Voice trống | Cảnh hành động/b-roll không lời | Đường code có, chưa chạy thật: thử 1 biến thể |
+| `Khung đầu từ cảnh: N` | Cảnh quay lại đúng góc máy của cảnh N trước đó (người dùng muốn "y hệt khung cảnh X") | Dùng NGUYÊN ảnh khung đầu của cảnh N, không vẽ lại: nền, vị trí người, khung hình giống hệt (06/11, canh-sat-gia-su-ai). Không cần `Ảnh tổng quan` cho cảnh đó |
+| `Mở đầu khung từ cảnh: N` | Đoạn không lời đầu cảnh (đưa giấy tờ...) phải đúng bố cục cảnh N | Như trên, cho `Mở đầu ảnh` |
 
 Bài học camera (soi hành lý, 6 lần sửa): không giao chuyển động máy cho Muse khi có người ngoài khung mà Muse chưa "thấy"; cho Muse ảnh tổng quan; ảnh khung đầu đã ở sẵn tư thế cần (ngón tay trên nắp vali); mép khung trống (không tay/em bé lọt vào); mô tả chỉ tay "points DOWN ... never sideways, never toward the edge of the frame or any person".
 
@@ -123,6 +125,7 @@ Bài học camera (soi hành lý, 6 lần sửa): không giao chuyển động m
 - `[NGHE <K>]`: chỉ điều nên làm; "The lips stay gently pressed together the whole clip; the head stays mostly still". Không viết "Reacts visibly... smiles along" (Muse cười hé môi, gật theo nhịp).
 - Gắn `refs` ảnh tham chiếu cho **mọi** nhân vật (Studio gửi khung nối + ảnh gốc + ảnh tham chiếu ở mọi clip, từ 05/11/2026).
 - Sửa kịch bản sau khi đã chạy dở: xoá `base_<K>.png`, `listen_<K>_*.mp4`, `scene*_spk.mp4`, `scene*_cut.mp4`, `_mask_*`, `_border_*` (Studio dùng lại file có sẵn).
+- **Ô không được che mặt nhân vật nền** (06/11: ô AI 1/3 trên + phụ đề che mắt tài xế): `[NHAN VAT <nền>]` ghi rõ "the top of the hair at about N% down from the top edge; the upper M% shows only background". Studio tự dò mặt ảnh `base_<nền>.png`: mặt (cả tóc) nằm trong ô hoặc dải phụ đề 7% dưới ô → gen lại 1 lần kèm yêu cầu số % (Muse thường bỏ qua), vẫn che → dịch ảnh xuống (cách thật sự có tác dụng) (`split.head_span` / `shift_down`).
 
 ### 3.7 Lồng tiếng ngoài khung
 `Voice: (Lồng tiếng ngoài khung hình, người trong hình KHÔNG nói) "{{LOI_MO}}"`; Prompt video "the off-screen narrator says: ... The man never speaks"; biến thể `"LUOT": []`; phụ đề lấy từ lời trong ngoặc kép. Tránh token đánh số liên tiếp (`LOI_1`, `LOI_2`: Studio coi là chuỗi).
@@ -195,6 +198,13 @@ Khai trong kịch bản: `[HAU KY]:\nloai: <mã>` (token chỉ dùng cho hậu k
 | Câu nói lặp hai lần vẫn được giữ | Chọn lần gen "ít lỗi nhất" theo số lỗi | Đã sửa: luôn ưu tiên bản không lặp |
 | Người thật nhép + nhắm mắt/đổi nét mặt y hệt robot đang nói (chung khung, chỉ cảnh robot nói) | (1) Mô tả robot có "sculpted closed lips" → Muse coi môi robot là chi tiết cứng, đẩy khẩu hình sang mặt người duy nhất; (2) người nghe nghiêng ba phần tư/nghiêng hẳn nên khe môi nhỏ, luật đo cũ đòi "há rộng ≥ 18% khung" nên lọt; (3) Cài đặt "Kiểm tra miệng người nghe" đang tắt | Robot/nhân vật không phải người: tả môi "open and move naturally with every word whenever it speaks", KHÔNG viết "closed/sculpted/painted lips"; prompt cảnh robot nói tả người nghe TRƯỚC (môi mím, mắt mở, đầu yên, "does not copy"), robot không làm cử chỉ đầu; engine thêm luật nghiêng mặt (đo theo nhịp mở-khép + biên độ, 05/11/2026); bật kiểm tra miệng + tự gen lại ≥ 2 |
 | Lỗi đột ngột đổi kiểu | Phiên khác sửa engine/split | `git diff` trước; thống kê theo câu chữ prompt trong `userdata/api/data/tasks.json` |
+| Nền/khung hình nhảy ở 0,4-0,9 s đầu mọi cảnh ("background đổi nhiều lần trong 1 cảnh") | Muse chiếu khung đầu một lát rồi tự cắt sang khung khác | Engine tự dò (`start_jump`, chênh khung ≥ 12 và ≥ 5× trung vị) và giữ khung sau cú nhảy cho đoạn trước (`hold_after_jump`), tiếng giữ nguyên; bỏ qua cảnh lia máy |
+| Người không có trong cảnh vẫn hiện ra (cảnh sát ở cửa sổ cảnh cận, cảnh "Yes") | Engine (SPEAKER MAP) tả MỌI nhân vật là "đang im lặng trong khung"; hướng nhìn ghi "nhìn cảnh sát ở cửa sổ"; câu thoại gọi tên người kia ("Officer, ...") | Biến thể từ 3 nhân vật: `"nguoi_theo_canh": true` (kiem-tra báo LỖI nếu thiếu) → chỉ tả người có tên trong cảnh (bỏ qua dòng "Mở đầu"); hướng nhìn cảnh cận chỉ tả hướng mắt; `CAMERA LOCK` (không lia/thu xa, người được nói chuyện luôn ngoài khung) |
+| Vị trí người đảo lộn giữa các cảnh cùng góc; cảnh không lời sai chỗ ngồi | Mỗi cảnh tự vẽ khung đầu; câu "bé luôn ngồi cạnh bố" trong khoá chung bị áp cả cho góc không có bé; ảnh bố cục chung bị Muse chép nguyên khung hình | `Khung đầu từ cảnh: N` / `Mở đầu khung từ cảnh: N`; vị trí người chỉ ghi trong CAMERA ANGLE của góc có người đó; không gắn ảnh bố cục chung vào `refs` |
+| Tay/chi tiết lạ ở mép khung | Chép chi tiết video gốc ("cẳng tay bố ở mép dưới") | Cảnh cận: "ONLY <người> is in the frame: no hands or arms of anyone else" |
+| Phụ đề hiện sớm, chạy trong đoạn không lời đầu cảnh | Căn phụ đề từ đầu cảnh, không biết có đoạn "Mở đầu" | Engine ghi `scene<N>_cut.mp4.pre`; `scenes.json` có `speech`; căn phụ đề từ mốc đó |
+| Clip "mới" giống từng byte clip cũ | Muse lỗi 502, LUO-API xin "gắn file" → Muse gắn file cũ trong chat | LUO-API: `GEN_FAILED_RE` → báo lỗi để gen lại. Nghi ngờ: `md5sum` clip mới với bản cũ |
+| Làm lại vài cảnh rời rạc mà mất cả cảnh tốt | `nhieu_phan` coi `scene<N>_cut.mp4` ở THƯ MỤC GỐC lượt chạy là "cảnh đã xong"; thiếu file đó thì xoá file cảnh trong `phan<k>/` | Chỉ xoá đúng cảnh cần làm lại ở CẢ thư mục gốc lẫn `phan<k>/`; không dọn hết thư mục gốc |
 
 ---
 
@@ -203,6 +213,7 @@ Khai trong kịch bản: `[HAU KY]:\nloai: <mã>` (token chỉ dùng cho hậu k
 `runtime\python.exe SAMPLE\_chung\video-moi.py kiem-tra <kịch bản.txt> <biến thể.json>` kiểm:
 JSON hợp lệ; token kịch bản = khoá biến thể; số cảnh = số lượt (cảnh thường) hoặc `[GHEP HAI LOP]` đọc được (`split.parse`); nhiều phần: `nhieu_phan.plan` không lỗi, mọi lượt có `phan`, đúng thứ tự; `who` thuộc nhân vật của phần; `emo` trong `EMO_CUES`; text ≤ 20 từ; đúng một cặp `wrong` → `right` (nếu có); không còn `{{` sau khi điền; độ dài prompt; link `refs` tải được (tuỳ chọn `--tai-anh`).
 Sau đó: **chạy thử MỘT biến thể**, xem `scene1_start.png` (và `scene<n>_start.png` của mọi cảnh đổi góc, `scene1_wide.png` nếu có ảnh tổng quan), `base_<K>.png` của ghép 2 lớp, clip cảnh đầu; rồi mới chạy cả nhóm.
+So từng cảnh với video gốc bằng ảnh ghép 8 khung gốc ↔ 8 khung gen (mẫu: `SAMPLE/canh-sat-gia-su-ai/cong-cu/so_sanh.py`, bảng shot → giây), sửa kịch bản cảnh lệch rồi gen lại riêng cảnh đó trước khi đi tiếp. `kiem-tra` còn báo: `Khung đầu từ cảnh` trỏ sai, ≥3 nhân vật thiếu `nguoi_theo_canh`, cảnh cận nhắc người khác, ghép 2 lớp chưa ghi vị trí đầu dưới ô.
 
 ---
 

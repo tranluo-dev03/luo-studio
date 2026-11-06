@@ -360,6 +360,52 @@ def _download_ok(url):
     return False, "không phải ảnh / trang ảnh"
 
 
+def _kiem_canh_thuong(c, text, v, label=""):
+    import gen_video as G
+    """Kiểm tra một phần CẢNH thường (rút từ lỗi người dùng phản ánh 06/11/2026, canh-sat-gia-su-ai):
+    - "Khung đầu từ cảnh" / "Mở đầu khung từ cảnh" phải trỏ tới một cảnh ĐỨNG TRƯỚC trong cùng phần;
+    - từ 3 nhân vật: biến thể phải bật "nguoi_theo_canh" (không thì engine tả mọi người là "đang im lặng trong khung" và Muse vẽ thêm họ: cảnh sát thừa ở cửa sổ);
+    - cảnh cận một người mà Prompt video nhắc tên người khác: Muse hay vẽ thêm người đó vào khung."""
+    try:
+        locks, scenes = G.parse_script(re.sub(r"^\[HAU KY\]:.*?(?=^\[|^CẢNH)", "", text, flags=re.M | re.S))
+    except Exception as ex:  # noqa: BLE001
+        c.w(f"{label}parse_script: {ex}")
+        return
+    nums = {s["n"] for s in scenes}
+    if "{{LUOT_" in text:   # cảnh có lượt thoại mà Prompt video mất {{LUOT_n}} (06/11: công cụ sửa kịch bản ăn lấn câu, Muse không còn nhận câu thoại / hướng nhìn)
+        for s in scenes:
+            if "Prompt video" in s["f"] and "{{LUOT_" not in s["f"]["Prompt video"] and "{{LUOT_" in s["f"].get("Voice", ""):
+                c.e(f"{label}cảnh {s['n']}: Voice có {{{{LUOT_n}}}} nhưng Prompt video không có (mất câu thoại trong lời dặn Muse)")
+    for s in scenes:
+        for fld in ("Khung đầu từ cảnh", "Mở đầu khung từ cảnh"):
+            if fld in s["f"]:
+                m = re.search(r"\d+", s["f"][fld])
+                if not m or int(m.group(0)) not in nums or int(m.group(0)) >= s["n"]:
+                    c.e(f"{label}cảnh {s['n']}: \"{fld}: {s['f'][fld]}\" phải là số của một cảnh ĐỨNG TRƯỚC trong cùng phần")
+    chars = sorted({t[4:] for t in re.findall(r"\{\{\s*(TEN_[A-Z0-9]+)\s*\}\}", text)})
+    if len(chars) >= 3 and not v.get("nguoi_theo_canh"):
+        c.e(f"{label}{len(chars)} nhân vật ({', '.join(chars)}) mà biến thể [{v.get('name')}] chưa có \"nguoi_theo_canh\": true "
+            "(engine sẽ tả mọi người là đang có mặt trong khung, Muse vẽ thêm họ vào cảnh cận / cửa sổ)")
+    for s in scenes:
+        img = s["f"].get("Prompt ảnh", "")
+        if not re.search(r"CLOSE-UP|close shot|close-up", img, re.I):
+            continue
+        here = set(re.findall(r"\{\{\s*TEN_([A-Z0-9]+)\s*\}\}", img))
+        vid = s["f"].get("Prompt video", "")
+        other = sorted({k for k in chars if k not in here and re.search(r"\{\{\s*(TEN|NGUOI)_%s\s*\}\}" % k, vid)})
+        if len(here) == 1 and other:
+            c.w(f"{label}cảnh {s['n']} là cảnh cận {', '.join(here)} nhưng Prompt video nhắc {', '.join(other)}: Muse hay vẽ thêm người đó vào khung")
+
+
+def _kiem_ghep(c, cfg, blocks, label=""):
+    """Ghép 2 lớp: khối [NHAN VAT <nền>] phải nói rõ đầu nằm thấp, dưới các ô (06/11/2026: ô AI + phụ đề che mắt tài xế). Studio còn tự dò mặt và gen lại / dịch ảnh."""
+    b = blocks.get(f"NHAN VAT {cfg['bg']}", "")
+    low = max((y + h for k, (x, y, w, h) in cfg["panels"].items() if k != cfg["bg"] and y < 0.5), default=0)
+    if low and not re.search(r"\d+\s*%|lower (?:half|two-thirds|middle)|head (?:is )?low", b, re.I):
+        c.w(f"{label}[NHAN VAT {cfg['bg']}] chưa nói rõ đầu nằm dưới ô (ô che tới {low * 100:.0f}% + phụ đề): ghi \"the top of the hair at about "
+            f"{(low + 0.1) * 100:.0f}% down from the top edge\"")
+
+
 def cmd_kiem_tra(a):
     import engine as E
     import gen_video as G
@@ -479,6 +525,7 @@ def cmd_kiem_tra(a):
                     hits = ", ".join(sorted(set(m.lower() for m in re.findall(r"\b(talk\w*|speak\w*|mirror\w*|voice|words?)", b, re.I))))
                     c.w(f"[{k}] nhắc tới nói/giọng/người nói ({hits}) → Muse hay lồng tiếng vào clip nghe; chỉ tả điều NÊN làm")
             c.o(f"[GHEP HAI LOP] đọc được: nền {cfg['bg']}, nối {cfg['join'][0]}, nghe {cfg['listen'][0]}")
+            _kiem_ghep(c, cfg, blocks)
         except RuntimeError as ex:
             c.e(f"[GHEP HAI LOP]: {ex}")
     if multi:
@@ -502,6 +549,10 @@ def cmd_kiem_tra(a):
                             for k, b in blocks.items():
                                 if k.startswith("NGHE ") and re.search(r"\b(talk|speak|speaker|mirror|voice|word)", b, re.I):
                                     c.w(f"phần {p['n']} [{k}] nhắc tới nói/người nói → Muse hay lồng tiếng vào clip nghe")
+                            if v is variants[0]:
+                                _kiem_ghep(c, cfg, blocks, f"phần {p['n']} ")
+                        else:
+                            _kiem_canh_thuong(c, p["text"], v, f"phần {p['n']} ")
                 except Exception as ex:  # noqa: BLE001
                     c.e(f"[{v.get('name')}] nhieu_phan.plan: {ex}")
     if not multi:
@@ -540,6 +591,8 @@ def cmd_kiem_tra(a):
                         c.w(f"cảnh {s['n']} có Lia nhanh nhưng thiếu Giữ sau lời (cú lia sau lời sẽ bị cắt)")
                     if "CAMERA MOVE" in f.get("Prompt video", "") and "CAMERA MOVE" not in " ".join(locks.values()):
                         c.w(f"cảnh {s['n']} tả CAMERA MOVE nhưng khoá chung không cho phép (\"still unless the clip describes a CAMERA MOVE\")")
+                for v in variants:
+                    _kiem_canh_thuong(c, text, v)
             except Exception as ex:  # noqa: BLE001
                 c.w(f"parse_script: {ex}")
     # refs

@@ -48,9 +48,10 @@ LOCKS = ["STYLE LOCK", "CHAR LOCK", "SET LOCK", "VIDEO SUFFIX", "NEGATIVE"]
 # "Lia theo tay" (giây, vd. "1"): đi kèm "Lia nhanh": ngay trước cú vụt, máy đẩy vào và trôi về phía phải-dưới theo tay nhân vật N giây (Muse thường để máy đứng yên khi nhân vật chỉ tay)
 # "Ảnh bố cục: 3": khi vẽ khung đầu mới (đổi góc máy), gửi kèm khung đầu đã gen của cảnh 3 để giữ đúng thứ tự đồ vật, vị trí người
 # "Giữ yên dưới": đã bỏ (04/11, dán khung đầu làm tay cũ hiện mờ). Vẫn nhận tên trường để kịch bản cũ không lẫn dòng này vào trường khác, nhưng không làm gì.
+# "Khung đầu từ cảnh: N" / "Mở đầu khung từ cảnh: N": dùng NGUYÊN ảnh khung đầu đã gen của cảnh N (cùng góc máy): nền, vị trí người, khung hình giống hệt (không vẽ lại)
 # "Mở đầu ảnh" / "Mở đầu video" / "Mở đầu dài" (giây, mặc định 1.5): đoạn không lời gen riêng rồi ghép trước clip của cảnh (vd. hành lý trôi ra khỏi máy soi trước câu hỏi), không cần thêm lượt thoại
 FIELDS = ["Bối cảnh", "Voice", "Khung đầu", "Khung cuối", "Diễn biến", "Prompt ảnh", "Prompt video", "Audio", "Negative prompt", "Chuyển cảnh", "Lớp phủ", "Giữ sau lời",
-          "Ảnh tổng quan", "Khung đầu cắt", "Lia nhanh", "Lia theo tay", "Mở đầu ảnh", "Mở đầu video", "Mở đầu dài", "Giữ yên dưới", "Ảnh bố cục"]
+          "Ảnh tổng quan", "Khung đầu cắt", "Lia nhanh", "Lia theo tay", "Mở đầu ảnh", "Mở đầu video", "Mở đầu dài", "Giữ yên dưới", "Ảnh bố cục", "Khung đầu từ cảnh", "Mở đầu khung từ cảnh"]
 
 
 def parse_script(text):

@@ -231,7 +231,7 @@ def align_by_scene(src, units, scenes, model_name):
     for t in sorted(turns):
         sc = by_turn[t]
         us = [u for u in units if u.get("turn") == t]
-        a, b = max(0.0, sc["start"] - 0.2), min(total, sc["end"] + 0.2)   # đệm nhỏ vì mốc cảnh tính từ độ dài clip, lệch vài chục mili giây
+        a, b = max(0.0, sc.get("speech", sc["start"]) - 0.2), min(total, sc["end"] + 0.2)   # "speech": cảnh có đoạn không lời ở đầu   # đệm nhỏ vì mốc cảnh tính từ độ dài clip, lệch vài chục mili giây
         text = " ".join(u["t"] for u in us)
         lang = "es" if re.search(r"[¿¡ñÑ]", text) else None   # chữ chỉ có trong tiếng Tây Ban Nha: chốt ngôn ngữ; còn lại để Whisper tự nhận cho riêng cảnh này
         groups.append((sc, us))
@@ -243,11 +243,12 @@ def align_by_scene(src, units, scenes, model_name):
     est = heard = 0
     for (sc, us), words in zip(groups, result):
         if not words:
-            words = estimate_span(us, sc["start"] + 0.1, max(sc["start"] + 0.6, sc["end"] - 0.2))
+            s0 = sc.get("speech", sc["start"])
+            words = estimate_span(us, s0 + 0.1, max(s0 + 0.6, sc["end"] - 0.2))
             est += len(us)
-            align(us, words, t0=sc["start"], t1=sc["end"])
+            align(us, words, t0=s0, t1=sc["end"])
             continue
-        align(us, words, t0=sc["start"], t1=sc["end"])
+        align(us, words, t0=sc.get("speech", sc["start"]), t1=sc["end"])
         heard += sum(1 for u in us if u["ok"])
     ordered = sorted(units, key=lambda u: (u["turn"], units.index(u)))
     for i in range(len(ordered) - 1):   # ranh giới giữa hai cảnh: phụ đề trước không được lấn vào phụ đề sau

@@ -69,3 +69,18 @@ Chạy thử biến thể `bo-con-xe-do-gia-su-ai` end-to-end, so từng cảnh 
 
 Đã đạt (so với gốc): cảnh 1–8. Còn khác: cảnh 4 cận vừa (gốc cận cực sát), cảnh 3/6 phía sau có thể nhiều xe cảnh sát. Cảnh 9–12 và phần 2 đang chạy.
 Sửa kịch bản giữa chừng: chạy `cong-cu/goc_may.py`, chép kịch bản đè `userdata/studio/types/<loại>.txt`, xoá `phan1/scene<N>_*` từ cảnh cần làm lại, bấm chạy tiếp.
+
+## Phản hồi người dùng sau bản v7 hoàn chỉnh (06/11/2026 chiều) và cách sửa tận gốc
+
+| Phản hồi | Sửa |
+|---|---|
+| Nền đổi nhiều lần trong 1 cảnh | Engine: `start_jump` + `hold_after_jump` (bỏ cú nhảy hình 0,4-0,9 s đầu clip) |
+| Cảnh "Yes" và "I wish…" thừa cảnh sát ngoài cửa phía bé | `nguoi_theo_canh` (engine) + gen lại; cảnh 9 trước đó là clip cũ nhận nhầm (LUO-API 502) |
+| Cảnh bé nói "Officer, sorry…" thừa cánh tay | Góc D chỉ có bé, cấm tay người khác |
+| "Tu licencia…" đảo vị trí, muốn y hệt khung "Yes" | Cảnh 7 = góc B, `Khung đầu từ cảnh: 2` |
+| Đưa giấy tờ đảo vị trí; bố phải tự lấy và đưa giấy tờ | `Mở đầu khung từ cảnh: 2` + bố lấy ví ở hộc giữa đưa ra cửa sổ |
+| Phụ đề "I wish…" nhanh hơn lời | Phụ đề căn từ sau đoạn "Mở đầu" (`.pre` → `scenes.json` `speech`) |
+| LangLearn → Talka AI | Lời thoại 10, 22, 24 |
+| Phần gọi AI: ô AI che mặt bố | `[NHAN VAT HOC]` ghi đầu ở ~45%; `split.py` dò mặt `base_HOC`, gen lại / dịch xuống nếu bị ô + phụ đề che |
+
+Cùng góc máy dùng nguyên khung đầu: 6, 8 ← 3; 7, 9 ← 2; 10 ← 5 (`cong-cu/goc_may.py` → `FROM`).
