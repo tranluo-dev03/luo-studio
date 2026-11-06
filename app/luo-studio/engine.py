@@ -512,6 +512,13 @@ def scene_tokens(template):
     return {int(h.group(1)): set(_TOK.findall(template[h.start(): hs[i + 1].start() if i + 1 < len(hs) else len(template)])) for i, h in enumerate(hs)}
 
 
+def scene_tokens_main(template):
+    """Như scene_tokens nhưng bỏ các dòng "Mở đầu ..." (đoạn không lời gen riêng): người chỉ có mặt ở đoạn mở đầu (vd. cảnh sát đi về) không tính là
+    có mặt trong clip thoại của cảnh (canh-sat-gia-su-ai 06/11, cảnh 9: cảnh sát đã đi khỏi nhưng vẫn được tả "đứng ở cửa sổ")."""
+    body = "\n".join(l for l in template.splitlines() if not l.startswith("Mở đầu"))
+    return scene_tokens(body)
+
+
 def scene_ref_filter(toks, people, all_toks):
     """keep(token, nhóm) cho attachments(): chỉ gửi ảnh tham chiếu của nhân vật/nền có trong cảnh.
     Gửi cả ảnh người không có mặt làm Muse trộn mặt (vd. mặt cô gái lẫn vào cảnh sát). `people`: khoá nhân vật có mặt (NGUOI_<khoá>).
@@ -613,14 +620,17 @@ def role_names(v, day):
     return (rd, rh) if day else (rh, rd)
 
 
-def speaker_lock(v, turn):
+def speaker_lock(v, turn, present=None):
     """Khối đầu prompt video, viết theo mẫu video call (master-ugc-ai-call): MỘT câu khẳng định ai nói gì + người kia im và đang làm việc riêng.
     Không liệt kê hàng loạt điều cấm (khiến Muse hiểu người nghe cũng 'có phần' trong lời thoại).
     Số nhân vật bất kỳ: mỗi nhân vật có khoá (day, hoc hoặc khoá khác) và các token TEN_/POS_/GIONG_/VAI_/NGHE_<KHOÁ>; một người nói, tất cả còn lại im lặng."""
     k = MV.ck(turn.get("who"))
     chars = MV.chars_of(v)
     letter = {c: chr(65 + i) for i, c in enumerate(chars)}
-    lis = [c for c in chars if c != k]
+    # present: nhân vật có mặt trong cảnh (biến thể bật "nguoi_theo_canh"). Không lọc thì người vắng mặt cũng được tả "đang im lặng trong khung"
+    # và Muse vẽ thêm họ vào cảnh cận (canh-sat-gia-su-ai 06/11: cảnh sát và bé hiện sau cửa sổ ở cảnh cận mặt bố). None = như cũ.
+    lis = [c for c in chars if c != k and (present is None or c in present)]
+    shown = [c for c in chars if present is None or c in present or c == k]
     spk, spos, role_s = v.get(f"TEN_{k}"), MV.cpos(v, k), MV.crole(v, k)
     contrast = voice_contrast(v, k == "DAY") if {k, *lis} == {"DAY", "HOC"} else pair_contrast(v, k)
     quiet = ""
@@ -646,7 +656,7 @@ def speaker_lock(v, turn):
                   f"at the {role_l}'s own pace regardless of the dialogue. ")
     resting = " and ".join(f"VOICE {letter[c]}" for c in lis) + (" is" if len(lis) == 1 else " are") + " resting in this clip."
     back = MV.back_view(v, turn["who"])   # người nói quay lưng về camera (QUAY_LUNG_<khoá>): không nhắc miệng / nét mặt, kẻo Muse xoay mặt họ ra
-    return ("SPEAKER MAP: " + "; ".join(f"VOICE {letter[c]} belongs to the {MV.cpos(v, c)} character ({v.get(f'TEN_{c}')})" for c in chars) + ". "
+    return ("SPEAKER MAP: " + "; ".join(f"VOICE {letter[c]} belongs to the {MV.cpos(v, c)} character ({v.get(f'TEN_{c}')})" for c in shown) + ". "
             f"In this clip only VOICE {letter[k]} is heard, " + (f"spoken by the {spos} character ({spk}), who has their back to the camera. " if back else f"coming from the mouth of the {spos} character ({spk}). ")
             + f"The {role_s} ({spos}) says the line once, "
             f"{MV.speaker_how(v, turn['who'], turn.get('text', ''), turn.get('emo', ''))}. "
@@ -1602,6 +1612,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
     ref_scene = None           # cảnh làm chuẩn màu hiện tại (để ghi nhật ký)
     palette = None             # bảng màu chung của cả video (ảnh tổng quan trung tính nếu có, không thì khung đầu cảnh đầu tiên): các khung đầu sau kéo sắc về đây
     s_toks = scene_tokens(template)
+    s_toks_main = scene_tokens_main(template) if vdata.get("nguoi_theo_canh") else s_toks   # người có mặt trong clip thoại (bỏ đoạn mở đầu)
     all_toks = set().union(*s_toks.values()) if s_toks else set()
     prev_people = None         # nhân vật có mặt ở cảnh trước (cảnh nối tiếp không nhắc tên ai thì coi như giữ nguyên)
     prev_bg = None             # token nền (NEN_*) của cảnh trước
@@ -1661,7 +1672,11 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
             if swap:
                 vid_b = silent_prompt(unfreeze_listener(body) if vdata.get("listen") == "idle" else body, vdata, turn["who"], said)
                 neg_b = silent_negative(neg)
-            vid_p = speaker_lock(vdata, turn) + "\n\n" + (unfreeze_listener(body) if vdata.get("listen") == "idle" else body)
+            here = None
+            if vdata.get("nguoi_theo_canh"):   # chỉ tả người im lặng có tên trong cảnh (TEN_/NGUOI_<khoá>); cảnh không nêu tên ai thì như cũ
+                stk = s_toks_main.get(n, set())
+                here = {c for c in chars if f"NGUOI_{c}" in stk or f"TEN_{c}" in stk} or None
+            vid_p = speaker_lock(vdata, turn, here) + "\n\n" + (unfreeze_listener(body) if vdata.get("listen") == "idle" else body)
             neg = compact_negative(unfreeze_negative(neg) if vdata.get("listen") == "idle" else neg)
         dur = G.auto_duration(syll) if syll else next((d for d in ALLOWED if d >= sc["seconds"]), 10)
         if fix_note:  # người dùng yêu cầu sửa riêng cho cảnh này khi làm lại: đặt đầu prompt video, ưu tiên cao nhất

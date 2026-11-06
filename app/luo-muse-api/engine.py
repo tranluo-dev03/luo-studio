@@ -49,6 +49,10 @@ QUOTA_TEXT_RE = re.compile(r"额度不足|积分不足|out of credits|usage limi
 REFUSAL_TEXT_RE = re.compile(r"isn.t available|not available for|can.t (?:help|create|generate|make|do)|cannot (?:help|create|generate|make)|"
                              r"unable to (?:create|generate|make|help)|against (?:my|our|the) (?:policy|policies|guidelines)|"
                              r"not able to (?:create|generate|make)|i won.t|violat", re.I)
+# Muse nói rõ lần gen này THẤT BẠI (dịch vụ video lỗi 502, không có file): không được xin "gắn file" nữa, vì Muse sẽ gắn file CŨ trong cùng chat
+# (06/11: cảnh 9 nhận lại nguyên clip của lần gen trước, giống từng byte). Báo lỗi để Studio gen lại.
+GEN_FAILED_RE = re.compile(r"didn.t generate|did not generate|wasn.t generated|failed to generate|generation failed|service (?:was |is )?unavailable|"
+                           r"(?<!\d)50[234](?!\d)|no file to (?:send|attach)|have no file|after \d+ attempts", re.I)
 MEDIA_REPORT_RE = re.compile(r"\.(?:webp|png|jpe?g|mp4|webm|mov)|imagine_media|deliverable|generated\s+.*(?:image|video)|"
                              r"here(?:'s| is) (?:your|the)|artifact", re.I)
 
@@ -1242,6 +1246,8 @@ class MuseEngine:
                 elif now - text_done_at >= grace:
                     if REFUSAL_TEXT_RE.search(last_text) and not MEDIA_REPORT_RE.search(last_text):
                         raise MuseGenerationError(f"模型未生成媒体，仅返回文本: {last_text[:400]}")
+                    if GEN_FAILED_RE.search(last_text):
+                        raise MuseGenerationError(f"Muse báo gen thất bại, không có file (không xin gắn file kẻo nhận file cũ): {last_text[:400]}")
                     if not asked:
                         # Trợ lý hay để file trong workspace (sau khi xử lý hậu kỳ, hoặc khi nhận ra yêu cầu lặp lại):
                         # xin gắn file một lần rẻ hơn nhiều so với tạo lại.
