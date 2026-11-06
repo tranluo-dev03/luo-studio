@@ -5,6 +5,19 @@ Nguồn sự thật của số phiên bản: dòng đầu của `version.txt` (c
 
 ## [Chưa phát hành]
 
+### Chọn tài khoản cho từng video, tự đổi tài khoản khi lỗi, chạy đêm không dừng cả lượt
+- Hàng đợi: bấm dòng tài khoản trên thẻ video (hoặc nút tài khoản ở đầu trang chi tiết video) để chọn tay tài khoản Muse gen video đó, hoặc về
+  "Tự động". Video đang chạy thì dừng rồi chạy tiếp ngay bằng tài khoản mới; video lỗi / đã dừng thì chạy tiếp luôn. Các cảnh đã xong được giữ,
+  chỉ cảnh đang dở gen lại. Danh sách hiện trạng thái từng tài khoản (phiên ổn, lỗi đăng nhập, hết hạn mức, vừa lỗi với video này).
+- Lỗi do tài khoản (phiên bị đăng xuất, cookie hỏng, tài khoản không được tạo video, hết hạn mức 24 giờ): video tự đổi sang tài khoản khác
+  đang bật và chạy tiếp ngay từ cảnh đang dở, không thử lại vô ích trên tài khoản lỗi. Tài khoản chọn tay mà lỗi thì cũng tự bỏ chọn tay.
+- Lỗi khác (Muse lỗi tạm, hết thời gian chờ, không còn tài khoản để đổi…): video không còn dừng hẳn mà tạm dừng, xếp lại cuối hàng chờ và tự
+  chạy lại sau 2, 4, 6… phút (mặc định tối đa 3 lần, đổi ở Cài đặt → "Video lỗi (không do tài khoản): tự chạy lại"); các video khác vẫn chạy
+  tiếp. Lỗi cố định của kịch bản (thiếu khối, sai số lượt thoại…) vẫn báo lỗi luôn. Thẻ video đang chờ hiện "Chạy lại sau m:ss".
+- LUO-API: yêu cầu gen nhận thêm `pin_account` (ép video sang đúng tài khoản chọn tay) và `pin_avoid` (tài khoản không được chọn lại cho video);
+  task lỗi có thêm `error_kind` (`account`, `quota`, `no_account`, `busy`, `other`) để client biết lỗi có phải do tài khoản.
+- Sửa: các nút trên thanh tiêu đề (Dừng tất cả ở Hàng đợi; Bắt đầu / Chạy tiếp / Dừng ở trang chi tiết video) trước đây bấm không có tác dụng.
+
 ## [1.2.0] - 2026-11-06
 
 ### Đo thực tế (2026-11-06, cùng 2 tài khoản Muse, cùng prompt, chạy lần lượt bản 1.1.0 rồi 1.2.0; video chỉ trên 1 tài khoản vì tài khoản kia hết lượt video 24 giờ)

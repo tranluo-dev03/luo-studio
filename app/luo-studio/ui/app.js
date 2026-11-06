@@ -69,6 +69,9 @@ async function route() {
 try { if (!window.__fs) { window.__fs = 1; if (outerWidth < screen.availWidth - 40 || outerHeight < screen.availHeight - 40) { moveTo(0, 0); resizeTo(screen.availWidth, screen.availHeight); } } } catch (e) {}
 window.addEventListener("hashchange", route);
 document.addEventListener("click", e => { const a = e.target.closest("[data-go]"); if (a) { e.preventDefault(); location.hash = a.dataset.go; } });
+// Nút trên thanh tiêu đề (#top: Dừng tất cả, Bắt đầu / Chạy tiếp / Dừng của một video, Tài khoản…) do trình xử lý của trang hiện tại (#view.onclick) lo:
+// #top nằm ngoài #view nên trước đây bấm các nút này không có tác dụng.
+$("#top").addEventListener("click", e => { if (!e.target.closest("[data-go]") && $("#view").onclick) $("#view").onclick(e); });
 
 // ---------------------------------------------------------------- Dự án
 const clone = o => JSON.parse(JSON.stringify(o));
@@ -499,6 +502,37 @@ async function runSelected() {
 // ---------------------------------------------------------------- Chạy (hàng đợi)
 const STATE = { wait: "Chờ", image: "Ảnh", video: "Video", cut: "Cắt", done: "Xong", error: "Lỗi" };
 const QSTATE = { queued: "Chờ", waiting: "Chờ luồng", running: "Đang chạy", done: "Xong", error: "Lỗi", stopped: "Đã dừng" };
+// mục tự chạy lại sau lỗi: hiện thời gian còn lại thay cho "Chờ luồng"
+const qstateText = it => it.state === "waiting" && it.retry_at && S.q && it.retry_at > S.q.now ? "Chạy lại sau " + fmtDur(it.retry_at - S.q.now) : QSTATE[it.state];
+const accText = it => it.account_pick ? it.account_pick.name + " · chọn tay" : (it.account || "Tự động");
+// Chọn tay tài khoản Muse cho một video (hoặc về tự động). Video đang chạy / lỗi / đã dừng thì chạy tiếp ngay bằng tài khoản mới, giữ các cảnh đã xong.
+async function accModal(it) {
+  if (!it) return;
+  let accs;
+  try { accs = ((await api("muse/status")).accounts || []).filter(a => a.enabled); } catch (e) { return toast("Không lấy được danh sách tài khoản: " + e.message, 1); }
+  const pick = (it.account_pick || {}).id, cur = it.account_id, bad = new Set(it.avoid || []);
+  const row = a => {
+    const pct = quotaPct(a.quota || {}), full = pct != null && pct >= 100;
+    const st = a.ok === false ? "Lỗi đăng nhập" : full ? "Hết hạn mức" : bad.has(a.id) ? "Vừa lỗi với video này" : a.ok ? "Phiên ổn" : "Chưa kiểm tra";
+    const cls = a.ok === false || full || bad.has(a.id) ? "bad" : a.ok ? "ok" : "mute";
+    return `<button class="accopt ${a.id === pick ? "on" : ""}" data-accpick="${a.id}" data-label="${esc(a.label || a.id)}"><b>${esc(a.label || a.id)}</b>${a.id === cur ? '<span class="tag">video đang dùng</span>' : ""}<span class="grow"></span><span class="tag ${cls}">${st}</span>${pct != null ? `<span class="tag mute">Extra ${pct}%</span>` : ""}</button>`;
+  };
+  const act = { running: "Video đang chạy sẽ dừng rồi chạy tiếp ngay bằng tài khoản mới.", error: "Video sẽ chạy tiếp ngay bằng tài khoản mới.", stopped: "Video sẽ chạy tiếp ngay bằng tài khoản mới." }[it.state] || "Áp dụng khi video bắt đầu chạy.";
+  openModal(`<div class="mbox"><h2>Tài khoản gen video <button class="ib" id="mx">${ico("x")}</button></h2>
+    <p style="color:var(--mute);margin-bottom:12px"><b>${esc(it.variant)}</b>. ${act} Các cảnh đã xong được giữ nguyên, chỉ cảnh đang dở gen lại.</p>
+    <div class="acclist"><button class="accopt ${!pick ? "on" : ""}" data-accpick="" data-label=""><b>Tự động</b><span class="grow"></span><span class="tag mute">LUO chọn tài khoản rảnh, tự đổi khi tài khoản lỗi</span></button>${accs.map(row).join("") || `<div style="color:var(--mute)">Chưa có tài khoản nào đang bật.</div>`}</div></div>`);
+  $("#modal").onclick = async e => {
+    if (e.target.closest("#mx")) return closeModal();
+    const x = e.target.closest("[data-accpick]"); if (!x) return;
+    x.disabled = true;
+    try {
+      const r = await api("queue/account", { body: { id: it.id, account_id: x.dataset.accpick, label: x.dataset.label } });
+      closeModal();
+      toast(x.dataset.accpick ? `Đã chọn tài khoản ${x.dataset.label}${r.started ? ", video đang chạy tiếp" : ""}` : `Đã về tài khoản tự động${r.started ? ", video đang chạy tiếp" : ""}`);
+      pollQueue();
+    } catch (er) { x.disabled = false; toast(er.message, 1); }
+  };
+}
 const fmtDur = s => { s = Math.max(0, Math.round(s)); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60; return (h ? h + ":" + String(m).padStart(2, "0") : m) + ":" + String(x).padStart(2, "0"); };
 const srvNow = () => S.q ? S.q.now + (Date.now() - S.q.at) / 1000 : Date.now() / 1000;
 const itemSecs = it => it.state === "running" ? srvNow() - it.started : (it.elapsed || 0);
@@ -559,11 +593,12 @@ function drawQueue() {
     return `<div class="qcard ${it.state}" data-qopen="${it.id}">
       <div class="qth">${th ? `<img loading="lazy" src="${th}" alt="">` : `<div class="qph">${ico(it.kind === "post" ? "wand" : "film")}</div>`}
         <span class="chk qchk ${checked && !busyState(it.state) ? "on" : ""} ${busyState(it.state) ? "off" : ""}" data-qchk="${it.id}">${checked && !busyState(it.state) ? ico("check") : ""}</span>
-        <span class="tag qst ${it.state === "done" ? "ok" : it.state === "error" ? "bad" : it.state === "stopped" ? "warn" : it.state === "running" ? "" : "mute"}">${it.state === "running" ? '<i class="spin sm"></i>' : ""}${QSTATE[it.state]}</span>
+        <span class="tag qst ${it.state === "done" ? "ok" : it.state === "error" ? "bad" : it.state === "stopped" ? "warn" : it.state === "running" ? "" : "mute"}">${it.state === "running" ? '<i class="spin sm"></i>' : ""}${qstateText(it)}</span>
         ${busyState(it.state) ? `<button class="ib qrm qstp" data-qstp="${it.id}" title="${it.state === "waiting" ? "Bỏ chờ" : "Dừng video này"}" ${it.stopping ? "disabled" : ""}>${ico("stop")}</button>` : `<button class="ib qrm" data-qrm="${it.id}" title="Xoá khỏi hàng đợi">${ico("x")}</button>`}</div>
       <div class="qbd"><div class="qnm" title="${esc(it.variant)}">${it.kind === "post" ? "Hậu kỳ · " : ""}${esc(it.variant)}</div>
         <div class="mini"><div style="width:${pct}%"></div></div>
-        ${it.account ? `<div class="acc" title="Tài khoản Muse của video này (mọi cảnh gen bằng tài khoản này)">${ico("user")}${esc(it.account)}</div>` : ""}
+        ${it.kind === "gen" ? (it.state === "done" ? (it.account ? `<div class="acc" title="Tài khoản Muse đã gen video này">${ico("user")}${esc(it.account)}</div>` : "")
+          : `<div class="acc pick" data-qacc="${it.id}" title="Tài khoản Muse của video này. Bấm để chọn tài khoản khác">${ico("user")}${esc(accText(it))}<span class="chg">Đổi</span></div>`) : ""}
         <div class="st"><span>${it.kind === "post" ? "" : done + "/" + tot + " cảnh" + (it.state === "running" && it.phase === "post" ? " · hậu kỳ…" : "")}</span><span class="tm">${ico("clock")}<b data-tm="item:${it.id}">${it.started ? fmtDur(itemSecs(it)) : "0:00"}</b></span></div></div></div>`;
   };
   const par = (S.boot.settings && S.boot.settings.parallel) || 1;
@@ -590,6 +625,7 @@ function drawQueue() {
     if ((x = e.target.closest("[data-qrm]"))) { e.stopPropagation(); await api("queue/remove", { body: { ids: [x.dataset.qrm] } }); await pollQueue(); return; }
     if ((x = e.target.closest("[data-qchk]"))) { e.stopPropagation(); if (x.classList.contains("off")) return; const id = x.dataset.qchk; sel.has(id) ? sel.delete(id) : sel.add(id); return drawQueue(); }
     if ((x = e.target.closest("[data-qgsel]"))) { e.stopPropagation(); const g = groups.find(z => z.id === x.dataset.qgsel), all = g.items.every(i => sel.has(i.id) || busyState(i.state)); g.items.forEach(i => { if (!busyState(i.state)) all ? sel.delete(i.id) : sel.add(i.id); }); return drawQueue(); }
+    if ((x = e.target.closest("[data-qacc]"))) { e.stopPropagation(); return accModal(q.items.find(i => i.id === x.dataset.qacc)); }
     if ((x = e.target.closest("[data-qtog]"))) { const id = x.dataset.qtog; open[id] = open[id] === false; return drawQueue(); }
     if ((x = e.target.closest("[data-qopen]"))) { S.qview = x.dataset.qopen; S.runSel = null; return drawRun(); }
   };
@@ -617,7 +653,9 @@ function redoModal(it, n) {
 }
 function drawDetail(it) {
   const q = S.q, v = $("#view"), running = it.state === "running", sc = it.scenes || [], done = sc.filter(s => s.state === "done").length, tot = it.total || sc.length;
-  setTop(esc(it.variant), `<span class="tag ${it.state === "done" ? "ok" : it.state === "error" ? "bad" : it.state === "stopped" ? "warn" : ""}">${QSTATE[it.state]}</span><span class="tm big">${ico("clock")}<b data-tm="item:${it.id}">${fmtDur(itemSecs(it))}</b></span>`
+  setTop(esc(it.variant), `<span class="tag ${it.state === "done" ? "ok" : it.state === "error" ? "bad" : it.state === "stopped" ? "warn" : ""}">${qstateText(it)}</span>`
+    + (it.kind === "gen" && it.state !== "done" ? `<button class="btn" id="dacc" title="Chọn tài khoản Muse khác để gen video này">${ico("user")}${esc(accText(it))}</button>` : "")
+    + `<span class="tm big">${ico("clock")}<b data-tm="item:${it.id}">${fmtDur(itemSecs(it))}</b></span>`
     + (running ? `<button class="btn danger" id="dstop" ${it.stopping ? "disabled" : ""}>${ico("stop")}${it.stopping ? "Đang dừng…" : "Dừng"}</button>` : it.state === "waiting" ? `<button class="btn" id="dstop">${ico("stop")}Bỏ chờ</button>` : (it.state !== "done" ? `<button class="btn primary" id="dgo">${ico("play")}${it.state === "queued" ? "Bắt đầu" : "Chạy tiếp"}</button>` : "")));
   const fin = it.final, raw = it.raw && (it.state === "done" || it.state === "error" || it.kind === "post");
   let res = "";
@@ -644,6 +682,7 @@ function drawDetail(it) {
   v.onclick = async e => {
     let x;
     if (e.target.closest("#dback")) { S.qview = null; return drawRun(); }
+    if (e.target.closest("#dacc")) return accModal(it);
     if (e.target.closest("#dstop")) { toast("Đang dừng video này…"); await api("stop", { body: { id: it.id } }); return pollQueue(); }
     if (e.target.closest("#dgo")) { try { await api("queue/start", { body: { ids: [it.id] } }); await pollQueue(); } catch (er) { toast(er.message, 1); } return; }
     if ((x = e.target.closest("[data-play]"))) return playModal(media(it.project, it.variant, x.dataset.play), it.variant);
@@ -785,7 +824,8 @@ async function pageSettings() {
       <div class="lab"><div>Tăng tốc lời nói bị kéo chậm<br><small>Muse hay kéo giãn lời cho đủ độ dài clip. Chỉ tăng tốc một phần khi nói chậm hẳn (dưới ~3,4 âm tiết/giây), giữ cao độ giọng, không bao giờ vượt mức tối đa bên dưới</small></div><div class="sw2 ${s.speedfix !== false ? "on" : ""}" id="st-speedfix"></div></div>
       <div class="lab"><div>Mở chat Muse mới<br><small>Mỗi cảnh một chat mới giúp Muse không bắt chước lỗi ở các clip trước (nhân vật nói chồng, trả về video ghép). Nhân vật vẫn nhất quán nhờ khung đầu lấy từ clip trước. Chọn "Cả video một chat" nếu thấy nhân vật bị lệch giữa các cảnh.</small></div><select id="st-chat_every">${[[1, "Mỗi cảnh"], [2, "Mỗi 2 cảnh"], [3, "Mỗi 3 cảnh"], [0, "Cả video một chat"]].map(([v, t]) => `<option value="${v}" ${+(s.chat_every ?? 1) === v ? "selected" : ""}>${t}</option>`).join("")}</select></div>
       <div class="lab"><div>Tốc độ tăng tối đa<br><small>Thấp hơn = giọng tự nhiên hơn nhưng có thể còn hơi chậm</small></div><select id="st-speed_max">${[1.1, 1.15, 1.2, 1.25, 1.3, 1.35].map(x => `<option value="${x}" ${Math.abs((s.speed_max || 1.25) - x) < 0.001 ? "selected" : ""}>×${String(x).replace(".", ",")}</option>`).join("")}</select></div>
-      <div class="two" style="margin-top:12px"><div class="f"><label>Chờ tối đa mỗi bước (giây)</label><input class="input" id="st-timeout" type="number" value="${s.timeout}"></div><div class="f"><label>Số lần thử lại</label><input class="input" id="st-retries" type="number" min="0" max="5" value="${s.retries}"></div></div></div><div class="card sec"><h4>Xuất video</h4><div class="f"><label>Thư mục xuất video cuối <small style="opacity:.6">(để trống = data/exports/&lt;tên dự án&gt;)</small></label><input class="input" id="st-export_dir" value="${esc(s.export_dir || "")}" placeholder="vd. D:\\Videos\\Talka"></div><div class="f" style="max-width:260px"><label>Nhận dạng giọng</label><select id="st-whisper"><option value="auto" ${s.whisper === "auto" ? "selected" : ""}>Tự chọn</option><option value="small.en" ${s.whisper === "small.en" ? "selected" : ""}>Tiếng Anh (nhanh)</option><option value="medium" ${s.whisper === "medium" ? "selected" : ""}>Đa ngôn ngữ (chậm hơn)</option></select></div></div></div>`;
+      <div class="two" style="margin-top:12px"><div class="f"><label>Chờ tối đa mỗi bước (giây)</label><input class="input" id="st-timeout" type="number" value="${s.timeout}"></div><div class="f"><label>Số lần thử lại</label><input class="input" id="st-retries" type="number" min="0" max="5" value="${s.retries}"></div></div>
+      <div class="f" style="margin-top:12px" title="Lỗi do tài khoản: luôn tự đổi sang tài khoản khác đang bật. Lỗi khác: video tạm dừng, xếp lại cuối hàng chờ và tự chạy lại sau 2, 4, 6… phút; các video khác vẫn chạy tiếp."><label>Video lỗi (không do tài khoản): tự chạy lại</label><select id="st-auto_retry">${[0, 1, 2, 3, 5, 8].map(n => `<option value="${n}" ${+(s.auto_retry ?? 3) === n ? "selected" : ""}>${n === 0 ? "Không, dừng video luôn" : "Tối đa " + n + " lần"}</option>`).join("")}</select></div></div><div class="card sec"><h4>Xuất video</h4><div class="f"><label>Thư mục xuất video cuối <small style="opacity:.6">(để trống = data/exports/&lt;tên dự án&gt;)</small></label><input class="input" id="st-export_dir" value="${esc(s.export_dir || "")}" placeholder="vd. D:\\Videos\\Talka"></div><div class="f" style="max-width:260px"><label>Nhận dạng giọng</label><select id="st-whisper"><option value="auto" ${s.whisper === "auto" ? "selected" : ""}>Tự chọn</option><option value="small.en" ${s.whisper === "small.en" ? "selected" : ""}>Tiếng Anh (nhanh)</option><option value="medium" ${s.whisper === "medium" ? "selected" : ""}>Đa ngôn ngữ (chậm hơn)</option></select></div></div></div>`;
   const put = o => api("settings", { body: o }).then(() => toast("Đã lưu")).catch(e => toast(e.message, 1));
   $("#view").onchange = e => {
     const id = e.target.id; if (!id || !id.startsWith("st-") || id === "st-cut" || id === "st-speedfix" || id === "st-overlap" || id === "st-ding" || id === "st-pop" || id === "st-precise" || id === "st-vsplit" || id === "st-hook" || id === "st-vrefs") return;

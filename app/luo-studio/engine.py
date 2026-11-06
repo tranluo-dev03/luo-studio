@@ -155,8 +155,25 @@ class Cancelled(Exception):
     pass
 
 
-class QuotaExceeded(Exception):
+class AccountError(Exception):
+    """Lỗi do TÀI KHOẢN Muse (phiên/cookie hỏng, tài khoản không được tạo video, hết hạn mức): thử lại trên cùng tài khoản vô ích.
+    Studio dừng video, bỏ tài khoản này khỏi lựa chọn của video rồi chạy tiếp ngay bằng tài khoản khác đang bật (server._run_item)."""
+    def __init__(self, msg, account=None, kind="account"):
+        super().__init__(msg)
+        self.account, self.kind = account, kind
+
+
+class QuotaExceeded(AccountError):
     """Muse báo hết hạn mức tạo video (giới hạn 24 giờ): thử lại hay gen lại đều vô ích và còn tốn thêm."""
+    def __init__(self, msg, account=None):
+        super().__init__(msg, account, "quota")
+
+
+# Tuỳ chọn tài khoản theo pin của video (server.gen_item đặt, Api.generate đọc): {"pin_account": id chọn tay, "pin_avoid": [id vừa lỗi]}.
+# Theo pin (không theo luồng) để mọi đường gen của video đều nhận: run_variant, ghép 2 lớp, code gen riêng của thể loại.
+PIN_EXTRA = {}
+# LUO-API cũ chưa trả error_kind: nhận lỗi tài khoản theo nội dung (phiên bị đăng xuất, cookie hỏng, tài khoản không được tạo video).
+_ACCOUNT_ERR_RE = re.compile(r"会话已被 muse\.ai 登出|会话认证失败|重新导入 cookie|指定账号 .* 不存在或已禁用|Tài khoản đã chọn .* không tồn tại", re.I)
 
 
 _QUOTA_RE = re.compile(r"24-hour limit|budget is (?:still )?exhausted|video budget|quota (?:is )?exhausted|hết hạn mức|limit for the (?:last|past) 24 hours|(?:video|daily|generation) limit (?:is |has been )?reached", re.I)
@@ -264,6 +281,12 @@ class Api(G.Api):
             body["pin"] = pin
             if pin_prefer:
                 body["pin_prefer"] = pin_prefer
+            ex = PIN_EXTRA.get(pin) or {}
+            if ex.get("pin_account"):   # người dùng chọn tay tài khoản cho video
+                body["pin_account"] = ex["pin_account"]
+                body.pop("pin_prefer", None)
+            if ex.get("pin_avoid"):     # tài khoản vừa lỗi với video: LUO-API chọn tài khoản khác
+                body["pin_avoid"] = list(ex["pin_avoid"])
         if kind == "video":
             body["duration"] = duration
         if refs:
@@ -306,7 +329,12 @@ class Api(G.Api):
                     raise RuntimeError("API không trả về file")
                 return self.download(url)
             if s in ("failed", "error"):
-                raise RuntimeError(str(st.get("error") or "API báo lỗi"))
+                msg, kind = str(st.get("error") or "API báo lỗi"), st.get("error_kind")
+                if kind == "quota" or (kind is None and _QUOTA_RE.search(msg)):
+                    raise QuotaExceeded(f"Muse báo hết hạn mức tạo video (giới hạn 24 giờ): {msg[:160]}", st.get("account"))
+                if kind == "account" or (kind is None and _ACCOUNT_ERR_RE.search(msg)):
+                    raise AccountError(f"Lỗi tài khoản Muse: {msg[:200]}", st.get("account"))
+                raise RuntimeError(msg)
             if time.time() > deadline:
                 raise RuntimeError("Hết thời gian chờ")
 
@@ -347,7 +375,7 @@ def fit_start_frame(api, img_f, session, opts, emit, n, pin, pin_prefer, cancel,
                 emit("log", msg=f"Cảnh {n}: đã mở rộng nền, đỉnh đầu ở {t2 * 100:.0f}% khung")
                 break
             emit("log", msg=f"Cảnh {n}: Muse vẽ nối nền chưa đúng cỡ (đỉnh đầu {'?' if t2 is None else f'{t2 * 100:.0f}%'}), thử lại {i}/{opts['retries'] + 1}", level="warn")
-        except Cancelled:
+        except (Cancelled, AccountError):
             raise
         except Exception as e:  # noqa: BLE001
             emit("log", msg=f"Cảnh {n}: vẽ nối nền lỗi: {e}", level="warn")
@@ -1701,8 +1729,8 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
             for i in range(1, opts["retries"] + 2):
                 try:
                     return fn()
-                except Cancelled:
-                    raise
+                except (Cancelled, AccountError):
+                    raise   # lỗi tài khoản: thử lại trên cùng tài khoản vô ích, để server đổi tài khoản
                 except Exception as e:
                     emit("log", msg=f"Cảnh {n} {label}: {e}", level="warn")
                     if _QUOTA_RE.search(str(e)):
