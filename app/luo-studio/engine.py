@@ -1490,26 +1490,67 @@ def smart_cut(src, cut_path, last_png, lo=0.15, hi=0.8, fps=24, syll=None, speed
 
 
 def start_jump(path, window=1.5):
-    """Giây của cú nhảy hình (Muse tự cắt sang khung khác) trong `window` giây đầu clip, hoặc None.
-    Đo 06/11 (canh-sat-gia-su-ai): clip hay chiếu khung đầu đúng 0,4-0,9 s rồi nhảy sang khung khác (chênh 14-35 so với 1-4 bình thường)."""
+    """Giây của cú nhảy / đổi nền (Muse tự cắt hoặc vẽ lại nền) trong `window` giây đầu clip, hoặc None.
+    Hai phép đo, lấy cái nào bắt được:
+    - cả khung (xám): chênh giữa hai khung liền nhau >= 12 và >= 5x trung vị (06/11: chiếu khung đầu 0,4-0,9 s rồi cắt sang khung khác, chênh 14-35);
+    - chỉ vùng NỀN ở mép khung (trái/phải 22%, trên 18%, màu): >= 5 và >= 8x trung vị. Bắt được kiểu Muse vẽ lại nền theo lời tả trong 1-3 khung đầu
+      (06/11 cảnh 2: khung đầu ban ngày, lời tả hoàng hôn + xe cảnh sát: chênh nền 6,4 = 13x, cả khung chỉ ~4 nên phép đo cũ bỏ sót).
+      Đo 12 cảnh thường: tỉ lệ 1,3-5,7 (kể cả người cử động sát mép), cảnh lỗi 9-68."""
     import cv2
     cap = cv2.VideoCapture(path)
     fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
-    prev, ds = None, []
+    prev = prevc = None
+    ds, bs = [], []
+    mask = np.zeros((160, 90), bool)
+    mask[:, :20] = True
+    mask[:, 70:] = True
+    mask[:29, :] = True
     for _ in range(int(fps * window)):
         ok, fr = cap.read()
         if not ok:
             break
+        c = cv2.resize(fr, (90, 160)).astype(np.float32)
         g = cv2.cvtColor(cv2.resize(fr, (90, 160)), cv2.COLOR_BGR2GRAY).astype(np.float32)
         if prev is not None:
             ds.append(float(np.abs(g - prev).mean()))
-        prev = g
+            bs.append(float(np.abs(c - prevc)[mask].mean()))
+        prev, prevc = g, c
     cap.release()
     if len(ds) < 5:
         return None
     j = int(np.argmax(ds))
-    med = float(np.median(ds))
-    return (j + 1) / fps if ds[j] >= max(12.0, 5.0 * med) else None
+    if ds[j] >= max(12.0, 5.0 * float(np.median(ds))):
+        return (j + 1) / fps
+    k = int(np.argmax(bs))
+    if bs[k] >= 5.0 and bs[k] >= 8.0 * max(float(np.median(bs)), 0.3):
+        return (k + 1) / fps
+    return None
+
+
+def view_frame(P, m, out_png):
+    """Hình người xem THẤY ở đầu cảnh m: khung đầu của clip đã cắt (sau bước bỏ cú nhảy / nền vẽ lại; bỏ qua đoạn "Mở đầu" nếu có),
+    chưa có clip thì ảnh khung đầu. Dùng cho "Khung đầu từ cảnh": ảnh khung đầu Muse gen có thể lệch lời tả (06/11: ảnh ban ngày, clip đã thành hoàng hôn),
+    chép ảnh đó sang cảnh sau thì cảnh sau lại bị vẽ lại nền ngay đầu clip."""
+    cut = P(f"scene{m}_cut.mp4")
+    if os.path.exists(cut):
+        try:
+            pre = float(open(cut + ".pre").read().strip()) if os.path.exists(cut + ".pre") else 0.0
+            grab_frame(cut, out_png, ss=pre + 0.05)
+            if os.path.exists(out_png):
+                return "clip"
+        except Exception:  # noqa: BLE001
+            pass
+    st = P(f"scene{m}_start.png")
+    if os.path.exists(st):
+        shutil.copy(st, out_png)
+        return "start"
+    return ""
+
+
+def moves_camera(f, vid_p=""):
+    """Cảnh CÓ chủ ý chuyển động máy (lia / đẩy theo kịch bản): không kiểm tra máy trôi, không bỏ cú nhảy hình đầu clip.
+    Chỉ có "Ảnh tổng quan" KHÔNG tính là máy chuyển động (06/11: ảnh tổng quan dùng cho mọi góc rộng làm tắt cả hai kiểm tra ở cảnh máy đứng yên)."""
+    return bool(f.get("Lia nhanh") or f.get("Lia theo tay") or re.search(r"CAMERA MOVE", vid_p or ""))
 
 
 def hold_after_jump(path, t):
@@ -1852,9 +1893,10 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
             pre_img, pre_clip = P(f"scene{n}_pre_start.png"), P(f"scene{n}_pre_clip.mp4")
             pre_ip = str(sc["f"].get("Mở đầu ảnh", "")).strip()
             pre_from = re.search(r"\d+", str(sc["f"].get("Mở đầu khung từ cảnh", "")))   # dùng nguyên khung đầu của cảnh N (cùng góc): không vẽ lại
-            if pre_from and not os.path.exists(pre_img) and os.path.exists(P(f"scene{int(pre_from.group(0))}_start.png")):
-                shutil.copy(P(f"scene{int(pre_from.group(0))}_start.png"), pre_img)
-                emit("log", msg=f"Cảnh {n}: đoạn mở đầu dùng nguyên khung đầu của cảnh {pre_from.group(0)}")
+            if pre_from and not os.path.exists(pre_img):
+                how = view_frame(P, int(pre_from.group(0)), pre_img)
+                if how:
+                    emit("log", msg=f"Cảnh {n}: đoạn mở đầu dùng nguyên khung của cảnh {pre_from.group(0)} ({'khung đầu clip đã gen' if how == 'clip' else 'ảnh khung đầu'})")
             ctx = [locks.get("SET LOCK", ""), locks.get("STYLE LOCK", "")]
             if pre_ip and not os.path.exists(pre_img):
                 p_refs = list(refs) + list(sc_imgs) + ([G.data_url(last_wide)] if last_wide and os.path.exists(last_wide) else [])
@@ -1901,10 +1943,9 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                     emit("log", msg=f"Cảnh {n}: không kiểm tra được đoạn mở đầu ({ex})", level="warn")
         src_from = re.search(r"\d+", str(sc["f"].get("Khung đầu từ cảnh", "")))   # cùng góc máy với cảnh N: dùng NGUYÊN khung đầu đó (nền, vị trí người, khung hình giống hệt)
         if src_from and not os.path.exists(img_f):
-            src_img = P(f"scene{int(src_from.group(0))}_start.png")
-            if os.path.exists(src_img):
-                shutil.copy(src_img, img_f)
-                emit("log", msg=f"Cảnh {n}: khung đầu dùng nguyên khung đầu của cảnh {src_from.group(0)}")
+            how = view_frame(P, int(src_from.group(0)), img_f)
+            if how:
+                emit("log", msg=f"Cảnh {n}: khung đầu dùng nguyên khung của cảnh {src_from.group(0)} ({'khung đầu clip đã gen' if how == 'clip' else 'ảnh khung đầu'})")
                 emit("scene", n=n, state="image", pct=100, thumb=os.path.basename(img_f))
             else:
                 emit("log", msg=f"Cảnh {n}: chưa có khung đầu của cảnh {src_from.group(0)}, vẽ khung đầu mới", level="warn")
@@ -2025,7 +2066,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                         attempt("video", gv)
                     speech_retry(vid_f, turn["text"], regen, emit, n, int(opts.get("speech_retries", SPEECH_RETRIES)))
                     speech_note[0] = ""
-                if opts.get("check_camera", True) and not wide_p and not sc["f"].get("Lia nhanh") and not re.search(r"CAMERA MOVE", base_vid_p):   # cảnh máy đứng yên: máy trôi / đẩy vào thì gen lại
+                if opts.get("check_camera", True) and not moves_camera(sc["f"], base_vid_p):   # cảnh máy đứng yên: máy trôi / đẩy vào thì gen lại
 
                     def regen_cam(note):
                         speech_note[0] = "\n\n" + note
@@ -2184,7 +2225,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                     emit("log", msg=f"Cảnh {n}: CẢNH BÁO đầu câu có thể bị mất ({hc[1]}). Giữ file gốc scene{n}_clip.mp4 để kiểm tra", level="warn")
         except Exception:  # noqa: BLE001 - chỉ là chẩn đoán
             pass
-        if not wide_p and not sc["f"].get("Lia nhanh") and not re.search(r"CAMERA MOVE", vid_p or ""):   # cảnh máy đứng yên: bỏ cú nhảy hình đầu clip
+        if not moves_camera(sc["f"], vid_p):   # cảnh máy đứng yên: bỏ cú nhảy hình / nền bị vẽ lại ở đầu clip
             try:
                 tj = start_jump(cut_f)
                 if tj:
