@@ -396,9 +396,17 @@ def run_split(vdata, template, out_dir, opts, emit, cancel):
                 f = _locked(f, emit, f"Cảnh {n}: ", k)
             elif check:   # gen lại rồi vẫn mấp máy (_gen_listen giữ bản ít nhất): khoá miệng RIÊNG clip này, để không thành hai người cùng nói (soi hành lý 03/11: 5/15 cảnh)
                 s = _mouth_score(f, need + 0.3)
-                if s is not None and s >= LISTEN_MAX:
-                    emit("log", msg=f"Cảnh {n}: clip nghe {k} vẫn mấp máy miệng (mức {s:.3f}, ngưỡng {LISTEN_MAX}), khoá miệng riêng clip này", level="warn")
-                    f = _locked(f, emit, f"Cảnh {n}: ", k)
+                talk = _talky(f)   # clip nghe vẫn có tiếng nói lọt vào = mặt đang nhép theo tiếng đó, dù mức miệng đo được dưới ngưỡng
+                if (s is not None and s >= LISTEN_MAX) or talk:   # (05/11/2026 du-lich-chia-doi cảnh 4: -23 dB, mức 0,018 < 0,020 -> Carla nhép khi AI nói)
+                    emit("log", msg=f"Cảnh {n}: clip nghe {k} vẫn " + ("có tiếng nói lọt vào" if talk else "mấp máy miệng") +
+                                    (f" (mức {s:.3f}, ngưỡng {LISTEN_MAX})" if s is not None else "") + ", khoá miệng riêng clip này", level="warn")
+                    fl = _locked(f, emit, f"Cảnh {n}: ", k)
+                    if fl == f:   # không khoá được (không dò được mặt, vd. robot): khung nối đứng yên nhúc nhích nhẹ, chắc chắn không nhép
+                        fs = P(f"scene{n}_listen_{k}_tinh.mp4")
+                        _still_clip(seen[k] if chain else base[k], fs, need)
+                        emit("log", msg=f"Cảnh {n}: không khoá được miệng {k}, dùng khung nối đứng yên cho đoạn nghe", level="warn")
+                        fl = fs
+                    f = fl
             return f, 0.0, E.duration(f) < need
         c = used[k]
         used[k] += 1
@@ -584,7 +592,7 @@ def _lab_stats(img):
 
 def _camera_lock(frames, min_zoom=0.03, min_shift=0.015, win=7):
     """Ma trận 3x3 cho từng khung đưa khung đó về khung hình của khung đầu (bù phóng + dời, bỏ xoay), hoặc (None, độ phóng) nếu camera
-    gần như đứng yên. Ước lượng ORB + affine đồng dạng từ khung i tới khung 0 trên ảnh thu nhỏ, làm mượt trung bình trượt `win` khung.
+    gần như đứng yên. Ước lượng ORB + affine đồng dạng từ khung i tới khung 0 trên ảnh thu nhỏ, rồi khớp đường cong trơn (đa thức bậc 2) theo thời gian.
     Nền và thân người đứng yên chiếm đa số điểm khớp nên đầu gật/nghiêng vẫn giữ nguyên, chỉ phần camera tự phóng/dời bị triệt."""
     import cv2
     import numpy as np
@@ -596,6 +604,16 @@ def _camera_lock(frames, min_zoom=0.03, min_shift=0.015, win=7):
     k0, d0 = orb.detectAndCompute(small(frames[0]), None)
     if d0 is None or len(k0) < 30:
         return None, 1.0
+    # Chỉ đo camera trên NỀN: dải mép trái/phải (25% mỗi bên) + dải trên (10%), nơi nhân vật đứng giữa khung không che tới.
+    # Đo trên cả khung thì nhân vật gật/cúi đầu bị đọc thành camera dời (05/11/2026 xe-tai-canh-sat phần 2: AI nền đen, điểm khớp dồn trên người,
+    # "khoá camera" kéo khung lên tới 97 px rồi lấy khung nối lấp mép hụt -> dải vỡ đáy ô AI, khung AI trôi lên xuống). Nền phẳng (ít điểm ở dải mép)
+    # thì không đo được camera -> không khoá.
+    sw = 360
+    sh = int(h * k)
+    band = np.array([p.pt[0] < 0.25 * sw or p.pt[0] > 0.75 * sw or p.pt[1] < 0.10 * sh for p in k0])
+    if band.sum() < 60:
+        return None, 1.0
+    k0, d0 = [p for p, b in zip(k0, band) if b], d0[band]
     p0 = np.float32([p.pt for p in k0])
     par, last = [], (1.0, 0.0, 0.0)
     for f in frames:
@@ -611,7 +629,17 @@ def _camera_lock(frames, min_zoom=0.03, min_shift=0.015, win=7):
                         last = (s, A[0, 2] / k, A[1, 2] / k)
         par.append(last)
     par = np.array(par)
-    if len(par) >= win:
+    # Ước lượng từng khung bị nhiễu (người cử động, nền mờ): nắn theo từng khung làm clip RUNG gấp 2-3 lần clip gốc (đo 05/11/2026 du-lich-chia-doi:
+    # nền 0,24 -> 0,73 px/khung, người dùng thấy nửa phải rung lắc). Muse tự phóng/dời khung từ từ, nên chỉ cần một đường cong TRƠN theo thời gian:
+    # khớp đa thức bậc 2 cho từng tham số (phóng, dời x, dời y) -> bù được phóng/trôi chậm, không thêm rung (đo lại: 0,24 -> 0,24-0,30).
+    # Đường cong NEO ở khung 0 = đứng yên (phóng 1, dời 0): khung đầu luôn đúng khung nối; đường cong tự do làm khung đầu dời sẵn hàng chục px
+    # (đo 05/11/2026: -76 px ở ô AI, -15 px ở di-tru) -> giật ở chỗ nối và mép hụt ngay từ khung đầu.
+    if len(par) >= 8:
+        t = np.linspace(0.0, 1.0, len(par))
+        B = np.stack([t, t * t], 1)
+        ident = np.array([1.0, 0.0, 0.0])
+        par = np.stack([ident[j] + B @ np.linalg.lstsq(B, par[:, j] - ident[j], rcond=None)[0] for j in range(3)], 1)
+    elif len(par) >= win:
         ker = np.ones(win) / win
         par = np.stack([np.convolve(np.pad(par[:, j], win // 2, mode="edge"), ker, mode="valid") for j in range(3)], 1)
     zoom = float(max(1 / par[:, 0].min(), par[:, 0].max()))

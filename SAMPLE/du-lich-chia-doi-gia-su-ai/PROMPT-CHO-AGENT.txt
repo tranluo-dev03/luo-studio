@@ -1,0 +1,33 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "DU LỊCH + CHIA ĐÔI GIA SƯ AI" (du-lich-chia-doi-gia-su-ai)
+  HAI phần: (1) Carla + robot ở điểm du lịch, cảnh thường 3 cảnh; (2) gọi video chia đôi dọc, ghép 2 lớp 9 cảnh.
+  Code riêng: app/production/types/du-lich-chia-doi-gia-su-ai/
+================================================================================
+
+CÁCH DÙNG
+  Gửi cho agent: KICH-BAN-DU-LICH-CHIA-DOI-GIA-SU-AI.txt, cong-cu\tao_bien_the.py, PHAN-TICH-VIDEO-MAU.md, SAMPLE\_chung\SO-TAY-KY-THUAT.md.
+  Rồi dán phần dưới, sửa [ngoặc vuông].
+
+--------------------------------------------------------------------------------
+PROMPT
+--------------------------------------------------------------------------------
+Bạn viết biến thể cho LUO Studio, thể loại DU LỊCH + CHIA ĐÔI GIA SƯ AI.
+  Bảng biến thể: [STT | tên nhân vật | mô tả (tiếng Việt) | ảnh | tuổi | quê | (tuỳ chọn) địa điểm phần 1]
+
+BẮT BUỘC
+1) Sửa bằng cong-cu\tao_bien_the.py (BIEN_THE + CHUNG), chạy lại để sinh JSON; không sửa tay JSON.
+2) Kịch bản phần 1 đang viết "she/her" cho Carla: biến thể nhân vật NAM thì đổi các chữ đó sang {{TEN_HOC}} hoặc thêm token HE_/HIS_HOC trước.
+3) Đổi địa điểm phần 1 = sửa NEN_CANH và câu "Golden-hour at Machu Picchu" trong STYLE LOCK + Prompt ảnh cảnh 1 (hoặc tách thành token).
+4) Lời: 12 lượt, thứ tự hoc, robot, hoc (phan 1) rồi day, hoc ×4 cặp, day (phan 2). Lượt 5, 9: "c": "red", "fx": "wrong", "icon": "x".
+   Lượt 7, 11: "fx": "right", "icon": "check", "to": cụm đúng. Lượt 6, 10 của AI: "to": cụm đúng, "to_mau": "green". Đổi tuổi/quê → luot() tự đổi.
+5) refs: NGUOI_ROBOT, NGUOI_DAY (ảnh robot trong anh/), NGUOI_HOC (ảnh nhân vật biến thể). Mỗi lượt ≤ 20 từ, emo trong EMO_CUES.
+
+TỰ KIỂM TRA
+  .venv\Scripts\python.exe SAMPLE\_chung\video-moi.py kiem-tra <kịch bản> <biến thể> --tai-anh  → 0 lỗi.
+
+LỖI HAY GẶP / GIỚI HẠN
+  - Phần 1 hai giọng nữ cùng khung: người nghe có thể nhép; ưu tiên khác giới hoặc bật voice_swap.
+  - Robot phần 1 phải ở MÉP TRÁI, bị cắt vai; Muse hay kéo robot vào giữa → xem scene1_start.png.
+  - Phần 2 gen 9:16 rồi cắt dải giữa: người/cốc lệch tâm bị cắt; xem phan2/base_HOC.png, base_DAY.png.
+  - Whisper hậu kỳ phải là "small" (đa ngôn ngữ); "small.en" sẽ căn sai câu tiếng Tây Ban Nha.
+  - Ảnh tham chiếu robot không được có chữ "AI" (Muse sẽ vẽ chữ).

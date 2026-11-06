@@ -7,7 +7,7 @@ description: Quy trình trọn gói cho LUO Studio khi người dùng đưa MỘ
 
 Mục tiêu: từ một video tham chiếu, ra đủ bộ `SAMPLE/<mã>/` (phân tích, kịch bản, biến thể, README, PROMPT-CHO-AGENT) và dự án đã nằm trong Studio,
 đã chạy thử một biến thể. Tri thức nền: **đọc `SAMPLE/_chung/SO-TAY-KY-THUAT.md` trước** (bảng chọn khuôn ở mục 2, kỹ thuật ở mục 3–6).
-Quy tắc đã chốt với người dùng: tự làm trong phiên này (không giao session con); mỗi thể loại chỉ sửa file của chính nó; code dùng chung chỉ sửa khi nói rõ phạm vi.
+Quy tắc đã chốt với người dùng: ảnh tham chiếu nhân vật (`refs`) CHỈ lấy từ ảnh AI người dùng cung cấp, không bao giờ cắt từ video mẫu (thiếu ảnh → hỏi trước khi gen); tự làm trong phiên này (không giao session con); mỗi thể loại chỉ sửa file của chính nó; code dùng chung chỉ sửa khi nói rõ phạm vi.
 
 Python của Studio: `runtime\python.exe` (có ffmpeg, Whisper, cv2, mediapipe). Trên Windows đặt `PYTHONIOENCODING=utf-8`.
 
@@ -61,6 +61,14 @@ Nhắc người dùng chọn Thương hiệu (logo cố định/bay, Video giớ
 
 Sau khi cảnh đầu gen xong: xem `userdata/studio/runs/<dự án>/<biến thể>/scene1_start.png` (và `scene<n>_start.png` của cảnh đổi góc, `scene1_wide.png`, `phan2/base_<K>.png`) và clip cảnh 1; lệch thì sửa kịch bản/biến thể, "Làm lại từ cảnh N" (ghép 2 lớp: xoá `base_*`, `listen_*`, `scene*_spk` trước). Ổn rồi mới chạy cả nhóm.
 
+## Bước 5b. Ghi tri thức sau MỖI lượt gen và MỖI lần sửa (bắt buộc)
+
+Ngay sau mỗi lượt gen (chạy thử, gen lại từ cảnh N, chạy cả nhóm) và mỗi lần sửa kịch bản/biến thể/ảnh tham chiếu/code, thêm một mục vào
+`SAMPLE/_chung/NHAT-KY-TRI-THUC.md` theo mẫu trong file: hiện tượng (file nào, số đo), nguyên nhân, cách sửa, kết quả (ĐẠT / CHƯA ĐẠT / CHỜ KIỂM CHỨNG),
+áp dụng chung hay riêng thể loại, đã chưng cất chưa. Ghi cả khi kết quả đạt. Lần gen sau xác nhận thì cập nhật trạng thái mục cũ.
+Không dồn cuối phiên. Mục ĐẠT + áp dụng chung → chưng cất vào `SO-TAY-KY-THUAT.md` (mục 3/6) hoặc skill này (xem mục "Chưng cất" trong nhật ký).
+
 ## Bước 6. Giao cho người dùng
 
-Báo cáo ngắn gồm: khuôn đã chọn và vì sao; bảng "video gốc → kịch bản" (chỗ đơn giản hoá, chỗ chưa làm được); rủi ro Muse; tên loại dự án/dự án trong Studio và biến thể đang chạy thử; việc người dùng cần làm (Thương hiệu, duyệt khung đầu). Ghi lại mọi quyết định và lần thử vào `SAMPLE/<mã>/README.md`. Phát hiện kỹ thuật mới hoặc lỗi mới → bổ sung vào `SAMPLE/_chung/SO-TAY-KY-THUAT.md` (mục 3 hoặc 6).
+Báo cáo ngắn gồm: khuôn đã chọn và vì sao; bảng "video gốc → kịch bản" (chỗ đơn giản hoá, chỗ chưa làm được); rủi ro Muse; tên loại dự án/dự án trong Studio và biến thể đang chạy thử; việc người dùng cần làm (Thương hiệu, duyệt khung đầu). Ghi lại mọi quyết định và lần thử vào `SAMPLE/<mã>/README.md`. Phát hiện kỹ thuật mới hoặc lỗi mới → đã có mục trong `SAMPLE/_chung/NHAT-KY-TRI-THUC.md` (bước 5b); mục đã kiểm chứng và dùng chung được
+→ bổ sung vào `SAMPLE/_chung/SO-TAY-KY-THUAT.md` (mục 3 hoặc 6) và ghi "Đã chưng cất vào" trong nhật ký.

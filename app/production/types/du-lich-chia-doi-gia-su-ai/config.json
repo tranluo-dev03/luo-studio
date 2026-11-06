@@ -1,0 +1,13 @@
+{
+  "nhoe": 1.0,
+  "phu_de": {
+    "co_chu": 58,
+    "y_theo_phan": {"1": 360, "2": 1065},
+    "kieu_theo_phan": {
+      "1": {"hoc": {"c": "blue", "o": "black"}, "robot": {"c": "yellow", "o": "black"}},
+      "2": {"day": {"c": "yellow"}, "hoc": {"c": "white"}}
+    },
+    "vien": {"x": 0.5, "rong": 0.5, "cuoi_cau": true},
+    "whisper": "small"
+  }
+}

@@ -8,7 +8,7 @@ Quy trình mỗi biến thể:
   -> ghép các clip đã cắt thành raw.mp4
 """
 import uuid
-import base64, json, os, re, shutil, subprocess, sys, threading, time, urllib.error, urllib.request
+import base64, json, os, re, shutil, subprocess, sys, threading, time, unicodedata, urllib.error, urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PROD = os.path.join(HERE, "..", "production")
@@ -768,13 +768,17 @@ _WHISPER_WORKER = r"""
 import json, sys, wave
 import numpy as np
 from faster_whisper import WhisperModel
-m = WhisperModel("small.en", device="cpu", compute_type="int8")
+M = {"en": WhisperModel("small.en", device="cpu", compute_type="int8")}
 print("ready", flush=True)
 for line in sys.stdin:
     j = json.loads(line)
+    lang = j.get("lang") or "en"
+    if lang not in M:   # câu không phải tiếng Anh (vd. tiếng Tây Ban Nha): mô hình đa ngôn ngữ, nạp lần đầu cần tới (05/11/2026)
+        M[lang] = M.get("multi") or WhisperModel("small", device="cpu", compute_type="int8")
+        M["multi"] = M[lang]
     with wave.open(j["wav"], "rb") as w:
         a = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768.0
-    segs, _ = m.transcribe(a, language="en", beam_size=1, vad_filter=False, condition_on_previous_text=False, word_timestamps=j["words"])
+    segs, _ = M[lang].transcribe(a, language=lang, beam_size=1, vad_filter=False, condition_on_previous_text=False, word_timestamps=j["words"])
     segs = list(segs)
     print(json.dumps({"text": [s.text for s in segs], "words": [(w.word, w.start, w.end) for s in segs for w in (s.words or [])]}), flush=True)
 """
@@ -796,8 +800,28 @@ def _wp_read(timeout):
     return line
 
 
-def _transcribe(wav, words):
-    """{'text': [...], 'words': [(từ, bắt đầu, kết thúc)]} của file wav 16 kHz mono, qua tiến trình Whisper riêng."""
+_ES_MARK = re.compile(r"[¿¡ñáéíóú]", re.I)
+_ES_WORDS = set("que es la el los las para por con una uno tu mi no si sí pero vamos decir tienes quisiste perdón siempre nada cuál cómo solo necesitas hablar "
+                "estudies úsalo buen intento todos días juntos mejorar inglés hola gracias usted ustedes está estás soy eres somos".split())
+
+
+def speech_lang(text):
+    """'es' nếu câu là tiếng Tây Ban Nha (có ¿¡ñ/dấu, hoặc >= 30% từ là từ chức năng tiếng Tây Ban Nha), ngược lại 'en'.
+    Whisper tiếng Anh (small.en) nghe câu tiếng Tây Ban Nha thành chữ lạ -> báo "thiếu chữ" sai -> Studio bỏ cắt sát, để lại 2-3 s lặng sau câu
+    (05/11/2026, du-lich-chia-doi: video 59 s thay vì ~30 s). Câu lẫn cụm tiếng Anh ngắn ("¿Quisiste decir, I'm 22?") vẫn tính là 'es'."""
+    t = str(text or "")
+    if _ES_MARK.search(t):
+        return "es"
+    ws = re.findall(r"[a-záéíóúñü]+", t.lower())
+    return "es" if ws and sum(w in _ES_WORDS for w in ws) / len(ws) >= 0.3 else "en"
+
+
+def _deaccent(s):
+    return "".join(c for c in unicodedata.normalize("NFD", str(s)) if not unicodedata.combining(c))
+
+
+def _transcribe(wav, words, lang="en"):
+    """{'text': [...], 'words': [(từ, bắt đầu, kết thúc)]} của file wav 16 kHz mono, qua tiến trình Whisper riêng. lang: 'en' (small.en) hoặc mã ngôn ngữ khác (small)."""
     global _WP, _WP_LINES
     import queue
     with _WH_LOCK:
@@ -814,7 +838,7 @@ def _transcribe(wav, words):
             threading.Thread(target=pump, args=(_WP.stdout, _WP_LINES), daemon=True).start()
             while _wp_read(900).strip() != "ready":   # lần đầu có thể phải tải mô hình (~250 MB)
                 pass
-        _WP.stdin.write(json.dumps({"wav": os.path.abspath(wav), "words": words}) + "\n")
+        _WP.stdin.write(json.dumps({"wav": os.path.abspath(wav), "words": words, "lang": lang or "en"}) + "\n")
         _WP.stdin.flush()
         while True:
             ln = _wp_read(300).strip()
@@ -828,7 +852,7 @@ def voice_span(path, expected):
     import difflib
     # tính cả SỐ: trước đây chỉ lấy chữ cái nên "I have 48." chỉ còn "i have", từ khớp cuối là "have" -> cắt mất "48" (soi hành lý 04/11).
     # Số viết bằng chữ ("forty-eight") hay chữ số ("48") đều quy về chữ số; mọi số Whisper nghe được đều khớp với số trong lời thoại.
-    toks = lambda s: [t for t in (re.sub(r"[^a-z0-9]", "", _NUMW.get(x, x)) for x in re.findall(r"[a-z0-9']+", str(s).lower().replace("-", " "))) if t]
+    toks = lambda s: [t for t in (re.sub(r"[^a-z0-9]", "", _NUMW.get(x, x)) for x in re.findall(r"[a-z0-9']+", _deaccent(s).lower().replace("-", " "))) if t]
     exp = toks(expected or "")
     if not exp:
         return None
@@ -836,7 +860,7 @@ def voice_span(path, expected):
     wav = path + ".span.wav"
     sh(["ffmpeg", "-y", "-i", path, "-vn", "-ac", "1", "-ar", "16000", wav])
     try:
-        words = [(t, a, b) for w, a, b in _transcribe(wav, True)["words"] for t in toks(w)]
+        words = [(t, a, b) for w, a, b in _transcribe(wav, True, speech_lang(expected))["words"] for t in toks(w)]
         onset, offset = _energy_span(wav)
     finally:
         try:
@@ -1019,6 +1043,8 @@ def mouth_check(path, speaker_side, listener_side, sens="normal"):
     open_t = {"high": 0.10, "low": 0.30}.get(sens, 0.18)   # tỉ lệ khung hình người nghe há miệng rộng: mấp máy thật ~0.2-0.35, chỉ cười ~0-0.13
     best = None
     for idx, side in enumerate(listener_side if isinstance(listener_side, (list, tuple)) else [listener_side]):
+        if side == speaker_side:
+            continue   # cùng một ô với người nói: đo hai lần một khuôn mặt, không phải người nghe
         li = mouth_activity(path, side, t_end)
         if not li:
             continue
@@ -1026,6 +1052,9 @@ def mouth_check(path, speaker_side, listener_side, sens="normal"):
         bad = li[0] >= abs_t and li[0] >= rel_t * sp[0] and li[2] >= open_t and li[2] >= 0.4 * sp[2] and li[3] >= 0.55 * sp[3]
         # Người nghe cử động miệng gần bằng người nói (>= 70%) và có há miệng thật thì chắc chắn là nói theo, kể cả khi nhịp mở-khép chưa đủ nhanh
         bad = bad or (sens != "low" and li[0] >= 0.7 * sp[0] and li[2] >= 0.12 and li[0] >= abs_t)
+        # Người nghe nghiêng ba phần tư / nghiêng hẳn: khe môi nhìn nghiêng luôn nhỏ nên tỉ lệ "há rộng" gần 0 dù đang nhép (Machu Picchu cảnh 2: std 0.031, há 0.025, nhịp 0.020 = nhịp lúc chính cô ấy nói).
+        # Bắt bằng biên độ + nhịp mở-khép gần bằng người nói + có lúc mở quá OPEN_GAP; robot im ở cảnh 1/3 cùng video: std 0.017-0.019 (< abs_t) nên không bị bắt.
+        bad = bad or (sens != "low" and li[0] >= abs_t and li[0] >= 0.7 * sp[0] and li[3] >= 0.55 * sp[3] and li[1] >= OPEN_GAP)
         r = {"bad": bad, "speaker": round(sp[0], 3), "listener": round(li[0], 3), "open": round(li[2], 2), "idx": idx}
         if best is None or (r["bad"] and not best["bad"]) or (r["bad"] == best["bad"] and r["listener"] > best["listener"]):
             best = r
@@ -1051,14 +1080,14 @@ _NUMW.update({w: str(10 * i) for i, w in enumerate("x x twenty thirty forty fift
 
 
 _CONTR = {"won't": "will not", "can't": "can not", "cannot": "can not", "shan't": "shall not", "let's": "let us", "gonna": "going to", "wanna": "want to"}
-_FILLERS = {"um", "umm", "uh", "uhh", "ah", "oh", "hmm", "hm", "er", "erm", "mm", "mhm"}
+_FILLERS = {"um", "umm", "uh", "uhh", "ah", "oh", "hmm", "hm", "er", "erm", "mm", "mhm", "eh", "ehh", "ehm"}   # "eh": Whisper hay bỏ -> báo "thiếu eh" sai (05/11/2026)
 SPEECH_RETRIES = 2   # gen lại tối đa khi lời nói sai (lặp / thừa / thiếu chữ); giữ lần ít lỗi nhất
 
 
 def _speech_tokens(text):
     """Từ thường viết thường, bỏ tiếng ừm/à; viết tắt mở ra ("I'm" = "I am", "don't" = "do not") để chữ viết khác nhau không bị tính là sai;
     số (chữ hay chữ số) quy về chữ số, "sixty eight" gộp thành "68" để khớp "68"."""
-    s = str(text).lower().replace("’", "'").replace("-", " ")
+    s = _deaccent(text).lower().replace("’", "'").replace("-", " ")   # bỏ dấu: "inglés" = "ingles" (trước đây tách thành "ingl" + "s")
     s = re.sub(r"\b(" + "|".join(map(re.escape, _CONTR)) + r")\b", lambda m: _CONTR[m.group(1)], s)
     s = re.sub(r"n't\b", " not", s)
     s = re.sub(r"'(re|m|ll|ve|d|s)\b", lambda m: " " + {"re": "are", "m": "am", "ll": "will", "ve": "have", "d": "would", "s": "is"}[m.group(1)], s)
@@ -1086,7 +1115,7 @@ def speech_issues(expected, path):
     wav = path + ".sp.wav"
     sh(["ffmpeg", "-y", "-i", path, "-vn", "-ac", "1", "-ar", "16000", wav])
     try:
-        res = _transcribe(wav, True)
+        res = _transcribe(wav, True, speech_lang(expected))
     finally:
         try:
             os.remove(wav)
@@ -1156,16 +1185,19 @@ def speech_retry(path, expected, regen, emit, n, retries=1):
         emit("log", msg=f"Cảnh {n}: lần {k + 1} lời nói lỗi: {'; '.join(v for v, _ in iss)}", level="warn")
         keep = f"{path}.sp{k}"
         shutil.copyfile(path, keep)
-        tried.append((len(iss), k, keep))
+        # nói lặp cả câu/cụm là lỗi nặng nhất (người xem nghe rõ, clip dài gấp đôi): luôn ưu tiên bản không lặp, sau đó mới đến ít lỗi (05/11/2026,
+        # du-lich-chia-doi cảnh 5 "I have 22. I have 22." được giữ vì các lần khác bị tính thêm "thiếu eh")
+        rep = any(v.startswith(("nói lặp", "nói thừa từ của câu")) for v, _ in iss)
+        tried.append((rep, len(iss), k, keep))
         if k == retries:
             best = min(tried)
-            shutil.copyfile(best[2], path)
+            shutil.copyfile(best[-1], path)
             emit("log", msg=f"Cảnh {n}: vẫn lỗi lời nói sau {retries} lần gen lại, giữ lần ít lỗi nhất. Bấm gen lại cảnh này nếu muốn thử tiếp", level="warn")
             break
         emit("scene", n=n, state="video", pct=0, note=f"gen lại (lời nói) {k + 1}")
         regen(f'IMPORTANT RETRY NOTE: in the previous attempt the speech was wrong ({"; ".join(e for _, e in iss)}). Say the line exactly once, word for word: "{expected}". '
               "Do not repeat any word or phrase, do not add any word before or after it, do not stutter, then stop talking.")
-    for _, _, f in tried:
+    for *_, f in tried:
         try:
             os.remove(f)
         except OSError:

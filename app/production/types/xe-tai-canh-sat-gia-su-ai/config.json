@@ -1,0 +1,34 @@
+{
+  "nhoe": 1.0,
+  "phu_de": {
+    "co_chu": 60,
+    "co_chu_dich": 44,
+    "y_theo_phan": {
+      "1": 1560,
+      "2": 1560
+    },
+    "kieu_theo_phan": {
+      "1": {
+        "canhsat": {
+          "c": "white",
+          "o": "black"
+        },
+        "hoc": {
+          "c": "black",
+          "o": "yellow"
+        }
+      },
+      "2": {
+        "day": {
+          "c": "teal",
+          "o": "black"
+        },
+        "hoc": {
+          "c": "black",
+          "o": "white"
+        }
+      }
+    },
+    "whisper": "small"
+  }
+}

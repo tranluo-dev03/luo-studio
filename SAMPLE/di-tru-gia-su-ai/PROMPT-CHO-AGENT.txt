@@ -1,0 +1,18 @@
+Viết biến thể mới cho thể loại di-tru-gia-su-ai (đọc README.md trước).
+
+1. KHÔNG sửa tay BIEN-THE-DI-TRU-GIA-SU-AI.json. Thêm một dict vào BIEN_THE trong cong-cu/tao_bien_the.py:
+   {"name": "bien-the-02-...", "que": "Colombia", "nam": "five", <khoá muốn đổi: TEN_HOC, NGUOI_HOC, GIONG_HOC, NGUOI_AMIGA, NEN_PHO, NGUOI_DAY...>,
+    "anh": {"NGUOI_HOC": "<link hoặc SAMPLE/di-tru-gia-su-ai/anh/...png>"}}
+   Đổi "que" thì câu sai "I am <que>." / câu đúng "I am from <que>." đổi theo ở cả phần 2 và 3.
+2. Ảnh tham chiếu: ảnh AI người dùng đưa, hoặc (khi người dùng cho phép) gen bằng cong-cu/gen_anh_nhan_vat.py từ chữ. Không cắt từ video mẫu.
+   Đổi nhân vật nào thì ảnh nhân vật đó phải đổi theo (ảnh cũ sẽ thắng chữ).
+3. Giữ cặp phần 2 khác hẳn tuổi (người học ~20, cảnh sát 40+); có thể đổi cảnh sát thành nữ để giảm rủi ro gán nhầm giọng (đổi cả GIONG_CANHSAT; kịch bản gọi "the officer", không dùng he/she ngoài NGUOI_).
+   Lưu ý: kịch bản phần 1–3 có "He"/"his" cho HOC → người học nữ cần sửa tao_kich_ban.py (dùng token đại từ).
+4. Lời 3–20 từ mỗi lượt; emo trong EMO_CUES; 28 lượt (5 + 10 + 13), "phan" 1/2/3 đúng thứ tự.
+5. Chạy tao_bien_the.py → video-moi.py kiem-tra ... --tai-anh: 0 lỗi; cảnh báo fx 8/10/19 là bình thường.
+
+Lỗi hay gặp / tự kiểm tra sau chạy thử:
+- phan1/scene1_start.png: một người, không người thứ hai; điện thoại áp tai; không chữ.
+- phan2/scene4_start.png: robot nhỏ ngồi trên vai bên trái khung, đầu ngang hàm Diego.
+- phan3/base_HOC.png: góc trên phải trống (ô AI sẽ đè); phan3/base_DAY.png: robot giữa khung dọc.
+- Nghe cảnh 6–15: giọng cảnh sát và Diego không đổi chỗ.

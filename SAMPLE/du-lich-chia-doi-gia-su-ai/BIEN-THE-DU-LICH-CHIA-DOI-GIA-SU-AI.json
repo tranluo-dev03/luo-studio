@@ -1,0 +1,137 @@
+[
+  {
+    "name": "bien-the-01-carla-goc",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NHIN_ROBOT": "its head turned right toward her, eyes on her face",
+    "NGHE_ROBOT": "keeps looking at the woman, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "NEN_CANH": "the Machu Picchu citadel at golden hour: the steep green Huayna Picchu peak in the centre, grey stone terraces and Inca ruins below, soft white mist in the valley, distant mountain ridges, a dramatic orange-and-grey cloudy sky",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "TEN_HOC": "Carla",
+    "NGUOI_HOC": "a Mexican woman in her late thirties, an oval face with high cheekbones, warm brown eyes, natural full eyebrows and a friendly smile, medium tan skin, shoulder-length dark brown curly hair with a side part; a loose mustard-yellow long coat over a cream button-up blouse, brown trousers, a thin silver ring",
+    "GIONG_HOC": "a real Mexican woman in her late thirties, natural mid-high pitch around 180–220 Hz, slightly husky and warm, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actress",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes up at the peak in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the peak with the mouth closed, hands in the coat pockets, still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 22.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 22?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 22",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 22.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 22",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Carla, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Carla, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-carla.png"
+      ]
+    }
+  }
+]

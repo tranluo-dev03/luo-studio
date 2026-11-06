@@ -9,6 +9,8 @@ Quy tắc làm việc (đã được người dùng chốt):
 - Tự làm trong phiên hiện tại, không giao session con.
 - Mỗi thể loại chỉ sửa file của chính nó (`SAMPLE/<mã>/`, `app/production/types/<mã>/`). Code dùng chung (`engine.py`, `split.py`, `nhieu_phan.py`) chỉ sửa khi nói rõ phạm vi ảnh hưởng và gắn điều kiện theo loại cảnh.
 - Ghi lại mọi quyết định và lần thử vào `SAMPLE/<mã>/README.md` để lần sau không lặp lại.
+- **Ảnh tham chiếu (`refs`) CHỈ dùng ảnh AI do người dùng cung cấp** (link hoặc tệp). KHÔNG cắt/chỉnh ảnh nhân vật từ video mẫu làm ảnh tham chiếu (chốt 05/11/2026). Chưa có ảnh → hỏi người dùng, chưa gen. Khung video mẫu chỉ dùng để so bố cục (`anh/khung-*-mau.png`), không gửi cho Muse.
+- Sau MỖI lượt gen và MỖI lần sửa: thêm một mục vào `NHAT-KY-TRI-THUC.md` (cùng thư mục; mẫu trong file). Mục đã kiểm chứng, dùng chung được → chưng cất vào sổ tay này (mục 3/6) và skill `luo-video-moi`.
 
 ---
 
@@ -25,6 +27,8 @@ Quy tắc làm việc (đã được người dùng chốt):
 | **Bảng "video gốc → kịch bản"** | Mỗi hành động/hiệu ứng của video gốc đi vào cảnh nào, chỗ nào đã đơn giản hoá, chỗ nào không gen (hậu kỳ/Thương hiệu) | Giao người dùng duyệt trước khi gen |
 
 Giới hạn đã biết: nhạc nền/tiếng ồn làm Whisper sai; vật nhỏ trong cảnh rộng không tạo đỉnh chuyển động; công cụ không biết ai nói; trên Windows đặt `PYTHONIOENCODING=utf-8` nếu script in tiếng Việt lỗi.
+**Video song ngữ** (vd. tiếng Tây Ban Nha xen câu tiếng Anh): `--lang es` làm Whisper bỏ trọn đoạn tiếng Anh (báo khoảng lặng dài bất thường) → chạy thêm ngôn ngữ thứ hai trên `audio.wav`, ghép theo giây, đối chiếu phụ đề trên hình; hậu kỳ dùng Whisper đa ngôn ngữ (`"whisper": "small"`, không `small.en`).
+Bản cài không có `runtime\` → dùng `.venv\Scripts\python.exe` và thêm `bin\` (ffmpeg) vào PATH.
 
 ---
 
@@ -184,6 +188,12 @@ Khai trong kịch bản: `[HAU KY]:\nloai: <mã>` (token chỉ dùng cho hậu k
 | Lời lặp/thừa/thiếu từ | Muse | Studio kiểm lời từng chữ, gen lại (`speech_retries`) |
 | Tư thế lạ lặp ở mọi cảnh sau | Một cảnh lệch, cảnh sau nối | Gen lại từ cảnh đầu tiên lệch; cấm cử chỉ đó |
 | Chữ lạ trong khung | Từ viết hoa trong prompt | `[NEGATIVE]` |
+| Lặng 2–3 s sau câu tiếng Tây Ban Nha/ngôn ngữ khác, video dài gấp đôi | Whisper kiểm lời cố định `small.en` báo "thiếu chữ" sai → bỏ cắt sát | Đã sửa trong engine: `speech_lang` chọn Whisper theo ngôn ngữ câu (05/11/2026). Câu lẫn hai thứ tiếng: dấu ¿¡/từ TBN quyết định |
+| Người nghe nhép dù đo miệng dưới ngưỡng (ghép 2 lớp) | Clip nghe có tiếng lẩm bẩm, chưa có clip câm dự phòng | Đã sửa: clip nghe có tiếng → khoá miệng / khung nối đứng yên |
+| Khung nửa ghép rung lắc | Khoá camera nắn từng khung theo ước lượng nhiễu | Đã sửa: khớp đa thức bậc 2 theo thời gian; đo rung bằng `phaseCorrelate` vùng nền trước/sau |
+| Ting ting/viền sai/đúng rơi vào câu đầu của lượt nhiều câu | `fx` luôn gắn dòng đầu | Đã sửa: gắn vào dòng chứa cụm `to`; lượt nhiều câu có fx thì PHẢI khai `to` |
+| Câu nói lặp hai lần vẫn được giữ | Chọn lần gen "ít lỗi nhất" theo số lỗi | Đã sửa: luôn ưu tiên bản không lặp |
+| Người thật nhép + nhắm mắt/đổi nét mặt y hệt robot đang nói (chung khung, chỉ cảnh robot nói) | (1) Mô tả robot có "sculpted closed lips" → Muse coi môi robot là chi tiết cứng, đẩy khẩu hình sang mặt người duy nhất; (2) người nghe nghiêng ba phần tư/nghiêng hẳn nên khe môi nhỏ, luật đo cũ đòi "há rộng ≥ 18% khung" nên lọt; (3) Cài đặt "Kiểm tra miệng người nghe" đang tắt | Robot/nhân vật không phải người: tả môi "open and move naturally with every word whenever it speaks", KHÔNG viết "closed/sculpted/painted lips"; prompt cảnh robot nói tả người nghe TRƯỚC (môi mím, mắt mở, đầu yên, "does not copy"), robot không làm cử chỉ đầu; engine thêm luật nghiêng mặt (đo theo nhịp mở-khép + biên độ, 05/11/2026); bật kiểm tra miệng + tự gen lại ≥ 2 |
 | Lỗi đột ngột đổi kiểu | Phiên khác sửa engine/split | `git diff` trước; thống kê theo câu chữ prompt trong `userdata/api/data/tasks.json` |
 
 ---

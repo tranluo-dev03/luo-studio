@@ -114,6 +114,11 @@ def sub_variant(vdata, keep, turns, part=None):
 
 
 def _link(src, dst):
+    try:   # đã là cùng một tệp (hardlink từ lần chạy trước): không làm gì. Xoá dst có thể lỗi khi tệp đang mở (Windows),
+        if os.path.samefile(src, dst):   # rồi copyfile báo "are the same file" (05/11/2026, xe-tai-canh-sat: làm lại từ cảnh 10 lỗi ngay)
+            return
+    except OSError:
+        pass
     try:
         os.remove(dst)
     except OSError:

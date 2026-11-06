@@ -7,7 +7,7 @@ So với hậu kỳ chung (postprocess.py) có thêm:
 - viền nháy + tiếng: "fx": "wrong" (đỏ, tè tè) / "right" (xanh lá, tinh tinh) / "ding" (cyan, tinh tinh).
 - ô nền sau chữ: "o": <màu> (vd. ô vàng chữ đen, ô đen chữ xanh ngọc); không có "o" thì chữ có viền đen;
 - tô màu đúng các từ sai/đúng: "to": "<cụm chữ>" (hoặc danh sách), màu theo "fx" (wrong = đỏ, right = xanh lá) hoặc "to_mau".
-Màu chữ chính theo "c" (white/yellow/red/green/black/teal). Lượt không ghi "c"/"o" thì lấy kiểu mặc định (apply_styles, theo phần và người nói).
+Màu chữ chính theo "c" (white/yellow/red/green/black/teal/blue). Lượt không ghi "c"/"o" thì lấy kiểu mặc định (apply_styles, theo phần và người nói).
 Dùng: units_from_variant(...) -> apply_styles(...) -> align(...) -> burn(...). Điểm vào đầy đủ cho post.py của thể loại: hau_ky.py."""
 import json
 import os
@@ -22,7 +22,7 @@ if PROD not in sys.path:
     sys.path.insert(0, PROD)
 import postprocess as PP  # noqa: E402
 
-BGR = {"white": "FFFFFF", "yellow": "00D8FF", "red": "2A2AFF", "green": "5ACB3C", "black": "000000", "teal": "C8E03F"}   # ASS dùng BGR
+BGR = {"white": "FFFFFF", "yellow": "00D8FF", "red": "2A2AFF", "green": "5ACB3C", "black": "000000", "teal": "C8E03F", "blue": "FF7A3A"}   # ASS dùng BGR; "blue" thêm 05/11/2026 cho du-lich-chia-doi (chỉ bổ sung)
 FX_COLOR = {"wrong": "red", "right": "green"}
 
 
@@ -82,14 +82,19 @@ def units_from_variant(v, scene_of_turn):
         if ti not in scene_of_turn:
             continue
         dich = _dich_by_sentence(t.get("dich"), _sentences(t.get("text", ""))) if str(t.get("dich") or "").strip() else []
-        for i, (p, box, si) in enumerate(_parts(t.get("text", ""), t.get("nhan") or "")):
+        parts = _parts(t.get("text", ""), t.get("nhan") or "")
+        # viền + tiếng sai/đúng ("fx") rơi vào dòng chứa cụm sai/đúng ("to") nếu có, không phải luôn dòng đầu: "Ah, sí, es verdad. I'm 22." phải
+        # ting ting ở "I'm 22", không ở "Ah, sí, es verdad." (05/11/2026, du-lich-chia-doi). Không có "to" thì như cũ (dòng đầu).
+        tos = [x.lower() for x in ([t["to"]] if isinstance(t.get("to"), str) else list(t.get("to") or [])) if x]
+        fx_i = next((i for i, (p, _, _) in enumerate(parts) if any(x in p.lower() for x in tos)), 0)
+        for i, (p, box, si) in enumerate(parts):
             u = {"t": p, "c": t.get("c"), "o": t.get("o"), "who": str(t.get("who", "")).lower(), "turn": scene_of_turn[ti], "lid": ti, "box": box}
             if dich and dich[si]:
                 u["dich"] = dich[si]
             if t.get("to"):
                 u["to"] = [t["to"]] if isinstance(t["to"], str) else list(t["to"])
                 u["to_mau"] = t.get("to_mau") or FX_COLOR.get(t.get("fx"), "yellow")
-            if i == 0 and t.get("fx") in ("wrong", "right", "ding"):
+            if i == fx_i and t.get("fx") in ("wrong", "right", "ding"):
                 u["fx"] = t["fx"]
             units.append(u)
         if units and units[-1]["lid"] == ti:

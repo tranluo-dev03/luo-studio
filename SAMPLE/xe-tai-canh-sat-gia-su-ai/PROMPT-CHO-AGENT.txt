@@ -1,0 +1,31 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "XE TẢI + CẢNH SÁT + GIA SƯ AI" (2 phần)
+================================================================================
+
+CÁCH DÙNG
+  Viết biến thể mới bằng cách thêm một dòng vào bảng BIEN_THE trong cong-cu/tao_bien_the.py rồi chạy lại script (không sửa tay JSON).
+  Đổi kịch bản: sửa cong-cu/tao_kich_ban.py (bảng CANH cho phần 1, khối PHAN2) rồi chạy lại. Đọc trước SAMPLE/_chung/SO-TAY-KY-THUAT.md.
+
+QUY TẮC RIÊNG
+1) Phần 1: 9 lượt (= 9 CẢNH), xen kẽ cảnh sát / tài xế như mẫu; lượt 5 (xin giấy tờ), 6 (đưa giấy), 9 (cầm điện thoại) có hành động
+   trong lúc nói. Đổi số lượt phần 1 => sửa bảng CANH cho khớp.
+2) Cặp nhân vật phần 1 KHÁC GIỚI. Kịch bản dùng "his" cho cảnh sát; muốn cảnh sát nữ thì đổi các chữ "his/him" trong CANH sang token
+   ({{HIS_CANHSAT}}...) trước. Tài xế không có đại từ: dùng {{TEN_HOC}} / "the driver".
+3) POS_CANHSAT = RIGHT, POS_HOC = LEFT (tài xế ở cửa sổ cabin trái-trên). Không đổi.
+4) Phần 2: 13 lượt, mỗi lượt "phan": 2; nhịp sai -> sửa: "I go to home." (wrong, to "go to") -> AI "You mean..." -> "I'm going home." (right,
+   to "going"); "I am very hurry." (wrong, to "am very") -> AI sửa; "moneys" icon dollar.
+5) Ảnh tham chiếu: chỉ ảnh AI người dùng cung cấp, cho cả NGUOI_HOC, NGUOI_CANHSAT, NGUOI_DAY. Chưa có => hỏi, chưa gen.
+6) Không chữ trên áo / xe / biển số / điện thoại: mô tả "plain vest without lettering", "no readable text".
+7) NGHE_ / [NGHE ...] chỉ tả việc nên làm khi im; không nhắc tới nói / người nói.
+
+LỖI HAY GẶP (theo sổ tay)
+  - Tài xế nhép lời cảnh sát (cảnh sát nhìn nghiêng từ sau lưng): nghe cảnh 1, 3, 5, 7; gen lại cảnh đó; dự phòng voice_swap.
+  - Giấy tờ nhân đôi / biến mất ở cảnh 5-6: xem scene5_last.png, scene6_last.png; gen lại từ cảnh lệch đầu tiên.
+  - Phần 2 tài xế khác mặt phần 1: thiếu refs NGUOI_HOC.
+  - Ô AI che mặt tài xế: đo lại bằng SAMPLE/_chung/do-vi-tri-dau.py trên phan2 của lần chạy thật.
+
+TỰ KIỂM TRA
+  [ ] video-moi.py kiem-tra: 0 lỗi (cảnh báo fx 11/13/14 là bình thường)
+  [ ] Mọi biến thể có refs cho 3 nhân vật
+  [ ] Lời 3-12 từ (tối đa 20), emo trong EMO_CUES
+  [ ] Chạy thử 1 biến thể, so scene1_start.png với anh/khung-phan1-mau.png

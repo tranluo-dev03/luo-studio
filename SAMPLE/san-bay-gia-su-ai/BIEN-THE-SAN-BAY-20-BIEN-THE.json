@@ -243,7 +243,7 @@
       ],
       "NGUOI_DAY": [
         {
-          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "url": "SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
           "name": "ROBOT-GIA-SU-AI.png"
         }
       ]
@@ -495,7 +495,7 @@
       ],
       "NGUOI_DAY": [
         {
-          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "url": "SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
           "name": "ROBOT-GIA-SU-AI.png"
         }
       ]
@@ -747,7 +747,7 @@
       ],
       "NGUOI_DAY": [
         {
-          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "url": "SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
           "name": "ROBOT-GIA-SU-AI.png"
         }
       ]
@@ -999,7 +999,7 @@
       ],
       "NGUOI_DAY": [
         {
-          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "url": "SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
           "name": "ROBOT-GIA-SU-AI.png"
         }
       ]
@@ -1251,7 +1251,7 @@
       ],
       "NGUOI_DAY": [
         {
-          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "url": "SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
           "name": "ROBOT-GIA-SU-AI.png"
         }
       ]
@@ -1503,11 +1503,13 @@
       ],
       "NGUOI_DAY": [
         {
-          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "url": "SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
           "name": "ROBOT-GIA-SU-AI.png"
         }
       ]
-    }
+    },
+    "HE_CANBO": "he",
+    "HIS_CANBO": "his"
   },
   {
     "name": "san-bay-bien-the-07-daughter",
@@ -1753,11 +1755,13 @@
       ],
       "NGUOI_DAY": [
         {
-          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "url": "SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
           "name": "ROBOT-GIA-SU-AI.png"
         }
       ]
-    }
+    },
+    "HE_CANBO": "he",
+    "HIS_CANBO": "his"
   },
   {
     "name": "san-bay-bien-the-08-daughter",
@@ -2003,11 +2007,13 @@
       ],
       "NGUOI_DAY": [
         {
-          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "url": "SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
           "name": "ROBOT-GIA-SU-AI.png"
         }
       ]
-    }
+    },
+    "HE_CANBO": "he",
+    "HIS_CANBO": "his"
   },
   {
     "name": "san-bay-bien-the-09-daughter",
@@ -2253,11 +2259,13 @@
       ],
       "NGUOI_DAY": [
         {
-          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "url": "SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
           "name": "ROBOT-GIA-SU-AI.png"
         }
       ]
-    }
+    },
+    "HE_CANBO": "he",
+    "HIS_CANBO": "his"
   },
   {
     "name": "san-bay-bien-the-10-daughter",
@@ -2503,11 +2511,13 @@
       ],
       "NGUOI_DAY": [
         {
-          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "url": "SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
           "name": "ROBOT-GIA-SU-AI.png"
         }
       ]
-    }
+    },
+    "HE_CANBO": "he",
+    "HIS_CANBO": "his"
   },
   {
     "name": "san-bay-bien-the-11-brother",
@@ -2753,11 +2763,13 @@
       ],
       "NGUOI_DAY": [
         {
-          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "url": "SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
           "name": "ROBOT-GIA-SU-AI.png"
         }
       ]
-    }
+    },
+    "HE_CANBO": "he",
+    "HIS_CANBO": "his"
   },
   {
     "name": "san-bay-bien-the-12-brother",
@@ -3003,11 +3015,13 @@
       ],
       "NGUOI_DAY": [
         {
-          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "url": "SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
           "name": "ROBOT-GIA-SU-AI.png"
         }
       ]
-    }
+    },
+    "HE_CANBO": "he",
+    "HIS_CANBO": "his"
   },
   {
     "name": "san-bay-bien-the-13-brother",
@@ -3253,11 +3267,13 @@
       ],
       "NGUOI_DAY": [
         {
-          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "url": "SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
           "name": "ROBOT-GIA-SU-AI.png"
         }
       ]
-    }
+    },
+    "HE_CANBO": "he",
+    "HIS_CANBO": "his"
   },
   {
     "name": "san-bay-bien-the-14-brother",
@@ -3503,11 +3519,13 @@
       ],
       "NGUOI_DAY": [
         {
-          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "url": "SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
           "name": "ROBOT-GIA-SU-AI.png"
         }
       ]
-    }
+    },
+    "HE_CANBO": "he",
+    "HIS_CANBO": "his"
   },
   {
     "name": "san-bay-bien-the-15-brother",
@@ -3753,11 +3771,13 @@
       ],
       "NGUOI_DAY": [
         {
-          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "url": "SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
           "name": "ROBOT-GIA-SU-AI.png"
         }
       ]
-    }
+    },
+    "HE_CANBO": "he",
+    "HIS_CANBO": "his"
   },
   {
     "name": "san-bay-bien-the-16-husband",
@@ -4003,11 +4023,13 @@
       ],
       "NGUOI_DAY": [
         {
-          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "url": "SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
           "name": "ROBOT-GIA-SU-AI.png"
         }
       ]
-    }
+    },
+    "HE_CANBO": "he",
+    "HIS_CANBO": "his"
   },
   {
     "name": "san-bay-bien-the-17-husband",
@@ -4253,11 +4275,13 @@
       ],
       "NGUOI_DAY": [
         {
-          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "url": "SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
           "name": "ROBOT-GIA-SU-AI.png"
         }
       ]
-    }
+    },
+    "HE_CANBO": "he",
+    "HIS_CANBO": "his"
   },
   {
     "name": "san-bay-bien-the-18-husband",
@@ -4503,11 +4527,13 @@
       ],
       "NGUOI_DAY": [
         {
-          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "url": "SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
           "name": "ROBOT-GIA-SU-AI.png"
         }
       ]
-    }
+    },
+    "HE_CANBO": "he",
+    "HIS_CANBO": "his"
   },
   {
     "name": "san-bay-bien-the-19-husband",
@@ -4753,11 +4779,13 @@
       ],
       "NGUOI_DAY": [
         {
-          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
+          "url": "SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
           "name": "ROBOT-GIA-SU-AI.png"
         }
       ]
-    }
+    },
+    "HE_CANBO": "he",
+    "HIS_CANBO": "his"
   },
   {
     "name": "san-bay-bien-the-20-husband",
@@ -5003,10 +5031,12 @@
       ],
       "NGUOI_DAY": [
         {
-          "url": "file:///D:/Develop/Nexax/LUO-Studio/LUO-Studio/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI.png",
-          "name": "ROBOT-GIA-SU-AI.png"
+          "url": "file:///D:/Work/Tools/luo-studio-main/luo-studio-main/SAMPLE/san-bay-gia-su-ai/ROBOT-GIA-SU-AI-20.png",
+          "name": "ROBOT-GIA-SU-AI-20.png"
         }
       ]
-    }
+    },
+    "HE_CANBO": "he",
+    "HIS_CANBO": "his"
   }
 ]

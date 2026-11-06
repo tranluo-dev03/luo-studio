@@ -1,0 +1,101 @@
+[HAU KY]:
+loai: du-lich-chia-doi-gia-su-ai
+
+[GHI CHU]:
+Thể loại "du lịch + chia đôi màn hình gia sư AI" (video mẫu: 2310_face to face ES_005_2, 30,2 giây, tiếng Tây Ban Nha xen câu tiếng Anh). MỘT dự án, 2 phần,
+  Studio chạy bằng code riêng app/production/types/du-lich-chia-doi-gia-su-ai/gen.py (khai báo ở khối [HAU KY]).
+  PHẦN 1 (cảnh thường, 3 cảnh, 0:00–0:07,8): robot trắng (ROBOT) đứng mép TRÁI, nhìn nghiêng sang phải về phía Carla (HOC) đứng nửa PHẢI, nhìn nghiêng
+         về phía đỉnh núi Machu Picchu lúc hoàng hôn; một khung, camera đứng yên. Carla hỏi, robot trả lời, Carla quay đầu sang robot hỏi "¿Cómo?".
+  PHẦN 2 (ghép 2 lớp, 9 lượt, 0:07,8–0:30): màn hình chia đôi DỌC như gọi video: robot (DAY) nửa TRÁI nền xanh than tím,
+         Carla ngồi sofa phòng khách cầm cốc nửa PHẢI. Gen RIÊNG từng nhân vật 9:16 rồi cắt DẢI GIỮA (nửa bề ngang). Vào phần 2: nhoè 0,5 giây.
+  Robot: MỘT robot cho cả hai phần (ảnh AI người dùng anh/ai-robot.png, không tai nghe); khoá ROBOT ở phần 1, DAY ở phần 2, cùng mô tả và giọng. Carla dùng chung khoá HOC.
+  Lượt thoại: mảng LUOT chung, mỗi lượt có "phan": 1 hoặc 2 (lượt phần 1 đứng trước). Phần 1 cần đúng 3 lượt (= 3 CẢNH).
+  Hậu kỳ riêng (post.py): phần 1 phụ đề trên cao (Carla chữ xanh dương, robot chữ vàng, trên ô đen); phần 2 phụ đề giữa khung (AI chữ vàng, Carla chữ trắng),
+         câu sai chữ đỏ + ❌ + viền đỏ ở nửa phải; câu nói lại đúng ✅ + viền xanh; cụm tiếng Anh đúng tô xanh lá ("to").
+  Logo "Aiva AI" góc trên trái của video mẫu: BỎ (không gen, không Thương hiệu) theo yêu cầu người dùng.
+  Ảnh tham chiếu: CHỈ ảnh AI người dùng cung cấp (anh/ai-robot.png, anh/ai-carla.png); KHÔNG cắt ảnh từ video mẫu.
+Các dòng "===== PHAN n: ... =====" chia phần; mọi thứ phía trên dòng chia phần đầu tiên không gửi cho Muse.
+
+===== PHAN 1: MACHU PICCHU (CANH THUONG) =====
+
+[STYLE LOCK]:
+Vertical 9:16 photorealistic cinematic video, one fixed static camera at chest height, a single frame (no split screen, no overlay, no inset window). Golden-hour light at Machu Picchu: warm low sun from the right, dramatic orange-and-grey clouds in the sky. Medium shot of two figures facing each other: the ROBOT ({{TEN_ROBOT}}) on the {{POS_ROBOT}} edge of the frame, seen in right-side profile from the head down to the hips, its left shoulder and arm partly cut by the left frame edge, face pointing right toward the woman; the WOMAN ({{TEN_HOC}}) on the {{POS_HOC}} half, seen from the waist up in a three-quarter left profile, her face large, clear and well lit, turned toward the centre of the frame. Between them, in the middle distance, the Huayna Picchu peak rises above the stone terraces and ruins with mist in the valley. Same camera, framing and light in every clip. No text, no letters, no logos, no captions anywhere in the frame.
+
+[CHAR LOCK]:
+The {{VAI_ROBOT}}, {{TEN_ROBOT}} ({{POS_ROBOT}}): {{NGUOI_ROBOT}}. Same robot in every clip, its two hands loosely clasped in front of its waist. VOICE LOCK ROBOT: one single voice, {{GIONG_ROBOT}}, same timbre and pitch in every clip.
+The {{VAI_HOC}}, {{TEN_HOC}} ({{POS_HOC}}): {{NGUOI_HOC}}. She stands with both hands in the pockets of the mustard coat. Same face, hair and clothes in every clip. VOICE LOCK WOMAN: one single voice, {{GIONG_HOC}}, same timbre and pitch in every clip.
+EYE LINE: the robot always looks at the woman's face ({{NHIN_ROBOT}}); the woman {{NHIN_HOC}}, unless a clip's action turns her head. Nobody looks into the lens.
+When silent, the robot {{NGHE_ROBOT}}; when silent, the woman {{NGHE_HOC}}.
+RULE: in each clip exactly ONE character speaks one line with clear lip-sync; the other is silent the whole clip with the mouth closed.
+
+[SET LOCK]:
+Behind and between them: {{NEN_CANH}}. The clouds and mist stay still; nobody else is in the frame; nothing in the background moves.
+
+[VIDEO SUFFIX]:
+Static camera, no zoom, no pan, no shake, no cut. The speaker starts talking right away in natural Latin American Spanish at an easy conversational pace (about 3 words per second, short lines up to 3.8) and finishes the line promptly. After the last word both characters keep a calm closed-mouth face and stay still until the end of the clip in the pose reached at the end of the line. Real people caught on camera, not actors. Soft outdoor ambience only, no music. 9:16.
+
+[NEGATIVE]:
+text, captions, subtitles, logos, icons, watermark, letters; split screen, overlay, inset window; anyone looking into the lens; the robot opening its lips in a clip where the woman speaks; handheld or moving camera, zoom, shake; two voices in one clip; the silent character moving the mouth; a third person; face, hair, coat or robot design changing; the woman's hands leaving the coat pockets; the robot walking or waving; background music; robotic text-to-speech voice; slow, dragged speech; movement during the final still.
+
+CẢNH 1 (0:00–0:02): Lượt 1
+Bối cảnh: một khung duy nhất ở Machu Picchu lúc hoàng hôn; robot mép trái nhìn nghiêng sang phải về phía Carla, Carla đứng nửa phải nhìn về đỉnh núi giữa khung; không chữ.
+Voice: (Spanish, chỉ một người nói trong clip này) {{LUOT_1}}
+Khung đầu: Khung hoàn chỉnh: robot {{NGUOI_ROBOT}} đứng mép trái (vai trái bị mép khung cắt), nhìn nghiêng sang phải về phía Carla, hai tay đan trước bụng; Carla {{NGUOI_HOC}} đứng nửa phải, hai tay đút túi áo khoác, mặt nghiêng ba phần tư sang trái nhìn lên đỉnh núi, mỉm cười; giữa hai người là {{NEN_CANH}}. Hai người miệng khép.
+Khung cuối: Carla vẫn nhìn về đỉnh núi, mỉm cười, miệng khép; robot nhìn Carla; khung này là khung đầu của cảnh sau.
+Diễn biến: Carla nhìn đỉnh núi, mỉm cười hào hứng, vừa nói vừa hơi ngẩng cằm như đang mơ màng. Robot im, miệng khép, nhìn Carla. Nói xong cả hai đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, photorealistic, a single frame with no split screen. Golden-hour at Machu Picchu, warm low sun from the right, dramatic orange-and-grey clouds. On the left edge of the frame stands {{NGUOI_ROBOT}}, seen in right-side profile from the head down to the hips, its left shoulder and arm partly cut by the left frame edge, hands loosely clasped in front of its waist, its face pointing right toward the woman. On the right half stands {{NGUOI_HOC}}, framed from the waist up, both hands in the pockets of the mustard coat, her face in a three-quarter left profile turned toward the centre of the frame, looking up at the peak with a soft smile, her face large, clear and well lit. Between them in the middle distance: {{NEN_CANH}}. Mouths closed. Nobody looks into the lens. No text, no logos, no letters anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image. CHAR LOCK. In this clip: {{LUOT_1}} Only the woman speaks, with clear lip-sync, gazing up at the peak with a dreamy, excited smile; the robot keeps the mouth closed and looks at her. After the line both stay still until the end. VIDEO SUFFIX.
+Audio: Chỉ giọng Carla, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc.
+Negative prompt: two voices; the robot moving its mouth; text or captions; split screen; looking into the lens; camera movement.
+
+CẢNH 2 (0:02–0:06): Lượt 2
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và bối cảnh; không chữ.
+Voice: (Spanish, chỉ một người nói trong clip này) {{LUOT_2}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Robot nhìn Carla, miệng khép; Carla vẫn nhìn về đỉnh núi, nụ cười tắt dần thành vẻ suy nghĩ, miệng khép; khung này là khung đầu của cảnh sau.
+Diễn biến: Robot nói, đầu và tay giữ yên, chỉ đôi môi sứ mở-khép rõ theo lời. Carla im suốt clip: môi mím, mắt mở nhìn đỉnh núi, đầu không động, nụ cười tắt dần thành vẻ suy nghĩ; không bắt chước nét mặt/động tác của robot. Nói xong cả hai đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. The woman on the RIGHT is silent for this whole clip: her lips stay pressed together from the first frame to the last, her eyes stay open on the peak, her head does not move, and her smile only fades slowly into a thoughtful look; she does not copy the robot's face or movements. In this clip: {{LUOT_2}} The voice comes only from the robot on the LEFT edge: its porcelain lips open and close in clear sync with every word while its head and clasped hands stay still. After the line both stay still until the end. VIDEO SUFFIX.
+Audio: Chỉ giọng robot, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc.
+Negative prompt: two voices; the woman moving her lips, mouthing the words or closing her eyes; the woman copying the robot's movements or expressions; text or captions; split screen; looking into the lens; camera movement.
+
+CẢNH 3 (0:06–0:08): Lượt 3
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và bối cảnh; không chữ.
+Voice: (Spanish, chỉ một người nói trong clip này) {{LUOT_3}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Carla đã quay đầu sang trái nhìn thẳng mặt robot, lông mày nhíu, miệng khép; robot nhìn Carla; kết thúc Phần 1.
+Diễn biến: Ngay đầu clip Carla quay đầu sang trái nhìn robot, vừa quay vừa hỏi, mặt ngạc nhiên khó hiểu, lông mày nhíu. Robot im, miệng khép, nhìn Carla. Nói xong cả hai đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_3}} Only the woman speaks, with clear lip-sync. ACTION, done WHILE the line is spoken and complete by the last word: she turns her head to the left to look straight at the robot's face, puzzled, eyebrows drawn together; her hands stay in the coat pockets. The robot keeps the mouth closed and looks at her. After the line both stay still until the end. VIDEO SUFFIX.
+Audio: Chỉ giọng Carla, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc.
+Negative prompt: two voices; the robot moving its mouth; text or captions; split screen; looking into the lens; camera movement.
+
+===== PHAN 2: GOI VIDEO VOI GIA SU AI (GHEP 2 LOP, CHIA DOI) | vao: nhoe 0.5 =====
+
+[GHEP HAI LOP]:
+nen: HOC
+khung HOC: 0.5, 0, 0.5, 1
+khung DAY: 0, 0, 0.5, 1
+bo goc: 0
+vien: khong
+noi: lien
+nghe: moi canh
+
+[STYLE LOCK]:
+Vertical short-form social video look, crisp focus on the face, realistic skin, hair and fabric detail for the real person, glossy clean high-end CGI for the robot. The frame is later cut to a TALL NARROW SLICE: only the middle half of the width is kept, the left and right quarters are cropped away, so everything important stays inside the middle half of the width. No text, captions, logos, icons or watermarks anywhere in the frame.
+
+[NHAN VAT HOC]:
+{{TEN_HOC}}: {{NGUOI_HOC}}. The reference photo shows only the face, hair and clothing: its plain grey background and standing pose are NOT part of the scene. Sitting on a sofa in a cosy living room, facing the camera straight on, framed from the top of the head down to the knees, perfectly centred left-right: the head, shoulders, face and the mug stay inside the middle half of the frame width. The top of the head is at about one quarter of the frame height, the face in the upper third. {{DAO_COC}} The camera is a phone propped up at eye level, locked off: no arm and no phone in the frame, nobody holds the camera. {{TEN_HOC}} looks straight into the lens, as if on a video call with the AI tutor. Behind: {{NEN_HOC}}. While speaking: natural facial expressions, raised eyebrows, small head tilts, a quick glance up and to the side when searching for an English word, then back to the lens. VOICE: {{GIONG_HOC}}, the same timbre, pitch and loudness in every clip.
+
+[NGHE HOC]:
+{{TEN_HOC}} listens to the AI tutor: friendly attentive expression, eyes on the lens, slow natural blinks, a small nod now and then, the mug held still at chest height. The lips stay gently pressed together the whole clip; the head stays mostly still apart from that small nod.
+
+[NHAN VAT DAY]:
+{{TEN_DAY}}: {{NGUOI_DAY}}. The reference photo shows only the robot's design: its white backdrop and glowing halo ring are NOT part of the scene. Portrait frame, a medium shot with empty dark background on both sides: the robot faces the camera, perfectly centred left-right, seen from a small gap above the head down to the waist; the head is about one third of the frame width and the shoulders about the middle half of the width (the left and right quarters of the frame show only the dark backdrop), the top of the head at about one sixth of the frame height, the eyes at about one quarter, the chin at about one third, the chest plates below. The robot keeps exactly this size in the frame in every clip; never a close-up of the face. Behind it: {{NEN_DAY}}. The camera is locked off and never moves. The robot looks straight into the lens. While speaking it moves its lips in clear sync with the words, with small head tilts, a warm smile and slow blinks, like a patient, friendly teacher. VOICE: {{GIONG_DAY}}, the same timbre, pitch and loudness in every clip.
+
+[NGHE DAY]:
+{{TEN_DAY}} listens calmly: looking into the lens, a gentle closed-mouth smile, slow blinks, a tiny head tilt now and then. The lips stay gently pressed together the whole clip; the head stays mostly still apart from that small tilt.
+
+[VIDEO SUFFIX]:
+Natural spontaneous conversational delivery, not text-to-speech, not an announcer. Both speak natural Mexican Spanish and switch to English only for the English words in the line. The tutor talks clearly and warmly, about 3 words per second (short questions up to 3.8); the learner speaks a little slower, with small hesitations like "eh" when unsure of the English. The line starts right away, light natural breaths, a smile audible in the voice when the line is positive. Clean close voice like a video call in a quiet living room, no music, no background sound, no echo.
+
+[NEGATIVE]:
+text, letters, captions, subtitles, logos, icons, watermark; phone or app interface in the frame; split screen or picture-in-picture inside the clip; a second person; hands, arms or a phone coming into the frame; camera cuts, zoom, push-in, pan, shake; the subject drifting off-centre or toward the side edges; face morphing, outfit change, hair change, age drift; distorted face; extra fingers; jerky or exaggerated gestures; hands touching the face or hair; the mug vanishing or changing hands; a toy robot, figurine or any robot in the living room; an extreme close-up of the robot's face; slow, dragged or stretched speech; flat monotone, robotic or announcer voice; background music; echo or reverb
