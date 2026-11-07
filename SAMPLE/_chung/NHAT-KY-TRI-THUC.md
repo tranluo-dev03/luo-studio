@@ -259,3 +259,21 @@ Người dùng báo 6 lỗi; nguyên nhân đã chứng minh bằng số đo tr�
   phụ đề y 1560 nằm ngang ngực ở cả hai phần, không che mặt; viền đỏ cảnh "I am very hurry", icon ✓ / ✗ / $ đúng chỗ.
 - Kết quả: ĐẠT (sửa 1, 2, 3 xác nhận). Còn khác mẫu: dài ~1,6 lần mẫu; lời thoại vẫn gọi app "LangLearn".
 - Áp dụng chung?: xem các mục sửa 1–3. Đã chưng cất vào: chưa.
+
+### 2026-11-06 · (chung) · thử nghiệm độ dài prompt Muse · loai: muse
+- Hiện tượng: prompt video Studio gửi Muse cho một cảnh 4 giây ("Yes, it is.", soi hành lý) dài ~1.800–2.100 từ: khối Voice lặp 3 lần
+  (trường Voice, chép lại trong Prompt video, Studio ghép thêm "Spoken audio"), CHAR LOCK tả cả người ngoài khung, >60 mệnh lệnh phủ định.
+- Cách làm: A/B cùng cảnh 2, cùng khung đầu, 3 độ dài (A đầy đủ ~2.090 từ / B rút gọn ~470 / C tối giản ~180), mỗi độ dài 3 người khác nhau
+  (biến thể 02,05,08 / 01,04,07 / 03,06,09), chấm bằng Whisper + đo chuyển động (`userdata/thu-nghiem-prompt/`).
+- Kết quả: A gen 116/151/168 s, lời đúng 2/3, 2/3 lần tay áo cảnh sát (người ngoài khung) lọt vào mép; B gen 44–82 s, đúng 2/3, không lỗi hình;
+  C gen 41–131 s, đúng 3/3, bắt đầu nói ở 0,0 s cả 3 lần, chuyển động đều. ĐẠT (xu hướng nhất quán; chỉ 3 mẫu/nhóm nên chênh nhỏ chưa chắc).
+- Áp dụng chung?: CÓ: viết khoá ngắn, câu khẳng định, chỉ tả người có trong khung, không lặp Voice/hành động; bỏ chữ đánh dấu "STYLE LOCK, SET LOCK, CHAR LOCK, VIDEO SUFFIX"
+  trong Prompt video (Studio tự ghép khối khoá, chữ đánh dấu chỉ là nhiễu).
+- Đã chưng cất vào: chưa. 07/11/2026: người dùng quyết định không chuyển kịch bản sang bản rút gọn; bản thử trong SAMPLE/canh-sat-gia-su-ai đã gỡ, kết luận A/B giữ lại làm tham khảo.
+
+### 2026-11-06 · (chung) · Muse trả lại video cũ · loai: muse
+- Hiện tượng: gửi cùng ảnh khung đầu + prompt gần giống (khác hội thoại Muse, khác session LUO-API) → Muse trả đúng video cũ (cùng md5) sau ~20 s, không gen mới.
+  Đổi 1 điểm ảnh vẫn trúng; đổi hẳn nội dung prompt (hành động khác) mới gen mới (114 s). Dọn media tài khoản (admin cleanup) có thể phá đệm nhưng xoá hội thoại trên Muse.
+- Nguyên nhân: Muse có bộ nhớ đệm theo nội dung (ảnh + ý prompt), không theo byte.
+- Hệ quả: "gen lại cảnh" cùng khung đầu, prompt chỉ thêm ghi chú sửa ngắn có thể nhận lại đúng clip lỗi. CHỜ KIỂM CHỨNG trong Studio (so md5 clip gen lại với clip cũ).
+- Áp dụng chung?: CÓ. Đã chưng cất vào: chưa.
