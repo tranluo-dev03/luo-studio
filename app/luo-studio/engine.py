@@ -198,20 +198,126 @@ def set_prompt_prefix(opts):
     _TL.prompt_prefix = MEDIA_DIRECTIVE if (opts or {}).get("muse_directive", True) else ""
 
 
+def log_exc(tag):
+    """Ghi traceback của lỗi đang xử lý vào userdata/logs/studio-loi.log (Studio chỉ hiện một dòng lỗi gọn; lỗi lạ như '[WinError 32] file đang
+    được dùng' cần biết dòng nào ném ra). Gọi trong khối except. Không bao giờ ném lỗi."""
+    try:
+        import traceback
+        data = os.environ.get("LUO_STUDIO_DATA") or os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+        d = os.path.join(os.path.dirname(data), "logs")
+        os.makedirs(d, exist_ok=True)
+        with open(os.path.join(d, "studio-loi.log"), "a", encoding="utf-8") as f:
+            f.write(f"\n==== {time.strftime('%Y-%m-%d %H:%M:%S')} {tag} [luồng {threading.current_thread().name}]\n{traceback.format_exc()}")
+    except Exception:  # noqa: BLE001
+        pass
+
+
+# ------------------------------------------------------------------ hậu kỳ theo số nhân máy
+# Đo 07/11/2026 (Ryzen 5 5500, 6 nhân): 8 video chạy song song thì ffmpeg mã hoá cảnh (libx264 dùng hết mọi nhân) chen nhau đẩy CPU lên
+# 100%, Chromium của LUO-API bị xếp sau nên khoảng trống giữa hai lệnh gen tăng từ ~35 s lên ~110 s dù Muse vẽ không chậm đi. Vì vậy:
+#  - mã hoá từng cảnh: tối đa ENC_MAX ffmpeg cùng lúc (mặc định nửa số nhân), cảnh thứ ENC_MAX+1 chờ vài giây;
+#  - ráp cuối + hậu kỳ cả video: tối đa ASM_MAX video cùng lúc (mặc định một phần tư số nhân) vì không chặn cảnh nào;
+#  - mọi ffmpeg mã hoá chạy ở ưu tiên thấp hơn bình thường, để Chromium/Python luôn có nhân khi cần.
+# Ép số bằng biến môi trường LUO_FFMPEG_SCENE / LUO_FFMPEG_ASM / LUO_CPU_CORES (0 = tự tính theo nhân).
+
+
+def _env_int(name, default):
+    try:
+        v = int(os.environ.get(name, "") or 0)
+    except ValueError:
+        v = 0
+    return v if v > 0 else default
+
+
+def _phys_cores():
+    """Số nhân THẬT (os.cpu_count() đếm cả siêu phân luồng: Ryzen 5 5500 báo 12 nhưng chỉ có 6 nhân, libx264 không nhanh hơn với 12)."""
+    try:
+        if os.name == "nt":
+            r = subprocess.run(["powershell", "-NoProfile", "-Command", "(Get-CimInstance Win32_Processor | Measure-Object NumberOfCores -Sum).Sum"],
+                               capture_output=True, text=True, timeout=15, creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+            n = int((r.stdout or "").strip() or 0)
+        else:
+            ids = set()
+            for blk in open("/proc/cpuinfo", encoding="utf-8", errors="ignore").read().split("\n\n"):
+                kv = dict(ln.split(":", 1) for ln in blk.splitlines() if ":" in ln)
+                if "core id" in kv:
+                    ids.add((kv.get("physical id", "0").strip(), kv["core id"].strip()))
+            n = len(ids)
+        if n > 0:
+            return n
+    except Exception:  # noqa: BLE001
+        pass
+    return os.cpu_count() or 4
+
+
+_NCPU = _env_int("LUO_CPU_CORES", _phys_cores())
+ENC_MAX = _env_int("LUO_FFMPEG_SCENE", max(1, _NCPU // 2))        # 6 nhân -> 3, 16 -> 8, 32 -> 16
+ASM_MAX = _env_int("LUO_FFMPEG_ASM", max(1, (_NCPU + 2) // 4))    # 6 nhân -> 2, 16 -> 4, 32 -> 8
+_ENC_SEM = threading.BoundedSemaphore(ENC_MAX)
+_ASM_SEM = threading.BoundedSemaphore(ASM_MAX)
+_LOW_PRIO = {"creationflags": subprocess.BELOW_NORMAL_PRIORITY_CLASS} if os.name == "nt" else {"preexec_fn": lambda: os.nice(5)}
+
+
+def _is_encode(cmd):
+    return bool(cmd) and os.path.basename(str(cmd[0])).lower().startswith("ffmpeg") and "libx264" in cmd
+
+
+def _acquire(sem, cx):
+    """Chờ đến lượt, vẫn huỷ được khi người dùng bấm Dừng."""
+    while not sem.acquire(timeout=0.3):
+        if cx is not None and cx.is_set():
+            raise Cancelled()
+
+
+class assembly_slot:
+    """`with assembly_slot(on_wait):` quanh ráp cuối / hậu kỳ cả video. Trong lúc giữ chỗ, các ffmpeg bên trong không xếp hàng cửa
+    mã hoá cảnh nữa (đã bị giới hạn bằng ASM_MAX). on_wait() được gọi một lần nếu phải chờ video khác ráp xong."""
+
+    def __init__(self, on_wait=None):
+        self.on_wait = on_wait
+
+    def __enter__(self):
+        if not _ASM_SEM.acquire(blocking=False):
+            if self.on_wait:
+                try:
+                    self.on_wait()
+                except Exception:  # noqa: BLE001
+                    pass
+            _acquire(_ASM_SEM, getattr(_TL, "cancel", None))
+        _TL.asm = getattr(_TL, "asm", 0) + 1
+        return self
+
+    def __exit__(self, *a):
+        _TL.asm = max(0, getattr(_TL, "asm", 1) - 1)
+        _ASM_SEM.release()
+        return False
+
+
 def crun(cmd, capture_output=False, text=False, encoding=None, errors=None, **kw):
-    """subprocess.run có thể huỷ: nếu luồng hiện tại có cờ huỷ (set trong run_variant) thì kill tiến trình và ném Cancelled."""
+    """subprocess.run có thể huỷ: nếu luồng hiện tại có cờ huỷ (set trong run_variant) thì kill tiến trình và ném Cancelled.
+    ffmpeg mã hoá (libx264) đi qua cửa ENC_MAX (trừ khi đang trong assembly_slot) và chạy ở ưu tiên thấp."""
     kw.pop("check", None)
-    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=text, encoding=encoding, errors=errors, **kw)
     cx = getattr(_TL, "cancel", None)
-    while True:
-        try:
-            out, err = proc.communicate(timeout=0.3)
-            return subprocess.CompletedProcess(cmd, proc.returncode, out, err)
-        except subprocess.TimeoutExpired:
-            if cx is not None and cx.is_set():
-                proc.kill()
-                proc.communicate()
-                raise Cancelled()
+    enc = _is_encode(cmd)
+    gate = enc and not getattr(_TL, "asm", 0)
+    if enc:
+        kw = {**_LOW_PRIO, **kw}
+    if gate:
+        _acquire(_ENC_SEM, cx)
+    try:
+        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=text, encoding=encoding, errors=errors, **kw)
+        while True:
+            try:
+                out, err = proc.communicate(timeout=0.3)
+                return subprocess.CompletedProcess(cmd, proc.returncode, out, err)
+            except subprocess.TimeoutExpired:
+                if cx is not None and cx.is_set():
+                    proc.kill()
+                    proc.communicate()
+                    raise Cancelled()
+    finally:
+        if gate:
+            _ENC_SEM.release()
 
 
 def interruptible(fn, cancel):
@@ -852,22 +958,62 @@ for line in sys.stdin:
     segs = list(segs)
     print(json.dumps({"text": [s.text for s in segs], "words": [(w.word, w.start, w.end) for s in segs for w in (s.words or [])]}), flush=True)
 """
-_WP = None
-_WP_LINES = None
-_WH_LOCK = threading.Lock()
+# Nhiều tiến trình Whisper chạy song song (trước đây một tiến trình + khoá chung: 8 video song song thì mỗi lần nghe lời phải chờ tới 8 x 2.5 s).
+# Mỗi tiến trình ~600 MB RAM, nạp lần đầu ~50 s; chỉ mở thêm khi mọi tiến trình đang bận, tối đa LUO_WHISPER_WORKERS (mặc định 3).
+_WH_MAX = max(1, int(os.environ.get("LUO_WHISPER_WORKERS", "3") or 3))
+_WH_POOL = []   # [{"p": Popen | None, "q": Queue, "busy": bool}]
+_WH_COND = threading.Condition()
 
 
-def _wp_read(timeout):
+def _wp_read(w, timeout):
     import queue
     try:
-        line = _WP_LINES.get(timeout=timeout)
+        line = w["q"].get(timeout=timeout)
     except queue.Empty:
         line = None
     if line is None:
-        rc = _WP.poll()
-        _WP.kill()
+        rc = w["p"].poll()
+        w["p"].kill()
         raise RuntimeError("nhận dạng giọng " + (f"bị tắt đột ngột (mã 0x{rc & 0xFFFFFFFF:08X}; chạy 'Chan doan.bat' để kiểm tra)" if rc is not None else "không phản hồi"))
     return line
+
+
+def _wh_start(w):
+    """Bật (lại) tiến trình Whisper cho ô `w` của bể và chờ nó báo sẵn sàng."""
+    import queue
+    w["p"] = subprocess.Popen([sys.executable, "-I", "-W", "ignore", "-c", _WHISPER_WORKER], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                              stderr=subprocess.DEVNULL, text=True, encoding="utf-8", errors="replace",
+                              creationflags=0x08000000 if os.name == "nt" else 0)
+    w["q"] = queue.Queue()
+
+    def pump(out, q):
+        for ln in out:
+            q.put(ln)
+        q.put(None)
+    threading.Thread(target=pump, args=(w["p"].stdout, w["q"]), daemon=True).start()
+    while _wp_read(w, 900).strip() != "ready":   # lần đầu có thể phải tải mô hình (~250 MB)
+        pass
+
+
+def _wh_acquire():
+    """Lấy một tiến trình Whisper đang rảnh; chưa có thì mở thêm (tối đa _WH_MAX); đủ rồi thì chờ tiến trình nào xong trước."""
+    with _WH_COND:
+        while True:
+            for w in _WH_POOL:
+                if not w["busy"]:
+                    w["busy"] = True
+                    return w
+            if len(_WH_POOL) < _WH_MAX:
+                w = {"p": None, "q": None, "busy": True}
+                _WH_POOL.append(w)
+                return w
+            _WH_COND.wait(0.5)
+
+
+def _wh_release(w):
+    with _WH_COND:
+        w["busy"] = False
+        _WH_COND.notify()
 
 
 _ES_MARK = re.compile(r"[¿¡ñáéíóú]", re.I)
@@ -892,28 +1038,18 @@ def _deaccent(s):
 
 def _transcribe(wav, words, lang="en"):
     """{'text': [...], 'words': [(từ, bắt đầu, kết thúc)]} của file wav 16 kHz mono, qua tiến trình Whisper riêng. lang: 'en' (small.en) hoặc mã ngôn ngữ khác (small)."""
-    global _WP, _WP_LINES
-    import queue
-    with _WH_LOCK:
-        if _WP is None or _WP.poll() is not None:
-            _WP = subprocess.Popen([sys.executable, "-I", "-W", "ignore", "-c", _WHISPER_WORKER], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-                                   stderr=subprocess.DEVNULL, text=True, encoding="utf-8", errors="replace",
-                                   creationflags=0x08000000 if os.name == "nt" else 0)
-            _WP_LINES = queue.Queue()
-
-            def pump(out, q):
-                for ln in out:
-                    q.put(ln)
-                q.put(None)
-            threading.Thread(target=pump, args=(_WP.stdout, _WP_LINES), daemon=True).start()
-            while _wp_read(900).strip() != "ready":   # lần đầu có thể phải tải mô hình (~250 MB)
-                pass
-        _WP.stdin.write(json.dumps({"wav": os.path.abspath(wav), "words": words, "lang": lang or "en"}) + "\n")
-        _WP.stdin.flush()
+    w = _wh_acquire()
+    try:
+        if w["p"] is None or w["p"].poll() is not None:
+            _wh_start(w)
+        w["p"].stdin.write(json.dumps({"wav": os.path.abspath(wav), "words": words, "lang": lang or "en"}) + "\n")
+        w["p"].stdin.flush()
         while True:
-            ln = _wp_read(300).strip()
+            ln = _wp_read(w, 300).strip()
             if ln.startswith("{"):
                 return json.loads(ln)
+    finally:
+        _wh_release(w)
 
 
 def voice_span(path, expected):
@@ -1054,7 +1190,9 @@ def speech_end_of(path):
     return st[-1] if st and (len(en) < len(st) or en[-1] >= total - 0.06) else total
 
 
-_MP_LOCK = threading.Lock()
+# mediapipe: trước đây một khoá chung nên mọi video chạy song song phải xếp hàng dò miệng từng cảnh. Mỗi lần gọi đã tạo bộ dò riêng (0.02 s khi
+# đã ấm, 1-2 s một cảnh) nên chạy song song được; chỉ chặn số lượt cùng lúc theo số nhân CPU để không giành hết CPU của ffmpeg (07/11/2026).
+_MP_LOCK = threading.BoundedSemaphore(max(2, (os.cpu_count() or 4) // 2))
 _FACE_BOX = {"LEFT": (0.0, 0.0, 0.62, 0.62), "RIGHT": (0.55, 0.12, 1.0, 0.62),
              "TOP": (0.12, 0.0, 0.88, 0.38), "BOTTOM": (0.0, 0.40, 0.9, 0.92)}   # TOP/BOTTOM: bố cục khung gia sư ngang ở trên, người học ở dưới
 
@@ -2189,6 +2327,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
             except Cancelled:
                 raise
             except Exception as ex:  # noqa: BLE001
+                log_exc(f"voice_span cảnh {n}")
                 emit("log", msg=f"Cảnh {n}: không xác định được mốc lời nói, cắt theo cách thường ({ex})", level="warn")
             if span:
                 emit("log", msg=f"Cảnh {n}: lời nói từ {span[0]:.2f}s đến {span[1]:.2f}s trong clip {duration(vid_f):.1f}s; cắt sát, chừa ~{margin:.2f}s")
@@ -2290,7 +2429,13 @@ def scene_fx(f):
 
 
 def concat_clips(clips, out_dir, emit, fx=None):
-    """Ghép các clip cảnh (đã cắt) thành raw.mp4. fx: danh sách scene_fx() song song với clips (chớp sáng chuyển cảnh, lớp phủ camera)."""
+    """Ghép các clip cảnh (đã cắt) thành raw.mp4. fx: danh sách scene_fx() song song với clips (chớp sáng chuyển cảnh, lớp phủ camera).
+    Tối đa ASM_MAX video ráp cùng lúc (xem assembly_slot)."""
+    with assembly_slot(lambda: emit("log", msg=f"Chờ đến lượt ráp video (tối đa {ASM_MAX} video ráp cùng lúc trên máy {_NCPU} nhân)")):
+        return _concat_clips(clips, out_dir, emit, fx)
+
+
+def _concat_clips(clips, out_dir, emit, fx=None):
     raw = os.path.join(out_dir, "raw.mp4")
     fx = list(fx or []) + [{}] * (len(clips) - len(fx or []))
     clips = list(clips)

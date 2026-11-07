@@ -784,9 +784,11 @@ def _run_item(iid):
             if os.path.exists(os.path.join(run_dir(it["project"], it["variant"]), "raw.mp4")):
                 it["phase"] = "post"
                 qlog(it, "Hậu kỳ…")
-                post_item(it, it.get("opts") or {}, cx)
+                with E.assembly_slot(lambda: qlog(it, f"Chờ đến lượt hậu kỳ (tối đa {E.ASM_MAX} video hậu kỳ cùng lúc)")):
+                    post_item(it, it.get("opts") or {}, cx)
         else:
-            post_item(it, it.get("opts") or {}, cx)
+            with E.assembly_slot(lambda: qlog(it, f"Chờ đến lượt hậu kỳ (tối đa {E.ASM_MAX} video hậu kỳ cùng lúc)")):
+                post_item(it, it.get("opts") or {}, cx)
         it["state"] = "done"
         it["auto_tries"], it["avoid"] = 0, []
         qlog(it, "Xong")
@@ -832,6 +834,7 @@ def _fail_or_retry(it, e):
     """Lỗi không phải do tài khoản (hoặc không còn tài khoản để đổi): không dừng cả lượt chạy. Video này tạm dừng, giữ các cảnh đã xong và tự
     xếp lại cuối hàng chờ, chạy lại sau vài phút (tối đa cài đặt auto_retry lần), các video khác vẫn chạy tiếp. Lỗi cố định thì báo lỗi luôn."""
     msg = str(e)
+    E.log_exc(f"video {it.get('variant')} lỗi: {msg[:120]}")
     n, maxn = int(it.get("auto_tries") or 0), max(0, int(settings().get("auto_retry", 3) or 0))
     if NO_RETRY_RE.search(msg) or n >= maxn or it.get("kind") != "gen":
         it["state"] = "error"
@@ -848,8 +851,12 @@ def _fail_or_retry(it, e):
     qlog(it, f"Lỗi - {e}. Tự xếp lại hàng chờ, chạy lại sau {delay // 60} phút (lần {n + 1}/{maxn}); các video khác vẫn chạy tiếp", "warn")
 
 
+# Trần số video chạy song song. 8 đủ cho máy 6 nhân; máy chủ nhiều nhân đặt LUO_MAX_PARALLEL (và MUSE2API_CONCURRENCY của LUO-API) cao hơn.
+MAX_PARALLEL = max(1, int(os.environ.get("LUO_MAX_PARALLEL", "") or 32))
+
+
 def _slots():
-    return max(1, min(int(settings().get("parallel", 1) or 1), 8))
+    return max(1, min(int(settings().get("parallel", 1) or 1), MAX_PARALLEL))
 
 
 def _worker(iid):
@@ -914,7 +921,7 @@ def queue_start(ids, parallel=None):
     """Thêm các mục vào lượt chạy bất cứ lúc nào: còn luồng thì chạy ngay, hết luồng thì chờ."""
     if parallel:
         st = settings()
-        st["parallel"] = max(1, min(int(parallel), 8))
+        st["parallel"] = max(1, min(int(parallel), MAX_PARALLEL))
         jwrite(os.path.join(DATA, "settings.json"), st)
     ids = [i for i in ids if qfind(i) and qfind(i)["state"] not in ("running", "waiting")]
     if not ids:
@@ -1342,7 +1349,9 @@ class H(BaseHTTPRequestHandler):
             return self.send_json({"settings": {**settings(), "api_key": "", "key_set": bool(settings().get("api_key"))},
                                    "projects": sorted((project_summary(p) for p in (jread(os.path.join(PROJ, f)) for f in os.listdir(PROJ) if f.endswith(".json")) if p),
                                                       key=lambda x: -x["updated"]),
-                                   "types": list_types()})
+                                   "types": list_types(),
+                                   "max_parallel": MAX_PARALLEL,
+                                   "post_caps": {"cpu": E._NCPU, "scene": E.ENC_MAX, "asm": E.ASM_MAX, "whisper": E._WH_MAX}})
         if a == "settings":
             if m == "GET":
                 return self.send_json({**settings(), "api_key": "", "key_set": bool(settings().get("api_key"))})
