@@ -1,7 +1,7 @@
 # Sổ tay kỹ thuật: từ video tham chiếu đến kịch bản + biến thể chạy được trong LUO Studio
 
 Tổng hợp mọi kỹ thuật đã dùng và đã kiểm chứng qua 10 thể loại (`talka-bang-tu-vung`, `ai-tutor-ngoi-doc`, `canh-sat-nu`, `xe-tai`, `lam-vuon`,
-`ghep-hai-lop`, `san-bay-gia-su-ai`, `canh-sat-gia-su-ai`, `soi-hanh-ly-gia-su-ai`, `chia-doi-gia-su-ai`, `Doi toc`), tính đến 05/11/2026.
+`ghep-hai-lop`, `san-bay-gia-su-ai`, `canh-sat-gia-su-ai`, `soi-hanh-ly-gia-su-ai`, `chia-doi-gia-su-ai`, `Doi toc`, `robot-pho-tieng-long`), tính đến 08/11/2026.
 Mục đích: khi có video mới, agent đối chiếu video với bảng ở mục 2 để chọn khuôn, rồi lắp các kỹ thuật ở mục 3–6 thành kịch bản và biến thể,
 kiểm tra bằng mục 7 và nhập vào Studio bằng mục 8. Quy trình từng bước và công cụ: `video-moi.py` (cùng thư mục) và skill `luo-video-moi`.
 
@@ -41,6 +41,7 @@ Bản cài không có `runtime\` → dùng `.venv\Scripts\python.exe` và thêm 
 | Không ai trong hình nói; có giọng đọc ngoài hình; hình đổi (tóc, trang phục, sản phẩm) giữa các câu | **Lồng tiếng + ảnh riêng từng cảnh** | `Doi toc/` | `Voice: "{{LOI_X}}"`, `LUOT: []`, mỗi cảnh `Prompt ảnh`, `Chuyển cảnh: chớp ...`, `Lớp phủ: camera` nếu có giao diện camera |
 | Một nhân vật nhìn ống kính, nền có **bảng/tờ giấy có chữ**, bút chỉ chữ, chữ hiện dần | **Nền xanh + hậu kỳ dựng chữ** | `talka-bang-tu-vung/` | Muse chỉ gen robot nền xanh; `post.py` vẽ giấy bằng code, bút, chữ theo Whisper; `[HAU KY] loai:` |
 | Một nhân vật đọc cặp câu, phía trên có **bảng hiện câu + phiên âm** | **Chừa trống vùng + bảng gen AI + chữ do code** | `ai-tutor-ngoi-doc/` | Muse gen robot nửa dưới; `post.py` gen khung bảng (Muse, phông xanh) + điền chữ theo `BANG_TU` |
+| Một nhân vật (robot/người) đứng **nói thẳng ống kính** trước nền thật, một khung đứng yên; trên hình có tiêu đề, badge, **thẻ từ/nghĩa hiện theo lời**, phụ đề karaoke | **Cảnh thường 1 nhân vật + hậu kỳ riêng vẽ chữ** | `robot-pho-tieng-long/` | Gộp câu ngắn thành lượt ~5 s; `post.py` lấy mốc TỪNG TỪ (Whisper theo cảnh) để hiện thẻ/nghĩa và tô từ đang nói; nội dung chữ trong `HAU_KY` của biến thể; nền thật, không cần phông xanh vì lớp chữ là ô đặc |
 | Hai (ba) người **cùng không gian thật**, tương tác đồ vật (đưa giấy tờ, chỉ vali), một hoặc vài góc máy | **Cảnh thường, khối CẢNH** | `canh-sat-nu/` (1 góc), `soi-hanh-ly-gia-su-ai/` phần 1 (nhiều góc + lia), `canh-sat-gia-su-ai/` phần 1 (4 góc, 3 nhân vật) | Mỗi cảnh một lượt; đổi góc máy = cảnh có `Prompt ảnh`; đạo cụ `DAO_*`; `NGHE_/NHIN_/QUAY_LUNG_` |
 | Người học + gia sư trong **cửa sổ gọi video ngang to** phía trên, cùng một clip | **Cảnh thường, bố cục TOP/BOTTOM** | `xe-tai/` | `POS_DAY=TOP`, `POS_HOC=BOTTOM`; đo miệng theo vùng |
 | Người học làm việc + **điện thoại dựng cạnh** có gia sư trên màn hình | **Cảnh thường, bố cục LEFT/RIGHT (mẫu gốc)** | `_chung/1-KICH-BAN-MAU.txt` + `lam-vuon/` | Token `VIEC`, `DAO_CU/GIU/NGHI`, `NEN_TRAI/PHAI` |

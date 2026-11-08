@@ -277,3 +277,53 @@ Người dùng báo 6 lỗi; nguyên nhân đã chứng minh bằng số đo tr�
 - Nguyên nhân: Muse có bộ nhớ đệm theo nội dung (ảnh + ý prompt), không theo byte.
 - Hệ quả: "gen lại cảnh" cùng khung đầu, prompt chỉ thêm ghi chú sửa ngắn có thể nhận lại đúng clip lỗi. CHỜ KIỂM CHỨNG trong Studio (so md5 clip gen lại với clip cũ).
 - Áp dụng chung?: CÓ. Đã chưng cất vào: chưa.
+
+### 2026-11-08 · robot-pho-tieng-long · phân tích + kịch bản · loai: phan-tich
+- Hiện tượng: `danh-gia` báo "2 mặt ở 80% thời gian, 1 cụm cao độ" và gợi ý khuôn "hai người chung khung"; xem ảnh `luot_NN.jpg` thì chỉ có MỘT robot nói thẳng ống kính; "mặt" thứ hai là huy hiệu tròn phát sáng trên ngực / icon badge góc trên trái.
+- Nguyên nhân: Haar cascade bắt hình tròn có tương phản như mặt. Gợi ý khuôn tự động không đáng tin khi có huy hiệu/logo hình mặt.
+- Cách làm: đối chiếu số mặt với vị trí (mặt "phải, 0.52" cố định ở đúng chỗ huy hiệu) và với cụm cao độ duy nhất → một nhân vật; chọn khuôn cảnh thường 1 nhân vật + hậu kỳ riêng vẽ chữ (gần `talka-bang-tu-vung`, không cần phông xanh vì lớp chữ là ô đặc).
+- Kết quả: ĐẠT (kiem-tra 0 lỗi 0 cảnh báo; 361 từ khoá).
+- Áp dụng chung?: CÓ (mọi video có logo/huy hiệu hình mặt: đếm mặt theo VỊ TRÍ cố định trước khi tin số mặt).
+- Đã chưng cất vào: chưa.
+
+### 2026-11-08 · robot-pho-tieng-long · kịch bản · loai: kich-ban
+- Quyết định: gộp 12 câu ngắn của video mẫu thành 6 lượt (một cảnh một lượt ~5 s), vì thẻ từ lóng và nghĩa căn theo TỪ Whisper trong cảnh (`post.py words_of_turns`) nên không cần mỗi câu một cảnh; ít cảnh nối → ít trôi mặt/mũ/áo.
+- Kết quả: CHỜ KIỂM CHỨNG (lượt chạy thử biến thể `texan-f1-austin`).
+- Áp dụng chung?: CÓ cho mọi thể loại có hậu kỳ căn theo từ: số cảnh theo nhịp ~5 s, không theo số câu của video mẫu.
+- Đã chưng cất vào: chưa.
+
+### 2026-11-08 · robot-pho-tieng-long · hậu kỳ chạy thử trên video mẫu · loai: hau-ky
+- Cách làm: chạy `post.py` trên chính video mẫu với `scenes.json` giả (6 cảnh theo mốc lượt gộp) + biến thể 1, trước khi Muse gen xong, để kiểm lớp chữ sớm.
+- Kết quả: ĐẠT: Whisper nghe đủ 6 lượt (lời biến thể khác lời gốc vài từ vẫn khớp mờ), 4 thẻ hiện đúng từ ("Howdy" 4,30 s, nghĩa 5,55 s...), 51 mốc từ karaoke; bố cục trùng khung mẫu (so `anh/khung-mau.png`).
+- Áp dụng chung?: CÓ: mọi thể loại có hậu kỳ riêng nên thử `post.py` trên video mẫu với scenes.json giả trước khi gen (phát hiện lỗi vẽ/căn lời mà không tốn lượt Muse).
+- Đã chưng cất vào: chưa.
+
+### 2026-11-08 · robot-pho-tieng-long · lượt gen 1, cảnh 1 (texan-f1-austin) · loai: muse
+- Hiện tượng: `scene1_start.png` sát video mẫu (mũ cao bồi, áo denim, phố gạch đỏ + dây đèn, robot giữa khung, đỉnh mũ ~8%); `scene1_cut.mp4` 4,8 s, Whisper nghe đúng 11/11 từ, môi mở khi nói, kết thúc về tư thế nghỉ, nền tĩnh. Áo denim thành kiểu gi-lê không tay (mẫu là sơ mi dài tay xắn): chấp nhận.
+- Tốc độ nói 2,4 từ/giây (mẫu 4,0) dù prompt ghi "about 4 words per second".
+- Cách sửa (nếu người dùng muốn nhanh hơn): nâng "Tốc độ tăng tối đa" trong Cài đặt Studio; không sửa kịch bản.
+- Kết quả: ĐẠT (cảnh 1); các cảnh 2–6 + hậu kỳ: CHỜ KIỂM CHỨNG.
+- Áp dụng chung?: CÓ (một nhân vật nhìn ống kính + khối khoá ~360 từ: khung đầu đúng bố cục ngay lần đầu, không cần refs).
+- Đã chưng cất vào: SO-TAY mục 2 (dòng khuôn `robot-pho-tieng-long`).
+
+### 2026-11-08 · robot-pho-tieng-long · lượt gen 1 hoàn chỉnh (6 cảnh + hậu kỳ) · loai: muse + hau-ky
+- Hiện tượng 1: `final.mp4` 23,9 s; 4 thẻ và phụ đề karaoke bám đúng lời; nhưng **ô tiêu đề che mắt robot**: trong clip gen, mặt bắt đầu ở y≈322/1920 (mẫu ≈ 460) vì Muse đặt robot cao/gần hơn khung đầu một chút và mũ thấp hơn.
+- Cách sửa 1: `post.py` dò mặt (Haar, 6 khung) → nếu đáy ô tiêu đề thấp hơn mép mặt − 24 px thì dời ô lên (`tieu_de_y_min` 110). Chạy lại hậu kỳ: tiêu đề y=163, không che mắt. ĐẠT.
+- Hiện tượng 2: cảnh 3 Muse đọc "That means you. All of you. All of you." (lặp cụm cuối); kiểm lời của Studio không bắt vì mọi từ đều có mặt. Phụ đề vẫn đúng (căn theo từ của biến thể) nhưng tiếng thừa.
+- Cách sửa 2: "Chỉ làm lại cảnh này" (POST /api/queue/redo {"only": true, "from": 3}) kèm ghi chú "Say the line exactly once". Kết quả: CHỜ KIỂM CHỨNG.
+- Hiện tượng 3: tốc độ nói 2,4–3 từ/giây (mẫu 4,0). Chưa sửa; gợi ý nâng "Tốc độ tăng tối đa".
+- Áp dụng chung?: (1) CÓ cho mọi hậu kỳ có ô chữ gần mặt: đo mặt trên video gen rồi mới đặt ô, không tin toạ độ video mẫu. (2) CÓ: kiểm lời nên bắt cụm ≥ 2 từ lặp liền nhau (đề xuất cho engine, chưa làm).
+- Đã chưng cất vào: chưa.
+
+### 2026-11-09 · robot-pho-tieng-long · làm lại riêng cảnh 3 + hậu kỳ lại · loai: muse + hau-ky
+- Kết quả: cảnh 3 mới 3,5 s, lời đúng một lần ("Y'all. That means you, all of you."); `final.mp4` 23,0 s, tiêu đề tự dời lên trên mắt, thẻ/phụ đề đúng. ĐẠT.
+- "Chỉ làm lại cảnh này" giữ cảnh 4–6; chỗ nối 3→4 chấp nhận được vì cả hai cảnh kết thúc/bắt đầu ở tư thế nghỉ giống nhau (một nhân vật đứng yên: rủi ro khựng thấp).
+- Áp dụng chung?: CÓ (thể loại một nhân vật tư thế nghỉ cố định: làm lại riêng một cảnh an toàn hơn thể loại có hành động).
+- Đã chưng cất vào: chưa.
+
+### 2026-11-09 · robot-pho-tieng-long · 30 biến thể từ CSV + ảnh Drive · loai: cong-cu + kich-ban
+- Cách làm: CSV → `cong-cu/_csv30.json`; tải 60 ảnh Drive bằng `uc?export=download&id=` (file < 25 MB tải thẳng, có nhánh confirm cho file lớn) về `anh/bt/`; xem 6 bảng ghép (PIL, 10 ảnh/bảng) để tả trang phục/nền; `tao_30_bien_the.py` sinh JSON, `refs` gắn cả `NGUOI_DAY` (robot) lẫn `NEN_PHO` (nền) – engine `attachments` chấp nhận token không phải nhân vật (chú thích bằng nhãn trường).
+- Lỗi gặp: regex bang bắt nhầm cụm "F1 is coming to Texas" đứng TRƯỚC (câu gốc trong cột "Kiểu biến thể") → phải neo vào `thành "F1 is coming to ..."`.
+- Kết quả: `kiem-tra --tai-anh` 0 lỗi; dự án `Giai-do-30-bien-the-4737` 30 biến thể đủ 2 ảnh. CHỜ KIỂM CHỨNG (chưa gen).
+- Áp dụng chung?: CÓ (quy trình CSV + link Drive → refs; xem ảnh bằng bảng ghép thay vì mở 60 ảnh lẻ).
+- Đã chưng cất vào: chưa.

@@ -1,0 +1,3152 @@
+[
+  {
+    "name": "bt01-california",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "black wayfarer sunglasses and an olive-green nylon bomber jacket worn open over the white chest armor",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Hollywood Walk of Fame at midday: a pink terrazzo sidewalk with brass stars, tall palm trees, historic theatre marquees on both sides, blue sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to California, so let's talk like a Californian.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Break a leg! That means good luck before a performance.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "That's a wrap! That means that's a finish, filming is done.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Scene stealer! That means someone who draws all the attention.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Method acting. That means acting by deeply living as the character.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Break a leg? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN CALIFORNIA",
+        "TALK LIKE A CALIFORNIAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "CALIFORNIANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "BREAK A LEG",
+          "nghia": "good luck before a performance",
+          "moc_tu": "Break",
+          "moc_nghia": "good"
+        },
+        {
+          "luot": 2,
+          "tu": "THAT'S A WRAP",
+          "nghia": "that's a finish, filming is done",
+          "moc_tu": "That's",
+          "moc_nghia": "that's"
+        },
+        {
+          "luot": 3,
+          "tu": "SCENE STEALER",
+          "nghia": "someone who draws all the attention",
+          "moc_tu": "Scene",
+          "moc_nghia": "someone"
+        },
+        {
+          "luot": 4,
+          "tu": "METHOD ACTING",
+          "nghia": "acting by deeply living as the character",
+          "moc_tu": "Method",
+          "moc_nghia": "acting"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 1",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1A-vADTTqQInVX3VJCqrQ8QKDURsYikIq/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1_tkCZhpVPrajDYYEkognNknJqxwr8hMa/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt01-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt01-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt02-california",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "an open blue denim trucker jacket with a few fabric patches on the chest (no readable letters) over the white chest armor",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny East Los Angeles street corner: small shops covered in colourful murals, strings of papel picado flags, a lamp post, palm trees far away; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to California, so let's talk like a Californian.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What's the move? That means what are we doing tonight?.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Cruise around! That means drive around for fun.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Chill out! That means relax.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And For real? That means really?.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say What's the move? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN CALIFORNIA",
+        "TALK LIKE A CALIFORNIAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "CALIFORNIANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "WHAT'S THE MOVE?",
+          "nghia": "what are we doing tonight?",
+          "moc_tu": "What's",
+          "moc_nghia": "what"
+        },
+        {
+          "luot": 2,
+          "tu": "CRUISE AROUND",
+          "nghia": "drive around for fun",
+          "moc_tu": "Cruise",
+          "moc_nghia": "drive"
+        },
+        {
+          "luot": 3,
+          "tu": "CHILL OUT",
+          "nghia": "relax",
+          "moc_tu": "Chill",
+          "moc_nghia": "relax"
+        },
+        {
+          "luot": 4,
+          "tu": "FOR REAL?",
+          "nghia": "really?",
+          "moc_tu": "For",
+          "moc_nghia": "really?"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 2",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1cpty44C2YVf2Miz0bx3UeYhdP9gNyPYH/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1sCuc249qTGvqDfP7IIiYVO5sfbx1xg0i/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt02-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt02-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt03-california",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "black wayfarer sunglasses and an open dark-green Hawaiian shirt with pink and cream hibiscus print over the white chest armor",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "Venice Beach: pale sand in the foreground, colourful surfboards leaning on a stand, a painted surf shop and a lifeguard tower, tall palms and the ocean behind; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to California, so let's talk like a Californian.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hang ten! That means surf skillfully with ten toes on the board.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Stoked! That means very excited.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Wipeout! That means fall off the surfboard.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Kook. That means a beginner surfer, used teasingly.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Hang ten? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN CALIFORNIA",
+        "TALK LIKE A CALIFORNIAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "CALIFORNIANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "HANG TEN",
+          "nghia": "surf skillfully with ten toes on the board",
+          "moc_tu": "Hang",
+          "moc_nghia": "surf"
+        },
+        {
+          "luot": 2,
+          "tu": "STOKED",
+          "nghia": "very excited",
+          "moc_tu": "Stoked",
+          "moc_nghia": "very"
+        },
+        {
+          "luot": 3,
+          "tu": "WIPEOUT",
+          "nghia": "fall off the surfboard",
+          "moc_tu": "Wipeout",
+          "moc_nghia": "fall"
+        },
+        {
+          "luot": 4,
+          "tu": "KOOK",
+          "nghia": "a beginner surfer, used teasingly",
+          "moc_tu": "Kook",
+          "moc_nghia": "beginner"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 3",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1xDRKMu47H9dhl-fN1L9wRSmYz1_hM7c6/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1kfpRrlojrbDZqiQ9weu36EnbKm0nB7Yn/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt03-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt03-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt04-california",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a navy baseball cap and a navy short-sleeve polo shirt over the white chest armor",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a San Diego bay shore at sunset: a long curved bridge on tall pillars over calm water, sandy shore with low dune plants, pastel sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to California, so let's talk like a Californian.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What's up, dude? That means casual SoCal greeting.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Bummer! That means a real disappointment.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Rad! That means cool, awesome.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Totally. That means absolutely, exactly.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say What's up, dude? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN CALIFORNIA",
+        "TALK LIKE A CALIFORNIAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "CALIFORNIANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "WHAT'S UP, DUDE?",
+          "nghia": "casual SoCal greeting",
+          "moc_tu": "What's",
+          "moc_nghia": "casual"
+        },
+        {
+          "luot": 2,
+          "tu": "BUMMER",
+          "nghia": "a real disappointment",
+          "moc_tu": "Bummer",
+          "moc_nghia": "real"
+        },
+        {
+          "luot": 3,
+          "tu": "RAD",
+          "nghia": "cool, awesome",
+          "moc_tu": "Rad",
+          "moc_nghia": "cool,"
+        },
+        {
+          "luot": 4,
+          "tu": "TOTALLY",
+          "nghia": "absolutely, exactly",
+          "moc_tu": "Totally",
+          "moc_nghia": "absolutely,"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 4",
+        "anh_nhan_vat": "https://drive.google.com/file/d/18qUEIVDrRX5cj46ypPKDlBBCER3xGD0L/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1FktnXdcndec6nCBqUQ_7CQ7XKfy8XEdw/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt04-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt04-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt05-california",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a woven straw sun hat and an open red-and-black buffalo-plaid flannel shirt with rolled sleeves over the white chest armor",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a California vineyard at golden hour: long rows of green vines on a dirt track, rolling golden hills behind, blue sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to California, so let's talk like a Californian.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Bust your back! That means work very hard.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Call it a day! That means stop work for the day.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Work your tail off! That means work extremely hard.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Hard-earned. That means earned by hard work.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Bust your back? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN CALIFORNIA",
+        "TALK LIKE A CALIFORNIAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "CALIFORNIANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "BUST YOUR BACK",
+          "nghia": "work very hard",
+          "moc_tu": "Bust",
+          "moc_nghia": "work"
+        },
+        {
+          "luot": 2,
+          "tu": "CALL IT A DAY",
+          "nghia": "stop work for the day",
+          "moc_tu": "Call",
+          "moc_nghia": "stop"
+        },
+        {
+          "luot": 3,
+          "tu": "WORK YOUR TAIL OFF",
+          "nghia": "work extremely hard",
+          "moc_tu": "Work",
+          "moc_nghia": "work"
+        },
+        {
+          "luot": 4,
+          "tu": "HARD-EARNED",
+          "nghia": "earned by hard work",
+          "moc_tu": "Hard-earned",
+          "moc_nghia": "earned"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 5",
+        "anh_nhan_vat": "https://drive.google.com/file/d/14rQuurv7G357SVNoMCW1lyl8E7M4sQbG/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1GEuRKRJsleGvr23irB4JG6nN1QG15NHD/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt05-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt05-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt06-california",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a yellow construction hard hat and a navy work jacket with grey reflective stripes, worn open over the white chest armor",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "inside a bright logistics warehouse: a long central aisle between tall steel shelves stacked with cardboard boxes, grey floor, skylights; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to California, so let's talk like a Californian.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hustle! That means work fast and hard.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Side hustle! That means extra job besides the main job.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Run it back! That means do it again from the start.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And No days off. That means work nonstop, no rest days.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Hustle? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN CALIFORNIA",
+        "TALK LIKE A CALIFORNIAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "CALIFORNIANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "HUSTLE",
+          "nghia": "work fast and hard",
+          "moc_tu": "Hustle",
+          "moc_nghia": "work"
+        },
+        {
+          "luot": 2,
+          "tu": "SIDE HUSTLE",
+          "nghia": "extra job besides the main job",
+          "moc_tu": "Side",
+          "moc_nghia": "extra"
+        },
+        {
+          "luot": 3,
+          "tu": "RUN IT BACK",
+          "nghia": "do it again from the start",
+          "moc_tu": "Run",
+          "moc_nghia": "again"
+        },
+        {
+          "luot": 4,
+          "tu": "NO DAYS OFF",
+          "nghia": "work nonstop, no rest days",
+          "moc_tu": "No",
+          "moc_nghia": "work"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 6",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1WsK1Wqy5IHZ9jaTOWndJ6FSqAX-M3OL6/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1og1x6ozg4_QFr2QJrOxNwZYQFbSTX1b4/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt06-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt06-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt07-california",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a relaxed cream linen blazer worn open over the white chest armor",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a Bay Area tech office: desks with laptops, a whiteboard, a coffee station and a floor-to-ceiling window showing the bay and a bridge; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to California, so let's talk like a Californian.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Ship it! That means release it now, don't wait for perfect.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Ping me! That means send me a quick message.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Dogfood it! That means use your own product yourself to test it.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Move fast and break things. That means work fast, fix mistakes as you go.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Ship it? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN CALIFORNIA",
+        "TALK LIKE A CALIFORNIAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "CALIFORNIANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "SHIP IT",
+          "nghia": "release it now, don't wait for perfect",
+          "moc_tu": "Ship",
+          "moc_nghia": "release"
+        },
+        {
+          "luot": 2,
+          "tu": "PING ME",
+          "nghia": "send me a quick message",
+          "moc_tu": "Ping",
+          "moc_nghia": "send"
+        },
+        {
+          "luot": 3,
+          "tu": "DOGFOOD IT",
+          "nghia": "use your own product yourself to test it",
+          "moc_tu": "Dogfood",
+          "moc_nghia": "use"
+        },
+        {
+          "luot": 4,
+          "tu": "MOVE FAST AND BREAK THINGS",
+          "nghia": "work fast, fix mistakes as you go",
+          "moc_tu": "Move",
+          "moc_nghia": "work"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 7",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1_nDNEt3ETlNagTDeV_hxPQdbVvNwCMIF/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1oHxrCugeNpDxvdCwGACeOQZEzir98Ru_/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt07-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt07-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt08-california",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a crown of pink, orange and white flowers on the head and a white Mexican blouse with bright embroidered flowers across the chest",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "an open-air Mexican market aisle: stalls with fresh produce, hanging dried chiles, woven baskets and painted pottery under striped awnings, palm trees behind; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to California, so let's talk like a Californian.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Órale! That means yeah, let's go.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What's up, ese? That means greeting to a friend in Chicano slang.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "No manches! That means no way, unbelievable.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Órale pues. That means okay, let's do it.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Órale? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN CALIFORNIA",
+        "TALK LIKE A CALIFORNIAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "CALIFORNIANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "ÓRALE",
+          "nghia": "yeah, let's go / really?",
+          "moc_tu": "Órale",
+          "moc_nghia": "yeah,"
+        },
+        {
+          "luot": 2,
+          "tu": "WHAT'S UP, ESE?",
+          "nghia": "greeting to a friend in Chicano slang",
+          "moc_tu": "What's",
+          "moc_nghia": "greeting"
+        },
+        {
+          "luot": 3,
+          "tu": "NO MANCHES",
+          "nghia": "no way, unbelievable",
+          "moc_tu": "No",
+          "moc_nghia": "way,"
+        },
+        {
+          "luot": 4,
+          "tu": "ÓRALE PUES",
+          "nghia": "okay, let's do it",
+          "moc_tu": "Órale",
+          "moc_nghia": "okay,"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 8",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1bCSLa2rDD-mJfUCRiGfMCNtsB1n9yKik/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1QZ8AX41mgS8bTPIn21t8WLrd4EjNCQsN/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt08-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt08-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt09-california",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a navy crew-neck sweater with the straps of a black backpack on both shoulders",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the front of a Spanish-style Californian high school: cream stucco buildings with a tiled roof, an iron gate between stone pillars, tall trees, blue sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to California, so let's talk like a Californian.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Playdate! That means a planned play meeting for kids.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Carpool! That means share a ride to drop off kids.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "BFF! That means best friend forever, school slang.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Crush. That means someone you like at school.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Playdate? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN CALIFORNIA",
+        "TALK LIKE A CALIFORNIAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "CALIFORNIANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "PLAYDATE",
+          "nghia": "a planned play meeting for kids",
+          "moc_tu": "Playdate",
+          "moc_nghia": "planned"
+        },
+        {
+          "luot": 2,
+          "tu": "CARPOOL",
+          "nghia": "share a ride to drop off kids",
+          "moc_tu": "Carpool",
+          "moc_nghia": "share"
+        },
+        {
+          "luot": 3,
+          "tu": "BFF",
+          "nghia": "best friend forever, school slang",
+          "moc_tu": "BFF",
+          "moc_nghia": "best"
+        },
+        {
+          "luot": 4,
+          "tu": "CRUSH",
+          "nghia": "someone you like at school",
+          "moc_tu": "Crush",
+          "moc_nghia": "someone"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 9",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1Lw9em_hWf5ErwxkbexCEaEd7mSE2xWiS/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1jbyxrFg5ECU-9G4-r2Xzc3dgNIJ-l8xe/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt09-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt09-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt10-california",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a black short-sleeve shirt under a beige canvas kitchen apron tied at the neck",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "inside a small Orange County taqueria: a wooden counter, a menu board and a warm neon sign above, tiled floor, a window onto a sunny street; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to California, so let's talk like a Californian.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "86 it! That means remove it from the menu, it's out.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "On the fly! That means make it urgently, out of order.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "In the weeds! That means extremely busy in the kitchen.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Comp it. That means give it free, on the house.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say 86 it? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN CALIFORNIA",
+        "TALK LIKE A CALIFORNIAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "CALIFORNIANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "86 IT",
+          "nghia": "remove it from the menu, it's out",
+          "moc_tu": "86",
+          "moc_nghia": "remove"
+        },
+        {
+          "luot": 2,
+          "tu": "ON THE FLY",
+          "nghia": "make it urgently, out of order",
+          "moc_tu": "On",
+          "moc_nghia": "make"
+        },
+        {
+          "luot": 3,
+          "tu": "IN THE WEEDS",
+          "nghia": "extremely busy in the kitchen",
+          "moc_tu": "In",
+          "moc_nghia": "extremely"
+        },
+        {
+          "luot": 4,
+          "tu": "COMP IT",
+          "nghia": "give it free, on the house",
+          "moc_tu": "Comp",
+          "moc_nghia": "give"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 10",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1V0O9-VsYPKkEacXEehjiZoF_1Va8E4NA/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/15LLP3pQY6o6_PnOxZrWjrAeNenwUl7xp/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt10-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt10-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt11-california",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a navy captain's peaked cap with a small gold anchor and a navy short-sleeve captain's jacket with gold buttons and shoulder boards",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Port of Long Beach: a flat wooden dock in the foreground, stacks of coloured shipping containers, tall blue cranes and a container ship, hazy mountains; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to California, so let's talk like a Californian.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "All hands on deck! That means everyone get to work.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Shipshape! That means neat and in order.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Dead in the water! That means stuck, going nowhere.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Full steam ahead. That means go at full speed.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say All hands on deck? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN CALIFORNIA",
+        "TALK LIKE A CALIFORNIAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "CALIFORNIANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "ALL HANDS ON DECK",
+          "nghia": "everyone get to work",
+          "moc_tu": "All",
+          "moc_nghia": "everyone"
+        },
+        {
+          "luot": 2,
+          "tu": "SHIPSHAPE",
+          "nghia": "neat and in order",
+          "moc_tu": "Shipshape",
+          "moc_nghia": "neat"
+        },
+        {
+          "luot": 3,
+          "tu": "DEAD IN THE WATER",
+          "nghia": "stuck, going nowhere",
+          "moc_tu": "Dead",
+          "moc_nghia": "stuck,"
+        },
+        {
+          "luot": 4,
+          "tu": "FULL STEAM AHEAD",
+          "nghia": "go at full speed",
+          "moc_tu": "Full",
+          "moc_nghia": "full"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 11",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1G9IImTPylqJIEKQTLkAlyjirCKUT0RZ6/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/170GHdWeZ16ukEODJZaQouiLvQp0Pmvrk/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt11-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt11-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt12-texas",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a brown felt cowboy hat and a plain black t-shirt",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "an Austin music street: brick bars with guitar signs and string lights, a guitar shop window, the Texas Capitol dome and a big star sign in the distance; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to Texas, so let's talk like a Texan.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Keep Austin weird! That means keep Austin's unique character.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Soundcheck! That means test sound before a show.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Setlist! That means list of songs to perform.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Mosh pit. That means crowd jumping area in front of the stage.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Keep Austin weird? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "TALK LIKE A TEXAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "TEXANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "KEEP AUSTIN WEIRD",
+          "nghia": "keep Austin's unique character",
+          "moc_tu": "Keep",
+          "moc_nghia": "keep"
+        },
+        {
+          "luot": 2,
+          "tu": "SOUNDCHECK",
+          "nghia": "test sound before a show",
+          "moc_tu": "Soundcheck",
+          "moc_nghia": "test"
+        },
+        {
+          "luot": 3,
+          "tu": "SETLIST",
+          "nghia": "list of songs to perform",
+          "moc_tu": "Setlist",
+          "moc_nghia": "list"
+        },
+        {
+          "luot": 4,
+          "tu": "MOSH PIT",
+          "nghia": "crowd jumping area in front of the stage",
+          "moc_tu": "Mosh",
+          "moc_nghia": "crowd"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 12",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1QaGIXye99Br5R54gf1RtpBKoUjeyVoN2/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1I8s8zN-XsRVM9DxIGmEib2_gOtGKREHP/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt12-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt12-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt13-texas",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "an orange construction hard hat and an open orange high-visibility jacket with grey reflective stripes over the white chest armor",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a Houston port and refinery yard: a concrete road between shipping containers, cranes and industrial tanks, the downtown skyline behind; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to Texas, so let's talk like a Texan.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "H-Town! That means what locals call Houston.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Swang! That means drive slowly, Houston style.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "This ain't my first rodeo! That means this is not my first time doing this.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Git 'er done. That means just do it.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say H-Town? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "TALK LIKE A TEXAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "TEXANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "H-TOWN",
+          "nghia": "what locals call Houston",
+          "moc_tu": "H-Town",
+          "moc_nghia": "what"
+        },
+        {
+          "luot": 2,
+          "tu": "SWANG",
+          "nghia": "drive slowly, Houston style",
+          "moc_tu": "Swang",
+          "moc_nghia": "drive"
+        },
+        {
+          "luot": 3,
+          "tu": "THIS AIN'T MY FIRST RODEO",
+          "nghia": "this is not my first time doing this",
+          "moc_tu": "This",
+          "moc_nghia": "this"
+        },
+        {
+          "luot": 4,
+          "tu": "GIT 'ER DONE",
+          "nghia": "just do it",
+          "moc_tu": "Git",
+          "moc_nghia": "just"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 13",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1xgqO-sBXNdYI7WWwah-ztFrrpkfDpMHV/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1qubFBV4xHPWERDuJw0crX80st2Mwzubi/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt13-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt13-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt14-texas",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a slim black blazer worn open over the white chest armor",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "an empty Dallas parking lot with the downtown skyline behind: the ball-topped Reunion Tower and glass skyscrapers, a few trees, clear sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to Texas, so let's talk like a Texan.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Big D! That means nickname for Dallas.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Git along! That means go on, keep going.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Fair to middlin'! That means so-so, okay.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Like a chicken with its head cut off. That means running around in a panic.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Big D? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "TALK LIKE A TEXAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "TEXANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "BIG D",
+          "nghia": "nickname for Dallas",
+          "moc_tu": "Big",
+          "moc_nghia": "nickname"
+        },
+        {
+          "luot": 2,
+          "tu": "GIT ALONG",
+          "nghia": "go on, keep going",
+          "moc_tu": "Git",
+          "moc_nghia": "keep"
+        },
+        {
+          "luot": 3,
+          "tu": "FAIR TO MIDDLIN'",
+          "nghia": "so-so, okay",
+          "moc_tu": "Fair",
+          "moc_nghia": "so-so,"
+        },
+        {
+          "luot": 4,
+          "tu": "LIKE A CHICKEN WITH ITS HEAD CUT OFF",
+          "nghia": "running around in a panic",
+          "moc_tu": "Like",
+          "moc_nghia": "running"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 14",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1kQjGjVE7Hby8KyarxOiFIWTyBmlJws4P/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1oQlmFPPyggJ9ewtUE0Fc6h3Sno3krnUq/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt14-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt14-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt15-texas",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a white felt cowboy hat with a braided band and a white long-sleeve western shirt",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "an El Paso border street: a road leading to an international bridge with a blue overhead sign, old shopfronts on the left, desert mountains behind; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to Texas, so let's talk like a Texan.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Cruzar! That means cross the border, as border people say.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Ponte trucha! That means be careful, pay attention.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Vámonos! That means let's go.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And El otro lado. That means the other side, meaning the US side as border people say.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Cruzar? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "TALK LIKE A TEXAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "TEXANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "CRUZAR",
+          "nghia": "cross the border, as border people say",
+          "moc_tu": "Cruzar",
+          "moc_nghia": "cross"
+        },
+        {
+          "luot": 2,
+          "tu": "PONTE TRUCHA",
+          "nghia": "be careful, pay attention",
+          "moc_tu": "Ponte",
+          "moc_nghia": "careful,"
+        },
+        {
+          "luot": 3,
+          "tu": "VÁMONOS",
+          "nghia": "let's go",
+          "moc_tu": "Vámonos",
+          "moc_nghia": "let's"
+        },
+        {
+          "luot": 4,
+          "tu": "EL OTRO LADO",
+          "nghia": "the other side, meaning the US side as border people say",
+          "moc_tu": "El",
+          "moc_nghia": "the"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 15",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1WllqUqge_qZquluVt9-yudvlzeWS3fd9/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1M7ydVhbHJpBOdZgGG-BI2B_FEbtIbp42/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt15-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt15-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt16-texas",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a white short-sleeve guayabera shirt with pleated front panels",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the San Antonio River Walk: a calm green canal lined with stone walkways, bald cypress trees, café umbrellas and a stone arched footbridge; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to Texas, so let's talk like a Texan.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Remember the Alamo! That means remember the Alamo, San Antonio catchphrase.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Viva Fiesta! That means long live the festival, Fiesta in San Antonio.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Tex-Mex! That means Texas-Mexican food/style.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Down by the River Walk. That means along the River Walk, as locals give directions.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Remember the Alamo? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "TALK LIKE A TEXAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "TEXANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "REMEMBER THE ALAMO",
+          "nghia": "remember the Alamo, San Antonio catchphrase",
+          "moc_tu": "Remember",
+          "moc_nghia": "remember"
+        },
+        {
+          "luot": 2,
+          "tu": "VIVA FIESTA",
+          "nghia": "long live the festival, Fiesta in San Antonio",
+          "moc_tu": "Viva",
+          "moc_nghia": "long"
+        },
+        {
+          "luot": 3,
+          "tu": "TEX-MEX",
+          "nghia": "Texas-Mexican food/style",
+          "moc_tu": "Tex-Mex",
+          "moc_nghia": "Texas-Mexican"
+        },
+        {
+          "luot": 4,
+          "tu": "DOWN BY THE RIVER WALK",
+          "nghia": "along the River Walk, as locals give directions",
+          "moc_tu": "Down",
+          "moc_nghia": "along"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 16",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1MH9YmqFZczQZ3bmQ-r2_Rf0E--sS4uY0/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/17Q1R1Xs3TZKZJM67XygLsslwFwFy8plc/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt16-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt16-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt17-texas",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a wide black charro sombrero with silver embroidery and a black charro vest with silver embroidery over the white chest armor",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a San Antonio charreada arena: a sandy rodeo ring with wooden fences, covered wooden stands, Texas flags and faded sponsor boards behind; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to Texas, so let's talk like a Texan.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Buck off! That means throw the rider off.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Eight seconds! That means 8 seconds to survive on the bull.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Rodeo clown! That means rodeo clown, who saves the rider.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Bronc buster. That means someone who tames wild horses.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Buck off? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "TALK LIKE A TEXAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "TEXANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "BUCK OFF",
+          "nghia": "throw the rider off",
+          "moc_tu": "Buck",
+          "moc_nghia": "throw"
+        },
+        {
+          "luot": 2,
+          "tu": "EIGHT SECONDS",
+          "nghia": "8 seconds to survive on the bull",
+          "moc_tu": "Eight",
+          "moc_nghia": "seconds"
+        },
+        {
+          "luot": 3,
+          "tu": "RODEO CLOWN",
+          "nghia": "rodeo clown, who saves the rider",
+          "moc_tu": "Rodeo",
+          "moc_nghia": "rodeo"
+        },
+        {
+          "luot": 4,
+          "tu": "BRONC BUSTER",
+          "nghia": "someone who tames wild horses",
+          "moc_tu": "Bronc",
+          "moc_nghia": "someone"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 17",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1vaZogdEd3OiiBzwwrVK3hCZmNCwonLxZ/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1Ykaly65UMe7kiOe1UjMxu1Kqn2oLwka4/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt17-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt17-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt18-texas",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "an open red-and-black plaid flannel shirt, a black bandana tied around the neck and black leather gloves",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a West Texas ranch at sunset: a dirt track, wooden rail fences, dry grass and scrub, a barn and a flat mesa under an orange sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to Texas, so let's talk like a Texan.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Cowpoke! That means cowboy, as ranch people call it.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Wrangler! That means person who herds horses/cattle.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Dust devil! That means desert whirlwind.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Ranch hand. That means ranch worker.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Cowpoke? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "TALK LIKE A TEXAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "TEXANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "COWPOKE",
+          "nghia": "cowboy, as ranch people call it",
+          "moc_tu": "Cowpoke",
+          "moc_nghia": "cowboy,"
+        },
+        {
+          "luot": 2,
+          "tu": "WRANGLER",
+          "nghia": "person who herds horses/cattle",
+          "moc_tu": "Wrangler",
+          "moc_nghia": "person"
+        },
+        {
+          "luot": 3,
+          "tu": "DUST DEVIL",
+          "nghia": "desert whirlwind",
+          "moc_tu": "Dust",
+          "moc_nghia": "desert"
+        },
+        {
+          "luot": 4,
+          "tu": "RANCH HAND",
+          "nghia": "ranch worker",
+          "moc_tu": "Ranch",
+          "moc_nghia": "ranch"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 18",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1IJPHdIgB4JqoAb8rrLzo41rfxPvB808w/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1xfdKk-_kAu_OsgFAp_Uu-tzZAKSGK0En/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt18-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt18-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt19-texas",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a brown felt cowboy hat and a red-and-black plaid flannel shirt with rolled sleeves",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Fort Worth Stockyards: a wide dirt street between red-brick western buildings, cattle pens, a water tower, afternoon light; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to Texas, so let's talk like a Texan.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Cowtown! That means nickname for Fort Worth.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Two-step! That means two-step dance.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Rodeo ready! That means ready to watch the rodeo.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Herd drive. That means driving cattle through town.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Cowtown? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "TALK LIKE A TEXAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "TEXANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "COWTOWN",
+          "nghia": "nickname for Fort Worth",
+          "moc_tu": "Cowtown",
+          "moc_nghia": "nickname"
+        },
+        {
+          "luot": 2,
+          "tu": "TWO-STEP",
+          "nghia": "two-step dance",
+          "moc_tu": "Two-step",
+          "moc_nghia": "two-step"
+        },
+        {
+          "luot": 3,
+          "tu": "RODEO READY",
+          "nghia": "ready to watch the rodeo",
+          "moc_tu": "Rodeo",
+          "moc_nghia": "ready"
+        },
+        {
+          "luot": 4,
+          "tu": "HERD DRIVE",
+          "nghia": "driving cattle through town",
+          "moc_tu": "Herd",
+          "moc_nghia": "driving"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 19",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1AySURpXtho004L-p_nIbaB5mgRBteOwN/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/19K3cZILdHMsv_lSGd_n-nHGRlgEmVcrg/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt19-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt19-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt20-arizona",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a wide-brimmed natural straw sun hat and an open beige linen shirt over the white chest armor",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Arizona desert: a dirt trail between tall saguaro and cholla cacti, a rugged rocky peak behind, bright sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to Arizona, so let's talk like an Arizonan.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Haboob! That means desert dust storm, Arizona word.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "But it's a dry heat! That means it's just dry heat, Arizona joke.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Snowbird! That means northerner who winters in Arizona.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Valley of the Sun. That means nickname for the Phoenix area.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Haboob? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN ARIZONA",
+        "TALK LIKE AN ARIZONAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "ARIZONANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "HABOOB",
+          "nghia": "desert dust storm, Arizona word",
+          "moc_tu": "Haboob",
+          "moc_nghia": "desert"
+        },
+        {
+          "luot": 2,
+          "tu": "BUT IT'S A DRY HEAT",
+          "nghia": "it's just dry heat, Arizona joke",
+          "moc_tu": "But",
+          "moc_nghia": "it's"
+        },
+        {
+          "luot": 3,
+          "tu": "SNOWBIRD",
+          "nghia": "northerner who winters in Arizona",
+          "moc_tu": "Snowbird",
+          "moc_nghia": "northerner"
+        },
+        {
+          "luot": 4,
+          "tu": "VALLEY OF THE SUN",
+          "nghia": "nickname for the Phoenix area",
+          "moc_tu": "Valley",
+          "moc_nghia": "nickname"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 20",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1KJ72zr2_7KQHhBcjnBD-sUIqSeOMBEpR/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1UfWRkXCzf_1jBVPpmt4ApSYULsZJoLSi/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt20-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt20-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt21-arizona",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a black baseball cap and a plain white t-shirt",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a street of old adobe buildings in Tucson's Old Pueblo: earth-coloured walls, wooden doors, cacti in pots, desert mountains behind; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to Arizona, so let's talk like an Arizonan.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Old Pueblo! That means nickname for Tucson.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Bear Down! That means University of Arizona slogan in Tucson.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Sonoran dog! That means Sonora-style hot dog, Tucson specialty.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Desert rat. That means true desert person, self-teasing.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Old Pueblo? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN ARIZONA",
+        "TALK LIKE AN ARIZONAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "ARIZONANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "OLD PUEBLO",
+          "nghia": "nickname for Tucson",
+          "moc_tu": "Old",
+          "moc_nghia": "nickname"
+        },
+        {
+          "luot": 2,
+          "tu": "BEAR DOWN",
+          "nghia": "University of Arizona slogan in Tucson",
+          "moc_tu": "Bear",
+          "moc_nghia": "University"
+        },
+        {
+          "luot": 3,
+          "tu": "SONORAN DOG",
+          "nghia": "Sonora-style hot dog, Tucson specialty",
+          "moc_tu": "Sonoran",
+          "moc_nghia": "Sonora-style"
+        },
+        {
+          "luot": 4,
+          "tu": "DESERT RAT",
+          "nghia": "true desert person, self-teasing",
+          "moc_tu": "Desert",
+          "moc_nghia": "true"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 21",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1Odzon9DbSzuh6_6VitaPpgiPISqIcc5m/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1py_4V4GHUESjuOaJoecks7CVan8zND1z/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt21-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt21-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt22-arizona",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a black mariachi charro jacket with gold embroidery and silver buttons",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a downtown Tucson street festival: market booths with pottery, rugs and jars under canopies, an old theatre marquee, mountains behind; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to Arizona, so let's talk like an Arizonan.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Ándale! That means hurry up, let's go.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Grito! That means mariachi shout.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Serenata! That means nighttime serenade, Mexican style.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Viva México. That means long live Mexico, festival shout.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Ándale? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN ARIZONA",
+        "TALK LIKE AN ARIZONAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "ARIZONANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "ÁNDALE",
+          "nghia": "hurry up, let's go",
+          "moc_tu": "Ándale",
+          "moc_nghia": "hurry"
+        },
+        {
+          "luot": 2,
+          "tu": "GRITO",
+          "nghia": "mariachi shout",
+          "moc_tu": "Grito",
+          "moc_nghia": "mariachi"
+        },
+        {
+          "luot": 3,
+          "tu": "SERENATA",
+          "nghia": "nighttime serenade, Mexican style",
+          "moc_tu": "Serenata",
+          "moc_nghia": "nighttime"
+        },
+        {
+          "luot": 4,
+          "tu": "VIVA MÉXICO",
+          "nghia": "long live Mexico, festival shout",
+          "moc_tu": "Viva",
+          "moc_nghia": "long"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 22",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1KSdd1OfXeo-dodUU2eZbAb8_IqemfNZy/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1POB9cs060BhoAqxt2DBgt5Y_qlw6Qp5D/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt22-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt22-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt23-illinois",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "an open olive-green windbreaker jacket and a grey knit scarf loosely around the neck",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "Chicago's Millennium Park: the mirrored bean sculpture on a stone plaza, glass skyscrapers behind, light clouds; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to Illinois, so let's talk like an Illinoisan.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Windy City! That means nickname for Chicago.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Chi-town! That means what locals call Chicago.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Deep-dish! That means Chicago thick-crust pizza.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And On the L. That means riding Chicago's elevated train.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Windy City? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN ILLINOIS",
+        "TALK LIKE AN ILLINOISAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "ILLINOISANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "WINDY CITY",
+          "nghia": "nickname for Chicago",
+          "moc_tu": "Windy",
+          "moc_nghia": "nickname"
+        },
+        {
+          "luot": 2,
+          "tu": "CHI-TOWN",
+          "nghia": "what locals call Chicago",
+          "moc_tu": "Chi-town",
+          "moc_nghia": "what"
+        },
+        {
+          "luot": 3,
+          "tu": "DEEP-DISH",
+          "nghia": "Chicago thick-crust pizza",
+          "moc_tu": "Deep-dish",
+          "moc_nghia": "Chicago"
+        },
+        {
+          "luot": 4,
+          "tu": "ON THE L",
+          "nghia": "riding Chicago's elevated train",
+          "moc_tu": "On",
+          "moc_nghia": "riding"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 23",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1Ullp9QhqHfwzR1HS-p1q9aLkmecrI-QG/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1pidw5-XX0wArUgMYpls7cXVb_mffk4rX/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt23-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt23-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt24-illinois",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "an open black leather biker jacket over a black t-shirt",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a Chicago Little Village street: a large colourful mural on a brick wall, a decorative arch over the street, shopfronts and a lamp post; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to Illinois, so let's talk like an Illinoisan.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "La Villita! That means what locals call Little Village.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "26th Street! That means Little Village's main street, say 26th and people know.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Mural crawl! That means tour of Pilsen murals.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Elote. That means Mexican street corn sold in Pilsen.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say La Villita? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN ILLINOIS",
+        "TALK LIKE AN ILLINOISAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "ILLINOISANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "LA VILLITA",
+          "nghia": "what locals call Little Village",
+          "moc_tu": "La",
+          "moc_nghia": "what"
+        },
+        {
+          "luot": 2,
+          "tu": "26TH STREET",
+          "nghia": "Little Village's main street, say 26th and people know",
+          "moc_tu": "26th",
+          "moc_nghia": "Little"
+        },
+        {
+          "luot": 3,
+          "tu": "MURAL CRAWL",
+          "nghia": "tour of Pilsen murals",
+          "moc_tu": "Mural",
+          "moc_nghia": "tour"
+        },
+        {
+          "luot": 4,
+          "tu": "ELOTE",
+          "nghia": "Mexican street corn sold in Pilsen",
+          "moc_tu": "Elote",
+          "moc_nghia": "Mexican"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 24",
+        "anh_nhan_vat": "https://drive.google.com/file/d/18JeHCv1O4kM8Zg21kdriJRfFdaxcW6Zr/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/12ZU5WI3qMwtrzpFyh9Q3jf5lOWes85wW/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt24-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt24-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt25-illinois",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a crown of orange marigolds and pink roses on the head and a black lace dress with colourful embroidered flowers on the shoulders",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a Pilsen street dressed for Día de Muertos: strings of colourful papel picado across the street, red-brick buildings, murals and marigold decorations; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to Illinois, so let's talk like an Illinoisan.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Ofrenda! That means altar for Día de Muertos.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Cempasúchil! That means marigold flower of the festival.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Calavera! That means sugar skull.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Pan de muerto. That means bread of the dead.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Ofrenda? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN ILLINOIS",
+        "TALK LIKE AN ILLINOISAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "ILLINOISANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "OFRENDA",
+          "nghia": "altar for Día de Muertos",
+          "moc_tu": "Ofrenda",
+          "moc_nghia": "altar"
+        },
+        {
+          "luot": 2,
+          "tu": "CEMPASÚCHIL",
+          "nghia": "marigold flower of the festival",
+          "moc_tu": "Cempasúchil",
+          "moc_nghia": "marigold"
+        },
+        {
+          "luot": 3,
+          "tu": "CALAVERA",
+          "nghia": "sugar skull / satirical poem for the festival",
+          "moc_tu": "Calavera",
+          "moc_nghia": "sugar"
+        },
+        {
+          "luot": 4,
+          "tu": "PAN DE MUERTO",
+          "nghia": "bread of the dead",
+          "moc_tu": "Pan",
+          "moc_nghia": "bread"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 25",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1f7z1YsH0INeCFcBWogY_L9mzdj-U35d8/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/10jB7AaEruZBU3HzZkxGoQFX3h4v1DGDX/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt25-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt25-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt26-florida",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "black wayfarer sunglasses and a white short-sleeve guayabera shirt",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "Little Havana in Miami: a park entrance with white pillars and an iron gate, palm trees, pastel buildings and small flags, a patterned tiled sidewalk; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to Florida, so let's talk like a Floridian.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Dale! That means let's go, okay.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Qué bola! That means what's up, Cuban-Miami greeting.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Cafecito! That means small sweet Cuban coffee, Miami style, not regular coffee.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And 305. That means Miami area code, locals call themselves 305.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Dale? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN FLORIDA",
+        "TALK LIKE A FLORIDIAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "FLORIDIANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "DALE",
+          "nghia": "let's go, okay",
+          "moc_tu": "Dale",
+          "moc_nghia": "let's"
+        },
+        {
+          "luot": 2,
+          "tu": "QUÉ BOLA",
+          "nghia": "what's up, Cuban-Miami greeting",
+          "moc_tu": "Qué",
+          "moc_nghia": "what's"
+        },
+        {
+          "luot": 3,
+          "tu": "CAFECITO",
+          "nghia": "small sweet Cuban coffee, Miami style, not regular coffee",
+          "moc_tu": "Cafecito",
+          "moc_nghia": "small"
+        },
+        {
+          "luot": 4,
+          "tu": "305",
+          "nghia": "Miami area code, locals call themselves 305",
+          "moc_tu": "305",
+          "moc_nghia": "Miami"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 26",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1ShRr0gcgo0wJH_xsQjKw30bW2UwFbIKP/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1n02VynnCZN3OchHYVGEsBGnvbxsaLZnM/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt26-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt26-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt27-florida",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a navy baseball cap and a navy short-sleeve polo shirt",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a theme-park main street in Orlando: pastel Victorian shopfronts on both sides and a blue-and-white fairy-tale castle at the end, blue sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to Florida, so let's talk like a Floridian.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Rope drop! That means park opening time, rush in first.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Park hopper! That means ticket to hop between parks.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E-ticket! That means top-tier ticket, park slang.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Mouse ears. That means Mickey Mouse ears.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Rope drop? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN FLORIDA",
+        "TALK LIKE A FLORIDIAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "FLORIDIANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "ROPE DROP",
+          "nghia": "park opening time, rush in first",
+          "moc_tu": "Rope",
+          "moc_nghia": "park"
+        },
+        {
+          "luot": 2,
+          "tu": "PARK HOPPER",
+          "nghia": "ticket to hop between parks",
+          "moc_tu": "Park",
+          "moc_nghia": "ticket"
+        },
+        {
+          "luot": 3,
+          "tu": "E-TICKET",
+          "nghia": "top-tier ticket, park slang",
+          "moc_tu": "E-ticket",
+          "moc_nghia": "top-tier"
+        },
+        {
+          "luot": 4,
+          "tu": "MOUSE EARS",
+          "nghia": "Mickey Mouse ears",
+          "moc_tu": "Mouse",
+          "moc_nghia": "Mickey"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 27",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1xoRyZZXvqX5I0DS6vljANDF9UKxz3fRR/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1SWdgaop4dZsY_7z_7yza_HzL2f-PMK9s/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt27-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt27-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt28-new-mexico",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a sleeveless blue denim vest and a chunky turquoise stone necklace",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "an Albuquerque adobe courtyard: earth-coloured adobe walls and wooden beams, dry ground, desert mountains and dozens of hot-air balloons in the sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to New Mexico, so let's talk like a New Mexican.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Red or green? That means red chile or green chile, New Mexico question.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Christmas style! That means both red and green chile, only New Mexicans know.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Green chile! That means New Mexico green chile, not regular chile.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Burque. That means locals' short name for Albuquerque.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Red or green? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN NEW MEXICO",
+        "TALK LIKE A NEW MEXICAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "NEW MEXICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "RED OR GREEN?",
+          "nghia": "red chile or green chile, New Mexico question",
+          "moc_tu": "Red",
+          "moc_nghia": "red"
+        },
+        {
+          "luot": 2,
+          "tu": "CHRISTMAS STYLE",
+          "nghia": "both red and green chile, only New Mexicans know",
+          "moc_tu": "Christmas",
+          "moc_nghia": "both"
+        },
+        {
+          "luot": 3,
+          "tu": "GREEN CHILE",
+          "nghia": "New Mexico green chile, not regular chile",
+          "moc_tu": "Green",
+          "moc_nghia": "New"
+        },
+        {
+          "luot": 4,
+          "tu": "BURQUE",
+          "nghia": "locals' short name for Albuquerque",
+          "moc_tu": "Burque",
+          "moc_nghia": "locals'"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 28",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1ZaI68uce6AggfXLqtySxmmD8QMQCx9vO/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1y5KMcdrRHRpJzqSezxzbGtQnMklUHS9K/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt28-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt28-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt29-colorado",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a dark-green knit beanie and a dark-green puffer jacket worn open over the white chest armor",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Colorado Rockies: a dry mountain meadow, pine forest on the slopes, snow-capped peaks and blue sky with soft clouds; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to Colorado, so let's talk like a Coloradan.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Powder day! That means fresh snow day, skiers wait for it.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Fourteener! That means mountain over 14,000 feet, Colorado climbers.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Mile High! That means nickname for Denver, one mile high.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Après-ski. That means gathering after skiing.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Powder day? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN COLORADO",
+        "TALK LIKE A COLORADAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "COLORADANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "POWDER DAY",
+          "nghia": "fresh snow day, skiers wait for it",
+          "moc_tu": "Powder",
+          "moc_nghia": "fresh"
+        },
+        {
+          "luot": 2,
+          "tu": "FOURTEENER",
+          "nghia": "mountain over 14,000 feet, Colorado climbers",
+          "moc_tu": "Fourteener",
+          "moc_nghia": "mountain"
+        },
+        {
+          "luot": 3,
+          "tu": "MILE HIGH",
+          "nghia": "nickname for Denver, one mile high",
+          "moc_tu": "Mile",
+          "moc_nghia": "nickname"
+        },
+        {
+          "luot": 4,
+          "tu": "APRÈS-SKI",
+          "nghia": "gathering after skiing",
+          "moc_tu": "Après-ski",
+          "moc_nghia": "gathering"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 29",
+        "anh_nhan_vat": "https://drive.google.com/file/d/1qo26d98QHZTyOBnevv5AsyemFVb-bF23/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1d8lEde5CeOyMRf-6NBZ9MiLpT9cvY20_/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt29-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt29-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bt30-nevada",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a black casino-dealer waistcoat with a black bow tie over the white chest armor",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Las Vegas Strip at night: a glowing Eiffel Tower replica, bright neon hotel signs, palm trees and a wet reflective road; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is coming to Nevada, so let's talk like a Nevadan.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Sin City! That means nickname for Las Vegas.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "The Strip! That means main street, locals just say the Strip.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "High roller! That means big gambler.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Comped. That means given free by the casino, casino slang.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say Sin City? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN NEVADA",
+        "TALK LIKE A NEVADAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "NEVADANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "SIN CITY",
+          "nghia": "nickname for Las Vegas",
+          "moc_tu": "Sin",
+          "moc_nghia": "nickname"
+        },
+        {
+          "luot": 2,
+          "tu": "THE STRIP",
+          "nghia": "main street, locals just say the Strip",
+          "moc_tu": "The",
+          "moc_nghia": "main"
+        },
+        {
+          "luot": 3,
+          "tu": "HIGH ROLLER",
+          "nghia": "big gambler",
+          "moc_tu": "High",
+          "moc_nghia": "big"
+        },
+        {
+          "luot": 4,
+          "tu": "COMPED",
+          "nghia": "given free by the casino, casino slang",
+          "moc_tu": "Comped",
+          "moc_nghia": "given"
+        }
+      ],
+      "nguon": {
+        "dong_csv": "Biến thể 30",
+        "anh_nhan_vat": "https://drive.google.com/file/d/19JQ8lOYEwJi-LR7vQhtzl80yNBPHDSAt/view?usp=drivesdk",
+        "anh_nen": "https://drive.google.com/file/d/1v_v6TAKfTdHZ2_SP-bFG4Xjc3xBRKiGl/view?usp=drivesdk"
+      }
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt30-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bt/bt30-bg.webp"
+      ]
+    }
+  }
+]

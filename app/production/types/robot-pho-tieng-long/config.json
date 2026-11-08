@@ -1,0 +1,17 @@
+{
+  "_doc": "Hậu kỳ 'robot đứng phố dạy tiếng lóng'. Toạ độ theo khung 1080x1920, đo từ video mẫu 720x1280 (nhân 1,5). tieu_de: ô xanh 2 dòng phía trên đầu robot (dòng 1 trắng, dòng 2 xanh nhạt). badge: ô cam (trái) + ô trắng (phải) ngay trên thẻ. the: thẻ từ lóng (đầu xanh: nhãn nhỏ + từ to + đếm n/N; thân trắng: nhãn IT MEANS + nghĩa, trước khi robot nói nghĩa thì hiện '...'). phu_de: ô xanh bo góc từng cụm 2-4 từ, từ đang nói đổi màu 'mau_tu_dang_noi'. whisper: model căn lời.",
+  "whisper": "small.en",
+  "font": "C:\\Windows\\Fonts\\arialbd.ttf",
+  "font_ass": "Arial",
+  "xanh": [46, 117, 230],
+  "xanh_dam": [29, 86, 200],
+  "xanh_nhat": [143, 227, 255],
+  "cam": [232, 102, 31],
+  "muc": [24, 34, 72],
+  "tieu_de": {"x": 200, "w": 680, "y": 300, "h": 135, "bo": 22, "co_chu": 40, "cach_dong": 50},
+  "badge": {"x": 160, "y": 1080, "h": 56, "co_chu": 30, "pad": 18, "bo": 10},
+  "the": {"x": 160, "w": 760, "y": 1146, "h_dau": 114, "h_than": 90, "bo": 18, "co_nhan": 22, "co_tu": 58, "co_nghia": 38, "co_dem": 22},
+  "phu_de": {"y": 1415, "co_chu": 58, "pad_x": 26, "pad_y": 14, "bo": 14, "toi_da_tu": 3, "toi_da_rong": 900},
+  "hien_truoc_tu": 0.05,
+  "giu_the_cuoi": true
+}

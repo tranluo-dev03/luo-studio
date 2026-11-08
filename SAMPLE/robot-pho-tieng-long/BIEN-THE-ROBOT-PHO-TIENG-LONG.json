@@ -1,0 +1,267 @@
+[
+  {
+    "name": "texan-f1-austin",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a light-brown felt cowboy hat with a curved brim sitting on the head, and an open faded light-blue denim shirt worn like a jacket over the white chest armor, sleeves rolled to the elbows",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas, so let's talk like a Texan.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Howdy! That means hello.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Y'all! That means you, all of you.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Fixin' to. That means about to.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And bless your heart. It sounds sweet, but it can mean you poor thing.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say y'all? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "TALK LIKE A TEXAN"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "TEXANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "HOWDY",
+          "nghia": "hello"
+        },
+        {
+          "luot": 2,
+          "tu": "Y'ALL",
+          "nghia": "you (all of you)",
+          "moc_nghia": "you"
+        },
+        {
+          "luot": 3,
+          "tu": "FIXIN' TO",
+          "nghia": "about to",
+          "moc_tu": "fixin"
+        },
+        {
+          "luot": 4,
+          "tu": "BLESS YOUR HEART",
+          "nghia": "sweet... or \"you poor thing\"",
+          "moc_tu": "bless",
+          "moc_nghia": "sweet"
+        }
+      ]
+    }
+  },
+  {
+    "name": "aussie-sydney",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a wide-brimmed brown Akubra-style bush hat on the head, and an open red-and-black checked flannel shirt worn over the white chest armor, sleeves rolled up",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a bright Sydney harbourside promenade on a summer afternoon: a wide stone walkway, a white railing, sparkling blue water and distant sailboats, a few palm trees and a sandstone building on the right; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Heading to Sydney? Then let's talk like an Aussie.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "G'day! That means hello.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Arvo. That means afternoon.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Reckon. That means I think.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And no worries. It sounds casual, and it means it's all fine.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Which one would you use? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "SUMMER IN SYDNEY",
+        "TALK LIKE AN AUSSIE"
+      ],
+      "badge": {
+        "trai": "SYDNEY",
+        "phai": "TALK LIKE A LOCAL"
+      },
+      "nhan_tu": "AUSSIES SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "G'DAY",
+          "nghia": "hello",
+          "moc_tu": "gday"
+        },
+        {
+          "luot": 2,
+          "tu": "ARVO",
+          "nghia": "afternoon"
+        },
+        {
+          "luot": 3,
+          "tu": "RECKON",
+          "nghia": "I think",
+          "moc_nghia": "think"
+        },
+        {
+          "luot": 4,
+          "tu": "NO WORRIES",
+          "nghia": "it's all fine",
+          "moc_tu": "worries",
+          "moc_nghia": "fine"
+        }
+      ]
+    }
+  },
+  {
+    "name": "brit-london",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "a sleek white humanoid AI robot with a realistic young woman's face: smooth pale synthetic skin on the face, bright light-blue eyes, natural soft lips, a glossy white helmet-like skull with fine panel seams and no hair, round white ear discs, a black mechanical neck of cables and pistons, glossy white armor plates on the shoulders, chest and arms with black mechanical joints and a small round glowing light-blue disc in the middle of the chest.",
+    "TRANG_PHUC": "a grey tweed flat cap on the head, and an open beige trench coat with the collar turned up worn over the white chest armor",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a London street on a bright overcast day: a row of pale Georgian townhouses with black railings, a red telephone box on the left, a wet grey pavement, a black cab parked far behind; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Off to London? Then let's talk like a Brit.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Cheers! That means thanks.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Knackered. That means very tired.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Fancy a cuppa? That means want some tea.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Bob's your uncle. It sounds odd, but it just means and there you go.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say cheers? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "LONDON CALLING",
+        "TALK LIKE A BRIT"
+      ],
+      "badge": {
+        "trai": "LONDON",
+        "phai": "TALK LIKE A LOCAL"
+      },
+      "nhan_tu": "BRITS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "CHEERS",
+          "nghia": "thanks"
+        },
+        {
+          "luot": 2,
+          "tu": "KNACKERED",
+          "nghia": "very tired",
+          "moc_nghia": "very"
+        },
+        {
+          "luot": 3,
+          "tu": "FANCY A CUPPA?",
+          "nghia": "want some tea?",
+          "moc_tu": "fancy",
+          "moc_nghia": "want"
+        },
+        {
+          "luot": 4,
+          "tu": "BOB'S YOUR UNCLE",
+          "nghia": "and there you go",
+          "moc_tu": "bob",
+          "moc_nghia": "there"
+        }
+      ]
+    }
+  }
+]
