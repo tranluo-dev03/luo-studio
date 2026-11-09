@@ -1,0 +1,53 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "CHIA TRÊN/DƯỚI + GIA SƯ AI, MARATHI" (chia-tren-duoi-marathi)
+  MỘT phần, ghép 2 lớp: robot AI ô TRÊN, người học ô DƯỚI, gen RIÊNG từng người rồi ghép.
+  Code riêng (chỉ hậu kỳ): app/production/types/chia-tren-duoi-marathi/
+================================================================================
+
+CÁCH DÙNG
+  Gửi cho agent cùng với: video tham chiếu (nếu có), KICH-BAN-CHIA-TREN-DUOI-MARATHI.txt, cong-cu\tao_bien_the.py, PHAN-TICH-VIDEO-MAU.md.
+  Rồi dán phần dưới đây, sửa [ngoặc vuông].
+
+--------------------------------------------------------------------------------
+PROMPT (copy từ dòng dưới)
+--------------------------------------------------------------------------------
+
+Bạn viết biến thể cho LUO Studio, thể loại CHIA TRÊN/DƯỚI + GIA SƯ AI, tiếng Marathi xen tiếng Anh.
+
+Thông tin lần này:
+  Bảng biến thể: [tên | mô tả người học | link ảnh người học | link ảnh robot]
+  Đổi lời thoại / tên app: [...]
+
+BẮT BUỘC LÀM THEO
+
+1) SỬA BẰNG cong-cu\tao_bien_the.py, KHÔNG SỬA TAY JSON
+   - Mỗi biến thể một dòng trong NHAN_VAT. Tên app ở APP. Lời thoại ở LUOT. Robot và nền ở CHUNG, giữ nguyên trừ khi được yêu cầu.
+
+2) ẢNH THAM CHIẾU
+   - Chỉ dùng ảnh AI người dùng cung cấp, KHÔNG cắt từ video mẫu. Thiếu ảnh -> hỏi, chưa gen.
+   - "refs": {"NGUOI_DAY": ["<link>"], "NGUOI_HOC": ["<link>"]}.
+
+3) LỜI THOẠI (21 lượt)
+   - Thứ tự: day hoc day hoc day hoc day hoc day hoc day day hoc day day day hoc day day hoc day.
+   - Mỗi lượt <= 20 từ. emo trong EMO_CUES. "fx": "none" mọi lượt.
+   - Tiếng Marathi chép đúng chữ Devanagari; từ tiếng Anh để chữ Latin.
+   - Đổi người học sang NỮ: phải đổi động từ theo giống (गेला->गेली, कसा->कशी, शकतोस->शकतेस, बोललो->बोलले, करतो->करते, होतास->होतीस).
+   - Không viết câu chỉ gồm tên app + dấu chấm; nối bằng dấu phẩy.
+
+4) KHÔNG ĐỔI BỐ CỤC NẾU KHÔNG ĐƯỢC YÊU CẦU
+   - `nen: DAY` là cố ý. Đổi `nen: HOC` làm Studio tưởng mặt người học bị ô DAY che và dịch ảnh.
+   - Đổi khung thì tính lại câu tả vị trí đầu: ô dưới bị cắt mỗi mép ~8% ảnh 1:1.
+
+KIỂM TRA TRƯỚC KHI TRẢ LỜI
+  [ ] .venv\Scripts\python.exe SAMPLE\_chung\video-moi.py kiem-tra <kịch bản> <biến thể> --tai-anh: 0 lỗi.
+  [ ] Không còn "{{" sau khi điền; 21 lượt đúng thứ tự.
+  [ ] Sau khi gen: xem base_DAY.png, base_HOC.png; nghe cảnh 1-3 để xác nhận Muse nói Marathi đúng.
+
+--------------------------------------------------------------------------------
+LỖI THƯỜNG GẶP / GIỚI HẠN
+--------------------------------------------------------------------------------
+  - Whisper dịch Marathi sang tiếng Anh: không dùng chữ Whisper làm lời, không dùng số từ/giây của bao-cao.md.
+  - Câu Devanagari không được kiểm lời từng chữ: nghe lại, câu lặp/thiếu không tự gen lại.
+  - Câu dài nhất chiếm 4 dòng phụ đề, chạm đỉnh ô người học: tách lượt nếu cần gọn hơn.
+  - Phụ đề theo câu, chưa tô đậm dần từng từ như video mẫu.
+  - End card: Thương hiệu -> Outro; Studio không vẽ.

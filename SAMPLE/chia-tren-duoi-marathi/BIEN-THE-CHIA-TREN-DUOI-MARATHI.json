@@ -1,0 +1,149 @@
+[
+  {
+    "name": "bien-the-01-bam-sat-video",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft lips that open and move like a real person's, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 240-300 Hz) with a clean polished clarity, lively and kind like a favourite teacher, native Marathi",
+    "NEN_DAY": "a modern, softly lit home study: tall wooden shelves with warm-lit niches holding books and small vases, vertical wooden slat panels, a tall window on the left with a soft pale city skyline, a small potted plant and a small glowing table lamp on a desk behind on each side, slightly out of focus",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a modest old Indian room, slightly out of focus, warm dim light: a weathered beige plaster wall, a wooden shelf on the left with stacked steel kitchen tins, a small framed orange-toned picture with no writing high on the wall behind the head, a dark jacket hanging on a wall peg on the right, worn wooden posts at the far edges",
+    "NGUOI_HOC": "an elderly Indian man in his mid-sixties, lean build, weathered dark-brown skin with deep smile lines, short neat white hair, dark eyes, a white moustache and short white beard; a worn, faintly stained cream-coloured cotton kurta with a small placket of cloth buttons at the neck; a warm village-elder look",
+    "GIONG_HOC": "a real elderly Marathi man's voice in his sixties, warm baritone (around 120-160 Hz), slightly gravelly and unhurried, native Marathi, a beginner's Indian accent on the English words; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "काल कुठे गेला होतास?",
+        "emo": "friendly, curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I go to the market.",
+        "emo": "unsure",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "कालची गोष्ट आहे त्यामुळे go नाही went बोल. I went to the market yesterday.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I went to the market yesterday.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yesterday तू market मध्ये कसा गेला होतास?",
+        "emo": "friendly, curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I go by bus.",
+        "emo": "unsure",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Almost बरोबर आहे. पण चांगलं होईल जर तू बोलशील, I went by bus.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ओह, माझी English खरंच खूप weak आहे.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "काही हरकत नाही. Supernova AI try केलंस का?",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Supernova AI, ते काय आहे?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Supernova AI app वर माझ्यासोबत English बोलण्याची practice करु शकतोस. मी तुझी personal AI teacher आहे.",
+        "emo": "enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "तू रोज फक्त पंधरा वीस मिनिटं माझ्याशी बोल आणि हळूहळू English बोलण्याचा confidence वाढव.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "पण माझी English तर खूप weak आहे.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "काही हरकत नाही. तुझी English level कशीही असो, मी त्यानुसार तुझ्यासोबत practice करेन.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आणि सर्वात चांगली गोष्ट म्हणजे तुला सगळं समजून घेण्यासाठी फक्त English मध्ये बोलण्याची गरज नाही.",
+        "emo": "enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मी तुला मराठीच्या माध्यमातून सुद्धा English समजावून सांगेन.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "आणि मी चुकीची English बोललो तर?",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "तर काहीच tension नाही. तू जितक्या वेळा चुकीचं बोलशील, मी तितक्या वेळा तुला योग्य पद्धतीने समजावेन.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आणि तुझ्या mistakes correct करेन. तुला कोणी judge करणार सुद्धा नाहीये.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मग मी आत्ताच download करतो.",
+        "emo": "decisive",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "योग्य निर्णय. तू खाली दिलेल्या install now button वर click कर आणि Supernova AI download करून घे.",
+        "emo": "enthusiastic",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-marathi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-marathi/anh/nguoi-hoc.png"
+      ]
+    }
+  }
+]

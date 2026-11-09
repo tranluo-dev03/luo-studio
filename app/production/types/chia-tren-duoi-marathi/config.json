@@ -1,0 +1,11 @@
+{
+  "phu_de": {
+    "font": "Nirmala UI",
+    "co_chu": 52,
+    "y_theo_phan": {"1": 958},
+    "kieu_theo_phan": {
+      "1": {"*": {"c": "black", "o": "white"}}
+    },
+    "whisper": "small"
+  }
+}

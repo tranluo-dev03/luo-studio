@@ -491,3 +491,26 @@ Người dùng báo 6 lỗi; nguyên nhân đã chứng minh bằng số đo tr�
 - Kết quả: gen lại từ cảnh 16: cảnh 17 zoom 1,005; mép phải mặt ≤ 48,7% (ô AI từ 61,5%); Muse vẫn vẽ lệch phải (60,7%) và bước căn đã đưa về 49,9%. ĐẠT trên 1 mẫu (2 clip).
 - Áp dụng chung?: CÓ: ảnh tham chiếu toàn thân thì prompt phải nói rõ phần nào ra ngoài khung; câu tả khung phải khớp ảnh nền.
 - Đã chưng cất vào: chưa
+
+### 2026-11-09 · chia-tren-duoi-marathi · phân tích video "oder 3" + tạo thể loại · loai: phan-tich
+- Hiện tượng: video nói Marathi xen tiếng Anh; Whisper trả chữ dịch sang tiếng Anh (vd. "It's a matter of time" cho "कालची गोष्ट आहे"). `bao-cao.md` báo 4,24 từ/giây và tới 16,67 từ/giây vì đếm trên chữ dịch; bộ gom giọng 2 cụm xếp nhiều câu robot vào cụm của người học; `danh-gia` báo "có chuyển động máy" chỉ do cú chuyển sang end card; "mặt thứ 3/4" là nhận nhầm kệ/tay robot.
+- Nguyên nhân: Whisper small yếu với ngôn ngữ Ấn Độ; số đo phái sinh từ chữ Whisper sai theo.
+- Cách làm: lời đọc từ phụ đề trên hình qua `luot_NN.jpg`; tốc độ tính lại theo lời thật (~3 từ/giây); Hz đọc theo lượt đã biết người nói; đường chia đo bằng cạnh ngang trung vị nhiều khung (y 679/1280). Khung trên/dưới là "ghép 2 lớp", đặt `nen: DAY` vì `panel_clear_y` so toạ độ ảnh gốc của nền với ô khác, `nen: HOC` sẽ làm mặt người học bị coi là bị ô DAY che.
+- Kết quả: `kiem-tra` 0 lỗi, 0 cảnh báo; đốt thử phụ đề Devanagari Nirmala UI ĐẠT; đã nhập Studio (loại `Chia-tren-duoi-Marathi-e194`, dự án `oder-3---Supernova-Marathi-7986`). Muse nói Marathi: CHỜ KIỂM CHỨNG (chưa gen, chờ ảnh tham chiếu người dùng).
+- Áp dụng chung?: CÓ: video ngôn ngữ ít tài nguyên thì không dùng từ/giây và cụm giọng của công cụ; khung chia ngang dùng nhân vật ô TRÊN làm `nen`. Công cụ `danh-gia` chưa dò vạch chia NGANG (chỉ dò dọc), nên gợi ý nhầm "chung khung thật".
+- Đã chưng cất vào: chưa
+
+### 2026-11-09 · chia-tren-duoi-marathi · gắn ảnh robot, gen ảnh người học · loai: anh-tham-chieu
+- Hiện tượng: người dùng gửi ảnh robot đầu trắng không tóc (khác robot video mẫu) và bảo tự gen ảnh người. `gen_anh_hoc.py` lần 1: HTTP 401 (script ngoài Studio không thấy khoá); lần 2 và 3: `CDP Storage.setCookies 超时` trên cả 5 tài khoản, `userdata/logs/api.log` có lỗi này ở dọn tài khoản và làm nóng tab từ ít nhất 22:14.
+- Nguyên nhân: 401 do thiếu `MUSE2API_HOME=userdata\api` (đã sửa trong script). CDP: trình duyệt nền của LUO-API không trả lời (giả thuyết, chưa chứng minh).
+- Cách làm / sửa: sửa `NGUOI_DAY` theo ảnh (không tóc), thêm câu "ảnh tham chiếu chỉ cho ngoại hình" ở cả hai `[NHAN VAT]`; `cong-cu/cap_nhat_studio.py` đẩy kịch bản + biến thể vào đúng dự án cũ (PUT, Studio tự tải refs).
+- Kết quả: robot đã gắn vào dự án. Ảnh người học: CHƯA ĐẠT, chờ LUO-API hoạt động lại. Chạy thử: chưa.
+- Áp dụng chung?: CÓ: script gen ảnh ngoài Studio phải đặt `MUSE2API_HOME`; lỗi CDP trên mọi tài khoản thì dừng gen, không thử lại nhiều lần.
+- Đã chưng cất vào: chưa
+
+### 2026-11-09 · chia-tren-duoi-marathi · ảnh người học do người dùng gửi · loai: anh-tham-chieu
+- Hiện tượng: LUO-API vẫn lỗi CDP nên người dùng gửi ảnh qua prnt.sc: bác trai Ấn Độ ~65 tuổi, áo kurta kem, nền xanh lá.
+- Cách làm / sửa: `NGUOI_HOC`, `GIONG_HOC` đổi theo ảnh (cùng giới nên giữ nguyên động từ Marathi); `[NHAN VAT HOC]` dặn bỏ nền xanh và tư thế đứng; bỏ script gen ảnh.
+- Kết quả: `kiem-tra --tai-anh` đạt; dự án có đủ refs. Gen thật: CHỜ KIỂM CHỨNG (LUO-API lỗi CDP chưa xử lý).
+- Áp dụng chung?: KHÔNG
+- Đã chưng cất vào: chưa

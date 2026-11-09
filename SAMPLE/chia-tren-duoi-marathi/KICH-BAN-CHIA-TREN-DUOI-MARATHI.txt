@@ -1,0 +1,41 @@
+[HAU KY]:
+loai: chia-tren-duoi-marathi
+
+[GHI CHU]:
+Thể loại "chia trên/dưới + gia sư AI, tiếng Marathi xen tiếng Anh" (video mẫu: oder 3.mp4, 71,3 giây, 720x1280). MỘT phần, chế độ GHÉP 2 LỚP, mỗi lượt thoại một cảnh.
+  Bố cục: ô TRÊN = robot gia sư AI (DAY, y 0 -> 0,531), ô DƯỚI = người học (HOC, y 0,531 -> 1). Không viền, không bo góc. Đường chia đo trên video mẫu: y = 679/1280.
+  Studio gen riêng từng nhân vật ở 1:1 rồi cắt giữa: ô trên mất ~3% mỗi mép trên/dưới, ô dưới mất ~8% mỗi mép trên/dưới.
+  nen: DAY (robot) là CỐ Ý: Studio kiểm tra "ô có che mặt nhân vật nền không" theo toạ độ; để nen: HOC thì mặt người học trong ảnh 1:1 bị coi là nằm dưới ô DAY và ảnh bị dịch xuống oan.
+  Hậu kỳ riêng (app/production/types/chia-tren-duoi-marathi/post.py): phụ đề chữ đen ô trắng, font Nirmala UI (có chữ Devanagari), tâm y 958 (mép dưới ô trên).
+  End card điện thoại 67-71 s: KHÔNG gen -> Thương hiệu -> Outro.
+  Ảnh tham chiếu: NGUOI_DAY = anh/robot-ai.webp (người dùng cung cấp), NGUOI_HOC = anh/nguoi-hoc.png (người dùng cung cấp, nền xanh lá). Khác video mẫu: robot đầu trắng không tóc, người học là bác lớn tuổi.
+
+[GHEP HAI LOP]:
+nen: DAY
+khung DAY: 0, 0, 1, 0.531
+khung HOC: 0, 0.531, 1, 0.469
+bo goc: 0
+vien: khong
+noi: lien
+nghe: moi canh
+
+[STYLE LOCK]:
+Photorealistic look, one continuous shot, crisp focus on the face, soft natural light. Realistic skin, hair and fabric detail for the person; glossy clean high-end CGI for the robot body. The frame is square and is later trimmed slightly at the top and bottom, so the head always stays well inside the frame. No text, captions, logos, icons or watermarks anywhere in the frame.
+
+[NHAN VAT DAY]:
+{{TEN_DAY}}: {{NGUOI_DAY}}. The reference photo shows only the robot's look: its white backdrop, light ring and full-body pose are NOT part of the scene. Square frame on a fixed tripod, seen from the top of the head down to the waist, facing the camera straight on and perfectly centred left-right. The top of the head is about 4% down from the top edge, the centre of the face at about 30% of the frame height, the chin at about 44%, the shoulders span about four fifths of the frame width, the chest fills the bottom of the frame. The arms hang relaxed at the sides and the hands stay below the frame. {{TEN_DAY}} keeps exactly this size in the frame in every clip. Behind: {{NEN_DAY}}. The robot looks straight into the lens, as if on a video call with the learner. While speaking the lips open and move naturally with every word, with small head tilts, lively eyebrows, a warm smile and natural blinks, like a kind and lively teacher. VOICE: {{GIONG_DAY}}, the same timbre, pitch and loudness in every clip; speaks natural conversational Marathi and says the English words clearly with a light Indian English accent.
+
+[NGHE DAY]:
+{{TEN_DAY}} waits calmly: looking into the lens, a gentle closed-mouth smile, slow blinks, a tiny head tilt now and then, arms at the sides. The lips stay gently pressed together the whole clip; the head stays mostly still apart from that small tilt.
+
+[NHAN VAT HOC]:
+{{TEN_HOC}}: {{NGUOI_HOC}}. The reference photo shows only the face, hair and clothing: its plain green background and standing pose are NOT part of the scene. Square frame on a fixed tripod, framed from the chest up, sitting and facing the camera straight on, perfectly centred left-right. The top of the hair is about 18% down from the top edge, the centre of the face at about 45% of the frame height, the shoulders span most of the frame width, the chest reaches the bottom edge. The hands stay below the frame. {{TEN_HOC}} keeps exactly this size in the frame in every clip. Behind: {{NEN_HOC}}. The camera is locked off. {{TEN_HOC}} looks straight into the lens, as if on a video call with the AI tutor. While speaking: natural expressions, brows knit a little when unsure, small head tilts and side turns, a blink or a brief squint on a hard word, then back to the lens. VOICE: {{GIONG_HOC}}, the same timbre, pitch and loudness in every clip; speaks natural everyday Marathi and says the English words like a beginner, a little slowly.
+
+[NGHE HOC]:
+{{TEN_HOC}} pays attention to the AI tutor: a relaxed friendly face with a faint smile, eyes on the lens, slow natural blinks, a small nod now and then. The lips stay gently pressed together the whole clip; the head stays mostly still apart from that small nod.
+
+[VIDEO SUFFIX]:
+Natural spontaneous conversational delivery, real people on a video call, not text-to-speech, not an announcer. Marathi sentences with English words mixed in, exactly as written, every word said once. The tutor talks at about 3 words per second, warm and lively; the learner at about 3 words per second, plainer, unsure on the English words. The line starts right away, light natural breaths. Clean close voice, quiet room, no music, no singing or humming, no background chatter, no sound effects, no strong echo.
+
+[NEGATIVE]:
+text, letters, captions, subtitles, logos, icons, watermark; phone or app interface in the frame; split screen or picture-in-picture inside the clip; a second person; hands or arms coming up into the frame; hands touching the face or hair; camera cuts, zoom, push-in, pan, shake; the subject drifting off-centre; the head leaving the frame; face morphing, outfit change, hair change, age drift; distorted face; extra fingers; exaggerated gestures; repeated words; slow, dragged or stretched speech; flat monotone, robotic or announcer voice; singing, humming; background music; echo or reverb
