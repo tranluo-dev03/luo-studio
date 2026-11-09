@@ -1,0 +1,12 @@
+Viết biến thể mới cho thể loại di-tru-aiva-ai (đọc README.md trước).
+
+1. KHÔNG sửa tay BIEN-THE-DI-TRU-AIVA-AI.json. Thêm một dòng vào HANH_KHACH trong cong-cu/tao_bien_the.py:
+   (số, mã, tên Tây Ban Nha, "f"|"m", tuổi, ngoại hình EN). Tuổi >= 50: người gọi là con trai ("Mamá/Papá"), < 50: bố ("Mija/Mijo").
+   Ảnh: anh/hk-<số>.png (ảnh AI người dùng đưa). Không cắt từ video mẫu; thiếu ảnh thì hỏi trước khi gen.
+2. Đổi app: APP. Đổi quê/năm: QUE, NAM. Đổi lời: hàm luot() — giữ 30 lượt (5 + 10 + 15), "phan" 1/2/3, người nói phần 2 xen kẽ canhsat/hoc.
+3. Đại từ hành khách trong kịch bản chỉ dùng {{HE_HOC}} / {{HIM_HOC}} / {{VAI_HOC}} (biến thể có cả nam và nữ).
+4. Lời 3–20 từ; emo trong EMO_CUES. Token có khoá @phần (NHIN_HOC@1...) vẫn phải có khoá gốc (NHIN_HOC), không thì nút chạy báo "chưa điền".
+5. Chạy tao_bien_the.py → video-moi.py kiem-tra: 0 lỗi; cảnh báo fx 19 và "đầu dưới ô" là bình thường.
+
+Tự kiểm tra sau chạy thử: phan1/scene1_start.png (một người, điện thoại áp tai, không chữ); phan2/scene1_start.png (hành khách trái, cảnh sát phải, không robot);
+phan3/base_HOC.png (không nền xanh lá, góc trên phải trống); nghe cảnh 6–15 xem giọng có đổi chỗ không.

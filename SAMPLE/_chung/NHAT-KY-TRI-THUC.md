@@ -327,3 +327,54 @@ Người dùng báo 6 lỗi; nguyên nhân đã chứng minh bằng số đo tr�
 - Kết quả: `kiem-tra --tai-anh` 0 lỗi; dự án `Giai-do-30-bien-the-4737` 30 biến thể đủ 2 ảnh. CHỜ KIỂM CHỨNG (chưa gen).
 - Áp dụng chung?: CÓ (quy trình CSV + link Drive → refs; xem ảnh bằng bảng ghép thay vì mở 60 ảnh lẻ).
 - Đã chưng cất vào: chưa.
+
+### 2026-11-08 · check-hanh-ly-hindi · phân tích + tạo thể loại (nhân bản soi-hanh-ly-gia-su-ai) · loai: phan-tich
+- Hiện tượng: video "oder 6.mp4" nói Gujarati xen tiếng Anh; Whisper (mặc định en, và tự dò `gu` 0,41) đều trả lời DẠNG DỊCH sang tiếng Anh, không chép được chữ Gujarati.
+- Nguyên nhân: Whisper small yếu với Gujarati, có xu hướng dịch.
+- Cách làm: cắt vùng phụ đề (y≈1010–1080 trên 720×1280) 2 khung/giây, ghép lưới `tile=2x28`, đọc chữ Gujarati từ hình; Whisper chỉ để lấy mốc giây và cao độ. Ô robot đo bằng mặt nạ màu nền xanh (x 0.662, y 0.013, w 0.300, h 0.253).
+- Kết quả: ĐẠT (đủ 34 lượt, khớp phụ đề).
+- Áp dụng chung?: CÓ: video ngôn ngữ ít tài nguyên (Gujarati, Tamil, Telugu...) → lấy lời từ phụ đề trên hình, không tin chữ Whisper.
+- Đã chưng cất vào: chưa
+
+### 2026-11-08 · (chung) · câu chữ Gujarati/Devanagari · loai: cong-cu
+- Hiện tượng (đọc code, chưa gen): `speech_lang` chỉ biết en/es; `_speech_tokens` chỉ giữ chữ Latin → câu Gujarati bị báo "thừa từ" → gen lại 2 lần vô ích. Phụ đề Arial không có chữ Gujarati.
+- Cách sửa: `engine.speech_lang` trả `gu`/`hi` theo dải Unicode; `speech_issues` trả None (bỏ kiểm từng chữ) cho câu đó; `hau_ky.py` đọc `phu_de.font` (config thể loại `"font": "Nirmala UI"`). Đốt thử phụ đề Gujarati + ô trắng + ❌ qua `phu_de.burn`: ĐẠT.
+- Kết quả: CHỜ KIỂM CHỨNG (lượt gen thật đầu tiên; cần khởi động lại Studio để nạp engine mới).
+- Áp dụng chung?: CÓ (mọi thể loại lời chữ Ấn Độ).
+- Đã chưng cất vào: chưa
+
+### 2026-11-08 · di-tru-aiva-ai · tạo thể loại từ CSV biến thể (nhân bản di-tru-gia-su-ai) · loai: kich-ban
+- Hiện tượng: CSV "oder 7" = kịch bản di trú (gọi điện → cảnh sát → gia sư AI) + 20 biến thể hành khách nam/nữ, trẻ/già; link ảnh Google Drive.
+  Tải ảnh: curl `uc?export=download` và `drive.usercontent.google.com/download` đều trả trang "Google Drive: Sign-in"; Chrome (support@nexax.global) báo "You need access".
+- Cách làm: kịch bản mới (phần 2 bỏ robot vai, một góc; phần 3 15 lượt), đại từ hành khách bằng token `HE_HOC`/`HIM_HOC`/`VAI_HOC` để một kịch bản chạy cả nam và nữ;
+  hành khách ≥ 50 tuổi thì người gọi là con trai thay vì bố. `kiem-tra`: 0 lỗi (cảnh báo fx 19 và "đầu dưới ô" giữ).
+- Kết quả: CHỜ KIỂM CHỨNG (chưa gen). Sau khi người dùng mở quyền: `drive.usercontent.google.com/download?id=..&export=download&confirm=t` tải được 18/20 (WebP, đổi sang PNG); 2 file vẫn chặn.
+  Nhập Studio: loại di-tru-aiva-ai-37c0 (Studio nhận HE_HOC/HIM_HOC là trường), dự án di-tru-aiva-ai-c663, 18 biến thể. Cần kiểm token đại từ có được thay đúng trong prompt gửi Muse.
+- Áp dụng chung?: CÓ: link Drive trong CSV phải "Anyone with the link" mới tải tự động được; biến thể đổi giới → dùng token đại từ, không viết he/she trong kịch bản.
+- Đã chưng cất vào: chưa
+
+### 2026-11-08 · di-tru-aiva-ai · nút chạy báo "chưa điền: Tư thế khi nghe (HOC)" · loai: bien-the
+- Hiện tượng: Studio từ chối chạy `hk-01`; biến thể chỉ có `NGHE_HOC@1`, `NGHE_HOC@2`, `NHIN_HOC@1`, `NHIN_HOC@2`, không có khoá gốc.
+- Nguyên nhân: `runSelected` (ui/app.js) đòi mọi trường không tuỳ chọn có giá trị theo khoá gốc, không tính khoá `@phần`. `video-moi.py kiem-tra` không kiểm điều này nên báo 0 lỗi.
+- Cách sửa: thêm `NHIN_HOC`, `NGHE_HOC` gốc trong `tao_bien_the.py` (giá trị cho phần 3); cập nhật 18 biến thể của dự án qua PUT API, chỉ thêm 2 khoá. Mô phỏng phép kiểm của nút chạy: 0 trường thiếu.
+- Lần 1 chưa đạt: `runSelected` gọi `save()` TRƯỚC khi kiểm, trang đang mở giữ bản cũ nên ghi đè dữ liệu vừa PUT (file còn 0 khoá `NGHE_HOC`).
+- Sửa lần 2: đặt `optional: true` cho `NGHE_HOC`, `NHIN_HOC` trong loại dự án (PUT types, không bị bản lưu của trang ghi đè), rồi PUT lại khoá gốc. Đọc `S.project` + `typ()` trên trang Studio vừa tải: 18 biến thể, 0 trường thiếu.
+- Kết quả: CHỜ KIỂM CHỨNG (người dùng tải lại trang rồi chạy). Bài học: sửa dự án qua API khi trang Studio đang mở dễ bị ghi đè; cổng Studio đổi sau mỗi lần khởi động, đọc `userdata/running.json`.
+- Áp dụng chung?: CÓ: mọi token có `@phần` phải có thêm khoá gốc. `di-tru-gia-su-ai` cũng chỉ khai khoá `@` nên chạy từ nút trong Studio có thể gặp lỗi này.
+- Đã chưng cất vào: chưa
+
+### 2026-11-08 · di-tru-aiva-ai · tiếng hát trong khoảng lặng sau tên app · loai: am-thanh
+- Hiện tượng: hk-01 cảnh 15 (phan2/scene10_clip.mp4), sau "Aiva AI." có nốt ngân ~0,9 s, 253–266 Hz, -30 dB, phổ hoạ âm đều (giây 1,1–1,9). 14 clip còn lại không có.
+- Nguyên nhân (suy luận): câu chỉ có tên app + dấu chấm tạo khoảng lặng ~1 s giữa clip 8 s, Muse lấp bằng giọng ngân; cue emo "happy, proud" có "voice is confident and full".
+- Cách sửa: lời đổi thành "Aiva AI, I just practice..." + emo "confident" + dặn nói liền; thêm cấm hát/ngân vào VIDEO SUFFIX, NEGATIVE, Audio cả 3 phần. Lưới an toàn: `types/di-tru-aiva-ai/post.py` tắt đoạn < -22 dB có cao độ đều ≥ 0,6 s trước khi làm phụ đề.
+- Kết quả: gen lại cảnh 15 (md5 khác, không dính đệm Muse): nói liền, không còn đoạn có cao độ trong khoảng lặng: ĐẠT trên 1 mẫu. Thử bước tắt trên phan2/raw.mp4 cũ: chỉ trúng 26,6–27,5 s, Whisper trước/sau giống hệt; quét 15 clip hk-01 không trúng nhầm. Hát to bằng lời nói thì bước tắt không bắt được.
+- Áp dụng chung?: CÓ: tránh câu chỉ gồm tên riêng + dấu chấm ngay đầu lượt dài; cân nhắc đưa bước tắt vào `_chung/hau_ky.py` sau khi kiểm chứng thêm.
+- Đã chưng cất vào: chưa
+
+### 2026-11-08 · di-tru-aiva-ai · camera zoom giật ở phần 3, ô AI che mặt · loai: khung-hinh
+- Hiện tượng: hk-01 cảnh 17 ("Más o menos", phan3/scene2_spk.mp4) Muse zoom nhảy bậc 1,0 → 1,33 → 1,67 (_zoom_of 1,40); bản khoá camera vỡ chân (lấp mép từ khung nối) và còn zoom vào/ra. Lọc đa thức bậc 2 trong `_camera_lock` không bù được bước nhảy.
+- Nguyên nhân: ảnh tham chiếu toàn thân phông xanh → base_HOC vẽ toàn thân, trong khi prompt ghi "head to thighs" + "short-form social video look" + "light handheld": Muse zoom để khớp chữ (khớp mục 185 sổ tay).
+- Cách sửa: prompt "MEDIUM SHOT... cuts across mid-thigh; knees, feet outside", "fixed tripod, one continuous shot, no punch-in", bỏ "short-form"/"handheld"; đứng bên trái (mặt ~30%, đầu và tóc trái vạch 55%). `types/di-tru-aiva-ai/gen.py` chen vào `head_span`: đầu chạm ô AI thì cắt mép trái ảnh nền rồi phóng lại (chỉ file của thể loại này; không cần khởi động lại Studio vì gen.py nạp mới mỗi lần chạy).
+- Kết quả: gen lại từ cảnh 16: cảnh 17 zoom 1,005; mép phải mặt ≤ 48,7% (ô AI từ 61,5%); Muse vẫn vẽ lệch phải (60,7%) và bước căn đã đưa về 49,9%. ĐẠT trên 1 mẫu (2 clip).
+- Áp dụng chung?: CÓ: ảnh tham chiếu toàn thân thì prompt phải nói rõ phần nào ra ngoài khung; câu tả khung phải khớp ảnh nền.
+- Đã chưng cất vào: chưa

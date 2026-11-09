@@ -1,0 +1,682 @@
+[
+  {
+    "name": "check-hanh-ly-gujarati-sari-xanh",
+    "VAI_CANBO": "officer",
+    "POS_CANBO": "LEFT",
+    "TEN_CANBO": "the security officer",
+    "VAI_HOC": "woman",
+    "POS_HOC": "RIGHT",
+    "TEN_HOC": "the woman",
+    "TEN_DAY": "the AI tutor",
+    "NGHE_CANBO": "stands with his left elbow resting on top of the scanner and his right hand on the edge of the tray, head turned toward the woman, mouth closed, listening with a friendly face, small nods, his eyes following any gesture she makes and coming back to her face",
+    "NGHE_HOC": "stands with her right hand holding the strap of her shoulder bag, mouth closed, looking at the officer's face with a calm friendly smile; her eyes follow whatever he points at (the bag) and come back to his face",
+    "DAO_GIU": "Her right hand holds the bag strap or does the clip's action only: no hand ever goes to her head, face or hair.",
+    "DAO_KHAY": "a bright blue plastic airport security tray",
+    "DAO_VALI": "a brown leather doctor-style handbag with two rolled handles",
+    "DAO_NGHI": "the officer leaning with his left elbow on the scanner, right hand on the edge of the tray; the woman holding her bag strap, both looking at each other",
+    "NEN_SOI": "a bright modern Indian airport terminal: a grey stainless X-ray baggage scanner, tall glass windows with daylight, white ceiling, a dark-blue hanging sign showing only a white airplane pictogram, a tall colourful folk-art wall panel in orange and yellow at the upper right, potted palms, and small travellers standing far away behind blue queue belts",
+    "NEN_HOC": "a bright, modern airport departure hall, softly out of focus: long white ceiling light strips, glass walls, yellow flight-information boards without readable text, travellers far away",
+    "NGUOI_DAY": "a cute friendly humanoid robot with a smooth glossy white head and face, big soft light-blue eyes, gentle soft lips, small black-and-silver ear discs on both sides of the head like headphones, a white chest plate with a round glowing blue light in the middle, black mechanical neck joints",
+    "NEN_DAY": "a plain deep-blue gradient studio backdrop, lighter blue behind the head",
+    "GIONG_DAY": "a bright, light, friendly young woman's voice (around 230-260 Hz), smooth and clear with only a faint synthetic polish, patient and encouraging like a kind teacher on a video call, natural Gujarati with Indian English for the English words",
+    "NHIN_CANBO": "keeps his head turned toward the woman in three-quarter profile, looking at her face (or at the bag the clip names); his face never turns to the camera",
+    "NHIN_HOC": "looks at the officer's face, eyes level, never into the lens",
+    "NHIN_HOC@2": "looks straight into the lens, as if talking to the AI tutor on a video call",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "NGUOI_HOC": "an Indian woman around sixty, warm medium-brown skin, black hair with a few grey strands pulled back into a low bun, a small red bindi, dark brown eyes, a thin gold chain necklace, gold bangles, a dark-green silk saree with a small red-and-gold motif and a wide red-and-gold border, a red short-sleeved blouse with small white motifs",
+    "DAO_TUI": "a large dark-brown leather shoulder bag",
+    "GIONG_HOC": "a real Gujarati woman around sixty, mid-to-high pitch (around 210-240 Hz), warm and gentle, natural Gujarati, Indian English accent for the English words, not exaggerated; a real person, not an actress",
+    "NGUOI_CANBO": "a young Indian man in his late twenties, short thick wavy black hair, light stubble, a friendly face, a white short-sleeved shirt under a navy-blue vest, a navy tie, a blue lanyard with a plain white ID card with no lettering",
+    "GIONG_CANBO": "a young Indian man's voice, light baritone (around 140-170 Hz), friendly and relaxed, Indian English accent, natural Gujarati when he speaks Gujarati; statements fall at the end, questions rise slightly",
+    "LUOT": [
+      {
+        "who": "canbo",
+        "text": "Is this your bag?",
+        "emo": "calm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes.",
+        "emo": "calm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Can you speak English?",
+        "emo": "curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes, of course.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Can you prove it to me?",
+        "emo": "playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have come to New York to visit my brother.",
+        "emo": "calm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I will be staying here for ten days, and then I will go back home.",
+        "emo": "warm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Wow! તમારી English તો બહુ સરસ છે.",
+        "emo": "impressed",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you.",
+        "emo": "warm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, હું બસ રોજ 15 to 20 minutes Supernova AI પર speaking practice કરું છું.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Daily conversationsથી લઈને real life situationsમાં કેવી રીતે વાત કરવી, એ બધું Miss Nova મને શીખવાડે છે.",
+        "emo": "enthusiastic",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "અને મારા level પ્રમાણે Supernova AI એક personalized course પણ બનાવે છે, જેનાથી મને English શીખવામાં ઘણી સરળતા રહે છે.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Supernova AI?",
+        "emo": "curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "હા, આ એક AI teacher છે, જેની સાથે તમે રોજ Englishમાં વાત કરીને practice કરી શકો છો.",
+        "emo": "friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "આ ક્યારેય તમને judge નહીં કરે કે તમારી Englishની મજાક નહીં ઉડાવે.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "એક સારા friendની જેમ તમારી mistakes correct કરશે અને તમને confidently English બોલવામાં help કરશે.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "ચાલો, હું તમને બતાવું.",
+        "emo": "cheerful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "શું તમને English આવડે છે?",
+        "emo": "friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "હા, બસ થોડું ઘણું.",
+        "emo": "hesitant",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "તમારી ઉંમર કેટલી છે?",
+        "emo": "friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I have 62.",
+        "emo": "unsure",
+        "c": "black",
+        "o": "white",
+        "fx": "wrong",
+        "phan": 2,
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "તમારે કહેવું જોઈએ, I am 62.",
+        "emo": "patient, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I am 62.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. પણ તમે કોણ છો?",
+        "emo": "curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "હું Supernova AIની AI English teacher છું. હું તમારી English speaking improve કરવામાં તમારી મદદ કરીશ.",
+        "emo": "warm, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "તમે ક્યારેય પણ મારી સાથે speaking practice કરી શકો છો.",
+        "emo": "warm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ચોક્કસ, તમે ક્યારેય પણ, ક્યાંય પણ મારી સાથે real life English conversationsની practice કરી શકો છો.",
+        "emo": "cheerful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "પણ આ તો બહુ મોંઘું હશે ને?",
+        "emo": "doubtful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "બિલકુલ પણ નહીં. આ normal coaching classes કરતાં seven times cheaper છે.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "અત્યાર સુધીમાં one crore plus લોકો Supernova AI પર મારી સાથે practice કરીને પોતાની English improve કરી રહ્યા છે.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "તો પછી તમે શેની રાહ જોઈ રહ્યા છો? નીચે આપેલા Install Now પર click કરો,",
+        "emo": "enthusiastic",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Supernova AI download કરો અને આજથી જ પોતાની English વધુ સારી બનાવવાનું શરૂ કરો.",
+        "emo": "enthusiastic",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ]
+  },
+  {
+    "name": "check-hanh-ly-gujarati-sari-tim",
+    "VAI_CANBO": "officer",
+    "POS_CANBO": "LEFT",
+    "TEN_CANBO": "the security officer",
+    "VAI_HOC": "woman",
+    "POS_HOC": "RIGHT",
+    "TEN_HOC": "the woman",
+    "TEN_DAY": "the AI tutor",
+    "NGHE_CANBO": "stands with his left elbow resting on top of the scanner and his right hand on the edge of the tray, head turned toward the woman, mouth closed, listening with a friendly face, small nods, his eyes following any gesture she makes and coming back to her face",
+    "NGHE_HOC": "stands with her right hand holding the strap of her shoulder bag, mouth closed, looking at the officer's face with a calm friendly smile; her eyes follow whatever he points at (the bag) and come back to his face",
+    "DAO_GIU": "Her right hand holds the bag strap or does the clip's action only: no hand ever goes to her head, face or hair.",
+    "DAO_KHAY": "a bright blue plastic airport security tray",
+    "DAO_VALI": "a brown leather doctor-style handbag with two rolled handles",
+    "DAO_NGHI": "the officer leaning with his left elbow on the scanner, right hand on the edge of the tray; the woman holding her bag strap, both looking at each other",
+    "NEN_SOI": "a bright modern Indian airport terminal: a grey stainless X-ray baggage scanner, tall glass windows with daylight, white ceiling, a dark-blue hanging sign showing only a white airplane pictogram, a tall colourful folk-art wall panel in orange and yellow at the upper right, potted palms, and small travellers standing far away behind blue queue belts",
+    "NEN_HOC": "a bright, modern airport departure hall, softly out of focus: long white ceiling light strips, glass walls, yellow flight-information boards without readable text, travellers far away",
+    "NGUOI_DAY": "a cute friendly humanoid robot with a smooth glossy white head and face, big soft light-blue eyes, gentle soft lips, small black-and-silver ear discs on both sides of the head like headphones, a white chest plate with a round glowing blue light in the middle, black mechanical neck joints",
+    "NEN_DAY": "a plain deep-blue gradient studio backdrop, lighter blue behind the head",
+    "GIONG_DAY": "a bright, light, friendly young woman's voice (around 230-260 Hz), smooth and clear with only a faint synthetic polish, patient and encouraging like a kind teacher on a video call, natural Gujarati with Indian English for the English words",
+    "NHIN_CANBO": "keeps his head turned toward the woman in three-quarter profile, looking at her face (or at the bag the clip names); his face never turns to the camera",
+    "NHIN_HOC": "looks at the officer's face, eyes level, never into the lens",
+    "NHIN_HOC@2": "looks straight into the lens, as if talking to the AI tutor on a video call",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "NGUOI_HOC": "an Indian woman in her late fifties, light-brown skin, a round friendly face, thin gold-rimmed glasses, black hair streaked with grey in a neat bun, a small maroon bindi, small gold earrings, a purple cotton saree with a thin golden border and a matching purple blouse",
+    "DAO_TUI": "a tan leather shoulder bag",
+    "GIONG_HOC": "a real Gujarati woman in her late fifties, mid pitch (around 200-225 Hz), soft and cheerful, natural Gujarati, Indian English accent for the English words; a real person, not an actress",
+    "NGUOI_CANBO": "an Indian man in his early thirties, short neat black hair with a side parting, a trimmed black moustache, a calm face, a light-blue short-sleeved uniform shirt, a dark-blue tie, a blue lanyard with a plain white ID card with no lettering",
+    "GIONG_CANBO": "an Indian man's voice in his thirties, baritone (around 125-150 Hz), calm and friendly, Indian English accent, natural Gujarati when he speaks Gujarati; statements fall at the end, questions rise slightly",
+    "LUOT": [
+      {
+        "who": "canbo",
+        "text": "Is this your bag?",
+        "emo": "calm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes.",
+        "emo": "calm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Can you speak English?",
+        "emo": "curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yes, of course.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Can you prove it to me?",
+        "emo": "playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have come to New York to visit my brother.",
+        "emo": "calm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I will be staying here for ten days, and then I will go back home.",
+        "emo": "warm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Wow! તમારી English તો બહુ સરસ છે.",
+        "emo": "impressed",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you.",
+        "emo": "warm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, હું બસ રોજ 15 to 20 minutes Supernova AI પર speaking practice કરું છું.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Daily conversationsથી લઈને real life situationsમાં કેવી રીતે વાત કરવી, એ બધું Miss Nova મને શીખવાડે છે.",
+        "emo": "enthusiastic",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "અને મારા level પ્રમાણે Supernova AI એક personalized course પણ બનાવે છે, જેનાથી મને English શીખવામાં ઘણી સરળતા રહે છે.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canbo",
+        "text": "Supernova AI?",
+        "emo": "curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "હા, આ એક AI teacher છે, જેની સાથે તમે રોજ Englishમાં વાત કરીને practice કરી શકો છો.",
+        "emo": "friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "આ ક્યારેય તમને judge નહીં કરે કે તમારી Englishની મજાક નહીં ઉડાવે.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "એક સારા friendની જેમ તમારી mistakes correct કરશે અને તમને confidently English બોલવામાં help કરશે.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "ચાલો, હું તમને બતાવું.",
+        "emo": "cheerful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "શું તમને English આવડે છે?",
+        "emo": "friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "હા, બસ થોડું ઘણું.",
+        "emo": "hesitant",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "તમારી ઉંમર કેટલી છે?",
+        "emo": "friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I have 58.",
+        "emo": "unsure",
+        "c": "black",
+        "o": "white",
+        "fx": "wrong",
+        "phan": 2,
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "તમારે કહેવું જોઈએ, I am 58.",
+        "emo": "patient, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I am 58.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. પણ તમે કોણ છો?",
+        "emo": "curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "હું Supernova AIની AI English teacher છું. હું તમારી English speaking improve કરવામાં તમારી મદદ કરીશ.",
+        "emo": "warm, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "તમે ક્યારેય પણ મારી સાથે speaking practice કરી શકો છો.",
+        "emo": "warm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ચોક્કસ, તમે ક્યારેય પણ, ક્યાંય પણ મારી સાથે real life English conversationsની practice કરી શકો છો.",
+        "emo": "cheerful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "પણ આ તો બહુ મોંઘું હશે ને?",
+        "emo": "doubtful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "બિલકુલ પણ નહીં. આ normal coaching classes કરતાં seven times cheaper છે.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "અત્યાર સુધીમાં one crore plus લોકો Supernova AI પર મારી સાથે practice કરીને પોતાની English improve કરી રહ્યા છે.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "તો પછી તમે શેની રાહ જોઈ રહ્યા છો? નીચે આપેલા Install Now પર click કરો,",
+        "emo": "enthusiastic",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Supernova AI download કરો અને આજથી જ પોતાની English વધુ સારી બનાવવાનું શરૂ કરો.",
+        "emo": "enthusiastic",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ]
+  }
+]

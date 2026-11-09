@@ -1,0 +1,47 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "CHECK HÀNH LÝ + GIA SƯ AI, TIẾNG GUJARATI" (check-hanh-ly-hindi)
+  MỘT dự án hai phần: phần 1 ở máy soi hành lý (cảnh thường, MỘT góc máy đứng yên, 17 cảnh),
+  phần 2 người phụ nữ + robot AI gen RIÊNG rồi ghép (ghép 2 lớp). Code riêng: app/production/types/check-hanh-ly-hindi/
+  Nhân bản từ soi-hanh-ly-gia-su-ai (08/11/2026).
+================================================================================
+
+CÁCH DÙNG
+  Gửi cho agent: KICH-BAN-CHECK-HANH-LY-HINDI.txt, BIEN-THE-CHECK-HANH-LY-HINDI.json, PHAN-TICH-VIDEO-MAU.md,
+  cong-cu\tao_kich_ban.py, cong-cu\tao_bien_the.py. Rồi dán phần dưới, sửa [ngoặc vuông].
+
+--------------------------------------------------------------------------------
+PROMPT (copy từ dòng dưới)
+--------------------------------------------------------------------------------
+
+Bạn viết biến thể cho LUO Studio, thể loại CHECK HÀNH LÝ + GIA SƯ AI (Gujarati xen tiếng Anh). Mẫu đính kèm.
+
+Thông tin lần này:
+  Người dùng: [ngoại hình EN, tuổi, trang phục, túi đeo vai, giọng]
+  Nhân viên an ninh: [ngoại hình EN, giọng]
+  Tuổi trong câu sai/sửa: [vd. 62 -> "I have 62" / "I am 62"]
+  App: [vd. Supernova AI]
+
+BẮT BUỘC
+1) Sinh bằng cong-cu\tao_bien_the.py: thêm một dòng vào NHAN_VAT (name, tuoi, NGUOI_HOC, DAO_TUI, GIONG_HOC, NGUOI_CANBO, GIONG_CANBO);
+   đổi app ở APP. Không sửa tay JSON. Đổi lời thoại thì sửa hàm luot() VÀ hành động cảnh tương ứng trong bảng SC của tao_kich_ban.py.
+2) Phần 1 ĐÚNG 17 lượt theo thứ tự người nói:
+   canbo, hoc, canbo, hoc, canbo, hoc, hoc, canbo, hoc, hoc, hoc, hoc, canbo, hoc, hoc, hoc, hoc
+   (cảnh 1 và 13 nhân viên chỉ xuống túi trong khay: lời phải hợp hành động). 7 lượt đầu tiếng Anh; từ lượt 8 Gujarati xen tiếng Anh.
+3) Phần 2 mở đầu bằng AI hỏi. MỘT câu sai của người dùng "fx":"wrong","icon":"x"; AI sửa; người dùng nói lại đúng "fx":"right","icon":"check".
+4) Mọi lượt "c":"black","o":"white" (chữ đen ô trắng như video). Lời Gujarati viết bằng chữ Gujarati, từ tiếng Anh viết chữ Latin,
+   hậu tố Gujarati dính liền từ tiếng Anh như phụ đề video ("Englishમાં", "friendની"). 3-20 từ/lượt; emo trong EMO_CUES.
+5) Khoá nhân vật: CANBO trái, HOC phải (phần 1) / nền (phần 2), DAY robot. Khai NHIN_CANBO, NHIN_HOC, NHIN_HOC@2, NHIN_DAY.
+6) Ảnh tham chiếu (refs) CHỈ từ ảnh AI người dùng đưa; không cắt từ video mẫu. Thiếu ảnh thì hỏi trước khi gen.
+7) Không chữ trong hình (biển treo chỉ hình máy bay, thẻ nhân viên trắng trơn).
+
+TỰ KIỂM TRA
+  .venv\Scripts\python.exe SAMPLE\_chung\video-moi.py kiem-tra SAMPLE\check-hanh-ly-hindi\KICH-BAN-CHECK-HANH-LY-HINDI.txt SAMPLE\check-hanh-ly-hindi\BIEN-THE-CHECK-HANH-LY-HINDI.json
+  -> 0 lỗi; cảnh báo "[NHAN VAT HOC] chưa nói đầu nằm dưới ô" được phép (đầu ở giữa-trái, ô chỉ ở 30% bên phải).
+
+--------------------------------------------------------------------------------
+LỖI THƯỜNG GẶP / GIỚI HẠN
+--------------------------------------------------------------------------------
+  - Câu chữ Gujarati: Studio KHÔNG kiểm từng chữ (Whisper không chép được) -> nghe lại clip, lỗi thì "Chỉ làm lại cảnh này".
+  - 17 cảnh nối khung cùng một góc: tư thế/ánh sáng trôi dần -> làm lại từ cảnh đầu tiên lệch.
+  - Phần 1 và phần 2 là hai ảnh gen khác nhau: không có refs thì mặt người phụ nữ khác nhau giữa hai phần.
+  - Phụ đề cần font có chữ Gujarati: config.json "font": "Nirmala UI" (có sẵn trên Windows 10/11).

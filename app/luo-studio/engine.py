@@ -1017,6 +1017,7 @@ def _wh_release(w):
 
 
 _ES_MARK = re.compile(r"[¿¡ñáéíóú]", re.I)
+_INDIC = (("gu", re.compile(r"[઀-૿]")), ("hi", re.compile(r"[ऀ-ॿ]")))
 _ES_WORDS = set("que es la el los las para por con una uno tu mi no si sí pero vamos decir tienes quisiste perdón siempre nada cuál cómo solo necesitas hablar "
                 "estudies úsalo buen intento todos días juntos mejorar inglés hola gracias usted ustedes está estás soy eres somos".split())
 
@@ -1026,6 +1027,10 @@ def speech_lang(text):
     Whisper tiếng Anh (small.en) nghe câu tiếng Tây Ban Nha thành chữ lạ -> báo "thiếu chữ" sai -> Studio bỏ cắt sát, để lại 2-3 s lặng sau câu
     (05/11/2026, du-lich-chia-doi: video 59 s thay vì ~30 s). Câu lẫn cụm tiếng Anh ngắn ("¿Quisiste decir, I'm 22?") vẫn tính là 'es'."""
     t = str(text or "")
+    # chữ Ấn Độ (08/11/2026, check-hanh-ly-hindi: lời Gujarati xen từ tiếng Anh): Whisper đa ngôn ngữ theo chữ viết
+    for lang, rx in _INDIC:
+        if rx.search(t):
+            return lang
     if _ES_MARK.search(t):
         return "es"
     ws = re.findall(r"[a-záéíóúñü]+", t.lower())
@@ -1317,6 +1322,10 @@ def speech_issues(expected, path):
     Whisper hay bịa "Thank you" ở đó) không tính là thừa.
     Trả về danh sách (mô tả tiếng Việt cho nhật ký, mô tả tiếng Anh cho ghi chú gen lại) (rỗng = đạt); None nếu không kiểm được (câu rỗng, không có Whisper)."""
     import difflib
+    if speech_lang(expected) in ("gu", "hi"):
+        # câu chữ Gujarati/Devanagari (08/11/2026): _speech_tokens chỉ giữ chữ Latin, Whisper nghe thành chữ khác -> báo "thừa/thiếu" sai và gen lại vô ích.
+        # Không kiểm từng chữ; cắt sát vẫn chạy nhờ voice_span (năng lượng âm thanh). Câu thuần tiếng Anh vẫn kiểm như cũ.
+        return None
     exp = _speech_tokens(expected)
     if not exp:
         return None
