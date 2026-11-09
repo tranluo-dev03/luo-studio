@@ -670,7 +670,7 @@ def speaker_lock(v, turn, present=None):
         strong = same_gender(v) and bool(task)   # cùng giới: giấu miệng người nghe ngay từ đầu
         pose = str(v.get(f"NGHE_{c}") or "").strip()   # tuỳ chọn: tư thế khi nghe do biến thể quy định (vd. hai người nhìn nhau, không nhìn ống kính)
         alive = ("listens in a natural, living idle: soft blinking, gentle breathing, small attentive head movements and a faint expression that follows the mood of the line"
-                 + (f' (reacting "{react}")' if react else " (a slight smile, a small eyebrow lift or a tiny nod)") + ", mouth staying closed")
+                 + (f' (reacting "{react}")' if react else " (a slight smile or a small eyebrow lift, the head steady)") + ", mouth staying closed")
         base = (pose if pose else
                 f"keeps quietly {task} at the same slow, steady pace the whole time, head bowed low over the work, face half hidden by the hat or hair and turned down and away, eyes on the work, lips closed and still" if strong else
                 f"keeps quietly {task} at a slow, steady pace and {alive}" if task and idle else
@@ -1380,6 +1380,84 @@ def camera_retry(path, regen, emit, n, retries=1, limits=CAM_MAX):
             pass
 
 
+NEVER_CAM = re.compile(r"never (?:looks?|glanc\w*|turns?)[^.;]*\b(?:camera|lens)\b", re.I)   # NHIN_/NGHE_ nói "không bao giờ nhìn camera" -> đo hướng mặt
+GAZE_FRONT = 0.35   # |lệch mũi so với giữa hai mắt| / khoảng cách hai mắt: nhìn ba phần tư sang người kia 0.6-1.0, quay thẳng ống kính 0.1-0.27 (di-tru 06/11, cảnh sát cảnh 13)
+GAZE_MAX_S = 0.5    # quay mặt thẳng ống kính liên tục từ mức này (giây, trong đoạn được giữ sau khi cắt) là lỗi
+
+
+def gaze_frontal(path, side, t_end, fps=6):
+    """Đoạn dài nhất (giây) khuôn mặt bên `side` quay thẳng vào ống kính trong [0, t_end]. None nếu không dò được mặt."""
+    import cv2
+    import face_mesh as FM
+    W, H = 540, 960   # mặt người trong khung rộng nhỏ: cần ảnh lớn hơn đo miệng
+    b = side_box(side, _FACE_BOX)
+    if b is None:
+        return None
+    d = crun(["ffmpeg", "-v", "error", "-t", f"{max(0.5, t_end):.2f}", "-i", path, "-vf", f"fps={fps},scale={W}:{H}", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True).stdout
+    n = len(d) // (W * H * 3)
+    if n < 3:
+        return None
+    fr = np.frombuffer(d[: n * W * H * 3], np.uint8).reshape(n, H, W, 3)
+    x0, y0, x1, y1 = int(b[0] * W), int(b[1] * H), int(b[2] * W), int(b[3] * H)
+    run = best = seen = 0
+    with _MP_LOCK:
+        fm = FM.landmarker(min_conf=0.3)
+        try:
+            for f in fr:
+                lm = fm.find(cv2.resize(f[y0:y1, x0:x1], None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC))
+                front = False
+                if lm is not None and 0.12 <= lm[1].x <= 0.88:   # mặt nằm hẳn trong vùng (không phải mặt người bên cạnh lấn mép vùng)
+                    seen += 1
+                    front = abs(lm[1].x - (lm[33].x + lm[263].x) / 2) / (abs(lm[263].x - lm[33].x) + 1e-6) < GAZE_FRONT
+                run = run + 1 if front else 0
+                best = max(best, run)
+        finally:
+            fm.close()
+    return round(best / fps, 2) if seen >= 3 else None
+
+
+def gaze_retry(path, sides, regen, emit, n, retries=2, text=""):
+    """Nhân vật phải luôn nhìn người kia (NHIN_/NGHE_ "never looks at the camera") mà quay mặt thẳng ống kính >= GAZE_MAX_S giây trong đoạn được giữ
+    thì gen lại kèm ghi chú (tối đa `retries` lần), giữ lần ít quay nhất. `sides`: [(vai trong prompt, vị trí/hộp mặt)]."""
+    tried = []
+    for k in range(retries + 1):
+        try:   # đoạn được giữ sau bước cắt: tới hết từ cuối (Whisper) + lề; tiếng nền liên tục làm speech_end_of trả cả clip (đuôi bị cắt bỏ thì quay mặt cũng không sao)
+            sp = voice_span(path, text) if text else None
+        except Exception:  # noqa: BLE001
+            sp = None
+        t_end = sp[1] + 0.4 if sp else speech_end_of(path) + 0.6
+        worst = (0.0, None)
+        for role, side in sides:
+            try:
+                g = gaze_frontal(path, side, t_end)
+            except Exception as ex:  # noqa: BLE001 - mediapipe lỗi: bỏ qua
+                emit("log", msg=f"Cảnh {n}: không đo được hướng mặt ({ex})", level="warn")
+                return
+            if g is not None and g > worst[0]:
+                worst = (g, role)
+        if worst[0] < GAZE_MAX_S:
+            if k:
+                emit("log", msg=f"Cảnh {n}: lần {k + 1} không ai quay mặt vào ống kính")
+            break
+        emit("log", msg=f"Cảnh {n}: lần {k + 1} {worst[1]} quay mặt nhìn thẳng ống kính {worst[0]:.1f}s", level="warn")
+        keep = f"{path}.gaze{k}"
+        shutil.copyfile(path, keep)
+        tried.append((worst[0], k, keep))
+        if k == retries:
+            shutil.copyfile(min(tried)[2], path)
+            emit("log", msg=f"Cảnh {n}: {worst[1]} vẫn nhìn ống kính sau {retries} lần gen lại, giữ lần ít nhất. Bấm gen lại cảnh này nếu thấy lỗi", level="warn")
+            break
+        emit("scene", n=n, state="video", pct=0, note=f"gen lại (nhìn ống kính) {k + 1}")
+        regen(f"IMPORTANT RETRY NOTE: in the previous attempt {worst[1]} turned his or her face to the camera and looked into the lens. This time {worst[1]} keeps the head "
+              "turned in profile toward the other person and the eyes on that person's face for the whole clip, including after the line; the face never turns toward the camera, "
+              "even when smiling or reacting.")
+    for _, _, f in tried:
+        try:
+            os.remove(f)
+        except OSError:
+            pass
+
+
 def speed_factor(syll, spoken, max_speed=1.25, ok_rate=3.4, target_rate=4.0, soften=0.7, top_rate=4.8):
     """Hệ số tăng tốc cho lời bị Muse kéo chậm. Nhịp nói = âm tiết/giây (cả khoảng ngắt). Từ `ok_rate` trở lên: để nguyên.
     Chậm hơn: tăng một PHẦN (`soften`) khoảng cách tới nhịp mục tiêu, chặn ở `max_speed`, và không bao giờ đẩy nhịp sau chỉnh vượt `top_rate` (tránh nghe quá nhanh)."""
@@ -1456,7 +1534,10 @@ def smart_cut(src, cut_path, last_png, lo=0.15, hi=0.8, fps=24, syll=None, speed
     inner = [(x, y) for x, y in zip(st, en) if x >= speech_start - 0.01 and y <= min(speech_end, cut_t) + 0.02 and y > x]
     voiced = max(0.3, (speech_end - speech_start) - sum(y - x for x, y in inner))
     sf = speed_factor(syll, voiced, max_speed, ok_rate=3.0, target_rate=3.6) if (speedfix and syll and syll >= 8) else 1.0  # câu rất ngắn (ừm, à, For real?) vốn nói chậm có chủ ý: không tăng tốc giọng
-    longs = [(x, y) for x, y in inner if speedfix and y - x >= 0.55]
+    # Đoạn im trước lời chưa cắt được (nối khung "lien": head_margin rất lớn nên `head` luôn 0, khung đầu phải giữ nguyên để nối) vẫn dài thì
+    # tua nhanh như khoảng ngắt giữa câu (không cắt khung nào, khung đầu y hệt nên vẫn nối đúng) thay vì để nguyên tốc độ (06/11/2026, "Seriously?").
+    lead = [(head, speech_start)] if speedfix and speech_start - head >= 0.55 else []
+    longs = lead + [(x, y) for x, y in inner if speedfix and y - x >= 0.55]
     if sf <= 1.02 and not longs:
         factor = 1.0
         cmd1 = ["ffmpeg", "-y"] + (["-ss", f"{head:.3f}"] if head else []) + ["-i", src, "-t", f"{cut_t - head:.3f}"] + (["-vf", vf_extra] if vf_extra else []) +                ["-c:v", "libx264", "-crf", "17", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", cut_path]
@@ -2033,6 +2114,16 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                         attempt("video", gv)
                     camera_retry(vid_f, regen_cam, emit, n, int(opts.get("camera_retries", 1)))
                     speech_note[0] = ""
+                gz = [(f"the {MV.crole(vdata, c)}", MV.cbox(vdata, c)) for c in chars if c in people and MV.cbox(vdata, c)
+                      and NEVER_CAM.search(" ".join(str(vdata.get(f"{p}_{c}") or "") for p in ("NHIN", "NGHE")))] if opts.get("check_gaze", True) and not wide_p and not mouth_off else []
+                if gz:   # nhân vật "không bao giờ nhìn camera" quay mặt vào ống kính: gen lại
+
+                    def regen_gaze(note):
+                        speech_note[0] = "\n\n" + note
+                        os.remove(vid_f)
+                        attempt("video", gv)
+                    gaze_retry(vid_f, gz, regen_gaze, emit, n, int(opts.get("gaze_retries", 2)), str((turn or {}).get("text", "")) if spoken else "")
+                    speech_note[0] = ""
                 if not (opts.get("check_overlap", True) and not mouth_off and turn and spoken and spk_key in chars) or wide_p or swap:   # swap: hình lấy từ clip câm nên không đo miệng clip giọng   # cảnh lia máy: mặt chạy khỏi vị trí cố định, không đo được
                     break
                 spk_side = MV.cbox(vdata, spk_key)
@@ -2143,12 +2234,15 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                 emit("log", msg=f"Cảnh {n}: cân màu về khung đầu cảnh {ref_scene} ({fix_note})")
         span, margin = None, float(opts.get("cut_margin", 0.3))
         if opts.get("cut", True) and opts.get("precise_cut", True) and turn and str(turn.get("text", "")).strip():
-            try:
-                span = interruptible(lambda: voice_span(vid_f, turn["text"]), cancel)
-            except Cancelled:
-                raise
-            except Exception as ex:  # noqa: BLE001
-                emit("log", msg=f"Cảnh {n}: không xác định được mốc lời nói, cắt theo cách thường ({ex})", level="warn")
+            for k_try in range(2):   # lần đầu của mỗi lượt chạy Whisper còn đang nạp mô hình, hay lỗi/hết giờ: thử lại một lần. Không có mốc lời thì cắt theo
+                try:                 # khoảng lặng, mà clip có tiếng nền liên tục thì không có khoảng lặng cuối -> giữ nguyên cả clip (06/11/2026 di-tru cảnh 1:
+                    span = interruptible(lambda: voice_span(vid_f, turn["text"]), cancel)   # lời 0-1,9 s, clip 5 s để nguyên, 3 s lặng)
+                except Cancelled:
+                    raise
+                except Exception as ex:  # noqa: BLE001
+                    emit("log", msg=f"Cảnh {n}: không xác định được mốc lời nói" + (", thử lại" if k_try == 0 else f", cắt theo cách thường ({ex})"), level="warn")
+                if span:
+                    break
             if span:
                 emit("log", msg=f"Cảnh {n}: lời nói từ {span[0]:.2f}s đến {span[1]:.2f}s trong clip {duration(vid_f):.1f}s; cắt sát, chừa ~{margin:.2f}s")
             else:
@@ -2169,7 +2263,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
             if lost:
                 emit("log", msg=f"Cảnh {n}: bản cắt sát lời bị mất chữ ({'; '.join(lost)}), cắt lại rộng hơn", level="warn")
                 info = smart_cut(vid_f, cut_f, last_f, syll=syll, speedfix=opts.get("speedfix", True), vf_extra=vf_fix, max_speed=float(opts.get("speed_max", 1.25)),
-                                 span=None, lo=max(lo, 0.15), hi=max(hi, 0.8), head_margin=margin * 0.7)
+                                 span=(0.0, span[1]), lo=max(lo, 0.45), hi=max(hi, 1.1), head_margin=99.0)   # rộng hơn nhưng vẫn theo mốc lời: span=None giữ cả đoạn lặng có tiếng nền
         if info is None:
             if vf_fix:
                 sh_enc(["ffmpeg", "-y", "-i", vid_f, "-vf", vf_fix, "-c:v", "libx264", "-crf", "17", "-pix_fmt", "yuv420p", "-c:a", "copy", cut_f])

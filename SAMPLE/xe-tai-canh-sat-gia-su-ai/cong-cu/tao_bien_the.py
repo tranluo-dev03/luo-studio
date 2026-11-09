@@ -38,6 +38,10 @@ CHUNG = {
     "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
     "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
     "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    # đại từ cảnh sát (kịch bản dùng token; biến thể nữ cảnh sát đổi sang she/her) và ánh sáng (biến thể ban đêm đổi)
+    "HE_CANHSAT": "he", "HIS_CANHSAT": "his", "HIM_CANHSAT": "him",
+    "SANG_P1": "at sunset, warm golden-orange light",
+    "SANG_P2": "warm sunset light",
 }
 
 # (tên, tài xế: TEN, NGUOI, GIONG; cảnh sát: TEN, NGUOI, GIONG; XE, NEN_DUONG, NEN_CABIN, ảnh tài xế, ảnh cảnh sát)
@@ -96,16 +100,16 @@ BIEN_THE = [
 ]
 
 
-def luot():
+def luot(sir="sir"):
     P1 = [
         ("canhsat", "How long have you been driving today?", "calm, curious"),
         ("hoc", "I have been driving for, uh, six hours.", "hesitant, friendly"),
         ("canhsat", "When was the last time you slept?", "decisive, calm"),
         ("hoc", "I slept last night.", "confident, friendly"),
         ("canhsat", "Give me your driving license and registration.", "decisive"),
-        ("hoc", "Here they are, sir.", "friendly, cheerful"),
+        ("hoc", f"Here they are, {sir}.", "friendly, cheerful"),
         ("canhsat", "Okay. Wow, your English is good.", "impressed, amused"),
-        ("hoc", "Honestly, just ten minutes a day with LangLearn.", "proud, enthusiastic"),
+        ("hoc", "Honestly, just ten minutes a day with Talka AI.", "proud, enthusiastic"),
         ("hoc", "Real conversations exactly like this one. Here, let me show you.", "excited, playful"),
     ]
     out = [{"who": w, "text": t, "emo": e, "fx": "none", "phan": 1} for w, t, e in P1]
@@ -119,9 +123,9 @@ def luot():
         {"who": "hoc", "text": "Oh, okay. Thank you. Wait, who are you?", "emo": "surprised, curious"},
         {"who": "day", "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.", "emo": "warm, friendly"},
         {"who": "hoc", "text": "But I don't have moneys.", "emo": "worried", "icon": "dollar"},
-        {"who": "day", "text": "It's I have no money. But don't worry, LangLearn is a completely free app.", "emo": "reassuring, playful"},
+        {"who": "day", "text": "It's I have no money. But don't worry, Talka AI is a completely free app.", "emo": "reassuring, playful"},
         {"who": "hoc", "text": "Seriously?", "emo": "surprised"},
-        {"who": "day", "text": "We can practice English anytime, anywhere. Just download LangLearn.", "emo": "upbeat, persuasive"},
+        {"who": "day", "text": "We can practice English anytime, anywhere. Just download Talka AI.", "emo": "upbeat, persuasive"},
         {"who": "hoc", "text": "I will download now. Thank you so much.", "emo": "delighted, excited"},
     ]
     for t in P2:

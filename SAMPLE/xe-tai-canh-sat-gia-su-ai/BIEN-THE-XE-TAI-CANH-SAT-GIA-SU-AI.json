@@ -26,6 +26,11 @@
     "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
     "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
     "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "he",
+    "HIS_CANHSAT": "his",
+    "HIM_CANHSAT": "him",
+    "SANG_P1": "at sunset, warm golden-orange light",
+    "SANG_P2": "warm sunset light",
     "refs": {
       "NGUOI_DAY": [
         "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
@@ -83,7 +88,7 @@
       },
       {
         "who": "hoc",
-        "text": "Honestly, just ten minutes a day with LangLearn.",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
         "emo": "proud, enthusiastic",
         "fx": "none",
         "phan": 1
@@ -168,7 +173,7 @@
       {
         "fx": "none",
         "who": "day",
-        "text": "It's I have no money. But don't worry, LangLearn is a completely free app.",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
         "emo": "reassuring, playful",
         "phan": 2
       },
@@ -182,7 +187,7 @@
       {
         "fx": "none",
         "who": "day",
-        "text": "We can practice English anytime, anywhere. Just download LangLearn.",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
         "emo": "upbeat, persuasive",
         "phan": 2
       },
@@ -222,6 +227,11 @@
     "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
     "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
     "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "he",
+    "HIS_CANHSAT": "his",
+    "HIM_CANHSAT": "him",
+    "SANG_P1": "at sunset, warm golden-orange light",
+    "SANG_P2": "warm sunset light",
     "refs": {
       "NGUOI_DAY": [
         "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
@@ -279,7 +289,7 @@
       },
       {
         "who": "hoc",
-        "text": "Honestly, just ten minutes a day with LangLearn.",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
         "emo": "proud, enthusiastic",
         "fx": "none",
         "phan": 1
@@ -364,7 +374,7 @@
       {
         "fx": "none",
         "who": "day",
-        "text": "It's I have no money. But don't worry, LangLearn is a completely free app.",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
         "emo": "reassuring, playful",
         "phan": 2
       },
@@ -378,7 +388,7 @@
       {
         "fx": "none",
         "who": "day",
-        "text": "We can practice English anytime, anywhere. Just download LangLearn.",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
         "emo": "upbeat, persuasive",
         "phan": 2
       },
@@ -418,6 +428,11 @@
     "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
     "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
     "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "he",
+    "HIS_CANHSAT": "his",
+    "HIM_CANHSAT": "him",
+    "SANG_P1": "at sunset, warm golden-orange light",
+    "SANG_P2": "warm sunset light",
     "refs": {
       "NGUOI_DAY": [
         "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
@@ -475,7 +490,7 @@
       },
       {
         "who": "hoc",
-        "text": "Honestly, just ten minutes a day with LangLearn.",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
         "emo": "proud, enthusiastic",
         "fx": "none",
         "phan": 1
@@ -560,7 +575,7 @@
       {
         "fx": "none",
         "who": "day",
-        "text": "It's I have no money. But don't worry, LangLearn is a completely free app.",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
         "emo": "reassuring, playful",
         "phan": 2
       },
@@ -574,7 +589,7 @@
       {
         "fx": "none",
         "who": "day",
-        "text": "We can practice English anytime, anywhere. Just download LangLearn.",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
         "emo": "upbeat, persuasive",
         "phan": 2
       },

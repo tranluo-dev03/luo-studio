@@ -93,10 +93,37 @@ def _who(blocks, key):
     return blocks.get(f"NHAN VAT {key}", "")
 
 
-def image_prompt(blocks, key, aspect, n_refs, legend):
-    body = "\n\n".join(x for x in [blocks.get("STYLE LOCK", ""), _who(blocks, key)] if x)
+def _style(blocks, key, v=None):
+    """[STYLE LOCK] dùng chung cho mọi lớp, nhưng bỏ các mệnh đề (ngăn bởi . ; ) tả NHÂN VẬT KHÁC (nhắc tên ngắn TEN_<khoá khác>).
+    07/11/2026 xe-tai 20 biến thể: STYLE LOCK phần 2 có "the AI tutor is a sleek photorealistic CGI humanoid robot…" -> prompt ảnh gốc/clip của
+    tài xế (lớp nền) cũng tả robot, Muse vẽ robot ngồi ghế phụ cạnh tài xế ở 3/4 biến thể. Mỗi lớp chỉ được thấy mô tả của chính nó."""
+    return _drop_others(blocks.get("STYLE LOCK", ""), blocks, key, v)
+
+
+def _neg(blocks, key, v=None):
+    """[NEGATIVE] dùng chung, bỏ các mục nhắc tên nhân vật khác (cùng lý do với _style)."""
+    return _drop_others(blocks.get("NEGATIVE", ""), blocks, key, v)
+
+
+def _drop_others(s, blocks, key, v=None):
+    others = [c for c in (b[len("NHAN VAT "):] for b in blocks if b.startswith("NHAN VAT ")) if c != key]
+    names = [n for n in ((v or {}).get(f"TEN_{c}", "").strip().lower() for c in others) if len(n) > 3]
+    names = [re.sub(r"^(the|a|an)\s+", "", n) for n in names]
+    if not s or not names:
+        return s
+    out = []
+    for sent in re.split(r"(?<=[.!?])\s+", s.strip()):
+        keep = [x for x in re.split(r"(?<=;)\s+", sent) if not any(n in x.lower() for n in names)]
+        t = " ".join(keep).strip().rstrip(";").strip()
+        if t:
+            out.append(t if t[-1] in ".!?" else t + ".")
+    return " ".join(out)
+
+
+def image_prompt(blocks, key, aspect, n_refs, legend, v=None, bg=None):
+    body = "\n\n".join(x for x in [_style(blocks, key, v), _who(blocks, key)] if x)
     ref = (f"\n\nUse the attached reference image{'' if n_refs == 1 else 's'} as visual guidance for faces, outfits and props. THE REFERENCE IMAGES ARE AUTHORITATIVE FOR APPEARANCE: the person must look exactly like their own reference image (face, hair, skin tone, age, clothing); if the description conflicts with it, the reference wins." + (f" REFERENCE IMAGE NOTES: {legend}" if legend else "")) if n_refs else ""
-    neg = blocks.get("NEGATIVE", "")
+    neg = _neg(blocks, key, v)
     return ("Create exactly one still image (not a video, not an animation).\n\n"
             f"{body}\n\nThis is the BASE FRAME of this character: exactly ONE person in the frame, nobody else visible. Neutral relaxed resting pose, mouth gently CLOSED, "
             f"calm attentive expression, looking toward the camera. Output {ASPECTS[aspect]} ({aspect}).{ref}"
@@ -107,8 +134,8 @@ def speak_prompt(blocks, key, v, turn, aspect, dur, fix=""):
     who = MV.ck(turn.get("who"))
     name = v.get(f"TEN_{who}", "") or "the character"
     how = MV.speaker_how(v, turn["who"], turn.get("text", ""), turn.get("emo", ""))
-    body = "\n\n".join(x for x in [blocks.get("STYLE LOCK", ""), _who(blocks, key)] if x)
-    suffix, neg = blocks.get("VIDEO SUFFIX", ""), blocks.get("NEGATIVE", "")
+    body = "\n\n".join(x for x in [_style(blocks, key, v), _who(blocks, key)] if x)
+    suffix, neg = blocks.get("VIDEO SUFFIX", ""), _neg(blocks, key, v)
     p = (f"Create {ASPECTS[aspect]} ({aspect}) video clip, {dur} seconds long. Make ONE NEW, SEPARATE clip: do not extend or stitch any earlier video.\n\n"
          "AUDIO IS REQUIRED: the character's voice, clearly audible, synchronized with the lips. No music, no other voices.\n\n"
          + (f"CORRECTION FOR THIS CLIP (highest priority): {fix}\n\n" if fix else "")
@@ -148,9 +175,9 @@ def _calm_listen(how):
 
 def listen_prompt(blocks, key, v, aspect, dur, mood="", strict=False):
     name = v.get(f"TEN_{key}", "") or "the character"
-    body = "\n\n".join(x for x in [_no_speech(blocks.get("STYLE LOCK", "")), _no_speech(_who(blocks, key))] if x)
-    how = _calm_listen(blocks.get(f"NGHE {key}", "")) or "listening attentively to someone off-screen: natural blinks, small nods, raised eyebrows, a soft closed-mouth smile, small head tilts"
-    neg = _no_speech(blocks.get("NEGATIVE", ""), ";")
+    body = "\n\n".join(x for x in [_no_speech(_style(blocks, key, v)), _no_speech(_who(blocks, key))] if x)
+    how = _calm_listen(blocks.get(f"NGHE {key}", "")) or "listening attentively to someone off-screen: natural blinks, raised eyebrows, a soft closed-mouth smile, small head tilts"
+    neg = _no_speech(_neg(blocks, key, v), ";")
     return (f"Create {ASPECTS[aspect]} ({aspect}) video clip, {dur} seconds long. Make ONE NEW, SEPARATE clip.\n\n"
             "SILENT CLIP: Return a video with no audio at all: no speech, no music, no sound effects.\n\n"
             f"{body}\n\nThe clip starts exactly from the attached start frame. Exactly ONE person is in the frame: {name}, quietly listening. "
@@ -253,7 +280,10 @@ def head_span(png):
 
 def panel_clear_y(cfg, span):
     """Mép dưới thấp nhất của các ô (cộng dải phụ đề) đè lên mặt nhân vật nền; 0 nếu không ô nào che mặt."""
-    if not span:
+    if not span or cfg["bg"] in cfg["panels"]:
+        # nền có "khung <KHOÁ>" riêng (màn hình chia đôi trái/phải): ảnh gốc của nó là khung 9:16 RIÊNG, toạ độ mặt trong ảnh đó không cùng hệ với ô của
+        # nhân vật khác trên màn ghép, và không ô nào đè lên nó. Không bỏ qua thì ô DAY nửa trái bị tính là "che mặt" -> gen lại + dịch ảnh người xuống 35%
+        # (du-lich-chia-doi 06/11/2026: AI cao, người thấp). Cùng điều kiện với face_under_panels.
         return 0.0
     top, chin, l, r = span
     need = 0.0
@@ -401,7 +431,7 @@ def run_split(vdata, template, out_dir, opts, emit, cancel):
         if not os.path.exists(base[k]):
             emit("log", msg=f"Chuẩn bị: gen ảnh gốc cho {k} ({vdata.get('TEN_' + k, k)}, tỉ lệ {aspect_of(cfg, k)})")
             emit("scene", n=1, state="image", pct=0, note=f"ảnh gốc {k}")
-            gen("image", image_prompt(blocks, k, aspect_of(cfg, k), len(refs) + len(imgs_k), legend_k), None, base[k], aspect_of(cfg, k), ref_list=list(refs) + list(imgs_k))
+            gen("image", image_prompt(blocks, k, aspect_of(cfg, k), len(refs) + len(imgs_k), legend_k, vdata, cfg["bg"]), None, base[k], aspect_of(cfg, k), ref_list=list(refs) + list(imgs_k))
             if k == cfg["bg"]:   # ô của nhân vật khác (và dải phụ đề dưới ô) không được che mặt nhân vật nền
                 for fix in range(2):   # 06/11: Muse bỏ qua yêu cầu "đầu ở N%" cả 2 lần gen lại -> chỉ gen lại 1 lần rồi dịch ảnh
                     span = head_span(base[k])
@@ -411,7 +441,7 @@ def run_split(vdata, template, out_dir, opts, emit, cancel):
                     if fix < 1:
                         emit("log", msg=f"Ảnh gốc {k}: đỉnh đầu ở {span[0] * 100:.0f}% khung, bị ô che (cần thấp hơn {need * 100:.0f}%): gen lại", level="warn")
                         os.replace(base[k], base[k] + f".che{fix + 1}.png")
-                        gen("image", image_prompt(blocks, k, aspect_of(cfg, k), len(refs) + len(imgs_k), legend_k)
+                        gen("image", image_prompt(blocks, k, aspect_of(cfg, k), len(refs) + len(imgs_k), legend_k, vdata, cfg["bg"])
                             + f"\n\nCOMPOSITION FIX: the top of the head (including hair) must be at least {need * 100 + 3:.0f}% down from the top edge of the frame "
                               f"and the whole face below that line; the upper {need * 100:.0f}% of the frame shows only background (it will be covered by another window).",
                             None, base[k], aspect_of(cfg, k), ref_list=list(refs) + list(imgs_k))
@@ -467,19 +497,13 @@ def run_split(vdata, template, out_dir, opts, emit, cancel):
                 f = fa
             if _lock_on(cfg, k):
                 f = _locked(f, emit, f"Cảnh {n}: ", k)
-            elif check:   # gen lại rồi vẫn mấp máy (_gen_listen giữ bản ít nhất): khoá miệng RIÊNG clip này, để không thành hai người cùng nói (soi hành lý 03/11: 5/15 cảnh)
+            elif check:   # gen lại rồi vẫn mấp máy (_gen_listen giữ bản ít nhất): chỉ GHI CẢNH BÁO, giữ nguyên clip Muse. Người dùng bỏ "dán miệng" (06/11/2026,
+                # du-lich-chia-doi biến thể 2 cảnh 4: môi cứng, lộ vết dán) và KHÔNG muốn thay bằng khung đứng yên: chỉ bỏ dán miệng, mọi thứ khác giữ như cũ
                 s = _mouth_score(f, need + 0.3)
                 talk = _talky(f)   # clip nghe vẫn có tiếng nói lọt vào = mặt đang nhép theo tiếng đó, dù mức miệng đo được dưới ngưỡng
                 if (s is not None and s >= LISTEN_MAX) or talk:   # (05/11/2026 du-lich-chia-doi cảnh 4: -23 dB, mức 0,018 < 0,020 -> Carla nhép khi AI nói)
                     emit("log", msg=f"Cảnh {n}: clip nghe {k} vẫn " + ("có tiếng nói lọt vào" if talk else "mấp máy miệng") +
-                                    (f" (mức {s:.3f}, ngưỡng {LISTEN_MAX})" if s is not None else "") + ", khoá miệng riêng clip này", level="warn")
-                    fl = _locked(f, emit, f"Cảnh {n}: ", k)
-                    if fl == f:   # không khoá được (không dò được mặt, vd. robot): khung nối đứng yên nhúc nhích nhẹ, chắc chắn không nhép
-                        fs = P(f"scene{n}_listen_{k}_tinh.mp4")
-                        _still_clip(seen[k] if chain else base[k], fs, need)
-                        emit("log", msg=f"Cảnh {n}: không khoá được miệng {k}, dùng khung nối đứng yên cho đoạn nghe", level="warn")
-                        fl = fs
-                    f = fl
+                                    (f" (mức {s:.3f}, ngưỡng {LISTEN_MAX})" if s is not None else "") + " sau khi gen lại; giữ nguyên clip (không dán miệng), xem lại cảnh này", level="warn")
             return f, 0.0, E.duration(f) < need
         c = used[k]
         used[k] += 1
@@ -536,8 +560,14 @@ def run_split(vdata, template, out_dir, opts, emit, cancel):
                     os.remove(spk_f)
                     raise RuntimeError("Muse trả về clip không có tiếng (mất lời thoại)")
             attempt("video", gv, n)
-            frame_bad = lambda: max(_zoom_of(spk_f) / ZOOM_REGEN, _start_mismatch(spk_f, tail[spk]) / START_REGEN)   # > 1 = hỏng
-            if chain and (z0 := frame_bad()) > 1:   # Muse tự phóng khung / vẽ lại cảnh khác khung nối: gen lại 1 lần, giữ bản lệch ít hơn
+            def frame_bad():   # > 1 = hỏng: Muse tự phóng / vẽ lại khác khung nối / mặt nhân vật nền lọt dưới ô khác
+                v = max(_zoom_of(spk_f) / ZOOM_REGEN, _start_mismatch(spk_f, tail[spk]) / START_REGEN) if chain else 0.0
+                try:
+                    v = max(v, face_under_panels(spk_f, cfg, spk) / FACE_PANEL_MAX)
+                except Exception:  # noqa: BLE001 - không có mediapipe: bỏ qua phần đo mặt
+                    pass
+                return v
+            if (z0 := frame_bad()) > 1:   # Muse tự phóng khung / vẽ lại cảnh khác khung nối / mặt nền dưới ô khác: gen lại 1 lần, giữ bản lệch ít hơn
                 emit("log", msg=f"Cảnh {n}: khung hình clip {spk} lệch khung nối hoặc tự phóng (mức {z0:.2f}), gen lại", level="warn")
                 keep = spk_f + ".zoom.mp4"
                 os.replace(spk_f, keep)
@@ -572,6 +602,12 @@ def run_split(vdata, template, out_dir, opts, emit, cancel):
             src_f = P(f"scene{n}_spk_khop.mp4")
             if not _fresh(src_f, spk_f):
                 emit("log", msg=f"Cảnh {n}: khớp clip {spk} với khung nối ({align_to_tail(spk_f, seen[spk], src_f, base[spk])})")
+                try:
+                    fp = face_under_panels(src_f, cfg, spk)
+                    if fp > FACE_PANEL_MAX:
+                        emit("log", msg=f"Cảnh {n}: CẢNH BÁO sau khi khớp, {fp:.0%} mặt {spk} nằm dưới ô khác", level="warn")
+                except Exception:  # noqa: BLE001
+                    pass
         elif opts.get("normalize", True):   # cân màu từng nhân vật về clip đầu tiên của chính nhân vật đó
             c_start, c_end = E.color_stats(spk_f, [0.04, 0.2, 0.4]), E.color_stats(spk_f, [-0.6, -0.35, -0.1])
             ref_stats.setdefault(spk, c_start)
@@ -774,12 +810,57 @@ def align_to_tail(src, tail_png, out, base_png=None, blend=0.2, pull=0.35):
         note += f", khoá camera (Muse phóng tới x{zmax:.2f})"
     M3 = np.vstack([M, [0, 0, 1]]) if M is not None else np.eye(3)
     ones = np.full((h, w), 255, np.uint8)
+    # (1c) kéo bố cục về ảnh gốc: khớp khung đầu với khung nối làm lệch CỘNG DỒN qua các clip nối (06/11/2026 di-tru phần 3: mỗi cảnh Diego gần hơn
+    #      và lệch phải thêm, tới cảnh 25 mặt nằm dưới ô AI; clip Muse gốc vẫn đúng khung, bản _khop mới lệch). Khung đầu vẫn khớp khung nối,
+    #      rồi biến đổi đổi dần (ease) tới phép đưa khung cuối về đúng bố cục `base_png` -> khung cuối (= khung nối cảnh sau) luôn quay về ảnh gốc.
+    E = np.eye(3)
+    base_g = cv2.imread(base_png) if base_png else None
+    if base_g is not None and (M is not None or stab is not None):
+        T_last = M3 @ (stab[-1] if stab is not None else np.eye(3))
+        wl = cv2.warpAffine(frames[-1], T_last[:2], (w, h), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+        bg = cv2.resize(base_g, (w, h), interpolation=cv2.INTER_AREA)
+        ks = 360 / w
+        sm = lambda im: cv2.cvtColor(cv2.resize(im, (360, int(h * ks)), interpolation=cv2.INTER_AREA), cv2.COLOR_BGR2GRAY)
+        ob = cv2.ORB_create(2000)
+        ka, da = ob.detectAndCompute(sm(wl), None)
+        kb, db = ob.detectAndCompute(sm(bg), None)
+        if da is not None and db is not None and len(ka) > 30 and len(kb) > 30:
+            ms = sorted(cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True).match(da, db), key=lambda m: m.distance)[:500]
+            if len(ms) >= 20:
+                A2, inl = cv2.estimateAffinePartial2D(np.float32([ka[m.queryIdx].pt for m in ms]), np.float32([kb[m.trainIdx].pt for m in ms]),
+                                                      method=cv2.RANSAC, ransacReprojThreshold=2.5)
+                if A2 is not None and inl is not None and inl.sum() >= 15:
+                    s2 = float(np.hypot(A2[0, 0], A2[1, 0]))
+                    A2 = A2.copy()
+                    A2[:, 2] /= ks
+                    if 0.8 < s2 < 1.25 and abs(A2[0, 2]) < 0.15 * w + abs(s2 - 1) * w and abs(A2[1, 2]) < 0.15 * h + abs(s2 - 1) * h:
+                        cand = cv2.warpAffine(wl, A2, (w, h), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+                        err2 = lambda im: float(np.abs(cv2.resize(im, (180, 320)).astype(np.int16) - cv2.resize(bg, (180, 320)).astype(np.int16)).mean())
+                        if err2(cand) < err2(wl) - 0.5 and (abs(s2 - 1) > 0.02 or np.hypot(A2[0, 2], A2[1, 2]) > 0.01 * w):
+                            fr_ = min(1.0, 0.1 / max(1e-6, abs(s2 - 1)), 0.06 * w / max(1e-6, float(np.hypot(A2[0, 2], A2[1, 2]))))   # mỗi clip kéo tối đa ~10% phóng / 6% dời: mép hụt nhỏ, vài cảnh là về hẳn
+                            # chỉ kéo trong phần ảnh THẬT của clip (không để lộ mép hụt phải lấp bằng ảnh khác: lấp bằng khung nối/ảnh gốc
+                            # đều lộ vệt, đo 06/11/2026): tìm tỉ lệ lớn nhất mà khung cuối vẫn phủ kín
+                            full = np.vstack([A2, [0, 0, 1]]) - np.eye(3)
+                            covered = lambda f: cv2.warpAffine(ones, ((np.eye(3) + f * full) @ T_last)[:2], (w, h), flags=cv2.INTER_NEAREST, borderValue=0).mean() >= 254.0
+                            lo_, hi_ = 0.0, fr_
+                            if not covered(hi_):
+                                for _ in range(8):
+                                    mid = (lo_ + hi_) / 2
+                                    lo_, hi_ = (mid, hi_) if covered(mid) else (lo_, mid)
+                                fr_ = lo_
+                            if fr_ > 0.05:
+                                E = np.eye(3) + fr_ * full
+                                note += f", kéo về bố cục gốc ({fr_:.0%} của x{s2:.3f}, {A2[0, 2]:+.0f},{A2[1, 2]:+.0f}px)"
 
     def warp_i(i):
         """(khung đã căn, độ phủ 0-1 hoặc None nếu phủ kín)."""
         if stab is None and M is None:
             return frames[i], None
         T = (M3 @ stab[i])[:2] if stab is not None else M3[:2]
+        if E is not None and not np.array_equal(E, np.eye(3)):
+            u = i / max(1, len(frames) - 1)
+            u = 0.5 - 0.5 * np.cos(np.pi * u)   # ease: đứng yên ở hai đầu, không giật
+            T = ((np.eye(3) + u * (E - np.eye(3))) @ np.vstack([T, [0, 0, 1]]))[:2]
         im = cv2.warpAffine(frames[i], T, (w, h), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
         cov = cv2.warpAffine(ones, T, (w, h), flags=cv2.INTER_NEAREST, borderValue=0)
         if cov.min() == 255:
@@ -870,6 +951,46 @@ ORIG_NOTE = ("Reference image{s} {nums}: the ORIGINAL reference of this same cha
 LISTEN_MAX = 0.020      # clip NGHE: chặt hơn ngưỡng "đang nói" (người im lặng thật đo được 0,008-0,019)
 LISTEN_RETRIES = 2
 LISTEN_RETRIES_NO_SPARE = 4   # clip nghe có tiếng và chưa có clip nghe câm nào của nhân vật đó để dùng lại
+FACE_PANEL_MAX = 0.12   # phần mặt nhân vật nền nằm dưới ô của nhân vật khác vượt mức này (khung nào cũng tính): gen lại (06/11/2026 di-tru: ô AI che nửa mặt Diego)
+
+
+def face_under_panels(path, cfg, k, n_frames=8):
+    """Tỉ lệ lớn nhất (0..1) diện tích khung mặt của nhân vật nền `k` nằm dưới các ô khác, trên vài khung của clip `path` (toàn khung, đúng toạ độ video).
+    0 nếu `k` không phải nền toàn khung hoặc không dò được mặt."""
+    if k != cfg.get("bg") or k in cfg["panels"]:
+        return 0.0
+    rects = [v for kk, v in cfg["panels"].items() if kk != k]
+    if not rects:
+        return 0.0
+    import face_mesh as FM
+    import numpy as np
+    W, H = 360, 640
+    dur = max(0.5, E.duration(path))
+    worst = 0.0
+    with E._MP_LOCK:
+        fm = FM.landmarker(min_conf=0.3)
+        try:
+            for i in range(n_frames):
+                t = dur * (i + 0.5) / n_frames
+                d = E.crun(["ffmpeg", "-v", "error", "-ss", f"{t:.2f}", "-i", path, "-frames:v", "1", "-vf", f"scale={W}:{H}", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
+                           capture_output=True).stdout
+                if len(d) < W * H * 3:
+                    continue
+                lm = fm.find(np.frombuffer(d[: W * H * 3], np.uint8).reshape(H, W, 3))
+                if not lm:
+                    continue
+                xs, ys = [p.x for p in lm], [p.y for p in lm]
+                x0, x1, y0, y1 = min(xs), max(xs), min(ys), max(ys)
+                area = max(1e-6, (x1 - x0) * (y1 - y0))
+                for rx, ry, rw, rh in rects:
+                    ix = max(0.0, min(x1, rx + rw) - max(x0, rx))
+                    iy = max(0.0, min(y1, ry + rh) - max(y0, ry))
+                    worst = max(worst, ix * iy / area)
+        finally:
+            fm.close()
+    return worst
+
+
 START_REGEN = 1.2       # mặt ở khung đầu clip to/nhỏ hơn khung nối gửi đi quá mức này (Muse bỏ qua khung đầu, vẽ lại cảnh): gen lại
 ZOOM_REGEN = 1.15       # Muse tự phóng khung quá mức này trong một clip: gen lại (khoá camera lấp mép bằng khung đầu, phóng mạnh thì lộ vết ghép)
 # Clip NGHE phải câm, nhưng Muse vẫn hay tự lồng tiếng lẩm bẩm vào (04/11/2026, chia-doi-gia-su-ai: 3/5 clip nghe có tiếng -23..-36 dB, Whisper nghe ra
@@ -989,8 +1110,8 @@ def _fresh(out, src):
 
 
 def _lock_on(cfg, k):
-    """Có khoá miệng clip nghe của nhân vật k không ("khoa mieng: co" = mọi nhân vật, "khoa mieng: HOC" = chỉ HOC)."""
-    return k in cfg["lock"] if isinstance(cfg["lock"], set) else bool(cfg["lock"])
+    """Khoá miệng (dán môi khép lên clip nghe) đã BỎ theo yêu cầu người dùng 06/11/2026: luôn False, dòng "khoa mieng: ..." trong kịch bản không còn tác dụng."""
+    return False
 
 
 def _locked(f, emit, pre, k):
@@ -1187,7 +1308,11 @@ def _gen_listen(gen, blocks, k, vdata, cfg, base_png, f, dur, check, emit, n=Non
         s = _mouth_score(path, t_end) if check else None
         t = _talky(path)
         z, m = _zoom_of(path), _start_mismatch(path, base_png)
-        return (t, round(_audio_db(path), 1) if t else -99.0, z > ZOOM_REGEN or m > START_REGEN, s if s is not None else 0.0, max(z, m))
+        try:
+            fp = face_under_panels(path, cfg, k)   # mặt nhân vật nền lọt dưới ô khác (06/11/2026 di-tru: ô AI che mặt Diego)
+        except Exception:  # noqa: BLE001
+            fp = 0.0
+        return (t, round(_audio_db(path), 1) if t else -99.0, z > ZOOM_REGEN or m > START_REGEN or fp > FACE_PANEL_MAX, s if s is not None else 0.0, max(z, m))
 
     def ok(b):
         return not b[0] and not b[2] and b[3] < LISTEN_MAX
@@ -1201,7 +1326,7 @@ def _gen_listen(gen, blocks, k, vdata, cfg, base_png, f, dur, check, emit, n=Non
     while i < (LISTEN_RETRIES if spare or not best[0][0] else LISTEN_RETRIES_NO_SPARE):   # còn tiếng mà chưa có clip câm dự phòng: thử thêm
         lim = LISTEN_RETRIES if spare or not best[0][0] else LISTEN_RETRIES_NO_SPARE
         why = (f"có tiếng nói lọt vào ({_audio_db(best[1]):.0f} dB): mặt đang nhép theo tiếng đó" if best[0][0]
-               else f"khung hình lệch khung nối / tự phóng x{best[0][4]:.2f}" if best[0][2]
+               else f"khung hình lệch khung nối / tự phóng x{best[0][4]:.2f} / mặt lọt dưới ô khác" if best[0][2]
                else f"miệng cử động như đang nói (mức {best[0][3]:.3f}, ngưỡng {LISTEN_MAX})")
         emit("log", msg=f"{who}: {why}, gen lại {i + 1}/{lim}", level="warn")
         tmp = f"{f}.try{i}.mp4"

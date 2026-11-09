@@ -2,7 +2,8 @@
 Sửa bảng/khối ở đây rồi chạy:
     .venv\\Scripts\\python.exe SAMPLE\\xe-tai-canh-sat-gia-su-ai\\cong-cu\\tao_kich_ban.py
 Video mẫu: AQPPCRx43ias...(online-video-cutter.com).mp4, 50 s. Phân tích: ../PHAN-TICH-VIDEO-MAU.md.
-Không dùng đại từ he/she cho tài xế (biến thể có cả tài xế nam lẫn nữ): luôn gọi {{TEN_HOC}} / "the driver"."""
+Không dùng đại từ he/she cho tài xế (biến thể có cả tài xế nam lẫn nữ): luôn gọi {{TEN_HOC}} / "the driver".
+Đại từ cảnh sát: {{HE_CANHSAT}} / {{HIS_CANHSAT}} / {{HIM_CANHSAT}}; ánh sáng: {{SANG_P1}} (phần 1), {{SANG_P2}} (phần 2). Giá trị trong CHUNG của tao_bien_the.py."""
 import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -30,7 +31,7 @@ Các dòng "===== PHAN n: ... =====" chia phần; mọi thứ phía trên dòng 
 ===== PHAN 1: CANH SAT CHAN XE TAI =====
 
 [STYLE LOCK]:
-Vertical 9:16 photorealistic video on the shoulder of a wide highway at sunset, warm golden-orange light, natural colours, the look of a real documentary moment. One fixed camera at chest height on the road shoulder, the same framing in every clip; the camera stays still. The same two characters, the same truck and the same place in every clip. No text, no letters, no logos, no captions, no icons, no lettering on the uniform, vest, badge, truck, number plate or phone anywhere in the frame.
+Vertical 9:16 photorealistic video on the shoulder of a wide highway {{SANG_P1}}, natural colours, the look of a real documentary moment. One fixed camera at chest height on the road shoulder, the same framing in every clip; the camera stays still. The same two characters, the same truck and the same place in every clip. No text, no letters, no logos, no captions, no icons, no lettering on the uniform, vest, badge, truck, number plate or phone anywhere in the frame.
 
 [CHAR LOCK]:
 The {{VAI_CANHSAT}}, {{TEN_CANHSAT}} ({{POS_CANHSAT}}): {{NGUOI_CANHSAT}}. VOICE LOCK OFFICER: one single voice, {{GIONG_CANHSAT}}, the same in every clip.
@@ -42,7 +43,7 @@ RULE: in each clip exactly ONE character speaks, one line, with lip-sync, keepin
 ACTION CLIPS: the actions are done WHILE the line is spoken, in the order given, and are complete by the last word. Props, the same in every clip: {{DAO_GIAY_TO}} and {{DAO_DIEN_THOAI}}; they appear only when a clip's action says so, never duplicated, never with readable text.
 
 [SET LOCK]:
-{{NEN_DUONG}}. The truck: {{XE}}, parked on the shoulder with the engine off. Nothing moves in the background: the far traffic stands still, the clouds and the palm trees do not move.
+{{NEN_DUONG}}. The truck: {{XE}}, parked on the shoulder with the engine off. Nothing moves in the background: the far traffic stands still, the sky and the trees do not move.
 
 [VIDEO SUFFIX]:
 Static camera, no zoom, no pan, no shake, no cut. The speaker starts right away at """ + TOC_DO + """, like real people caught on camera, not actors, and finishes the line. After the last word (and the action, if the clip has one) both keep a calm closed-mouth face and stay still until the end of the clip. No subtitles, no text, no music, no engine, traffic or wind noise. 9:16.
@@ -51,7 +52,7 @@ Static camera, no zoom, no pan, no shake, no cut. The speaker starts right away 
 text, captions, subtitles, logos, icons, emoji, lettering on uniform, vest, badge, truck or phone; the words LEFT, RIGHT or TOP or any label written in the frame; camera movement, zoom, shake, cut; two voices in one clip; the silent character moving the mouth; extra people in the foreground; passing cars, moving clouds; face, hair or outfit changing; one character copying the other's movements; the officer facing the camera; background music, engine noise; robotic or text-to-speech voice; silent clip with no speech; movement during the final still; documents or phone multiplying, vanishing or appearing in the wrong clip; readable text or app screen on the phone; slow, dragged speech.
 """
 
-ANH_DAU = ("Generate exactly one still image now, vertical 9:16, photorealistic, warm golden-orange sunset light. CAMERA ANGLE: a fixed camera at chest height "
+ANH_DAU = ("Generate exactly one still image now, vertical 9:16, photorealistic, {{SANG_P1}}. CAMERA ANGLE: a fixed camera at chest height "
            "on the road shoulder, a little behind and to the right of the officer, looking along the side of the truck. {{XE}} fills the left 60% of the frame, "
            "seen from its front-left corner at a slightly low angle: the windshield edge at the top-left, the open driver's window in the upper-left third and "
            "a big side mirror on a metal arm just right of that window. In the window: {{TEN_HOC}} ({{NGUOI_HOC}}), leaning out on folded forearms on the "
@@ -64,28 +65,28 @@ ANH_DAU = ("Generate exactly one still image now, vertical 9:16, photorealistic,
 CANH = [
     ("canhsat", "Cảnh sát đứng dưới đường, ngẩng nhìn tài xế trong cửa sổ cabin, hỏi đều giọng, hai tay buông thả cạnh thắt lưng; tài xế tì tay lên bậu cửa sổ, nhìn xuống nghe.",
      "cảnh sát ngẩng nhìn tài xế, tay buông; tài xế tì tay bậu cửa sổ nhìn xuống; hai người miệng khép, đứng im.",
-     "the officer looks up at the driver in the cab window the whole clip; the driver looks down at him.", None),
+     "the officer looks up at the driver in the cab window the whole clip; the driver looks down at {{HIM_CANHSAT}}.", None),
     ("hoc", "Tài xế nhìn xuống cảnh sát, hơi mệt, ngập ngừng ở chữ \"uh\" rồi trả lời; cảnh sát ngẩng nhìn, mặt bình thản.",
      "tài xế tì tay bậu cửa sổ, cười nhẹ; cảnh sát ngẩng nhìn; hai người miệng khép, đứng im.",
      "the driver looks down at the officer the whole clip; the officer looks up at the driver.", None),
     ("canhsat", "Cảnh sát hỏi tiếp, nghiêm nhưng không gắt, mắt vẫn ngẩng nhìn tài xế; tài xế nghe, chớp mắt.",
      "cảnh sát ngẩng nhìn tài xế; tài xế nhìn xuống; hai người miệng khép, đứng im.",
-     "the officer looks up at the driver in the cab window the whole clip; the driver looks down at him.", None),
+     "the officer looks up at the driver in the cab window the whole clip; the driver looks down at {{HIM_CANHSAT}}.", None),
     ("hoc", "Tài xế đáp ngắn, gật nhẹ một cái; cảnh sát nghe.",
      "tài xế tì tay bậu cửa sổ nhìn xuống; cảnh sát ngẩng nhìn; hai người miệng khép, đứng im.",
      "the driver looks down at the officer the whole clip; the officer looks up at the driver.", None),
     ("canhsat", "Trong lúc nói, cảnh sát giơ tay phải lên phía cửa sổ, lòng bàn tay ngửa chờ giấy tờ; tài xế nhìn theo tay rồi quay vào trong, cầm {{DAO_GIAY_TO}} từ taplo lên, giữ trước ngực.",
      "tay phải cảnh sát giơ lên ngang cửa cabin, lòng bàn tay ngửa; tài xế cầm giấy tờ trước ngực trong cửa sổ; hai người miệng khép, đứng im.",
-     "the officer looks up at the driver in the cab window the whole clip; the driver looks at his raised hand, then turns briefly inside for the documents.",
-     "the officer lifts his right hand up toward the cab window, palm up, waiting for the documents; the driver turns slightly inside, picks up {{DAO_GIAY_TO}} from the dashboard and holds it at chest height in the window"),
+     "the officer looks up at the driver in the cab window the whole clip; the driver looks at {{HIS_CANHSAT}} raised hand, then turns briefly inside for the documents.",
+     "the officer lifts {{HIS_CANHSAT}} right hand up toward the cab window, palm up, waiting for the documents; the driver turns slightly inside, picks up {{DAO_GIAY_TO}} from the dashboard and holds it at chest height in the window"),
     ("hoc", "Tài xế nhoài xuống, đưa {{DAO_GIAY_TO}} cho cảnh sát; cảnh sát nhận bằng tay phải, nhìn theo giấy tờ rồi ngẩng lên.",
      "cảnh sát cầm giấy tờ ngang ngực bằng tay phải; tài xế tì lại hai tay lên bậu cửa sổ; hai người miệng khép, đứng im.",
-     "the driver looks down at the officer's hand and then at his face; the officer looks at the documents, then up at the driver.",
-     "the driver reaches down out of the window and hands {{DAO_GIAY_TO}} to the officer; he takes it in his right hand and holds it at chest height; the driver rests both forearms back on the window sill"),
+     "the driver looks down at the officer's hand and then at {{HIS_CANHSAT}} face; the officer looks at the documents, then up at the driver.",
+     "the driver reaches down out of the window and hands {{DAO_GIAY_TO}} to the officer; {{HE_CANHSAT}} takes it in {{HIS_CANHSAT}} right hand and holds it at chest height; the driver rests both forearms back on the window sill"),
     ("canhsat", "Cảnh sát liếc giấy tờ trên tay, bật cười ngạc nhiên rồi ngẩng nhìn tài xế, nói với vẻ thán phục; tài xế cười tươi.",
      "cảnh sát cầm giấy tờ ngang ngực, cười, ngẩng nhìn tài xế; tài xế cười; hai người miệng khép, đứng im.",
-     "the officer glances at the documents in his hand, then looks up at the driver with a big surprised smile; the driver smiles down at him.",
-     "the officer glances down at the documents in his right hand, gives a short surprised laugh, then looks back up at the driver"),
+     "the officer glances at the documents in {{HIS_CANHSAT}} hand, then looks up at the driver with a big surprised smile; the driver smiles down at {{HIM_CANHSAT}}.",
+     "the officer glances down at the documents in {{HIS_CANHSAT}} right hand, gives a short surprised laugh, then looks back up at the driver"),
     ("hoc", "Tài xế hào hứng, hơi nhoài ra cửa sổ, nói với vẻ tự hào; cảnh sát cầm giấy tờ, ngẩng nghe, gật nhẹ.",
      "tài xế tì tay bậu cửa sổ, cười tự hào; cảnh sát cầm giấy tờ, ngẩng nhìn; hai người miệng khép, đứng im.",
      "the driver looks down at the officer the whole clip; the officer looks up at the driver, holding the documents.", None),
@@ -109,16 +110,16 @@ noi: lien
 nghe: moi canh
 
 [STYLE LOCK]:
-Vertical short-form social video look, warm sunset light, crisp focus on the face, realistic skin, hair and fabric detail for the real person; the AI tutor is a sleek photorealistic CGI humanoid robot (glossy white porcelain armour, crisp clean studio-quality render). No text, captions, logos, icons or watermarks anywhere in the frame.
+Vertical short-form social video look, {{SANG_P2}}, crisp focus on the face, realistic skin, hair and fabric detail. No text, captions, logos, icons or watermarks anywhere in the frame.
 
 [NHAN VAT HOC]:
-{{TEN_HOC}}: {{NGUOI_HOC}}. Sitting in the driver's seat of the parked truck, filming a selfie with the phone's front camera held at arm's length in the right hand: the extended right arm comes in from the lower-left corner of the frame (the phone itself is not visible). Slightly low angle, framed from the chest up, with plenty of empty headroom: the top of the head sits at about 38% of the frame height, the eyes at about 48%, the chin at about 60%, the head near the centre, a little left; the upper third of the frame shows only the calm, plain cab ceiling and the top of the window: nothing is drawn there, no window, no picture, no screen, no avatar, no face, no inset or overlay of any kind. Behind: {{NEN_CABIN}}. The camera stays steady (almost no shake). The driver looks into the lens while speaking, as if talking to the AI tutor on the phone; when searching for an English word, a brief glance up to the side, then back to the lens. Small natural nods and facial expressions. VOICE: {{GIONG_HOC}}, the same timbre, pitch and loudness in every clip; a little slower here, like someone practising a foreign language, with small natural hesitations.
+{{TEN_HOC}}: {{NGUOI_HOC}}. Sitting in the driver's seat of the parked truck, filming a selfie with the phone's front camera held at arm's length in the right hand: the extended right arm comes in from the lower-left corner of the frame (the phone itself is not visible). Slightly low angle, framed from the chest up, with plenty of empty headroom: the top of the head sits at about 38% of the frame height, the eyes at about 48%, the chin at about 60%, the head near the centre, a little left; the upper third of the frame shows only the calm, plain cab ceiling and the top of the window: nothing is drawn there, no window, no picture, no screen, no avatar, no face, no inset or overlay of any kind. Behind: {{NEN_CABIN}}. The camera stays steady (almost no shake). The driver is completely alone in the cab: the passenger seat beside the driver is empty. The driver looks into the lens while speaking, as if on a video call; when searching for an English word, a brief glance up to the side, then back to the lens. Small natural nods and facial expressions. VOICE: {{GIONG_HOC}}, the same timbre, pitch and loudness in every clip; a little slower here, like someone practising a foreign language, with small natural hesitations.
 
 [NGHE HOC]:
-{{TEN_HOC}} waits for the AI tutor: friendly attentive expression and a soft smile, eyes on the lens, slow natural blinks, a small nod now and then. The lips stay gently pressed together the whole clip; the head stays mostly still.
+{{TEN_HOC}} waits for the reply on the video call: friendly attentive expression and a soft smile, eyes on the lens, slow natural blinks, a small nod now and then. The lips stay gently pressed together the whole clip; the head stays mostly still.
 
 [NHAN VAT DAY]:
-{{TEN_DAY}}: {{NGUOI_DAY}}. Framed for a wide call-window (landscape): head and shoulders centred in the middle of the frame, the chin resting lightly on the right hand, a little empty space on both sides, in front of {{NEN_DAY}}. The camera is locked off and never moves. While speaking the lips move in clear sync with the words, with small head tilts, raised eyebrows, a warm playful smile and slow blinks, like a friendly teacher. VOICE: {{GIONG_DAY}}, the same timbre, pitch and loudness in every clip.
+{{TEN_DAY}}: {{NGUOI_DAY}}; a sleek photorealistic CGI render (glossy white porcelain armour, crisp clean studio quality), fully mechanical, never a cartoon. Framed for a wide call-window (landscape): head and shoulders centred in the middle of the frame, the chin resting lightly on the right hand, a little empty space on both sides, in front of {{NEN_DAY}}. The camera is locked off and never moves. While speaking the lips move in clear sync with the words, with small head tilts, raised eyebrows, a warm playful smile and slow blinks, like a friendly teacher. VOICE: {{GIONG_DAY}}, the same timbre, pitch and loudness in every clip.
 
 [NGHE DAY]:
 {{TEN_DAY}} waits calmly: a gentle closed-mouth smile, slow natural blinks, a tiny head tilt now and then, the chin resting lightly on the hand. The lips stay gently pressed together the whole clip; the head stays mostly still.
@@ -127,7 +128,7 @@ Vertical short-form social video look, warm sunset light, crisp focus on the fac
 Natural spontaneous conversational delivery, not text-to-speech, not an announcer: the driver about 3 words per second with small hesitations, the tutor about 4 words per second, bright and encouraging; the line starts right away, light natural breaths, a smile audible in the voice when the line is positive. Clean close voice, like a video call in a quiet truck cab, no music, no engine noise, no road noise, no echo.
 
 [NEGATIVE]:
-text, letters, captions, subtitles, logos, icons, watermark; phone screen or app interface in the frame; lettering on the name patch; toys, plush toys, figurines, dashboard ornaments; camera cuts, zoom, push-in, strong shake; a second person; face morphing, outfit change, hair change, age or style drift; human skin, hair or clothing on the robot; a cartoon look for the robot or the driver; distorted face; extra or missing fingers or arms; jerky or exaggerated gestures; hands touching the face or hair; slow, dragged or stretched speech; flat monotone or robotic voice; background music; echo or reverb
+text, letters, captions, subtitles, logos, icons, watermark; phone screen or app interface in the frame; lettering on the name patch; toys, plush toys, figurines, dashboard ornaments; camera cuts, zoom, push-in, strong shake; a second person; face morphing, outfit change, hair change, age or style drift; a cartoon look; distorted face; extra or missing fingers or arms; jerky or exaggerated gestures; hands touching the face or hair; slow, dragged or stretched speech; flat monotone or robotic voice; background music; echo or reverb
 """
 
 
@@ -135,7 +136,7 @@ def canh(i, who, dien, cuoi, eye, act):
     n = i + 1
     lines = [f"CẢNH {n} (0:{(n - 1) * 5:02d}–0:{n * 5:02d}): Lượt {n}",
              "Bối cảnh: một góc máy cố định ven đường: xe tải chiếm 60% bên trái, tài xế nhoài ra cửa sổ cabin (trái-trên), cảnh sát đứng dưới đường bên phải, "
-             "nhìn từ hơi sau lưng bên trái, mặt nghiêng ngẩng lên; hoàng hôn; không có chữ, không người lạ.",
+             "nhìn từ hơi sau lưng bên trái, mặt nghiêng ngẩng lên; không có chữ, không người lạ.",
              f"Voice: (English, chỉ một người nói trong clip này) {{{{LUOT_{n}}}}}"]
     if n == 1:
         lines.append("Khung đầu: ảnh mới theo Prompt ảnh (bố cục như trên); tài xế tì tay bậu cửa sổ nhìn xuống, cảnh sát ngẩng nhìn lên; miệng hai người khép.")

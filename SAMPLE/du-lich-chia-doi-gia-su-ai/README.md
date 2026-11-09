@@ -52,3 +52,4 @@ Sau cảnh đầu: xem `scene1_start.png` (bố cục phần 1 so với `anh/khu
 - 05/11/2026 lượt 3: `final.mp4` 59,2 s, bố cục và phụ đề đạt. Lỗi: cảnh 5 Carla nói "I have twenty-two" HAI lần; mỗi clip lặng đầu 0,5–2 s nên video dài gấp đôi bản gốc (30,2 s).
 - 05/11 sửa 7: cảnh 2 Carla nhép + nhắm mắt theo robot. Bỏ "sculpted closed lips" khỏi mô tả robot; prompt cảnh 2 tả Carla im trước; engine đo miệng bắt được người nghe nghiêng mặt. Cần bật Cài đặt → Kiểm tra miệng người nghe (đang tắt). Chờ gen lại để kiểm chứng.
 - 05/11 17:18 kiểm chứng sửa 7: cảnh 2 gen lại ĐẠT ngay lần đầu (Carla mím môi suốt clip, robot nói rõ).
+- 06/11: thêm 20 biến thể theo CSV người dùng (`BIEN-THE-DU-LICH-CHIA-DOI-20-BIEN-THE.json`, sinh bằng `cong-cu/tao_bien_the.py`): 1–10 nền Chichén Itzá, 11–20 nền Tulum; kịch bản phần 1 chuyển sang token (GIOI_HOC, ANH_SANG, NEN_ROBOT, DIEM_NHIN, TAY_HOC). Dự án Studio: "Face to face Mexico - 20 bien the".

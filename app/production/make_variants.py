@@ -111,7 +111,7 @@ def listener_rule_text(task="", idle=False, emo2=""):
         react = str(emo2 or "").strip().replace('"', "'")
         base = ("does not speak: lips stay gently closed for the whole clip and never mouth the words; but they are alive and listening, "
                 "in a natural idle: soft blinking, gentle breathing, small attentive head movements and a faint expression that follows the mood of what they hear"
-                + (f' (reacting "{react}")' if react else " (a slight smile, a small eyebrow lift or a tiny nod)"))
+                + (f' (reacting "{react}")' if react else " (a slight smile or a small eyebrow lift, the head steady)"))
         if task:
             return base + f", while quietly continuing {task} at a slow, steady pace"
         return base + ", eyes resting on the speaker"

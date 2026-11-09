@@ -10,7 +10,7 @@ import re
 
 EXPRESS = ("WHEN SPEAKING: the speaking character is clearly expressive: vivid, easy-to-read facial expressions that match the meaning "
            "and emotion of the line (raised eyebrows, bright or wide eyes, surprise, doubt, excitement, warmth, a real smile), "
-           "lively head movement and natural hand gestures that support the words, small natural micro-expressions (blinks, eyebrow flicks, nods); "
+           "lively head movement and natural hand gestures that support the words, small natural micro-expressions (blinks, eyebrow flicks); "
            "the mouth shapes follow every syllable, never a blank, stiff, sleepy or flapping face. EVERY character, even a robot or an AI, has a "
            "fully human, expressive face and moves like a real person (only its body design may be mechanical). "
            "DELIVERY: sound like a real person talking spontaneously on a video call, NOT a text-to-speech engine, NOT an audiobook narrator: "
@@ -28,13 +28,13 @@ NEG_EXTRA = ("slow, dragged or stretched speech; long pauses inside the line; sp
 EMO_CUES = {
     "curious": "head tilts slightly, eyebrows lift, bright attentive eyes; the voice rises at the end with real curiosity",
     "surprised": "eyebrows shoot up, eyes widen, mouth opens a little; the voice jumps up in pitch",
-    "excited": "a big genuine smile, wide bright eyes, quick energetic nods; the voice is bouncy and higher in pitch",
-    "enthusiastic": "a big genuine smile, wide bright eyes, quick energetic nods; the voice is bouncy and higher in pitch",
+    "excited": "a big genuine smile, wide bright eyes, lively eyebrows; the voice is bouncy and higher in pitch",
+    "enthusiastic": "a big genuine smile, wide bright eyes, lively eyebrows; the voice is bouncy and higher in pitch",
     "delighted": "a wide delighted smile, sparkling eyes; the voice is bright and musical",
     "warm": "a soft genuine smile, kind relaxed eyes; the voice is soft, warm and friendly",
     "friendly": "a soft genuine smile, kind relaxed eyes; the voice is soft, warm and friendly",
-    "encouraging": "supportive nods, an open smiling face; the voice is upbeat and reassuring",
-    "reassuring": "a gentle smile, soft nods, relaxed shoulders; the voice is calm, warm and comforting",
+    "encouraging": "a supportive look, an open smiling face; the voice is upbeat and reassuring",
+    "reassuring": "a gentle smile, relaxed shoulders, a steady head; the voice is calm, warm and comforting",
     "playful": "a mischievous half-smile, one raised eyebrow; a teasing, sing-song voice",
     "embarrassed": "eyes glance away, a shy awkward smile, hands and body stay put; the voice is softer and trails off",
     "hesitant": "eyes glance sideways, lips press, hands and body stay put; the voice is soft with hesitations and trailing off",
@@ -44,8 +44,8 @@ EMO_CUES = {
     "confused": "squinting eyes, a frown, a head tilt; the voice rises and stumbles",
     "proud": "the chin lifts, a satisfied smile; the voice is confident and full",
     "relieved": "a deep exhale, shoulders drop, a relieved smile; the voice relaxes and warms",
-    "impressed": "eyebrows up, a slow nod, lips pursed in approval; the voice is warm with admiration",
-    "decisive": "a firm nod, steady eyes; the voice is clear and determined",
+    "impressed": "eyebrows up, lips pursed in approval; the voice is warm with admiration",
+    "decisive": "a firm look, steady eyes; the voice is clear and determined",
     "confident": "a steady gaze, a small confident smile; the voice is clear and assured",
     "cheerful": "a bright smile, lively eyes; the voice is light and sunny",
     "persuasive": "expressive eyebrows, a sincere look; the voice is convincing and emphatic",
@@ -79,13 +79,13 @@ def emo_cues(emo):
 
 # Thêm cảm xúc chỉ có khi NGHE (mặt, mắt, cử động đầu nhẹ; không mở miệng)
 EMO_CUES.update({
-    "attentive": "eyes follow the speaker attentively, a subtle nod",
+    "attentive": "eyes follow the speaker attentively, the head steady",
     "calm": "a relaxed face and a steady gaze",
     "amused": "a small amused smile, a slight eyebrow raise",
     "skeptical": "one eyebrow slightly raised, lips pressed, a small head tilt",
-    "patient": "a soft patient smile, a gentle nod",
+    "patient": "a soft patient smile, the head steady",
     "interested": "eyebrows lift slightly, eyes bright and focused",
-    "listening": "eyes follow the speaker, a subtle nod",
+    "listening": "eyes follow the speaker, the head steady",
 })
 
 

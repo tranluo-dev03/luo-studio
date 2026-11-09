@@ -9,14 +9,17 @@ CÁCH DÙNG
 QUY TẮC RIÊNG
 1) Phần 1: 9 lượt (= 9 CẢNH), xen kẽ cảnh sát / tài xế như mẫu; lượt 5 (xin giấy tờ), 6 (đưa giấy), 9 (cầm điện thoại) có hành động
    trong lúc nói. Đổi số lượt phần 1 => sửa bảng CANH cho khớp.
-2) Cặp nhân vật phần 1 KHÁC GIỚI. Kịch bản dùng "his" cho cảnh sát; muốn cảnh sát nữ thì đổi các chữ "his/him" trong CANH sang token
-   ({{HIS_CANHSAT}}...) trước. Tài xế không có đại từ: dùng {{TEN_HOC}} / "the driver".
+2) Cặp nhân vật phần 1 KHÁC GIỚI. Đại từ cảnh sát là token {{HE_CANHSAT}}/{{HIS_CANHSAT}}/{{HIM_CANHSAT}} (cảnh sát nữ: she/her/her, "ma'am"); xem tao_bien_the_20.py.
+   Tài xế không có đại từ: dùng {{TEN_HOC}} / "the driver".
 3) POS_CANHSAT = RIGHT, POS_HOC = LEFT (tài xế ở cửa sổ cabin trái-trên). Không đổi.
 4) Phần 2: 13 lượt, mỗi lượt "phan": 2; nhịp sai -> sửa: "I go to home." (wrong, to "go to") -> AI "You mean..." -> "I'm going home." (right,
    to "going"); "I am very hurry." (wrong, to "am very") -> AI sửa; "moneys" icon dollar.
 5) Ảnh tham chiếu: chỉ ảnh AI người dùng cung cấp, cho cả NGUOI_HOC, NGUOI_CANHSAT, NGUOI_DAY. Chưa có => hỏi, chưa gen.
 6) Không chữ trên áo / xe / biển số / điện thoại: mô tả "plain vest without lettering", "no readable text".
 7) NGHE_ / [NGHE ...] chỉ tả việc nên làm khi im; không nhắc tới nói / người nói.
+8) Phần 2 (ghép 2 lớp): ngoại hình robot CHỈ nằm trong [NHAN VAT DAY]. [STYLE LOCK], [NEGATIVE], [NHAN VAT HOC], [NGHE HOC] không tả / không nhắc robot hay "AI tutor";
+   [NHAN VAT HOC] giữ câu "completely alone in the cab: the passenger seat beside the driver is empty". (07/11: robot thừa ngồi ghế phụ ở 3/4 biến thể.)
+   Kiểm: phan2/base_HOC.png chỉ có một người, ghế phụ trống.
 
 LỖI HAY GẶP (theo sổ tay)
   - Tài xế nhép lời cảnh sát (cảnh sát nhìn nghiêng từ sau lưng): nghe cảnh 1, 3, 5, 7; gen lại cảnh đó; dự phòng voice_swap.

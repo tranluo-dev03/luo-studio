@@ -8,11 +8,16 @@ Viết biến thể mới cho thể loại di-tru-gia-su-ai (đọc README.md tr
    Đổi nhân vật nào thì ảnh nhân vật đó phải đổi theo (ảnh cũ sẽ thắng chữ).
 3. Giữ cặp phần 2 khác hẳn tuổi (người học ~20, cảnh sát 40+); có thể đổi cảnh sát thành nữ để giảm rủi ro gán nhầm giọng (đổi cả GIONG_CANHSAT; kịch bản gọi "the officer", không dùng he/she ngoài NGUOI_).
    Lưu ý: kịch bản phần 1–3 có "He"/"his" cho HOC → người học nữ cần sửa tao_kich_ban.py (dùng token đại từ).
-4. Lời 3–20 từ mỗi lượt; emo trong EMO_CUES; 28 lượt (5 + 10 + 13), "phan" 1/2/3 đúng thứ tự.
-5. Chạy tao_bien_the.py → video-moi.py kiem-tra ... --tai-anh: 0 lỗi; cảnh báo fx 8/10/19 là bình thường.
+4. Lời 3–20 từ mỗi lượt; emo trong EMO_CUES; 29 lượt (5 + 11 + 13), "phan" 1/2/3 đúng thứ tự. Lượt 16 = câu Talka AI của Diego (giữ).
+   Lượt 3 ("Hay agentes..."): emo "worried", KHÔNG dùng reassuring/warm (Muse cười). Không dùng emo có cử chỉ gật đầu.
+5. Chạy tao_bien_the.py → video-moi.py kiem-tra ... --tai-anh: 0 lỗi; cảnh báo fx 8/10/20 là bình thường.
+6. Robot nhỏ trên vai mặc định là robot của người dùng (anh/robo-nguoi-dung.png); đổi robot thì đổi cả NGUOI_ROBO và ảnh.
 
 Lỗi hay gặp / tự kiểm tra sau chạy thử:
 - phan1/scene1_start.png: một người, không người thứ hai; điện thoại áp tai; không chữ.
-- phan2/scene4_start.png: robot nhỏ ngồi trên vai bên trái khung, đầu ngang hàm Diego.
+- phan2/scene4_start.png: robot nhỏ (robot người dùng, không phải chibi) ngồi trên vai bên trái khung, đầu ngang hàm Diego.
+- Phần 2: cảnh sát không nhìn camera; hai người cách ~1 m suốt; Diego không râu (nhất là cảnh 14–16).
+- phan1/scene1_cut.mp4 dài ≈ lời + 0,3 s (không còn 3 s lặng); cảnh 3 Valeria không cười.
+- Phần 3: ô AI không che mặt Diego ở cảnh nào (Studio log "mặt lọt dưới ô khác" = đã gen lại).
 - phan3/base_HOC.png: góc trên phải trống (ô AI sẽ đè); phan3/base_DAY.png: robot giữa khung dọc.
 - Nghe cảnh 6–15: giọng cảnh sát và Diego không đổi chỗ.

@@ -1,0 +1,2902 @@
+[
+  {
+    "name": "bien-the-01-lucia",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "NHIN_HOC": "gazes at the pyramid in the centre of the frame with a soft smile",
+    "NGHE_HOC": "keeps gazing at the pyramid with the mouth closed, arms and hands still",
+    "VAI_HOC": "traveller",
+    "TEN_HOC": "Lucía",
+    "NGUOI_HOC": "a beautiful 25-year-old Mexican woman, a soft oval face, warm brown eyes, light freckles and a gentle smile, light-tan skin, long black hair in two thick braids woven with small red and pink flowers; a white huipil blouse with short puffed sleeves embroidered with red and pink roses and green leaves, a long full red skirt",
+    "GIONG_HOC": "a real Mexican woman of about 25, natural mid-high pitch around 185–230 Hz, bright and warm, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actor",
+    "GIOI_HOC": "woman",
+    "NEN_ROBOT": "the great stepped pyramid of El Castillo at Chichén Itzá: a tall grey stone pyramid with a long central staircase and a small square temple on top, an old stone-paved plaza in front, a dramatic sunset sky with dark clouds and golden sun rays bursting from behind the temple",
+    "ANH_SANG": "Sunset light at Chichén Itzá: the sun low behind the pyramid temple, golden rays through dark dramatic clouds, warm light on the faces",
+    "DIEM_NHIN": "the pyramid",
+    "TAY_HOC": "both arms hang relaxed at the sides, hands still.",
+    "NHIN_ROBOT": "its head turned right toward Lucía, eyes on Lucía's face",
+    "NGHE_ROBOT": "keeps looking at Lucía, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes at the pyramid in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the pyramid with the mouth closed, arms and hands still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 25.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 25?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 25",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 25.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 25",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Lucía, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Lucía, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/12-MINQXRAt7Qvb4YA_1I2Kgco7Ff3uJn/view?usp=drivesdk"
+      ],
+      "NEN_ROBOT": [
+        "https://drive.google.com/file/d/1TbAz2KaqGnJc7maH80XzXga2dhPalzg3/view?usp=drivesdk"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-02-valeria",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "NHIN_HOC": "gazes at the pyramid in the centre of the frame with a soft smile",
+    "NGHE_HOC": "keeps gazing at the pyramid with the mouth closed, arms and hands still",
+    "VAI_HOC": "traveller",
+    "TEN_HOC": "Valeria",
+    "NGUOI_HOC": "a beautiful 22-year-old Mexican woman, a round face, dark brown eyes, warm tan skin, long wavy dark brown hair loose over the shoulders; a cobalt-blue huipil blouse embroidered with pink, yellow and white flowers, a pink fringed rebozo shawl over both shoulders, a long white skirt",
+    "GIONG_HOC": "a real Mexican woman of about 22, natural mid-high pitch around 185–230 Hz, bright and warm, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actor",
+    "GIOI_HOC": "woman",
+    "NEN_ROBOT": "the great stepped pyramid of El Castillo at Chichén Itzá: a tall grey stone pyramid with a long central staircase and a small square temple on top, an old stone-paved plaza in front, a dramatic sunset sky with dark clouds and golden sun rays bursting from behind the temple",
+    "ANH_SANG": "Sunset light at Chichén Itzá: the sun low behind the pyramid temple, golden rays through dark dramatic clouds, warm light on the faces",
+    "DIEM_NHIN": "the pyramid",
+    "TAY_HOC": "both arms hang relaxed at the sides, hands still.",
+    "NHIN_ROBOT": "its head turned right toward Valeria, eyes on Valeria's face",
+    "NGHE_ROBOT": "keeps looking at Valeria, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes at the pyramid in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the pyramid with the mouth closed, arms and hands still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 22.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 22?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 22",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 22.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 22",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Valeria, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Valeria, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1g7xBU1nJXwQZOiDhoPredfdvyiBJrrFo/view?usp=drivesdk"
+      ],
+      "NEN_ROBOT": [
+        "https://drive.google.com/file/d/1TbAz2KaqGnJc7maH80XzXga2dhPalzg3/view?usp=drivesdk"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-03-ximena",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "NHIN_HOC": "gazes at the pyramid in the centre of the frame with a soft smile",
+    "NGHE_HOC": "keeps gazing at the pyramid with the mouth closed, arms and hands still",
+    "VAI_HOC": "traveller",
+    "TEN_HOC": "Ximena",
+    "NGUOI_HOC": "a beautiful 28-year-old Mexican woman, an oval face, dark brown eyes, warm tan skin, dark hair in a bun under a crown of orange, yellow and purple flowers; a long-sleeved black Oaxaca-style dress densely embroidered with bright multicoloured flowers and butterflies",
+    "GIONG_HOC": "a real Mexican woman of about 28, natural mid-high pitch around 185–230 Hz, bright and warm, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actor",
+    "GIOI_HOC": "woman",
+    "NEN_ROBOT": "the great stepped pyramid of El Castillo at Chichén Itzá: a tall grey stone pyramid with a long central staircase and a small square temple on top, an old stone-paved plaza in front, a dramatic sunset sky with dark clouds and golden sun rays bursting from behind the temple",
+    "ANH_SANG": "Sunset light at Chichén Itzá: the sun low behind the pyramid temple, golden rays through dark dramatic clouds, warm light on the faces",
+    "DIEM_NHIN": "the pyramid",
+    "TAY_HOC": "both arms hang relaxed at the sides, hands still.",
+    "NHIN_ROBOT": "its head turned right toward Ximena, eyes on Ximena's face",
+    "NGHE_ROBOT": "keeps looking at Ximena, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes at the pyramid in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the pyramid with the mouth closed, arms and hands still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 28.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 28?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 28",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 28.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 28",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Ximena, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Ximena, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1pfX540S8xU1-C-U3Jb3DQBZ4mlrIUaAG/view?usp=drivesdk"
+      ],
+      "NEN_ROBOT": [
+        "https://drive.google.com/file/d/1TbAz2KaqGnJc7maH80XzXga2dhPalzg3/view?usp=drivesdk"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-04-daniela",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "NHIN_HOC": "gazes at the pyramid in the centre of the frame with a soft smile",
+    "NGHE_HOC": "keeps gazing at the pyramid with the mouth closed, arms and hands still",
+    "VAI_HOC": "traveller",
+    "TEN_HOC": "Daniela",
+    "NGUOI_HOC": "a beautiful 24-year-old Mexican woman, a slim oval face, dark eyes, warm tan skin, long straight black hair loose to the waist, small silver hoop earrings; a white short-sleeved blouse with colourful flower embroidery down the front, a long black skirt embroidered with big colourful flowers at the hem",
+    "GIONG_HOC": "a real Mexican woman of about 24, natural mid-high pitch around 185–230 Hz, bright and warm, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actor",
+    "GIOI_HOC": "woman",
+    "NEN_ROBOT": "the great stepped pyramid of El Castillo at Chichén Itzá: a tall grey stone pyramid with a long central staircase and a small square temple on top, an old stone-paved plaza in front, a dramatic sunset sky with dark clouds and golden sun rays bursting from behind the temple",
+    "ANH_SANG": "Sunset light at Chichén Itzá: the sun low behind the pyramid temple, golden rays through dark dramatic clouds, warm light on the faces",
+    "DIEM_NHIN": "the pyramid",
+    "TAY_HOC": "both arms hang relaxed at the sides, hands still.",
+    "NHIN_ROBOT": "its head turned right toward Daniela, eyes on Daniela's face",
+    "NGHE_ROBOT": "keeps looking at Daniela, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes at the pyramid in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the pyramid with the mouth closed, arms and hands still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 24.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 24?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 24",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 24.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 24",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Daniela, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Daniela, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1-Q3zdz0rtOcWCozEtGA9DzZP_oI2_Hb2/view?usp=drivesdk"
+      ],
+      "NEN_ROBOT": [
+        "https://drive.google.com/file/d/1TbAz2KaqGnJc7maH80XzXga2dhPalzg3/view?usp=drivesdk"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-05-mariana",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "NHIN_HOC": "gazes at the pyramid in the centre of the frame with a soft smile",
+    "NGHE_HOC": "keeps gazing at the pyramid with the mouth closed, arms and hands still",
+    "VAI_HOC": "traveller",
+    "TEN_HOC": "Mariana",
+    "NGUOI_HOC": "a beautiful 27-year-old Mexican woman, a round face with a warm smile, dark eyes, tan skin, black hair in two long braids; a green huipil blouse embroidered with white and gold flowers, a green-and-gold woven shawl over the shoulders, a long yellow pleated skirt",
+    "GIONG_HOC": "a real Mexican woman of about 27, natural mid-high pitch around 185–230 Hz, bright and warm, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actor",
+    "GIOI_HOC": "woman",
+    "NEN_ROBOT": "the great stepped pyramid of El Castillo at Chichén Itzá: a tall grey stone pyramid with a long central staircase and a small square temple on top, an old stone-paved plaza in front, a dramatic sunset sky with dark clouds and golden sun rays bursting from behind the temple",
+    "ANH_SANG": "Sunset light at Chichén Itzá: the sun low behind the pyramid temple, golden rays through dark dramatic clouds, warm light on the faces",
+    "DIEM_NHIN": "the pyramid",
+    "TAY_HOC": "both arms hang relaxed at the sides, hands still.",
+    "NHIN_ROBOT": "its head turned right toward Mariana, eyes on Mariana's face",
+    "NGHE_ROBOT": "keeps looking at Mariana, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes at the pyramid in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the pyramid with the mouth closed, arms and hands still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 27.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 27?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 27",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 27.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 27",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Mariana, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Mariana, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1xa_j_Psh0LZAT01UTKbClPqZh6-puxaZ/view?usp=drivesdk"
+      ],
+      "NEN_ROBOT": [
+        "https://drive.google.com/file/d/1TbAz2KaqGnJc7maH80XzXga2dhPalzg3/view?usp=drivesdk"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-06-diego",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "NHIN_HOC": "gazes at the pyramid in the centre of the frame with a soft smile",
+    "NGHE_HOC": "keeps gazing at the pyramid with the mouth closed, arms and hands still",
+    "VAI_HOC": "traveller",
+    "TEN_HOC": "Diego",
+    "NGUOI_HOC": "a handsome 26-year-old Mexican man, short curly dark hair, light stubble, warm brown eyes, tan skin; a black charro suit embroidered with silver, a red silk neckerchief tied at the collar, a wide black sombrero with silver embroidery",
+    "GIONG_HOC": "a real Mexican man of about 26, natural mid-low pitch around 100–135 Hz, warm and relaxed, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actor",
+    "GIOI_HOC": "man",
+    "NEN_ROBOT": "the great stepped pyramid of El Castillo at Chichén Itzá: a tall grey stone pyramid with a long central staircase and a small square temple on top, an old stone-paved plaza in front, a dramatic sunset sky with dark clouds and golden sun rays bursting from behind the temple",
+    "ANH_SANG": "Sunset light at Chichén Itzá: the sun low behind the pyramid temple, golden rays through dark dramatic clouds, warm light on the faces",
+    "DIEM_NHIN": "the pyramid",
+    "TAY_HOC": "both arms hang relaxed at the sides, hands still.",
+    "NHIN_ROBOT": "its head turned right toward Diego, eyes on Diego's face",
+    "NGHE_ROBOT": "keeps looking at Diego, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes at the pyramid in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the pyramid with the mouth closed, arms and hands still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 26.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 26?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 26",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 26.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 26",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Diego, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Diego, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/16I482kGmqS60tEtkkmhtwmG6IQol0m_r/view?usp=drivesdk"
+      ],
+      "NEN_ROBOT": [
+        "https://drive.google.com/file/d/1TbAz2KaqGnJc7maH80XzXga2dhPalzg3/view?usp=drivesdk"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-07-javier",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "NHIN_HOC": "gazes at the pyramid in the centre of the frame with a soft smile",
+    "NGHE_HOC": "keeps gazing at the pyramid with the mouth closed, arms and hands still",
+    "VAI_HOC": "traveller",
+    "TEN_HOC": "Javier",
+    "NGUOI_HOC": "a handsome 30-year-old Mexican man, short dark wavy hair, a neat short beard and a friendly smile, tan skin; a white short-sleeved guayabera shirt with pleats and four pockets, beige linen trousers, a straw Panama hat with a black band",
+    "GIONG_HOC": "a real Mexican man of about 30, natural mid-low pitch around 100–135 Hz, warm and relaxed, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actor",
+    "GIOI_HOC": "man",
+    "NEN_ROBOT": "the great stepped pyramid of El Castillo at Chichén Itzá: a tall grey stone pyramid with a long central staircase and a small square temple on top, an old stone-paved plaza in front, a dramatic sunset sky with dark clouds and golden sun rays bursting from behind the temple",
+    "ANH_SANG": "Sunset light at Chichén Itzá: the sun low behind the pyramid temple, golden rays through dark dramatic clouds, warm light on the faces",
+    "DIEM_NHIN": "the pyramid",
+    "TAY_HOC": "both arms hang relaxed at the sides, hands still.",
+    "NHIN_ROBOT": "its head turned right toward Javier, eyes on Javier's face",
+    "NGHE_ROBOT": "keeps looking at Javier, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes at the pyramid in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the pyramid with the mouth closed, arms and hands still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 30.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 30?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 30",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 30.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 30",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Javier, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Javier, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1aDHHZttajKpqvXG9Fv4SEzDJisCbgtWo/view?usp=drivesdk"
+      ],
+      "NEN_ROBOT": [
+        "https://drive.google.com/file/d/1TbAz2KaqGnJc7maH80XzXga2dhPalzg3/view?usp=drivesdk"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-08-mateo",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "NHIN_HOC": "gazes at the pyramid in the centre of the frame with a soft smile",
+    "NGHE_HOC": "keeps gazing at the pyramid with the mouth closed, arms and hands still",
+    "VAI_HOC": "traveller",
+    "TEN_HOC": "Mateo",
+    "NGUOI_HOC": "a handsome 24-year-old Mexican man, short dark hair, a young clean-shaven face, dark eyes, tan skin; a navy-blue mariachi suit with silver embroidery and silver buttons, a black bow tie, a wide navy sombrero with silver trim",
+    "GIONG_HOC": "a real Mexican man of about 24, natural mid-low pitch around 100–135 Hz, warm and relaxed, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actor",
+    "GIOI_HOC": "man",
+    "NEN_ROBOT": "the great stepped pyramid of El Castillo at Chichén Itzá: a tall grey stone pyramid with a long central staircase and a small square temple on top, an old stone-paved plaza in front, a dramatic sunset sky with dark clouds and golden sun rays bursting from behind the temple",
+    "ANH_SANG": "Sunset light at Chichén Itzá: the sun low behind the pyramid temple, golden rays through dark dramatic clouds, warm light on the faces",
+    "DIEM_NHIN": "the pyramid",
+    "TAY_HOC": "both arms hang relaxed at the sides, hands still.",
+    "NHIN_ROBOT": "its head turned right toward Mateo, eyes on Mateo's face",
+    "NGHE_ROBOT": "keeps looking at Mateo, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes at the pyramid in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the pyramid with the mouth closed, arms and hands still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 24.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 24?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 24",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 24.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 24",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Mateo, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Mateo, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1DiNLtlRC4w-rBhYJdj4i4avoYbHUdtLV/view?usp=drivesdk"
+      ],
+      "NEN_ROBOT": [
+        "https://drive.google.com/file/d/1TbAz2KaqGnJc7maH80XzXga2dhPalzg3/view?usp=drivesdk"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-09-alejandro",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "NHIN_HOC": "gazes at the pyramid in the centre of the frame with a soft smile",
+    "NGHE_HOC": "keeps gazing at the pyramid with the mouth closed, arms and hands still",
+    "VAI_HOC": "traveller",
+    "TEN_HOC": "Alejandro",
+    "NGUOI_HOC": "a handsome 32-year-old Mexican man, short dark hair, a stubble beard and a strong jaw, tan skin; a white long-sleeved western shirt embroidered with green and black floral patterns, black trousers, a brown vaquero cowboy hat",
+    "GIONG_HOC": "a real Mexican man of about 32, natural mid-low pitch around 100–135 Hz, warm and relaxed, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actor",
+    "GIOI_HOC": "man",
+    "NEN_ROBOT": "the great stepped pyramid of El Castillo at Chichén Itzá: a tall grey stone pyramid with a long central staircase and a small square temple on top, an old stone-paved plaza in front, a dramatic sunset sky with dark clouds and golden sun rays bursting from behind the temple",
+    "ANH_SANG": "Sunset light at Chichén Itzá: the sun low behind the pyramid temple, golden rays through dark dramatic clouds, warm light on the faces",
+    "DIEM_NHIN": "the pyramid",
+    "TAY_HOC": "both arms hang relaxed at the sides, hands still.",
+    "NHIN_ROBOT": "its head turned right toward Alejandro, eyes on Alejandro's face",
+    "NGHE_ROBOT": "keeps looking at Alejandro, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes at the pyramid in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the pyramid with the mouth closed, arms and hands still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 32.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 32?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 32",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 32.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 32",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Alejandro, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Alejandro, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1HeZyLr99R3cHeUZnfowCDBUGpEpWUCFP/view?usp=drivesdk"
+      ],
+      "NEN_ROBOT": [
+        "https://drive.google.com/file/d/1TbAz2KaqGnJc7maH80XzXga2dhPalzg3/view?usp=drivesdk"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-10-santiago",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "NHIN_HOC": "gazes at the pyramid in the centre of the frame with a soft smile",
+    "NGHE_HOC": "keeps gazing at the pyramid with the mouth closed, arms and hands still",
+    "VAI_HOC": "traveller",
+    "TEN_HOC": "Santiago",
+    "NGUOI_HOC": "a handsome 28-year-old Mexican man, short dark hair, a neatly trimmed beard, tan skin; a white charro suit with silver embroidery, a green silk neckerchief, a wide black sombrero",
+    "GIONG_HOC": "a real Mexican man of about 28, natural mid-low pitch around 100–135 Hz, warm and relaxed, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actor",
+    "GIOI_HOC": "man",
+    "NEN_ROBOT": "the great stepped pyramid of El Castillo at Chichén Itzá: a tall grey stone pyramid with a long central staircase and a small square temple on top, an old stone-paved plaza in front, a dramatic sunset sky with dark clouds and golden sun rays bursting from behind the temple",
+    "ANH_SANG": "Sunset light at Chichén Itzá: the sun low behind the pyramid temple, golden rays through dark dramatic clouds, warm light on the faces",
+    "DIEM_NHIN": "the pyramid",
+    "TAY_HOC": "both arms hang relaxed at the sides, hands still.",
+    "NHIN_ROBOT": "its head turned right toward Santiago, eyes on Santiago's face",
+    "NGHE_ROBOT": "keeps looking at Santiago, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes at the pyramid in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the pyramid with the mouth closed, arms and hands still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 28.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 28?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 28",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 28.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 28",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Santiago, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Santiago, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1Huoyq8DkkXlovQvWY4Kh2CFfygc8DoaS/view?usp=drivesdk"
+      ],
+      "NEN_ROBOT": [
+        "https://drive.google.com/file/d/1TbAz2KaqGnJc7maH80XzXga2dhPalzg3/view?usp=drivesdk"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-11-ernesto",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "NHIN_HOC": "gazes at the cliff-top temple in the centre of the frame with a soft smile",
+    "NGHE_HOC": "keeps gazing at the cliff-top temple with the mouth closed, arms and hands still",
+    "VAI_HOC": "traveller",
+    "TEN_HOC": "Ernesto",
+    "NGUOI_HOC": "a 68-year-old Mexican man, swept-back silver-white hair, a short white beard and moustache, kind dark eyes, tan wrinkled skin; a white long-sleeved linen shirt, beige khaki trousers, brown leather shoes",
+    "GIONG_HOC": "a real Mexican man of about 68, low pitch around 95–125 Hz, slightly raspy, calm and a little slower with age, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actor",
+    "GIOI_HOC": "man",
+    "NEN_ROBOT": "the Tulum ruins: a grey stone Mayan temple on a rocky green cliff above a calm turquoise Caribbean sea, a white sand beach and tall palm trees below, a soft peach-and-gold sunset sky",
+    "ANH_SANG": "Warm sunset light at Tulum: soft golden sun from the right, a peach-and-gold sky over the sea",
+    "DIEM_NHIN": "the cliff-top temple",
+    "TAY_HOC": "both arms hang relaxed at the sides, hands still.",
+    "NHIN_ROBOT": "its head turned right toward Ernesto, eyes on Ernesto's face",
+    "NGHE_ROBOT": "keeps looking at Ernesto, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes at the cliff-top temple in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the cliff-top temple with the mouth closed, arms and hands still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 68.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 68?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 68",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 68.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 68",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Ernesto, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Ernesto, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1n21o_0whwQbntbGgq3FtQ-utkylRpkiw/view?usp=drivesdk"
+      ],
+      "NEN_ROBOT": [
+        "https://drive.google.com/file/d/1RWlDF5JZeE8xVotxDI7nnMyg3akiNWEB/view?usp=drivesdk"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-12-raul",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "NHIN_HOC": "gazes at the cliff-top temple in the centre of the frame with a soft smile",
+    "NGHE_HOC": "keeps gazing at the cliff-top temple with the mouth closed, arms and hands still",
+    "VAI_HOC": "traveller",
+    "TEN_HOC": "Raúl",
+    "NGUOI_HOC": "a 72-year-old Mexican man, short white hair, a white moustache, deep wrinkles, tan skin; a beige long-sleeved guayabera shirt, grey trousers, a cream Panama hat",
+    "GIONG_HOC": "a real Mexican man of about 72, low pitch around 95–125 Hz, slightly raspy, calm and a little slower with age, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actor",
+    "GIOI_HOC": "man",
+    "NEN_ROBOT": "the Tulum ruins: a grey stone Mayan temple on a rocky green cliff above a calm turquoise Caribbean sea, a white sand beach and tall palm trees below, a soft peach-and-gold sunset sky",
+    "ANH_SANG": "Warm sunset light at Tulum: soft golden sun from the right, a peach-and-gold sky over the sea",
+    "DIEM_NHIN": "the cliff-top temple",
+    "TAY_HOC": "both arms hang relaxed at the sides, hands still.",
+    "NHIN_ROBOT": "its head turned right toward Raúl, eyes on Raúl's face",
+    "NGHE_ROBOT": "keeps looking at Raúl, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes at the cliff-top temple in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the cliff-top temple with the mouth closed, arms and hands still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 72.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 72?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 72",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 72.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 72",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Raúl, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Raúl, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1wk9pXg9K3d4tTNwrQ47QoRuBDgqQgjaB/view?usp=drivesdk"
+      ],
+      "NEN_ROBOT": [
+        "https://drive.google.com/file/d/1RWlDF5JZeE8xVotxDI7nnMyg3akiNWEB/view?usp=drivesdk"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-13-arturo",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "NHIN_HOC": "gazes at the cliff-top temple in the centre of the frame with a soft smile",
+    "NGHE_HOC": "keeps gazing at the cliff-top temple with the mouth closed, arms and hands still",
+    "VAI_HOC": "traveller",
+    "TEN_HOC": "Arturo",
+    "NGUOI_HOC": "a 65-year-old Mexican man, salt-and-pepper hair combed back, clean-shaven, tan skin with light wrinkles; a navy-blue polo shirt, grey chinos with a brown leather belt",
+    "GIONG_HOC": "a real Mexican man of about 65, low pitch around 95–125 Hz, slightly raspy, calm and a little slower with age, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actor",
+    "GIOI_HOC": "man",
+    "NEN_ROBOT": "the Tulum ruins: a grey stone Mayan temple on a rocky green cliff above a calm turquoise Caribbean sea, a white sand beach and tall palm trees below, a soft peach-and-gold sunset sky",
+    "ANH_SANG": "Warm sunset light at Tulum: soft golden sun from the right, a peach-and-gold sky over the sea",
+    "DIEM_NHIN": "the cliff-top temple",
+    "TAY_HOC": "both arms hang relaxed at the sides, hands still.",
+    "NHIN_ROBOT": "its head turned right toward Arturo, eyes on Arturo's face",
+    "NGHE_ROBOT": "keeps looking at Arturo, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes at the cliff-top temple in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the cliff-top temple with the mouth closed, arms and hands still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 65.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 65?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 65",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 65.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 65",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Arturo, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Arturo, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1XKLwnxAiHpEQr2jfRrry3zZtcTEcHpM2/view?usp=drivesdk"
+      ],
+      "NEN_ROBOT": [
+        "https://drive.google.com/file/d/1RWlDF5JZeE8xVotxDI7nnMyg3akiNWEB/view?usp=drivesdk"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-14-rodolfo",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "NHIN_HOC": "gazes at the cliff-top temple in the centre of the frame with a soft smile",
+    "NGHE_HOC": "keeps gazing at the cliff-top temple with the mouth closed, arms and hands still",
+    "VAI_HOC": "traveller",
+    "TEN_HOC": "Rodolfo",
+    "NGUOI_HOC": "a 75-year-old Mexican man, short white hair, clean-shaven, a wrinkled kind face, tan skin; a white dress shirt with a thin grey sweater draped over the shoulders, black trousers",
+    "GIONG_HOC": "a real Mexican man of about 75, low pitch around 95–125 Hz, slightly raspy, calm and a little slower with age, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actor",
+    "GIOI_HOC": "man",
+    "NEN_ROBOT": "the Tulum ruins: a grey stone Mayan temple on a rocky green cliff above a calm turquoise Caribbean sea, a white sand beach and tall palm trees below, a soft peach-and-gold sunset sky",
+    "ANH_SANG": "Warm sunset light at Tulum: soft golden sun from the right, a peach-and-gold sky over the sea",
+    "DIEM_NHIN": "the cliff-top temple",
+    "TAY_HOC": "both arms hang relaxed at the sides, hands still.",
+    "NHIN_ROBOT": "its head turned right toward Rodolfo, eyes on Rodolfo's face",
+    "NGHE_ROBOT": "keeps looking at Rodolfo, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes at the cliff-top temple in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the cliff-top temple with the mouth closed, arms and hands still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 75.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 75?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 75",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 75.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 75",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Rodolfo, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Rodolfo, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1vaK7URCjPetXZEx8uT-HOM9ZwpzX4BGS/view?usp=drivesdk"
+      ],
+      "NEN_ROBOT": [
+        "https://drive.google.com/file/d/1RWlDF5JZeE8xVotxDI7nnMyg3akiNWEB/view?usp=drivesdk"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-15-ramon",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "NHIN_HOC": "gazes at the cliff-top temple in the centre of the frame with a soft smile",
+    "NGHE_HOC": "keeps gazing at the cliff-top temple with the mouth closed, arms and hands still",
+    "VAI_HOC": "traveller",
+    "TEN_HOC": "Ramón",
+    "NGUOI_HOC": "a 70-year-old Mexican man, short white hair, clean-shaven, a wrinkled face, tan skin; a light-blue long-sleeved guayabera shirt, white trousers, a wide woven straw hat",
+    "GIONG_HOC": "a real Mexican man of about 70, low pitch around 95–125 Hz, slightly raspy, calm and a little slower with age, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actor",
+    "GIOI_HOC": "man",
+    "NEN_ROBOT": "the Tulum ruins: a grey stone Mayan temple on a rocky green cliff above a calm turquoise Caribbean sea, a white sand beach and tall palm trees below, a soft peach-and-gold sunset sky",
+    "ANH_SANG": "Warm sunset light at Tulum: soft golden sun from the right, a peach-and-gold sky over the sea",
+    "DIEM_NHIN": "the cliff-top temple",
+    "TAY_HOC": "both arms hang relaxed at the sides, hands still.",
+    "NHIN_ROBOT": "its head turned right toward Ramón, eyes on Ramón's face",
+    "NGHE_ROBOT": "keeps looking at Ramón, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes at the cliff-top temple in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the cliff-top temple with the mouth closed, arms and hands still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 70.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 70?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 70",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 70.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 70",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Ramón, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Ramón, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1UrtHQGxc6-D4l8rkaCkde9fZx6WoTLB9/view?usp=drivesdk"
+      ],
+      "NEN_ROBOT": [
+        "https://drive.google.com/file/d/1RWlDF5JZeE8xVotxDI7nnMyg3akiNWEB/view?usp=drivesdk"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-16-rosa",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "NHIN_HOC": "gazes at the cliff-top temple in the centre of the frame with a soft smile",
+    "NGHE_HOC": "keeps gazing at the cliff-top temple with the mouth closed, arms and hands still",
+    "VAI_HOC": "traveller",
+    "TEN_HOC": "Rosa",
+    "NGUOI_HOC": "a 66-year-old Mexican woman, silver hair in a low bun, a kind wrinkled face, tan skin; a white long-sleeved blouse, a beige shawl over the shoulders, a long navy-blue pleated skirt",
+    "GIONG_HOC": "a real Mexican woman of about 66, natural pitch around 165–200 Hz, warm, slightly thin and a little slower with age, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actor",
+    "GIOI_HOC": "woman",
+    "NEN_ROBOT": "the Tulum ruins: a grey stone Mayan temple on a rocky green cliff above a calm turquoise Caribbean sea, a white sand beach and tall palm trees below, a soft peach-and-gold sunset sky",
+    "ANH_SANG": "Warm sunset light at Tulum: soft golden sun from the right, a peach-and-gold sky over the sea",
+    "DIEM_NHIN": "the cliff-top temple",
+    "TAY_HOC": "both arms hang relaxed at the sides, hands still.",
+    "NHIN_ROBOT": "its head turned right toward Rosa, eyes on Rosa's face",
+    "NGHE_ROBOT": "keeps looking at Rosa, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes at the cliff-top temple in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the cliff-top temple with the mouth closed, arms and hands still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 66.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 66?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 66",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 66.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 66",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Rosa, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Rosa, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/18PCCgoPejbCgnedTKnoYlQtm3otwJwtt/view?usp=drivesdk"
+      ],
+      "NEN_ROBOT": [
+        "https://drive.google.com/file/d/1RWlDF5JZeE8xVotxDI7nnMyg3akiNWEB/view?usp=drivesdk"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-17-carmen",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "NHIN_HOC": "gazes at the cliff-top temple in the centre of the frame with a soft smile",
+    "NGHE_HOC": "keeps gazing at the cliff-top temple with the mouth closed, arms and hands still",
+    "VAI_HOC": "traveller",
+    "TEN_HOC": "Carmen",
+    "NGUOI_HOC": "a 70-year-old Mexican woman, short silver-white hair, a gentle smile, small earrings, tan skin; a navy-blue floral dress with small pink roses, a long beige cardigan",
+    "GIONG_HOC": "a real Mexican woman of about 70, natural pitch around 165–200 Hz, warm, slightly thin and a little slower with age, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actor",
+    "GIOI_HOC": "woman",
+    "NEN_ROBOT": "the Tulum ruins: a grey stone Mayan temple on a rocky green cliff above a calm turquoise Caribbean sea, a white sand beach and tall palm trees below, a soft peach-and-gold sunset sky",
+    "ANH_SANG": "Warm sunset light at Tulum: soft golden sun from the right, a peach-and-gold sky over the sea",
+    "DIEM_NHIN": "the cliff-top temple",
+    "TAY_HOC": "both arms hang relaxed at the sides, hands still.",
+    "NHIN_ROBOT": "its head turned right toward Carmen, eyes on Carmen's face",
+    "NGHE_ROBOT": "keeps looking at Carmen, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes at the cliff-top temple in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the cliff-top temple with the mouth closed, arms and hands still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 70.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 70?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 70",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 70.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 70",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Carmen, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Carmen, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/14LRSV7b0PKAVTxGw4sfrns9iP12T5TLQ/view?usp=drivesdk"
+      ],
+      "NEN_ROBOT": [
+        "https://drive.google.com/file/d/1RWlDF5JZeE8xVotxDI7nnMyg3akiNWEB/view?usp=drivesdk"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-18-guadalupe",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "NHIN_HOC": "gazes at the cliff-top temple in the centre of the frame with a soft smile",
+    "NGHE_HOC": "keeps gazing at the cliff-top temple with the mouth closed, arms and hands still",
+    "VAI_HOC": "traveller",
+    "TEN_HOC": "Guadalupe",
+    "NGUOI_HOC": "a 74-year-old Mexican woman, silver hair in a high bun, a wrinkled kind face, tan skin; a cream lightly embroidered short-sleeved blouse, a grey fringed rebozo shawl over the shoulders, a long black skirt",
+    "GIONG_HOC": "a real Mexican woman of about 74, natural pitch around 165–200 Hz, warm, slightly thin and a little slower with age, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actor",
+    "GIOI_HOC": "woman",
+    "NEN_ROBOT": "the Tulum ruins: a grey stone Mayan temple on a rocky green cliff above a calm turquoise Caribbean sea, a white sand beach and tall palm trees below, a soft peach-and-gold sunset sky",
+    "ANH_SANG": "Warm sunset light at Tulum: soft golden sun from the right, a peach-and-gold sky over the sea",
+    "DIEM_NHIN": "the cliff-top temple",
+    "TAY_HOC": "both arms hang relaxed at the sides, hands still.",
+    "NHIN_ROBOT": "its head turned right toward Guadalupe, eyes on Guadalupe's face",
+    "NGHE_ROBOT": "keeps looking at Guadalupe, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes at the cliff-top temple in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the cliff-top temple with the mouth closed, arms and hands still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 74.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 74?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 74",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 74.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 74",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Guadalupe, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Guadalupe, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1Oxjv-WL-NA0d6-mV0ajkl3iMRpfVN4Ih/view?usp=drivesdk"
+      ],
+      "NEN_ROBOT": [
+        "https://drive.google.com/file/d/1RWlDF5JZeE8xVotxDI7nnMyg3akiNWEB/view?usp=drivesdk"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-19-elena",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "NHIN_HOC": "gazes at the cliff-top temple in the centre of the frame with a soft smile",
+    "NGHE_HOC": "keeps gazing at the cliff-top temple with the mouth closed, arms and hands still",
+    "VAI_HOC": "traveller",
+    "TEN_HOC": "Elena",
+    "NGUOI_HOC": "a 62-year-old Mexican woman, dark hair with grey strands in a neat bun, small gold earrings, tan skin; a white shirt, a light-blue linen blazer, white linen trousers",
+    "GIONG_HOC": "a real Mexican woman of about 62, natural pitch around 165–200 Hz, warm, slightly thin and a little slower with age, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actor",
+    "GIOI_HOC": "woman",
+    "NEN_ROBOT": "the Tulum ruins: a grey stone Mayan temple on a rocky green cliff above a calm turquoise Caribbean sea, a white sand beach and tall palm trees below, a soft peach-and-gold sunset sky",
+    "ANH_SANG": "Warm sunset light at Tulum: soft golden sun from the right, a peach-and-gold sky over the sea",
+    "DIEM_NHIN": "the cliff-top temple",
+    "TAY_HOC": "both arms hang relaxed at the sides, hands still.",
+    "NHIN_ROBOT": "its head turned right toward Elena, eyes on Elena's face",
+    "NGHE_ROBOT": "keeps looking at Elena, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes at the cliff-top temple in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the cliff-top temple with the mouth closed, arms and hands still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 62.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 62?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 62",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 62.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 62",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Elena, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Elena, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/11DumJKBriCwNy_oTURx5I5LS1ttnBZiK/view?usp=drivesdk"
+      ],
+      "NEN_ROBOT": [
+        "https://drive.google.com/file/d/1RWlDF5JZeE8xVotxDI7nnMyg3akiNWEB/view?usp=drivesdk"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-20-josefina",
+    "TEN_ROBOT": "the robot",
+    "VAI_ROBOT": "AI robot guide",
+    "POS_ROBOT": "LEFT",
+    "NGUOI_ROBOT": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_ROBOT": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, and a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a warm, friendly young woman's voice with a light smooth synthetic sheen, around 170–210 Hz, natural Mexican Spanish accent, clear and patient, like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a dark navy-to-deep-purple gradient backdrop with a faint glowing thin arc line and a few tiny soft light specks, like a calm digital space",
+    "NEN_HOC": "a cosy living room in warm evening lamplight: a beige sofa with orange and grey cushions, a wooden bookshelf with books and a potted plant behind the left shoulder, a lit table lamp and a framed picture on a cream wall behind the right shoulder, softly out of focus",
+    "DAO_COC": "The right hand holds a cream speckled ceramic coffee mug at chest height, just left of centre and inside the middle half of the width; the left hand rests on the knee; the mug stays in the same hand in every clip.",
+    "NHIN_HOC": "gazes at the cliff-top temple in the centre of the frame with a soft smile",
+    "NGHE_HOC": "keeps gazing at the cliff-top temple with the mouth closed, arms and hands still",
+    "VAI_HOC": "traveller",
+    "TEN_HOC": "Josefina",
+    "NGUOI_HOC": "a 78-year-old Mexican woman, short silver hair, thin wire-rimmed glasses, a gentle smile, tan wrinkled skin; a long pale lavender dress with a thin lavender cardigan",
+    "GIONG_HOC": "a real Mexican woman of about 78, natural pitch around 165–200 Hz, warm, slightly thin and a little slower with age, native Mexican Spanish; speaks English as a beginner with a strong Mexican accent, Spanish vowels and a soft r; a real person, not an actor",
+    "GIOI_HOC": "woman",
+    "NEN_ROBOT": "the Tulum ruins: a grey stone Mayan temple on a rocky green cliff above a calm turquoise Caribbean sea, a white sand beach and tall palm trees below, a soft peach-and-gold sunset sky",
+    "ANH_SANG": "Warm sunset light at Tulum: soft golden sun from the right, a peach-and-gold sky over the sea",
+    "DIEM_NHIN": "the cliff-top temple",
+    "TAY_HOC": "both arms hang relaxed at the sides, hands still.",
+    "NHIN_ROBOT": "its head turned right toward Josefina, eyes on Josefina's face",
+    "NGHE_ROBOT": "keeps looking at Josefina, its lips sealed in one still closed line from the first frame to the last, hands clasped, head and body perfectly still",
+    "POS_HOC@1": "RIGHT",
+    "VAI_HOC@1": "traveller",
+    "NHIN_HOC@1": "gazes at the cliff-top temple in the centre of the frame with a soft smile",
+    "NGHE_HOC@1": "keeps gazing at the cliff-top temple with the mouth closed, arms and hands still",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "¿Cuál es la primera regla para aprender inglés?",
+        "emo": "curious, delighted",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "robot",
+        "text": "No lo estudies, úsalo. Solo necesitas hablar con un nativo.",
+        "emo": "calm, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Cómo?",
+        "emo": "confused, surprised",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Eh, I have 78.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¿Quisiste decir, I'm 78?",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm 78",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Ah, sí, es verdad. I'm 78.",
+        "emo": "relieved, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm 78",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "Josefina, where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 2,
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Josefina, buen intento, pero tienes que decir, I'm from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 2,
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Perdón, siempre me equivoco. I'm from Mexico.",
+        "emo": "embarrassed, confident",
+        "fx": "right",
+        "phan": 2,
+        "icon": "check",
+        "to": "I'm from Mexico",
+        "to_mau": "green"
+      },
+      {
+        "who": "day",
+        "text": "No pasa nada, vamos a mejorar tu inglés hablando todos los días juntos.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_ROBOT": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/du-lich-chia-doi-gia-su-ai/anh/ai-robot.png"
+      ],
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/14diYqWpQC2ZFeHd47S1U7w7jcqQFVYes/view?usp=drivesdk"
+      ],
+      "NEN_ROBOT": [
+        "https://drive.google.com/file/d/1RWlDF5JZeE8xVotxDI7nnMyg3akiNWEB/view?usp=drivesdk"
+      ]
+    }
+  }
+]

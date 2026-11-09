@@ -18,7 +18,7 @@ MAC_DINH = {
     "TEN_HOC": "Diego",
     "VAI_HOC": "young man",
     "NGUOI_HOC": ("a Mexican young man about 20 years old, slim build, light-tan skin, short dark-brown curly hair under a black baseball cap worn backwards, "
-                  "thin dark eyebrows, brown eyes, clean-shaven, a small silver hoop earring, a small tattoo on the side of the neck and fine-line tattoos on the forearms; "
+                  "thin dark eyebrows, brown eyes, a completely clean-shaven smooth young face with no beard, no stubble and no moustache, a small silver hoop earring, a small tattoo on the side of the neck and fine-line tattoos on the forearms; "
                   "a plain white crew-neck T-shirt and black trousers"),
     "GIONG_HOC": ("a real young Mexican man's voice, around 125–150 Hz, slightly nasal and casual, native Mexican Spanish; speaks English as a learner "
                   "with a clear Mexican accent; a real person, not an actor"),
@@ -42,9 +42,13 @@ MAC_DINH = {
     # --- robot nhỏ trên vai (phần 2) ---
     "TEN_ROBO": "the tiny robot",
     "VAI_ROBO": "tiny AI tutor robot",
-    "NGUOI_ROBO": ("a tiny cute chibi robot about the size of a kitten, glossy white body panels with lavender-purple seams and joints, a big round head with soft "
-                   "silver-white bob hair, big shiny blue cartoon eyes, round glowing purple headphone rings on both ears, short rounded arms and legs"),
-    "GIONG_ROBO": ("a tiny bright cartoon girl's voice around 300–330 Hz, sweet and quick, Mexican Spanish; says English words with a clean American accent"),
+    # robot nhỏ = robot của người dùng (ảnh anh/robo-nguoi-dung.png, 06/11/2026) thu nhỏ ngồi trên vai
+    "NGUOI_ROBO": ("a miniature sleek feminine humanoid robot about 25 cm tall (the size of a small cat): glossy white armour panels with thin glowing ice-blue seams, "
+                   "black mechanical cables at the neck, waist and joints, a smooth white porcelain face with calm light-blue eyes and soft flexible lips that open and "
+                   "move naturally with every word whenever the robot itself speaks, a bald white helmet-like head with a thin panel line across the forehead, "
+                   "a faint glowing white halo ring behind the head; adult humanoid proportions, not a chibi toy"),
+    "GIONG_ROBO": ("a small, bright, friendly feminine voice with a light synthetic sheen, around 280–320 Hz, quick and clear, Mexican Spanish; "
+                   "says English words with a clean American accent"),
     # --- gia sư AI trong ô góc phải (phần 3) ---
     "TEN_DAY": "the AI tutor",
     "NGUOI_DAY": ("a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm dark eyes and softly sculpted lips, a bald white helmet-like head, "
@@ -55,7 +59,7 @@ MAC_DINH = {
 }
 
 ANH_MAC_DINH = {"NGUOI_HOC": ANH + "ai-hoc.png", "NGUOI_AMIGA": ANH + "ai-amiga.png", "NGUOI_CANHSAT": ANH + "ai-canhsat.png",
-                "NGUOI_ROBO": ANH + "ai-robo.png", "NGUOI_DAY": ANH + "ai-day.png"}
+                "NGUOI_ROBO": ANH + "robo-nguoi-dung.png", "NGUOI_DAY": ANH + "ai-day.png"}
 
 BIEN_THE = [
     {"name": "bien-the-01-goc", "que": "Mexico", "nam": "twelve"},
@@ -64,13 +68,13 @@ BIEN_THE = [{**MAC_DINH, **b} for b in BIEN_THE]
 
 
 def luot(que, nam):
-    """28 lượt = 28 cảnh: phần 1 gọi điện (5), phần 2 cảnh sát + robot nhỏ (10), phần 3 robot gia sư trong ô (13)."""
+    """29 lượt = 29 cảnh: phần 1 gọi điện (5), phần 2 cảnh sát + robot nhỏ (11), phần 3 robot gia sư trong ô (13)."""
     sai, dung = f"I am {que}.", f"I am from {que}."
     L = [
         # phần 1: gọi điện
         ("amiga", 1, "No regreses a casa todavía.", "worried, urgent"),
         ("hoc", 1, "¿Por qué?", "confused"),
-        ("amiga", 1, "Hay agentes de inmigración en la calle.", "worried, urgent"),
+        ("amiga", 1, "Hay agentes de inmigración en la calle.", "worried"),   # nghiêm, giọng thấp để trấn an, KHÔNG cười (người dùng 06/11)
         ("hoc", 1, "Pero yo no hice nada.", "worried, hesitant"),
         ("amiga", 1, "Ya sé. Tú tranquilo.", "calm, reassuring"),
         # phần 2: cảnh sát
@@ -84,6 +88,7 @@ def luot(que, nam):
         ("canhsat", 2, "Your English is really good.", "impressed, friendly"),
         ("hoc", 2, "Thank you. I used to struggle with English too.", "happy, proud"),
         ("canhsat", 2, "How did you improve so much?", "curious, friendly"),
+        ("hoc", 2, "I practice with Talka AI ten minutes a day.", "confident, proud"),   # thêm theo người dùng 06/11, cùng khung cuối cảnh trước
         # phần 3: gia sư AI
         ("day", 3, "¿Hablas inglés?", "friendly, curious"),
         ("hoc", 3, "Más o menos.", "unsure"),
@@ -132,11 +137,11 @@ def build():
             "NGHE_HOC@1": "holds the phone to his ear with the mouth closed, still",
             "POS_HOC@2": "LEFT", "POS_CANHSAT": "RIGHT", "POS_ROBO": "on-the-shoulder",
             "NHIN_HOC@2": "looks at the officer's face",
-            "NGHE_HOC@2": "keeps looking at the officer with the mouth closed, holding the coffee cup still",
-            "NHIN_CANHSAT": "looks at the young man's face",
-            "NGHE_CANHSAT": "keeps looking at the young man with the mouth closed, hands still, calm face",
+            "NGHE_HOC@2": "keeps looking at the officer with the mouth closed, head steady, holding the coffee cup still",
+            "NHIN_CANHSAT": "keeps his head and eyes turned to the young man's face in every frame and never looks at the camera",
+            "NGHE_CANHSAT": "keeps looking at the young man's face with the mouth closed, head steady, hands still, calm face, never glancing at the camera",
             "NHIN_ROBO": "looks straight into the lens with a bright smile",
-            "NGHE_ROBO": "sits perfectly still on the shoulder like a small figurine, its tiny mouth closed, big eyes blinking slowly",
+            "NGHE_ROBO": "sits perfectly still on the shoulder, lips gently together, light-blue eyes blinking slowly",
             "LUOT": luot(que, nam),
             "refs": _refs(anh, v["name"]),
         })

@@ -7,8 +7,8 @@ Code riêng: `app/production/types/di-tru-gia-su-ai/` (`gen.py`, `post.py`, `con
 | Phần | Cảnh chung | Chế độ | Nội dung |
 |---|---|---|---|
 | 1. Gọi điện | 1–5 | Cảnh thường, mỗi cảnh MỘT người, mỗi cảnh `Prompt ảnh` mới | Valeria (`AMIGA`, căn hộ cao tầng) báo Diego (`HOC`, trước cửa hàng) đừng về nhà: có agentes de inmigración |
-| 2. Cảnh sát | 6–15 | Cảnh thường, 3 khung: rộng hai người (6–8), cận Diego + robot nhỏ trên vai (9–10), rộng + robot (11–15) | Cảnh sát (`CANHSAT`) hỏi; Diego nói sai "I am Mexico", robot chibi (`ROBO`) nhắc, Diego nói lại đúng ✅ |
-| 3. Gia sư AI | 16–28 | Ghép 2 lớp: Diego toàn khung (nền), AI (`DAY`) ô dọc bo góc viền trắng góc trên phải `0.615, 0.012, 0.37, 0.32` (→ gen 9:16); vào bằng nhoè 0,5 s | Hỏi đáp, sửa "I am Mexico", hỏi tiền 💰, giới thiệu gia sư AI |
+| 2. Cảnh sát | 6–16 | Cảnh thường, 3 khung: rộng hai người (6–8), cận Diego + robot nhỏ trên vai (9–10), rộng + robot (11–16; 13 ảnh mới cùng góc) | Cảnh sát (`CANHSAT`) hỏi; Diego nói sai "I am Mexico", robot nhỏ (`ROBO`, robot người dùng thu nhỏ) nhắc, Diego nói lại đúng ✅; kết bằng "I practice with Talka AI ten minutes a day." |
+| 3. Gia sư AI | 17–29 | Ghép 2 lớp: Diego toàn khung (nền), AI (`DAY`) ô dọc bo góc viền trắng góc trên phải `0.615, 0.012, 0.37, 0.32` (→ gen 9:16); vào bằng nhoè 0,5 s | Hỏi đáp, sửa "I am Mexico", hỏi tiền 💰, giới thiệu gia sư AI |
 
 Phụ đề (`config.json`): phần 1–2 chữ trắng, phần 3 chữ vàng; câu sai đỏ (+ viền đỏ), câu đúng xanh + ✅; cụm đúng trong lời robot tô xanh (`to`).
 
@@ -34,6 +34,7 @@ Studio: loại `Di-tru-gia-su-AI-46a2`, dự án `Di-tru---Diego-c294`.
 - Lời giữ theo phụ đề video mẫu (biến thể 01 "giống hệt"); danh sách biến thể người dùng đưa sau khi duyệt video đầu.
 - Cảnh báo `kiem-tra` "fx 8:wrong, 10:right, 19:wrong" giữ: phần 3 gốc AI sửa câu nhưng Diego không nói lại.
 - Phần 1→2 cắt cứng (như gốc); 2→3 nhoè.
+- 06/11/2026 người dùng: robot trên vai = `anh/robo-nguoi-dung.png`; cảnh 3 không cười; cảnh sát luôn nhìn Diego, không nhìn camera; hai người cách ~1 m, không tiến lại; không gật đầu; Diego không râu; thêm câu Talka AI cuối phần 2; ô AI không bao giờ che mặt Diego.
 
 ## Rủi ro
 - Phần 2 hai nam cùng khung (Diego ~20 tuổi / cảnh sát ~45): Muse có thể gán nhầm giọng → nghe cảnh 6–15; dự phòng `voice_swap`.
@@ -48,3 +49,5 @@ Dòng "POV: …" và badge Talka (Thương hiệu); máy trôi/đẩy ở phần
 - 05/11/2026 lượt gen 1 xong (98,3 s): phần 1–2 đạt; phần 3 ảnh nền Diego có robot thừa bay góc trên phải (do STYLE LOCK chung nhắc "CGI robot") → sửa kịch bản (robot chỉ tả trong khối DAY, Diego "the only figure in the whole frame"), làm lại từ cảnh 16; `base_HOC.png` mới sạch.
 - 05/11/2026 gen lại phần 3: hết robot thừa; máy tiến dần làm mặt Diego vào ô AI ở cảnh 25 → khoá khoảng cách máy trong khối HOC, làm lại từ cảnh 24.
 - 05/11/2026 làm lại từ cảnh 24: mặt Diego vẫn trôi vào ô AI; nguyên nhân là bước khớp/khoá camera của split.py (clip Muse gốc đúng chỗ, bản _khop dời phải + phóng). Cần sửa code chung, chờ người dùng.
+- 06/11/2026: sửa 9 góp ý (xem NHAT-KY sửa 3): kịch bản + biến thể + code chung (engine cắt lặng, split kéo bố cục + đo mặt dưới ô, bỏ "nod" khỏi cue cảm xúc). Khởi động lại Studio, gen lại từ cảnh 1.
+- 06/11/2026: gen lại toàn bộ sau 9 góp ý: đạt 8/9; cảnh 13 cảnh sát nhìn ống kính → thêm kiểm tra hướng mặt vào engine (gaze_retry), gen lại cảnh 13–16: đạt. Video 97,6 s chờ người dùng duyệt.

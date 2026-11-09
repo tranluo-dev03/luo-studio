@@ -252,10 +252,124 @@ Người dùng báo 6 lỗi; nguyên nhân đã chứng minh bằng số đo tr�
 - Hiện tượng: "Làm lại" báo `...phan1\scene1_cut.mp4 and ...\scene1_cut.mp4 are the same file`.
 - Nguyên nhân: `nhieu_phan._link` xoá dst thất bại (tệp đang mở) mà dst đã là hardlink của src → `shutil.copyfile` ném SameFileError.
 - Cách sửa: `_link` kiểm `os.path.samefile` trước, trùng thì bỏ qua. Lần này gỡ tay bằng cách xoá `scene[1-9]_cut/last` ở thư mục gốc.
-- Kết quả: CHỜ KIỂM CHỨNG (cần khởi động lại Studio để nạp). Áp dụng chung?: CÓ. Đã chưng cất vào: chưa.
+- Kết quả: ĐẠT (06/11 sau khi Studio khởi động lại, "Làm lại từ cảnh 8" chạy không lỗi). Áp dụng chung?: CÓ. Đã chưng cất vào: chưa.
 
 ### 2026-11-05 · xe-tai-canh-sat-gia-su-ai · lượt gen 2 (robot Talka), video cuối · loai: studio
 - Hiện tượng: `final.mp4` 82,6 s (18:42). Phần 1 giữ nguyên lượt 1. Phần 2: robot đúng ảnh mẫu suốt 13 cảnh, ô AI đứng yên, đáy sạch, mặt tài xế dưới ô;
   phụ đề y 1560 nằm ngang ngực ở cả hai phần, không che mặt; viền đỏ cảnh "I am very hurry", icon ✓ / ✗ / $ đúng chỗ.
 - Kết quả: ĐẠT (sửa 1, 2, 3 xác nhận). Còn khác mẫu: dài ~1,6 lần mẫu; lời thoại vẫn gọi app "LangLearn".
 - Áp dụng chung?: xem các mục sửa 1–3. Đã chưng cất vào: chưa.
+
+### 2026-11-06 · di-tru-gia-su-ai · sửa 3: 9 góp ý của người dùng sau video đầu · loai: kich-ban + studio
+- Hiện tượng (người dùng xem bản 98 s): (1) cảnh 1 thừa ~3 s lặng sau "No regreses a casa todavía."; (2) cảnh 3 Valeria cười; (3) muốn robot nhỏ trên vai là robot của người dùng (ảnh `anh/robo-nguoi-dung.png`);
+  (4) cảnh sát nhìn camera; (5) hai người tiến sát nhau; (6) gật đầu vô lý; (7) 0:37–0:43 (cảnh 14–15) Diego mọc râu; (8) thêm câu Diego "I practice with Talka AI ten minutes a day." cùng khung cuối phần 2; (9) từ 0:44 ô AI che mặt Diego.
+- Nguyên nhân + cách sửa:
+  (1) `phan1/scene1_cut.mp4` = nguyên clip 5,0 s; Whisper đo lời 0–1,86 s. Cảnh 1 là câu tiếng Tây Ban Nha đầu tiên của lượt chạy: tiến trình Whisper phải nạp mô hình "small" đa ngôn ngữ → `voice_span` lỗi/hết giờ → cắt theo khoảng lặng, mà clip có tiếng nền liên tục nên không có lặng cuối → giữ cả clip.
+      Code chung `engine.py`: thử `voice_span` lại một lần; cắt lại khi mất chữ thì vẫn theo mốc lời (span, lo 0,45 / hi 1,1) thay vì span=None.
+  (2) cảnh 3 emo "worried", hành động "serious, calm, reassuring face with no smile at any moment", negative riêng "smiling; a grin".
+  (3) NGUOI_ROBO = robot người dùng thu nhỏ (~25 cm, giáp trắng viền xanh băng, mắt xanh nhạt, vòng hào quang), refs ảnh người dùng; môi tả "soft flexible lips that open ... whenever the robot itself speaks" (mục 6 sổ tay).
+  (4) NHIN/NGHE_CANHSAT "never looks at the camera", EYE LINE "only the tiny robot ever looks into the lens", negative.
+  (5) STYLE LOCK + ANH_RONG "about one metre apart ... nobody steps toward the other"; bỏ "bước tới" ở cảnh 6.
+  (6) Bảng cảm xúc dùng chung `prompt_parts.EMO_CUES` tự chèn "nods" (excited, encouraging, reassuring, impressed, decisive) + mặc định người nghe "tiny nod" (`engine.py`, `make_variants.py`, `split.py`, `prompt_parts` attentive/patient/listening) → bỏ hết, thay "the head steady". Kịch bản: VIDEO SUFFIX "no nodding", NEGATIVE "repeated nodding or head bobbing".
+  (7) NGUOI_HOC "completely clean-shaven ... no beard, no stubble, no moustache", negative phần 2–3; cảnh 8 phần 2 (lượt 13) ảnh mới cùng góc để mặt về đúng ảnh tham chiếu (5 cảnh nối liền trôi mặt).
+  (8) thêm lượt 16 (phần 2 cảnh 11, khung "rong_robo" nối từ khung cuối cảnh trước); tổng 29 lượt.
+  (9) code chung `split.py`: `align_to_tail` thêm bước (1c) kéo dần khung cuối về bố cục `base_<K>` (chỉ trong phần ảnh thật, không lộ mép); `face_under_panels()` đo mặt nhân vật nền nằm dưới ô khác (> 12% → gen lại, cả clip nói lẫn clip nghe; sau khi khớp còn che thì cảnh báo).
+      Đo trên clip cũ: `scene10_spk.mp4` 50%, `_khop` 62%, `scene9_listen_HOC_khop` 44%, `scene11_spk` 7%. Kịch bản: mặt ở ~38% bề ngang, đỉnh đầu ~12%.
+- Kết quả (gen lại toàn bộ 06/11, 97,2 s, 29 cảnh): ĐẠT (1) cảnh 1 còn 2,0 s; (2) Valeria nghiêm, không cười; (3) robot người dùng trên vai; (5) hai người cách ~1 m suốt; (6) không thấy gật đầu; (7) không râu ở cảnh 13–16; (8) câu Talka AI có phụ đề, giữ khung cuối;
+  (9) phần 3 cảnh 17–29 mặt Diego luôn ngoài ô AI. CHƯA ĐẠT (4): cảnh 13 cảnh sát quay mặt thẳng ống kính 33,3–34,5 s dù prompt ghi "never looks at the camera" hơn 10 lần → sửa 4.
+- Áp dụng chung?: CÓ: (1) câu đầu ngôn ngữ mới của lượt chạy; (6) không bao giờ đưa "nod" vào cue mặc định; (9) mọi ghép 2 lớp nền toàn khung. Đã chưng cất vào: SO-TAY mục 3.6 + 6.
+
+### 2026-11-06 · di-tru-gia-su-ai · sửa 4: cảnh sát vẫn nhìn ống kính (cảnh 13) · loai: studio (code chung)
+- Hiện tượng: `phan2/scene8_clip.mp4` (cảnh chung 13, "Your English is really good.", emo impressed) cảnh sát cười rồi quay mặt thẳng ống kính 1,5–2,5 s; khung cuối lỗi nối sang đầu cảnh 14.
+- Nguyên nhân: Muse bỏ qua khoá ánh mắt bằng chữ khi nhân vật cười/khen (cảm xúc ấm áp kéo mặt về ống kính). Chữ không đủ.
+- Cách sửa: `engine.py` thêm `gaze_frontal()` + `gaze_retry()`: nhân vật có NHIN_/NGHE_ khớp "never looks ... camera/lens" thì đo hướng mặt (mediapipe: lệch mũi so với giữa hai mắt / khoảng cách hai mắt)
+  trong đoạn được giữ (tới hết từ cuối theo Whisper + 0,4 s); quay thẳng (< 0,35) liên tục ≥ 0,5 s → gen lại kèm ghi chú (tối đa 2 lần, giữ lần ít nhất).
+  Đo trên clip cũ: nhìn người kia 0,6–1,0; nhìn ống kính 0,10–0,27; cảnh 8 bị bắt 0,83 s, cảnh 9 0,5 s (khung đầu thừa hưởng), 9 cảnh còn lại 0. Tắt bằng opts check_gaze.
+- Kết quả: ĐẠT (gen lại cảnh chung 13–16, video 97,6 s): đo lại bản cắt cảnh sát yaw 0,68–1,03 mọi khung, không khung nào quay ống kính; xem ảnh: không râu, hai người cách ~1 m. Ghi nhận nhỏ: khuyên tai Diego cảnh 16 hơi khác (khuyên thả thay vòng tròn).
+- Áp dụng chung?: CÓ: mọi cảnh thường có nhân vật "không bao giờ nhìn camera" (cảnh sát, nhân viên soi hành lý...). Đã chưng cất vào: SO-TAY mục 6.
+
+### 2026-11-06 · du-lich-chia-doi-gia-su-ai · 20 biến thể từ CSV người dùng (đổi nhân vật + nền) · loai: studio
+- Hiện tượng: CSV 20 dòng (10 nữ/10 nam, 22–78 tuổi; ảnh nhân vật toàn thân phông xanh; 2 ảnh nền: Chichén Itzá cho 1–10, Tulum cho 11–20). Kịch bản phần 1 viết cứng "the woman/she", "Machu Picchu/the peak", "hands in the pockets of the mustard coat".
+- Cách làm: phần 1 chuyển sang token GIOI_HOC, ANH_SANG, NEN_ROBOT, DIEM_NHIN, TAY_HOC; câu tả dùng {{TEN_HOC}} thay đại từ. Ảnh nền gắn refs NEN_ROBOT:
+  đuôi `_ROBOT` để `nhieu_phan.sub_variant` bỏ ảnh nền ở phần 2 (không có ROBOT); tên trung tính (NEN_CANH) thì split.py `owner()` = None → gửi ảnh Chichén Itzá cho cả base_HOC phòng khách.
+  Nhãn trường NEN_ROBOT đặt câu tiếng Anh (chú thích ảnh gửi Muse lấy từ nhãn). Tuổi trong lời thoại ("I'm 25") lấy từ CSV; giọng sinh theo giới + tuổi. Ref note: phông xanh/xám KHÔNG thuộc cảnh.
+- Kết quả: kiểm tra 0 lỗi (164 mục, tải đủ 22 ảnh); dự án `Face-to-face-Mexico---20-bien-the-b3d8` 20 biến thể × 4 ảnh. CHƯA GEN THỬ.
+- Áp dụng chung?: CÓ: ảnh nền riêng một phần trong dự án nhiều phần → token phải có đuôi `_<khoá nhân vật chỉ có ở phần đó>`. Đổi giới/tuổi người học → kịch bản không được có đại từ/trang phục cứng. Đã chưng cất vào: SO-TAY mục 6.
+
+### 2026-11-06 · du-lich-chia-doi-gia-su-ai · lỗi "chưa điền: Tư thế khi nghe (HOC)" · loai: studio
+- Hiện tượng: bấm "Thêm vào hàng đợi (20)" → toast đỏ `"bien-the-01-lucia" chưa điền: Tư thế khi nghe (HOC)`.
+- Nguyên nhân: biến thể chỉ có NGHE_HOC@1 / NHIN_HOC@1 / VAI_HOC@1; `ui/app.js` (dòng ~492) chỉ kiểm khoá gốc. `kiem-tra` coi "@1" là đủ nên không bắt. Carla không bị chặn vì vào hàng đợi bằng `nhap --chay-thu` (API).
+- Cách sửa: `tao_bien_the.py` ghi thêm khoá gốc cùng giá trị phần 1 (phần 2 ghép 2 lớp không đọc NGHE_/NHIN_/VAI_); cập nhật 2 dự án qua API, giữ refs; `video-moi.py kiem-tra` thêm LỖI "chỉ có khoá @phần".
+- Kết quả: ĐẠT (cả 21 biến thể không còn trường trống; công cụ bắt được bản lỗi). Áp dụng chung?: CÓ. Đã chưng cất vào: SO-TAY mục 6 + kiem-tra.
+- Lưu ý: sửa dự án qua API khi trang dự án đang mở → nút hàng đợi lưu bản cũ của trình duyệt đè lại (06/11, lỗi tái diễn lần 2). Luôn bảo người dùng F5 trước.
+
+### 2026-11-06 · du-lich-chia-doi-gia-su-ai · 20 biến thể: AI cao, người thấp ở phần 2 · loai: studio (code 1.2.2)
+- Hiện tượng: biến thể 01–03 phần 2 robot đầu sát mép trên, người học đầu ở ~45% khung; dải trên ảnh người bị kéo giãn mờ.
+- Nguyên nhân: `split.py` 1.2.2 bước chống "ô che mặt" (`panel_clear_y` + `shift_down`) cho mọi nhân vật nền, kể cả khi nền có khung riêng (chia đôi).
+  Toạ độ mặt đo trong ảnh 9:16 riêng (mặt giữa ảnh x 0,4–0,6) bị so với ô DAY x 0–0,5 của màn ghép → "che" → gen lại kèm "COMPOSITION FIX" rồi dịch 35%.
+  Đo: base_HOC gốc đỉnh đầu 0,08–0,12 / DAY 0,07 (vốn ngang nhau); sau dịch 0,44–0,45.
+- Cách sửa: `panel_clear_y` trả 0 khi `cfg["bg"] in cfg["panels"]` (thử: chia đôi → 0, ô góc vẫn 0,4). Video đang chạy: dừng, khôi phục `base_HOC.png.truoc-dich.png`, xoá clip phần 2, làm lại từ cảnh 4; cần khởi động lại Studio.
+- Kết quả: CHỜ KIỂM CHỨNG. Áp dụng chung?: CÓ (mọi bước đo theo toạ độ màn ghép phải bỏ qua nền có khung riêng). Đã chưng cất vào: SO-TAY mục 6.
+
+### 2026-11-06 · du-lich-chia-doi-gia-su-ai · bỏ "đè mồm" (khoá miệng clip nghe) · loai: studio (code dùng chung)
+- Hiện tượng: người dùng thấy miệng bị đè ở cảnh 4 biến thể 2 (`phan2/scene1_listen_HOC_khop_khoa.mp4`); biến thể 3 bị ở cảnh 4, 6, 8.
+- Nguyên nhân: split.py nhánh dự phòng "clip nghe vẫn mấp máy sau khi gen lại → `_locked` dán môi khép" (thêm 03/11 soi hành lý).
+- Cách sửa: `_lock_on` luôn False; nhánh dự phòng chỉ cảnh báo, giữ nguyên clip Muse (người dùng sửa lại: chỉ bỏ dán miệng, không thay bằng khung đứng yên). Cần khởi động lại Studio; cảnh đã đè phải "Chỉ làm lại cảnh này".
+- Kết quả: CHỜ KIỂM CHỨNG. Áp dụng chung?: CÓ: người dùng cấm mọi kỹ thuật đè/dán lên mặt (cùng loại với "đè hình" đã bỏ). Đã chưng cất vào: SO-TAY mục 6.
+
+### 2026-11-06 · xe-tai-canh-sat-gia-su-ai · sửa 5: "LangLearn" → "Talka AI" trong lời thoại · loai: bien-the
+- Cách sửa: `tao_bien_the.py` thay 3 câu (lượt 8 tài xế, 19 và 21 robot), sinh lại JSON, PUT vào dự án. Gen lại phần 1 từ cảnh 8 (cảnh 9 nối khung);
+  phần 2 xoá `phan2/scene1[0-3]_*` + `phan2/raw.mp4` (= cảnh 19–22), giữ `base_*` và cảnh 10–18. Bản cũ lưu ở scratchpad `final02/final-luot2-langlearn.mp4`.
+- Kết quả: CHỜ KIỂM CHỨNG (đang chờ sau hàng Face-to-face). Mục sửa 4 (`_link`): Studio đã khởi động lại, lần "Làm lại" này không còn lỗi same file → ĐẠT.
+- Áp dụng chung?: CÓ: đổi lời ở cảnh N của phần ghép 2 lớp nối liền → chỉ xoá `phan<k>/scene<local≥N>_*`, giữ ảnh gốc và cảnh trước. Đã chưng cất vào: chưa.
+
+### 2026-11-06 · du-lich-chia-doi-gia-su-ai · luật trái/phải phần 2 · loai: kịch bản
+- Yêu cầu người dùng: từ cảnh 4, robot AI luôn bên TRÁI, người học bên PHẢI; lượt robot thì bên phải ngồi im, và ngược lại.
+- Cách làm: ghép 2 lớp vốn gen riêng từng người nên luật được ghi vào [NHAN VAT DAY/HOC] (vị trí trên màn gọi) và [NGHE DAY/HOC] ("<bên kia> has the turn; <tên>, on the RIGHT/LEFT, sits completely still and quiet").
+  Tránh chữ speak/talk/voice trong khối NGHE (`_calm_listen` cũng tự lọc). Đã xem lại listen_prompt dựng ra: câu luật có mặt.
+- Kết quả: kiểm tra 0 lỗi; đã đẩy vào loại dự án (áp dụng cho các cảnh gen sau đó). CHỜ KIỂM CHỨNG trên video.
+
+### 2026-11-06 · xe-tai-canh-sat-gia-su-ai · sửa 6: 20 biến thể từ CSV người dùng (đêm, nữ cảnh sát, đổi tài xế) · loai: bien-the + kich-ban
+- Đầu vào: `anh/20-bien-the/20-bien-the-xe-tai.csv` (20 tài xế Mexico, 10 biến thể đi với 1 nữ cảnh sát Mỹ, 5 biến thể ban đêm), 21 link Google Drive.
+  Tải thử cả 21 link: đều là ảnh webp 1152×2048 nền xanh lá, khớp mô tả; ảnh tài xế 01 có chữ trên miếng vá áo → prompt ghi "plain chest patches without lettering".
+- Cách làm: kịch bản thêm token `{{HE_/HIS_/HIM_CANHSAT}}` (thay 9 chỗ "he/his/him" của cảnh sát) và `{{SANG_P1}}` / `{{SANG_P2}}` (ánh hoàng hôn ghi cứng ở STYLE LOCK, Prompt ảnh);
+  giá trị mặc định trong `CHUNG` của `tao_bien_the.py` = chữ cũ (dự án 031a không đổi). "sir" → "ma'am" khi cảnh sát nữ. Công cụ mới `cong-cu/tao_bien_the_20.py`
+  → `BIEN-THE-XE-TAI-20-BIEN-THE.json`; cặp khác giới kiểm bằng assert (tài xế nữ + cảnh sát nam không ảnh; tài xế nam + nữ cảnh sát có ảnh).
+  Biến thể 20: CSV "cầm găng tay trên tay" → để găng giắt thắt lưng, vì tay phải cầm giấy tờ / điện thoại (tránh đạo cụ thừa).
+- Kiểm tra: `kiem-tra --tai-anh` 0 lỗi, 20 cảnh báo fx (đã biết). Dự án Studio `Xe-tai-Check-license---20-bien-the-e0ae`, 20 biến thể, refs tải đủ (0 lỗi). Chưa gen.
+- Lưu ý: chép kịch bản mới vào loại `Canh-sat-chan-xe-tai-gia-su-AI-c7b5` TRƯỚC khi PUT biến thể có token cho dự án cũ = có khoảng hở token trống; lần này 031a đã ghi `phan2/script.txt` trước nên không bị.
+  Thứ tự đúng: PUT biến thể có giá trị token cho mọi dự án dùng loại đó, rồi mới đổi kịch bản loại.
+- Kết quả: CHỜ KIỂM CHỨNG (chưa chạy thử biến thể đêm / nữ cảnh sát). Áp dụng chung?: CÓ (thêm token vào kịch bản loại dùng chung: PUT biến thể trước). Đã chưng cất vào: chưa.
+
+### 2026-11-07 · xe-tai-canh-sat-gia-su-ai · sửa 7: robot AI thừa ngồi ghế phụ cạnh tài xế (phần 2) · loai: kich-ban + studio (code dùng chung)
+- Hiện tượng: dự án 20 biến thể, `phan2/base_HOC.png` của biến thể 01, 03, 04 có robot trắng ngồi ghế phụ bên phải tài xế → mọi cảnh 10+ đều có robot thừa
+  (ngoài robot đúng trong ô gọi video). Biến thể 02 và dự án 031a sạch (Muse không vẽ lần nào cũng như nhau). Ảnh lỗi lưu ở scratchpad `robo/backup/`.
+- Nguyên nhân: [STYLE LOCK] phần 2 dùng chung cho cả hai lớp có mệnh đề "the AI tutor is a sleek photorealistic CGI humanoid robot (glossy white porcelain armour…)";
+  `split.py` ghép STYLE LOCK + [NEGATIVE] nguyên văn vào prompt ảnh gốc / clip của tài xế → prompt lớp nền tả robot. Thêm "as if talking to the AI tutor on the phone"
+  trong [NHAN VAT HOC], "robot" trong NEGATIVE. Ban đêm cabin tối, ghế phụ trống dễ bị lấp.
+- Cách sửa: (1) kịch bản: bỏ mệnh đề robot khỏi STYLE LOCK phần 2 (dời vào [NHAN VAT DAY]), HOC "completely alone in the cab: the passenger seat beside the driver is empty",
+  "as if on a video call", NGHE HOC "waits for the reply", NEGATIVE bỏ các mục nhắc robot. (2) `split.py` (dùng chung, mọi thể loại ghép 2 lớp): `_style` / `_neg`
+  bỏ các mệnh đề (ngăn bởi . ;) của STYLE LOCK và NEGATIVE có nhắc tên ngắn TEN_ của NHÂN VẬT KHÁC → mỗi lớp chỉ thấy mô tả của chính nó. Kiểm: prompt HOC không còn "robot/tutor"
+  (chỉ "robotic voice"), prompt DAY giữ nguyên robot. Dữ liệu: xoá phần 2 biến thể 01/03/04 (giữ `base_DAY.png`, phần 1), làm lại từ cảnh 10; 05–20 chạy với kịch bản mới.
+- Kết quả: ĐẠT bước đầu (07/11 14:45): base_HOC mới của 01/03/04 (cả lần gen đầu lẫn lần gen lại vì ô che) không còn robot, ghế phụ trống; cảnh 10–12 cả 3 biến thể sạch. Cảnh 13–22 và biến thể 05–20 CHỜ KIỂM CHỨNG. Áp dụng chung?: CÓ: khối dùng chung (STYLE LOCK, NEGATIVE, VIDEO SUFFIX) KHÔNG tả ngoại hình nhân vật; mô tả nhân vật chỉ nằm trong [NHAN VAT <KHOÁ>].
+  Đã chưng cất vào: SO-TAY mục 6.
+
+### 2026-11-07 · canh-sat-gia-su-ai · dự án mới "canh-sat-speeding" (chạy lại mẫu, 1 video) · loai: chay-thu
+- Đầu vào: kịch bản + biến thể có sẵn `SAMPLE/canh-sat-gia-su-ai/` (biến thể `bo-con-xe-do-gia-su-ai`, refs 4 ảnh `anh/<KHOÁ>.png`).
+- Cách làm: `video-moi.py kiem-tra --tai-anh` (0 lỗi, 1 cảnh báo fx đã biết: 14 wrong, 16 right, 17 wrong) → `nhap --ten-loai/--ten-du-an "canh-sat-speeding" --chay-thu`.
+  Loại `canh-sat-speeding-ab37` (24 trường, ghép 2 lớp), dự án `canh-sat-speeding-d8a7`, hàng đợi `ff6ea408` (đang chờ sau dự án Xe tải 20 biến thể).
+  Lưu ý: máy này không có `runtime\python.exe`, dùng `.venv\Scripts\python.exe` + `PYTHONIOENCODING=utf-8`.
+- Kết quả: CHỜ KIỂM CHỨNG (chưa gen xong). Áp dụng chung?: KHÔNG. Đã chưng cất vào: chưa.
+
+### 2026-11-09 · canh-sat-gia-su-ai · sửa: khoảng trống trước lời thoại đầu cảnh (phần 2, cảnh 23 "Seriously?" dự án canh-sat-speeding) · loai: studio (engine dùng chung)
+- Hiện tượng: thẻ cảnh "[P2] Seriously?" (cảnh 23, lượt thứ 11 của phần 2) trong Studio có khoảng im dài trước khi tài xế bắt đầu nói.
+- Nguyên nhân (đã chứng minh): mặc định `[GHEP HAI LOP]` không khai `noi:` → `noi: lien` (nối khung): mỗi cảnh sau của cùng nhân vật phải bắt đầu ĐÚNG khung cuối cảnh
+  trước của chính nó, nên `split.py` gọi `engine.smart_cut(..., head_margin=99.0)` để KHÔNG cắt đầu clip (cắt đầu sẽ đổi khung đầu, lệch chỗ nối). `smart_cut` do đó luôn để
+  `head=0` và chỉ tua nhanh các khoảng ngắt GIỮA câu (`inner`, tính từ `speech_start` trở đi); đoạn im TRƯỚC `speech_start` (khi `head` không được nhích lên) không được
+  đưa vào danh sách tua nhanh, nên giữ nguyên tốc độ → nghe là một khoảng trống dài trước khi nói ở mọi cảnh nối tiếp (không riêng cảnh 23 hay dự án này).
+- Cách sửa: `app/luo-studio/engine.py` hàm `smart_cut` — thêm đoạn `[head, speech_start)` (nếu dài ≥ 0,55 s) vào `longs` (danh sách tua nhanh, như khoảng ngắt giữa câu, tối đa x2)
+  thay vì bỏ qua; tua nhanh không cắt khung nào nên khung đầu clip vẫn y hệt (vẫn nối đúng khi `noi: lien`). Không sửa kịch bản `.txt`/biến thể `.json` vì phần 2 không có tham số
+  thời lượng "Mở đầu" theo cảnh (như phần 1); nguyên nhân nằm ở engine dùng chung cho MỌI dự án ghép 2 lớp nối khung, không phải ở kịch bản.
+- Kết quả: CHỜ KIỂM CHỨNG (cần bấm "Chỉ làm lại cảnh này" cho cảnh 23 trong Studio rồi nghe lại; dự án `canh-sat-speeding-d8a7`, chưa chạy lại do cần Studio đang mở/Muse credit).
+- Áp dụng chung?: CÓ: mọi thể loại nhiều phần ghép 2 lớp dùng `noi: lien` (mặc định khi không khai `noi:`) được lợi, không cần sửa kịch bản từng thể loại.
+- Đã chưng cất vào: chưa (đưa vào SO-TAY mục 6 ở lượt chưng cất kế tiếp, bảng "Nền/khung hình nhảy..." / "Lặng 2–3 s sau câu..." cùng nhóm lỗi căn thời gian clip).

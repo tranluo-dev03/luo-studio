@@ -400,7 +400,9 @@ def _kiem_canh_thuong(c, text, v, label=""):
 def _kiem_ghep(c, cfg, blocks, label=""):
     """Ghép 2 lớp: khối [NHAN VAT <nền>] phải nói rõ đầu nằm thấp, dưới các ô (06/11/2026: ô AI + phụ đề che mắt tài xế). Studio còn tự dò mặt và gen lại / dịch ảnh."""
     b = blocks.get(f"NHAN VAT {cfg['bg']}", "")
-    low = max((y + h for k, (x, y, w, h) in cfg["panels"].items() if k != cfg["bg"] and y < 0.5), default=0)
+    bx, _, bw, _ = cfg["panels"].get(cfg["bg"], (0, 0, 1, 1))
+    # chỉ tính ô CHỒNG lên khung nền theo bề ngang (chia đôi trái/phải như du-lich-chia-doi: không ô nào che mặt người nền)
+    low = max((y + h for k, (x, y, w, h) in cfg["panels"].items() if k != cfg["bg"] and y < 0.5 and x < bx + bw - 1e-6 and x + w > bx + 1e-6), default=0)
     if low and not re.search(r"\d+\s*%|lower (?:half|two-thirds|middle)|head (?:is )?low", b, re.I):
         c.w(f"{label}[NHAN VAT {cfg['bg']}] chưa nói rõ đầu nằm dưới ô (ô che tới {low * 100:.0f}% + phụ đề): ghi \"the top of the hair at about "
             f"{(low + 0.1) * 100:.0f}% down from the top edge\"")
@@ -466,6 +468,10 @@ def cmd_kiem_tra(a):
         extra = {k for k in vk - plain - set(an["series"]) if not engine_keys.match(k)}
         if missing:
             c.e(f'[{v.get("name")}] thiếu token của kịch bản: {", ".join(sorted(missing))}')
+        # chỉ có khoá "<TOKEN>@<phần>" mà không có khoá gốc: nút "Thêm vào hàng đợi" của Studio chỉ kiểm khoá gốc → báo "chưa điền" (du-lich-chia-doi 06/11)
+        only_at = {k for k in vk & plain if k not in v and k not in ("POS_DAY", "POS_HOC")}
+        if only_at:
+            c.e(f'[{v.get("name")}] chỉ có khoá "@phần", thiếu khoá gốc (Studio báo "chưa điền"): {", ".join(sorted(only_at))}')
         if extra:
             c.w(f'[{v.get("name")}] khoá không có trong kịch bản (Studio bỏ qua): {", ".join(sorted(extra))}')
         grp = {}

@@ -1,0 +1,4112 @@
+[
+  {
+    "name": "bien-the-01-dem-ao-cam",
+    "VAI_CANHSAT": "state trooper",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed unless the clip's action says otherwise",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone held in the right hand",
+    "DAO_GIAY_TO": "a small stack of papers: a plastic driver's licence card on top of a folded white registration sheet, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
+    "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "he",
+    "HIS_CANHSAT": "his",
+    "HIM_CANHSAT": "him",
+    "SANG_P1": "at night, lit by tall orange sodium street lamps and the warm glow of the truck's cab lights, a deep-blue night sky, both faces clearly lit",
+    "SANG_P2": "night inside the cab, a soft warm dome light and the gentle glow of the phone screen clearly lighting the face",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a Mexican woman, 48 years old, a round face, short straight black hair to the shoulders, medium-dark tan skin, dark circles under tired eyes; a worn faded orange high-visibility work jacket with gray reflective stripes and small plain chest patches without lettering, faded blue jeans",
+    "GIONG_HOC": "a natural Mexican woman's voice in her late forties, around 185–215 Hz, tired but warm, a clear light Mexican accent in English; a real person, not an actress",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a white American man in his early thirties, short brown hair, light stubble, dark aviator sunglasses, a tan short-sleeved state-trooper uniform shirt with plain shoulder patches and a gold star badge, a plain fluorescent yellow-green safety vest without lettering, a black duty belt with holster and radio, a black wristwatch",
+    "GIONG_CANHSAT": "a relaxed, clear American man's baritone around 110–140 Hz, friendly but firm, slight Southern drawl",
+    "XE": "a big glossy blue American semi-truck cab painted with a large waving stars-and-stripes flag design on the door and side, chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at night: tall palm trees silhouetted against a deep-blue night sky, a row of tall orange street lamps along the road, far-away car lights standing still in the distance",
+    "NEN_CABIN": "the inside of the truck cab at night: dark gray seat and door panel lit by a soft warm dome light, the side window on the right showing a dark highway with a few distant orange street lamps",
+    "refs": {
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1ot2Zf670axrDacs6Lc1HLJ0DkCjOtOyI/view?usp=drivesdk"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "canhsat",
+        "text": "How long have you been driving today?",
+        "emo": "calm, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have been driving for, uh, six hours.",
+        "emo": "hesitant, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "When was the last time you slept?",
+        "emo": "decisive, calm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I slept last night.",
+        "emo": "confident, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Give me your driving license and registration.",
+        "emo": "decisive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Here they are, sir.",
+        "emo": "friendly, cheerful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Okay. Wow, your English is good.",
+        "emo": "impressed, amused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
+        "emo": "proud, enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Real conversations exactly like this one. Here, let me show you.",
+        "emo": "excited, playful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "Where are you going?",
+        "emo": "curious, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I go to home.",
+        "emo": "cheerful, confident",
+        "icon": "x",
+        "to": "go to",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "You mean, I'm going home?",
+        "emo": "warm, encouraging",
+        "phan": 2
+      },
+      {
+        "fx": "right",
+        "who": "hoc",
+        "text": "Ah, yes. I'm going home.",
+        "emo": "cheerful",
+        "icon": "check",
+        "to": "going",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I am very hurry.",
+        "emo": "cheerful, clumsy",
+        "icon": "x",
+        "to": "am very",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm in a hurry, is the correct way to say that.",
+        "emo": "warm, patient",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Oh, okay. Thank you. Wait, who are you?",
+        "emo": "surprised, curious",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.",
+        "emo": "warm, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "But I don't have moneys.",
+        "emo": "worried",
+        "icon": "dollar",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+        "emo": "reassuring, playful",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+        "emo": "upbeat, persuasive",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "I will download now. Thank you so much.",
+        "emo": "delighted, excited",
+        "phan": 2
+      }
+    ]
+  },
+  {
+    "name": "bien-the-02-dem-bui-toc",
+    "VAI_CANHSAT": "state trooper",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed unless the clip's action says otherwise",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone held in the right hand",
+    "DAO_GIAY_TO": "a small stack of papers: a plastic driver's licence card on top of a folded white registration sheet, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
+    "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "he",
+    "HIS_CANHSAT": "his",
+    "HIM_CANHSAT": "him",
+    "SANG_P1": "at night, lit by tall orange sodium street lamps and the warm glow of the truck's cab lights, a deep-blue night sky, both faces clearly lit",
+    "SANG_P2": "night inside the cab, a soft warm dome light and the gentle glow of the phone screen clearly lighting the face",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a Mexican woman, 52 years old, a long face, black hair with gray strands in a low bun, a small mole on the left cheek; an old gray T-shirt under a navy-blue work jacket, rough calloused hands",
+    "GIONG_HOC": "a natural Mexican woman's voice in her early fifties, around 185–215 Hz, slightly husky and steady, a clear light Mexican accent in English; a real person, not an actress",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a white American man in his early thirties, short brown hair, light stubble, dark aviator sunglasses, a tan short-sleeved state-trooper uniform shirt with plain shoulder patches and a gold star badge, a plain fluorescent yellow-green safety vest without lettering, a black duty belt with holster and radio, a black wristwatch",
+    "GIONG_CANHSAT": "a relaxed, clear American man's baritone around 110–140 Hz, friendly but firm, slight Southern drawl",
+    "XE": "a big glossy blue American semi-truck cab painted with a large waving stars-and-stripes flag design on the door and side, chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at night: tall palm trees silhouetted against a deep-blue night sky, a row of tall orange street lamps along the road, far-away car lights standing still in the distance",
+    "NEN_CABIN": "the inside of the truck cab at night: dark gray seat and door panel lit by a soft warm dome light, the side window on the right showing a dark highway with a few distant orange street lamps",
+    "refs": {
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1GbrFGDiKqLO7I4uxqq-6Gzmg6kkWoDrw/view?usp=drivesdk"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "canhsat",
+        "text": "How long have you been driving today?",
+        "emo": "calm, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have been driving for, uh, six hours.",
+        "emo": "hesitant, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "When was the last time you slept?",
+        "emo": "decisive, calm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I slept last night.",
+        "emo": "confident, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Give me your driving license and registration.",
+        "emo": "decisive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Here they are, sir.",
+        "emo": "friendly, cheerful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Okay. Wow, your English is good.",
+        "emo": "impressed, amused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
+        "emo": "proud, enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Real conversations exactly like this one. Here, let me show you.",
+        "emo": "excited, playful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "Where are you going?",
+        "emo": "curious, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I go to home.",
+        "emo": "cheerful, confident",
+        "icon": "x",
+        "to": "go to",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "You mean, I'm going home?",
+        "emo": "warm, encouraging",
+        "phan": 2
+      },
+      {
+        "fx": "right",
+        "who": "hoc",
+        "text": "Ah, yes. I'm going home.",
+        "emo": "cheerful",
+        "icon": "check",
+        "to": "going",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I am very hurry.",
+        "emo": "cheerful, clumsy",
+        "icon": "x",
+        "to": "am very",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm in a hurry, is the correct way to say that.",
+        "emo": "warm, patient",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Oh, okay. Thank you. Wait, who are you?",
+        "emo": "surprised, curious",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.",
+        "emo": "warm, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "But I don't have moneys.",
+        "emo": "worried",
+        "icon": "dollar",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+        "emo": "reassuring, playful",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+        "emo": "upbeat, persuasive",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "I will download now. Thank you so much.",
+        "emo": "delighted, excited",
+        "phan": 2
+      }
+    ]
+  },
+  {
+    "name": "bien-the-03-dem-kinh-den",
+    "VAI_CANHSAT": "state trooper",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed unless the clip's action says otherwise",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone held in the right hand",
+    "DAO_GIAY_TO": "a small stack of papers: a plastic driver's licence card on top of a folded white registration sheet, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
+    "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "he",
+    "HIS_CANHSAT": "his",
+    "HIM_CANHSAT": "him",
+    "SANG_P1": "at night, lit by tall orange sodium street lamps and the warm glow of the truck's cab lights, a deep-blue night sky, both faces clearly lit",
+    "SANG_P2": "night inside the cab, a soft warm dome light and the gentle glow of the phone screen clearly lighting the face",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a Mexican woman, 44 years old, a square face with hollow cheeks, short curly brown hair, black-rimmed glasses; a fluorescent yellow reflective safety vest without lettering over a brown T-shirt, khaki-brown trousers",
+    "GIONG_HOC": "a natural Mexican woman's voice in her mid forties, around 185–215 Hz, brisk and practical, a clear light Mexican accent in English; a real person, not an actress",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a white American man in his early thirties, short brown hair, light stubble, dark aviator sunglasses, a tan short-sleeved state-trooper uniform shirt with plain shoulder patches and a gold star badge, a plain fluorescent yellow-green safety vest without lettering, a black duty belt with holster and radio, a black wristwatch",
+    "GIONG_CANHSAT": "a relaxed, clear American man's baritone around 110–140 Hz, friendly but firm, slight Southern drawl",
+    "XE": "a big glossy blue American semi-truck cab painted with a large waving stars-and-stripes flag design on the door and side, chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at night: tall palm trees silhouetted against a deep-blue night sky, a row of tall orange street lamps along the road, far-away car lights standing still in the distance",
+    "NEN_CABIN": "the inside of the truck cab at night: dark gray seat and door panel lit by a soft warm dome light, the side window on the right showing a dark highway with a few distant orange street lamps",
+    "refs": {
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1CKHvNhq0MMlr6UKGL1FJsdcLxTOc07-V/view?usp=drivesdk"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "canhsat",
+        "text": "How long have you been driving today?",
+        "emo": "calm, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have been driving for, uh, six hours.",
+        "emo": "hesitant, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "When was the last time you slept?",
+        "emo": "decisive, calm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I slept last night.",
+        "emo": "confident, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Give me your driving license and registration.",
+        "emo": "decisive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Here they are, sir.",
+        "emo": "friendly, cheerful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Okay. Wow, your English is good.",
+        "emo": "impressed, amused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
+        "emo": "proud, enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Real conversations exactly like this one. Here, let me show you.",
+        "emo": "excited, playful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "Where are you going?",
+        "emo": "curious, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I go to home.",
+        "emo": "cheerful, confident",
+        "icon": "x",
+        "to": "go to",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "You mean, I'm going home?",
+        "emo": "warm, encouraging",
+        "phan": 2
+      },
+      {
+        "fx": "right",
+        "who": "hoc",
+        "text": "Ah, yes. I'm going home.",
+        "emo": "cheerful",
+        "icon": "check",
+        "to": "going",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I am very hurry.",
+        "emo": "cheerful, clumsy",
+        "icon": "x",
+        "to": "am very",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm in a hurry, is the correct way to say that.",
+        "emo": "warm, patient",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Oh, okay. Thank you. Wait, who are you?",
+        "emo": "surprised, curious",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.",
+        "emo": "warm, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "But I don't have moneys.",
+        "emo": "worried",
+        "icon": "dollar",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+        "emo": "reassuring, playful",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+        "emo": "upbeat, persuasive",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "I will download now. Thank you so much.",
+        "emo": "delighted, excited",
+        "phan": 2
+      }
+    ]
+  },
+  {
+    "name": "bien-the-04-dem-toc-tet",
+    "VAI_CANHSAT": "state trooper",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed unless the clip's action says otherwise",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone held in the right hand",
+    "DAO_GIAY_TO": "a small stack of papers: a plastic driver's licence card on top of a folded white registration sheet, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
+    "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "he",
+    "HIS_CANHSAT": "his",
+    "HIM_CANHSAT": "him",
+    "SANG_P1": "at night, lit by tall orange sodium street lamps and the warm glow of the truck's cab lights, a deep-blue night sky, both faces clearly lit",
+    "SANG_P2": "night inside the cab, a soft warm dome light and the gentle glow of the phone screen clearly lighting the face",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a Mexican woman, 55 years old, an oval sun-weathered face, long black hair in a single braid over one shoulder, a small scar on the chin; an old red plaid flannel shirt, jeans",
+    "GIONG_HOC": "a natural Mexican woman's voice in her mid fifties, around 185–215 Hz, warm, slightly raspy, a clear light Mexican accent in English; a real person, not an actress",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a white American man in his early thirties, short brown hair, light stubble, dark aviator sunglasses, a tan short-sleeved state-trooper uniform shirt with plain shoulder patches and a gold star badge, a plain fluorescent yellow-green safety vest without lettering, a black duty belt with holster and radio, a black wristwatch",
+    "GIONG_CANHSAT": "a relaxed, clear American man's baritone around 110–140 Hz, friendly but firm, slight Southern drawl",
+    "XE": "a big glossy blue American semi-truck cab painted with a large waving stars-and-stripes flag design on the door and side, chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at night: tall palm trees silhouetted against a deep-blue night sky, a row of tall orange street lamps along the road, far-away car lights standing still in the distance",
+    "NEN_CABIN": "the inside of the truck cab at night: dark gray seat and door panel lit by a soft warm dome light, the side window on the right showing a dark highway with a few distant orange street lamps",
+    "refs": {
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/15ifO-v-jJP0XYpfyEvrRXibn_ZULfWup/view?usp=drivesdk"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "canhsat",
+        "text": "How long have you been driving today?",
+        "emo": "calm, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have been driving for, uh, six hours.",
+        "emo": "hesitant, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "When was the last time you slept?",
+        "emo": "decisive, calm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I slept last night.",
+        "emo": "confident, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Give me your driving license and registration.",
+        "emo": "decisive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Here they are, sir.",
+        "emo": "friendly, cheerful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Okay. Wow, your English is good.",
+        "emo": "impressed, amused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
+        "emo": "proud, enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Real conversations exactly like this one. Here, let me show you.",
+        "emo": "excited, playful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "Where are you going?",
+        "emo": "curious, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I go to home.",
+        "emo": "cheerful, confident",
+        "icon": "x",
+        "to": "go to",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "You mean, I'm going home?",
+        "emo": "warm, encouraging",
+        "phan": 2
+      },
+      {
+        "fx": "right",
+        "who": "hoc",
+        "text": "Ah, yes. I'm going home.",
+        "emo": "cheerful",
+        "icon": "check",
+        "to": "going",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I am very hurry.",
+        "emo": "cheerful, clumsy",
+        "icon": "x",
+        "to": "am very",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm in a hurry, is the correct way to say that.",
+        "emo": "warm, patient",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Oh, okay. Thank you. Wait, who are you?",
+        "emo": "surprised, curious",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.",
+        "emo": "warm, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "But I don't have moneys.",
+        "emo": "worried",
+        "icon": "dollar",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+        "emo": "reassuring, playful",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+        "emo": "upbeat, persuasive",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "I will download now. Thank you so much.",
+        "emo": "delighted, excited",
+        "phan": 2
+      }
+    ]
+  },
+  {
+    "name": "bien-the-05-dem-toc-pixie",
+    "VAI_CANHSAT": "state trooper",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed unless the clip's action says otherwise",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone held in the right hand",
+    "DAO_GIAY_TO": "a small stack of papers: a plastic driver's licence card on top of a folded white registration sheet, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
+    "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "he",
+    "HIS_CANHSAT": "his",
+    "HIM_CANHSAT": "him",
+    "SANG_P1": "at night, lit by tall orange sodium street lamps and the warm glow of the truck's cab lights, a deep-blue night sky, both faces clearly lit",
+    "SANG_P2": "night inside the cab, a soft warm dome light and the gentle glow of the phone screen clearly lighting the face",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a Mexican woman, 41 years old, a heart-shaped face with freckles on both cheeks, short black pixie-cut hair; a faded denim jacket over an old white T-shirt, a woven fabric bracelet on the wrist",
+    "GIONG_HOC": "a natural Mexican woman's voice in her early forties, around 185–215 Hz, lively and bright, a clear light Mexican accent in English; a real person, not an actress",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a white American man in his early thirties, short brown hair, light stubble, dark aviator sunglasses, a tan short-sleeved state-trooper uniform shirt with plain shoulder patches and a gold star badge, a plain fluorescent yellow-green safety vest without lettering, a black duty belt with holster and radio, a black wristwatch",
+    "GIONG_CANHSAT": "a relaxed, clear American man's baritone around 110–140 Hz, friendly but firm, slight Southern drawl",
+    "XE": "a big glossy blue American semi-truck cab painted with a large waving stars-and-stripes flag design on the door and side, chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at night: tall palm trees silhouetted against a deep-blue night sky, a row of tall orange street lamps along the road, far-away car lights standing still in the distance",
+    "NEN_CABIN": "the inside of the truck cab at night: dark gray seat and door panel lit by a soft warm dome light, the side window on the right showing a dark highway with a few distant orange street lamps",
+    "refs": {
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1uGsOONBLIHaLgxhPhI_ZygcSu0qjKT9b/view?usp=drivesdk"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "canhsat",
+        "text": "How long have you been driving today?",
+        "emo": "calm, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have been driving for, uh, six hours.",
+        "emo": "hesitant, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "When was the last time you slept?",
+        "emo": "decisive, calm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I slept last night.",
+        "emo": "confident, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Give me your driving license and registration.",
+        "emo": "decisive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Here they are, sir.",
+        "emo": "friendly, cheerful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Okay. Wow, your English is good.",
+        "emo": "impressed, amused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
+        "emo": "proud, enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Real conversations exactly like this one. Here, let me show you.",
+        "emo": "excited, playful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "Where are you going?",
+        "emo": "curious, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I go to home.",
+        "emo": "cheerful, confident",
+        "icon": "x",
+        "to": "go to",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "You mean, I'm going home?",
+        "emo": "warm, encouraging",
+        "phan": 2
+      },
+      {
+        "fx": "right",
+        "who": "hoc",
+        "text": "Ah, yes. I'm going home.",
+        "emo": "cheerful",
+        "icon": "check",
+        "to": "going",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I am very hurry.",
+        "emo": "cheerful, clumsy",
+        "icon": "x",
+        "to": "am very",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm in a hurry, is the correct way to say that.",
+        "emo": "warm, patient",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Oh, okay. Thank you. Wait, who are you?",
+        "emo": "surprised, curious",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.",
+        "emo": "warm, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "But I don't have moneys.",
+        "emo": "worried",
+        "icon": "dollar",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+        "emo": "reassuring, playful",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+        "emo": "upbeat, persuasive",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "I will download now. Thank you so much.",
+        "emo": "delighted, excited",
+        "phan": 2
+      }
+    ]
+  },
+  {
+    "name": "bien-the-06-nam-ao-cam",
+    "VAI_CANHSAT": "police officer",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed unless the clip's action says otherwise",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone held in the right hand",
+    "DAO_GIAY_TO": "a small stack of papers: a plastic driver's licence card on top of a folded white registration sheet, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
+    "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "she",
+    "HIS_CANHSAT": "her",
+    "HIM_CANHSAT": "her",
+    "SANG_P1": "at sunset, warm golden-orange light",
+    "SANG_P2": "warm sunset light",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a Mexican man, 50 years old, a square face with deep forehead wrinkles, short black buzz-cut hair, a sparse short beard; a fluorescent orange reflective safety vest without lettering over a dark-gray T-shirt, jeans",
+    "GIONG_HOC": "a natural Mexican man's voice in his early fifties, around 95–125 Hz, deep and calm, a clear light Mexican accent in English; a real person, not an actress",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a white American woman in her mid thirties, an oval face, light-blue eyes, a serious steady gaze, blond hair pulled back in a neat low bun at the nape; a full dark-navy police uniform: short-sleeved navy uniform shirt with plain shoulder patches without lettering and a silver star badge, a radio on the shoulder, navy trousers, a black duty belt with holster, cuffs and radio; standing straight, confident and authoritative",
+    "GIONG_CANHSAT": "a clear, firm American woman's voice around 180–210 Hz, calm and authoritative, polite, slight Southern drawl",
+    "XE": "a big glossy blue American semi-truck cab painted with a large waving stars-and-stripes flag design on the door and side, chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: tall palm trees and green bushes along the road, far-away cars standing still in the distance, a dramatic pink-and-orange sky with scattered clouds",
+    "NEN_CABIN": "the inside of the truck cab at sunset: dark gray seat and door panel, the side window on the right showing a still orange sunset over flat fields with a few trees, warm light on the face",
+    "refs": {
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1gaYScHJRCluYMZfTuEQNOekWRo24vGtP/view?usp=drivesdk"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "https://drive.google.com/file/d/1zJ1nJ9T1n7PxUhzLomf8fOHiFBnKGiHs/view?usp=drivesdk"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "canhsat",
+        "text": "How long have you been driving today?",
+        "emo": "calm, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have been driving for, uh, six hours.",
+        "emo": "hesitant, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "When was the last time you slept?",
+        "emo": "decisive, calm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I slept last night.",
+        "emo": "confident, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Give me your driving license and registration.",
+        "emo": "decisive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Here they are, ma'am.",
+        "emo": "friendly, cheerful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Okay. Wow, your English is good.",
+        "emo": "impressed, amused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
+        "emo": "proud, enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Real conversations exactly like this one. Here, let me show you.",
+        "emo": "excited, playful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "Where are you going?",
+        "emo": "curious, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I go to home.",
+        "emo": "cheerful, confident",
+        "icon": "x",
+        "to": "go to",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "You mean, I'm going home?",
+        "emo": "warm, encouraging",
+        "phan": 2
+      },
+      {
+        "fx": "right",
+        "who": "hoc",
+        "text": "Ah, yes. I'm going home.",
+        "emo": "cheerful",
+        "icon": "check",
+        "to": "going",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I am very hurry.",
+        "emo": "cheerful, clumsy",
+        "icon": "x",
+        "to": "am very",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm in a hurry, is the correct way to say that.",
+        "emo": "warm, patient",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Oh, okay. Thank you. Wait, who are you?",
+        "emo": "surprised, curious",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.",
+        "emo": "warm, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "But I don't have moneys.",
+        "emo": "worried",
+        "icon": "dollar",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+        "emo": "reassuring, playful",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+        "emo": "upbeat, persuasive",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "I will download now. Thank you so much.",
+        "emo": "delighted, excited",
+        "phan": 2
+      }
+    ]
+  },
+  {
+    "name": "bien-the-07-nam-ria-mep",
+    "VAI_CANHSAT": "police officer",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed unless the clip's action says otherwise",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone held in the right hand",
+    "DAO_GIAY_TO": "a small stack of papers: a plastic driver's licence card on top of a folded white registration sheet, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
+    "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "she",
+    "HIS_CANHSAT": "her",
+    "HIM_CANHSAT": "her",
+    "SANG_P1": "at sunset, warm golden-orange light",
+    "SANG_P2": "warm sunset light",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a Mexican man, 45 years old, a long sun-tanned face, black hair combed back with gray strands at the temples, a thick moustache; a gray T-shirt under a blue work jacket",
+    "GIONG_HOC": "a natural Mexican man's voice in his mid forties, around 95–125 Hz, warm and steady, a clear light Mexican accent in English; a real person, not an actress",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a white American woman in her mid thirties, an oval face, light-blue eyes, a serious steady gaze, blond hair pulled back in a neat low bun at the nape; a full dark-navy police uniform: short-sleeved navy uniform shirt with plain shoulder patches without lettering and a silver star badge, a radio on the shoulder, navy trousers, a black duty belt with holster, cuffs and radio; standing straight, confident and authoritative",
+    "GIONG_CANHSAT": "a clear, firm American woman's voice around 180–210 Hz, calm and authoritative, polite, slight Southern drawl",
+    "XE": "a big glossy blue American semi-truck cab painted with a large waving stars-and-stripes flag design on the door and side, chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: tall palm trees and green bushes along the road, far-away cars standing still in the distance, a dramatic pink-and-orange sky with scattered clouds",
+    "NEN_CABIN": "the inside of the truck cab at sunset: dark gray seat and door panel, the side window on the right showing a still orange sunset over flat fields with a few trees, warm light on the face",
+    "refs": {
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1HssqVwLPT81qMLLxW9ETQ4TKvszeqgMi/view?usp=drivesdk"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "https://drive.google.com/file/d/1zJ1nJ9T1n7PxUhzLomf8fOHiFBnKGiHs/view?usp=drivesdk"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "canhsat",
+        "text": "How long have you been driving today?",
+        "emo": "calm, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have been driving for, uh, six hours.",
+        "emo": "hesitant, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "When was the last time you slept?",
+        "emo": "decisive, calm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I slept last night.",
+        "emo": "confident, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Give me your driving license and registration.",
+        "emo": "decisive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Here they are, ma'am.",
+        "emo": "friendly, cheerful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Okay. Wow, your English is good.",
+        "emo": "impressed, amused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
+        "emo": "proud, enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Real conversations exactly like this one. Here, let me show you.",
+        "emo": "excited, playful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "Where are you going?",
+        "emo": "curious, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I go to home.",
+        "emo": "cheerful, confident",
+        "icon": "x",
+        "to": "go to",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "You mean, I'm going home?",
+        "emo": "warm, encouraging",
+        "phan": 2
+      },
+      {
+        "fx": "right",
+        "who": "hoc",
+        "text": "Ah, yes. I'm going home.",
+        "emo": "cheerful",
+        "icon": "check",
+        "to": "going",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I am very hurry.",
+        "emo": "cheerful, clumsy",
+        "icon": "x",
+        "to": "am very",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm in a hurry, is the correct way to say that.",
+        "emo": "warm, patient",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Oh, okay. Thank you. Wait, who are you?",
+        "emo": "surprised, curious",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.",
+        "emo": "warm, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "But I don't have moneys.",
+        "emo": "worried",
+        "icon": "dollar",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+        "emo": "reassuring, playful",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+        "emo": "upbeat, persuasive",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "I will download now. Thank you so much.",
+        "emo": "delighted, excited",
+        "phan": 2
+      }
+    ]
+  },
+  {
+    "name": "bien-the-08-nam-hoi-dau",
+    "VAI_CANHSAT": "police officer",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed unless the clip's action says otherwise",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone held in the right hand",
+    "DAO_GIAY_TO": "a small stack of papers: a plastic driver's licence card on top of a folded white registration sheet, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
+    "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "she",
+    "HIS_CANHSAT": "her",
+    "HIM_CANHSAT": "her",
+    "SANG_P1": "at sunset, warm golden-orange light",
+    "SANG_P2": "warm sunset light",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a Mexican man, 54 years old, a round face, a bald head with gray hair at the sides, tired deep-set eyes; an old red-and-navy checked short-sleeved shirt, khaki trousers",
+    "GIONG_HOC": "a natural Mexican man's voice in his mid fifties, around 95–125 Hz, slow, slightly gravelly, a clear light Mexican accent in English; a real person, not an actress",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a white American woman in her mid thirties, an oval face, light-blue eyes, a serious steady gaze, blond hair pulled back in a neat low bun at the nape; a full dark-navy police uniform: short-sleeved navy uniform shirt with plain shoulder patches without lettering and a silver star badge, a radio on the shoulder, navy trousers, a black duty belt with holster, cuffs and radio; standing straight, confident and authoritative",
+    "GIONG_CANHSAT": "a clear, firm American woman's voice around 180–210 Hz, calm and authoritative, polite, slight Southern drawl",
+    "XE": "a big glossy blue American semi-truck cab painted with a large waving stars-and-stripes flag design on the door and side, chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: tall palm trees and green bushes along the road, far-away cars standing still in the distance, a dramatic pink-and-orange sky with scattered clouds",
+    "NEN_CABIN": "the inside of the truck cab at sunset: dark gray seat and door panel, the side window on the right showing a still orange sunset over flat fields with a few trees, warm light on the face",
+    "refs": {
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1YEOuPFAfpmo0i3foWrAX1i-17cpL2YuD/view?usp=drivesdk"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "https://drive.google.com/file/d/1zJ1nJ9T1n7PxUhzLomf8fOHiFBnKGiHs/view?usp=drivesdk"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "canhsat",
+        "text": "How long have you been driving today?",
+        "emo": "calm, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have been driving for, uh, six hours.",
+        "emo": "hesitant, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "When was the last time you slept?",
+        "emo": "decisive, calm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I slept last night.",
+        "emo": "confident, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Give me your driving license and registration.",
+        "emo": "decisive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Here they are, ma'am.",
+        "emo": "friendly, cheerful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Okay. Wow, your English is good.",
+        "emo": "impressed, amused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
+        "emo": "proud, enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Real conversations exactly like this one. Here, let me show you.",
+        "emo": "excited, playful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "Where are you going?",
+        "emo": "curious, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I go to home.",
+        "emo": "cheerful, confident",
+        "icon": "x",
+        "to": "go to",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "You mean, I'm going home?",
+        "emo": "warm, encouraging",
+        "phan": 2
+      },
+      {
+        "fx": "right",
+        "who": "hoc",
+        "text": "Ah, yes. I'm going home.",
+        "emo": "cheerful",
+        "icon": "check",
+        "to": "going",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I am very hurry.",
+        "emo": "cheerful, clumsy",
+        "icon": "x",
+        "to": "am very",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm in a hurry, is the correct way to say that.",
+        "emo": "warm, patient",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Oh, okay. Thank you. Wait, who are you?",
+        "emo": "surprised, curious",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.",
+        "emo": "warm, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "But I don't have moneys.",
+        "emo": "worried",
+        "icon": "dollar",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+        "emo": "reassuring, playful",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+        "emo": "upbeat, persuasive",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "I will download now. Thank you so much.",
+        "emo": "delighted, excited",
+        "phan": 2
+      }
+    ]
+  },
+  {
+    "name": "bien-the-09-nam-toc-xoan",
+    "VAI_CANHSAT": "police officer",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed unless the clip's action says otherwise",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone held in the right hand",
+    "DAO_GIAY_TO": "a small stack of papers: a plastic driver's licence card on top of a folded white registration sheet, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
+    "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "she",
+    "HIS_CANHSAT": "her",
+    "HIM_CANHSAT": "her",
+    "SANG_P1": "at sunset, warm golden-orange light",
+    "SANG_P2": "warm sunset light",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a Mexican man, 42 years old, an oval face, ear-length curly brown hair, a short chin beard, a small tattoo on the neck; a denim jacket over an old black T-shirt",
+    "GIONG_HOC": "a natural Mexican man's voice in his early forties, around 95–125 Hz, relaxed and friendly, a clear light Mexican accent in English; a real person, not an actress",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a white American woman in her mid thirties, an oval face, light-blue eyes, a serious steady gaze, blond hair pulled back in a neat low bun at the nape; a full dark-navy police uniform: short-sleeved navy uniform shirt with plain shoulder patches without lettering and a silver star badge, a radio on the shoulder, navy trousers, a black duty belt with holster, cuffs and radio; standing straight, confident and authoritative",
+    "GIONG_CANHSAT": "a clear, firm American woman's voice around 180–210 Hz, calm and authoritative, polite, slight Southern drawl",
+    "XE": "a big glossy blue American semi-truck cab painted with a large waving stars-and-stripes flag design on the door and side, chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: tall palm trees and green bushes along the road, far-away cars standing still in the distance, a dramatic pink-and-orange sky with scattered clouds",
+    "NEN_CABIN": "the inside of the truck cab at sunset: dark gray seat and door panel, the side window on the right showing a still orange sunset over flat fields with a few trees, warm light on the face",
+    "refs": {
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1PUI1jqTBdWzbwLcHjdkhtcnBE0GavPEA/view?usp=drivesdk"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "https://drive.google.com/file/d/1zJ1nJ9T1n7PxUhzLomf8fOHiFBnKGiHs/view?usp=drivesdk"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "canhsat",
+        "text": "How long have you been driving today?",
+        "emo": "calm, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have been driving for, uh, six hours.",
+        "emo": "hesitant, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "When was the last time you slept?",
+        "emo": "decisive, calm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I slept last night.",
+        "emo": "confident, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Give me your driving license and registration.",
+        "emo": "decisive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Here they are, ma'am.",
+        "emo": "friendly, cheerful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Okay. Wow, your English is good.",
+        "emo": "impressed, amused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
+        "emo": "proud, enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Real conversations exactly like this one. Here, let me show you.",
+        "emo": "excited, playful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "Where are you going?",
+        "emo": "curious, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I go to home.",
+        "emo": "cheerful, confident",
+        "icon": "x",
+        "to": "go to",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "You mean, I'm going home?",
+        "emo": "warm, encouraging",
+        "phan": 2
+      },
+      {
+        "fx": "right",
+        "who": "hoc",
+        "text": "Ah, yes. I'm going home.",
+        "emo": "cheerful",
+        "icon": "check",
+        "to": "going",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I am very hurry.",
+        "emo": "cheerful, clumsy",
+        "icon": "x",
+        "to": "am very",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm in a hurry, is the correct way to say that.",
+        "emo": "warm, patient",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Oh, okay. Thank you. Wait, who are you?",
+        "emo": "surprised, curious",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.",
+        "emo": "warm, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "But I don't have moneys.",
+        "emo": "worried",
+        "icon": "dollar",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+        "emo": "reassuring, playful",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+        "emo": "upbeat, persuasive",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "I will download now. Thank you so much.",
+        "emo": "delighted, excited",
+        "phan": 2
+      }
+    ]
+  },
+  {
+    "name": "bien-the-10-nam-gang-tay",
+    "VAI_CANHSAT": "police officer",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed unless the clip's action says otherwise",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone held in the right hand",
+    "DAO_GIAY_TO": "a small stack of papers: a plastic driver's licence card on top of a folded white registration sheet, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
+    "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "she",
+    "HIS_CANHSAT": "her",
+    "HIM_CANHSAT": "her",
+    "SANG_P1": "at sunset, warm golden-orange light",
+    "SANG_P2": "warm sunset light",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a Mexican man, 47 years old, an angular face, short black hair, a small scar on the right eyebrow; a fluorescent yellow reflective safety vest without lettering over a navy work shirt, jeans with torn knees, a black work glove on one hand",
+    "GIONG_HOC": "a natural Mexican man's voice in his late forties, around 95–125 Hz, firm and plain-spoken, a clear light Mexican accent in English; a real person, not an actress",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a white American woman in her mid thirties, an oval face, light-blue eyes, a serious steady gaze, blond hair pulled back in a neat low bun at the nape; a full dark-navy police uniform: short-sleeved navy uniform shirt with plain shoulder patches without lettering and a silver star badge, a radio on the shoulder, navy trousers, a black duty belt with holster, cuffs and radio; standing straight, confident and authoritative",
+    "GIONG_CANHSAT": "a clear, firm American woman's voice around 180–210 Hz, calm and authoritative, polite, slight Southern drawl",
+    "XE": "a big glossy blue American semi-truck cab painted with a large waving stars-and-stripes flag design on the door and side, chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: tall palm trees and green bushes along the road, far-away cars standing still in the distance, a dramatic pink-and-orange sky with scattered clouds",
+    "NEN_CABIN": "the inside of the truck cab at sunset: dark gray seat and door panel, the side window on the right showing a still orange sunset over flat fields with a few trees, warm light on the face",
+    "refs": {
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1sPLjNbyA1OphM1VT9ME3JnbEhj1tQXK5/view?usp=drivesdk"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "https://drive.google.com/file/d/1zJ1nJ9T1n7PxUhzLomf8fOHiFBnKGiHs/view?usp=drivesdk"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "canhsat",
+        "text": "How long have you been driving today?",
+        "emo": "calm, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have been driving for, uh, six hours.",
+        "emo": "hesitant, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "When was the last time you slept?",
+        "emo": "decisive, calm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I slept last night.",
+        "emo": "confident, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Give me your driving license and registration.",
+        "emo": "decisive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Here they are, ma'am.",
+        "emo": "friendly, cheerful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Okay. Wow, your English is good.",
+        "emo": "impressed, amused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
+        "emo": "proud, enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Real conversations exactly like this one. Here, let me show you.",
+        "emo": "excited, playful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "Where are you going?",
+        "emo": "curious, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I go to home.",
+        "emo": "cheerful, confident",
+        "icon": "x",
+        "to": "go to",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "You mean, I'm going home?",
+        "emo": "warm, encouraging",
+        "phan": 2
+      },
+      {
+        "fx": "right",
+        "who": "hoc",
+        "text": "Ah, yes. I'm going home.",
+        "emo": "cheerful",
+        "icon": "check",
+        "to": "going",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I am very hurry.",
+        "emo": "cheerful, clumsy",
+        "icon": "x",
+        "to": "am very",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm in a hurry, is the correct way to say that.",
+        "emo": "warm, patient",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Oh, okay. Thank you. Wait, who are you?",
+        "emo": "surprised, curious",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.",
+        "emo": "warm, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "But I don't have moneys.",
+        "emo": "worried",
+        "icon": "dollar",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+        "emo": "reassuring, playful",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+        "emo": "upbeat, persuasive",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "I will download now. Thank you so much.",
+        "emo": "delighted, excited",
+        "phan": 2
+      }
+    ]
+  },
+  {
+    "name": "bien-the-11-nu-duoi-ngua",
+    "VAI_CANHSAT": "state trooper",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed unless the clip's action says otherwise",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone held in the right hand",
+    "DAO_GIAY_TO": "a small stack of papers: a plastic driver's licence card on top of a folded white registration sheet, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
+    "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "he",
+    "HIS_CANHSAT": "his",
+    "HIM_CANHSAT": "him",
+    "SANG_P1": "at sunset, warm golden-orange light",
+    "SANG_P2": "warm sunset light",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a Mexican woman, 27 years old, a round face with freckles, long brown hair in a high ponytail, a fit sporty build; an olive-green T-shirt, jeans",
+    "GIONG_HOC": "a natural Mexican woman's voice in her late twenties, around 200–230 Hz, bright and energetic, a clear light Mexican accent in English; a real person, not an actress",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a white American man in his early thirties, short brown hair, light stubble, dark aviator sunglasses, a tan short-sleeved state-trooper uniform shirt with plain shoulder patches and a gold star badge, a plain fluorescent yellow-green safety vest without lettering, a black duty belt with holster and radio, a black wristwatch",
+    "GIONG_CANHSAT": "a relaxed, clear American man's baritone around 110–140 Hz, friendly but firm, slight Southern drawl",
+    "XE": "a big glossy blue American semi-truck cab painted with a large waving stars-and-stripes flag design on the door and side, chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: tall palm trees and green bushes along the road, far-away cars standing still in the distance, a dramatic pink-and-orange sky with scattered clouds",
+    "NEN_CABIN": "the inside of the truck cab at sunset: dark gray seat and door panel, the side window on the right showing a still orange sunset over flat fields with a few trees, warm light on the face",
+    "refs": {
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1OzlkwkaUdvC_YprMMfwPHRTdpUeCCc3d/view?usp=drivesdk"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "canhsat",
+        "text": "How long have you been driving today?",
+        "emo": "calm, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have been driving for, uh, six hours.",
+        "emo": "hesitant, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "When was the last time you slept?",
+        "emo": "decisive, calm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I slept last night.",
+        "emo": "confident, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Give me your driving license and registration.",
+        "emo": "decisive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Here they are, sir.",
+        "emo": "friendly, cheerful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Okay. Wow, your English is good.",
+        "emo": "impressed, amused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
+        "emo": "proud, enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Real conversations exactly like this one. Here, let me show you.",
+        "emo": "excited, playful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "Where are you going?",
+        "emo": "curious, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I go to home.",
+        "emo": "cheerful, confident",
+        "icon": "x",
+        "to": "go to",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "You mean, I'm going home?",
+        "emo": "warm, encouraging",
+        "phan": 2
+      },
+      {
+        "fx": "right",
+        "who": "hoc",
+        "text": "Ah, yes. I'm going home.",
+        "emo": "cheerful",
+        "icon": "check",
+        "to": "going",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I am very hurry.",
+        "emo": "cheerful, clumsy",
+        "icon": "x",
+        "to": "am very",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm in a hurry, is the correct way to say that.",
+        "emo": "warm, patient",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Oh, okay. Thank you. Wait, who are you?",
+        "emo": "surprised, curious",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.",
+        "emo": "warm, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "But I don't have moneys.",
+        "emo": "worried",
+        "icon": "dollar",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+        "emo": "reassuring, playful",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+        "emo": "upbeat, persuasive",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "I will download now. Thank you so much.",
+        "emo": "delighted, excited",
+        "phan": 2
+      }
+    ]
+  },
+  {
+    "name": "bien-the-12-nu-mai-ngo",
+    "VAI_CANHSAT": "state trooper",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed unless the clip's action says otherwise",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone held in the right hand",
+    "DAO_GIAY_TO": "a small stack of papers: a plastic driver's licence card on top of a folded white registration sheet, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
+    "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "he",
+    "HIS_CANHSAT": "his",
+    "HIM_CANHSAT": "him",
+    "SANG_P1": "at sunset, warm golden-orange light",
+    "SANG_P2": "warm sunset light",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a Mexican woman, 31 years old, a long face, chin-length straight black hair with blunt bangs, small earrings; a white tank top under an open blue plaid flannel shirt, cargo trousers",
+    "GIONG_HOC": "a natural Mexican woman's voice in her early thirties, around 200–230 Hz, cool and confident, a clear light Mexican accent in English; a real person, not an actress",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a white American man in his early thirties, short brown hair, light stubble, dark aviator sunglasses, a tan short-sleeved state-trooper uniform shirt with plain shoulder patches and a gold star badge, a plain fluorescent yellow-green safety vest without lettering, a black duty belt with holster and radio, a black wristwatch",
+    "GIONG_CANHSAT": "a relaxed, clear American man's baritone around 110–140 Hz, friendly but firm, slight Southern drawl",
+    "XE": "a big glossy blue American semi-truck cab painted with a large waving stars-and-stripes flag design on the door and side, chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: tall palm trees and green bushes along the road, far-away cars standing still in the distance, a dramatic pink-and-orange sky with scattered clouds",
+    "NEN_CABIN": "the inside of the truck cab at sunset: dark gray seat and door panel, the side window on the right showing a still orange sunset over flat fields with a few trees, warm light on the face",
+    "refs": {
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/13yPvHbIE04WNwxslIfR_05q76_wNTFdK/view?usp=drivesdk"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "canhsat",
+        "text": "How long have you been driving today?",
+        "emo": "calm, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have been driving for, uh, six hours.",
+        "emo": "hesitant, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "When was the last time you slept?",
+        "emo": "decisive, calm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I slept last night.",
+        "emo": "confident, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Give me your driving license and registration.",
+        "emo": "decisive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Here they are, sir.",
+        "emo": "friendly, cheerful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Okay. Wow, your English is good.",
+        "emo": "impressed, amused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
+        "emo": "proud, enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Real conversations exactly like this one. Here, let me show you.",
+        "emo": "excited, playful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "Where are you going?",
+        "emo": "curious, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I go to home.",
+        "emo": "cheerful, confident",
+        "icon": "x",
+        "to": "go to",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "You mean, I'm going home?",
+        "emo": "warm, encouraging",
+        "phan": 2
+      },
+      {
+        "fx": "right",
+        "who": "hoc",
+        "text": "Ah, yes. I'm going home.",
+        "emo": "cheerful",
+        "icon": "check",
+        "to": "going",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I am very hurry.",
+        "emo": "cheerful, clumsy",
+        "icon": "x",
+        "to": "am very",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm in a hurry, is the correct way to say that.",
+        "emo": "warm, patient",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Oh, okay. Thank you. Wait, who are you?",
+        "emo": "surprised, curious",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.",
+        "emo": "warm, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "But I don't have moneys.",
+        "emo": "worried",
+        "icon": "dollar",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+        "emo": "reassuring, playful",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+        "emo": "upbeat, persuasive",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "I will download now. Thank you so much.",
+        "emo": "delighted, excited",
+        "phan": 2
+      }
+    ]
+  },
+  {
+    "name": "bien-the-13-nu-bui-cao",
+    "VAI_CANHSAT": "state trooper",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed unless the clip's action says otherwise",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone held in the right hand",
+    "DAO_GIAY_TO": "a small stack of papers: a plastic driver's licence card on top of a folded white registration sheet, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
+    "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "he",
+    "HIS_CANHSAT": "his",
+    "HIM_CANHSAT": "him",
+    "SANG_P1": "at sunset, warm golden-orange light",
+    "SANG_P2": "warm sunset light",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a Mexican woman, 25 years old, a square face, curly brown hair in a high bun with sunglasses pushed up on the head, a small flower tattoo on the arm; a yellow T-shirt, ripped jeans",
+    "GIONG_HOC": "a natural Mexican woman's voice in her mid twenties, around 200–230 Hz, cheerful and quick, a clear light Mexican accent in English; a real person, not an actress",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a white American man in his early thirties, short brown hair, light stubble, dark aviator sunglasses, a tan short-sleeved state-trooper uniform shirt with plain shoulder patches and a gold star badge, a plain fluorescent yellow-green safety vest without lettering, a black duty belt with holster and radio, a black wristwatch",
+    "GIONG_CANHSAT": "a relaxed, clear American man's baritone around 110–140 Hz, friendly but firm, slight Southern drawl",
+    "XE": "a big glossy blue American semi-truck cab painted with a large waving stars-and-stripes flag design on the door and side, chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: tall palm trees and green bushes along the road, far-away cars standing still in the distance, a dramatic pink-and-orange sky with scattered clouds",
+    "NEN_CABIN": "the inside of the truck cab at sunset: dark gray seat and door panel, the side window on the right showing a still orange sunset over flat fields with a few trees, warm light on the face",
+    "refs": {
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1kkgTu02lSPRORasUI8VOeiOYZw28LRMu/view?usp=drivesdk"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "canhsat",
+        "text": "How long have you been driving today?",
+        "emo": "calm, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have been driving for, uh, six hours.",
+        "emo": "hesitant, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "When was the last time you slept?",
+        "emo": "decisive, calm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I slept last night.",
+        "emo": "confident, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Give me your driving license and registration.",
+        "emo": "decisive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Here they are, sir.",
+        "emo": "friendly, cheerful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Okay. Wow, your English is good.",
+        "emo": "impressed, amused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
+        "emo": "proud, enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Real conversations exactly like this one. Here, let me show you.",
+        "emo": "excited, playful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "Where are you going?",
+        "emo": "curious, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I go to home.",
+        "emo": "cheerful, confident",
+        "icon": "x",
+        "to": "go to",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "You mean, I'm going home?",
+        "emo": "warm, encouraging",
+        "phan": 2
+      },
+      {
+        "fx": "right",
+        "who": "hoc",
+        "text": "Ah, yes. I'm going home.",
+        "emo": "cheerful",
+        "icon": "check",
+        "to": "going",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I am very hurry.",
+        "emo": "cheerful, clumsy",
+        "icon": "x",
+        "to": "am very",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm in a hurry, is the correct way to say that.",
+        "emo": "warm, patient",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Oh, okay. Thank you. Wait, who are you?",
+        "emo": "surprised, curious",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.",
+        "emo": "warm, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "But I don't have moneys.",
+        "emo": "worried",
+        "icon": "dollar",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+        "emo": "reassuring, playful",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+        "emo": "upbeat, persuasive",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "I will download now. Thank you so much.",
+        "emo": "delighted, excited",
+        "phan": 2
+      }
+    ]
+  },
+  {
+    "name": "bien-the-14-nu-toc-tet-hai-ben",
+    "VAI_CANHSAT": "state trooper",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed unless the clip's action says otherwise",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone held in the right hand",
+    "DAO_GIAY_TO": "a small stack of papers: a plastic driver's licence card on top of a folded white registration sheet, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
+    "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "he",
+    "HIS_CANHSAT": "his",
+    "HIM_CANHSAT": "him",
+    "SANG_P1": "at sunset, warm golden-orange light",
+    "SANG_P2": "warm sunset light",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a Mexican woman, 33 years old, an oval face, long black hair in two braids, a red bandana around the neck; a red T-shirt, khaki trousers, a free-spirited look",
+    "GIONG_HOC": "a natural Mexican woman's voice in her early thirties, around 200–230 Hz, warm and easygoing, a clear light Mexican accent in English; a real person, not an actress",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a white American man in his early thirties, short brown hair, light stubble, dark aviator sunglasses, a tan short-sleeved state-trooper uniform shirt with plain shoulder patches and a gold star badge, a plain fluorescent yellow-green safety vest without lettering, a black duty belt with holster and radio, a black wristwatch",
+    "GIONG_CANHSAT": "a relaxed, clear American man's baritone around 110–140 Hz, friendly but firm, slight Southern drawl",
+    "XE": "a big glossy blue American semi-truck cab painted with a large waving stars-and-stripes flag design on the door and side, chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: tall palm trees and green bushes along the road, far-away cars standing still in the distance, a dramatic pink-and-orange sky with scattered clouds",
+    "NEN_CABIN": "the inside of the truck cab at sunset: dark gray seat and door panel, the side window on the right showing a still orange sunset over flat fields with a few trees, warm light on the face",
+    "refs": {
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1XpywTN7_pq9j9CAnDVj2xj8Lp1UpSw5e/view?usp=drivesdk"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "canhsat",
+        "text": "How long have you been driving today?",
+        "emo": "calm, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have been driving for, uh, six hours.",
+        "emo": "hesitant, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "When was the last time you slept?",
+        "emo": "decisive, calm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I slept last night.",
+        "emo": "confident, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Give me your driving license and registration.",
+        "emo": "decisive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Here they are, sir.",
+        "emo": "friendly, cheerful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Okay. Wow, your English is good.",
+        "emo": "impressed, amused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
+        "emo": "proud, enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Real conversations exactly like this one. Here, let me show you.",
+        "emo": "excited, playful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "Where are you going?",
+        "emo": "curious, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I go to home.",
+        "emo": "cheerful, confident",
+        "icon": "x",
+        "to": "go to",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "You mean, I'm going home?",
+        "emo": "warm, encouraging",
+        "phan": 2
+      },
+      {
+        "fx": "right",
+        "who": "hoc",
+        "text": "Ah, yes. I'm going home.",
+        "emo": "cheerful",
+        "icon": "check",
+        "to": "going",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I am very hurry.",
+        "emo": "cheerful, clumsy",
+        "icon": "x",
+        "to": "am very",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm in a hurry, is the correct way to say that.",
+        "emo": "warm, patient",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Oh, okay. Thank you. Wait, who are you?",
+        "emo": "surprised, curious",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.",
+        "emo": "warm, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "But I don't have moneys.",
+        "emo": "worried",
+        "icon": "dollar",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+        "emo": "reassuring, playful",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+        "emo": "upbeat, persuasive",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "I will download now. Thank you so much.",
+        "emo": "delighted, excited",
+        "phan": 2
+      }
+    ]
+  },
+  {
+    "name": "bien-the-15-nu-toc-bob",
+    "VAI_CANHSAT": "state trooper",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed unless the clip's action says otherwise",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone held in the right hand",
+    "DAO_GIAY_TO": "a small stack of papers: a plastic driver's licence card on top of a folded white registration sheet, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
+    "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "he",
+    "HIS_CANHSAT": "his",
+    "HIM_CANHSAT": "him",
+    "SANG_P1": "at sunset, warm golden-orange light",
+    "SANG_P2": "warm sunset light",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a Mexican woman, 29 years old, a heart-shaped face with a big bright smile, honey-blond-brown bob haircut; a denim shirt, long denim shorts, a big wristwatch",
+    "GIONG_HOC": "a natural Mexican woman's voice in her late twenties, around 200–230 Hz, sunny and upbeat, a clear light Mexican accent in English; a real person, not an actress",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a white American man in his early thirties, short brown hair, light stubble, dark aviator sunglasses, a tan short-sleeved state-trooper uniform shirt with plain shoulder patches and a gold star badge, a plain fluorescent yellow-green safety vest without lettering, a black duty belt with holster and radio, a black wristwatch",
+    "GIONG_CANHSAT": "a relaxed, clear American man's baritone around 110–140 Hz, friendly but firm, slight Southern drawl",
+    "XE": "a big glossy blue American semi-truck cab painted with a large waving stars-and-stripes flag design on the door and side, chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: tall palm trees and green bushes along the road, far-away cars standing still in the distance, a dramatic pink-and-orange sky with scattered clouds",
+    "NEN_CABIN": "the inside of the truck cab at sunset: dark gray seat and door panel, the side window on the right showing a still orange sunset over flat fields with a few trees, warm light on the face",
+    "refs": {
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1S0su94tIujqsM4jqedNfuEsjjY8T-qVE/view?usp=drivesdk"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "canhsat",
+        "text": "How long have you been driving today?",
+        "emo": "calm, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have been driving for, uh, six hours.",
+        "emo": "hesitant, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "When was the last time you slept?",
+        "emo": "decisive, calm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I slept last night.",
+        "emo": "confident, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Give me your driving license and registration.",
+        "emo": "decisive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Here they are, sir.",
+        "emo": "friendly, cheerful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Okay. Wow, your English is good.",
+        "emo": "impressed, amused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
+        "emo": "proud, enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Real conversations exactly like this one. Here, let me show you.",
+        "emo": "excited, playful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "Where are you going?",
+        "emo": "curious, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I go to home.",
+        "emo": "cheerful, confident",
+        "icon": "x",
+        "to": "go to",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "You mean, I'm going home?",
+        "emo": "warm, encouraging",
+        "phan": 2
+      },
+      {
+        "fx": "right",
+        "who": "hoc",
+        "text": "Ah, yes. I'm going home.",
+        "emo": "cheerful",
+        "icon": "check",
+        "to": "going",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I am very hurry.",
+        "emo": "cheerful, clumsy",
+        "icon": "x",
+        "to": "am very",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm in a hurry, is the correct way to say that.",
+        "emo": "warm, patient",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Oh, okay. Thank you. Wait, who are you?",
+        "emo": "surprised, curious",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.",
+        "emo": "warm, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "But I don't have moneys.",
+        "emo": "worried",
+        "icon": "dollar",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+        "emo": "reassuring, playful",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+        "emo": "upbeat, persuasive",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "I will download now. Thank you so much.",
+        "emo": "delighted, excited",
+        "phan": 2
+      }
+    ]
+  },
+  {
+    "name": "bien-the-16-nam-mu-nguoc",
+    "VAI_CANHSAT": "police officer",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed unless the clip's action says otherwise",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone held in the right hand",
+    "DAO_GIAY_TO": "a small stack of papers: a plastic driver's licence card on top of a folded white registration sheet, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
+    "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "she",
+    "HIS_CANHSAT": "her",
+    "HIM_CANHSAT": "her",
+    "SANG_P1": "at sunset, warm golden-orange light",
+    "SANG_P2": "warm sunset light",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a Mexican man, 26 years old, a long face, black undercut hair under a black baseball cap worn backwards, a sparse chin beard; a white T-shirt, jeans",
+    "GIONG_HOC": "a natural Mexican man's voice in his mid twenties, around 110–140 Hz, casual and lively, a clear light Mexican accent in English; a real person, not an actress",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a white American woman in her mid thirties, an oval face, light-blue eyes, a serious steady gaze, blond hair pulled back in a neat low bun at the nape; a full dark-navy police uniform: short-sleeved navy uniform shirt with plain shoulder patches without lettering and a silver star badge, a radio on the shoulder, navy trousers, a black duty belt with holster, cuffs and radio; standing straight, confident and authoritative",
+    "GIONG_CANHSAT": "a clear, firm American woman's voice around 180–210 Hz, calm and authoritative, polite, slight Southern drawl",
+    "XE": "a big glossy blue American semi-truck cab painted with a large waving stars-and-stripes flag design on the door and side, chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: tall palm trees and green bushes along the road, far-away cars standing still in the distance, a dramatic pink-and-orange sky with scattered clouds",
+    "NEN_CABIN": "the inside of the truck cab at sunset: dark gray seat and door panel, the side window on the right showing a still orange sunset over flat fields with a few trees, warm light on the face",
+    "refs": {
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/13irONSHa0hgzfZCi0vf3bfsW2e1TYR-_/view?usp=drivesdk"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "https://drive.google.com/file/d/1zJ1nJ9T1n7PxUhzLomf8fOHiFBnKGiHs/view?usp=drivesdk"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "canhsat",
+        "text": "How long have you been driving today?",
+        "emo": "calm, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have been driving for, uh, six hours.",
+        "emo": "hesitant, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "When was the last time you slept?",
+        "emo": "decisive, calm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I slept last night.",
+        "emo": "confident, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Give me your driving license and registration.",
+        "emo": "decisive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Here they are, ma'am.",
+        "emo": "friendly, cheerful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Okay. Wow, your English is good.",
+        "emo": "impressed, amused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
+        "emo": "proud, enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Real conversations exactly like this one. Here, let me show you.",
+        "emo": "excited, playful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "Where are you going?",
+        "emo": "curious, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I go to home.",
+        "emo": "cheerful, confident",
+        "icon": "x",
+        "to": "go to",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "You mean, I'm going home?",
+        "emo": "warm, encouraging",
+        "phan": 2
+      },
+      {
+        "fx": "right",
+        "who": "hoc",
+        "text": "Ah, yes. I'm going home.",
+        "emo": "cheerful",
+        "icon": "check",
+        "to": "going",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I am very hurry.",
+        "emo": "cheerful, clumsy",
+        "icon": "x",
+        "to": "am very",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm in a hurry, is the correct way to say that.",
+        "emo": "warm, patient",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Oh, okay. Thank you. Wait, who are you?",
+        "emo": "surprised, curious",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.",
+        "emo": "warm, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "But I don't have moneys.",
+        "emo": "worried",
+        "icon": "dollar",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+        "emo": "reassuring, playful",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+        "emo": "upbeat, persuasive",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "I will download now. Thank you so much.",
+        "emo": "delighted, excited",
+        "phan": 2
+      }
+    ]
+  },
+  {
+    "name": "bien-the-17-nam-xam-tay",
+    "VAI_CANHSAT": "police officer",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed unless the clip's action says otherwise",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone held in the right hand",
+    "DAO_GIAY_TO": "a small stack of papers: a plastic driver's licence card on top of a folded white registration sheet, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
+    "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "she",
+    "HIS_CANHSAT": "her",
+    "HIM_CANHSAT": "her",
+    "SANG_P1": "at sunset, warm golden-orange light",
+    "SANG_P2": "warm sunset light",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a Mexican man, 30 years old, a square face, short brown hair, a thin moustache, tattoos on the arms; a gray tank top, green cargo trousers",
+    "GIONG_HOC": "a natural Mexican man's voice in his early thirties, around 110–140 Hz, easygoing, slightly low, a clear light Mexican accent in English; a real person, not an actress",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a white American woman in her mid thirties, an oval face, light-blue eyes, a serious steady gaze, blond hair pulled back in a neat low bun at the nape; a full dark-navy police uniform: short-sleeved navy uniform shirt with plain shoulder patches without lettering and a silver star badge, a radio on the shoulder, navy trousers, a black duty belt with holster, cuffs and radio; standing straight, confident and authoritative",
+    "GIONG_CANHSAT": "a clear, firm American woman's voice around 180–210 Hz, calm and authoritative, polite, slight Southern drawl",
+    "XE": "a big glossy blue American semi-truck cab painted with a large waving stars-and-stripes flag design on the door and side, chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: tall palm trees and green bushes along the road, far-away cars standing still in the distance, a dramatic pink-and-orange sky with scattered clouds",
+    "NEN_CABIN": "the inside of the truck cab at sunset: dark gray seat and door panel, the side window on the right showing a still orange sunset over flat fields with a few trees, warm light on the face",
+    "refs": {
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1rpGsZvPsLPXMkFMbLDUyDbchZm3nWuWP/view?usp=drivesdk"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "https://drive.google.com/file/d/1zJ1nJ9T1n7PxUhzLomf8fOHiFBnKGiHs/view?usp=drivesdk"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "canhsat",
+        "text": "How long have you been driving today?",
+        "emo": "calm, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have been driving for, uh, six hours.",
+        "emo": "hesitant, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "When was the last time you slept?",
+        "emo": "decisive, calm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I slept last night.",
+        "emo": "confident, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Give me your driving license and registration.",
+        "emo": "decisive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Here they are, ma'am.",
+        "emo": "friendly, cheerful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Okay. Wow, your English is good.",
+        "emo": "impressed, amused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
+        "emo": "proud, enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Real conversations exactly like this one. Here, let me show you.",
+        "emo": "excited, playful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "Where are you going?",
+        "emo": "curious, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I go to home.",
+        "emo": "cheerful, confident",
+        "icon": "x",
+        "to": "go to",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "You mean, I'm going home?",
+        "emo": "warm, encouraging",
+        "phan": 2
+      },
+      {
+        "fx": "right",
+        "who": "hoc",
+        "text": "Ah, yes. I'm going home.",
+        "emo": "cheerful",
+        "icon": "check",
+        "to": "going",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I am very hurry.",
+        "emo": "cheerful, clumsy",
+        "icon": "x",
+        "to": "am very",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm in a hurry, is the correct way to say that.",
+        "emo": "warm, patient",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Oh, okay. Thank you. Wait, who are you?",
+        "emo": "surprised, curious",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.",
+        "emo": "warm, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "But I don't have moneys.",
+        "emo": "worried",
+        "icon": "dollar",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+        "emo": "reassuring, playful",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+        "emo": "upbeat, persuasive",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "I will download now. Thank you so much.",
+        "emo": "delighted, excited",
+        "phan": 2
+      }
+    ]
+  },
+  {
+    "name": "bien-the-18-nam-kinh-tron",
+    "VAI_CANHSAT": "police officer",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed unless the clip's action says otherwise",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone held in the right hand",
+    "DAO_GIAY_TO": "a small stack of papers: a plastic driver's licence card on top of a folded white registration sheet, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
+    "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "she",
+    "HIS_CANHSAT": "her",
+    "HIM_CANHSAT": "her",
+    "SANG_P1": "at sunset, warm golden-orange light",
+    "SANG_P2": "warm sunset light",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a Mexican man, 28 years old, a round face with a wide toothy smile, short curly black hair, round thin-rimmed glasses; a red plaid flannel shirt, jeans",
+    "GIONG_HOC": "a natural Mexican man's voice in his late twenties, around 110–140 Hz, friendly and cheerful, a clear light Mexican accent in English; a real person, not an actress",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a white American woman in her mid thirties, an oval face, light-blue eyes, a serious steady gaze, blond hair pulled back in a neat low bun at the nape; a full dark-navy police uniform: short-sleeved navy uniform shirt with plain shoulder patches without lettering and a silver star badge, a radio on the shoulder, navy trousers, a black duty belt with holster, cuffs and radio; standing straight, confident and authoritative",
+    "GIONG_CANHSAT": "a clear, firm American woman's voice around 180–210 Hz, calm and authoritative, polite, slight Southern drawl",
+    "XE": "a big glossy blue American semi-truck cab painted with a large waving stars-and-stripes flag design on the door and side, chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: tall palm trees and green bushes along the road, far-away cars standing still in the distance, a dramatic pink-and-orange sky with scattered clouds",
+    "NEN_CABIN": "the inside of the truck cab at sunset: dark gray seat and door panel, the side window on the right showing a still orange sunset over flat fields with a few trees, warm light on the face",
+    "refs": {
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1LGQuxNlGDkVQH8olbwoW40Xwx2mepf0I/view?usp=drivesdk"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "https://drive.google.com/file/d/1zJ1nJ9T1n7PxUhzLomf8fOHiFBnKGiHs/view?usp=drivesdk"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "canhsat",
+        "text": "How long have you been driving today?",
+        "emo": "calm, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have been driving for, uh, six hours.",
+        "emo": "hesitant, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "When was the last time you slept?",
+        "emo": "decisive, calm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I slept last night.",
+        "emo": "confident, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Give me your driving license and registration.",
+        "emo": "decisive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Here they are, ma'am.",
+        "emo": "friendly, cheerful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Okay. Wow, your English is good.",
+        "emo": "impressed, amused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
+        "emo": "proud, enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Real conversations exactly like this one. Here, let me show you.",
+        "emo": "excited, playful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "Where are you going?",
+        "emo": "curious, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I go to home.",
+        "emo": "cheerful, confident",
+        "icon": "x",
+        "to": "go to",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "You mean, I'm going home?",
+        "emo": "warm, encouraging",
+        "phan": 2
+      },
+      {
+        "fx": "right",
+        "who": "hoc",
+        "text": "Ah, yes. I'm going home.",
+        "emo": "cheerful",
+        "icon": "check",
+        "to": "going",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I am very hurry.",
+        "emo": "cheerful, clumsy",
+        "icon": "x",
+        "to": "am very",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm in a hurry, is the correct way to say that.",
+        "emo": "warm, patient",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Oh, okay. Thank you. Wait, who are you?",
+        "emo": "surprised, curious",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.",
+        "emo": "warm, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "But I don't have moneys.",
+        "emo": "worried",
+        "icon": "dollar",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+        "emo": "reassuring, playful",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+        "emo": "upbeat, persuasive",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "I will download now. Thank you so much.",
+        "emo": "delighted, excited",
+        "phan": 2
+      }
+    ]
+  },
+  {
+    "name": "bien-the-19-nam-duoi-ngua",
+    "VAI_CANHSAT": "police officer",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed unless the clip's action says otherwise",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone held in the right hand",
+    "DAO_GIAY_TO": "a small stack of papers: a plastic driver's licence card on top of a folded white registration sheet, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
+    "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "she",
+    "HIS_CANHSAT": "her",
+    "HIM_CANHSAT": "her",
+    "SANG_P1": "at sunset, warm golden-orange light",
+    "SANG_P2": "warm sunset light",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a Mexican man, 34 years old, an oval face, long brown hair in a low ponytail, a short full beard, a dark bandana around the neck; a black T-shirt under a denim jacket",
+    "GIONG_HOC": "a natural Mexican man's voice in his mid thirties, around 110–140 Hz, calm and mellow, a clear light Mexican accent in English; a real person, not an actress",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a white American woman in her mid thirties, an oval face, light-blue eyes, a serious steady gaze, blond hair pulled back in a neat low bun at the nape; a full dark-navy police uniform: short-sleeved navy uniform shirt with plain shoulder patches without lettering and a silver star badge, a radio on the shoulder, navy trousers, a black duty belt with holster, cuffs and radio; standing straight, confident and authoritative",
+    "GIONG_CANHSAT": "a clear, firm American woman's voice around 180–210 Hz, calm and authoritative, polite, slight Southern drawl",
+    "XE": "a big glossy blue American semi-truck cab painted with a large waving stars-and-stripes flag design on the door and side, chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: tall palm trees and green bushes along the road, far-away cars standing still in the distance, a dramatic pink-and-orange sky with scattered clouds",
+    "NEN_CABIN": "the inside of the truck cab at sunset: dark gray seat and door panel, the side window on the right showing a still orange sunset over flat fields with a few trees, warm light on the face",
+    "refs": {
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1NQWpZVH_vL00Gle1aCbu2xErtmHGsgdM/view?usp=drivesdk"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "https://drive.google.com/file/d/1zJ1nJ9T1n7PxUhzLomf8fOHiFBnKGiHs/view?usp=drivesdk"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "canhsat",
+        "text": "How long have you been driving today?",
+        "emo": "calm, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have been driving for, uh, six hours.",
+        "emo": "hesitant, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "When was the last time you slept?",
+        "emo": "decisive, calm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I slept last night.",
+        "emo": "confident, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Give me your driving license and registration.",
+        "emo": "decisive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Here they are, ma'am.",
+        "emo": "friendly, cheerful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Okay. Wow, your English is good.",
+        "emo": "impressed, amused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
+        "emo": "proud, enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Real conversations exactly like this one. Here, let me show you.",
+        "emo": "excited, playful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "Where are you going?",
+        "emo": "curious, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I go to home.",
+        "emo": "cheerful, confident",
+        "icon": "x",
+        "to": "go to",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "You mean, I'm going home?",
+        "emo": "warm, encouraging",
+        "phan": 2
+      },
+      {
+        "fx": "right",
+        "who": "hoc",
+        "text": "Ah, yes. I'm going home.",
+        "emo": "cheerful",
+        "icon": "check",
+        "to": "going",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I am very hurry.",
+        "emo": "cheerful, clumsy",
+        "icon": "x",
+        "to": "am very",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm in a hurry, is the correct way to say that.",
+        "emo": "warm, patient",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Oh, okay. Thank you. Wait, who are you?",
+        "emo": "surprised, curious",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.",
+        "emo": "warm, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "But I don't have moneys.",
+        "emo": "worried",
+        "icon": "dollar",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+        "emo": "reassuring, playful",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+        "emo": "upbeat, persuasive",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "I will download now. Thank you so much.",
+        "emo": "delighted, excited",
+        "phan": 2
+      }
+    ]
+  },
+  {
+    "name": "bien-the-20-nam-crew-cut",
+    "VAI_CANHSAT": "police officer",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed unless the clip's action says otherwise",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone held in the right hand",
+    "DAO_GIAY_TO": "a small stack of papers: a plastic driver's licence card on top of a folded white registration sheet, no readable text",
+    "DAO_DIEN_THOAI": "a black smartphone",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm light-blue eyes, soft flexible porcelain lips that open and move naturally with every word whenever the robot itself speaks, a few thin panel lines, a bald white helmet-like head with small dark ear modules, a black mechanical neck of bundled cables, glossy white hexagonal armour plates on the chest, shoulders and arms with thin glowing cyan seams over black mechanical joints, slim black mechanical hands",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice around 190–230 Hz with a light smooth synthetic sheen, clear American accent, upbeat and encouraging",
+    "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+    "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+    "HE_CANHSAT": "she",
+    "HIS_CANHSAT": "her",
+    "HIM_CANHSAT": "her",
+    "SANG_P1": "at sunset, warm golden-orange light",
+    "SANG_P2": "warm sunset light",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a Mexican man, 25 years old, an angular face, honey-blond-brown crew-cut hair; a navy-blue T-shirt, khaki trousers, a pair of tan leather work gloves tucked into the belt",
+    "GIONG_HOC": "a natural Mexican man's voice in his mid twenties, around 110–140 Hz, young and earnest, a clear light Mexican accent in English; a real person, not an actress",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a white American woman in her mid thirties, an oval face, light-blue eyes, a serious steady gaze, blond hair pulled back in a neat low bun at the nape; a full dark-navy police uniform: short-sleeved navy uniform shirt with plain shoulder patches without lettering and a silver star badge, a radio on the shoulder, navy trousers, a black duty belt with holster, cuffs and radio; standing straight, confident and authoritative",
+    "GIONG_CANHSAT": "a clear, firm American woman's voice around 180–210 Hz, calm and authoritative, polite, slight Southern drawl",
+    "XE": "a big glossy blue American semi-truck cab painted with a large waving stars-and-stripes flag design on the door and side, chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: tall palm trees and green bushes along the road, far-away cars standing still in the distance, a dramatic pink-and-orange sky with scattered clouds",
+    "NEN_CABIN": "the inside of the truck cab at sunset: dark gray seat and door panel, the side window on the right showing a still orange sunset over flat fields with a few trees, warm light on the face",
+    "refs": {
+      "NGUOI_HOC": [
+        "https://drive.google.com/file/d/1sx_QqmAdxziLL_oF1D8vTaET3nqAKSTg/view?usp=drivesdk"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "https://drive.google.com/file/d/1zJ1nJ9T1n7PxUhzLomf8fOHiFBnKGiHs/view?usp=drivesdk"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "canhsat",
+        "text": "How long have you been driving today?",
+        "emo": "calm, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I have been driving for, uh, six hours.",
+        "emo": "hesitant, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "When was the last time you slept?",
+        "emo": "decisive, calm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I slept last night.",
+        "emo": "confident, friendly",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Give me your driving license and registration.",
+        "emo": "decisive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Here they are, ma'am.",
+        "emo": "friendly, cheerful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Okay. Wow, your English is good.",
+        "emo": "impressed, amused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Honestly, just ten minutes a day with Talka AI.",
+        "emo": "proud, enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Real conversations exactly like this one. Here, let me show you.",
+        "emo": "excited, playful",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "Where are you going?",
+        "emo": "curious, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I go to home.",
+        "emo": "cheerful, confident",
+        "icon": "x",
+        "to": "go to",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "You mean, I'm going home?",
+        "emo": "warm, encouraging",
+        "phan": 2
+      },
+      {
+        "fx": "right",
+        "who": "hoc",
+        "text": "Ah, yes. I'm going home.",
+        "emo": "cheerful",
+        "icon": "check",
+        "to": "going",
+        "phan": 2
+      },
+      {
+        "fx": "wrong",
+        "who": "hoc",
+        "text": "I am very hurry.",
+        "emo": "cheerful, clumsy",
+        "icon": "x",
+        "to": "am very",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm in a hurry, is the correct way to say that.",
+        "emo": "warm, patient",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Oh, okay. Thank you. Wait, who are you?",
+        "emo": "surprised, curious",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "I'm an AI tutor, and I'm here to help you practice your English and eventually get better at speaking.",
+        "emo": "warm, friendly",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "But I don't have moneys.",
+        "emo": "worried",
+        "icon": "dollar",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+        "emo": "reassuring, playful",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "day",
+        "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+        "emo": "upbeat, persuasive",
+        "phan": 2
+      },
+      {
+        "fx": "none",
+        "who": "hoc",
+        "text": "I will download now. Thank you so much.",
+        "emo": "delighted, excited",
+        "phan": 2
+      }
+    ]
+  }
+]
