@@ -198,20 +198,126 @@ def set_prompt_prefix(opts):
     _TL.prompt_prefix = MEDIA_DIRECTIVE if (opts or {}).get("muse_directive", True) else ""
 
 
+def log_exc(tag):
+    """Ghi traceback của lỗi đang xử lý vào userdata/logs/studio-loi.log (Studio chỉ hiện một dòng lỗi gọn; lỗi lạ như '[WinError 32] file đang
+    được dùng' cần biết dòng nào ném ra). Gọi trong khối except. Không bao giờ ném lỗi."""
+    try:
+        import traceback
+        data = os.environ.get("LUO_STUDIO_DATA") or os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+        d = os.path.join(os.path.dirname(data), "logs")
+        os.makedirs(d, exist_ok=True)
+        with open(os.path.join(d, "studio-loi.log"), "a", encoding="utf-8") as f:
+            f.write(f"\n==== {time.strftime('%Y-%m-%d %H:%M:%S')} {tag} [luồng {threading.current_thread().name}]\n{traceback.format_exc()}")
+    except Exception:  # noqa: BLE001
+        pass
+
+
+# ------------------------------------------------------------------ hậu kỳ theo số nhân máy
+# Đo 07/11/2026 (Ryzen 5 5500, 6 nhân): 8 video chạy song song thì ffmpeg mã hoá cảnh (libx264 dùng hết mọi nhân) chen nhau đẩy CPU lên
+# 100%, Chromium của LUO-API bị xếp sau nên khoảng trống giữa hai lệnh gen tăng từ ~35 s lên ~110 s dù Muse vẽ không chậm đi. Vì vậy:
+#  - mã hoá từng cảnh: tối đa ENC_MAX ffmpeg cùng lúc (mặc định nửa số nhân), cảnh thứ ENC_MAX+1 chờ vài giây;
+#  - ráp cuối + hậu kỳ cả video: tối đa ASM_MAX video cùng lúc (mặc định một phần tư số nhân) vì không chặn cảnh nào;
+#  - mọi ffmpeg mã hoá chạy ở ưu tiên thấp hơn bình thường, để Chromium/Python luôn có nhân khi cần.
+# Ép số bằng biến môi trường LUO_FFMPEG_SCENE / LUO_FFMPEG_ASM / LUO_CPU_CORES (0 = tự tính theo nhân).
+
+
+def _env_int(name, default):
+    try:
+        v = int(os.environ.get(name, "") or 0)
+    except ValueError:
+        v = 0
+    return v if v > 0 else default
+
+
+def _phys_cores():
+    """Số nhân THẬT (os.cpu_count() đếm cả siêu phân luồng: Ryzen 5 5500 báo 12 nhưng chỉ có 6 nhân, libx264 không nhanh hơn với 12)."""
+    try:
+        if os.name == "nt":
+            r = subprocess.run(["powershell", "-NoProfile", "-Command", "(Get-CimInstance Win32_Processor | Measure-Object NumberOfCores -Sum).Sum"],
+                               capture_output=True, text=True, timeout=15, creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+            n = int((r.stdout or "").strip() or 0)
+        else:
+            ids = set()
+            for blk in open("/proc/cpuinfo", encoding="utf-8", errors="ignore").read().split("\n\n"):
+                kv = dict(ln.split(":", 1) for ln in blk.splitlines() if ":" in ln)
+                if "core id" in kv:
+                    ids.add((kv.get("physical id", "0").strip(), kv["core id"].strip()))
+            n = len(ids)
+        if n > 0:
+            return n
+    except Exception:  # noqa: BLE001
+        pass
+    return os.cpu_count() or 4
+
+
+_NCPU = _env_int("LUO_CPU_CORES", _phys_cores())
+ENC_MAX = _env_int("LUO_FFMPEG_SCENE", max(1, _NCPU // 2))        # 6 nhân -> 3, 16 -> 8, 32 -> 16
+ASM_MAX = _env_int("LUO_FFMPEG_ASM", max(1, (_NCPU + 2) // 4))    # 6 nhân -> 2, 16 -> 4, 32 -> 8
+_ENC_SEM = threading.BoundedSemaphore(ENC_MAX)
+_ASM_SEM = threading.BoundedSemaphore(ASM_MAX)
+_LOW_PRIO = {"creationflags": subprocess.BELOW_NORMAL_PRIORITY_CLASS} if os.name == "nt" else {"preexec_fn": lambda: os.nice(5)}
+
+
+def _is_encode(cmd):
+    return bool(cmd) and os.path.basename(str(cmd[0])).lower().startswith("ffmpeg") and "libx264" in cmd
+
+
+def _acquire(sem, cx):
+    """Chờ đến lượt, vẫn huỷ được khi người dùng bấm Dừng."""
+    while not sem.acquire(timeout=0.3):
+        if cx is not None and cx.is_set():
+            raise Cancelled()
+
+
+class assembly_slot:
+    """`with assembly_slot(on_wait):` quanh ráp cuối / hậu kỳ cả video. Trong lúc giữ chỗ, các ffmpeg bên trong không xếp hàng cửa
+    mã hoá cảnh nữa (đã bị giới hạn bằng ASM_MAX). on_wait() được gọi một lần nếu phải chờ video khác ráp xong."""
+
+    def __init__(self, on_wait=None):
+        self.on_wait = on_wait
+
+    def __enter__(self):
+        if not _ASM_SEM.acquire(blocking=False):
+            if self.on_wait:
+                try:
+                    self.on_wait()
+                except Exception:  # noqa: BLE001
+                    pass
+            _acquire(_ASM_SEM, getattr(_TL, "cancel", None))
+        _TL.asm = getattr(_TL, "asm", 0) + 1
+        return self
+
+    def __exit__(self, *a):
+        _TL.asm = max(0, getattr(_TL, "asm", 1) - 1)
+        _ASM_SEM.release()
+        return False
+
+
 def crun(cmd, capture_output=False, text=False, encoding=None, errors=None, **kw):
-    """subprocess.run có thể huỷ: nếu luồng hiện tại có cờ huỷ (set trong run_variant) thì kill tiến trình và ném Cancelled."""
+    """subprocess.run có thể huỷ: nếu luồng hiện tại có cờ huỷ (set trong run_variant) thì kill tiến trình và ném Cancelled.
+    ffmpeg mã hoá (libx264) đi qua cửa ENC_MAX (trừ khi đang trong assembly_slot) và chạy ở ưu tiên thấp."""
     kw.pop("check", None)
-    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=text, encoding=encoding, errors=errors, **kw)
     cx = getattr(_TL, "cancel", None)
-    while True:
-        try:
-            out, err = proc.communicate(timeout=0.3)
-            return subprocess.CompletedProcess(cmd, proc.returncode, out, err)
-        except subprocess.TimeoutExpired:
-            if cx is not None and cx.is_set():
-                proc.kill()
-                proc.communicate()
-                raise Cancelled()
+    enc = _is_encode(cmd)
+    gate = enc and not getattr(_TL, "asm", 0)
+    if enc:
+        kw = {**_LOW_PRIO, **kw}
+    if gate:
+        _acquire(_ENC_SEM, cx)
+    try:
+        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=text, encoding=encoding, errors=errors, **kw)
+        while True:
+            try:
+                out, err = proc.communicate(timeout=0.3)
+                return subprocess.CompletedProcess(cmd, proc.returncode, out, err)
+            except subprocess.TimeoutExpired:
+                if cx is not None and cx.is_set():
+                    proc.kill()
+                    proc.communicate()
+                    raise Cancelled()
+    finally:
+        if gate:
+            _ENC_SEM.release()
 
 
 def interruptible(fn, cancel):
@@ -852,25 +958,66 @@ for line in sys.stdin:
     segs = list(segs)
     print(json.dumps({"text": [s.text for s in segs], "words": [(w.word, w.start, w.end) for s in segs for w in (s.words or [])]}), flush=True)
 """
-_WP = None
-_WP_LINES = None
-_WH_LOCK = threading.Lock()
+# Nhiều tiến trình Whisper chạy song song (trước đây một tiến trình + khoá chung: 8 video song song thì mỗi lần nghe lời phải chờ tới 8 x 2.5 s).
+# Mỗi tiến trình ~600 MB RAM, nạp lần đầu ~50 s; chỉ mở thêm khi mọi tiến trình đang bận, tối đa LUO_WHISPER_WORKERS (mặc định 3).
+_WH_MAX = max(1, int(os.environ.get("LUO_WHISPER_WORKERS", "3") or 3))
+_WH_POOL = []   # [{"p": Popen | None, "q": Queue, "busy": bool}]
+_WH_COND = threading.Condition()
 
 
-def _wp_read(timeout):
+def _wp_read(w, timeout):
     import queue
     try:
-        line = _WP_LINES.get(timeout=timeout)
+        line = w["q"].get(timeout=timeout)
     except queue.Empty:
         line = None
     if line is None:
-        rc = _WP.poll()
-        _WP.kill()
+        rc = w["p"].poll()
+        w["p"].kill()
         raise RuntimeError("nhận dạng giọng " + (f"bị tắt đột ngột (mã 0x{rc & 0xFFFFFFFF:08X}; chạy 'Chan doan.bat' để kiểm tra)" if rc is not None else "không phản hồi"))
     return line
 
 
+def _wh_start(w):
+    """Bật (lại) tiến trình Whisper cho ô `w` của bể và chờ nó báo sẵn sàng."""
+    import queue
+    w["p"] = subprocess.Popen([sys.executable, "-I", "-W", "ignore", "-c", _WHISPER_WORKER], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                              stderr=subprocess.DEVNULL, text=True, encoding="utf-8", errors="replace",
+                              creationflags=0x08000000 if os.name == "nt" else 0)
+    w["q"] = queue.Queue()
+
+    def pump(out, q):
+        for ln in out:
+            q.put(ln)
+        q.put(None)
+    threading.Thread(target=pump, args=(w["p"].stdout, w["q"]), daemon=True).start()
+    while _wp_read(w, 900).strip() != "ready":   # lần đầu có thể phải tải mô hình (~250 MB)
+        pass
+
+
+def _wh_acquire():
+    """Lấy một tiến trình Whisper đang rảnh; chưa có thì mở thêm (tối đa _WH_MAX); đủ rồi thì chờ tiến trình nào xong trước."""
+    with _WH_COND:
+        while True:
+            for w in _WH_POOL:
+                if not w["busy"]:
+                    w["busy"] = True
+                    return w
+            if len(_WH_POOL) < _WH_MAX:
+                w = {"p": None, "q": None, "busy": True}
+                _WH_POOL.append(w)
+                return w
+            _WH_COND.wait(0.5)
+
+
+def _wh_release(w):
+    with _WH_COND:
+        w["busy"] = False
+        _WH_COND.notify()
+
+
 _ES_MARK = re.compile(r"[¿¡ñáéíóú]", re.I)
+_INDIC = (("gu", re.compile(r"[઀-૿]")), ("hi", re.compile(r"[ऀ-ॿ]")))
 _ES_WORDS = set("que es la el los las para por con una uno tu mi no si sí pero vamos decir tienes quisiste perdón siempre nada cuál cómo solo necesitas hablar "
                 "estudies úsalo buen intento todos días juntos mejorar inglés hola gracias usted ustedes está estás soy eres somos".split())
 
@@ -880,6 +1027,10 @@ def speech_lang(text):
     Whisper tiếng Anh (small.en) nghe câu tiếng Tây Ban Nha thành chữ lạ -> báo "thiếu chữ" sai -> Studio bỏ cắt sát, để lại 2-3 s lặng sau câu
     (05/11/2026, du-lich-chia-doi: video 59 s thay vì ~30 s). Câu lẫn cụm tiếng Anh ngắn ("¿Quisiste decir, I'm 22?") vẫn tính là 'es'."""
     t = str(text or "")
+    # chữ Ấn Độ (08/11/2026, check-hanh-ly-hindi: lời Gujarati xen từ tiếng Anh): Whisper đa ngôn ngữ theo chữ viết
+    for lang, rx in _INDIC:
+        if rx.search(t):
+            return lang
     if _ES_MARK.search(t):
         return "es"
     ws = re.findall(r"[a-záéíóúñü]+", t.lower())
@@ -892,28 +1043,18 @@ def _deaccent(s):
 
 def _transcribe(wav, words, lang="en"):
     """{'text': [...], 'words': [(từ, bắt đầu, kết thúc)]} của file wav 16 kHz mono, qua tiến trình Whisper riêng. lang: 'en' (small.en) hoặc mã ngôn ngữ khác (small)."""
-    global _WP, _WP_LINES
-    import queue
-    with _WH_LOCK:
-        if _WP is None or _WP.poll() is not None:
-            _WP = subprocess.Popen([sys.executable, "-I", "-W", "ignore", "-c", _WHISPER_WORKER], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-                                   stderr=subprocess.DEVNULL, text=True, encoding="utf-8", errors="replace",
-                                   creationflags=0x08000000 if os.name == "nt" else 0)
-            _WP_LINES = queue.Queue()
-
-            def pump(out, q):
-                for ln in out:
-                    q.put(ln)
-                q.put(None)
-            threading.Thread(target=pump, args=(_WP.stdout, _WP_LINES), daemon=True).start()
-            while _wp_read(900).strip() != "ready":   # lần đầu có thể phải tải mô hình (~250 MB)
-                pass
-        _WP.stdin.write(json.dumps({"wav": os.path.abspath(wav), "words": words, "lang": lang or "en"}) + "\n")
-        _WP.stdin.flush()
+    w = _wh_acquire()
+    try:
+        if w["p"] is None or w["p"].poll() is not None:
+            _wh_start(w)
+        w["p"].stdin.write(json.dumps({"wav": os.path.abspath(wav), "words": words, "lang": lang or "en"}) + "\n")
+        w["p"].stdin.flush()
         while True:
-            ln = _wp_read(300).strip()
+            ln = _wp_read(w, 300).strip()
             if ln.startswith("{"):
                 return json.loads(ln)
+    finally:
+        _wh_release(w)
 
 
 def voice_span(path, expected):
@@ -1054,7 +1195,9 @@ def speech_end_of(path):
     return st[-1] if st and (len(en) < len(st) or en[-1] >= total - 0.06) else total
 
 
-_MP_LOCK = threading.Lock()
+# mediapipe: trước đây một khoá chung nên mọi video chạy song song phải xếp hàng dò miệng từng cảnh. Mỗi lần gọi đã tạo bộ dò riêng (0.02 s khi
+# đã ấm, 1-2 s một cảnh) nên chạy song song được; chỉ chặn số lượt cùng lúc theo số nhân CPU để không giành hết CPU của ffmpeg (07/11/2026).
+_MP_LOCK = threading.BoundedSemaphore(max(2, (os.cpu_count() or 4) // 2))
 _FACE_BOX = {"LEFT": (0.0, 0.0, 0.62, 0.62), "RIGHT": (0.55, 0.12, 1.0, 0.62),
              "TOP": (0.12, 0.0, 0.88, 0.38), "BOTTOM": (0.0, 0.40, 0.9, 0.92)}   # TOP/BOTTOM: bố cục khung gia sư ngang ở trên, người học ở dưới
 
@@ -1179,6 +1322,10 @@ def speech_issues(expected, path):
     Whisper hay bịa "Thank you" ở đó) không tính là thừa.
     Trả về danh sách (mô tả tiếng Việt cho nhật ký, mô tả tiếng Anh cho ghi chú gen lại) (rỗng = đạt); None nếu không kiểm được (câu rỗng, không có Whisper)."""
     import difflib
+    if speech_lang(expected) in ("gu", "hi"):
+        # câu chữ Gujarati/Devanagari (08/11/2026): _speech_tokens chỉ giữ chữ Latin, Whisper nghe thành chữ khác -> báo "thừa/thiếu" sai và gen lại vô ích.
+        # Không kiểm từng chữ; cắt sát vẫn chạy nhờ voice_span (năng lượng âm thanh). Câu thuần tiếng Anh vẫn kiểm như cũ.
+        return None
     exp = _speech_tokens(expected)
     if not exp:
         return None
@@ -1571,26 +1718,67 @@ def smart_cut(src, cut_path, last_png, lo=0.15, hi=0.8, fps=24, syll=None, speed
 
 
 def start_jump(path, window=1.5):
-    """Giây của cú nhảy hình (Muse tự cắt sang khung khác) trong `window` giây đầu clip, hoặc None.
-    Đo 06/11 (canh-sat-gia-su-ai): clip hay chiếu khung đầu đúng 0,4-0,9 s rồi nhảy sang khung khác (chênh 14-35 so với 1-4 bình thường)."""
+    """Giây của cú nhảy / đổi nền (Muse tự cắt hoặc vẽ lại nền) trong `window` giây đầu clip, hoặc None.
+    Hai phép đo, lấy cái nào bắt được:
+    - cả khung (xám): chênh giữa hai khung liền nhau >= 12 và >= 5x trung vị (06/11: chiếu khung đầu 0,4-0,9 s rồi cắt sang khung khác, chênh 14-35);
+    - chỉ vùng NỀN ở mép khung (trái/phải 22%, trên 18%, màu): >= 5 và >= 8x trung vị. Bắt được kiểu Muse vẽ lại nền theo lời tả trong 1-3 khung đầu
+      (06/11 cảnh 2: khung đầu ban ngày, lời tả hoàng hôn + xe cảnh sát: chênh nền 6,4 = 13x, cả khung chỉ ~4 nên phép đo cũ bỏ sót).
+      Đo 12 cảnh thường: tỉ lệ 1,3-5,7 (kể cả người cử động sát mép), cảnh lỗi 9-68."""
     import cv2
     cap = cv2.VideoCapture(path)
     fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
-    prev, ds = None, []
+    prev = prevc = None
+    ds, bs = [], []
+    mask = np.zeros((160, 90), bool)
+    mask[:, :20] = True
+    mask[:, 70:] = True
+    mask[:29, :] = True
     for _ in range(int(fps * window)):
         ok, fr = cap.read()
         if not ok:
             break
+        c = cv2.resize(fr, (90, 160)).astype(np.float32)
         g = cv2.cvtColor(cv2.resize(fr, (90, 160)), cv2.COLOR_BGR2GRAY).astype(np.float32)
         if prev is not None:
             ds.append(float(np.abs(g - prev).mean()))
-        prev = g
+            bs.append(float(np.abs(c - prevc)[mask].mean()))
+        prev, prevc = g, c
     cap.release()
     if len(ds) < 5:
         return None
     j = int(np.argmax(ds))
-    med = float(np.median(ds))
-    return (j + 1) / fps if ds[j] >= max(12.0, 5.0 * med) else None
+    if ds[j] >= max(12.0, 5.0 * float(np.median(ds))):
+        return (j + 1) / fps
+    k = int(np.argmax(bs))
+    if bs[k] >= 5.0 and bs[k] >= 8.0 * max(float(np.median(bs)), 0.3):
+        return (k + 1) / fps
+    return None
+
+
+def view_frame(P, m, out_png):
+    """Hình người xem THẤY ở đầu cảnh m: khung đầu của clip đã cắt (sau bước bỏ cú nhảy / nền vẽ lại; bỏ qua đoạn "Mở đầu" nếu có),
+    chưa có clip thì ảnh khung đầu. Dùng cho "Khung đầu từ cảnh": ảnh khung đầu Muse gen có thể lệch lời tả (06/11: ảnh ban ngày, clip đã thành hoàng hôn),
+    chép ảnh đó sang cảnh sau thì cảnh sau lại bị vẽ lại nền ngay đầu clip."""
+    cut = P(f"scene{m}_cut.mp4")
+    if os.path.exists(cut):
+        try:
+            pre = float(open(cut + ".pre").read().strip()) if os.path.exists(cut + ".pre") else 0.0
+            grab_frame(cut, out_png, ss=pre + 0.05)
+            if os.path.exists(out_png):
+                return "clip"
+        except Exception:  # noqa: BLE001
+            pass
+    st = P(f"scene{m}_start.png")
+    if os.path.exists(st):
+        shutil.copy(st, out_png)
+        return "start"
+    return ""
+
+
+def moves_camera(f, vid_p=""):
+    """Cảnh CÓ chủ ý chuyển động máy (lia / đẩy theo kịch bản): không kiểm tra máy trôi, không bỏ cú nhảy hình đầu clip.
+    Chỉ có "Ảnh tổng quan" KHÔNG tính là máy chuyển động (06/11: ảnh tổng quan dùng cho mọi góc rộng làm tắt cả hai kiểm tra ở cảnh máy đứng yên)."""
+    return bool(f.get("Lia nhanh") or f.get("Lia theo tay") or re.search(r"CAMERA MOVE", vid_p or ""))
 
 
 def hold_after_jump(path, t):
@@ -1933,9 +2121,10 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
             pre_img, pre_clip = P(f"scene{n}_pre_start.png"), P(f"scene{n}_pre_clip.mp4")
             pre_ip = str(sc["f"].get("Mở đầu ảnh", "")).strip()
             pre_from = re.search(r"\d+", str(sc["f"].get("Mở đầu khung từ cảnh", "")))   # dùng nguyên khung đầu của cảnh N (cùng góc): không vẽ lại
-            if pre_from and not os.path.exists(pre_img) and os.path.exists(P(f"scene{int(pre_from.group(0))}_start.png")):
-                shutil.copy(P(f"scene{int(pre_from.group(0))}_start.png"), pre_img)
-                emit("log", msg=f"Cảnh {n}: đoạn mở đầu dùng nguyên khung đầu của cảnh {pre_from.group(0)}")
+            if pre_from and not os.path.exists(pre_img):
+                how = view_frame(P, int(pre_from.group(0)), pre_img)
+                if how:
+                    emit("log", msg=f"Cảnh {n}: đoạn mở đầu dùng nguyên khung của cảnh {pre_from.group(0)} ({'khung đầu clip đã gen' if how == 'clip' else 'ảnh khung đầu'})")
             ctx = [locks.get("SET LOCK", ""), locks.get("STYLE LOCK", "")]
             if pre_ip and not os.path.exists(pre_img):
                 p_refs = list(refs) + list(sc_imgs) + ([G.data_url(last_wide)] if last_wide and os.path.exists(last_wide) else [])
@@ -1982,10 +2171,9 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                     emit("log", msg=f"Cảnh {n}: không kiểm tra được đoạn mở đầu ({ex})", level="warn")
         src_from = re.search(r"\d+", str(sc["f"].get("Khung đầu từ cảnh", "")))   # cùng góc máy với cảnh N: dùng NGUYÊN khung đầu đó (nền, vị trí người, khung hình giống hệt)
         if src_from and not os.path.exists(img_f):
-            src_img = P(f"scene{int(src_from.group(0))}_start.png")
-            if os.path.exists(src_img):
-                shutil.copy(src_img, img_f)
-                emit("log", msg=f"Cảnh {n}: khung đầu dùng nguyên khung đầu của cảnh {src_from.group(0)}")
+            how = view_frame(P, int(src_from.group(0)), img_f)
+            if how:
+                emit("log", msg=f"Cảnh {n}: khung đầu dùng nguyên khung của cảnh {src_from.group(0)} ({'khung đầu clip đã gen' if how == 'clip' else 'ảnh khung đầu'})")
                 emit("scene", n=n, state="image", pct=100, thumb=os.path.basename(img_f))
             else:
                 emit("log", msg=f"Cảnh {n}: chưa có khung đầu của cảnh {src_from.group(0)}, vẽ khung đầu mới", level="warn")
@@ -2106,7 +2294,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                         attempt("video", gv)
                     speech_retry(vid_f, turn["text"], regen, emit, n, int(opts.get("speech_retries", SPEECH_RETRIES)))
                     speech_note[0] = ""
-                if opts.get("check_camera", True) and not wide_p and not sc["f"].get("Lia nhanh") and not re.search(r"CAMERA MOVE", base_vid_p):   # cảnh máy đứng yên: máy trôi / đẩy vào thì gen lại
+                if opts.get("check_camera", True) and not moves_camera(sc["f"], base_vid_p):   # cảnh máy đứng yên: máy trôi / đẩy vào thì gen lại
 
                     def regen_cam(note):
                         speech_note[0] = "\n\n" + note
@@ -2240,6 +2428,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                 except Cancelled:
                     raise
                 except Exception as ex:  # noqa: BLE001
+                    log_exc(f"voice_span cảnh {n}")
                     emit("log", msg=f"Cảnh {n}: không xác định được mốc lời nói" + (", thử lại" if k_try == 0 else f", cắt theo cách thường ({ex})"), level="warn")
                 if span:
                     break
@@ -2278,7 +2467,7 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                     emit("log", msg=f"Cảnh {n}: CẢNH BÁO đầu câu có thể bị mất ({hc[1]}). Giữ file gốc scene{n}_clip.mp4 để kiểm tra", level="warn")
         except Exception:  # noqa: BLE001 - chỉ là chẩn đoán
             pass
-        if not wide_p and not sc["f"].get("Lia nhanh") and not re.search(r"CAMERA MOVE", vid_p or ""):   # cảnh máy đứng yên: bỏ cú nhảy hình đầu clip
+        if not moves_camera(sc["f"], vid_p):   # cảnh máy đứng yên: bỏ cú nhảy hình / nền bị vẽ lại ở đầu clip
             try:
                 tj = start_jump(cut_f)
                 if tj:
@@ -2343,7 +2532,13 @@ def scene_fx(f):
 
 
 def concat_clips(clips, out_dir, emit, fx=None):
-    """Ghép các clip cảnh (đã cắt) thành raw.mp4. fx: danh sách scene_fx() song song với clips (chớp sáng chuyển cảnh, lớp phủ camera)."""
+    """Ghép các clip cảnh (đã cắt) thành raw.mp4. fx: danh sách scene_fx() song song với clips (chớp sáng chuyển cảnh, lớp phủ camera).
+    Tối đa ASM_MAX video ráp cùng lúc (xem assembly_slot)."""
+    with assembly_slot(lambda: emit("log", msg=f"Chờ đến lượt ráp video (tối đa {ASM_MAX} video ráp cùng lúc trên máy {_NCPU} nhân)")):
+        return _concat_clips(clips, out_dir, emit, fx)
+
+
+def _concat_clips(clips, out_dir, emit, fx=None):
     raw = os.path.join(out_dir, "raw.mp4")
     fx = list(fx or []) + [{}] * (len(clips) - len(fx or []))
     clips = list(clips)

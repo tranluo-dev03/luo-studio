@@ -1,0 +1,4772 @@
+[
+  {
+    "name": "hk-01-nu-tre-giup-viec",
+    "DAO_CAFE": "a white takeaway coffee cup with a brown cardboard sleeve and a white lid, held in one hand at waist height",
+    "NEN_NHA": "a modest, tidy family living room in a small Los Angeles house: a window on the right with daylight and a palm tree outside, a brown sofa, framed family photos and a small wooden cross on a cream wall on the left, softly out of focus",
+    "NEN_PHO": "a sunny Southern-California street corner: the sidewalk outside a small convenience store with red-and-white striped trim and glass doors covered in blurry colourful posters with no readable text, a crosswalk, traffic lights, power poles and palm trees, a few parked cars, bright midday sun, blue sky",
+    "TEN_CANHSAT": "the officer",
+    "VAI_CANHSAT": "police officer",
+    "NGUOI_CANHSAT": "an American police officer in his mid-forties, white, short light-brown hair, clean-shaven, blue eyes, fit build; a dark-navy short-sleeve police uniform shirt with a plain silver badge shape and a black shoulder radio, a black duty belt",
+    "GIONG_CANHSAT": "a confident American man in his forties, mid-low voice around 130–150 Hz, polite, calm and official, General American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm dark eyes and softly sculpted lips, a bald white helmet-like head, a soft glowing white halo ring behind the head, white segmented armour panels over black mechanical joints on the neck, chest, shoulders and arms",
+    "GIONG_DAY": "a calm, smooth, warm feminine voice with a light synthetic sheen, around 150–190 Hz, natural Mexican Spanish, clear and patient; says English words with a neutral American accent",
+    "NEN_DAY": "a soft light-grey studio backdrop with a faint white glow behind the head",
+    "TEN_HOC": "Daniela",
+    "VAI_HOC": "young woman",
+    "NGUOI_HOC": "a Mexican woman about 26, long loose curly dark hair, a floral tattoo on the forearm, red lipstick, big gold hoop earrings; a fitted white blouse with red embroidery, a white apron, a fitted dark skirt and high-heeled boots",
+    "GIONG_HOC": "a real young Mexican woman's voice, around 200–240 Hz, warm and casual, native Mexican Spanish; speaks English as a learner with a clear Mexican accent; a real person, not an actress",
+    "HE_HOC": "she",
+    "HIM_HOC": "her",
+    "TEN_BO": "Daniela's father",
+    "VAI_BO": "father on the phone",
+    "NGUOI_BO": "a Mexican man in his mid-fifties, short black hair greying at the temples, a thick moustache, tired kind eyes, tan skin; a light-blue button-up work shirt",
+    "GIONG_BO": "a Mexican man in his fifties, around 110–130 Hz, worried, urgent and hushed, native Mexican Spanish; a real person, not an actor",
+    "NHIN_HOC": "looks into the lens as if talking to a friend on a video call",
+    "NGHE_HOC": "waits with an attentive soft smile, eyes on the lens, the lips gently pressed together, holding the coffee cup still",
+    "POS_BO": "alone-in-frame",
+    "POS_HOC@1": "alone-in-frame",
+    "NHIN_BO": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_BO": "holds the phone to his ear with the mouth closed, worried eyes, still",
+    "NHIN_HOC@1": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_HOC@1": "holds the phone to her ear with the mouth closed, still",
+    "POS_HOC@2": "LEFT",
+    "POS_CANHSAT": "RIGHT",
+    "NHIN_HOC@2": "looks at the officer's face",
+    "NGHE_HOC@2": "keeps looking at the officer with the mouth closed, holding the coffee cup still",
+    "NHIN_CANHSAT": "looks at the young woman's face",
+    "NGHE_CANHSAT": "keeps looking at the young woman with the mouth closed, hands still, calm face",
+    "LUOT": [
+      {
+        "who": "bo",
+        "text": "Mija, no regreses a casa todavía.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Qué? ¿Por qué?",
+        "emo": "confused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Hay agentes de inmigración en la calle.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Pero yo no hice nada.",
+        "emo": "worried, hesitant",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Ya sé, tú tranquila.",
+        "emo": "calm, reassuring",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Good morning. Can I ask you a few questions?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. What would you like to know?",
+        "emo": "attentive, nervous",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Where are you from?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Mexico.",
+        "emo": "calm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "How long have you been living here?",
+        "emo": "polite, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I've been living here for twelve years.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Your English is really good.",
+        "emo": "impressed, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I used to struggle with English too.",
+        "emo": "happy, proud",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Really? How did you improve so much?",
+        "emo": "curious, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Aiva AI, I just practice real conversations for about ten minutes a day. That's it.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¿Hablas inglés?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Más o menos.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "¿De dónde eres? Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 3,
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "Casi. Mejor di: I am from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 3,
+        "to": "I am from Mexico.",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Siempre me confundo con eso.",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Para eso estoy yo, para ayudarte a hablar bien.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none",
+        "phan": 3,
+        "icon": "dollar"
+      },
+      {
+        "who": "day",
+        "text": "Que no necesitas dinero con Aiva AI. Puedes practicar inglés gratis. No es como las otras apps o cursos caros.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Es en serio?",
+        "emo": "surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Claro, nada de trampas. Solo práctica real de conversación en inglés con tu tutor de inteligencia artificial.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como un tutorial?",
+        "emo": "curious, surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Sí. Corrijo tu gramática, pronunciación y te ayudo a hablar con confianza.",
+        "emo": "warm, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Okey. Entonces, ¿voy a descargar Aiva AI ahorita mismo?",
+        "emo": "happy, excited",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Muy buena decisión. Vamos a hablar inglés juntos.",
+        "emo": "warm, cheerful",
+        "fx": "none",
+        "phan": 3
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/di-tru-aiva-ai/anh/hk-01.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-canhsat.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-day.png"
+      ]
+    }
+  },
+  {
+    "name": "hk-02-nu-tre-phuc-vu",
+    "DAO_CAFE": "a white takeaway coffee cup with a brown cardboard sleeve and a white lid, held in one hand at waist height",
+    "NEN_NHA": "a modest, tidy family living room in a small Los Angeles house: a window on the right with daylight and a palm tree outside, a brown sofa, framed family photos and a small wooden cross on a cream wall on the left, softly out of focus",
+    "NEN_PHO": "a sunny Southern-California street corner: the sidewalk outside a small convenience store with red-and-white striped trim and glass doors covered in blurry colourful posters with no readable text, a crosswalk, traffic lights, power poles and palm trees, a few parked cars, bright midday sun, blue sky",
+    "TEN_CANHSAT": "the officer",
+    "VAI_CANHSAT": "police officer",
+    "NGUOI_CANHSAT": "an American police officer in his mid-forties, white, short light-brown hair, clean-shaven, blue eyes, fit build; a dark-navy short-sleeve police uniform shirt with a plain silver badge shape and a black shoulder radio, a black duty belt",
+    "GIONG_CANHSAT": "a confident American man in his forties, mid-low voice around 130–150 Hz, polite, calm and official, General American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm dark eyes and softly sculpted lips, a bald white helmet-like head, a soft glowing white halo ring behind the head, white segmented armour panels over black mechanical joints on the neck, chest, shoulders and arms",
+    "GIONG_DAY": "a calm, smooth, warm feminine voice with a light synthetic sheen, around 150–190 Hz, natural Mexican Spanish, clear and patient; says English words with a neutral American accent",
+    "NEN_DAY": "a soft light-grey studio backdrop with a faint white glow behind the head",
+    "TEN_HOC": "Camila",
+    "VAI_HOC": "young woman",
+    "NGUOI_HOC": "a Mexican woman about 24, long wavy black hair worn loose, a small tattoo on the shoulder, smoky eye makeup, gold hoop earrings; a fitted black off-the-shoulder top, a black waist apron, fitted black trousers and heels",
+    "GIONG_HOC": "a real young Mexican woman's voice, around 200–240 Hz, warm and casual, native Mexican Spanish; speaks English as a learner with a clear Mexican accent; a real person, not an actress",
+    "HE_HOC": "she",
+    "HIM_HOC": "her",
+    "TEN_BO": "Camila's father",
+    "VAI_BO": "father on the phone",
+    "NGUOI_BO": "a Mexican man in his mid-fifties, short black hair greying at the temples, a thick moustache, tired kind eyes, tan skin; a light-blue button-up work shirt",
+    "GIONG_BO": "a Mexican man in his fifties, around 110–130 Hz, worried, urgent and hushed, native Mexican Spanish; a real person, not an actor",
+    "NHIN_HOC": "looks into the lens as if talking to a friend on a video call",
+    "NGHE_HOC": "waits with an attentive soft smile, eyes on the lens, the lips gently pressed together, holding the coffee cup still",
+    "POS_BO": "alone-in-frame",
+    "POS_HOC@1": "alone-in-frame",
+    "NHIN_BO": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_BO": "holds the phone to his ear with the mouth closed, worried eyes, still",
+    "NHIN_HOC@1": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_HOC@1": "holds the phone to her ear with the mouth closed, still",
+    "POS_HOC@2": "LEFT",
+    "POS_CANHSAT": "RIGHT",
+    "NHIN_HOC@2": "looks at the officer's face",
+    "NGHE_HOC@2": "keeps looking at the officer with the mouth closed, holding the coffee cup still",
+    "NHIN_CANHSAT": "looks at the young woman's face",
+    "NGHE_CANHSAT": "keeps looking at the young woman with the mouth closed, hands still, calm face",
+    "LUOT": [
+      {
+        "who": "bo",
+        "text": "Mija, no regreses a casa todavía.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Qué? ¿Por qué?",
+        "emo": "confused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Hay agentes de inmigración en la calle.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Pero yo no hice nada.",
+        "emo": "worried, hesitant",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Ya sé, tú tranquila.",
+        "emo": "calm, reassuring",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Good morning. Can I ask you a few questions?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. What would you like to know?",
+        "emo": "attentive, nervous",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Where are you from?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Mexico.",
+        "emo": "calm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "How long have you been living here?",
+        "emo": "polite, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I've been living here for twelve years.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Your English is really good.",
+        "emo": "impressed, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I used to struggle with English too.",
+        "emo": "happy, proud",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Really? How did you improve so much?",
+        "emo": "curious, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Aiva AI, I just practice real conversations for about ten minutes a day. That's it.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¿Hablas inglés?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Más o menos.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "¿De dónde eres? Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 3,
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "Casi. Mejor di: I am from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 3,
+        "to": "I am from Mexico.",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Siempre me confundo con eso.",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Para eso estoy yo, para ayudarte a hablar bien.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none",
+        "phan": 3,
+        "icon": "dollar"
+      },
+      {
+        "who": "day",
+        "text": "Que no necesitas dinero con Aiva AI. Puedes practicar inglés gratis. No es como las otras apps o cursos caros.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Es en serio?",
+        "emo": "surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Claro, nada de trampas. Solo práctica real de conversación en inglés con tu tutor de inteligencia artificial.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como un tutorial?",
+        "emo": "curious, surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Sí. Corrijo tu gramática, pronunciación y te ayudo a hablar con confianza.",
+        "emo": "warm, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Okey. Entonces, ¿voy a descargar Aiva AI ahorita mismo?",
+        "emo": "happy, excited",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Muy buena decisión. Vamos a hablar inglés juntos.",
+        "emo": "warm, cheerful",
+        "fx": "none",
+        "phan": 3
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/di-tru-aiva-ai/anh/hk-02.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-canhsat.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-day.png"
+      ]
+    }
+  },
+  {
+    "name": "hk-03-nu-tre-phu-bep",
+    "DAO_CAFE": "a white takeaway coffee cup with a brown cardboard sleeve and a white lid, held in one hand at waist height",
+    "NEN_NHA": "a modest, tidy family living room in a small Los Angeles house: a window on the right with daylight and a palm tree outside, a brown sofa, framed family photos and a small wooden cross on a cream wall on the left, softly out of focus",
+    "NEN_PHO": "a sunny Southern-California street corner: the sidewalk outside a small convenience store with red-and-white striped trim and glass doors covered in blurry colourful posters with no readable text, a crosswalk, traffic lights, power poles and palm trees, a few parked cars, bright midday sun, blue sky",
+    "TEN_CANHSAT": "the officer",
+    "VAI_CANHSAT": "police officer",
+    "NGUOI_CANHSAT": "an American police officer in his mid-forties, white, short light-brown hair, clean-shaven, blue eyes, fit build; a dark-navy short-sleeve police uniform shirt with a plain silver badge shape and a black shoulder radio, a black duty belt",
+    "GIONG_CANHSAT": "a confident American man in his forties, mid-low voice around 130–150 Hz, polite, calm and official, General American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm dark eyes and softly sculpted lips, a bald white helmet-like head, a soft glowing white halo ring behind the head, white segmented armour panels over black mechanical joints on the neck, chest, shoulders and arms",
+    "GIONG_DAY": "a calm, smooth, warm feminine voice with a light synthetic sheen, around 150–190 Hz, natural Mexican Spanish, clear and patient; says English words with a neutral American accent",
+    "NEN_DAY": "a soft light-grey studio backdrop with a faint white glow behind the head",
+    "TEN_HOC": "Lupita",
+    "VAI_HOC": "young woman",
+    "NGUOI_HOC": "a Mexican woman about 28, curly hair tied up under a colourful bandana, a tattoo on the arm, bold makeup, gold hoop earrings; a fitted white chef's jacket, an apron, fitted black trousers and kitchen shoes",
+    "GIONG_HOC": "a real young Mexican woman's voice, around 200–240 Hz, warm and casual, native Mexican Spanish; speaks English as a learner with a clear Mexican accent; a real person, not an actress",
+    "HE_HOC": "she",
+    "HIM_HOC": "her",
+    "TEN_BO": "Lupita's father",
+    "VAI_BO": "father on the phone",
+    "NGUOI_BO": "a Mexican man in his mid-fifties, short black hair greying at the temples, a thick moustache, tired kind eyes, tan skin; a light-blue button-up work shirt",
+    "GIONG_BO": "a Mexican man in his fifties, around 110–130 Hz, worried, urgent and hushed, native Mexican Spanish; a real person, not an actor",
+    "NHIN_HOC": "looks into the lens as if talking to a friend on a video call",
+    "NGHE_HOC": "waits with an attentive soft smile, eyes on the lens, the lips gently pressed together, holding the coffee cup still",
+    "POS_BO": "alone-in-frame",
+    "POS_HOC@1": "alone-in-frame",
+    "NHIN_BO": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_BO": "holds the phone to his ear with the mouth closed, worried eyes, still",
+    "NHIN_HOC@1": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_HOC@1": "holds the phone to her ear with the mouth closed, still",
+    "POS_HOC@2": "LEFT",
+    "POS_CANHSAT": "RIGHT",
+    "NHIN_HOC@2": "looks at the officer's face",
+    "NGHE_HOC@2": "keeps looking at the officer with the mouth closed, holding the coffee cup still",
+    "NHIN_CANHSAT": "looks at the young woman's face",
+    "NGHE_CANHSAT": "keeps looking at the young woman with the mouth closed, hands still, calm face",
+    "LUOT": [
+      {
+        "who": "bo",
+        "text": "Mija, no regreses a casa todavía.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Qué? ¿Por qué?",
+        "emo": "confused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Hay agentes de inmigración en la calle.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Pero yo no hice nada.",
+        "emo": "worried, hesitant",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Ya sé, tú tranquila.",
+        "emo": "calm, reassuring",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Good morning. Can I ask you a few questions?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. What would you like to know?",
+        "emo": "attentive, nervous",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Where are you from?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Mexico.",
+        "emo": "calm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "How long have you been living here?",
+        "emo": "polite, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I've been living here for twelve years.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Your English is really good.",
+        "emo": "impressed, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I used to struggle with English too.",
+        "emo": "happy, proud",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Really? How did you improve so much?",
+        "emo": "curious, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Aiva AI, I just practice real conversations for about ten minutes a day. That's it.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¿Hablas inglés?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Más o menos.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "¿De dónde eres? Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 3,
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "Casi. Mejor di: I am from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 3,
+        "to": "I am from Mexico.",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Siempre me confundo con eso.",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Para eso estoy yo, para ayudarte a hablar bien.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none",
+        "phan": 3,
+        "icon": "dollar"
+      },
+      {
+        "who": "day",
+        "text": "Que no necesitas dinero con Aiva AI. Puedes practicar inglés gratis. No es como las otras apps o cursos caros.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Es en serio?",
+        "emo": "surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Claro, nada de trampas. Solo práctica real de conversación en inglés con tu tutor de inteligencia artificial.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como un tutorial?",
+        "emo": "curious, surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Sí. Corrijo tu gramática, pronunciación y te ayudo a hablar con confianza.",
+        "emo": "warm, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Okey. Entonces, ¿voy a descargar Aiva AI ahorita mismo?",
+        "emo": "happy, excited",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Muy buena decisión. Vamos a hablar inglés juntos.",
+        "emo": "warm, cheerful",
+        "fx": "none",
+        "phan": 3
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/di-tru-aiva-ai/anh/hk-03.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-canhsat.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-day.png"
+      ]
+    }
+  },
+  {
+    "name": "hk-05-nam-tre-xay-dung",
+    "DAO_CAFE": "a white takeaway coffee cup with a brown cardboard sleeve and a white lid, held in one hand at waist height",
+    "NEN_NHA": "a modest, tidy family living room in a small Los Angeles house: a window on the right with daylight and a palm tree outside, a brown sofa, framed family photos and a small wooden cross on a cream wall on the left, softly out of focus",
+    "NEN_PHO": "a sunny Southern-California street corner: the sidewalk outside a small convenience store with red-and-white striped trim and glass doors covered in blurry colourful posters with no readable text, a crosswalk, traffic lights, power poles and palm trees, a few parked cars, bright midday sun, blue sky",
+    "TEN_CANHSAT": "the officer",
+    "VAI_CANHSAT": "police officer",
+    "NGUOI_CANHSAT": "an American police officer in his mid-forties, white, short light-brown hair, clean-shaven, blue eyes, fit build; a dark-navy short-sleeve police uniform shirt with a plain silver badge shape and a black shoulder radio, a black duty belt",
+    "GIONG_CANHSAT": "a confident American man in his forties, mid-low voice around 130–150 Hz, polite, calm and official, General American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm dark eyes and softly sculpted lips, a bald white helmet-like head, a soft glowing white halo ring behind the head, white segmented armour panels over black mechanical joints on the neck, chest, shoulders and arms",
+    "GIONG_DAY": "a calm, smooth, warm feminine voice with a light synthetic sheen, around 150–190 Hz, natural Mexican Spanish, clear and patient; says English words with a neutral American accent",
+    "NEN_DAY": "a soft light-grey studio backdrop with a faint white glow behind the head",
+    "TEN_HOC": "Alejandro",
+    "VAI_HOC": "young man",
+    "NGUOI_HOC": "a muscular Mexican man about 27, Aztec-pattern tattoo sleeves on both arms, a moustache, a gold chain; a white hard hat, a fitted white T-shirt under an open orange high-visibility vest, fitted jeans and brown work boots",
+    "GIONG_HOC": "a real young Mexican man's voice, around 125–150 Hz, slightly nasal and casual, native Mexican Spanish; speaks English as a learner with a clear Mexican accent; a real person, not an actor",
+    "HE_HOC": "he",
+    "HIM_HOC": "him",
+    "TEN_BO": "Alejandro's father",
+    "VAI_BO": "father on the phone",
+    "NGUOI_BO": "a Mexican man in his mid-fifties, short black hair greying at the temples, a thick moustache, tired kind eyes, tan skin; a light-blue button-up work shirt",
+    "GIONG_BO": "a Mexican man in his fifties, around 110–130 Hz, worried, urgent and hushed, native Mexican Spanish; a real person, not an actor",
+    "NHIN_HOC": "looks into the lens as if talking to a friend on a video call",
+    "NGHE_HOC": "waits with an attentive soft smile, eyes on the lens, the lips gently pressed together, holding the coffee cup still",
+    "POS_BO": "alone-in-frame",
+    "POS_HOC@1": "alone-in-frame",
+    "NHIN_BO": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_BO": "holds the phone to his ear with the mouth closed, worried eyes, still",
+    "NHIN_HOC@1": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_HOC@1": "holds the phone to his ear with the mouth closed, still",
+    "POS_HOC@2": "LEFT",
+    "POS_CANHSAT": "RIGHT",
+    "NHIN_HOC@2": "looks at the officer's face",
+    "NGHE_HOC@2": "keeps looking at the officer with the mouth closed, holding the coffee cup still",
+    "NHIN_CANHSAT": "looks at the young man's face",
+    "NGHE_CANHSAT": "keeps looking at the young man with the mouth closed, hands still, calm face",
+    "LUOT": [
+      {
+        "who": "bo",
+        "text": "Mijo, no regreses a casa todavía.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Qué? ¿Por qué?",
+        "emo": "confused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Hay agentes de inmigración en la calle.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Pero yo no hice nada.",
+        "emo": "worried, hesitant",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Ya sé, tú tranquilo.",
+        "emo": "calm, reassuring",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Good morning. Can I ask you a few questions?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. What would you like to know?",
+        "emo": "attentive, nervous",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Where are you from?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Mexico.",
+        "emo": "calm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "How long have you been living here?",
+        "emo": "polite, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I've been living here for twelve years.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Your English is really good.",
+        "emo": "impressed, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I used to struggle with English too.",
+        "emo": "happy, proud",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Really? How did you improve so much?",
+        "emo": "curious, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Aiva AI, I just practice real conversations for about ten minutes a day. That's it.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¿Hablas inglés?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Más o menos.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "¿De dónde eres? Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 3,
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "Casi. Mejor di: I am from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 3,
+        "to": "I am from Mexico.",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Siempre me confundo con eso.",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Para eso estoy yo, para ayudarte a hablar bien.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none",
+        "phan": 3,
+        "icon": "dollar"
+      },
+      {
+        "who": "day",
+        "text": "Que no necesitas dinero con Aiva AI. Puedes practicar inglés gratis. No es como las otras apps o cursos caros.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Es en serio?",
+        "emo": "surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Claro, nada de trampas. Solo práctica real de conversación en inglés con tu tutor de inteligencia artificial.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como un tutorial?",
+        "emo": "curious, surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Sí. Corrijo tu gramática, pronunciación y te ayudo a hablar con confianza.",
+        "emo": "warm, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Okey. Entonces, ¿voy a descargar Aiva AI ahorita mismo?",
+        "emo": "happy, excited",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Muy buena decisión. Vamos a hablar inglés juntos.",
+        "emo": "warm, cheerful",
+        "fx": "none",
+        "phan": 3
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/di-tru-aiva-ai/anh/hk-05.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-canhsat.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-day.png"
+      ]
+    }
+  },
+  {
+    "name": "hk-06-nam-tre-lam-vuon",
+    "DAO_CAFE": "a white takeaway coffee cup with a brown cardboard sleeve and a white lid, held in one hand at waist height",
+    "NEN_NHA": "a modest, tidy family living room in a small Los Angeles house: a window on the right with daylight and a palm tree outside, a brown sofa, framed family photos and a small wooden cross on a cream wall on the left, softly out of focus",
+    "NEN_PHO": "a sunny Southern-California street corner: the sidewalk outside a small convenience store with red-and-white striped trim and glass doors covered in blurry colourful posters with no readable text, a crosswalk, traffic lights, power poles and palm trees, a few parked cars, bright midday sun, blue sky",
+    "TEN_CANHSAT": "the officer",
+    "VAI_CANHSAT": "police officer",
+    "NGUOI_CANHSAT": "an American police officer in his mid-forties, white, short light-brown hair, clean-shaven, blue eyes, fit build; a dark-navy short-sleeve police uniform shirt with a plain silver badge shape and a black shoulder radio, a black duty belt",
+    "GIONG_CANHSAT": "a confident American man in his forties, mid-low voice around 130–150 Hz, polite, calm and official, General American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm dark eyes and softly sculpted lips, a bald white helmet-like head, a soft glowing white halo ring behind the head, white segmented armour panels over black mechanical joints on the neck, chest, shoulders and arms",
+    "GIONG_DAY": "a calm, smooth, warm feminine voice with a light synthetic sheen, around 150–190 Hz, natural Mexican Spanish, clear and patient; says English words with a neutral American accent",
+    "NEN_DAY": "a soft light-grey studio backdrop with a faint white glow behind the head",
+    "TEN_HOC": "Miguel",
+    "VAI_HOC": "young man",
+    "NGUOI_HOC": "a Mexican man about 29, tribal tattoos on the arms, a straw cowboy hat, a red bandana around the neck; a fitted plaid shirt with rolled sleeves, fitted jeans and leather boots",
+    "GIONG_HOC": "a real young Mexican man's voice, around 125–150 Hz, slightly nasal and casual, native Mexican Spanish; speaks English as a learner with a clear Mexican accent; a real person, not an actor",
+    "HE_HOC": "he",
+    "HIM_HOC": "him",
+    "TEN_BO": "Miguel's father",
+    "VAI_BO": "father on the phone",
+    "NGUOI_BO": "a Mexican man in his mid-fifties, short black hair greying at the temples, a thick moustache, tired kind eyes, tan skin; a light-blue button-up work shirt",
+    "GIONG_BO": "a Mexican man in his fifties, around 110–130 Hz, worried, urgent and hushed, native Mexican Spanish; a real person, not an actor",
+    "NHIN_HOC": "looks into the lens as if talking to a friend on a video call",
+    "NGHE_HOC": "waits with an attentive soft smile, eyes on the lens, the lips gently pressed together, holding the coffee cup still",
+    "POS_BO": "alone-in-frame",
+    "POS_HOC@1": "alone-in-frame",
+    "NHIN_BO": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_BO": "holds the phone to his ear with the mouth closed, worried eyes, still",
+    "NHIN_HOC@1": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_HOC@1": "holds the phone to his ear with the mouth closed, still",
+    "POS_HOC@2": "LEFT",
+    "POS_CANHSAT": "RIGHT",
+    "NHIN_HOC@2": "looks at the officer's face",
+    "NGHE_HOC@2": "keeps looking at the officer with the mouth closed, holding the coffee cup still",
+    "NHIN_CANHSAT": "looks at the young man's face",
+    "NGHE_CANHSAT": "keeps looking at the young man with the mouth closed, hands still, calm face",
+    "LUOT": [
+      {
+        "who": "bo",
+        "text": "Mijo, no regreses a casa todavía.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Qué? ¿Por qué?",
+        "emo": "confused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Hay agentes de inmigración en la calle.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Pero yo no hice nada.",
+        "emo": "worried, hesitant",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Ya sé, tú tranquilo.",
+        "emo": "calm, reassuring",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Good morning. Can I ask you a few questions?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. What would you like to know?",
+        "emo": "attentive, nervous",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Where are you from?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Mexico.",
+        "emo": "calm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "How long have you been living here?",
+        "emo": "polite, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I've been living here for twelve years.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Your English is really good.",
+        "emo": "impressed, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I used to struggle with English too.",
+        "emo": "happy, proud",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Really? How did you improve so much?",
+        "emo": "curious, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Aiva AI, I just practice real conversations for about ten minutes a day. That's it.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¿Hablas inglés?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Más o menos.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "¿De dónde eres? Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 3,
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "Casi. Mejor di: I am from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 3,
+        "to": "I am from Mexico.",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Siempre me confundo con eso.",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Para eso estoy yo, para ayudarte a hablar bien.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none",
+        "phan": 3,
+        "icon": "dollar"
+      },
+      {
+        "who": "day",
+        "text": "Que no necesitas dinero con Aiva AI. Puedes practicar inglés gratis. No es como las otras apps o cursos caros.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Es en serio?",
+        "emo": "surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Claro, nada de trampas. Solo práctica real de conversación en inglés con tu tutor de inteligencia artificial.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como un tutorial?",
+        "emo": "curious, surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Sí. Corrijo tu gramática, pronunciación y te ayudo a hablar con confianza.",
+        "emo": "warm, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Okey. Entonces, ¿voy a descargar Aiva AI ahorita mismo?",
+        "emo": "happy, excited",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Muy buena decisión. Vamos a hablar inglés juntos.",
+        "emo": "warm, cheerful",
+        "fx": "none",
+        "phan": 3
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/di-tru-aiva-ai/anh/hk-06.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-canhsat.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-day.png"
+      ]
+    }
+  },
+  {
+    "name": "hk-07-nam-tre-dau-bep",
+    "DAO_CAFE": "a white takeaway coffee cup with a brown cardboard sleeve and a white lid, held in one hand at waist height",
+    "NEN_NHA": "a modest, tidy family living room in a small Los Angeles house: a window on the right with daylight and a palm tree outside, a brown sofa, framed family photos and a small wooden cross on a cream wall on the left, softly out of focus",
+    "NEN_PHO": "a sunny Southern-California street corner: the sidewalk outside a small convenience store with red-and-white striped trim and glass doors covered in blurry colourful posters with no readable text, a crosswalk, traffic lights, power poles and palm trees, a few parked cars, bright midday sun, blue sky",
+    "TEN_CANHSAT": "the officer",
+    "VAI_CANHSAT": "police officer",
+    "NGUOI_CANHSAT": "an American police officer in his mid-forties, white, short light-brown hair, clean-shaven, blue eyes, fit build; a dark-navy short-sleeve police uniform shirt with a plain silver badge shape and a black shoulder radio, a black duty belt",
+    "GIONG_CANHSAT": "a confident American man in his forties, mid-low voice around 130–150 Hz, polite, calm and official, General American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm dark eyes and softly sculpted lips, a bald white helmet-like head, a soft glowing white halo ring behind the head, white segmented armour panels over black mechanical joints on the neck, chest, shoulders and arms",
+    "GIONG_DAY": "a calm, smooth, warm feminine voice with a light synthetic sheen, around 150–190 Hz, natural Mexican Spanish, clear and patient; says English words with a neutral American accent",
+    "NEN_DAY": "a soft light-grey studio backdrop with a faint white glow behind the head",
+    "TEN_HOC": "Javier",
+    "VAI_HOC": "young man",
+    "NGUOI_HOC": "a Mexican man about 26, a bandana on the head, an eagle tattoo on the chest and a swallow tattoo on the hand; a fitted white chef's jacket partly unbuttoned, a denim apron, fitted black trousers and kitchen shoes",
+    "GIONG_HOC": "a real young Mexican man's voice, around 125–150 Hz, slightly nasal and casual, native Mexican Spanish; speaks English as a learner with a clear Mexican accent; a real person, not an actor",
+    "HE_HOC": "he",
+    "HIM_HOC": "him",
+    "TEN_BO": "Javier's father",
+    "VAI_BO": "father on the phone",
+    "NGUOI_BO": "a Mexican man in his mid-fifties, short black hair greying at the temples, a thick moustache, tired kind eyes, tan skin; a light-blue button-up work shirt",
+    "GIONG_BO": "a Mexican man in his fifties, around 110–130 Hz, worried, urgent and hushed, native Mexican Spanish; a real person, not an actor",
+    "NHIN_HOC": "looks into the lens as if talking to a friend on a video call",
+    "NGHE_HOC": "waits with an attentive soft smile, eyes on the lens, the lips gently pressed together, holding the coffee cup still",
+    "POS_BO": "alone-in-frame",
+    "POS_HOC@1": "alone-in-frame",
+    "NHIN_BO": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_BO": "holds the phone to his ear with the mouth closed, worried eyes, still",
+    "NHIN_HOC@1": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_HOC@1": "holds the phone to his ear with the mouth closed, still",
+    "POS_HOC@2": "LEFT",
+    "POS_CANHSAT": "RIGHT",
+    "NHIN_HOC@2": "looks at the officer's face",
+    "NGHE_HOC@2": "keeps looking at the officer with the mouth closed, holding the coffee cup still",
+    "NHIN_CANHSAT": "looks at the young man's face",
+    "NGHE_CANHSAT": "keeps looking at the young man with the mouth closed, hands still, calm face",
+    "LUOT": [
+      {
+        "who": "bo",
+        "text": "Mijo, no regreses a casa todavía.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Qué? ¿Por qué?",
+        "emo": "confused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Hay agentes de inmigración en la calle.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Pero yo no hice nada.",
+        "emo": "worried, hesitant",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Ya sé, tú tranquilo.",
+        "emo": "calm, reassuring",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Good morning. Can I ask you a few questions?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. What would you like to know?",
+        "emo": "attentive, nervous",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Where are you from?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Mexico.",
+        "emo": "calm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "How long have you been living here?",
+        "emo": "polite, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I've been living here for twelve years.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Your English is really good.",
+        "emo": "impressed, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I used to struggle with English too.",
+        "emo": "happy, proud",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Really? How did you improve so much?",
+        "emo": "curious, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Aiva AI, I just practice real conversations for about ten minutes a day. That's it.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¿Hablas inglés?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Más o menos.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "¿De dónde eres? Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 3,
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "Casi. Mejor di: I am from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 3,
+        "to": "I am from Mexico.",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Siempre me confundo con eso.",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Para eso estoy yo, para ayudarte a hablar bien.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none",
+        "phan": 3,
+        "icon": "dollar"
+      },
+      {
+        "who": "day",
+        "text": "Que no necesitas dinero con Aiva AI. Puedes practicar inglés gratis. No es como las otras apps o cursos caros.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Es en serio?",
+        "emo": "surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Claro, nada de trampas. Solo práctica real de conversación en inglés con tu tutor de inteligencia artificial.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como un tutorial?",
+        "emo": "curious, surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Sí. Corrijo tu gramática, pronunciación y te ayudo a hablar con confianza.",
+        "emo": "warm, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Okey. Entonces, ¿voy a descargar Aiva AI ahorita mismo?",
+        "emo": "happy, excited",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Muy buena decisión. Vamos a hablar inglés juntos.",
+        "emo": "warm, cheerful",
+        "fx": "none",
+        "phan": 3
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/di-tru-aiva-ai/anh/hk-07.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-canhsat.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-day.png"
+      ]
+    }
+  },
+  {
+    "name": "hk-08-nam-tre-sua-xe",
+    "DAO_CAFE": "a white takeaway coffee cup with a brown cardboard sleeve and a white lid, held in one hand at waist height",
+    "NEN_NHA": "a modest, tidy family living room in a small Los Angeles house: a window on the right with daylight and a palm tree outside, a brown sofa, framed family photos and a small wooden cross on a cream wall on the left, softly out of focus",
+    "NEN_PHO": "a sunny Southern-California street corner: the sidewalk outside a small convenience store with red-and-white striped trim and glass doors covered in blurry colourful posters with no readable text, a crosswalk, traffic lights, power poles and palm trees, a few parked cars, bright midday sun, blue sky",
+    "TEN_CANHSAT": "the officer",
+    "VAI_CANHSAT": "police officer",
+    "NGUOI_CANHSAT": "an American police officer in his mid-forties, white, short light-brown hair, clean-shaven, blue eyes, fit build; a dark-navy short-sleeve police uniform shirt with a plain silver badge shape and a black shoulder radio, a black duty belt",
+    "GIONG_CANHSAT": "a confident American man in his forties, mid-low voice around 130–150 Hz, polite, calm and official, General American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm dark eyes and softly sculpted lips, a bald white helmet-like head, a soft glowing white halo ring behind the head, white segmented armour panels over black mechanical joints on the neck, chest, shoulders and arms",
+    "GIONG_DAY": "a calm, smooth, warm feminine voice with a light synthetic sheen, around 150–190 Hz, natural Mexican Spanish, clear and patient; says English words with a neutral American accent",
+    "NEN_DAY": "a soft light-grey studio backdrop with a faint white glow behind the head",
+    "TEN_HOC": "Ricardo",
+    "VAI_HOC": "young man",
+    "NGUOI_HOC": "a Mexican man about 30, full tattoo sleeves on both arms (skulls, wrenches, roses), a moustache, a gold chain; a fitted blue work-uniform shirt with rolled sleeves and a red bandana in the pocket, fitted trousers and boots",
+    "GIONG_HOC": "a real young Mexican man's voice, around 125–150 Hz, slightly nasal and casual, native Mexican Spanish; speaks English as a learner with a clear Mexican accent; a real person, not an actor",
+    "HE_HOC": "he",
+    "HIM_HOC": "him",
+    "TEN_BO": "Ricardo's father",
+    "VAI_BO": "father on the phone",
+    "NGUOI_BO": "a Mexican man in his mid-fifties, short black hair greying at the temples, a thick moustache, tired kind eyes, tan skin; a light-blue button-up work shirt",
+    "GIONG_BO": "a Mexican man in his fifties, around 110–130 Hz, worried, urgent and hushed, native Mexican Spanish; a real person, not an actor",
+    "NHIN_HOC": "looks into the lens as if talking to a friend on a video call",
+    "NGHE_HOC": "waits with an attentive soft smile, eyes on the lens, the lips gently pressed together, holding the coffee cup still",
+    "POS_BO": "alone-in-frame",
+    "POS_HOC@1": "alone-in-frame",
+    "NHIN_BO": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_BO": "holds the phone to his ear with the mouth closed, worried eyes, still",
+    "NHIN_HOC@1": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_HOC@1": "holds the phone to his ear with the mouth closed, still",
+    "POS_HOC@2": "LEFT",
+    "POS_CANHSAT": "RIGHT",
+    "NHIN_HOC@2": "looks at the officer's face",
+    "NGHE_HOC@2": "keeps looking at the officer with the mouth closed, holding the coffee cup still",
+    "NHIN_CANHSAT": "looks at the young man's face",
+    "NGHE_CANHSAT": "keeps looking at the young man with the mouth closed, hands still, calm face",
+    "LUOT": [
+      {
+        "who": "bo",
+        "text": "Mijo, no regreses a casa todavía.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Qué? ¿Por qué?",
+        "emo": "confused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Hay agentes de inmigración en la calle.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Pero yo no hice nada.",
+        "emo": "worried, hesitant",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Ya sé, tú tranquilo.",
+        "emo": "calm, reassuring",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Good morning. Can I ask you a few questions?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. What would you like to know?",
+        "emo": "attentive, nervous",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Where are you from?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Mexico.",
+        "emo": "calm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "How long have you been living here?",
+        "emo": "polite, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I've been living here for twelve years.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Your English is really good.",
+        "emo": "impressed, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I used to struggle with English too.",
+        "emo": "happy, proud",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Really? How did you improve so much?",
+        "emo": "curious, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Aiva AI, I just practice real conversations for about ten minutes a day. That's it.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¿Hablas inglés?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Más o menos.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "¿De dónde eres? Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 3,
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "Casi. Mejor di: I am from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 3,
+        "to": "I am from Mexico.",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Siempre me confundo con eso.",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Para eso estoy yo, para ayudarte a hablar bien.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none",
+        "phan": 3,
+        "icon": "dollar"
+      },
+      {
+        "who": "day",
+        "text": "Que no necesitas dinero con Aiva AI. Puedes practicar inglés gratis. No es como las otras apps o cursos caros.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Es en serio?",
+        "emo": "surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Claro, nada de trampas. Solo práctica real de conversación en inglés con tu tutor de inteligencia artificial.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como un tutorial?",
+        "emo": "curious, surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Sí. Corrijo tu gramática, pronunciación y te ayudo a hablar con confianza.",
+        "emo": "warm, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Okey. Entonces, ¿voy a descargar Aiva AI ahorita mismo?",
+        "emo": "happy, excited",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Muy buena decisión. Vamos a hablar inglés juntos.",
+        "emo": "warm, cheerful",
+        "fx": "none",
+        "phan": 3
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/di-tru-aiva-ai/anh/hk-08.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-canhsat.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-day.png"
+      ]
+    }
+  },
+  {
+    "name": "hk-09-nam-tre-giao-hang",
+    "DAO_CAFE": "a white takeaway coffee cup with a brown cardboard sleeve and a white lid, held in one hand at waist height",
+    "NEN_NHA": "a modest, tidy family living room in a small Los Angeles house: a window on the right with daylight and a palm tree outside, a brown sofa, framed family photos and a small wooden cross on a cream wall on the left, softly out of focus",
+    "NEN_PHO": "a sunny Southern-California street corner: the sidewalk outside a small convenience store with red-and-white striped trim and glass doors covered in blurry colourful posters with no readable text, a crosswalk, traffic lights, power poles and palm trees, a few parked cars, bright midday sun, blue sky",
+    "TEN_CANHSAT": "the officer",
+    "VAI_CANHSAT": "police officer",
+    "NGUOI_CANHSAT": "an American police officer in his mid-forties, white, short light-brown hair, clean-shaven, blue eyes, fit build; a dark-navy short-sleeve police uniform shirt with a plain silver badge shape and a black shoulder radio, a black duty belt",
+    "GIONG_CANHSAT": "a confident American man in his forties, mid-low voice around 130–150 Hz, polite, calm and official, General American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm dark eyes and softly sculpted lips, a bald white helmet-like head, a soft glowing white halo ring behind the head, white segmented armour panels over black mechanical joints on the neck, chest, shoulders and arms",
+    "GIONG_DAY": "a calm, smooth, warm feminine voice with a light synthetic sheen, around 150–190 Hz, natural Mexican Spanish, clear and patient; says English words with a neutral American accent",
+    "NEN_DAY": "a soft light-grey studio backdrop with a faint white glow behind the head",
+    "TEN_HOC": "Luis",
+    "VAI_HOC": "young man",
+    "NGUOI_HOC": "a Mexican man about 24, tribal tattoos on the arm, a backwards baseball cap, a gold chain; a fitted blue polo shirt under an open reflective jacket, fitted black trousers and sneakers",
+    "GIONG_HOC": "a real young Mexican man's voice, around 125–150 Hz, slightly nasal and casual, native Mexican Spanish; speaks English as a learner with a clear Mexican accent; a real person, not an actor",
+    "HE_HOC": "he",
+    "HIM_HOC": "him",
+    "TEN_BO": "Luis's father",
+    "VAI_BO": "father on the phone",
+    "NGUOI_BO": "a Mexican man in his mid-fifties, short black hair greying at the temples, a thick moustache, tired kind eyes, tan skin; a light-blue button-up work shirt",
+    "GIONG_BO": "a Mexican man in his fifties, around 110–130 Hz, worried, urgent and hushed, native Mexican Spanish; a real person, not an actor",
+    "NHIN_HOC": "looks into the lens as if talking to a friend on a video call",
+    "NGHE_HOC": "waits with an attentive soft smile, eyes on the lens, the lips gently pressed together, holding the coffee cup still",
+    "POS_BO": "alone-in-frame",
+    "POS_HOC@1": "alone-in-frame",
+    "NHIN_BO": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_BO": "holds the phone to his ear with the mouth closed, worried eyes, still",
+    "NHIN_HOC@1": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_HOC@1": "holds the phone to his ear with the mouth closed, still",
+    "POS_HOC@2": "LEFT",
+    "POS_CANHSAT": "RIGHT",
+    "NHIN_HOC@2": "looks at the officer's face",
+    "NGHE_HOC@2": "keeps looking at the officer with the mouth closed, holding the coffee cup still",
+    "NHIN_CANHSAT": "looks at the young man's face",
+    "NGHE_CANHSAT": "keeps looking at the young man with the mouth closed, hands still, calm face",
+    "LUOT": [
+      {
+        "who": "bo",
+        "text": "Mijo, no regreses a casa todavía.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Qué? ¿Por qué?",
+        "emo": "confused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Hay agentes de inmigración en la calle.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Pero yo no hice nada.",
+        "emo": "worried, hesitant",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Ya sé, tú tranquilo.",
+        "emo": "calm, reassuring",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Good morning. Can I ask you a few questions?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. What would you like to know?",
+        "emo": "attentive, nervous",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Where are you from?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Mexico.",
+        "emo": "calm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "How long have you been living here?",
+        "emo": "polite, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I've been living here for twelve years.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Your English is really good.",
+        "emo": "impressed, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I used to struggle with English too.",
+        "emo": "happy, proud",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Really? How did you improve so much?",
+        "emo": "curious, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Aiva AI, I just practice real conversations for about ten minutes a day. That's it.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¿Hablas inglés?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Más o menos.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "¿De dónde eres? Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 3,
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "Casi. Mejor di: I am from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 3,
+        "to": "I am from Mexico.",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Siempre me confundo con eso.",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Para eso estoy yo, para ayudarte a hablar bien.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none",
+        "phan": 3,
+        "icon": "dollar"
+      },
+      {
+        "who": "day",
+        "text": "Que no necesitas dinero con Aiva AI. Puedes practicar inglés gratis. No es como las otras apps o cursos caros.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Es en serio?",
+        "emo": "surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Claro, nada de trampas. Solo práctica real de conversación en inglés con tu tutor de inteligencia artificial.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como un tutorial?",
+        "emo": "curious, surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Sí. Corrijo tu gramática, pronunciación y te ayudo a hablar con confianza.",
+        "emo": "warm, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Okey. Entonces, ¿voy a descargar Aiva AI ahorita mismo?",
+        "emo": "happy, excited",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Muy buena decisión. Vamos a hablar inglés juntos.",
+        "emo": "warm, cheerful",
+        "fx": "none",
+        "phan": 3
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/di-tru-aiva-ai/anh/hk-09.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-canhsat.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-day.png"
+      ]
+    }
+  },
+  {
+    "name": "hk-10-nu-tre-tho-nail",
+    "DAO_CAFE": "a white takeaway coffee cup with a brown cardboard sleeve and a white lid, held in one hand at waist height",
+    "NEN_NHA": "a modest, tidy family living room in a small Los Angeles house: a window on the right with daylight and a palm tree outside, a brown sofa, framed family photos and a small wooden cross on a cream wall on the left, softly out of focus",
+    "NEN_PHO": "a sunny Southern-California street corner: the sidewalk outside a small convenience store with red-and-white striped trim and glass doors covered in blurry colourful posters with no readable text, a crosswalk, traffic lights, power poles and palm trees, a few parked cars, bright midday sun, blue sky",
+    "TEN_CANHSAT": "the officer",
+    "VAI_CANHSAT": "police officer",
+    "NGUOI_CANHSAT": "an American police officer in his mid-forties, white, short light-brown hair, clean-shaven, blue eyes, fit build; a dark-navy short-sleeve police uniform shirt with a plain silver badge shape and a black shoulder radio, a black duty belt",
+    "GIONG_CANHSAT": "a confident American man in his forties, mid-low voice around 130–150 Hz, polite, calm and official, General American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm dark eyes and softly sculpted lips, a bald white helmet-like head, a soft glowing white halo ring behind the head, white segmented armour panels over black mechanical joints on the neck, chest, shoulders and arms",
+    "GIONG_DAY": "a calm, smooth, warm feminine voice with a light synthetic sheen, around 150–190 Hz, natural Mexican Spanish, clear and patient; says English words with a neutral American accent",
+    "NEN_DAY": "a soft light-grey studio backdrop with a faint white glow behind the head",
+    "TEN_HOC": "Andrea",
+    "VAI_HOC": "young woman",
+    "NGUOI_HOC": "a Mexican woman about 25, long straight black hair worn loose, a rose tattoo on the shoulder, bold makeup, gold hoop earrings; a fitted colourful embroidered top, a black apron, fitted black trousers and heels",
+    "GIONG_HOC": "a real young Mexican woman's voice, around 200–240 Hz, warm and casual, native Mexican Spanish; speaks English as a learner with a clear Mexican accent; a real person, not an actress",
+    "HE_HOC": "she",
+    "HIM_HOC": "her",
+    "TEN_BO": "Andrea's father",
+    "VAI_BO": "father on the phone",
+    "NGUOI_BO": "a Mexican man in his mid-fifties, short black hair greying at the temples, a thick moustache, tired kind eyes, tan skin; a light-blue button-up work shirt",
+    "GIONG_BO": "a Mexican man in his fifties, around 110–130 Hz, worried, urgent and hushed, native Mexican Spanish; a real person, not an actor",
+    "NHIN_HOC": "looks into the lens as if talking to a friend on a video call",
+    "NGHE_HOC": "waits with an attentive soft smile, eyes on the lens, the lips gently pressed together, holding the coffee cup still",
+    "POS_BO": "alone-in-frame",
+    "POS_HOC@1": "alone-in-frame",
+    "NHIN_BO": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_BO": "holds the phone to his ear with the mouth closed, worried eyes, still",
+    "NHIN_HOC@1": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_HOC@1": "holds the phone to her ear with the mouth closed, still",
+    "POS_HOC@2": "LEFT",
+    "POS_CANHSAT": "RIGHT",
+    "NHIN_HOC@2": "looks at the officer's face",
+    "NGHE_HOC@2": "keeps looking at the officer with the mouth closed, holding the coffee cup still",
+    "NHIN_CANHSAT": "looks at the young woman's face",
+    "NGHE_CANHSAT": "keeps looking at the young woman with the mouth closed, hands still, calm face",
+    "LUOT": [
+      {
+        "who": "bo",
+        "text": "Mija, no regreses a casa todavía.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Qué? ¿Por qué?",
+        "emo": "confused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Hay agentes de inmigración en la calle.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Pero yo no hice nada.",
+        "emo": "worried, hesitant",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Ya sé, tú tranquila.",
+        "emo": "calm, reassuring",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Good morning. Can I ask you a few questions?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. What would you like to know?",
+        "emo": "attentive, nervous",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Where are you from?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Mexico.",
+        "emo": "calm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "How long have you been living here?",
+        "emo": "polite, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I've been living here for twelve years.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Your English is really good.",
+        "emo": "impressed, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I used to struggle with English too.",
+        "emo": "happy, proud",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Really? How did you improve so much?",
+        "emo": "curious, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Aiva AI, I just practice real conversations for about ten minutes a day. That's it.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¿Hablas inglés?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Más o menos.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "¿De dónde eres? Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 3,
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "Casi. Mejor di: I am from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 3,
+        "to": "I am from Mexico.",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Siempre me confundo con eso.",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Para eso estoy yo, para ayudarte a hablar bien.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none",
+        "phan": 3,
+        "icon": "dollar"
+      },
+      {
+        "who": "day",
+        "text": "Que no necesitas dinero con Aiva AI. Puedes practicar inglés gratis. No es como las otras apps o cursos caros.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Es en serio?",
+        "emo": "surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Claro, nada de trampas. Solo práctica real de conversación en inglés con tu tutor de inteligencia artificial.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como un tutorial?",
+        "emo": "curious, surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Sí. Corrijo tu gramática, pronunciación y te ayudo a hablar con confianza.",
+        "emo": "warm, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Okey. Entonces, ¿voy a descargar Aiva AI ahorita mismo?",
+        "emo": "happy, excited",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Muy buena decisión. Vamos a hablar inglés juntos.",
+        "emo": "warm, cheerful",
+        "fx": "none",
+        "phan": 3
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/di-tru-aiva-ai/anh/hk-10.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-canhsat.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-day.png"
+      ]
+    }
+  },
+  {
+    "name": "hk-11-nu-gia-giup-viec-khach-san",
+    "DAO_CAFE": "a white takeaway coffee cup with a brown cardboard sleeve and a white lid, held in one hand at waist height",
+    "NEN_NHA": "a modest, tidy family living room in a small Los Angeles house: a window on the right with daylight and a palm tree outside, a brown sofa, framed family photos and a small wooden cross on a cream wall on the left, softly out of focus",
+    "NEN_PHO": "a sunny Southern-California street corner: the sidewalk outside a small convenience store with red-and-white striped trim and glass doors covered in blurry colourful posters with no readable text, a crosswalk, traffic lights, power poles and palm trees, a few parked cars, bright midday sun, blue sky",
+    "TEN_CANHSAT": "the officer",
+    "VAI_CANHSAT": "police officer",
+    "NGUOI_CANHSAT": "an American police officer in his mid-forties, white, short light-brown hair, clean-shaven, blue eyes, fit build; a dark-navy short-sleeve police uniform shirt with a plain silver badge shape and a black shoulder radio, a black duty belt",
+    "GIONG_CANHSAT": "a confident American man in his forties, mid-low voice around 130–150 Hz, polite, calm and official, General American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm dark eyes and softly sculpted lips, a bald white helmet-like head, a soft glowing white halo ring behind the head, white segmented armour panels over black mechanical joints on the neck, chest, shoulders and arms",
+    "GIONG_DAY": "a calm, smooth, warm feminine voice with a light synthetic sheen, around 150–190 Hz, natural Mexican Spanish, clear and patient; says English words with a neutral American accent",
+    "NEN_DAY": "a soft light-grey studio backdrop with a faint white glow behind the head",
+    "TEN_HOC": "Rosa",
+    "VAI_HOC": "older woman",
+    "NGUOI_HOC": "a Mexican woman about 62, silver hair in a loose bun, a kind proud face, gold earrings; a colourful embroidered blouse, a white apron, a fitted dark skirt and heels",
+    "GIONG_HOC": "a real Mexican woman's voice in her sixties, around 180–210 Hz, warm and slightly husky, native Mexican Spanish; speaks English as a learner with a clear Mexican accent; a real person, not an actress",
+    "HE_HOC": "she",
+    "HIM_HOC": "her",
+    "TEN_BO": "Rosa's son",
+    "VAI_BO": "adult son on the phone",
+    "NGUOI_BO": "a Mexican man about forty, short black hair, a neatly trimmed short beard, brown eyes, tan skin; a plain grey polo shirt",
+    "GIONG_BO": "a Mexican man about forty, around 120–140 Hz, worried, urgent and hushed, native Mexican Spanish; a real person, not an actor",
+    "NHIN_HOC": "looks into the lens as if talking to a friend on a video call",
+    "NGHE_HOC": "waits with an attentive soft smile, eyes on the lens, the lips gently pressed together, holding the coffee cup still",
+    "POS_BO": "alone-in-frame",
+    "POS_HOC@1": "alone-in-frame",
+    "NHIN_BO": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_BO": "holds the phone to his ear with the mouth closed, worried eyes, still",
+    "NHIN_HOC@1": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_HOC@1": "holds the phone to her ear with the mouth closed, still",
+    "POS_HOC@2": "LEFT",
+    "POS_CANHSAT": "RIGHT",
+    "NHIN_HOC@2": "looks at the officer's face",
+    "NGHE_HOC@2": "keeps looking at the officer with the mouth closed, holding the coffee cup still",
+    "NHIN_CANHSAT": "looks at the older woman's face",
+    "NGHE_CANHSAT": "keeps looking at the older woman with the mouth closed, hands still, calm face",
+    "LUOT": [
+      {
+        "who": "bo",
+        "text": "Mamá, no regreses a casa todavía.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Qué? ¿Por qué?",
+        "emo": "confused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Hay agentes de inmigración en la calle.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Pero yo no hice nada.",
+        "emo": "worried, hesitant",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Ya sé, tú tranquila.",
+        "emo": "calm, reassuring",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Good morning. Can I ask you a few questions?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. What would you like to know?",
+        "emo": "attentive, nervous",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Where are you from?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Mexico.",
+        "emo": "calm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "How long have you been living here?",
+        "emo": "polite, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I've been living here for twelve years.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Your English is really good.",
+        "emo": "impressed, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I used to struggle with English too.",
+        "emo": "happy, proud",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Really? How did you improve so much?",
+        "emo": "curious, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Aiva AI, I just practice real conversations for about ten minutes a day. That's it.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¿Hablas inglés?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Más o menos.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "¿De dónde eres? Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 3,
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "Casi. Mejor di: I am from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 3,
+        "to": "I am from Mexico.",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Siempre me confundo con eso.",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Para eso estoy yo, para ayudarte a hablar bien.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none",
+        "phan": 3,
+        "icon": "dollar"
+      },
+      {
+        "who": "day",
+        "text": "Que no necesitas dinero con Aiva AI. Puedes practicar inglés gratis. No es como las otras apps o cursos caros.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Es en serio?",
+        "emo": "surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Claro, nada de trampas. Solo práctica real de conversación en inglés con tu tutor de inteligencia artificial.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como un tutorial?",
+        "emo": "curious, surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Sí. Corrijo tu gramática, pronunciación y te ayudo a hablar con confianza.",
+        "emo": "warm, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Okey. Entonces, ¿voy a descargar Aiva AI ahorita mismo?",
+        "emo": "happy, excited",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Muy buena decisión. Vamos a hablar inglés juntos.",
+        "emo": "warm, cheerful",
+        "fx": "none",
+        "phan": 3
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/di-tru-aiva-ai/anh/hk-11.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-canhsat.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-day.png"
+      ]
+    }
+  },
+  {
+    "name": "hk-12-nu-gia-dau-bep",
+    "DAO_CAFE": "a white takeaway coffee cup with a brown cardboard sleeve and a white lid, held in one hand at waist height",
+    "NEN_NHA": "a modest, tidy family living room in a small Los Angeles house: a window on the right with daylight and a palm tree outside, a brown sofa, framed family photos and a small wooden cross on a cream wall on the left, softly out of focus",
+    "NEN_PHO": "a sunny Southern-California street corner: the sidewalk outside a small convenience store with red-and-white striped trim and glass doors covered in blurry colourful posters with no readable text, a crosswalk, traffic lights, power poles and palm trees, a few parked cars, bright midday sun, blue sky",
+    "TEN_CANHSAT": "the officer",
+    "VAI_CANHSAT": "police officer",
+    "NGUOI_CANHSAT": "an American police officer in his mid-forties, white, short light-brown hair, clean-shaven, blue eyes, fit build; a dark-navy short-sleeve police uniform shirt with a plain silver badge shape and a black shoulder radio, a black duty belt",
+    "GIONG_CANHSAT": "a confident American man in his forties, mid-low voice around 130–150 Hz, polite, calm and official, General American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm dark eyes and softly sculpted lips, a bald white helmet-like head, a soft glowing white halo ring behind the head, white segmented armour panels over black mechanical joints on the neck, chest, shoulders and arms",
+    "GIONG_DAY": "a calm, smooth, warm feminine voice with a light synthetic sheen, around 150–190 Hz, natural Mexican Spanish, clear and patient; says English words with a neutral American accent",
+    "NEN_DAY": "a soft light-grey studio backdrop with a faint white glow behind the head",
+    "TEN_HOC": "Carmen",
+    "VAI_HOC": "older woman",
+    "NGUOI_HOC": "a Mexican woman about 65, silver hair tied with colourful ribbons, a gold necklace; a bright Mexican-embroidered blouse, a floral apron, a long full hot-pink skirt and heeled sandals",
+    "GIONG_HOC": "a real Mexican woman's voice in her sixties, around 180–210 Hz, warm and slightly husky, native Mexican Spanish; speaks English as a learner with a clear Mexican accent; a real person, not an actress",
+    "HE_HOC": "she",
+    "HIM_HOC": "her",
+    "TEN_BO": "Carmen's son",
+    "VAI_BO": "adult son on the phone",
+    "NGUOI_BO": "a Mexican man about forty, short black hair, a neatly trimmed short beard, brown eyes, tan skin; a plain grey polo shirt",
+    "GIONG_BO": "a Mexican man about forty, around 120–140 Hz, worried, urgent and hushed, native Mexican Spanish; a real person, not an actor",
+    "NHIN_HOC": "looks into the lens as if talking to a friend on a video call",
+    "NGHE_HOC": "waits with an attentive soft smile, eyes on the lens, the lips gently pressed together, holding the coffee cup still",
+    "POS_BO": "alone-in-frame",
+    "POS_HOC@1": "alone-in-frame",
+    "NHIN_BO": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_BO": "holds the phone to his ear with the mouth closed, worried eyes, still",
+    "NHIN_HOC@1": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_HOC@1": "holds the phone to her ear with the mouth closed, still",
+    "POS_HOC@2": "LEFT",
+    "POS_CANHSAT": "RIGHT",
+    "NHIN_HOC@2": "looks at the officer's face",
+    "NGHE_HOC@2": "keeps looking at the officer with the mouth closed, holding the coffee cup still",
+    "NHIN_CANHSAT": "looks at the older woman's face",
+    "NGHE_CANHSAT": "keeps looking at the older woman with the mouth closed, hands still, calm face",
+    "LUOT": [
+      {
+        "who": "bo",
+        "text": "Mamá, no regreses a casa todavía.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Qué? ¿Por qué?",
+        "emo": "confused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Hay agentes de inmigración en la calle.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Pero yo no hice nada.",
+        "emo": "worried, hesitant",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Ya sé, tú tranquila.",
+        "emo": "calm, reassuring",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Good morning. Can I ask you a few questions?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. What would you like to know?",
+        "emo": "attentive, nervous",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Where are you from?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Mexico.",
+        "emo": "calm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "How long have you been living here?",
+        "emo": "polite, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I've been living here for twelve years.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Your English is really good.",
+        "emo": "impressed, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I used to struggle with English too.",
+        "emo": "happy, proud",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Really? How did you improve so much?",
+        "emo": "curious, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Aiva AI, I just practice real conversations for about ten minutes a day. That's it.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¿Hablas inglés?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Más o menos.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "¿De dónde eres? Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 3,
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "Casi. Mejor di: I am from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 3,
+        "to": "I am from Mexico.",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Siempre me confundo con eso.",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Para eso estoy yo, para ayudarte a hablar bien.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none",
+        "phan": 3,
+        "icon": "dollar"
+      },
+      {
+        "who": "day",
+        "text": "Que no necesitas dinero con Aiva AI. Puedes practicar inglés gratis. No es como las otras apps o cursos caros.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Es en serio?",
+        "emo": "surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Claro, nada de trampas. Solo práctica real de conversación en inglés con tu tutor de inteligencia artificial.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como un tutorial?",
+        "emo": "curious, surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Sí. Corrijo tu gramática, pronunciación y te ayudo a hablar con confianza.",
+        "emo": "warm, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Okey. Entonces, ¿voy a descargar Aiva AI ahorita mismo?",
+        "emo": "happy, excited",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Muy buena decisión. Vamos a hablar inglés juntos.",
+        "emo": "warm, cheerful",
+        "fx": "none",
+        "phan": 3
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/di-tru-aiva-ai/anh/hk-12.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-canhsat.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-day.png"
+      ]
+    }
+  },
+  {
+    "name": "hk-13-nu-gia-tho-may",
+    "DAO_CAFE": "a white takeaway coffee cup with a brown cardboard sleeve and a white lid, held in one hand at waist height",
+    "NEN_NHA": "a modest, tidy family living room in a small Los Angeles house: a window on the right with daylight and a palm tree outside, a brown sofa, framed family photos and a small wooden cross on a cream wall on the left, softly out of focus",
+    "NEN_PHO": "a sunny Southern-California street corner: the sidewalk outside a small convenience store with red-and-white striped trim and glass doors covered in blurry colourful posters with no readable text, a crosswalk, traffic lights, power poles and palm trees, a few parked cars, bright midday sun, blue sky",
+    "TEN_CANHSAT": "the officer",
+    "VAI_CANHSAT": "police officer",
+    "NGUOI_CANHSAT": "an American police officer in his mid-forties, white, short light-brown hair, clean-shaven, blue eyes, fit build; a dark-navy short-sleeve police uniform shirt with a plain silver badge shape and a black shoulder radio, a black duty belt",
+    "GIONG_CANHSAT": "a confident American man in his forties, mid-low voice around 130–150 Hz, polite, calm and official, General American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm dark eyes and softly sculpted lips, a bald white helmet-like head, a soft glowing white halo ring behind the head, white segmented armour panels over black mechanical joints on the neck, chest, shoulders and arms",
+    "GIONG_DAY": "a calm, smooth, warm feminine voice with a light synthetic sheen, around 150–190 Hz, natural Mexican Spanish, clear and patient; says English words with a neutral American accent",
+    "NEN_DAY": "a soft light-grey studio backdrop with a faint white glow behind the head",
+    "TEN_HOC": "Guadalupe",
+    "VAI_HOC": "older woman",
+    "NGUOI_HOC": "a Mexican woman about 60, salt-and-pepper hair in a loose bun, big gold hoop earrings; a bright turquoise embroidered blouse, a long multicoloured skirt, an apron and heels",
+    "GIONG_HOC": "a real Mexican woman's voice in her sixties, around 180–210 Hz, warm and slightly husky, native Mexican Spanish; speaks English as a learner with a clear Mexican accent; a real person, not an actress",
+    "HE_HOC": "she",
+    "HIM_HOC": "her",
+    "TEN_BO": "Guadalupe's son",
+    "VAI_BO": "adult son on the phone",
+    "NGUOI_BO": "a Mexican man about forty, short black hair, a neatly trimmed short beard, brown eyes, tan skin; a plain grey polo shirt",
+    "GIONG_BO": "a Mexican man about forty, around 120–140 Hz, worried, urgent and hushed, native Mexican Spanish; a real person, not an actor",
+    "NHIN_HOC": "looks into the lens as if talking to a friend on a video call",
+    "NGHE_HOC": "waits with an attentive soft smile, eyes on the lens, the lips gently pressed together, holding the coffee cup still",
+    "POS_BO": "alone-in-frame",
+    "POS_HOC@1": "alone-in-frame",
+    "NHIN_BO": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_BO": "holds the phone to his ear with the mouth closed, worried eyes, still",
+    "NHIN_HOC@1": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_HOC@1": "holds the phone to her ear with the mouth closed, still",
+    "POS_HOC@2": "LEFT",
+    "POS_CANHSAT": "RIGHT",
+    "NHIN_HOC@2": "looks at the officer's face",
+    "NGHE_HOC@2": "keeps looking at the officer with the mouth closed, holding the coffee cup still",
+    "NHIN_CANHSAT": "looks at the older woman's face",
+    "NGHE_CANHSAT": "keeps looking at the older woman with the mouth closed, hands still, calm face",
+    "LUOT": [
+      {
+        "who": "bo",
+        "text": "Mamá, no regreses a casa todavía.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Qué? ¿Por qué?",
+        "emo": "confused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Hay agentes de inmigración en la calle.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Pero yo no hice nada.",
+        "emo": "worried, hesitant",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Ya sé, tú tranquila.",
+        "emo": "calm, reassuring",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Good morning. Can I ask you a few questions?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. What would you like to know?",
+        "emo": "attentive, nervous",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Where are you from?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Mexico.",
+        "emo": "calm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "How long have you been living here?",
+        "emo": "polite, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I've been living here for twelve years.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Your English is really good.",
+        "emo": "impressed, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I used to struggle with English too.",
+        "emo": "happy, proud",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Really? How did you improve so much?",
+        "emo": "curious, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Aiva AI, I just practice real conversations for about ten minutes a day. That's it.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¿Hablas inglés?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Más o menos.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "¿De dónde eres? Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 3,
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "Casi. Mejor di: I am from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 3,
+        "to": "I am from Mexico.",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Siempre me confundo con eso.",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Para eso estoy yo, para ayudarte a hablar bien.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none",
+        "phan": 3,
+        "icon": "dollar"
+      },
+      {
+        "who": "day",
+        "text": "Que no necesitas dinero con Aiva AI. Puedes practicar inglés gratis. No es como las otras apps o cursos caros.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Es en serio?",
+        "emo": "surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Claro, nada de trampas. Solo práctica real de conversación en inglés con tu tutor de inteligencia artificial.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como un tutorial?",
+        "emo": "curious, surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Sí. Corrijo tu gramática, pronunciación y te ayudo a hablar con confianza.",
+        "emo": "warm, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Okey. Entonces, ¿voy a descargar Aiva AI ahorita mismo?",
+        "emo": "happy, excited",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Muy buena decisión. Vamos a hablar inglés juntos.",
+        "emo": "warm, cheerful",
+        "fx": "none",
+        "phan": 3
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/di-tru-aiva-ai/anh/hk-13.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-canhsat.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-day.png"
+      ]
+    }
+  },
+  {
+    "name": "hk-14-nu-gia-cham-soc",
+    "DAO_CAFE": "a white takeaway coffee cup with a brown cardboard sleeve and a white lid, held in one hand at waist height",
+    "NEN_NHA": "a modest, tidy family living room in a small Los Angeles house: a window on the right with daylight and a palm tree outside, a brown sofa, framed family photos and a small wooden cross on a cream wall on the left, softly out of focus",
+    "NEN_PHO": "a sunny Southern-California street corner: the sidewalk outside a small convenience store with red-and-white striped trim and glass doors covered in blurry colourful posters with no readable text, a crosswalk, traffic lights, power poles and palm trees, a few parked cars, bright midday sun, blue sky",
+    "TEN_CANHSAT": "the officer",
+    "VAI_CANHSAT": "police officer",
+    "NGUOI_CANHSAT": "an American police officer in his mid-forties, white, short light-brown hair, clean-shaven, blue eyes, fit build; a dark-navy short-sleeve police uniform shirt with a plain silver badge shape and a black shoulder radio, a black duty belt",
+    "GIONG_CANHSAT": "a confident American man in his forties, mid-low voice around 130–150 Hz, polite, calm and official, General American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm dark eyes and softly sculpted lips, a bald white helmet-like head, a soft glowing white halo ring behind the head, white segmented armour panels over black mechanical joints on the neck, chest, shoulders and arms",
+    "GIONG_DAY": "a calm, smooth, warm feminine voice with a light synthetic sheen, around 150–190 Hz, natural Mexican Spanish, clear and patient; says English words with a neutral American accent",
+    "NEN_DAY": "a soft light-grey studio backdrop with a faint white glow behind the head",
+    "TEN_HOC": "Teresa",
+    "VAI_HOC": "older woman",
+    "NGUOI_HOC": "a Mexican woman about 68, silver hair tied with colourful ribbons, gold earrings and a gold pendant; a fitted polo shirt, trousers and flat shoes, a bright rebozo shawl over the shoulders",
+    "GIONG_HOC": "a real Mexican woman's voice in her sixties, around 180–210 Hz, warm and slightly husky, native Mexican Spanish; speaks English as a learner with a clear Mexican accent; a real person, not an actress",
+    "HE_HOC": "she",
+    "HIM_HOC": "her",
+    "TEN_BO": "Teresa's son",
+    "VAI_BO": "adult son on the phone",
+    "NGUOI_BO": "a Mexican man about forty, short black hair, a neatly trimmed short beard, brown eyes, tan skin; a plain grey polo shirt",
+    "GIONG_BO": "a Mexican man about forty, around 120–140 Hz, worried, urgent and hushed, native Mexican Spanish; a real person, not an actor",
+    "NHIN_HOC": "looks into the lens as if talking to a friend on a video call",
+    "NGHE_HOC": "waits with an attentive soft smile, eyes on the lens, the lips gently pressed together, holding the coffee cup still",
+    "POS_BO": "alone-in-frame",
+    "POS_HOC@1": "alone-in-frame",
+    "NHIN_BO": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_BO": "holds the phone to his ear with the mouth closed, worried eyes, still",
+    "NHIN_HOC@1": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_HOC@1": "holds the phone to her ear with the mouth closed, still",
+    "POS_HOC@2": "LEFT",
+    "POS_CANHSAT": "RIGHT",
+    "NHIN_HOC@2": "looks at the officer's face",
+    "NGHE_HOC@2": "keeps looking at the officer with the mouth closed, holding the coffee cup still",
+    "NHIN_CANHSAT": "looks at the older woman's face",
+    "NGHE_CANHSAT": "keeps looking at the older woman with the mouth closed, hands still, calm face",
+    "LUOT": [
+      {
+        "who": "bo",
+        "text": "Mamá, no regreses a casa todavía.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Qué? ¿Por qué?",
+        "emo": "confused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Hay agentes de inmigración en la calle.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Pero yo no hice nada.",
+        "emo": "worried, hesitant",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Ya sé, tú tranquila.",
+        "emo": "calm, reassuring",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Good morning. Can I ask you a few questions?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. What would you like to know?",
+        "emo": "attentive, nervous",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Where are you from?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Mexico.",
+        "emo": "calm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "How long have you been living here?",
+        "emo": "polite, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I've been living here for twelve years.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Your English is really good.",
+        "emo": "impressed, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I used to struggle with English too.",
+        "emo": "happy, proud",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Really? How did you improve so much?",
+        "emo": "curious, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Aiva AI, I just practice real conversations for about ten minutes a day. That's it.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¿Hablas inglés?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Más o menos.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "¿De dónde eres? Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 3,
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "Casi. Mejor di: I am from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 3,
+        "to": "I am from Mexico.",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Siempre me confundo con eso.",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Para eso estoy yo, para ayudarte a hablar bien.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none",
+        "phan": 3,
+        "icon": "dollar"
+      },
+      {
+        "who": "day",
+        "text": "Que no necesitas dinero con Aiva AI. Puedes practicar inglés gratis. No es como las otras apps o cursos caros.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Es en serio?",
+        "emo": "surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Claro, nada de trampas. Solo práctica real de conversación en inglés con tu tutor de inteligencia artificial.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como un tutorial?",
+        "emo": "curious, surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Sí. Corrijo tu gramática, pronunciación y te ayudo a hablar con confianza.",
+        "emo": "warm, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Okey. Entonces, ¿voy a descargar Aiva AI ahorita mismo?",
+        "emo": "happy, excited",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Muy buena decisión. Vamos a hablar inglés juntos.",
+        "emo": "warm, cheerful",
+        "fx": "none",
+        "phan": 3
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/di-tru-aiva-ai/anh/hk-14.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-canhsat.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-day.png"
+      ]
+    }
+  },
+  {
+    "name": "hk-15-nu-gia-ban-do-an",
+    "DAO_CAFE": "a white takeaway coffee cup with a brown cardboard sleeve and a white lid, held in one hand at waist height",
+    "NEN_NHA": "a modest, tidy family living room in a small Los Angeles house: a window on the right with daylight and a palm tree outside, a brown sofa, framed family photos and a small wooden cross on a cream wall on the left, softly out of focus",
+    "NEN_PHO": "a sunny Southern-California street corner: the sidewalk outside a small convenience store with red-and-white striped trim and glass doors covered in blurry colourful posters with no readable text, a crosswalk, traffic lights, power poles and palm trees, a few parked cars, bright midday sun, blue sky",
+    "TEN_CANHSAT": "the officer",
+    "VAI_CANHSAT": "police officer",
+    "NGUOI_CANHSAT": "an American police officer in his mid-forties, white, short light-brown hair, clean-shaven, blue eyes, fit build; a dark-navy short-sleeve police uniform shirt with a plain silver badge shape and a black shoulder radio, a black duty belt",
+    "GIONG_CANHSAT": "a confident American man in his forties, mid-low voice around 130–150 Hz, polite, calm and official, General American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm dark eyes and softly sculpted lips, a bald white helmet-like head, a soft glowing white halo ring behind the head, white segmented armour panels over black mechanical joints on the neck, chest, shoulders and arms",
+    "GIONG_DAY": "a calm, smooth, warm feminine voice with a light synthetic sheen, around 150–190 Hz, natural Mexican Spanish, clear and patient; says English words with a neutral American accent",
+    "NEN_DAY": "a soft light-grey studio backdrop with a faint white glow behind the head",
+    "TEN_HOC": "Josefina",
+    "VAI_HOC": "older woman",
+    "NGUOI_HOC": "a Mexican woman about 70, silver hair under a colourful head wrap, gold earrings; a bright Mexican-embroidered blouse, a long floral skirt, an apron and heeled sandals",
+    "GIONG_HOC": "a real Mexican woman's voice in her sixties, around 180–210 Hz, warm and slightly husky, native Mexican Spanish; speaks English as a learner with a clear Mexican accent; a real person, not an actress",
+    "HE_HOC": "she",
+    "HIM_HOC": "her",
+    "TEN_BO": "Josefina's son",
+    "VAI_BO": "adult son on the phone",
+    "NGUOI_BO": "a Mexican man about forty, short black hair, a neatly trimmed short beard, brown eyes, tan skin; a plain grey polo shirt",
+    "GIONG_BO": "a Mexican man about forty, around 120–140 Hz, worried, urgent and hushed, native Mexican Spanish; a real person, not an actor",
+    "NHIN_HOC": "looks into the lens as if talking to a friend on a video call",
+    "NGHE_HOC": "waits with an attentive soft smile, eyes on the lens, the lips gently pressed together, holding the coffee cup still",
+    "POS_BO": "alone-in-frame",
+    "POS_HOC@1": "alone-in-frame",
+    "NHIN_BO": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_BO": "holds the phone to his ear with the mouth closed, worried eyes, still",
+    "NHIN_HOC@1": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_HOC@1": "holds the phone to her ear with the mouth closed, still",
+    "POS_HOC@2": "LEFT",
+    "POS_CANHSAT": "RIGHT",
+    "NHIN_HOC@2": "looks at the officer's face",
+    "NGHE_HOC@2": "keeps looking at the officer with the mouth closed, holding the coffee cup still",
+    "NHIN_CANHSAT": "looks at the older woman's face",
+    "NGHE_CANHSAT": "keeps looking at the older woman with the mouth closed, hands still, calm face",
+    "LUOT": [
+      {
+        "who": "bo",
+        "text": "Mamá, no regreses a casa todavía.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Qué? ¿Por qué?",
+        "emo": "confused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Hay agentes de inmigración en la calle.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Pero yo no hice nada.",
+        "emo": "worried, hesitant",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Ya sé, tú tranquila.",
+        "emo": "calm, reassuring",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Good morning. Can I ask you a few questions?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. What would you like to know?",
+        "emo": "attentive, nervous",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Where are you from?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Mexico.",
+        "emo": "calm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "How long have you been living here?",
+        "emo": "polite, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I've been living here for twelve years.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Your English is really good.",
+        "emo": "impressed, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I used to struggle with English too.",
+        "emo": "happy, proud",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Really? How did you improve so much?",
+        "emo": "curious, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Aiva AI, I just practice real conversations for about ten minutes a day. That's it.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¿Hablas inglés?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Más o menos.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "¿De dónde eres? Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 3,
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "Casi. Mejor di: I am from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 3,
+        "to": "I am from Mexico.",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Siempre me confundo con eso.",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Para eso estoy yo, para ayudarte a hablar bien.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none",
+        "phan": 3,
+        "icon": "dollar"
+      },
+      {
+        "who": "day",
+        "text": "Que no necesitas dinero con Aiva AI. Puedes practicar inglés gratis. No es como las otras apps o cursos caros.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Es en serio?",
+        "emo": "surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Claro, nada de trampas. Solo práctica real de conversación en inglés con tu tutor de inteligencia artificial.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como un tutorial?",
+        "emo": "curious, surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Sí. Corrijo tu gramática, pronunciación y te ayudo a hablar con confianza.",
+        "emo": "warm, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Okey. Entonces, ¿voy a descargar Aiva AI ahorita mismo?",
+        "emo": "happy, excited",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Muy buena decisión. Vamos a hablar inglés juntos.",
+        "emo": "warm, cheerful",
+        "fx": "none",
+        "phan": 3
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/di-tru-aiva-ai/anh/hk-15.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-canhsat.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-day.png"
+      ]
+    }
+  },
+  {
+    "name": "hk-17-nam-gia-lam-vuon",
+    "DAO_CAFE": "a white takeaway coffee cup with a brown cardboard sleeve and a white lid, held in one hand at waist height",
+    "NEN_NHA": "a modest, tidy family living room in a small Los Angeles house: a window on the right with daylight and a palm tree outside, a brown sofa, framed family photos and a small wooden cross on a cream wall on the left, softly out of focus",
+    "NEN_PHO": "a sunny Southern-California street corner: the sidewalk outside a small convenience store with red-and-white striped trim and glass doors covered in blurry colourful posters with no readable text, a crosswalk, traffic lights, power poles and palm trees, a few parked cars, bright midday sun, blue sky",
+    "TEN_CANHSAT": "the officer",
+    "VAI_CANHSAT": "police officer",
+    "NGUOI_CANHSAT": "an American police officer in his mid-forties, white, short light-brown hair, clean-shaven, blue eyes, fit build; a dark-navy short-sleeve police uniform shirt with a plain silver badge shape and a black shoulder radio, a black duty belt",
+    "GIONG_CANHSAT": "a confident American man in his forties, mid-low voice around 130–150 Hz, polite, calm and official, General American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm dark eyes and softly sculpted lips, a bald white helmet-like head, a soft glowing white halo ring behind the head, white segmented armour panels over black mechanical joints on the neck, chest, shoulders and arms",
+    "GIONG_DAY": "a calm, smooth, warm feminine voice with a light synthetic sheen, around 150–190 Hz, natural Mexican Spanish, clear and patient; says English words with a neutral American accent",
+    "NEN_DAY": "a soft light-grey studio backdrop with a faint white glow behind the head",
+    "TEN_HOC": "Manuel",
+    "VAI_HOC": "older man",
+    "NGUOI_HOC": "a Mexican man about 68, grey hair, a moustache, tattoos on the arms, a gold chain; a cowboy hat, a bandana around the neck, a fitted red plaid shirt with rolled sleeves, fitted jeans and leather boots",
+    "GIONG_HOC": "a real older Mexican man's voice, around 105–130 Hz, slightly gravelly and warm, native Mexican Spanish; speaks English as a learner with a clear Mexican accent; a real person, not an actor",
+    "HE_HOC": "he",
+    "HIM_HOC": "him",
+    "TEN_BO": "Manuel's son",
+    "VAI_BO": "adult son on the phone",
+    "NGUOI_BO": "a Mexican man about forty, short black hair, a neatly trimmed short beard, brown eyes, tan skin; a plain grey polo shirt",
+    "GIONG_BO": "a Mexican man about forty, around 120–140 Hz, worried, urgent and hushed, native Mexican Spanish; a real person, not an actor",
+    "NHIN_HOC": "looks into the lens as if talking to a friend on a video call",
+    "NGHE_HOC": "waits with an attentive soft smile, eyes on the lens, the lips gently pressed together, holding the coffee cup still",
+    "POS_BO": "alone-in-frame",
+    "POS_HOC@1": "alone-in-frame",
+    "NHIN_BO": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_BO": "holds the phone to his ear with the mouth closed, worried eyes, still",
+    "NHIN_HOC@1": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_HOC@1": "holds the phone to his ear with the mouth closed, still",
+    "POS_HOC@2": "LEFT",
+    "POS_CANHSAT": "RIGHT",
+    "NHIN_HOC@2": "looks at the officer's face",
+    "NGHE_HOC@2": "keeps looking at the officer with the mouth closed, holding the coffee cup still",
+    "NHIN_CANHSAT": "looks at the older man's face",
+    "NGHE_CANHSAT": "keeps looking at the older man with the mouth closed, hands still, calm face",
+    "LUOT": [
+      {
+        "who": "bo",
+        "text": "Papá, no regreses a casa todavía.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Qué? ¿Por qué?",
+        "emo": "confused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Hay agentes de inmigración en la calle.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Pero yo no hice nada.",
+        "emo": "worried, hesitant",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Ya sé, tú tranquilo.",
+        "emo": "calm, reassuring",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Good morning. Can I ask you a few questions?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. What would you like to know?",
+        "emo": "attentive, nervous",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Where are you from?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Mexico.",
+        "emo": "calm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "How long have you been living here?",
+        "emo": "polite, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I've been living here for twelve years.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Your English is really good.",
+        "emo": "impressed, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I used to struggle with English too.",
+        "emo": "happy, proud",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Really? How did you improve so much?",
+        "emo": "curious, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Aiva AI, I just practice real conversations for about ten minutes a day. That's it.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¿Hablas inglés?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Más o menos.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "¿De dónde eres? Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 3,
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "Casi. Mejor di: I am from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 3,
+        "to": "I am from Mexico.",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Siempre me confundo con eso.",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Para eso estoy yo, para ayudarte a hablar bien.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none",
+        "phan": 3,
+        "icon": "dollar"
+      },
+      {
+        "who": "day",
+        "text": "Que no necesitas dinero con Aiva AI. Puedes practicar inglés gratis. No es como las otras apps o cursos caros.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Es en serio?",
+        "emo": "surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Claro, nada de trampas. Solo práctica real de conversación en inglés con tu tutor de inteligencia artificial.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como un tutorial?",
+        "emo": "curious, surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Sí. Corrijo tu gramática, pronunciación y te ayudo a hablar con confianza.",
+        "emo": "warm, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Okey. Entonces, ¿voy a descargar Aiva AI ahorita mismo?",
+        "emo": "happy, excited",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Muy buena decisión. Vamos a hablar inglés juntos.",
+        "emo": "warm, cheerful",
+        "fx": "none",
+        "phan": 3
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/di-tru-aiva-ai/anh/hk-17.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-canhsat.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-day.png"
+      ]
+    }
+  },
+  {
+    "name": "hk-18-nam-gia-nong-dan",
+    "DAO_CAFE": "a white takeaway coffee cup with a brown cardboard sleeve and a white lid, held in one hand at waist height",
+    "NEN_NHA": "a modest, tidy family living room in a small Los Angeles house: a window on the right with daylight and a palm tree outside, a brown sofa, framed family photos and a small wooden cross on a cream wall on the left, softly out of focus",
+    "NEN_PHO": "a sunny Southern-California street corner: the sidewalk outside a small convenience store with red-and-white striped trim and glass doors covered in blurry colourful posters with no readable text, a crosswalk, traffic lights, power poles and palm trees, a few parked cars, bright midday sun, blue sky",
+    "TEN_CANHSAT": "the officer",
+    "VAI_CANHSAT": "police officer",
+    "NGUOI_CANHSAT": "an American police officer in his mid-forties, white, short light-brown hair, clean-shaven, blue eyes, fit build; a dark-navy short-sleeve police uniform shirt with a plain silver badge shape and a black shoulder radio, a black duty belt",
+    "GIONG_CANHSAT": "a confident American man in his forties, mid-low voice around 130–150 Hz, polite, calm and official, General American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm dark eyes and softly sculpted lips, a bald white helmet-like head, a soft glowing white halo ring behind the head, white segmented armour panels over black mechanical joints on the neck, chest, shoulders and arms",
+    "GIONG_DAY": "a calm, smooth, warm feminine voice with a light synthetic sheen, around 150–190 Hz, natural Mexican Spanish, clear and patient; says English words with a neutral American accent",
+    "NEN_DAY": "a soft light-grey studio backdrop with a faint white glow behind the head",
+    "TEN_HOC": "Ramón",
+    "VAI_HOC": "older man",
+    "NGUOI_HOC": "a Mexican man about 62, salt-and-pepper hair, tattoos on the arms; a straw hat, a bandana around the neck, a fitted work shirt with rolled sleeves, fitted jeans and boots",
+    "GIONG_HOC": "a real older Mexican man's voice, around 105–130 Hz, slightly gravelly and warm, native Mexican Spanish; speaks English as a learner with a clear Mexican accent; a real person, not an actor",
+    "HE_HOC": "he",
+    "HIM_HOC": "him",
+    "TEN_BO": "Ramón's son",
+    "VAI_BO": "adult son on the phone",
+    "NGUOI_BO": "a Mexican man about forty, short black hair, a neatly trimmed short beard, brown eyes, tan skin; a plain grey polo shirt",
+    "GIONG_BO": "a Mexican man about forty, around 120–140 Hz, worried, urgent and hushed, native Mexican Spanish; a real person, not an actor",
+    "NHIN_HOC": "looks into the lens as if talking to a friend on a video call",
+    "NGHE_HOC": "waits with an attentive soft smile, eyes on the lens, the lips gently pressed together, holding the coffee cup still",
+    "POS_BO": "alone-in-frame",
+    "POS_HOC@1": "alone-in-frame",
+    "NHIN_BO": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_BO": "holds the phone to his ear with the mouth closed, worried eyes, still",
+    "NHIN_HOC@1": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_HOC@1": "holds the phone to his ear with the mouth closed, still",
+    "POS_HOC@2": "LEFT",
+    "POS_CANHSAT": "RIGHT",
+    "NHIN_HOC@2": "looks at the officer's face",
+    "NGHE_HOC@2": "keeps looking at the officer with the mouth closed, holding the coffee cup still",
+    "NHIN_CANHSAT": "looks at the older man's face",
+    "NGHE_CANHSAT": "keeps looking at the older man with the mouth closed, hands still, calm face",
+    "LUOT": [
+      {
+        "who": "bo",
+        "text": "Papá, no regreses a casa todavía.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Qué? ¿Por qué?",
+        "emo": "confused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Hay agentes de inmigración en la calle.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Pero yo no hice nada.",
+        "emo": "worried, hesitant",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Ya sé, tú tranquilo.",
+        "emo": "calm, reassuring",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Good morning. Can I ask you a few questions?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. What would you like to know?",
+        "emo": "attentive, nervous",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Where are you from?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Mexico.",
+        "emo": "calm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "How long have you been living here?",
+        "emo": "polite, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I've been living here for twelve years.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Your English is really good.",
+        "emo": "impressed, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I used to struggle with English too.",
+        "emo": "happy, proud",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Really? How did you improve so much?",
+        "emo": "curious, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Aiva AI, I just practice real conversations for about ten minutes a day. That's it.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¿Hablas inglés?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Más o menos.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "¿De dónde eres? Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 3,
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "Casi. Mejor di: I am from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 3,
+        "to": "I am from Mexico.",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Siempre me confundo con eso.",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Para eso estoy yo, para ayudarte a hablar bien.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none",
+        "phan": 3,
+        "icon": "dollar"
+      },
+      {
+        "who": "day",
+        "text": "Que no necesitas dinero con Aiva AI. Puedes practicar inglés gratis. No es como las otras apps o cursos caros.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Es en serio?",
+        "emo": "surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Claro, nada de trampas. Solo práctica real de conversación en inglés con tu tutor de inteligencia artificial.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como un tutorial?",
+        "emo": "curious, surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Sí. Corrijo tu gramática, pronunciación y te ayudo a hablar con confianza.",
+        "emo": "warm, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Okey. Entonces, ¿voy a descargar Aiva AI ahorita mismo?",
+        "emo": "happy, excited",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Muy buena decisión. Vamos a hablar inglés juntos.",
+        "emo": "warm, cheerful",
+        "fx": "none",
+        "phan": 3
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/di-tru-aiva-ai/anh/hk-18.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-canhsat.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-day.png"
+      ]
+    }
+  },
+  {
+    "name": "hk-19-nam-gia-tho-son",
+    "DAO_CAFE": "a white takeaway coffee cup with a brown cardboard sleeve and a white lid, held in one hand at waist height",
+    "NEN_NHA": "a modest, tidy family living room in a small Los Angeles house: a window on the right with daylight and a palm tree outside, a brown sofa, framed family photos and a small wooden cross on a cream wall on the left, softly out of focus",
+    "NEN_PHO": "a sunny Southern-California street corner: the sidewalk outside a small convenience store with red-and-white striped trim and glass doors covered in blurry colourful posters with no readable text, a crosswalk, traffic lights, power poles and palm trees, a few parked cars, bright midday sun, blue sky",
+    "TEN_CANHSAT": "the officer",
+    "VAI_CANHSAT": "police officer",
+    "NGUOI_CANHSAT": "an American police officer in his mid-forties, white, short light-brown hair, clean-shaven, blue eyes, fit build; a dark-navy short-sleeve police uniform shirt with a plain silver badge shape and a black shoulder radio, a black duty belt",
+    "GIONG_CANHSAT": "a confident American man in his forties, mid-low voice around 130–150 Hz, polite, calm and official, General American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm dark eyes and softly sculpted lips, a bald white helmet-like head, a soft glowing white halo ring behind the head, white segmented armour panels over black mechanical joints on the neck, chest, shoulders and arms",
+    "GIONG_DAY": "a calm, smooth, warm feminine voice with a light synthetic sheen, around 150–190 Hz, natural Mexican Spanish, clear and patient; says English words with a neutral American accent",
+    "NEN_DAY": "a soft light-grey studio backdrop with a faint white glow behind the head",
+    "TEN_HOC": "Jesús",
+    "VAI_HOC": "older man",
+    "NGUOI_HOC": "a Mexican man about 70, white hair, a kind face, tattoos on the arms; a white cap, a fitted white painter's shirt and white trousers, work shoes",
+    "GIONG_HOC": "a real older Mexican man's voice, around 105–130 Hz, slightly gravelly and warm, native Mexican Spanish; speaks English as a learner with a clear Mexican accent; a real person, not an actor",
+    "HE_HOC": "he",
+    "HIM_HOC": "him",
+    "TEN_BO": "Jesús's son",
+    "VAI_BO": "adult son on the phone",
+    "NGUOI_BO": "a Mexican man about forty, short black hair, a neatly trimmed short beard, brown eyes, tan skin; a plain grey polo shirt",
+    "GIONG_BO": "a Mexican man about forty, around 120–140 Hz, worried, urgent and hushed, native Mexican Spanish; a real person, not an actor",
+    "NHIN_HOC": "looks into the lens as if talking to a friend on a video call",
+    "NGHE_HOC": "waits with an attentive soft smile, eyes on the lens, the lips gently pressed together, holding the coffee cup still",
+    "POS_BO": "alone-in-frame",
+    "POS_HOC@1": "alone-in-frame",
+    "NHIN_BO": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_BO": "holds the phone to his ear with the mouth closed, worried eyes, still",
+    "NHIN_HOC@1": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_HOC@1": "holds the phone to his ear with the mouth closed, still",
+    "POS_HOC@2": "LEFT",
+    "POS_CANHSAT": "RIGHT",
+    "NHIN_HOC@2": "looks at the officer's face",
+    "NGHE_HOC@2": "keeps looking at the officer with the mouth closed, holding the coffee cup still",
+    "NHIN_CANHSAT": "looks at the older man's face",
+    "NGHE_CANHSAT": "keeps looking at the older man with the mouth closed, hands still, calm face",
+    "LUOT": [
+      {
+        "who": "bo",
+        "text": "Papá, no regreses a casa todavía.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Qué? ¿Por qué?",
+        "emo": "confused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Hay agentes de inmigración en la calle.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Pero yo no hice nada.",
+        "emo": "worried, hesitant",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Ya sé, tú tranquilo.",
+        "emo": "calm, reassuring",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Good morning. Can I ask you a few questions?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. What would you like to know?",
+        "emo": "attentive, nervous",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Where are you from?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Mexico.",
+        "emo": "calm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "How long have you been living here?",
+        "emo": "polite, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I've been living here for twelve years.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Your English is really good.",
+        "emo": "impressed, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I used to struggle with English too.",
+        "emo": "happy, proud",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Really? How did you improve so much?",
+        "emo": "curious, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Aiva AI, I just practice real conversations for about ten minutes a day. That's it.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¿Hablas inglés?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Más o menos.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "¿De dónde eres? Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 3,
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "Casi. Mejor di: I am from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 3,
+        "to": "I am from Mexico.",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Siempre me confundo con eso.",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Para eso estoy yo, para ayudarte a hablar bien.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none",
+        "phan": 3,
+        "icon": "dollar"
+      },
+      {
+        "who": "day",
+        "text": "Que no necesitas dinero con Aiva AI. Puedes practicar inglés gratis. No es como las otras apps o cursos caros.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Es en serio?",
+        "emo": "surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Claro, nada de trampas. Solo práctica real de conversación en inglés con tu tutor de inteligencia artificial.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como un tutorial?",
+        "emo": "curious, surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Sí. Corrijo tu gramática, pronunciación y te ayudo a hablar con confianza.",
+        "emo": "warm, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Okey. Entonces, ¿voy a descargar Aiva AI ahorita mismo?",
+        "emo": "happy, excited",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Muy buena decisión. Vamos a hablar inglés juntos.",
+        "emo": "warm, cheerful",
+        "fx": "none",
+        "phan": 3
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/di-tru-aiva-ai/anh/hk-19.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-canhsat.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-day.png"
+      ]
+    }
+  },
+  {
+    "name": "hk-20-nam-gia-lao-cong",
+    "DAO_CAFE": "a white takeaway coffee cup with a brown cardboard sleeve and a white lid, held in one hand at waist height",
+    "NEN_NHA": "a modest, tidy family living room in a small Los Angeles house: a window on the right with daylight and a palm tree outside, a brown sofa, framed family photos and a small wooden cross on a cream wall on the left, softly out of focus",
+    "NEN_PHO": "a sunny Southern-California street corner: the sidewalk outside a small convenience store with red-and-white striped trim and glass doors covered in blurry colourful posters with no readable text, a crosswalk, traffic lights, power poles and palm trees, a few parked cars, bright midday sun, blue sky",
+    "TEN_CANHSAT": "the officer",
+    "VAI_CANHSAT": "police officer",
+    "NGUOI_CANHSAT": "an American police officer in his mid-forties, white, short light-brown hair, clean-shaven, blue eyes, fit build; a dark-navy short-sleeve police uniform shirt with a plain silver badge shape and a black shoulder radio, a black duty belt",
+    "GIONG_CANHSAT": "a confident American man in his forties, mid-low voice around 130–150 Hz, polite, calm and official, General American accent",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a smooth matte-white porcelain face with calm dark eyes and softly sculpted lips, a bald white helmet-like head, a soft glowing white halo ring behind the head, white segmented armour panels over black mechanical joints on the neck, chest, shoulders and arms",
+    "GIONG_DAY": "a calm, smooth, warm feminine voice with a light synthetic sheen, around 150–190 Hz, natural Mexican Spanish, clear and patient; says English words with a neutral American accent",
+    "NEN_DAY": "a soft light-grey studio backdrop with a faint white glow behind the head",
+    "TEN_HOC": "Francisco",
+    "VAI_HOC": "older man",
+    "NGUOI_HOC": "a Mexican man about 66, grey hair, a moustache, tattoos on the arms, a gold chain; a blue cap, a fitted blue janitor uniform with rolled sleeves, fitted trousers and boots",
+    "GIONG_HOC": "a real older Mexican man's voice, around 105–130 Hz, slightly gravelly and warm, native Mexican Spanish; speaks English as a learner with a clear Mexican accent; a real person, not an actor",
+    "HE_HOC": "he",
+    "HIM_HOC": "him",
+    "TEN_BO": "Francisco's son",
+    "VAI_BO": "adult son on the phone",
+    "NGUOI_BO": "a Mexican man about forty, short black hair, a neatly trimmed short beard, brown eyes, tan skin; a plain grey polo shirt",
+    "GIONG_BO": "a Mexican man about forty, around 120–140 Hz, worried, urgent and hushed, native Mexican Spanish; a real person, not an actor",
+    "NHIN_HOC": "looks into the lens as if talking to a friend on a video call",
+    "NGHE_HOC": "waits with an attentive soft smile, eyes on the lens, the lips gently pressed together, holding the coffee cup still",
+    "POS_BO": "alone-in-frame",
+    "POS_HOC@1": "alone-in-frame",
+    "NHIN_BO": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_BO": "holds the phone to his ear with the mouth closed, worried eyes, still",
+    "NHIN_HOC@1": "looks slightly off to the side, past the camera, as if listening to the phone",
+    "NGHE_HOC@1": "holds the phone to his ear with the mouth closed, still",
+    "POS_HOC@2": "LEFT",
+    "POS_CANHSAT": "RIGHT",
+    "NHIN_HOC@2": "looks at the officer's face",
+    "NGHE_HOC@2": "keeps looking at the officer with the mouth closed, holding the coffee cup still",
+    "NHIN_CANHSAT": "looks at the older man's face",
+    "NGHE_CANHSAT": "keeps looking at the older man with the mouth closed, hands still, calm face",
+    "LUOT": [
+      {
+        "who": "bo",
+        "text": "Papá, no regreses a casa todavía.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "¿Qué? ¿Por qué?",
+        "emo": "confused",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Hay agentes de inmigración en la calle.",
+        "emo": "worried, urgent",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Pero yo no hice nada.",
+        "emo": "worried, hesitant",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "bo",
+        "text": "Ya sé, tú tranquilo.",
+        "emo": "calm, reassuring",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "canhsat",
+        "text": "Good morning. Can I ask you a few questions?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Of course. What would you like to know?",
+        "emo": "attentive, nervous",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Where are you from?",
+        "emo": "calm, attentive",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Mexico.",
+        "emo": "calm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "How long have you been living here?",
+        "emo": "polite, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I've been living here for twelve years.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Your English is really good.",
+        "emo": "impressed, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you. I used to struggle with English too.",
+        "emo": "happy, proud",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "canhsat",
+        "text": "Really? How did you improve so much?",
+        "emo": "curious, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Aiva AI, I just practice real conversations for about ten minutes a day. That's it.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¿Hablas inglés?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Más o menos.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "¿De dónde eres? Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "phan": 3,
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "Casi. Mejor di: I am from Mexico.",
+        "emo": "patient, encouraging",
+        "fx": "none",
+        "phan": 3,
+        "to": "I am from Mexico.",
+        "to_mau": "green"
+      },
+      {
+        "who": "hoc",
+        "text": "Siempre me confundo con eso.",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Para eso estoy yo, para ayudarte a hablar bien.",
+        "emo": "warm, reassuring",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none",
+        "phan": 3,
+        "icon": "dollar"
+      },
+      {
+        "who": "day",
+        "text": "Que no necesitas dinero con Aiva AI. Puedes practicar inglés gratis. No es como las otras apps o cursos caros.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Es en serio?",
+        "emo": "surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Claro, nada de trampas. Solo práctica real de conversación en inglés con tu tutor de inteligencia artificial.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como un tutorial?",
+        "emo": "curious, surprised",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Sí. Corrijo tu gramática, pronunciación y te ayudo a hablar con confianza.",
+        "emo": "warm, confident",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "hoc",
+        "text": "Okey. Entonces, ¿voy a descargar Aiva AI ahorita mismo?",
+        "emo": "happy, excited",
+        "fx": "none",
+        "phan": 3
+      },
+      {
+        "who": "day",
+        "text": "Muy buena decisión. Vamos a hablar inglés juntos.",
+        "emo": "warm, cheerful",
+        "fx": "none",
+        "phan": 3
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/di-tru-aiva-ai/anh/hk-20.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-canhsat.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/di-tru-aiva-ai/anh/ai-day.png"
+      ]
+    }
+  }
+]

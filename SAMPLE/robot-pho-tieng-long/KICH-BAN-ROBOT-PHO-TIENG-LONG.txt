@@ -1,0 +1,79 @@
+[STYLE LOCK]:
+Photorealistic cinematic CGI, vertical 9:16, sharp, warm late-afternoon daylight. One locked-off tripod shot at chest height, no cuts, no zoom. The TEACHER ({{TEN_DAY}}) stands in the middle of the frame facing the lens, seen from the thighs up: the top of the head (with the hat) at about 10 percent of the frame height, the face centered left to right (face center at 50 percent of the frame width), the head about 22 percent of the frame width, the shoulders about 60 percent of the frame width, the body cut by the bottom edge at the thighs. Same framing, lens and light in every clip. No captions, logos or subtitles anywhere in the frame.
+
+[CHAR LOCK]:
+TEACHER ({{TEN_DAY}}): {{NGUOI_DAY}} Outfit, identical in every clip: {{TRANG_PHUC}}. Same face, head, armor, hat and clothes in every frame. If a reference image of the teacher is attached, copy that robot's face, head and outfit exactly; its plain green studio backdrop is NOT part of the scene and must not appear. Voice: {{GIONG_DAY}}, the same voice in every clip. A lively, expressive human face; the lips open and move naturally with every word whenever the teacher speaks, accurate lip-sync. The arms hang relaxed at the sides with the hands open near the hips; small natural weight shifts and head movements only, no big gestures, the hands never rise above the waist.
+
+[SET LOCK]:
+{{NEN_PHO}} If a reference image of the place is attached, the background behind the teacher is that same place (same buildings, colours and light), rendered softly out of focus, with any lettering on signs left unreadable. Everything in the background is completely still: no passing people, no cars, no moving clouds, no swaying branches. Ground level: the teacher stands on the street, nothing between the teacher and the camera.
+
+[VIDEO SUFFIX]:
+Static camera. The teacher looks straight into the lens and speaks the line once at a lively, natural pace (about 4 words per second, short lines even faster), with a short natural pause between sentences. After the last word the teacher settles into the rest pose ({{DAO_NGHI}}) and holds still until the end of the clip (the tail is cut in editing; the next clip starts from that still frame). No music.
+
+[NEGATIVE]:
+captions, subtitles, logos, signs with readable letters, extra text; a second person or voice; the teacher larger, closer, smaller or off-center; the hands raised, pointing or waving; camera movement or zoom; background, weather or lighting change; face, armor, hat or clothes change; people walking, traffic, moving clouds; music, echo, robotic or text-to-speech voice; stiff face, closed lips while speaking or wrong lip-sync.
+
+[HAU KY]:
+loai: robot-pho-tieng-long
+Hậu kỳ vẽ bằng code theo khoá HAU_KY của biến thể: tiêu đề (ô xanh hai dòng phía trên đầu), badge sự kiện (ô cam + trắng bên trái), thẻ từ lóng "TEXANS SAY / IT MEANS" (hiện khi robot nói từ đó, nghĩa hiện khi robot nói nghĩa), phụ đề ô xanh từng cụm 2–4 từ với từ đang nói đổi màu. Muse không vẽ gì trong số này.
+
+CẢNH 1 (0:00–0:05): Lượt 1
+Bối cảnh: robot đứng giữa phố, nhìn thẳng ống kính, từ đùi trở lên; phía sau là {{NEN_PHO}}. Không có chữ, không có người khác.
+Voice: {{LUOT_1}}
+Khung đầu: New start frame: the teacher from the thighs up in the middle of the frame, facing the lens, top of the hat at about 10 percent of the height, arms relaxed at the sides, lips closed in a soft smile; behind: the street described in SET LOCK.
+Khung cuối: The teacher holds the rest pose, still, arms at the sides, lips closed; the street unchanged.
+Diễn biến: Robot nói ngay đầu clip, mặt sống động, đầu hơi nghiêng tự nhiên theo lời; hai tay buông thả dọc thân. Nói xong về tư thế nghỉ và đứng im.
+Prompt ảnh: One still image (the image itself), vertical 9:16, photorealistic: the TEACHER, {{NGUOI_DAY}} wearing {{TRANG_PHUC}}, standing in the middle of the frame facing the camera, seen from the thighs up, the top of the hat at about 10 percent of the frame height, the face centered, head about 22 percent of the frame width, shoulders about 60 percent of the frame width, arms relaxed at the sides with open hands near the hips, lips closed in a soft smile, looking straight into the lens. Behind: {{NEN_PHO}} No other people, no text, no signs with readable letters, no logos.
+Prompt video: Start exactly from the start frame. {{LUOT_1}} The teacher looks into the lens the whole time; the lips move with every word. The background stays exactly as in the start frame. The teacher stays the same size and in the same place. VIDEO SUFFIX.
+Audio: Only the teacher's voice, clean and close; faint, steady outdoor ambience far below the voice; no music.
+Negative prompt: text, captions, signs, logos; a second person; hands raised; camera movement; background or lighting change; closed lips while speaking.
+
+CẢNH 2 (0:05–0:10): Lượt 2
+Bối cảnh: giữ nguyên khung, robot và phố; không có chữ.
+Voice: {{LUOT_2}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: The teacher holds the rest pose, still, arms at the sides, lips closed; the street unchanged.
+Diễn biến: Robot nói ngay đầu clip, vui tươi; nói xong về tư thế nghỉ và đứng im.
+Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing, street and light). {{LUOT_2}} The teacher looks into the lens the whole time; the lips move with every word. The teacher stays the same size and in the same place. VIDEO SUFFIX.
+Audio: Only the teacher's voice, clean and close; faint, steady outdoor ambience far below the voice; no music.
+Negative prompt: text, captions, signs, logos; a second person; hands raised; camera movement; background or lighting change; closed lips while speaking.
+
+CẢNH 3 (0:10–0:15): Lượt 3
+Bối cảnh: giữ nguyên khung, robot và phố; không có chữ.
+Voice: {{LUOT_3}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: The teacher holds the rest pose, still, arms at the sides, lips closed; the street unchanged.
+Diễn biến: Robot nói ngay đầu clip; nói xong về tư thế nghỉ và đứng im.
+Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing, street and light). {{LUOT_3}} The teacher looks into the lens the whole time; the lips move with every word. The teacher stays the same size and in the same place. VIDEO SUFFIX.
+Audio: Only the teacher's voice, clean and close; faint, steady outdoor ambience far below the voice; no music.
+Negative prompt: text, captions, signs, logos; a second person; hands raised; camera movement; background or lighting change; closed lips while speaking.
+
+CẢNH 4 (0:15–0:20): Lượt 4
+Bối cảnh: giữ nguyên khung, robot và phố; không có chữ.
+Voice: {{LUOT_4}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: The teacher holds the rest pose, still, arms at the sides, lips closed; the street unchanged.
+Diễn biến: Robot nói ngay đầu clip; nói xong về tư thế nghỉ và đứng im.
+Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing, street and light). {{LUOT_4}} The teacher looks into the lens the whole time; the lips move with every word. The teacher stays the same size and in the same place. VIDEO SUFFIX.
+Audio: Only the teacher's voice, clean and close; faint, steady outdoor ambience far below the voice; no music.
+Negative prompt: text, captions, signs, logos; a second person; hands raised; camera movement; background or lighting change; closed lips while speaking.
+
+CẢNH 5 (0:20–0:26): Lượt 5
+Bối cảnh: giữ nguyên khung, robot và phố; không có chữ.
+Voice: {{LUOT_5}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: The teacher holds the rest pose, still, arms at the sides, lips closed; the street unchanged.
+Diễn biến: Robot nói ngay đầu clip, nửa đầu ngọt ngào, nửa sau tinh nghịch (chỉ bằng mặt và giọng); nói xong về tư thế nghỉ và đứng im.
+Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing, street and light). {{LUOT_5}} The teacher looks into the lens the whole time; the lips move with every word. The teacher stays the same size and in the same place. VIDEO SUFFIX.
+Audio: Only the teacher's voice, clean and close; faint, steady outdoor ambience far below the voice; no music.
+Negative prompt: text, captions, signs, logos; a second person; hands raised; camera movement; background or lighting change; closed lips while speaking.
+
+CẢNH 6 (0:26–0:31): Lượt 6
+Bối cảnh: giữ nguyên khung, robot và phố; không có chữ.
+Voice: {{LUOT_6}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: The teacher holds the rest pose, still, arms at the sides, lips closed in a warm smile; the street unchanged. End of the video.
+Diễn biến: Robot hỏi người xem, thân thiện; nói xong về tư thế nghỉ, mỉm cười và đứng im.
+Prompt video: Continue exactly from the previous clip's last frame (same teacher, pose, framing, street and light). {{LUOT_6}} The teacher looks into the lens the whole time; the lips move with every word. The teacher stays the same size and in the same place. VIDEO SUFFIX.
+Audio: Only the teacher's voice, clean and close; faint, steady outdoor ambience far below the voice; no music.
+Negative prompt: text, captions, signs, logos; a second person; hands raised; camera movement; background or lighting change; closed lips while speaking.

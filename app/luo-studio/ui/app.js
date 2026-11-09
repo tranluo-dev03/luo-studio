@@ -603,7 +603,7 @@ function drawQueue() {
   };
   const par = (S.boot.settings && S.boot.settings.parallel) || 1;
   v.innerHTML = `<div class="qbar"><button class="btn primary" id="qgo" ${nSel ? "" : "disabled"}>${ico("play")}${running ? "Chạy thêm" : "Bắt đầu"}${nSel ? " (" + nSel + ")" : ""}</button>
-      <label class="par" title="Số video chạy cùng lúc. Từ 1.2.0 mỗi tài khoản Muse chạy được 2 video cùng lúc: chọn tối đa số tài khoản × 2 (nhiều hơn dễ bị giới hạn lượt)">Song song <select id="qpar">${[1, 2, 3, 4, 5, 6, 7, 8].map(n => `<option value="${n}" ${n === par ? "selected" : ""}>${n}</option>`).join("")}</select></label>
+      <label class="par" title="Số video chạy cùng lúc. Từ 1.2.0 mỗi tài khoản Muse chạy được 2 video cùng lúc: chọn tối đa số tài khoản × 2 (nhiều hơn dễ bị giới hạn lượt)">Song song <select id="qpar">${Array.from({ length: Math.max(8, S.boot.max_parallel || 8) }, (_, i) => i + 1).map(n => `<option value="${n}" ${n === par ? "selected" : ""}>${n}</option>`).join("")}</select></label>
       <button class="btn" id="qall">Chọn tất cả</button><button class="btn ghost" id="qnone">Bỏ chọn</button><button class="btn ghost" id="qclr">Xoá mục đã xong</button><span class="grow"></span>
       <div class="qstats"><span title="Tổng thời gian chạy của lượt này">${ico("clock")}Tổng <b data-tm="batch">${fmtDur(batchSecs())}</b></span>
         <span title="Trung bình mỗi cảnh">TB/cảnh <b>${st.avg ? fmtDur(st.avg) : "—"}</b></span><span title="Ước tính còn lại">Còn <b data-tm="eta">${st.eta ? "~" + fmtDur(st.eta) : "—"}</b></span></div></div>

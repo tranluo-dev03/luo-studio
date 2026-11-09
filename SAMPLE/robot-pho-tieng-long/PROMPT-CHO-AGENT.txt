@@ -1,0 +1,58 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "ROBOT ĐỨNG PHỐ DẠY TIẾNG LÓNG" (robot-pho-tieng-long)
+  MỘT phần, cảnh thường, MỘT nhân vật nói thẳng ống kính, 6 cảnh nối liên tục; mọi chữ do hậu kỳ vẽ.
+  Code riêng (chỉ hậu kỳ): app/production/types/robot-pho-tieng-long/
+================================================================================
+
+CÁCH DÙNG
+  Gửi cho agent cùng với: KICH-BAN-ROBOT-PHO-TIENG-LONG.txt, BIEN-THE-ROBOT-PHO-TIENG-LONG.json, cong-cu\tao_bien_the.py,
+  PHAN-TICH-VIDEO-MAU.md và SAMPLE\_chung\SO-TAY-KY-THUAT.md. Rồi dán phần dưới đây, sửa [ngoặc vuông].
+
+--------------------------------------------------------------------------------
+PROMPT (copy từ dòng dưới)
+--------------------------------------------------------------------------------
+
+Bạn viết biến thể cho LUO Studio, thể loại ROBOT ĐỨNG PHỐ DẠY TIẾNG LÓNG. Mẫu đính kèm.
+
+Thông tin lần này:
+  Bảng biến thể: [STT | vùng/thành phố | dịp/sự kiện (badge) | 4 từ lóng + nghĩa | trang phục robot | bối cảnh phố]
+  Ngôn ngữ: [tiếng Anh / khác]
+
+BẮT BUỘC LÀM THEO
+
+1) SỬA BẰNG cong-cu\tao_bien_the.py, KHÔNG SỬA TAY JSON
+   - Mỗi biến thể một dòng trong BIEN_THE: (tên, TRANG_PHUC, NEN_PHO, tiêu đề 2 dòng, badge (trái, phải), nhãn thẻ (trên, dưới), 6 lượt, 4 thẻ).
+   - Robot (NGUOI_DAY), giọng (GIONG_DAY), tư thế nghỉ nằm trong hằng số chung: giữ nguyên trừ khi được yêu cầu.
+
+2) LỜI THOẠI (6 lượt, who = day, fx = none)
+   - Lượt 1: mở đầu nêu dịp + "let's talk like a <người vùng đó>" (8–12 từ).
+   - Lượt 2, 3, 4: "<Từ>! That means <nghĩa>." (3–8 từ) – mỗi lượt một thẻ.
+   - Lượt 5: "And <từ dài>. It sounds ..., but it means ..." (10–16 từ) – thẻ 4, nghĩa dài hơn.
+   - Lượt 6: câu hỏi + "Tell me in the comments." (6–10 từ).
+   - Mỗi lượt <= 20 từ; emo 1–3 từ trong EMO_CUES (app/production/prompt_parts.py). Viết lại lời theo mạch, không chép video mẫu.
+
+3) THẺ TỪ LÓNG (HAU_KY.the, đúng 4 thẻ)
+   - {"luot": <chỉ số lượt 0-based>, "tu": "<TỪ IN HOA>", "nghia": "<nghĩa>", "moc_tu": "<từ trong lời để căn>", "moc_nghia": "<từ trong lời>"}.
+   - moc_tu / moc_nghia phải là MỘT từ có thật trong text của lượt đó (so khớp không dấu/không ký tự: "G'day" -> "gday", "Fixin'" -> "fixin").
+     Bỏ trống thì lấy từ đầu của tu / nghia. Nghĩa nhiều từ: moc_nghia = từ đầu tiên robot nói của cụm nghĩa.
+   - tieu_de: 2 dòng ngắn (<= 18 ký tự mỗi dòng), IN HOA. badge: 2 ô ngắn (ngày + tên sự kiện, hoặc thành phố + "TALK LIKE A LOCAL").
+
+4) NHÂN VẬT, BỐI CẢNH
+   - TRANG_PHUC: mũ + áo khoác ngoài giáp (đổi theo vùng); không kính râm che mắt, không khăn che miệng (cần thấy môi).
+   - NEN_PHO: một câu tả phố đặc trưng vùng, "softly out of focus", không biển hiệu có chữ, không người.
+   - Không refs trừ khi người dùng đưa ảnh AI robot; KHÔNG cắt ảnh từ video mẫu làm refs.
+
+KIỂM TRA TRƯỚC KHI TRẢ LỜI
+  [ ] runtime\python.exe SAMPLE\robot-pho-tieng-long\cong-cu\tao_bien_the.py chạy không lỗi (assert <= 20 từ, chỉ số lượt hợp lệ).
+  [ ] runtime\python.exe SAMPLE\_chung\video-moi.py kiem-tra <kịch bản> <biến thể>: 0 LỖI.
+  [ ] Mỗi moc_tu / moc_nghia xuất hiện trong text lượt tương ứng (viết script nhỏ so khớp bằng norm()).
+
+--------------------------------------------------------------------------------
+LỖI THƯỜNG GẶP / GIỚI HẠN
+--------------------------------------------------------------------------------
+  - Muse vẽ chữ/biển hiệu trong nền: NEN_PHO không nhắc "sign", "banner"; [NEGATIVE] đã cấm. Thấy chữ -> gen lại cảnh 1 (khung đầu).
+  - Robot giơ tay/chỉ tay: tay giơ lên bị thẻ che. Đã cấm trong CHAR LOCK + NEGATIVE; vẫn xảy ra -> gen lại từ cảnh đó.
+  - Từ lóng lạ (Y'all, Fixin', G'day) Whisper nghe sai -> thẻ hiện lệch: post.py khớp mờ (>= 0,6) và nội suy; vẫn lệch thì đặt moc_tu
+    là từ dễ nghe đứng ngay trước/sau trong cùng lượt.
+  - Robot nói chậm hơn 4 từ/giây: nâng "Tốc độ tăng tối đa" trong Cài đặt Studio.
+  - Badge "Talka AI" góc trên trái: Thương hiệu -> logo cố định, vị trí Trên trái; Studio không vẽ.

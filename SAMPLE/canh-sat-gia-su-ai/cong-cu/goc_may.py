@@ -14,7 +14,7 @@ G = {
     "A": ("góc A (shot gốc 2.1-4.2s): trong xe, sát sau-phải tài xế: nghiêng mặt bố to ở mép trái, qua cửa sổ thấy cảnh sát cúi vào, tay đặt lên cửa",
           "CAMERA ANGLE A: the camera is INSIDE the car, in the middle of the front row, close behind and slightly to the right of {{TEN_HOC}} ({{NGUOI_HOC}}); the dark roof lining with a grab handle runs across the TOP of the frame, the dark window frame surrounds the view, the inside of the door and the steering wheel along the bottom; NO red car body is visible from outside. His face in PROFILE, large, at the LEFT edge of the frame "
           "(curly hair, beard, gold hoop earring), looking out of the open driver's window; through the window {{TEN_CANHSAT}} ({{NGUOI_CANHSAT}}) leans toward the window "
-          "with one hand on the door frame, her face and upper body LARGE, filling the window, looking at him; behind her {{NEN_DUONG}}." + NOCHILD,
+          "with one hand on the door frame, her face and upper body LARGE, filling the window, looking at him; behind her {{NEN_DUONG}}, and the dark police SUV with its light bar parked on the road behind the red car." + NOCHILD,
           "the officer looks at the driver (toward the left of the frame); the driver looks at the officer"),
     "A2": ("góc A2 (shot gốc 5.5-6.8s, 12.4-14.8s, 18.6-21.6s): góc nhìn của tài xế qua cửa sổ: cảnh sát cúi vào đầy khung, không thấy ai khác",
            "CAMERA ANGLE A2, the driver's point of view: the camera sits in the driver's seat and looks straight out through the open driver's window; the dark roof lining "
@@ -24,7 +24,7 @@ G = {
     "B": ("góc B (shot gốc 4.2-5.5s, 16.4-18.6s, 21.6-23.9s): ngoài cửa sổ tài xế nhìn vào: vô lăng góc dưới trái, bé ngồi ghế trẻ em ở ghế phụ phía xa bên trái bố, bố cầm lái bên phải",
           "CAMERA ANGLE B: the camera stands outside the open driver's window at chest height and looks into {{XE}}: the steering wheel at the lower left, {{TEN_HOC}} "
           "({{NGUOI_HOC}}) at the wheel on the RIGHT half, nearest to the camera; right beside him on the far side, on the LEFT half, {{TEN_BE}} ({{NGUOI_BE}}) sits upright "
-          "in her pink booster child seat on the front passenger seat; both faces clear; red leather seats, the empty desert through the far windows; the glossy red door along the bottom. ONLY the father and the girl are in the frame: nobody outside the far windows, no other face anywhere.",
+          "in her pink booster child seat on the front passenger seat; both faces clear; red leather seats, the empty desert through the far windows; the glossy red door along the bottom. ONLY the father and the girl are in the frame: nobody outside the far windows, no other face anywhere. The camera itself stands where the officer would stand, so nobody stands outside the car on either side; the left and right edges of the frame show only the red door pillar, the window frame and the empty desert road.",
           "the driver looks up and just to the left of the lens, never into it; the girl looks the same way"),   # không nhắc cảnh sát: Muse vẽ cô ấy vào mép khung (06/11)
     "C": ("góc C (shot gốc 6.8-9.0s): cận cực sát mặt bố, mồ hôi lấm tấm",
           "CAMERA ANGLE C: EXTREME CLOSE-UP of {{TEN_HOC}} ({{NGUOI_HOC}}): his face fills the frame from the hairline to the chin, small beads of sweat on his forehead and "
@@ -107,11 +107,13 @@ def main():
         seg = seg.replace(" Only the father and the girl are in this clip: nobody ever appears at any window or outside the car; the far windows show only the empty desert.", "")
         if ANG[n] == "B":
             seg = seg.replace("keep its camera angle.", "keep its camera angle. Only the father and the girl are in this clip: nobody ever appears at any window or outside the car; the far windows show only the empty desert.", 1)
-            seg = re.sub(r"^(Negative prompt: [^\n]*?)\.?$", lambda m: m.group(1) if "face at a window" in m.group(1) else m.group(1) + "; a face at a window or a person outside the car.", seg, count=1, flags=re.M)
+            seg = re.sub(r"^(Negative prompt: [^\n]*?)\.?$", lambda m: m.group(0) if "face at a window" in m.group(1) else m.group(1) + "; a face at a window or a person outside the car.", seg, count=1, flags=re.M)
+            # 06/11: cảnh 2 vẫn lộ đồng phục cảnh sát ở mép trái suốt clip
+            seg = re.sub(r"^(Negative prompt: [^\n]*?)\.?$", lambda m: m.group(0) if "police uniform" in m.group(1) else m.group(1) + "; a police uniform, sleeve or badge at the edge of the frame.", seg, count=1, flags=re.M)
         seg = seg.replace(" " + NOBODY, "")
         if ANG[n] in CLOSE_ANG:   # so sánh v7 cảnh 4: Muse thêm mặt cảnh sát sau cửa sổ ở cảnh cận
             seg = seg.replace("keep its camera angle.", "keep its camera angle. " + NOBODY, 1)
-            seg = re.sub(r"^(Negative prompt: [^\n]*?)\.?$", lambda m: m.group(1) if "face at a window" in m.group(1) else m.group(1) + "; a face at a window or a person outside the car; camera pan or zoom out revealing other people.", seg, count=1, flags=re.M)
+            seg = re.sub(r"^(Negative prompt: [^\n]*?)\.?$", lambda m: m.group(0) if "face at a window" in m.group(1) else m.group(1) + "; a face at a window or a person outside the car; camera pan or zoom out revealing other people.", seg, count=1, flags=re.M)
         if ANG[n] in ("A", "C"):
             seg = seg.replace("keep its camera angle.", "keep its camera angle. No child ever appears in this clip.", 1)
         for f in ("Ảnh tổng quan", "Khung đầu cắt", "Ảnh bố cục"):

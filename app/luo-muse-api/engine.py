@@ -489,6 +489,31 @@ class MuseEngine:
                 t.session = None
             self._sessions.clear()
 
+    def reap_idle_tabs(self, keep: set, idle_s: float) -> int:
+        """Đóng tab rảnh quá idle_s giây của tài khoản KHÔNG nằm trong keep (không ghim video, không đang gen), trả RAM.
+        Tab đang bận hoặc của tài khoản trong keep giữ nguyên. Trả về số tab đã đóng."""
+        if idle_s <= 0 or not self._browser_alive():
+            return 0
+        now = time.time()
+        victims: list[_Tab] = []
+        with self._cond:
+            for acc, tabs in list(self._tabs.items()):
+                if acc in keep:
+                    continue
+                for t in [t for t in tabs if not t.busy and now - t.last > idle_s]:
+                    tabs.remove(t)
+                    if t.session and self._sessions.get(t.session) is t:
+                        self._sessions.pop(t.session, None)
+                    victims.append(t)
+                if not tabs:
+                    self._tabs.pop(acc, None)
+            if victims:
+                self._cond.notify_all()
+        for t in victims:
+            self._dispose_tab(t)
+            log.info("【tab】đóng tab rảnh %.0f phút của tài khoản %s", (now - t.last) / 60, t.acc)
+        return len(victims)
+
     def pool_status(self) -> dict:
         with self._cond:
             return {acc: {"tabs": len(ts), "busy": sum(t.busy for t in ts), "sessions": sum(bool(t.session) for t in ts)}
@@ -1484,6 +1509,20 @@ class MuseEngine:
                     self._debug_dump("not-sent")
                     raise MuseGenerationError("提示词未发出（对话中没有出现该消息），在新对话中重试")
             T["confirmed"] = time.time()
+            if not thread and not tab.thread:
+                # Tin nhắn đã hiện trong khung chat nhưng Muse chưa tạo hội thoại (URL vẫn /thread/new) và chưa trả lời gì: lệnh chưa tới máy chủ Muse.
+                # Trước đây rơi xuống đường DOM và chờ hết timeout (10 phút) rồi mới báo lỗi (07/11/2026, tài khoản 112, cảnh 18: trong lịch sử Muse
+                # không hề có chat này). Giờ chờ thêm tối đa 45 s cho hội thoại xuất hiện; không có thì báo "chưa gửi được" để thử lại ở chat mới ngay.
+                thread = self._thread_id(45.0)
+                if not thread:
+                    st = {}
+                    try:
+                        st = self.page.js(dom.CHAT_STATE_DOM) or {}
+                    except Exception:  # noqa: BLE001
+                        pass
+                    if not (st.get("agentCount") or 0) and not (st.get("atts") or []):
+                        self._debug_dump("not-sent")
+                        raise MuseGenerationError("提示词未发出（Muse chưa tạo hội thoại, không có phản hồi sau 45 s），在新对话中重试")
             tab.thread = thread or tab.thread
             media = None
             if use_rpc and tab.thread:

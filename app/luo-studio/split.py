@@ -367,6 +367,7 @@ def run_split(vdata, template, out_dir, opts, emit, cancel):
             except (E.Cancelled, E.AccountError):
                 raise   # lỗi tài khoản: để server đổi tài khoản
             except Exception as e:  # noqa: BLE001
+                E.log_exc(f"split {label} cảnh {n}: {str(e)[:120]}")
                 emit("log", msg=f"{'Cảnh ' + str(n) if n else 'Chuẩn bị'} {label}: {e}", level="warn")
                 if E._QUOTA_RE.search(str(e)):
                     raise E.QuotaExceeded(f"Muse báo hết hạn mức tạo video (giới hạn 24 giờ): {str(e)[:160]}") from None

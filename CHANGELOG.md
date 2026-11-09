@@ -5,6 +5,26 @@ Nguồn sự thật của số phiên bản: dòng đầu của `version.txt` (c
 
 ## [Chưa phát hành]
 
+## [1.3.0] - 2026-11-08
+
+### Hậu kỳ theo số nhân máy, trần luồng mở rộng (đo 07/11/2026 trên Ryzen 5 5500 / 16 GB, xem `SAMPLE/_chung/DO-HIEU-NANG.md`)
+- Chạy 8 video song song, ffmpeg mã hoá cảnh (libx264 dùng hết mọi nhân) chen nhau đẩy CPU lên 100%, Chromium của LUO-API bị xếp sau: khoảng
+  trống giữa hai lệnh gen tăng từ ~35 s lên ~110 s dù Muse vẽ vẫn 52-56 s, năng suất tụt từ 19.5 xuống 11 cảnh/giờ/tài khoản. Sửa:
+  - Mọi ffmpeg mã hoá đi qua một cửa chung, tối đa **số nhân thật / 2** cùng lúc (6 nhân → 3, 16 → 8, 32 → 16) và chạy ở ưu tiên thấp hơn
+    Chromium/Python; ráp cuối + hậu kỳ cả video qua cửa riêng tối đa **(nhân + 2) / 4** (6 → 2, 16 → 4, 32 → 8), video phải chờ ghi
+    "Chờ đến lượt ráp/hậu kỳ" vào log. Số nhân đếm nhân thật (không tính siêu phân luồng). Ép bằng `LUO_FFMPEG_SCENE`, `LUO_FFMPEG_ASM`, `LUO_CPU_CORES`.
+  - Whisper: bể tiến trình `LUO_WHISPER_WORKERS` (mặc định 3) thay một tiến trình + khoá chung; mediapipe dò miệng: tối đa nhân/2 cùng lúc thay khoá chung.
+- Trần số video chạy song song của Studio: `LUO_MAX_PARALLEL` (mặc định 32, trước chặn cứng 8); ô Song song liệt kê tới trần.
+  LUO-API `MUSE2API_CONCURRENCY` đặt 24 trong `userdata/api/.env`, `MUSE2API_ACCOUNT_PARALLEL=1` (một tài khoản một video: dồn 2 video lên một tài khoản không nhanh hơn).
+- LUO-API chỉ mở tab ấm cho tài khoản đang có việc (ghim video, đang gen, vừa dùng trong `MUSE2API_WARM_RECENT` = 1 giờ); tab rảnh quá
+  `MUSE2API_TAB_IDLE` = 30 phút của tài khoản hết việc tự đóng (mỗi tab ~0.45 GB RAM, trước đây RAM tăng theo số tài khoản chứ không theo số luồng).
+  `MUSE2API_WARM_ALL=1` mở cho mọi tài khoản như cũ. `/admin/status` thêm `max_concurrency`, `warm`.
+- LUO-API: sau khi gửi lệnh, nếu 45 s Muse vẫn chưa tạo hội thoại (lệnh hiện ở máy nhưng máy chủ không nhận, trước đây chờ hết 10 phút rồi
+  mới báo lỗi) thì báo "提示词未发出" và gen lại ngay trong chat mới trên cùng tài khoản.
+- Lỗi trong hậu kỳ (vd. `[WinError 32]` file đang bị tiến trình khác giữ) ghi cả dấu vết vào `userdata/logs/studio-loi.log` để tìm đúng dòng gây lỗi.
+- Công cụ đo: `SAMPLE/_chung/do-hieu-nang.py` (theo dõi CPU/RAM/mạng/Chromium/ffmpeg mỗi 5 s, báo cáo theo bước của cảnh và theo tài khoản),
+  `SAMPLE/_chung/test-tai-khoan.py` (chạy một đợt test với bộ tài khoản chỉ định, dọn cảnh cũ, khởi động lại Studio), `SAMPLE/_chung/DO-HIEU-NANG.md` (kết quả và đề xuất máy chủ).
+
 ## [1.2.2] - 2026-11-06
 
 ### Đăng nhập tài khoản Muse bằng Chrome, không cần dán cookie

@@ -1,0 +1,244 @@
+[HAU KY]:
+loai: check-hanh-ly-hindi
+
+[GHI CHU]:
+Thể loại "check hành lý + gia sư AI, tiếng Gujarati xen tiếng Anh": MỘT dự án 2 phần, nhân bản từ soi-hanh-ly-gia-su-ai và sửa theo video mẫu
+"oder 6.mp4". Studio chạy bằng code riêng app/production/types/check-hanh-ly-hindi/gen.py (logic chung ở types/_chung/nhieu_phan.py).
+Kịch bản sinh bằng cong-cu/tao_kich_ban.py: sửa ở đó rồi chạy lại.
+  PHẦN 1 (cảnh thường, 17 cảnh, MỘT góc máy đứng yên như video mẫu): nhân viên an ninh trẻ (CANBO, đứng TRÁI, khuỷu tay trái tì lên nóc máy soi)
+         nói chuyện với người phụ nữ Ấn Độ ~60 tuổi mặc sari (HOC, đứng PHẢI, tay phải nắm quai túi đeo vai). Tiền cảnh dưới: khay nhựa xanh
+         trên băng chuyền, trong khay là chiếc túi da nâu. Chỉ cảnh 1 gen ảnh khung đầu; cảnh 2-17 nối từ khung cuối cảnh trước (không đổi góc).
+         12 giây đầu thuần tiếng Anh; từ câu "Wow! ..." trở đi nói tiếng Gujarati xen từ tiếng Anh.
+  PHẦN 2 (ghép 2 lớp, mỗi lượt một cảnh): gen RIÊNG video người phụ nữ đứng giữa sảnh sân bay nhìn thẳng ống kính (HOC, nền 9:16) và video
+         robot AI (DAY, ô bo góc viền trắng mảnh góc trên phải: x 0.662, y 0.013, rộng 0.300, cao 0.253, đo trên video mẫu -> gen 9:16), rồi ghép;
+         nối khung ("noi: lien"). Vào phần 2 bằng nhoè chuyển động 0,5 giây.
+  Lượt thoại: LUOT chung, mỗi lượt có "phan": 1 hoặc 2 (lượt phần 1 đứng trước). Phần 1 cần đúng 17 lượt (= 17 CẢNH).
+  Hậu kỳ riêng (post.py, kiểu trong config.json): phụ đề chữ đen trên ô trắng như video mẫu, font Nirmala UI (có chữ Gujarati);
+         "fx" wrong/right viền đỏ/xanh + tiếng, "icon" x/check. Logo app: Thương hiệu -> logo của dự án.
+Các dòng "===== PHAN n: ... =====" chia phần; mọi thứ phía trên dòng chia phần đầu tiên không gửi cho Muse.
+
+===== PHAN 1: CHECK HANH LY =====
+
+[STYLE LOCK]:
+Vertical 9:16 photorealistic video at an Indian airport security checkpoint, bright daylight from tall glass windows, warm natural colours, the look of a real documentary moment. One single camera angle for the whole part: a locked-off medium two-shot that never moves, never cuts and never zooms. The same two characters, the same place and the same props in every clip. No text, no letters, no logos, no captions, no icons, no lettering on the uniform, the ID card, the scanner, the signs or the bags anywhere in the frame.
+
+[CHAR LOCK]:
+The {{VAI_CANBO}}, {{TEN_CANBO}} ({{POS_CANBO}}): {{NGUOI_CANBO}}. VOICE LOCK OFFICER: one single voice, {{GIONG_CANBO}}, the same in every clip.
+The {{VAI_HOC}}, {{TEN_HOC}} ({{POS_HOC}}): {{NGUOI_HOC}}, {{DAO_TUI}} hanging from her left shoulder. {{DAO_GIU}} VOICE LOCK WOMAN: one single voice, {{GIONG_HOC}}, the same in every clip.
+When silent, the officer {{NGHE_CANBO}}; when silent, the woman {{NGHE_HOC}}.
+INTERACTION: the two chat like real people in one continuous friendly moment. When one points at or touches something, the other's eyes follow it to that exact object, then come back to the speaker's face.
+EYE LINE (every clip, whoever speaks): the two look at each other's faces in three-quarter profile, except where the clip names an object; the speaker's head never turns toward the camera or out of the frame. Nobody looks into the lens.
+RULE: in each clip exactly ONE character speaks, one line, with lip-sync, keeping the EYE LINE. The other character stays silent the whole clip, mouth closed, but stays alive and reacts with the eyes and face as the clip describes. Each voice stays the same in every clip.
+ACTION CLIPS: the actions are done WHILE the line is spoken, in the order given, and are complete by the last word. Props, the same in every clip: {{DAO_KHAY}} sits on the roller conveyor across the bottom of the frame, and {{DAO_VALI}} lies inside it, in the lower left, right below the officer's right hand.
+
+[SET LOCK]:
+{{NEN_SOI}}. The travellers in the far background are small, softly out of focus and stand still; nobody walks through the foreground. The tray and the bag stay exactly where they are in the start frame for the whole clip; only the two people move.
+
+[VIDEO SUFFIX]:
+LOCKED CAMERA on a tripod in every clip: no pan, no tilt, no zoom, no push-in, never shaky, never a cut; the framing of the start frame stays exactly the same to the last frame. The speaker starts talking right away at a natural, unscripted conversational pace (about 4 to 5 words per second for the short English questions, about 3 words per second for the longer Gujarati sentences, no long pauses) and finishes the line promptly. After the last word the speaker relaxes with the mouth closed while the other keeps listening naturally, until the end of the clip (the usual rest pose: {{DAO_NGHI}}). Both sound like real people caught on camera, not actors and not a voice-over: relaxed natural pitch movement, everyday volume, small natural breaths. Gujarati words are spoken in natural native Gujarati; the English words inside a Gujarati sentence are said the way Gujarati speakers say them, without switching voice. Sound: two real voices close to the camera with a light natural reverb of a large airport hall, no music, no announcements, no crowd chatter over the voices. No subtitles, no text. 9:16.
+
+[NEGATIVE]:
+text, captions, subtitles, logos, icons, emoji, lettering on the uniform, ID card, scanner, bags or signs; split screen, overlay, inset window; anyone looking into the lens; the speaker turning the face to the camera or out of the frame; pointing at a person; the listener staring blankly; camera move, zoom, push-in, a cut, shaky handheld camera; two voices in one clip; the silent character moving the mouth; extra people in the foreground; people walking in the background; the tray or the bag sliding or changing position on its own; face, hair, saree or uniform changing; hands going to the head, face or hair; one character copying the other's movements; background music, announcements; robotic, text-to-speech or announcer voice; silent clip with no speech; slow, dragged speech.
+
+
+CẢNH 1 (0:00–0:01): Lượt 1
+Bối cảnh: một góc duy nhất, cận trung hai người (từ eo trở lên), máy đứng yên: nhân viên TRÁI, khuỷu tay trái tì nóc máy soi; người phụ nữ PHẢI, tay phải nắm quai túi; khay nhựa xanh có túi da nâu ở tiền cảnh dưới; không có chữ. Khung đầu gen mới.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_1}}
+Khung đầu: Cận trung hai người như video mẫu: nhân viên trái, khuỷu tay trái tì nóc máy soi, tay phải ĐÃ chỉ xuống túi da nâu trong khay xanh; người phụ nữ phải, tay phải nắm quai túi đeo vai, mỉm cười nhìn nhân viên. Miệng khép.
+Khung cuối: Nhân viên tay phải vẫn ở ngay trên túi; người phụ nữ nhìn nhân viên, mỉm cười; miệng khép. Khung này là khung đầu của cảnh sau.
+Diễn biến: Nhân viên hỏi, mắt nhìn người phụ nữ, ngón trỏ tay phải chỉ xuống giữa chiếc túi trong khay, ở chữ 'bag' ấn nhẹ ngón tay xuống. Người phụ nữ liếc xuống chiếc túi theo tay ông rồi nhìn lại mặt ông, mỉm cười.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, photorealistic, a single frame with no split screen, bright airport daylight. CAMERA ANGLE: LOCKED MEDIUM TWO-SHOT at chest height, slightly from the front of the roller conveyor: {{TEN_CANBO}} stands at the LEFT, seen from the waist up, body turned three-quarters toward the right, his LEFT forearm and elbow resting on top of the grey stainless X-ray scanner behind him, his right hand down near the tray; his head is in the upper left of the frame. {{TEN_HOC}} stands at the RIGHT, slightly lower in the frame, seen from the waist up, turned three-quarters toward the left, facing him, her face in clear three-quarter profile, {{DAO_TUI}} hanging from her left shoulder with her right hand holding its strap at chest height. Between and behind them the dark opening of the X-ray scanner. Across the bottom fifth of the frame: {{DAO_KHAY}} on the roller conveyor, with {{DAO_VALI}} inside it in the lower left. Behind them {{NEN_SOI}}. FRAME ANCHORS: the officer stays in the left 45 percent, the woman in the right 50 percent, the tray along the bottom; the frame edges never change. In the shot: {{TEN_CANBO}} ({{NGUOI_CANBO}}). In the shot: {{TEN_HOC}} ({{NGUOI_HOC}}), {{DAO_TUI}} on her left shoulder. Pose: the officer points DOWN at {{DAO_VALI}} in the tray with his right index finger, the hand just above the bag, the finger aimed at the middle of the bag; his left elbow stays on the scanner, looking at the woman with a friendly face; the woman smiling at him. EYE LINE: the officer looks at the woman's face (to the right), the woman looks at the officer's face (to the left), both in three-quarter profile; nobody looks into the lens. Mouths closed, natural expressions. Only these two people are visible in the foreground. No text, no logos, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image. CHAR LOCK. In this clip: {{LUOT_1}} Only that character speaks, in English, with lip-sync, and keeps the EYE LINE while speaking (the officer looks at the woman's face while pointing at the bag; the woman glances at the bag, then at his face; nobody looks into the lens); the other keeps the mouth closed and reacts as described. ACTION, done WHILE the line is spoken, in this order, complete by the last word: the officer points DOWN at {{DAO_VALI}} in the tray with his right index finger, the hand just above the bag, the finger aimed at the middle of the bag; his left elbow stays on the scanner, looking at the woman; on the word 'bag' he gives one small tap of the finger toward the bag; the woman's eyes drop to the bag following his finger, then come back to his face with a calm smile. LOCKED CAMERA: no pan, no tilt, no zoom. After the line the speaker relaxes with the mouth closed and the other keeps listening naturally. DELIVERY of this line: routine and friendly, quick, a small natural rise at the end of the question; a real person talking, not acting for the camera. Same voices as always, natural hall acoustics, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, gần, rõ, tự nhiên như hội thoại thật, có độ vang nhẹ của sảnh lớn. Không nhạc, không tiếng loa, không tiếng ồn đè lên giọng.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; anyone looking into the lens; camera move or zoom; people moving in the background; no speech.
+
+CẢNH 2 (0:01–0:01): Lượt 2
+Bối cảnh: một góc duy nhất, cận trung hai người (từ eo trở lên), máy đứng yên: nhân viên TRÁI, khuỷu tay trái tì nóc máy soi; người phụ nữ PHẢI, tay phải nắm quai túi; khay nhựa xanh có túi da nâu ở tiền cảnh dưới; không có chữ. Nối từ khung cuối cảnh trước.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_2}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Như khung đầu; miệng khép. Khung này là khung đầu của cảnh sau.
+Diễn biến: Người phụ nữ trả lời ngắn, gật nhẹ một cái, mỉm cười, mắt nhìn nhân viên. Nhân viên vẫn chỉ tay gần túi, nhìn cô.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_2}} Only that character speaks, in English, with lip-sync, and keeps the EYE LINE while speaking (the officer looks at the woman's face (to the right), the woman looks at the officer's face (to the left), both in three-quarter profile; nobody looks into the lens); the other keeps the mouth closed and reacts as described. ACTION, done WHILE the line is spoken, in this order, complete by the last word: the woman gives one small nod with a polite smile; the officer keeps his hand near the bag and looks at her. LOCKED CAMERA: no pan, no tilt, no zoom. After the line the speaker relaxes with the mouth closed and the other keeps listening naturally. DELIVERY of this line: short, calm and polite; a real person talking, not acting for the camera. Same voices as always, natural hall acoustics, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, gần, rõ, tự nhiên như hội thoại thật, có độ vang nhẹ của sảnh lớn. Không nhạc, không tiếng loa, không tiếng ồn đè lên giọng.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; anyone looking into the lens; camera move or zoom; people moving in the background; no speech.
+
+CẢNH 3 (0:01–0:02): Lượt 3
+Bối cảnh: một góc duy nhất, cận trung hai người (từ eo trở lên), máy đứng yên: nhân viên TRÁI, khuỷu tay trái tì nóc máy soi; người phụ nữ PHẢI, tay phải nắm quai túi; khay nhựa xanh có túi da nâu ở tiền cảnh dưới; không có chữ. Nối từ khung cuối cảnh trước.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_3}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Tay phải nhân viên đặt hờ trên mép khay; hai người nhìn nhau; miệng khép. Khung này là khung đầu của cảnh sau.
+Diễn biến: Nhân viên rút tay phải khỏi túi, hạ tay xuống mép khay, nghiêng đầu nhìn cô, mỉm cười tò mò khi hỏi. Người phụ nữ nhìn ông, nhướng mày nhẹ.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_3}} Only that character speaks, in English, with lip-sync, and keeps the EYE LINE while speaking (the officer looks at the woman's face (to the right), the woman looks at the officer's face (to the left), both in three-quarter profile; nobody looks into the lens); the other keeps the mouth closed and reacts as described. ACTION, done WHILE the line is spoken, in this order, complete by the last word: the officer lifts his right hand away from the bag and rests it on the edge of the tray, tilting his head with a curious smile; the woman raises her eyebrows slightly. LOCKED CAMERA: no pan, no tilt, no zoom. After the line the speaker relaxes with the mouth closed and the other keeps listening naturally. DELIVERY of this line: light and curious, a friendly rise at the end; a real person talking, not acting for the camera. Same voices as always, natural hall acoustics, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, gần, rõ, tự nhiên như hội thoại thật, có độ vang nhẹ của sảnh lớn. Không nhạc, không tiếng loa, không tiếng ồn đè lên giọng.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; anyone looking into the lens; camera move or zoom; people moving in the background; no speech.
+
+CẢNH 4 (0:02–0:04): Lượt 4
+Bối cảnh: một góc duy nhất, cận trung hai người (từ eo trở lên), máy đứng yên: nhân viên TRÁI, khuỷu tay trái tì nóc máy soi; người phụ nữ PHẢI, tay phải nắm quai túi; khay nhựa xanh có túi da nâu ở tiền cảnh dưới; không có chữ. Nối từ khung cuối cảnh trước.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_4}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Như khung đầu; miệng khép. Khung này là khung đầu của cảnh sau.
+Diễn biến: Người phụ nữ trả lời tự tin, gật đầu, mỉm cười, tay phải vẫn nắm quai túi. Nhân viên nghe, mỉm cười.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_4}} Only that character speaks, in English, with lip-sync, and keeps the EYE LINE while speaking (the officer looks at the woman's face (to the right), the woman looks at the officer's face (to the left), both in three-quarter profile; nobody looks into the lens); the other keeps the mouth closed and reacts as described. ACTION, done WHILE the line is spoken, in this order, complete by the last word: the woman nods confidently with a proud smile, her right hand still holding the bag strap; the officer smiles as he listens. LOCKED CAMERA: no pan, no tilt, no zoom. After the line the speaker relaxes with the mouth closed and the other keeps listening naturally. DELIVERY of this line: confident and warm, a little proud; a real person talking, not acting for the camera. Same voices as always, natural hall acoustics, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, gần, rõ, tự nhiên như hội thoại thật, có độ vang nhẹ của sảnh lớn. Không nhạc, không tiếng loa, không tiếng ồn đè lên giọng.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; anyone looking into the lens; camera move or zoom; people moving in the background; no speech.
+
+CẢNH 5 (0:04–0:05): Lượt 5
+Bối cảnh: một góc duy nhất, cận trung hai người (từ eo trở lên), máy đứng yên: nhân viên TRÁI, khuỷu tay trái tì nóc máy soi; người phụ nữ PHẢI, tay phải nắm quai túi; khay nhựa xanh có túi da nâu ở tiền cảnh dưới; không có chữ. Nối từ khung cuối cảnh trước.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_5}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Như khung đầu; miệng khép. Khung này là khung đầu của cảnh sau.
+Diễn biến: Nhân viên cười tinh nghịch, hơi nghiêng người về phía cô khi hỏi như thử thách vui. Người phụ nữ bật cười nhẹ.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_5}} Only that character speaks, in English, with lip-sync, and keeps the EYE LINE while speaking (the officer looks at the woman's face (to the right), the woman looks at the officer's face (to the left), both in three-quarter profile; nobody looks into the lens); the other keeps the mouth closed and reacts as described. ACTION, done WHILE the line is spoken, in this order, complete by the last word: the officer grins and leans slightly toward her as he asks, a playful challenge; the woman laughs softly. LOCKED CAMERA: no pan, no tilt, no zoom. After the line the speaker relaxes with the mouth closed and the other keeps listening naturally. DELIVERY of this line: playful, teasing, friendly; a real person talking, not acting for the camera. Same voices as always, natural hall acoustics, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, gần, rõ, tự nhiên như hội thoại thật, có độ vang nhẹ của sảnh lớn. Không nhạc, không tiếng loa, không tiếng ồn đè lên giọng.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; anyone looking into the lens; camera move or zoom; people moving in the background; no speech.
+
+CẢNH 6 (0:05–0:08): Lượt 6
+Bối cảnh: một góc duy nhất, cận trung hai người (từ eo trở lên), máy đứng yên: nhân viên TRÁI, khuỷu tay trái tì nóc máy soi; người phụ nữ PHẢI, tay phải nắm quai túi; khay nhựa xanh có túi da nâu ở tiền cảnh dưới; không có chữ. Nối từ khung cuối cảnh trước.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_6}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Người phụ nữ hạ tay trái; miệng khép. Khung này là khung đầu của cảnh sau.
+Diễn biến: Người phụ nữ trả lời bằng tiếng Anh, chậm rãi rõ ràng, tay trái hơi ngửa ra trước ngực khi kể. Nhân viên nghe, gật nhẹ.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_6}} Only that character speaks, in English, with lip-sync, and keeps the EYE LINE while speaking (the officer looks at the woman's face (to the right), the woman looks at the officer's face (to the left), both in three-quarter profile; nobody looks into the lens); the other keeps the mouth closed and reacts as described. ACTION, done WHILE the line is spoken, in this order, complete by the last word: the woman answers clearly and calmly, her left hand opening slightly in front of her chest as she explains, then lowering; the officer listens with a small nod. LOCKED CAMERA: no pan, no tilt, no zoom. After the line the speaker relaxes with the mouth closed and the other keeps listening naturally. DELIVERY of this line: clear, careful and calm, a friendly smile in the voice, Indian English accent; a real person talking, not acting for the camera. Same voices as always, natural hall acoustics, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, gần, rõ, tự nhiên như hội thoại thật, có độ vang nhẹ của sảnh lớn. Không nhạc, không tiếng loa, không tiếng ồn đè lên giọng.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; anyone looking into the lens; camera move or zoom; people moving in the background; no speech.
+
+CẢNH 7 (0:08–0:11): Lượt 7
+Bối cảnh: một góc duy nhất, cận trung hai người (từ eo trở lên), máy đứng yên: nhân viên TRÁI, khuỷu tay trái tì nóc máy soi; người phụ nữ PHẢI, tay phải nắm quai túi; khay nhựa xanh có túi da nâu ở tiền cảnh dưới; không có chữ. Nối từ khung cuối cảnh trước.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_7}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Như khung đầu; miệng khép. Khung này là khung đầu của cảnh sau.
+Diễn biến: Người phụ nữ nói tiếp, mỉm cười, gật nhẹ ở 'ten days', tay phải vẫn nắm quai túi. Nhân viên nhướng mày, ngày càng ấn tượng.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_7}} Only that character speaks, in English, with lip-sync, and keeps the EYE LINE while speaking (the officer looks at the woman's face (to the right), the woman looks at the officer's face (to the left), both in three-quarter profile; nobody looks into the lens); the other keeps the mouth closed and reacts as described. ACTION, done WHILE the line is spoken, in this order, complete by the last word: the woman continues with a smile and a small nod on 'ten days', her right hand still holding the bag strap; the officer raises his eyebrows, more and more impressed. LOCKED CAMERA: no pan, no tilt, no zoom. After the line the speaker relaxes with the mouth closed and the other keeps listening naturally. DELIVERY of this line: fluent and relaxed, falling pitch at the end; a real person talking, not acting for the camera. Same voices as always, natural hall acoustics, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, gần, rõ, tự nhiên như hội thoại thật, có độ vang nhẹ của sảnh lớn. Không nhạc, không tiếng loa, không tiếng ồn đè lên giọng.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; anyone looking into the lens; camera move or zoom; people moving in the background; no speech.
+
+CẢNH 8 (0:12–0:14): Lượt 8
+Bối cảnh: một góc duy nhất, cận trung hai người (từ eo trở lên), máy đứng yên: nhân viên TRÁI, khuỷu tay trái tì nóc máy soi; người phụ nữ PHẢI, tay phải nắm quai túi; khay nhựa xanh có túi da nâu ở tiền cảnh dưới; không có chữ. Nối từ khung cuối cảnh trước.
+Voice: (Gujarati xen tiếng Anh, chỉ một người nói trong clip này) {{LUOT_8}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Tay phải nhân viên trên mép khay; người phụ nữ mỉm cười; miệng khép. Khung này là khung đầu của cảnh sau.
+Diễn biến: Nhân viên nhướng mày, cười tươi ở 'Wow!', ngửa nhẹ tay phải về phía cô như khen, rồi đặt lại lên mép khay. Người phụ nữ cười, hơi ngượng.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_8}} Only that character speaks, in Gujarati mixed with English words, exactly as written, with lip-sync, and keeps the EYE LINE while speaking (the officer looks at the woman's face (to the right), the woman looks at the officer's face (to the left), both in three-quarter profile; nobody looks into the lens); the other keeps the mouth closed and reacts as described. ACTION, done WHILE the line is spoken, in this order, complete by the last word: on 'Wow!' the officer's eyebrows go up with a big smile, and he opens his right hand palm-up toward her in praise, then rests it on the edge of the tray again; the woman smiles, a little shy. LOCKED CAMERA: no pan, no tilt, no zoom. After the line the speaker relaxes with the mouth closed and the other keeps listening naturally. DELIVERY of this line: genuinely impressed and warm; 'Wow!' bright, the rest friendly; a real person talking, not acting for the camera. Same voices as always, natural hall acoustics, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, gần, rõ, tự nhiên như hội thoại thật, có độ vang nhẹ của sảnh lớn. Không nhạc, không tiếng loa, không tiếng ồn đè lên giọng.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; anyone looking into the lens; camera move or zoom; people moving in the background; no speech.
+
+CẢNH 9 (0:14–0:15): Lượt 9
+Bối cảnh: một góc duy nhất, cận trung hai người (từ eo trở lên), máy đứng yên: nhân viên TRÁI, khuỷu tay trái tì nóc máy soi; người phụ nữ PHẢI, tay phải nắm quai túi; khay nhựa xanh có túi da nâu ở tiền cảnh dưới; không có chữ. Nối từ khung cuối cảnh trước.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_9}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Như khung đầu; miệng khép. Khung này là khung đầu của cảnh sau.
+Diễn biến: Người phụ nữ cảm ơn, cúi đầu nhẹ, cười. Nhân viên mỉm cười.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_9}} Only that character speaks, in English, with lip-sync, and keeps the EYE LINE while speaking (the officer looks at the woman's face (to the right), the woman looks at the officer's face (to the left), both in three-quarter profile; nobody looks into the lens); the other keeps the mouth closed and reacts as described. ACTION, done WHILE the line is spoken, in this order, complete by the last word: the woman gives a small grateful bow of the head with a smile; the officer smiles back. LOCKED CAMERA: no pan, no tilt, no zoom. After the line the speaker relaxes with the mouth closed and the other keeps listening naturally. DELIVERY of this line: warm, a small bashful laugh; a real person talking, not acting for the camera. Same voices as always, natural hall acoustics, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, gần, rõ, tự nhiên như hội thoại thật, có độ vang nhẹ của sảnh lớn. Không nhạc, không tiếng loa, không tiếng ồn đè lên giọng.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; anyone looking into the lens; camera move or zoom; people moving in the background; no speech.
+
+CẢNH 10 (0:16–0:22): Lượt 10
+Bối cảnh: một góc duy nhất, cận trung hai người (từ eo trở lên), máy đứng yên: nhân viên TRÁI, khuỷu tay trái tì nóc máy soi; người phụ nữ PHẢI, tay phải nắm quai túi; khay nhựa xanh có túi da nâu ở tiền cảnh dưới; không có chữ. Nối từ khung cuối cảnh trước.
+Voice: (Gujarati xen tiếng Anh, chỉ một người nói trong clip này) {{LUOT_10}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Người phụ nữ hạ tay trái; miệng khép. Khung này là khung đầu của cảnh sau.
+Diễn biến: Người phụ nữ kể, vẻ thân mật như kể bí mật, tay trái đưa nhẹ lên ngang ngực, giơ ngón tay khi nói '15 to 20 minutes'. Nhân viên nghe chăm chú.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_10}} Only that character speaks, in Gujarati mixed with English words, exactly as written, with lip-sync, and keeps the EYE LINE while speaking (the officer looks at the woman's face (to the right), the woman looks at the officer's face (to the left), both in three-quarter profile; nobody looks into the lens); the other keeps the mouth closed and reacts as described. ACTION, done WHILE the line is spoken, in this order, complete by the last word: the woman leans in a little as if sharing a secret, her left hand rising to chest height, briefly counting with her fingers on the numbers; the officer listens closely. LOCKED CAMERA: no pan, no tilt, no zoom. After the line the speaker relaxes with the mouth closed and the other keeps listening naturally. DELIVERY of this line: friendly and confiding, a little proud; a real person talking, not acting for the camera. Same voices as always, natural hall acoustics, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, gần, rõ, tự nhiên như hội thoại thật, có độ vang nhẹ của sảnh lớn. Không nhạc, không tiếng loa, không tiếng ồn đè lên giọng.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; anyone looking into the lens; camera move or zoom; people moving in the background; no speech.
+
+CẢNH 11 (0:22–0:30): Lượt 11
+Bối cảnh: một góc duy nhất, cận trung hai người (từ eo trở lên), máy đứng yên: nhân viên TRÁI, khuỷu tay trái tì nóc máy soi; người phụ nữ PHẢI, tay phải nắm quai túi; khay nhựa xanh có túi da nâu ở tiền cảnh dưới; không có chữ. Nối từ khung cuối cảnh trước.
+Voice: (Gujarati xen tiếng Anh, chỉ một người nói trong clip này) {{LUOT_11}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Như khung đầu; miệng khép. Khung này là khung đầu của cảnh sau.
+Diễn biến: Người phụ nữ tiếp tục giải thích, hào hứng, tay trái ngửa ra trước ngực, đầu gật nhẹ theo ý. Nhân viên chống khuỷu tay lên máy soi, gật đầu.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_11}} Only that character speaks, in Gujarati mixed with English words, exactly as written, with lip-sync, and keeps the EYE LINE while speaking (the officer looks at the woman's face (to the right), the woman looks at the officer's face (to the left), both in three-quarter profile; nobody looks into the lens); the other keeps the mouth closed and reacts as described. ACTION, done WHILE the line is spoken, in this order, complete by the last word: the woman keeps explaining with enthusiasm, her left hand open in front of her chest, small nods with her ideas; the officer, elbow on the scanner, nods along. LOCKED CAMERA: no pan, no tilt, no zoom. After the line the speaker relaxes with the mouth closed and the other keeps listening naturally. DELIVERY of this line: animated and warm, natural Gujarati rhythm; a real person talking, not acting for the camera. Same voices as always, natural hall acoustics, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, gần, rõ, tự nhiên như hội thoại thật, có độ vang nhẹ của sảnh lớn. Không nhạc, không tiếng loa, không tiếng ồn đè lên giọng.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; anyone looking into the lens; camera move or zoom; people moving in the background; no speech.
+
+CẢNH 12 (0:30–0:37): Lượt 12
+Bối cảnh: một góc duy nhất, cận trung hai người (từ eo trở lên), máy đứng yên: nhân viên TRÁI, khuỷu tay trái tì nóc máy soi; người phụ nữ PHẢI, tay phải nắm quai túi; khay nhựa xanh có túi da nâu ở tiền cảnh dưới; không có chữ. Nối từ khung cuối cảnh trước.
+Voice: (Gujarati xen tiếng Anh, chỉ một người nói trong clip này) {{LUOT_12}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Như khung đầu; miệng khép. Khung này là khung đầu của cảnh sau.
+Diễn biến: Người phụ nữ kể tiếp về khoá học riêng, tự hào, cười. Nhân viên nhìn cô, mặt tò mò dần.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_12}} Only that character speaks, in Gujarati mixed with English words, exactly as written, with lip-sync, and keeps the EYE LINE while speaking (the officer looks at the woman's face (to the right), the woman looks at the officer's face (to the left), both in three-quarter profile; nobody looks into the lens); the other keeps the mouth closed and reacts as described. ACTION, done WHILE the line is spoken, in this order, complete by the last word: the woman goes on proudly with a smile, a small open-hand gesture; the officer watches her, growing curious. LOCKED CAMERA: no pan, no tilt, no zoom. After the line the speaker relaxes with the mouth closed and the other keeps listening naturally. DELIVERY of this line: proud and happy, slowing slightly at the end; a real person talking, not acting for the camera. Same voices as always, natural hall acoustics, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, gần, rõ, tự nhiên như hội thoại thật, có độ vang nhẹ của sảnh lớn. Không nhạc, không tiếng loa, không tiếng ồn đè lên giọng.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; anyone looking into the lens; camera move or zoom; people moving in the background; no speech.
+
+CẢNH 13 (0:37–0:38): Lượt 13
+Bối cảnh: một góc duy nhất, cận trung hai người (từ eo trở lên), máy đứng yên: nhân viên TRÁI, khuỷu tay trái tì nóc máy soi; người phụ nữ PHẢI, tay phải nắm quai túi; khay nhựa xanh có túi da nâu ở tiền cảnh dưới; không có chữ. Nối từ khung cuối cảnh trước.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_13}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Tay phải nhân viên gần túi; miệng khép. Khung này là khung đầu của cảnh sau.
+Diễn biến: Nhân viên hỏi lại, nhướng mày, nghiêng người về phía cô, tay phải chỉ nhẹ xuống túi da trong khay như hỏi 'trong đó à?'. Người phụ nữ mỉm cười gật.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_13}} Only that character speaks, in English, with lip-sync, and keeps the EYE LINE while speaking (the officer looks at the woman's face, then down at the bag he points at; the woman looks at his face; nobody looks into the lens); the other keeps the mouth closed and reacts as described. ACTION, done WHILE the line is spoken, in this order, complete by the last word: the officer raises his eyebrows and leans toward her, and points DOWN at {{DAO_VALI}} in the tray with his right index finger, the hand just above the bag, the finger aimed at the middle of the bag; his left elbow stays on the scanner; the woman smiles and nods. LOCKED CAMERA: no pan, no tilt, no zoom. After the line the speaker relaxes with the mouth closed and the other keeps listening naturally. DELIVERY of this line: short and surprised, clearly rising, curious; a real person talking, not acting for the camera. Same voices as always, natural hall acoustics, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, gần, rõ, tự nhiên như hội thoại thật, có độ vang nhẹ của sảnh lớn. Không nhạc, không tiếng loa, không tiếng ồn đè lên giọng.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; anyone looking into the lens; camera move or zoom; people moving in the background; no speech.
+
+CẢNH 14 (0:38–0:44): Lượt 14
+Bối cảnh: một góc duy nhất, cận trung hai người (từ eo trở lên), máy đứng yên: nhân viên TRÁI, khuỷu tay trái tì nóc máy soi; người phụ nữ PHẢI, tay phải nắm quai túi; khay nhựa xanh có túi da nâu ở tiền cảnh dưới; không có chữ. Nối từ khung cuối cảnh trước.
+Voice: (Gujarati xen tiếng Anh, chỉ một người nói trong clip này) {{LUOT_14}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Tay phải nhân viên trên mép khay; miệng khép. Khung này là khung đầu của cảnh sau.
+Diễn biến: Người phụ nữ gật, giải thích, tay trái mở ra trước ngực. Nhân viên rút tay khỏi túi, đặt lên mép khay, nghe.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_14}} Only that character speaks, in Gujarati mixed with English words, exactly as written, with lip-sync, and keeps the EYE LINE while speaking (the officer looks at the woman's face (to the right), the woman looks at the officer's face (to the left), both in three-quarter profile; nobody looks into the lens); the other keeps the mouth closed and reacts as described. ACTION, done WHILE the line is spoken, in this order, complete by the last word: the woman nods and explains, her left hand opening in front of her chest; the officer moves his right hand from the bag back to the edge of the tray and listens. LOCKED CAMERA: no pan, no tilt, no zoom. After the line the speaker relaxes with the mouth closed and the other keeps listening naturally. DELIVERY of this line: friendly and clear, explaining; a real person talking, not acting for the camera. Same voices as always, natural hall acoustics, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, gần, rõ, tự nhiên như hội thoại thật, có độ vang nhẹ của sảnh lớn. Không nhạc, không tiếng loa, không tiếng ồn đè lên giọng.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; anyone looking into the lens; camera move or zoom; people moving in the background; no speech.
+
+CẢNH 15 (0:44–0:48): Lượt 15
+Bối cảnh: một góc duy nhất, cận trung hai người (từ eo trở lên), máy đứng yên: nhân viên TRÁI, khuỷu tay trái tì nóc máy soi; người phụ nữ PHẢI, tay phải nắm quai túi; khay nhựa xanh có túi da nâu ở tiền cảnh dưới; không có chữ. Nối từ khung cuối cảnh trước.
+Voice: (Gujarati xen tiếng Anh, chỉ một người nói trong clip này) {{LUOT_15}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Như khung đầu; miệng khép. Khung này là khung đầu của cảnh sau.
+Diễn biến: Người phụ nữ nói, lắc đầu nhẹ ở 'નહીં', cười hiền. Nhân viên nghe, mỉm cười.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_15}} Only that character speaks, in Gujarati mixed with English words, exactly as written, with lip-sync, and keeps the EYE LINE while speaking (the officer looks at the woman's face (to the right), the woman looks at the officer's face (to the left), both in three-quarter profile; nobody looks into the lens); the other keeps the mouth closed and reacts as described. ACTION, done WHILE the line is spoken, in this order, complete by the last word: the woman speaks with a gentle shake of the head on the negative words, smiling kindly; the officer smiles as he listens. LOCKED CAMERA: no pan, no tilt, no zoom. After the line the speaker relaxes with the mouth closed and the other keeps listening naturally. DELIVERY of this line: reassuring and gentle; a real person talking, not acting for the camera. Same voices as always, natural hall acoustics, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, gần, rõ, tự nhiên như hội thoại thật, có độ vang nhẹ của sảnh lớn. Không nhạc, không tiếng loa, không tiếng ồn đè lên giọng.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; anyone looking into the lens; camera move or zoom; people moving in the background; no speech.
+
+CẢNH 16 (0:48–0:54): Lượt 16
+Bối cảnh: một góc duy nhất, cận trung hai người (từ eo trở lên), máy đứng yên: nhân viên TRÁI, khuỷu tay trái tì nóc máy soi; người phụ nữ PHẢI, tay phải nắm quai túi; khay nhựa xanh có túi da nâu ở tiền cảnh dưới; không có chữ. Nối từ khung cuối cảnh trước.
+Voice: (Gujarati xen tiếng Anh, chỉ một người nói trong clip này) {{LUOT_16}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Người phụ nữ hạ tay; miệng khép. Khung này là khung đầu của cảnh sau.
+Diễn biến: Người phụ nữ nói tiếp, tự tin, tay trái đặt nhẹ lên ngực ở 'confidently'. Nhân viên gật đầu, ấn tượng.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_16}} Only that character speaks, in Gujarati mixed with English words, exactly as written, with lip-sync, and keeps the EYE LINE while speaking (the officer looks at the woman's face (to the right), the woman looks at the officer's face (to the left), both in three-quarter profile; nobody looks into the lens); the other keeps the mouth closed and reacts as described. ACTION, done WHILE the line is spoken, in this order, complete by the last word: the woman continues confidently, touching her left hand lightly to her chest on 'confidently', then lowering it; the officer nods, impressed. LOCKED CAMERA: no pan, no tilt, no zoom. After the line the speaker relaxes with the mouth closed and the other keeps listening naturally. DELIVERY of this line: confident and warm; a real person talking, not acting for the camera. Same voices as always, natural hall acoustics, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, gần, rõ, tự nhiên như hội thoại thật, có độ vang nhẹ của sảnh lớn. Không nhạc, không tiếng loa, không tiếng ồn đè lên giọng.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; anyone looking into the lens; camera move or zoom; people moving in the background; no speech.
+
+CẢNH 17 (0:54–0:56): Lượt 17
+Bối cảnh: một góc duy nhất, cận trung hai người (từ eo trở lên), máy đứng yên: nhân viên TRÁI, khuỷu tay trái tì nóc máy soi; người phụ nữ PHẢI, tay phải nắm quai túi; khay nhựa xanh có túi da nâu ở tiền cảnh dưới; không có chữ. Nối từ khung cuối cảnh trước.
+Voice: (Gujarati xen tiếng Anh, chỉ một người nói trong clip này) {{LUOT_17}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Người phụ nữ mỉm cười nhìn nhân viên; miệng khép. Khung này là khung đầu của cảnh sau.
+Diễn biến: Người phụ nữ cười, tay phải vẫn nắm quai túi, hơi xoay người như sắp lấy điện thoại. Nhân viên mỉm cười chờ. Hết phần 1 (sau đó nhoè chuyển sang phần 2).
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_17}} Only that character speaks, in Gujarati mixed with English words, exactly as written, with lip-sync, and keeps the EYE LINE while speaking (the officer looks at the woman's face (to the right), the woman looks at the officer's face (to the left), both in three-quarter profile; nobody looks into the lens); the other keeps the mouth closed and reacts as described. ACTION, done WHILE the line is spoken, in this order, complete by the last word: the woman smiles, still holding the bag strap with her right hand, and turns very slightly as if about to take out her phone; the officer smiles and waits. LOCKED CAMERA: no pan, no tilt, no zoom. After the line the speaker relaxes with the mouth closed and the other keeps listening naturally. DELIVERY of this line: cheerful and eager; a real person talking, not acting for the camera. Same voices as always, natural hall acoustics, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, gần, rõ, tự nhiên như hội thoại thật, có độ vang nhẹ của sảnh lớn. Không nhạc, không tiếng loa, không tiếng ồn đè lên giọng.
+Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; anyone looking into the lens; camera move or zoom; people moving in the background; no speech.
+
+===== PHAN 2: NGUOI PHU NU + GIA SU AI (GHEP 2 LOP) | vao: nhoe 0.5 =====
+
+[GHEP HAI LOP]:
+nen: HOC
+khung DAY: 0.662, 0.013, 0.300, 0.253
+bo goc: 0.03
+vien: #FFFFFF, 4
+noi: lien
+nghe: moi canh
+
+[STYLE LOCK]:
+Vertical short-form social video look, bright natural daylight, crisp focus on the face, realistic skin, hair and fabric detail for the real person, clean glossy high-end CGI for the robot. No text, captions, logos, icons or watermarks anywhere in the frame.
+
+[NHAN VAT HOC]:
+{{TEN_HOC}}: {{NGUOI_HOC}}, {{DAO_TUI}} hanging from her right shoulder (on the left side of the picture), her right hand holding its strap at chest height. She stands in the middle of a bright airport hall facing the camera, framed from the hips up and centred; the top of her hair at about 22 percent down from the top edge, her face in the upper-middle of the frame. The top-right corner of the frame (right third, top quarter) shows only the calm, plain airport background: nothing is drawn there, no window, no picture, no screen, no face, no inset or overlay of any kind; her head always stays clearly left of that corner. Behind her: {{NEN_HOC}}. The camera is locked off and steady. She looks into the lens while speaking, as if talking to the AI tutor on a video call; small natural nods and facial expressions while speaking; her hands stay low. VOICE: {{GIONG_HOC}}, the same timbre, pitch and loudness in every clip; she speaks a little slower here, like someone practising, with small natural hesitations.
+
+[NGHE HOC]:
+{{TEN_HOC}} listens to the AI tutor: friendly attentive expression and a soft smile, eyes on the lens, slow natural blinks, a small nod now and then, right hand holding the bag strap. The lips stay gently pressed together the whole clip; the head stays mostly still.
+
+[NHAN VAT DAY]:
+{{TEN_DAY}}: {{NGUOI_DAY}}. Portrait-oriented frame (taller than wide): the robot faces the camera, head and shoulders down to the chest, centred, head in the upper half. Behind it: {{NEN_DAY}}. The camera is locked off and never moves. The robot looks straight into the lens. Its soft lips open and move naturally with every word whenever it speaks, with small head tilts, a warm smile and slow blinks, like a patient friendly teacher. VOICE: {{GIONG_DAY}}, the same timbre, pitch and loudness in every clip.
+
+[NGHE DAY]:
+{{TEN_DAY}} listens calmly: looking into the lens, a gentle closed-mouth smile, slow blinks, a tiny head tilt now and then. The lips stay gently pressed together the whole clip; the head stays mostly still.
+
+[VIDEO SUFFIX]:
+Natural spontaneous conversational delivery, not text-to-speech, not an announcer: the woman about 2.5 to 3 words per second with small hesitations, the tutor about 3 words per second, warm and encouraging; the line starts right away, light natural breaths, a smile audible in the voice when the line is positive. Gujarati words in natural native Gujarati; English words inside a Gujarati sentence said the way Gujarati speakers say them. Clean close voice, like a video call in a quiet hall, no music, no background sound effects, no airport announcements, no strong echo.
+
+[NEGATIVE]:
+text, letters, captions, subtitles, logos, icons, signs with readable words, watermark; phone or app interface in the frame; camera cuts, zoom, push-in, strong shake; a second person in the foreground; people walking in the background; face morphing, outfit change, hair change, age or style drift; distorted face; extra or missing fingers or arms; jerky or exaggerated gestures; hands touching the face or hair; slow, dragged or stretched speech; flat monotone, robotic or announcer voice; background music; echo or reverb

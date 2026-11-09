@@ -108,6 +108,12 @@ class Config:
     # Số việc song song trên MỘT tài khoản (mỗi việc một tab, cửa sổ riêng). Một tài khoản là một VM của Muse:
     # đo của muse2api (www222fff): 1 việc ~5 s phản hồi, 3 việc cùng lúc ~20 s, 10 việc 33–95 s. Mặc định 2.
     account_parallel: int = field(default_factory=lambda: max(1, int(_env("MUSE2API_ACCOUNT_PARALLEL", "2"))))
+    # Tab ấm: mỗi tab Chromium ~0.45 GB RAM, nên chỉ mở sẵn cho tài khoản đang có việc (đang ghim video, đang gen) hoặc vừa dùng
+    # trong warm_recent giây; tài khoản khác mở tab khi có việc (chậm thêm ~20 s cho lệnh đầu). MUSE2API_WARM_ALL=1: mở cho mọi tài khoản như trước.
+    # Tab rảnh quá tab_idle giây của tài khoản không còn việc thì đóng để trả RAM (0 = không đóng).
+    warm_all: bool = field(default_factory=lambda: _env("MUSE2API_WARM_ALL", "0").strip() == "1")
+    warm_recent: int = field(default_factory=lambda: max(0, int(_env("MUSE2API_WARM_RECENT", "3600"))))
+    tab_idle: int = field(default_factory=lambda: max(0, int(_env("MUSE2API_TAB_IDLE", "1800"))))
     # Dọn tài khoản trên VM Muse (tự chạy khi tài khoản rảnh, tối đa mỗi 30 phút): giữ N hội thoại mới nhất và xoá
     # các hội thoại cũ hơn, KÈM file media của chính các hội thoại đó (Studio đã có bản sao trên máy).
     # Xoá trên Muse không hoàn tác được. Tắt: MUSE2API_THREAD_KEEP=0. Không xoá media: MUSE2API_CLEANUP_MEDIA=0.

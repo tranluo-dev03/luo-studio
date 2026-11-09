@@ -57,7 +57,7 @@ if not log.handlers:
     log.addHandler(_h)
 
 CFG.ensure_dirs()
-app = FastAPI(title="LUO-API", version="1.2.2")
+app = FastAPI(title="LUO-API", version="1.3.0")
 
 # Cookie 助手脚本从 muse.ai 页面发起导入请求，需要放行该来源；
 # 浏览器扩展从 chrome-extension:// 发起，也一并放行。
@@ -191,7 +191,7 @@ class AccountPoolManager:
 
 GEN_LOCK = ConcurrencyLock(limit=CFG.max_concurrency)
 ACCOUNT_POOL = AccountPoolManager(store, per_account=CFG.account_parallel)
-API_VERSION = "1.2.2"
+API_VERSION = "1.3.0"
 QUOTA_RE = re.compile(r"24-hour limit|budget is (?:still )?exhausted|video budget|quota (?:is )?exhausted|limit for the (?:last|past) 24 hours|(?:video|daily|generation) limit (?:is |has been )?reached", re.I)
 
 
@@ -227,6 +227,7 @@ class PinRegistry:
         self._lock = threading.Lock()
         self._pins: dict[str, dict] = {}         # pin -> {"acc": id, "last": t}
         self._exhausted: dict[str, float] = {}   # id tài khoản -> lúc báo hết hạn mức
+        self._recent: dict[str, float] = {}      # id tài khoản -> lần cuối được ghim/thả (giữ tab ấm một lúc sau khi xong video)
 
     def _expire(self):
         now = time.time()
@@ -247,11 +248,22 @@ class PinRegistry:
     def set(self, pin: str, acc_id: str):
         with self._lock:
             self._pins[pin] = {"acc": acc_id, "last": time.time()}
+            self._recent[acc_id] = time.time()
 
     def release(self, pin: str) -> str | None:
         with self._lock:
             e = self._pins.pop(pin, None)
+            if e:
+                self._recent[e["acc"]] = time.time()
             return e["acc"] if e else None
+
+    def recent(self, within: float) -> set:
+        """Tài khoản được ghim hoặc thả trong `within` giây gần đây (video vừa xong: giữ tab ấm cho video kế tiếp)."""
+        cut = time.time() - within
+        with self._lock:
+            for k in [k for k, t in self._recent.items() if t <= cut]:
+                del self._recent[k]
+            return {k for k, t in self._recent.items() if t > cut}
 
     def mark_exhausted(self, acc_id: str):
         with self._lock:
@@ -1826,6 +1838,8 @@ def admin_status(_=Depends(auth)):
         "version": API_VERSION,
         "tabs": engine.pool_status(),
         "account_parallel": CFG.account_parallel,
+        "max_concurrency": CFG.max_concurrency,
+        "warm": {"all": CFG.warm_all, "recent_s": CFG.warm_recent, "tab_idle_s": CFG.tab_idle, "active": sorted(_active_accounts())},
         "essential_cookies": list(ESSENTIAL_COOKIES),
         "base_url": f"{base}/v1" if base else "",
         "config": {"site": CFG.site_url, "cdp_port": CFG.cdp_port,
@@ -2356,12 +2370,31 @@ async def run_keepalive_all(force: bool = False) -> dict:
             KEEPALIVE_STATE["running"] = False
 
 
+def _active_accounts() -> set:
+    """Tài khoản đang có việc: đang ghim video (Studio), đang gen, hoặc vừa dùng trong CFG.warm_recent giây."""
+    act = set(PINS.snapshot().values()) | {k for k, n in ACCOUNT_POOL.load.items() if n > 0}
+    if CFG.warm_recent > 0:
+        cut = time.time() - CFG.warm_recent
+        act |= PINS.recent(CFG.warm_recent) | {a["id"] for a in store.accounts if (a.get("last_used") or 0) > cut}
+    return act
+
+
 def _warmup_browser_sync():
-    """Mở sẵn một tab ấm (đã tải muse.ai, đã nối VM) cho MỖI tài khoản đang bật chưa có tab, để việc đầu tiên không phải
-    chờ trình duyệt khởi động + tải trang. Không giữ GEN_LOCK: chỉ dùng tab rảnh, không tranh với việc đang chạy."""
+    """Mở sẵn một tab ấm (đã tải muse.ai, đã nối VM) cho tài khoản đang có việc (xem _active_accounts) chưa có tab, để việc tiếp theo không
+    phải chờ tải trang; MUSE2API_WARM_ALL=1 thì mở cho MỌI tài khoản đang bật như trước (RAM tăng theo số tài khoản, ~0.45 GB/tab).
+    Đồng thời đóng tab rảnh quá CFG.tab_idle của tài khoản không còn việc. Không giữ GEN_LOCK: chỉ dùng tab rảnh, không tranh với việc đang chạy."""
+    active = _active_accounts()
+    try:
+        n = engine.reap_idle_tabs(active, float(CFG.tab_idle))
+        if n:
+            log.info("【tab】đã đóng %d tab rảnh (tài khoản không còn việc)", n)
+    except Exception as exc:  # noqa: BLE001
+        log.warning("【tab】đóng tab rảnh lỗi: %s", exc)
     pool = engine.pool_status() if engine._browser_alive() else {}
     for acc in [a for a in store.accounts if a.get("enabled", True) and a.get("cookies")]:
         if pool.get(acc["id"], {}).get("tabs"):
+            continue
+        if not CFG.warm_all and acc["id"] not in active:
             continue
         try:
             log.info("【浏览器预热】预热账号 %s (%s) 的热备标签页...", acc.get("label"), acc["id"])
