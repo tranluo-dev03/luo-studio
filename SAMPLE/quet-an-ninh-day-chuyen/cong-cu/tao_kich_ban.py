@@ -1,0 +1,338 @@
+"""Sinh lại SAMPLE/quet-an-ninh-day-chuyen/KICH-BAN-QUET-AN-NINH-DAY-CHUYEN.txt (13 cảnh phần 1 + phần 2 ghép 2 lớp).
+Sửa bảng SC (từng cảnh) hoặc các khối chữ rồi chạy: python SAMPLE\\quet-an-ninh-day-chuyen\\cong-cu\\tao_kich_ban.py
+
+Nhân bản từ SAMPLE/soi-hanh-ly-gia-su-ai/cong-cu/tao_kich_ban.py (bản KHÔNG-BÉ) theo CHECKLIST-YEU-CAU-CHUYEN-KICH-BAN.txt (10/11/2026):
+  soi chiếu hành lý (vali trên băng chuyền X-ray)  ->  quét an ninh cơ thể: cổng dò kim loại báo động vì hành khách CHƯA THÁO DÂY CHUYỀN.
+Giữ nguyên mô hình sản xuất: 13 cảnh/13 lượt, 3 góc A/B/C, ảnh tổng quan + khung đầu cắt, cú lia vụt sang hành khách ở cảnh 1,
+một người nói một lượt, nối khung, phần 2 ghép 2 lớp. Hành khách là phụ nữ (gọi "Ma'am"), không em bé, có túi khoác vai.
+Dòng thời gian dây chuyền (khoá cứng trong từng cảnh): cảnh 1-4 ĐEO -> cảnh 5 TỰ TAY THÁO, cầm ở tay -> cảnh 6 CẤT VÀO TÚI -> cảnh 7-13 và phần 2 KHÔNG còn trên cổ.
+Đèn đỏ của cổng chỉ nháy ở đoạn mở đầu + đầu cảnh 1 (lúc phát hiện), từ cảnh 2 trở đi tắt, đèn nhỏ trên xà cổng xanh."""
+import os
+import sys
+
+_args = [a for a in sys.argv[1:] if not a.startswith("--")]
+OUT = _args[0] if _args else os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "KICH-BAN-QUET-AN-NINH-DAY-CHUYEN.txt")
+
+HEAD = """[HAU KY]:
+loai: quet-an-ninh-day-chuyen
+
+[GHI CHU]:
+Thể loại "quét an ninh cơ thể - dây chuyền + gia sư AI": MỘT dự án 2 phần, Studio chạy bằng code riêng app/production/types/quet-an-ninh-day-chuyen/gen.py
+(cùng cơ chế với soi-hanh-ly-gia-su-ai, logic chung ở types/_chung/nhieu_phan.py). Kịch bản sinh bằng cong-cu/tao_kich_ban.py: sửa ở đó rồi chạy lại.
+  PHẦN 1 (cảnh thường, 13 cảnh): nhân viên an ninh (CANBO, đứng TRÁI cạnh cổng dò kim loại) hỏi hành khách nữ (HOC, đứng PHẢI, vừa bước qua cổng)
+         vì cổng báo động: bà CHƯA THÁO DÂY CHUYỀN kim loại trên cổ. Hai nhân vật đứng hai phía cổng quét người; cổng walk-through nằm GIỮA và phía sau.
+         Góc máy như bản gốc: cảnh 1 là CÚ LIA trong một clip: Studio gen trước một ảnh ngang 16:9 tổng quan ("Ảnh tổng quan": nhân viên trái,
+         cổng giữa, hành khách phải), cắt phần trái làm khung đầu ("Khung đầu cắt: trái") và gửi kèm ảnh tổng quan khi gen video, để Muse lia theo
+         cử chỉ dừng của nhân viên tới cổng rồi vụt sang hành khách; cảnh 2 hành khách trả lời, nối từ khung cuối cảnh 1; cảnh 3-7 toàn cảnh đứng yên;
+         cảnh 8-13 cận hai người. Cảnh 3, 8 có "Prompt ảnh" riêng (Studio gửi kèm ảnh tổng quan để giữ cùng bối cảnh); các cảnh còn lại nối từ khung
+         cuối cảnh trước. Gắn ảnh tham chiếu mặt cho CANBO và HOC, ảnh nền cổng cho NEN_SOI.
+         ĐOẠN MỞ ĐẦU (không lời, gen riêng, ghép trước cảnh 1): hành khách vừa bước qua cổng, đèn đỏ hai cột LED của cổng sáng + một tiếng beep ngắn, nhân viên giơ tay ra dấu dừng.
+         DÂY CHUYỀN: cảnh 1-4 đeo trên cổ (khung nào cũng thấy); cảnh 5 hành khách hai tay gỡ chốt sau gáy, kéo dây ra khỏi cổ, cầm ở tay phải trước khi hết cảnh;
+         cảnh 6 bà cất dây vào túi khoác vai trong lúc trả lời; từ cảnh 7 cổ trống, dây không xuất hiện lại. Không vali, không băng chuyền, không máy X-ray.
+  PHẦN 2 (ghép 2 lớp, mỗi lượt một cảnh): gen RIÊNG video hành khách quay selfie (HOC, nền toàn khung 9:16, sảnh sân bay gần khu an ninh) và video robot AI
+         (DAY, ô bo góc góc trên phải: x 0.691, y 0.025, rộng 0.284, cao 0.258 = 306x495 px -> gen 9:16), rồi ghép; không viền;
+         nối khung ("noi: lien"). Vào phần 2 bằng nhoè chuyển động 0,5 giây. Cổ hành khách không có dây chuyền.
+  Lượt thoại: LUOT chung, mỗi lượt có "phan": 1 hoặc 2 (lượt phần 1 đứng trước). Phần 1 cần đúng 13 lượt (= 13 CẢNH).
+  Hậu kỳ riêng (post.py, kiểu trong config.json): phần 1 chữ trắng viền đen; phần 2 AI chữ vàng, hành khách chữ trắng;
+         "fx" wrong/right viền đỏ/xanh + tiếng, "icon" x/check. Badge "Talka AI" góc trên trái: Thương hiệu -> logo cố định của dự án.
+Các dòng "===== PHAN n: ... =====" chia phần; mọi thứ phía trên dòng chia phần đầu tiên không gửi cho Muse.
+
+===== PHAN 1: QUET AN NINH CO THE - DAY CHUYEN =====
+
+[STYLE LOCK]:
+Vertical 9:16 photorealistic video at an airport body-screening checkpoint with a walk-through metal detector gate, bright daylight from tall windows mixed with even fluorescent ceiling light, natural colours, the look of a real documentary moment. Each clip uses the camera angle described in its start frame. The camera stays still in every clip, except a clip that describes a CAMERA MOVE. The same two characters, the same place and the same props in every clip. No text, no letters, no logos, no captions, no icons, no lettering on the uniform, badge, nameplate, detector display, signs or phone anywhere in the frame.
+
+[CHAR LOCK]:
+The {{VAI_CANBO}}, {{TEN_CANBO}} ({{POS_CANBO}}): {{NGUOI_CANBO}}. VOICE LOCK OFFICER: one single voice, {{GIONG_CANBO}}, the same in every clip.
+The {{VAI_HOC}}, {{TEN_HOC}} ({{POS_HOC}}): {{NGUOI_HOC}}, {{DAO_TUI}} on her shoulder. {{DAO_GIU}} VOICE LOCK PASSENGER: one single voice, {{GIONG_HOC}}, the same in every clip.
+NECKLACE (the one metal prop on her): {{DAO_DAY_CHUYEN}}. It is exactly the same necklace in every clip, never changing design, never doubled, never a second one. Its state follows the clip: ON her neck in clips 1 to 4; in clip 5 she takes it off herself, with her own hands, and holds it in one hand; from clip 6 on it is OFF: not on her neck, put away in her bag, and it never reappears. She touches or removes it only when the clip's ACTION says so.
+When silent, the officer {{NGHE_CANBO}}; when silent, the passenger {{NGHE_HOC}}.
+INTERACTION: the two react to each other like real people in one continuous moment. When one gestures at, touches or holds up something, the other's eyes follow it to that exact place, then come back to the speaker's face. Gestures are precise and gentle: the officer never touches the passenger.
+EYE LINE (every clip, whoever speaks): the speaker looks at the other person or at the place named in the clip, as given in the clip's EYE LINE; the speaker's head never turns toward the camera, to the side or out of the frame while talking. Nobody looks into the lens.
+RULE: in each clip exactly ONE character speaks, one line, with lip-sync, keeping the EYE LINE. The other character stays silent the whole clip, mouth closed, but stays alive and reacts with the eyes and face as the clip describes. A character who is not in the shot never appears. Each voice stays the same in every clip.
+ACTION CLIPS: the actions are done WHILE the line is spoken, in the order given, and are complete by the last word. Props, the same in every clip: the walk-through metal detector gate stands still, tall and silver, behind and between the two; {{DAO_KHAY}} stands within reach at the passenger's right side, beside the gate.
+
+[SET LOCK]:
+{{NEN_SOI}}. The travellers in the far background are small, softly out of focus and stand still; nobody walks through the foreground. The detector gate, the tray and the stanchions stay exactly where they are in the start frame for the whole clip; only the people move. The gate's two vertical red LED bars glow and blink ONLY at the moment of detection (the opening and the first second of clip 1); from clip 2 on the red bars are dark and the small light on the top beam is a calm green, and they stay that way.
+
+[VIDEO SUFFIX]:
+STATIC SET (every clip except the opening one): the detector gate, the tray and everything at the frame edges stay motionless exactly where they are in the start frame; the only things that move are the people, and the necklace is touched or removed only when the action says so.
+Camera: still in every clip (no pan, no tilt, no zoom) unless the clip describes a CAMERA MOVE; never shaky, never a cut. The speaker starts talking right away at a quick, natural, unscripted conversational pace (about 4.5 to 5 words per second, short lines up to 6, no long pauses), like a real exchange at a busy checkpoint, and finishes the line promptly. After the last word (and the action, if the clip has one) the speaker relaxes with the mouth closed, while the other keeps listening naturally, until the end of the clip (the usual rest pose: {{DAO_NGHI}}). Both sound like real people caught on camera, not actors and not a voice-over: relaxed natural pitch movement, everyday volume, not over-enunciated, no theatrical emphasis, no radio-announcer polish; small natural breaths and tiny hesitations are fine. Sound: two real voices close to the camera in the natural acoustics of a large airport hall (a light natural room reverb), no music, no announcements, no crowd chatter over the voices. No subtitles, no text. 9:16.
+
+[NEGATIVE]:
+text, captions, subtitles, logos, icons, emoji, lettering on the uniform, badge, nameplate, detector display or signs; split screen, overlay, inset window; anyone looking into the lens; the speaker turning the face to the camera, to the side or out of the frame; the officer touching, patting down or grabbing the passenger; pointing at the wrong thing or vaguely into the air; the listener staring blankly while the other gestures or shows something; shaky handheld camera, random zoom, a camera move the clip does not ask for, a cut; two voices in one clip; the silent character moving the mouth; extra people in the foreground; people walking in the background; the metal detector changing into a luggage scanner or a conveyor; suitcases, baggage, X-ray machines or roller conveyors in the frame; extra TSA hands; the necklace changing design, the necklace disappearing before she removes it, the necklace spontaneously reappearing after she took it off, random extra necklaces or chains, a chain passing through the neck or doubling; face, hair or outfit changing; hands going to the head, face or hair except the necklace actions the clip describes; one character copying the other's movements; background music, announcements; robotic, text-to-speech or announcer voice; silent clip with no speech; slow, dragged speech.
+"""
+
+# NECK = trạng thái dây chuyền theo cảnh, chèn vào pose khung đầu, Prompt video và Negative của cảnh
+NECK = {
+    "on": "NECKLACE STATE: the necklace is ON her neck, clearly visible at her collarbone, exactly as in the start frame, and stays there the whole clip",
+    "off": "NECKLACE STATE: the necklace is OFF: her neck and collarbone are bare, there is no chain on her neck; the necklace is not in her hands either and never appears again",
+}
+NECK_OF = {n: "on" for n in (1, 2, 3, 4)}
+NECK_OF.update({n: "off" for n in range(6, 14)})   # cảnh 5 có động tác tháo riêng
+
+ANGLE = {
+    "A": ("CAMERA ANGLE: WIDE SHOT of the body-screening checkpoint from chest height, slightly from the side: {{TEN_CANBO}} stands at the LEFT beside the walk-through metal detector gate, "
+          "seen from the knees up, face and body in three-quarter profile turned toward the right; {{TEN_HOC}} stands at the RIGHT edge of the frame just past the gate, turned three-quarters toward the left, "
+          "facing him, her face in clear three-quarter profile; between them, in the middle and slightly behind, the tall silver walk-through metal detector gate with a small dark display on the top beam (no text) "
+          "and a small calm green light; {{DAO_KHAY}} on a small stainless-steel shelf at her right, within her reach; behind them {{NEN_SOI}}. FRAME ANCHORS: the officer stays inside the left third of the frame, "
+          "the passenger inside the right third, the gate between them in the middle; the tray stays at the right edge exactly where the start frame has it; the frame edges never change."),
+    "C": ("CAMERA ANGLE: CLOSE TWO-SHOT at head height: {{TEN_CANBO}} at the LEFT edge of the frame, cut off by the frame below the chest, his head and shoulder in three-quarter profile "
+          "turned to the right toward the passenger; {{TEN_HOC}} at centre-right, chest-up, turned three-quarters to the left toward him, her face large, clear and well lit, her bare collarbone visible; "
+          "behind them the silver frame of the metal detector gate and {{NEN_SOI}}, softly out of focus, with a few travellers standing still far away. FRAME ANCHORS: the officer stays cut by the left edge, "
+          "the passenger stays centre-right, the blurred gate frame stays behind them; the frame edges never change."),
+}
+ANGLE_VN = {
+    "P": ("góc cận nhân viên từ độ cao ngực, đứng chéo bên trái cổng: ông to ở nửa trái khung (từ eo lên), nhìn sang phải về phía hành khách (ngoài khung); sau-bên phải ông là cổng dò kim loại "
+          "bạc, hai cột LED đỏ đang nháy; ông giơ một bàn tay ra dấu dừng, máy đi theo cử chỉ tới cổng; nói xong ông hạ tay, máy vụt sang phải, dừng ở cận hành khách"),
+    "B": "góc B cận hành khách (từ eo trở lên, quay 3/4 về mép trái nơi nhân viên đứng ngoài khung), chính là chỗ cú lia cảnh 1 dừng lại",
+    "A": "góc A toàn cảnh: nhân viên đứng TRÁI cạnh cổng, hành khách đứng PHẢI (mép khung) ngay sau cổng, cổng dò kim loại ở giữa-sau, khay đồ ở bên phải hành khách",
+    "C": "góc C cận hai người: nhân viên ở mép TRÁI (cắt ngang ngực, nghiêng 3/4), hành khách giữa-phải, mặt to rõ, khung cổng quét mờ phía sau",
+}
+ANGLE["P"] = ("CAMERA ANGLE: MEDIUM SHOT OF THE OFFICER from chest height, from the front-left of the gate, the left part of the wide overview: {{TEN_CANBO}} fills the left half "
+              "of the frame from the waist up, body turned three-quarters toward the right, looking toward the passenger who is just off-screen at the right; behind-right of him the tall silver "
+              "walk-through metal detector gate with its two vertical red LED bars glowing, blinking, and a small dark display on the top beam (no text); his right hand raised in front of him, "
+              "palm out, in a gentle stop gesture; his left arm relaxed at his side; behind everything {{NEN_SOI}}. The officer is the only person in the shot.")
+ANGLE["B"] = ("CAMERA ANGLE: MEDIUM CLOSE-UP OF THE PASSENGER ALONE: {{TEN_HOC}} from the waist up, slightly right of centre, turned three-quarters toward the left edge of the frame, "
+              "where the officer stands just off-screen; the necklace clearly visible at her collarbone; the edge of the silver gate frame blurred at the right edge; behind her {{NEN_SOI}}, softly out of focus. "
+              "The passenger is the only person in the shot.")
+WIDE = {1: ("WIDE OVERVIEW of an airport body-screening checkpoint, photorealistic, bright airport daylight, camera at chest height standing at the front-left of a tall silver walk-through "
+            "metal detector gate and looking diagonally past it. The gate stands in the centre-right of the frame, seen at a slight angle, its two vertical LED bars glowing RED, a small dark "
+            "display (no text) on the top beam. In the LEFT 30 percent of the width: {{TEN_CANBO}} ({{NGUOI_CANBO}}) stands beside the gate, seen from the knees up, body turned three-quarters toward the right, "
+            "his right hand raised palm-out in a gentle stop gesture. In the RIGHT 30 percent of the width, just past the gate: {{TEN_HOC}} ({{NGUOI_HOC}}), seen from the waist up, "
+            "{{DAO_TUI}} on her shoulder, wearing {{DAO_DAY_CHUYEN}} clearly visible at her collarbone, turned three-quarters to the left, looking at the officer with a slightly worried face. "
+            "{{DAO_KHAY}} on a small stainless-steel shelf at her right. Behind everything {{NEN_SOI}}. Mouths closed. Nobody else in the foreground. "
+            "No suitcases, no baggage scanner, no conveyor. No text, no logos, no lettering anywhere.")}
+PRE = {1: ("Generate exactly one still image now, vertical 9:16, photorealistic, bright airport daylight, camera at chest height standing at the front-left of a tall silver walk-through metal detector gate, "
+           "looking diagonally past it. The gate stands in the centre-right of the frame; its two vertical LED bars glow RED and a small light on the top beam is red too (the gate has just detected metal). "
+           "At the LEFT: {{TEN_CANBO}} ({{NGUOI_CANBO}}), seen from the knees up, body turned three-quarters toward the right, looking at the passenger. "
+           "At the RIGHT, one step past the gate frame: {{TEN_HOC}} ({{NGUOI_HOC}}), {{DAO_TUI}} on her shoulder, wearing {{DAO_DAY_CHUYEN}} clearly visible at her collarbone, "
+           "just stepping out of the gate. {{DAO_KHAY}} on a small stainless-steel shelf at her right. Mouths closed. No suitcases, no conveyor, no baggage scanner. "
+           "No text, no logos, no lettering anywhere. Output only the image.",
+           "Start exactly from the start-frame image. THIS CLIP OVERRIDES the set lock about the gate lights: here, and only here, the two red LED bars of the gate blink on and off several times "
+           "and a short electronic beep sounds ONCE (the gate has detected metal). The passenger takes one last step out of the gate and stops, glancing down at herself in surprise; "
+           "her necklace stays on her neck, she does not touch it. The officer raises his right hand, palm out, in a gentle stop gesture, and looks at her; nobody speaks. The camera stays "
+           "still. Only the short beep of the metal detector and quiet airport ambience. No text.",
+           "3.0")}
+CROP = {1: "trái"}
+LAYOUT_OF = {3: 1, 8: 3}   # cảnh đổi góc máy -> cảnh có khung đầu dùng làm ảnh bố cục (cảnh 3 lấy cảnh 1, cảnh 8 lấy cảnh 3)
+FOLLOW = {1: 1.0}   # engine: 1 giây máy đẩy vào + trôi theo cử chỉ tới cổng ngay trước cú vụt
+FAST = {1: 3}       # engine tua nhanh cú lia sau lời 3 lần + nhoè ngang (Muse lia chậm ~2 s; bản gốc ~0,4 s)
+CAM_PAN = ("CAMERA MOVES (the only clip with camera moves). First, WITH THE GESTURE, during the line: as the officer holds his right hand out in front of him, palm out, in a gentle stop gesture, "
+           "the camera drifts slowly along his arm and hand toward the metal detector gate behind-right of him, whose red LED bars blink a last time and then go dark while the small top light turns green "
+           "(reference image #2 shows where the gate and the passenger are). The hand never swings toward the passenger and never touches anyone. Second, right after the last "
+           "word he lowers his hand, and then the camera makes ONE fast whip pan to the RIGHT, sudden and hard like a handheld camera swinging, with strong horizontal motion blur, and "
+           "stops abruptly on a medium shot of the passenger just past the gate, from the waist up, turned three-quarters toward the left, slightly worried, her necklace visible at her collarbone, "
+           "looking toward the officer off-screen at the left. The officer's hand never enters her shot. Nobody new appears; no "
+           "cut. After the whip the camera holds still on the passenger")
+WHO = {"P": "In the shot: {{TEN_CANBO}} ({{NGUOI_CANBO}}).",
+       "B": "In the shot: {{TEN_HOC}} ({{NGUOI_HOC}}), {{DAO_TUI}} on her shoulder, wearing {{DAO_DAY_CHUYEN}}."}
+BOTH = "In the shot: {{TEN_CANBO}} ({{NGUOI_CANBO}}). In the shot: {{TEN_HOC}} ({{NGUOI_HOC}}), {{DAO_TUI}} on her shoulder."
+EYE_A = "EYE LINE: the officer looks at the passenger's face (to the right), the passenger looks at the officer's face (to the left), both in three-quarter profile; nobody looks into the lens"
+EYE_C = "EYE LINE: the officer looks at the passenger's face (to the right), the passenger looks at the officer's face (to the left); nobody looks into the lens"
+
+# (n, thời gian mẫu, góc, ảnh mới?, khung đầu VN, diễn biến VN, khung cuối VN, ACTION EN, EYE LINE EN, pose khung đầu EN, CAMERA MOVE EN, giữ sau lời (giây), chuyển cảnh)
+SC = [
+    (1, "0:00–0:02", "P", True,
+     "Cắt từ phần trái ảnh tổng quan: cận nhân viên từ eo trở lên, nhìn sang phải về phía hành khách (ngoài khung), một bàn tay giơ ra trước, lòng bàn tay hướng ra, cử chỉ dừng nhẹ. Cổng dò kim loại sau-bên phải ông, hai cột đèn đỏ đang nháy. Miệng khép.",
+     "Trước câu nói: đoạn mở đầu không lời ~3 s ở góc toàn cảnh (như ảnh mẫu): hành khách vừa bước qua cổng, hai cột LED đỏ nháy, một tiếng beep ngắn, bà dừng lại, "
+     "nhân viên giơ tay ra dấu dừng (gen riêng, ghép trước). Rồi cắt sang cận nhân viên: ông vừa nói vừa đưa một bàn tay ra trước ra dấu dừng nhẹ, máy đi theo cử chỉ tới cổng dò kim loại "
+     "(đèn đỏ nháy lần cuối rồi tắt, đèn nhỏ trên xà chuyển xanh). Bàn tay không quét sang hành khách, không chạm ai. Nói xong ông hạ tay, RỒI máy vụt sang phải (nhoè ngang mạnh), "
+     "dừng gọn ở cận hành khách ngay sau cổng, hơi lo, dây chuyền vẫn đeo ở xương đòn, nhìn về phía nhân viên (ngoài khung bên trái).",
+     "Cận hành khách một mình (từ eo trở lên), quay 3/4 về mép trái, hơi lo, dây chuyền vẫn đeo ở cổ, nhìn về phía nhân viên ngoài khung bên trái; miệng khép.",
+     "on 'Ma'am' the officer holds his right hand out in front of him, palm out, in a gentle stop gesture; it stays there through 'could you step back'; on 'for a moment' he makes one small "
+     "soft push of the palm toward the gate behind him; the hand never swings toward the passenger and never touches anyone; right after the last word he lowers his hand to his side",
+     "EYE LINE: the officer looks toward the passenger just off-screen at the right; the passenger, once the camera reaches her, looks toward the officer off-screen at the left; nobody looks into the lens",
+     "the officer standing with his right hand raised palm-out in a gentle stop gesture, left arm relaxed, looking toward the passenger off-screen at the right",
+     CAM_PAN, "2.5", None),
+    (2, "0:02–0:03", "B", False, "",
+     "Hành khách quay nhìn nhân viên (ngoài khung bên trái), gật nhẹ, hơi lo, đưa một bàn tay ra trước một chút như đồng ý, rồi thả lại bên hông. Không chạm hay sờ dây chuyền, dây vẫn đeo.",
+     "Hành khách miệng khép, tay thả lỏng gần hông, dây chuyền vẫn đeo; cảnh sau là góc toàn cảnh (có ảnh riêng) cùng chỗ đứng cạnh cổng.",
+     "she turns her face toward the officer off-screen, gives a small worried nod and extends one hand a little in front of her, open, as if agreeing, then lets it fall to her side; she does not touch her neck or the necklace",
+     "EYE LINE: the passenger looks toward the officer just off-screen at the left edge of the frame, eyes level, not into the lens",
+     "", None, None, None),
+    (3, "0:03–0:07", "A", True,
+     "Góc A: nhân viên đứng cạnh cổng bên trái, tay thả lỏng; hành khách đứng bên phải ngay sau cổng, một tay trên quai túi, dây chuyền đeo rõ ở cổ; hai người nhìn nhau, miệng khép. Đèn đỏ của cổng tắt, đèn trên xà xanh.",
+     "Nhân viên nói 'The scanner detected something metallic': ông ngửa bàn tay về phía cổng dò kim loại; tới 'Are you wearing any jewelry?' ông đưa một cử chỉ NHẸ bàn tay mở về vùng cổ của hành khách "
+     "từ xa (tay giữ ngang ngực, cách bà cả mét, không chạm). Hành khách nhìn theo tay ông, rồi cúi nhìn xuống dây chuyền ở cổ; ở chữ cuối bà vừa đưa một tay về phía dây chuyền.",
+     "Nhân viên hạ tay; hành khách vừa đưa một tay về phía dây chuyền, dây vẫn đeo; cả hai nhìn nhau; miệng khép.",
+     "on the first sentence the officer opens his right hand palm-up toward the metal detector gate beside him; on 'Are you wearing any jewelry' he makes one light, small gesture with the open hand toward the passenger's neck area "
+     "from a distance, his hand staying at chest height and never close to her, then lowers it; the passenger's eyes follow his hand toward the gate, then she glances down at the necklace at her collarbone, and on the last word she is already lifting one hand toward it; the necklace stays on her neck",
+     "EYE LINE: the officer looks at the passenger's face, with one glance at the gate on his gesture; the passenger follows his hand, then looks down at her necklace, then up at him; nobody looks into the lens",
+     "the officer standing beside the gate with both arms relaxed, the passenger with one hand resting on her bag strap, the necklace visible at her collarbone, the gate's red bars dark and its top light green", None, None, None),
+    (4, "0:07–0:11", "A", False, "",
+     "Hành khách nhìn xuống cổ, một tay chạm mặt dây/sợi dây bằng đầu ngón tay ở 'Oh, it might be my necklace', mặt hơi ngượng, hơi ngạc nhiên; tới 'I forgot to take it off' bà ngước nhìn nhân viên, hơi xin lỗi. "
+     "Nhân viên nhìn theo tay bà xuống vùng cổ rồi nhìn lại mặt bà.",
+     "Dây chuyền VẪN ĐEO; bàn tay hành khách ở gần vòng cổ, ngón tay chạm sợi dây, sẵn sàng tháo; mắt nhìn nhân viên; nhân viên tay thả lỏng; miệng khép.",
+     "the passenger looks down at her collarbone and touches the pendant and the chain with the fingertips of one hand on 'Oh, it might be my necklace', with a slightly embarrassed, surprised face; on 'I forgot to take it off' she looks up at the officer, apologetic, her fingertips still resting at the chain; the officer's eyes follow her hand to her neck area, then return to her face; the necklace stays on her neck",
+     "EYE LINE: the passenger looks down at her necklace, then up at the officer's face on the second sentence; the officer watches her hand, then her face; nobody looks into the lens",
+     "", None, None, None),
+    (5, "0:11–0:15", "A", False, "",
+     "Nhân viên nói 'Please take it off': ông chỉ nhẹ bằng bàn tay mở về phía khay để đồ bên phải hành khách (không đụng bà); tới câu hỏi ông hạ tay, nhìn mặt bà. "
+     "Trong lúc ông nói, hành khách dùng HAI TAY gỡ chốt dây chuyền ở sau gáy rõ ràng, kéo dây ra khỏi cổ, rồi hạ xuống cầm gọn ở bàn tay phải TRƯỚC khi hết cảnh. Dây không nhân đôi, không chui xuyên cổ.",
+     "Cổ KHÔNG còn dây chuyền; dây chuyền nằm trong bàn tay phải của hành khách, hạ thấp ngang hông; nhân viên nhìn bà; miệng khép.",
+     "on 'Please' the passenger raises both hands behind her neck; on 'take it off' she undoes the clasp at the back of her neck with both hands, clearly, and draws the chain forward and away from her neck; as the officer asks the question she lowers it and closes her right hand around it, holding it at hip height; her neck and collarbone are now bare; meanwhile the officer opens his right hand toward the tray at her right on 'Please take it off', without touching her, then lowers it and looks at her face",
+     "EYE LINE: the officer looks at the passenger's face, with one glance at the tray on his gesture; the passenger looks at the officer, then down at her hands while she works the clasp, then back up; nobody looks into the lens",
+     "", None, "1.0", None),
+    (6, "0:15–0:17", "A", False, "",
+     "Hành khách mỉm cười, nói 'Yes. I'm here visiting my daughter': tay trái mở nắp túi khoác vai, tay phải thả dây chuyền vào túi, rồi đặt tay lại lên quai túi; cổ trống. Nhân viên nghe, gật nhẹ một cái.",
+     "Dây chuyền đã cất vào túi, cổ trống; hành khách mỉm cười, một tay trên quai túi; nhân viên đứng im; miệng khép.",
+     "the passenger smiles and, as she answers, lifts the flap of her shoulder bag with her left hand and slips the necklace in with her right hand, then rests her hand on the bag strap; her neck stays bare; the officer gives a small nod as he listens",
+     EYE_A, "", None, None, None),
+    (7, "0:17–0:19", "A", False, "",
+     "Nhân viên nhướng mày, ngửa một bàn tay ra ngang hông về phía hành khách như khen, mỉm cười nhẹ, rồi hạ tay. Hành khách cười tươi hơn, gật nhẹ.",
+     "Nhân viên đứng thẳng, tay hạ; hành khách cười, một tay trên quai túi, cổ trống; miệng khép. Hết góc A.",
+     "the officer raises his eyebrows and opens one hand palm-up at waist height toward the passenger in an impressed, friendly gesture, then lowers it; the passenger's smile widens and she gives a small nod",
+     EYE_A, "", None, None, None),
+    (8, "0:19–0:22", "C", True,
+     "Góc C: nhân viên mép trái nhìn sang phải, hành khách giữa-phải nhìn nhân viên, một tay trên quai túi, mỉm cười, cổ trống, miệng khép; khung cổng quét mờ phía sau.",
+     "Hành khách cười tươi ở 'Thank you', tay vẫn trên quai túi; tới 'I've been practicing' tay phải rời quai túi, ngửa ra trước ngực như kể, mặt tự hào, rồi đặt lại lên quai túi. Nhân viên nghe, mặt bình thản, nhìn bà.",
+     "Hành khách mỉm cười, một tay trên quai túi; nhân viên nhìn hành khách; miệng khép.",
+     "the passenger beams on 'Thank you' with one hand still on her bag strap; on 'I've been practicing' she lifts her right hand off the strap and opens it palm-up in front of her chest as she explains, proud, then rests it on the strap again; the officer listens with a calm face, eyes on her",
+     EYE_C,
+     "the officer looking at the passenger, the passenger smiling with one hand resting on her bag strap, her neck bare", None, None, None),
+    (9, "0:22–0:23", "C", False, "",
+     "Nhân viên hỏi, hơi nghiêng đầu, nhướng mày tò mò, vẫn nhìn hành khách (mặt nghiêng 3/4, không quay ra ống kính). Hành khách mỉm cười.",
+     "Như khung đầu; hai người miệng khép.",
+     "the officer tilts his head slightly and raises his eyebrows with curiosity; the passenger keeps smiling",
+     EYE_C, "", None, None, None),
+    (10, "0:23–0:27", "C", False, "",
+     "Hành khách vừa nói vừa đưa điện thoại từ bên hông phải lên, giơ ngang ngực giữa hai người, màn hình quay về phía nhân viên (camera thấy robot gia sư AI trên màn hình, đúng robot của phần 2); tay kia ngửa ra giải thích. "
+     "Dây chuyền đã cất trong túi từ cảnh 6: tay không cầm gì ngoài điện thoại. Mắt nhân viên nhìn xuống màn hình điện thoại và dừng ở đó.",
+     "Hành khách giơ điện thoại ngang ngực, màn hình quay ra; nhân viên nhìn điện thoại; miệng khép.",
+     "the passenger brings {{DAO_DIEN_THOAI}} up from her right side and holds it at chest height between them with the screen turned toward the officer, while her other hand makes a small open explaining gesture; her hands hold nothing else; the officer's eyes drop to the phone screen and stay on it",
+     "EYE LINE: the passenger looks at the officer's face while she talks; the officer looks down at the phone screen in her hand; nobody looks into the lens", "", None, None, None),
+    (11, "0:27–0:30", "C", False, "",
+     "Hành khách tiếp tục nói, tự hào, vẫn giơ điện thoại, tay kia đặt lên quai túi. Cuối câu nhân viên ngước từ điện thoại lên nhìn bà, gật nhẹ như thấy ấn tượng.",
+     "Hành khách vẫn giơ điện thoại; nhân viên nhìn hành khách; miệng khép.",
+     "the passenger keeps holding the phone up and rests her other hand on her bag strap; near the end of her line the officer raises his eyes from the phone to her face with a small impressed nod",
+     "EYE LINE: the passenger looks at the officer's face; the officer looks at the phone, then up at her face; nobody looks into the lens", "", None, None, None),
+    (12, "0:30–0:31", "C", False, "",
+     "Nhân viên hỏi, mặt hơi nghi ngờ, liếc xuống màn hình điện thoại, tay phải ngửa thấp ngang hông, rồi nhìn lại hành khách. Hành khách mỉm cười biết ý, vẫn giơ điện thoại.",
+     "Như khung đầu; miệng khép.",
+     "the officer glances down at the phone screen and opens his right hand palm-up low at hip height as he asks, then looks back at the passenger with a slightly doubtful face; the passenger keeps the phone up and smiles knowingly",
+     EYE_C + " (the officer glances at the phone once)", "", None, None, None),
+    (13, "0:31–0:34", "C", False, "",
+     "Hành khách cười, lắc đầu hai cái ở 'No, no'; ở 'it's free' bà xoay điện thoại về phía mình, cầm bằng hai tay trước ngực; tới 'Let me show you' bà chạm màn hình bằng ngón cái; nhân viên nghiêng người lại, cúi nhìn màn hình, cả hai cùng nhìn điện thoại. Nửa giây cuối máy đẩy nhẹ vào hai người. Hết phần 1 (sau đó nhoè chuyển sang phần 2).",
+     "Hành khách cầm điện thoại trước ngực, nhìn xuống màn hình; nhân viên cũng nhìn điện thoại; miệng khép.",
+     "the passenger shakes her head twice with a laugh on 'No, no'; on 'it's free' she turns {{DAO_DIEN_THOAI}} toward herself and holds it in both hands at chest height; on 'Let me show you' she taps the screen with her thumb; the officer leans in and looks down at the screen, so both look at the phone together; in the last half second the camera pushes in slightly toward the two of them (the only camera move of this clip, smooth, no shake)",
+     "EYE LINE: the passenger looks at the officer's face at the start of the line, then down at the phone as she taps it; the officer looks at the phone; nobody looks into the lens", "",
+     "", None, None),
+]
+
+# Ngữ điệu từng câu. Câu kể hạ giọng cuối câu, câu hỏi yes/no lên giọng cuối câu.
+DELIV = {
+    1: "polite but firm and routine, a tired officer on a long shift, not accusing; a small natural lift on 'moment'",
+    2: "short and light, quick and a little anxious, slightly breathy, a touch higher than her normal voice",
+    3: "matter-of-fact and even, the pitch falling after 'metallic'; the second sentence a gentle question, lifting at the end",
+    4: "mildly surprised, a little sheepish and apologetic, a tiny embarrassed laugh; 'I forgot to take it off' falling softly at the end",
+    5: "'Please take it off' polite and routine; the question softer and more conversational, rising at the end, a hint of friendliness",
+    6: "relaxed and warm, a smile audible in the voice, her own accent natural",
+    7: "genuinely surprised and warmer, a small smile in the voice; 'by the way' tossed off lower and quicker",
+    8: "'Thank you' with a small bashful laugh, then brighter and proud",
+    9: "short, curious, a little skeptical, rising at the end",
+    10: "animated and a bit faster, explaining with enthusiasm, natural accent, not rehearsed",
+    11: "proud and smiling, slowing slightly on 'this confidently'",
+    12: "lower and doubtful, half-joking, 'though' trailing off",
+    13: "laughing lightly on 'No, no', reassuring; 'it's free' bright; 'Let me show you how it works' eager and a little faster",
+}
+AUDIO = "Audio: Chỉ giọng của một nhân vật, gần, rõ, tự nhiên như hội thoại thật, có độ vang nhẹ của sảnh lớn; nói nhanh và xong sớm. Không nhạc, không tiếng loa, không tiếng beep (beep chỉ ở đoạn mở đầu), không tiếng ồn đè lên giọng."
+NEG = ("Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; anyone looking into the lens; the officer touching the passenger; gesturing at the wrong place; "
+       "people moving in the background; suitcases, baggage, X-ray machine or conveyor; the metal detector changing into a luggage scanner; extra TSA hands; the necklace changing design, "
+       "disappearing before it is removed, reappearing after it was removed, or extra necklaces; no speech.")
+PACE = "Quick natural unscripted pace, about 4.5 to 5 words per second (short lines up to 6), no long pauses."
+
+out = [HEAD]
+for n, t, ang, img, kd, db, kc, act, eye, pose, cam, keep, trans in SC:
+    neck = NECK[NECK_OF[n]] if n in NECK_OF else ""
+    out.append(f"\nCẢNH {n} ({t}): Lượt {n}")
+    out.append(f"Bối cảnh: {ANGLE_VN[ang]}; không có chữ." + (" Đổi góc máy: khung đầu gen mới." if img else " Nối từ khung cuối cảnh trước."))
+    out.append(f"Voice: (English, chỉ một người nói trong clip này) {{{{LUOT_{n}}}}}")
+    out.append(f"Khung đầu: {kd}" if img else "Khung đầu: Chính là khung cuối của cảnh trước.")
+    out.append(f"Khung cuối: {kc} Khung này là khung đầu của cảnh sau.")
+    out.append(f"Diễn biến: {db}")
+    if keep:
+        out.append(f"Giữ sau lời: {keep}")
+    if trans:
+        out.append(f"Chuyển cảnh: {trans}")
+    if n in WIDE:
+        out.append(f"Ảnh tổng quan: {WIDE[n]}")
+        out.append(f"Khung đầu cắt: {CROP[n]}")
+    if img and n > 1:
+        out.append(f"Ảnh bố cục: {LAYOUT_OF[n]}")   # khung đầu của cảnh cùng bố cục đã gen: giữ đúng vị trí cổng, khay, người khi đổi góc máy
+    if n in FAST:
+        out.append(f"Lia nhanh: {FAST[n]}")
+    if n in FOLLOW:
+        out.append(f"Lia theo tay: {FOLLOW[n]}")
+    if n in PRE:
+        out.append(f"Mở đầu ảnh: {PRE[n][0]}")
+        out.append(f"Mở đầu video: {PRE[n][1]}")
+        out.append(f"Mở đầu dài: {PRE[n][2]}")
+    if img:
+        out.append("Prompt ảnh: Generate exactly one still image now, vertical 9:16, photorealistic, a single frame with no split screen, bright airport daylight. "
+                   f"{ANGLE[ang]} {WHO.get(ang, BOTH)} Pose: {pose}. {eye}. " + (f"{neck}. " if neck else "")
+                   + ("His mouth closed, a firm calm face. " if ang == "P" else "Mouths closed, calm natural expressions. ")
+                   + "The gate's red LED bars " + ("glow red." if n == 1 else "are dark and the small top light is green.") + " "
+                   "Only the characters named here are visible in the foreground. No suitcases, no conveyor. No text, no logos, no lettering anywhere. Output only the image.")
+    start = "Start exactly from the start-frame image." if img else "Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset."
+    solo = ang == "B"
+    other = "the officer"
+    camera = f" {cam}." if cam else " LOCKED CAMERA on a tripod: no pan, no tilt, no zoom, no push-in; the framing of the start frame stays exactly the same to the last frame and nothing at the frame edges enters or leaves; only the people move inside the frame."
+    out.append(f"Prompt video: STYLE LOCK, SET LOCK. {start} CHAR LOCK. In this clip: {{{{LUOT_{n}}}}} Only that character speaks, with lip-sync, "
+               f"and keeps the EYE LINE while speaking ({eye.replace('EYE LINE: ', '')}); "
+               + (f"{other} stays off-screen and is not heard. " if solo else "" if ang == "P" else "the other keeps the mouth closed and reacts as described. ")
+               + (f"{neck}. " if neck else "NECKLACE STATE: she takes the necklace off herself during the line, with both hands, and holds it in her right hand by the end; once off it is never on her neck again. ")
+               + f"{PACE} ACTION, done WHILE the line is spoken, in this order, complete by the last word: {act}.{camera} "
+               + ("the passenger, once the camera reaches her, keeps her mouth closed and reacts as described. " if ang == "P" else "")
+               + ("After the line the camera holds on the passenger, mouth closed, slightly worried, looking toward the officer off-screen at the left" if ang == "P" else
+                  "After the line she relaxes with the mouth closed" if solo else "After the line the speaker relaxes with the mouth closed and the other keeps listening naturally")
+               + f". DELIVERY of this line: {DELIV[n]}; a real person talking, not acting for the camera. Same voices as always, natural hall acoustics, no music. VIDEO SUFFIX.")
+    out.append(AUDIO)
+    out.append(NEG + (" The phone never multiplies or vanishes; no readable text or app interface on its screen." if n >= 10 else ""))   # điện thoại chỉ có từ cảnh 10
+
+out.append("""
+===== PHAN 2: HANH KHACH + GIA SU AI (GHEP 2 LOP) | vao: nhoe 0.5 =====
+
+[GHEP HAI LOP]:
+nen: HOC
+khung DAY: 0.691, 0.025, 0.284, 0.258
+bo goc: 0.03
+vien: khong
+noi: lien
+nghe: moi canh
+
+[STYLE LOCK]:
+Vertical short-form social video look, bright natural daylight, crisp focus on the face, realistic skin, hair and fabric detail for the real person, glossy clean high-end CGI for the robot. No text, captions, logos, icons or watermarks anywhere in the frame.
+
+[NHAN VAT HOC]:
+{{TEN_HOC}}: {{NGUOI_HOC}}, {{DAO_TUI}} on her left shoulder. She films herself selfie-style with the phone's front camera held at arm's length in her right hand: her extended right arm comes in from the lower-left corner of the frame (the phone itself is not visible), her left hand rests on the strap of her bag. Slightly high angle, framed from the waist up; her head is a little left of centre with the top of the head at about one fifth of the frame height; the top-right corner of the frame (right third, top quarter) shows only the calm, plain airport background: nothing is drawn there, no window, no picture, no screen, no avatar, no face, no inset or overlay of any kind; her head always stays clearly left of that corner and she never leans toward the right. Her neck and collarbone are bare: no necklace, no chain. Behind her: {{NEN_HOC}}. The camera stays steady (almost no shake). She looks into the lens while speaking, as if talking to the AI tutor on the phone; when she has to think of an English word she glances briefly up and to the side, then back to the lens. Small natural nods and facial expressions while speaking; her left hand may lift from the bag strap for a small gesture and always comes back to rest on it. VOICE: {{GIONG_HOC}}, the same timbre, pitch and loudness in every clip; she speaks a little slower here, like someone practising a foreign language, with small natural hesitations.
+
+[NGHE HOC]:
+{{TEN_HOC}} listens to the AI tutor: friendly attentive expression and a soft smile, eyes on the lens, slow natural blinks, a small nod now and then, left hand resting on the strap of her bag. The lips stay gently pressed together the whole clip; the head stays mostly still (only the small nod or tilt above), no talking-like head bobbing, never mirrors the speaker.
+
+[NHAN VAT DAY]:
+{{TEN_DAY}}: {{NGUOI_DAY}}. Portrait-oriented frame (taller than wide): the robot stands upright, head and upper body down to the waist, centred, head in the upper third, arms relaxed at the sides. Behind it: {{NEN_DAY}}. The camera is locked off and never moves. The robot looks straight into the lens. While speaking it moves its lips in clear sync with the words, with small head tilts, a warm smile and slow blinks, like a patient friendly teacher. VOICE: {{GIONG_DAY}}, the same timbre, pitch and loudness in every clip.
+
+[NGHE DAY]:
+{{TEN_DAY}} listens calmly: stands, looking into the lens, a gentle closed-mouth smile, slow blinks, a tiny head tilt now and then, arms at the sides. The lips stay gently pressed together the whole clip; the head stays mostly still (only the small nod or tilt above), no talking-like head bobbing, never mirrors the speaker.
+
+[VIDEO SUFFIX]:
+Natural spontaneous conversational delivery, not text-to-speech, not an announcer: the passenger about 3 words per second with small hesitations, the tutor about 3.5 words per second, warm and encouraging; the line starts right away, light natural breaths, a smile audible in the voice when the line is positive. Clean close voice, like a video call in a quiet hall, no music, no background sound effects, no airport announcements, no strong echo.
+
+[NEGATIVE]:
+text, letters, captions, subtitles, logos, icons, signs with readable words, watermark; phone or app interface in the frame; camera cuts, zoom, push-in, strong shake; a second person in the foreground; people walking in the background; a necklace or chain on her neck, a necklace reappearing; suitcases, luggage conveyor, X-ray machine; face morphing, outfit change, hair change, age or style drift; distorted face; extra or missing fingers or arms; jerky or exaggerated gestures; hands touching the face or hair; slow, dragged or stretched speech; flat monotone, robotic or announcer voice; background music; echo or reverb
+""")
+text = "\n".join(out)
+
+# Kiểm tra: không còn từ vali/băng chuyền/em bé làm đạo cụ trong phần dựng hình. Được phép nhắc để CẤM: ghi chú đầu file, [NEGATIVE], "Negative prompt:",
+# và câu "No suitcases, ..." trong prompt ảnh.
+import re  # noqa: E402
+_body = text.split("===== PHAN 1", 1)[1]
+_clean = re.sub(r"\[NEGATIVE\]:.*?(?=\n\n|\Z)", "", _body, flags=re.S)
+_clean = re.sub(r"Negative prompt:[^\n]*", "", _clean)
+_clean = re.sub(r"[Nn]o suitcases[^.]*\.", "", _clean)
+_bad = sorted(set(re.findall(r"\b(?:suitcase\w*|luggage|conveyor|zipper|batter\w*|water bottle|X-ray|baby|mother|DAO_VALI\w*|DAO_BE)\b|vali|băng chuyền|em bé|người mẹ", _clean, re.I)))
+if _bad:
+    raise SystemExit(f"còn sót chữ vali/băng chuyền/em bé ngoài phần cấm: {_bad}")
+open(OUT, "w", encoding="utf-8").write(text)
+print("ok", len(SC), OUT)

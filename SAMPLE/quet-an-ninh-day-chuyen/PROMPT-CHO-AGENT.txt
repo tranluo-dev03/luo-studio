@@ -1,0 +1,64 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "QUÉT AN NINH CƠ THỂ - DÂY CHUYỀN + GIA SƯ AI" (quet-an-ninh-day-chuyen)
+  MỘT dự án hai phần: phần 1 nhân viên an ninh hỏi hành khách nữ ở cổng dò kim loại vì bà chưa tháo dây chuyền
+  (cảnh thường, đổi góc máy, có một cú lia máy ở cảnh 1) -> phần 2 hành khách quay selfie + robot AI gen RIÊNG rồi ghép (ghép 2 lớp).
+  Code riêng: app/production/types/quet-an-ninh-day-chuyen/. Nhân bản từ soi-hanh-ly-gia-su-ai (cùng khuôn san-bay-gia-su-ai).
+================================================================================
+
+CÁCH DÙNG
+  Gửi cho agent cùng với: KICH-BAN-QUET-AN-NINH-DAY-CHUYEN.txt, BIEN-THE-QUET-AN-NINH-DAY-CHUYEN.json, README.md, cong-cu\tao_kich_ban.py,
+  cong-cu\tao_bien_the.py, 4 ảnh trong anh-tham-chieu\ và SAMPLE\_chung\HUONG-DAN-CHO-AGENT.md (mục 0, 3b). Rồi dán phần dưới, sửa [ngoặc vuông].
+
+--------------------------------------------------------------------------------
+PROMPT (copy từ dòng dưới)
+--------------------------------------------------------------------------------
+
+Bạn viết biến thể (và sửa kịch bản nếu cần) cho LUO Studio, thể loại QUÉT AN NINH CƠ THỂ - DÂY CHUYỀN + GIA SƯ AI. Mẫu đính kèm.
+
+Thông tin lần này:
+  Hành khách (nói tiếng Anh chưa chuẩn): [ngoại hình, giọng; nữ, KHÔNG em bé, có túi khoác vai]
+  Nhân viên an ninh: [ngoại hình]
+  Câu nói sai và câu sửa: [vd. "I have 48" -> "I am 48"]
+  App: [vd. Talka AI]
+
+BẮT BUỘC LÀM THEO
+
+1) MỘT KỊCH BẢN, MỘT FILE BIẾN THỂ
+   - Giữ khối [HAU KY] "loai: quet-an-ninh-day-chuyen" và hai dòng chia phần. Sửa kịch bản bằng cong-cu\tao_kich_ban.py (bảng SC từng cảnh), không sửa tay .txt.
+   - Khoá nhân vật: CANBO = nhân viên (TRÁI cạnh cổng), HOC = hành khách (cả hai phần, PHẢI ở phần 1), DAY = robot AI (phần 2).
+
+2) LỜI THOẠI (mảng LUOT chung)
+   - Phần 1 ĐÚNG 13 lượt, người nói: canbo, hoc, canbo, hoc, canbo, hoc, canbo, hoc, canbo, hoc, hoc, canbo, hoc.
+     Lượt 1-5 (cổng báo động, dây chuyền) khớp phần A của CHECKLIST; lượt 6-13 giữ nguyên nguồn ("visiting my daughter", "15 minutes a day"...).
+   - Phần 2: mở đầu AI hỏi; MỘT câu sai ("fx":"wrong","icon":"x") -> AI sửa -> nói lại đúng ("fx":"right","icon":"check"). "c": phần 1 white; phần 2 AI yellow, hành khách white.
+   - Mỗi lượt 3-12 từ (tối đa 20); emo 1-3 từ trong EMO_CUES (app/production/prompt_parts.py). Tốc độ: phần 1 ~4,5-5 từ/giây, phần 2 ~3,5.
+   - Hành động phải hợp lời: cảnh 3-4 nói về trang sức/dây chuyền, cảnh 5 tháo dây, cảnh 6 cất dây, cảnh 10 giơ điện thoại, cảnh 13 xoay điện thoại chạm màn hình.
+
+3) DÂY CHUYỀN LÀ MỘT ĐẠO CỤ CÓ DÒNG THỜI GIAN (lỗi dễ gặp nhất)
+   - Cảnh mở đầu-4: ĐEO, thấy rõ ở xương đòn. Cảnh 5: tự tay gỡ chốt, kéo ra, cầm ở tay phải. Cảnh 6: cất vào túi. Cảnh 7+ và phần 2: cổ trống, KHÔNG xuất hiện lại.
+   - Mỗi cảnh phải ghi trạng thái dây chuyền trong khung đầu/khung cuối/Prompt ảnh (đã có trong tao_kich_ban.py: NECK, NECK_OF). Thêm cảnh/đổi hành động thì giữ đúng dòng thời gian.
+   - Khai DAO_DAY_CHUYEN (một dây kim loại mảnh, có mặt dây nhỏ) và DAO_KHAY (khay để đồ). KHÔNG dùng DAO_VALI / DAO_BE / vali / băng chuyền / máy X-ray.
+
+4) CỔNG DÒ KIM LOẠI
+   - Cổng đứng yên giữa-sau hai người. Đèn đỏ chỉ nháy ở đoạn mở đầu và đầu cảnh 1 (có beep ngắn); từ cảnh 2 đèn đỏ tắt, đèn nhỏ trên xà xanh.
+   - Nhân viên KHÔNG chạm hành khách; cử chỉ về vùng cổ là cử chỉ nhẹ từ xa.
+
+5) HƯỚNG NHÌN: khai NHIN_CANBO (nhìn hành khách, 3/4), NHIN_HOC (nhìn mặt nhân viên), NHIN_HOC@2 (phần 2: nhìn ống kính), NHIN_DAY (nhìn ống kính).
+
+6) BỐ CỤC PHẦN 2 (không đổi): khung DAY: 0.691, 0.025, 0.284, 0.258; bo góc 0.03, không viền; nền hành khách là sảnh sân bay sau khu an ninh, KHÔNG quay lại khu vali.
+
+7) KHÔNG CÓ CHỮ TRONG HÌNH: màn hình cổng, huy hiệu, biển tên, biển treo, màn hình điện thoại đều không chữ.
+
+8) ẢNH THAM CHIẾU: gắn "refs" cho NGUOI_HOC, NGUOI_CANBO, NGUOI_DAY (robot) và NEN_SOI/NEN_HOC (ảnh nền cổng) bằng đường dẫn tương đối từ thư mục gốc dự án.
+
+KIỂM TRA TRƯỚC KHI TRẢ LỜI
+  [ ] JSON hợp lệ, 1 mảng; tập khoá = token của kịch bản + NHIN_* (+ name, LUOT, refs).
+  [ ] Mọi lượt có "phan"; phần 1 đúng 13 lượt, đúng thứ tự người nói; phần 2 "who" là day/hoc; đúng một cặp wrong -> right.
+  [ ] video-moi.py kiem-tra KỊCH-BẢN BIẾN-THỂ --tai-anh: 0 lỗi.
+  [ ] Không còn suitcase/luggage/conveyor/zipper/batteries/water bottle/X-ray/baby/mother trong phần dựng hình (ngoài negative).
+
+LỖI THƯỜNG GẶP
+  - Dây chuyền biến mất trước khi tháo / hiện lại sau khi tháo / nhân đôi / chui xuyên cổ: gen lại cảnh lỗi kèm yêu cầu sửa; cảnh 5 chậm thì tăng "Giữ sau lời".
+  - Cổng biến thành máy soi hành lý hoặc xuất hiện băng chuyền (ảnh nền có băng chuyền ở mép phải): gen lại ảnh tổng quan cảnh 1.
+  - Biển tên "TSA" trên đồng phục nhân viên bị Muse vẽ thành chữ: gen lại cảnh.
+  - Cảnh 1, 3, 8 gen ảnh khung đầu mới: mặt/trang phục dễ lệch giữa các góc -> luôn gắn ảnh tham chiếu mặt cho CANBO và HOC.

@@ -1,0 +1,368 @@
+HƯỚNG DẪN CHO CLAUDE – CHUYỂN KỊCH BẢN SANG CỔNG QUÉT NGƯỜI / DÂY CHUYỀN
+================================================================================
+MỤC TIÊU
+Chuyển kịch bản production hiện tại từ 'soi chiếu hành lý, phát hiện vật trong vali'
+thành 'quét an ninh cơ thể tại sân bay, máy báo động vì hành khách CHƯA THÁO
+DÂY CHUYỀN KIM LOẠI trên cổ'.
+
+ĐÂY LÀ THAY ĐỔI BỐI CẢNH VÀ HÀNH ĐỘNG CỦA PHẦN 1, KHÔNG PHẢI CHỈ THAY MỘT CÂU.
+Giữ lại mô hình sản xuất, hai nhân vật, 13 cảnh/13 lượt thoại phần 1,
+13 nhịp hội thoại, 3 góc A/B/C, cách gen ảnh start frame, nối clip,
+một người nói một lượt, giọng nhất quán, nhịp kể, giới thiệu Talka AI,
+chuyển nhoè sang AI tutor và toàn bộ phần 2.
+
+FILE THAM CHIẾU
+1. KICH-BAN-SOI-HANH-LY-GIA-SU-AI-KHONG-BE.txt – file production gốc (13 cảnh,
+   các token LUOT_1..13 và prompt ảnh/video).
+2. PHAN-TICH-VIDEO-MAU.md – video tham chiếu về nhịp, bố cục và 28 lượt thoại.
+3. cong-cu/tao_kich_ban.py – theo ghi chú file gốc, nơi sinh script: phải cập
+   nhật để lần tạo lại không ghi đè prompt/lời thoại mới.
+
+PHẠM VI CHỈNH SỬA
+- BẮT BUỘC sửa PHẦN 1: các câu 1–5, bối cảnh, hành động, ánh mắt, đạo cụ,
+  khung đầu/cuối, prompt ảnh/video và cách chuyển camera tại cảnh 1–13.
+- GIỮ lời thoại từ lượt 6 đến 13 như script gốc, trừ chỗ phải cập nhật
+  cử chỉ không còn phù hợp với băng chuyền/vali.
+- GIỮ PHẦN 2 (AI Tutor) và hậu kỳ, nhưng kiểm tra nền selfie của Passenger:
+  vẫn là khu vực sân bay, không được đột ngột quay về quầy soi hành lý.
+- Không tự ý thêm người nói, cảnh mới, end card, quảng cáo mới hay lời giải thích dài.
+- Không chỉnh các file code cấu trúc gen.py / nhieu_phan.py nếu chỉ cần đổi
+  config/prompt; nếu code bắt buộc một biến vali thì báo rõ nơi phụ thuộc.
+- Không đổi ngoại hình, gương mặt, quần áo, độ tuổi, túi khoác vai, giọng nói
+  hai nhân vật. Thêm MỘT dây chuyền kim loại nhỏ, dễ nhận ra ở cổ Passenger.
+
+================================================================================
+A. SCRIPT CHỐT – PHẦN 1 (13 LƯỢT, ENGLISH)
+================================================================================
+SCENE 1 / LUOT_1
+Officer: Ma'am, could you step back for a moment?
+
+SCENE 2 / LUOT_2
+Passenger: Sure.
+
+SCENE 3 / LUOT_3
+Officer: The scanner detected something metallic. Are you wearing any jewelry?
+
+SCENE 4 / LUOT_4
+Passenger: Oh, it might be my necklace. I forgot to take it off.
+
+SCENE 5 / LUOT_5
+Officer: Please take it off. Is this your first time in America?
+
+SCENE 6 / LUOT_6
+Passenger: Yes. I'm here visiting my daughter.
+
+SCENE 7 / LUOT_7
+Officer: Your English is really good, by the way.
+
+SCENE 8 / LUOT_8
+Passenger: Thank you. I've been practicing with an AI tutor.
+
+SCENE 9 / LUOT_9
+Officer: What's that?
+
+SCENE 10 / LUOT_10
+Passenger: I talk to it for about 15 minutes a day and it corrects me while I speak.
+
+SCENE 11 / LUOT_11
+Passenger: After just three weeks, I started speaking this confidently.
+
+SCENE 12 / LUOT_12
+Officer: Is it expensive, though?
+
+SCENE 13 / LUOT_13
+Passenger: No, no, it's free. Let me show you how it works.
+
+GHI CHÚ SCRIPT:
+- Lượt 1 mới để phản ứng với tiếng bíp khi Passenger đi qua cổng.
+- Lượt 2 giữ ngắn để duy trì nhịp.
+- Lượt 3 hỏi trực tiếp về kim loại/trang sức, KHÔNG nói máy soi vali.
+- Lượt 4 xác nhận nghi ngờ là DÂY CHUYỀN TRÊN CỔ, không nói water bottle,
+  batteries, power bank, luggage.
+- Lượt 5 yêu cầu tháo dây chuyền, sau đó nối sang câu hỏi lần đầu ở Mỹ,
+  nhằm giữ đường dây hội thoại cũ với lượt 6.
+- Dây chuyền được tháo trong lúc Officer nói lượt 5 hoặc ngay trước lượt 6,
+  KHÔNG biến mất tự nhiên.
+- Giữ 'visiting my daughter' và '15 minutes a day' theo tài liệu mẫu/
+  source production. KHÔNG tự đổi thành 'join my husband' hay '10 minutes'.
+- Các câu 6–13 là thoại từ video mẫu, chỉ thay staging.
+
+================================================================================
+B. SCRIPT THAM CHIẾU – PHẦN 2 (GIỮ NGUYÊN 15 LƯỢT)
+================================================================================
+LUOT_14 | AI Tutor: Do you speak English?
+LUOT_15 | Passenger: More or less.
+LUOT_16 | AI Tutor: How old are you?
+LUOT_17 | Passenger: I have 48.
+LUOT_18 | AI Tutor: You have to say, I am 48.
+LUOT_19 | Passenger: I am 48.
+LUOT_20 | AI Tutor: Good job.
+LUOT_21 | Passenger: Thank you, but who are you?
+LUOT_22 | AI Tutor: Me? I'm an AI tutor. I'll help you improve your English skills.
+LUOT_23 | Passenger: Thank you, but I don't have money.
+LUOT_24 | AI Tutor: What money? You can study for free.
+LUOT_25 | Passenger: For free? You're joking, right?
+LUOT_26 | AI Tutor: Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar, anytime, anywhere.
+LUOT_27 | Passenger: Really?
+LUOT_28 | AI Tutor: Yes, really. You'll speak like a native in no time.
+
+LƯU Ý: Các câu 14–28 là tham chiếu từ PHAN-TICH-VIDEO-MAU.md. Nếu source
+đang sử dụng đúng nội dung này, KHÔNG ghi đè; nếu đã được chỉnh riêng thì
+giữ version hiện có. Giữ FX sai/đúng ở 'I have 48'/'I am 48'.
+
+================================================================================
+C. BẢNG CHUYỂN BỐI CẢNH / ĐẠO CỤ TOÀN CỤC
+================================================================================
+CŨ                                             -> MỚI
+- X-ray baggage scanner + roller conveyor    -> cổng dò kim loại / security walk-through detector
+- Suitcase navy trên băng chuyền              -> Passenger đang đứng bên cạnh / vừa bước khỏi cổng quét
+- Suitcase thứ hai nâu/vàng                    -> bỏ hẳn khỏi trọng tâm khung (không cần ở tiền cảnh)
+- Red alarm atop X-ray machine                -> đèn báo đỏ / tiếng beep ở cổng dò kim loại
+- Officer pointing DOWN at suitcase lid       -> Officer ra dấu dừng/đứng lùi, sau đó chỉ nhẹ về khu vực cổ
+- Passenger reaching for bag zipper           -> Passenger đưa tay lên dây chuyền ở cổ
+- 'open your bag' / 'batteries' / water bottle -> 'remove your necklace' / metal jewelry
+- Người nghe nhìn theo tay tới vali           -> người nghe nhìn theo cử chỉ tới dây chuyền / cổng quét
+- Màn hình X-ray vali                         -> bộ phận đèn/trạng thái máy dò kim loại, không text
+- Mở vali / tay đặt trên nắp vali             -> chạm dây chuyền, gỡ chốt và tháo dây chuyền
+
+THIẾT KẾ MỚI:
+- 9:16 photorealistic, khu an ninh sân bay sáng, kính cao, nền sạch,
+  sáng đều; không chữ, logo, bảng tên rõ.
+- Officer đứng TRÁI cạnh cổng quét người, Passenger đứng PHẢI,
+  cổng walk-through nằm GIỮA và phía sau hai người, đường đi hợp lý.
+- Passenger có một dây chuyền màu bạc/kim loại thanh mảnh quanh cổ
+  NGAY TỪ START FRAME đầu tiên và xuyên suốt cảnh 1–4.
+- Cảnh 5: dây chuyền chuyển trạng thái TỪ đang đeo -> tháo ra -> cầm
+  trên tay một cách LIÊN TỤC. Sau cảnh 5, không còn dây chuyền trên cổ.
+- Các cảnh 6–13: dây chuyền đã tháo (có thể cầm thấp hoặc cất vào túi),
+  không tự xuất hiện trở lại. Không cần mô phỏng quét lại nếu không có cảnh.
+- Túi khoác vai của Passenger vẫn giữ; không được thêm em bé vì tên file
+  production là KHONG-BE.
+- Không đưa vali vào tâm khung hoặc đòi Officer kiểm tra hành lý.
+- Không xuất hiện nhân viên khác ở tiền cảnh; nền xa mờ tĩnh.
+
+================================================================================
+D. CHECKLIST CHI TIẾT THEO CẢNH (PHẦN 1)
+================================================================================
+[ ] 0. TÊN LOẠI / METADATA / TITLE
+    - 'SOI CHIEU HANH LY' -> 'QUET AN NINH CO THE – DAY CHUYEN'.
+    - HAU KY loai và file/type slug: cập nhật tên nếu loại mới có variant
+      riêng; nếu reuse type cũ, KHÔNG làm hỏng cơ chế post.py hiện có.
+    - GHI CHU đầu file: bỏ mô tả vali chạy ra khỏi hầm và detector chỉ vali;
+      thay bằng mô tả hai người đứng hai phía cổng quét người.
+
+[ ] 1. [STYLE LOCK] (file gốc dòng 24–25)
+    - Thay airport security CHECKPOINT soi vali bằng body metal-detection
+      checkpoint; cố định 1 necklace trước cảnh 5 / không còn trên cổ sau 5.
+    - Giữ 9:16, photorealistic, daylight, documentary, no text.
+
+[ ] 2. [CHAR LOCK] (dòng 27–34)
+    - Officer: người đứng trái, làm việc bên cổng dò kim loại.
+    - Passenger: người đứng phải, đeo 1 dây chuyền dễ nhìn ngay từ đầu.
+    - Thay '{{DAO_VALI}} lies flat on the roller conveyor ...' bằng quy tắc
+      đạo cụ: necklace chỉ chạm/tháo khi ACTION yêu cầu.
+    - Giữ tên nhân vật, VOICE LOCK, NGHE CANBO/HOC, EYE LINE, một giọng/cảnh.
+
+[ ] 3. [SET LOCK] + [VIDEO SUFFIX] + [NEGATIVE] (dòng 36–45)
+    - Bỏ điều kiện vali nằm bất động, không lăn, không đổi vị trí; thay bằng
+      cổng dò kim loại đứng yên, đèn nháy CHỈ lúc phát hiện và không kéo dài
+      khi đã xử lý.
+    - Bỏ negative 'suitcases sliding/multiplying', thêm:
+      necklace changing design, necklace disappearing before removal,
+      necklace spontaneously reappearing, random extra necklaces,
+      metal detector changing into luggage scanner, extra TSA hands.
+    - Giữ quy tắc camera chỉ chuyển động khi được mô tả; không có hai thoại
+      trong một clip; không chữ; không nhạc.
+
+[ ] 4. CẢNH 1 / LUOT_1 (dòng 47–64)
+    - VOICE: 'Ma'am, could you step back for a moment?'
+    - Ảnh tổng quan: góc 16:9 lấy bố cục Officer trái, cổng giữa, Passenger phải;
+      không còn vali/x-ray conveyor.
+    - Mở đầu ảnh/video: Passenger vừa đi qua cổng quét, đèn báo đỏ sáng + beep
+      ngắn. Officer ra dấu tay yêu cầu đứng lại. Camera mở rộng đứng yên.
+    - Prompt ảnh cận Officer: cổng quét kim loại nằm bên/sau Officer, đèn đỏ.
+    - ACTION: Officer đưa một bàn tay ra trước bằng cử chỉ dừng nhẹ; KHÔNG
+      chỉ ngón tay xuống vali hoặc nắp vali.
+    - CAMERA MOVE: giữ kiểu mở đầu có chuyển động / whip-pan sang Passenger;
+      thay đường lia theo tay xuống vali bằng lia theo cử chỉ Officer tới
+      cổng quét rồi vụt sang Passenger; cập nhật cả lia-theo-tay và khung cuối.
+    - Khung cuối: cận Passenger đứng phía phải cổng quét, hơi lo,
+      cổ vẫn đeo dây chuyền, nhìn Officer ở ngoài khung bên trái.
+    - Prompt ảnh / negative: bỏ hầm máy soi, monitor X-ray, băng chuyền, vali.
+
+[ ] 5. CẢNH 2 / LUOT_2 (dòng 66–74)
+    - VOICE: 'Sure.'
+    - Passenger gật nhẹ, hơi lo, đưa tay nhẹ ra trước như đồng ý,
+      không chỉ xuống chiếc vali.
+    - Không chạm hoặc tháo dây chuyền quá sớm; giữ nguyên necklace trên cổ.
+    - Khung nối sang cảnh 3 khớp việc Passenger đứng cạnh cổng.
+
+[ ] 6. CẢNH 3 / LUOT_3 (dòng 76–86)
+    - VOICE: 'The scanner detected something metallic. Are you wearing any jewelry?'
+    - Góc A toàn cảnh mới: Officer trái, Passenger phải, cổng dò kim loại
+      ở giữa/sau, không có hai vali.
+    - Officer ra dấu về phía cổng rồi chỉ một cử chỉ NHẸ về vùng cổ/trang sức
+      (không chạm người); Passenger nhìn xuống dây chuyền ở cổ.
+    - Khung cuối: Passenger vừa đưa một tay về phía dây chuyền,
+      dây vẫn đeo. Bỏ tay vươn tới nắp vali.
+    - Prompt ảnh, video, eye-line, action thay hết chỉ dẫn 'suitcase/zipper'.
+
+[ ] 7. CẢNH 4 / LUOT_4 (dòng 88–96)
+    - VOICE: 'Oh, it might be my necklace. I forgot to take it off.'
+    - ACTION: Passenger nhìn xuống cổ, một tay chạm mặt dây/chain bằng đầu
+      ngón tay, ngước nhìn Officer khi nói xong. Mặt có chút ngượng/ngạc nhiên.
+    - Officer nhìn theo tay xuống khu vực cổ (không nhìn sai vị trí).
+    - Khung cuối: Necklace VẪN ĐEO, bàn tay ở gần vòng cổ, chuẩn bị tháo.
+    - Prompt VIDEO DELIVERY: giọng ngạc nhiên nhẹ, hơi xin lỗi;
+      bỏ mọi cue về batteries/water bottle/Of course/question upturn.
+    - Bỏ việc bước đến và đặt hai tay lên nắp vali.
+
+[ ] 8. CẢNH 5 / LUOT_5 (dòng 98–106)
+    - VOICE: 'Please take it off. Is this your first time in America?'
+    - Officer chỉ nhẹ bằng bàn tay mở về phía khay để đồ, không đụng Passenger.
+    - Passenger dùng hai tay gỡ chốt dây chuyền thật rõ ràng ở phía sau cổ,
+      kéo dây ra khỏi cổ, hạ xuống cầm ở một tay TRƯỚC lúc kết thúc cảnh;
+      cẩn thận tránh dây nhân đôi / chui xuyên cổ.
+    - Khung cuối: cổ không còn dây chuyền, dây ở tay Passenger.
+    - Tránh lệnh 'Yes' trong old action/delivery, thay cue theo 'Please take it off'.
+    - Có thể dùng động tác tháo diễn ra suốt câu nói trong clip; nếu khó gen
+      một phát, chia action trong cùng cảnh bằng keyframe chứ không thêm LUOT.
+
+[ ] 9. CẢNH 6 / LUOT_6 (dòng 108–116)
+    - VOICE GIỮ: 'Yes. I'm here visiting my daughter.'
+    - Passenger đã tháo dây chuyền, một tay cầm dây thấp hoặc cho vào túi
+      trong lúc trả lời; không chạm/lật vali.
+    - Không nhắc em bé / tay đặt sau lưng bé.
+
+[ ] 10. CẢNH 7 / LUOT_7 (dòng 118–126)
+    - VOICE GIỮ: 'Your English is really good, by the way.'
+    - Officer khen, tay mở thân thiện; Passenger mỉm cười.
+    - Khung A giờ là cổng dò kim loại, không phải máy soi hành lý.
+
+[ ] 11. CẢNH 8 / LUOT_8 (dòng 128–138)
+    - VOICE GIỮ: 'Thank you. I've been practicing with an AI tutor.'
+    - Góc C cận 2 người, Officer mép trái, Passenger giữa-phải.
+    - Thay 'dark edge of suitcase along bottom' bằng nền cổng security
+      blur; vẫn giữ eye line và biểu cảm.
+    - Cổ Passenger không có necklace.
+
+[ ] 12. CẢNH 9 / LUOT_9 (dòng 140–148)
+    - VOICE GIỮ: 'What's that?'
+    - Giữ Officer tò mò, Passenger mỉm cười; background thuộc detector gate,
+      không trở lại khung vali cũ.
+
+[ ] 13. CẢNH 10 / LUOT_10 (dòng 150–158)
+    - VOICE GIỮ: 'I talk to it for about 15 minutes a day and it corrects me while I speak.'
+    - Passenger lấy điện thoại và giơ ngang ngực cho Officer xem, không xung
+      đột tay đang cầm dây chuyền: đảm bảo dây đã cất vào túi trong cảnh 6.
+    - Giữ robot AI trên màn hình nếu prompt gốc có.
+
+[ ] 14. CẢNH 11 / LUOT_11 (dòng 160–168)
+    - VOICE GIỮ: 'After just three weeks, I started speaking this confidently.'
+    - Giữ giơ điện thoại; Officer nhìn từ điện thoại lên Passenger.
+    - Necklace không tái xuất hiện.
+
+[ ] 15. CẢNH 12 / LUOT_12 (dòng 170–178)
+    - VOICE GIỮ: 'Is it expensive, though?'
+    - Giữ cử chỉ/nhịp thoại; background đúng vị trí security body scanner.
+
+[ ] 16. CẢNH 13 / LUOT_13 (dòng 180–188)
+    - VOICE GIỮ: 'No, no, it's free. Let me show you how it works.'
+    - Giữ xoay điện thoại, chạm màn hình và nhoè vào phần 2.
+    - Không có suitcase; cảnh quan giữ thống nhất body scanner.
+
+[ ] 17. PHẦN 2 / LUOT_14–28 (dòng 190–220 + source script)
+    - Giữ thoại, robot inset, màu phụ đề, fx wrong/right, camera selfie.
+    - Background selfie có thể là sảnh chờ gần khu an ninh,
+      KHÔNG còn chuyền cổ và KHÔNG có băng chuyền vali chủ đạo.
+    - Thông số inset gốc giữ: x=0.691, y=0.025, w=0.284, h=0.258.
+    - Vào phần 2 bằng blur 0.5; không thay kiến trúc ghép 2 lớp.
+
+[ ] 18. HẬU KỲ / POST.PROCESS / SUBTITLE
+    - Giữ badge Talka AI, chữ trắng ở phần 1, vàng cho AI và trắng
+      cho Passenger ở phần 2, wrong/right FX cùng icon x/check.
+    - Đồng bộ subtitle mới của LUOT_1–5, không xuất hiện câu về vali/pin/nước.
+    - Giữ nhịp cắt gần video mẫu; chỉ cập nhật duration nếu lời thoại thay
+      khiến clip thiếu thời gian; không thay cấu trúc 13 lượt.
+    - Cảnh 1 âm thanh beep ngắn của metal detector, không beep X-ray vali.
+
+[ ] 19. SCRIPT SOURCE / TEMPLATE
+    - Sửa nơi tạo LUOT_1–5 trong cong-cu/tao_kich_ban.py.
+    - Sửa các hardcoded chữ 'suitcase', 'conveyor', 'scanner tunnel',
+      'X-ray monitor', 'batteries', 'water bottle', 'zipper', 'lid',
+      'point down at bag', 'open bag' trong PHẦN 1 ở những trường
+      có tác dụng dựng hình, không thay thế bừa trong bản tài liệu gốc.
+    - Đảm bảo các template ảnh và video phân cảnh A/B/C không dùng lại
+      'ảnh tổng quan' cũ của vali: gen ảnh tổng quan mới phù hợp metal detector.
+
+================================================================================
+E. BẢNG NHỊP THOẠI + HÀNH ĐỘNG ĐỂ GHÉP (PHẦN 1)
+================================================================================
+1 Officer – ra hiệu dừng/lùi sau beep: 'Ma'am, could you step back for a moment?'
+2 Passenger – quay nhìn Officer, gật: 'Sure.'
+3 Officer – ra hiệu detector và hướng tới vùng cổ: 'The scanner detected something metallic. Are you wearing any jewelry?'
+4 Passenger – chạm dây chuyền, hơi bất ngờ: 'Oh, it might be my necklace. I forgot to take it off.'
+5 Officer – chỉ dẫn tháo; Passenger tháo thật: 'Please take it off. Is this your first time in America?'
+6 Passenger – cất dây chuyền/cười: 'Yes. I'm here visiting my daughter.'
+7 Officer – khen: 'Your English is really good, by the way.'
+8 Passenger – kể AI: 'Thank you. I've been practicing with an AI tutor.'
+9 Officer – tò mò: 'What's that?'
+10 Passenger – lấy điện thoại: 'I talk to it for about 15 minutes a day and it corrects me while I speak.'
+11 Passenger – giữ điện thoại: 'After just three weeks, I started speaking this confidently.'
+12 Officer – hỏi giá: 'Is it expensive, though?'
+13 Passenger – xoay điện thoại, chạm màn hình: 'No, no, it's free. Let me show you how it works.'
+
+================================================================================
+F. TỪ KHÓA PHẢI TÌM ĐỂ KHÔNG SÓT (TRONG PHẦN 1)
+================================================================================
+'soi hanh ly', 'SOI CHIEU HANH LY', 'băng chuyền', 'máy soi',
+'vali xanh', 'vali nâu', 'vali vàng', 'nắp vali', 'khóa kéo',
+'X-ray', 'roller conveyor', 'scanner tunnel', 'suitcase',
+'bag', 'luggage', 'batteries', 'power bank', 'water bottle',
+'zipper', 'suitcase lid', 'finger pointing down', 'alarm light',
+'bag strap' (GIỮ nếu là quai túi vai Passenger),
+'Is this your bag', 'Please open your bag', 'Would you like me to take them out',
+'It might be batteries', 'oversized water bottle'.
+
+QUY TẮC TÌM-THAY:
+- Các từ 'bag' chỉ túi vai Passenger thì GIỮ.
+- Các từ 'scanner' có thể GIỮ nhưng nghĩa là metal detector, không phải
+  X-ray baggage scanner.
+- Không global replace các từ ở trên; xác định chúng đang thuộc ảnh,
+  video, negative, hành động hay text giải thích.
+- Thay cả prompt tạo ẢNH TỔNG QUAN, KHUNG ĐẦU, KHUNG CUỐI,
+  MỞ ĐẦU ẢNH/VIDEO, ACTION và DELIVERY, không chỉ thoại.
+
+================================================================================
+G. KIỂM TRA CHẤT LƯỢNG TRƯỚC KHI CLAUDE XUẤT FILE MỚI
+================================================================================
+[ ] 13 cảnh phần 1 + 15 lượt phần 2 (không thêm/thiếu)
+[ ] LUOT_1–5 khớp script phần A, 6–13 giữ script nguồn
+[ ] Officer bên trái, Passenger bên phải, body metal detector ở giữa/sau
+[ ] Đèn/beep từ cổng dò kim loại, KHÔNG phải máy soi hành lý
+[ ] Necklace hiển thị rõ ở cổ từ cảnh mở đầu đến hết cảnh 4
+[ ] Necklace được tháo có động tác, trước khi sang cảnh 6
+[ ] Cảnh 6–13 không còn dây chuyền trên cổ, không tự tái xuất hiện
+[ ] KHÔNG còn suitcase/roller conveyor/zipper/valise X-ray làm đạo cụ chính
+[ ] Góc máy A/B/C, cú whip-pan và số lượt 13 vẫn được duy trì phù hợp bối cảnh
+[ ] Mỗi clip một người nói; người còn lại nghe, eye-line đúng
+[ ] Không em bé, không biến đổi mặt/tóc/trang phục/túi đeo vai
+[ ] Nhân vật dùng tay nhất quán khi tháo dây và cầm điện thoại
+[ ] Cảnh 10–13 intro Talka AI giữ nguyên
+[ ] Phần 2: 15 lượt AI tutor + hiệu ứng sửa sai giữ nguyên
+[ ] Phụ đề, thương hiệu Talka AI, blur 0.5 giữ nguyên
+[ ] Không còn nội dung 'oversized water bottle' / 'batteries' trong phiên bản mới
+[ ] Claude chỉ xuất bản kịch bản production đã chuyển thể, không thay đổi logic
+    chương trình hoặc kiến trúc nếu không bắt buộc.
+
+HƯỚNG DẪN THỰC THI CHO CLAUDE
+1. Đọc 2 file tham chiếu đầu vào.
+2. Đọc source code sinh script nếu có quyền.
+3. Thay đúng LUOT_1–5 và chuyển staging toàn bộ PHẦN 1.
+4. Xử lý mọi prompt text gắn với vali/băng chuyền sang body metal detector,
+   song vẫn giữ hệ thống ảnh tham chiếu, frame continuity và A/B/C.
+5. Giữ LUOT_6–28, PHẦN 2, post-processing và branding.
+6. Xuất file TXT đầy đủ, có thể được công cụ production tiêu thụ,
+   không chỉ xuất checklist; in thêm diff hoặc danh sách chỗ sửa.
+
+HẾT.
