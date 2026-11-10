@@ -103,3 +103,21 @@ File `BIEN-THE-20-TAI-XE.json` (sinh bằng `cong-cu/tao_bien_the_20.py`), dùng
 - Kịch bản giờ có token giới tính (`cong-cu/gioi_tinh.py`): `CHA`, `CHA_ANH`, `CHA_CUA`, `CHA_O`, `CHA_VN`, `NET_HOC`, `CS_ANH`, `CS_CUA`, `CS_O`, `TIENG_BE`. Biến thể gốc đã được thêm các khoá này. `goc_may.py` tự bỏ/đặt lại token nên chạy lại vẫn được.
 - `config.json` phụ đề đổi font sang **Nirmala UI** (có chữ Devanagari cho câu Hindi).
 - `kiem-tra`: 0 lỗi (cảnh báo cặp wrong/right ở phần 2 có từ biến thể gốc). **Chưa gen video.**
+
+## 20 biến thể đổi nền (11/11/2026)
+
+File `BIEN-THE-20-NEN.json` (sinh bằng `cong-cu/tao_bien_the_20_nen.py`, chạy SAU `tao_bien_the_20.py`), dùng chung kịch bản. Lấy lại đúng 20 tài xế (kèm cảnh sát, bé, câu Hindi) của `BIEN-THE-20-TAI-XE.json`, xáo thứ tự, mỗi tài xế một lần; đổi nền và màu xe.
+
+| Nền | Thị trường | Ánh sáng | Biến thể (tài xế) |
+|---|---|---|---|
+| `pho-my`: phố ngoại ô Mỹ, nhà có hiên, cây phong | Mỹ | chiều nắng | 02 (09), 06 (18), 15 (03), 19 (15) |
+| `duong-ngo`: đường quê giữa cánh đồng ngô, kho thóc đỏ | Mỹ | hoàng hôn vàng | 05 (17), 09 (08), 13 (06), 17 (20) |
+| `pho-mexico`: phố lát đá, nhà màu pastel, hoa giấy | Mexico | chiều nắng | 04 (13), 08 (02), 12 (11), 16 (10) |
+| `agave`: đường qua cánh đồng agave xanh, núi xa | Mexico | hoàng hôn cam | 01 (01), 10 (12), 14 (19), 18 (04) |
+| `duong-dua`: đường hai hàng dừa, ruộng lúa, đồi sương | Ấn Độ | sáng sớm | 03 (05), 07 (14), 11 (16), 20 (07) |
+
+- Màu xe xoay vòng 5 màu: trắng ngọc trai / xanh đậm / bạc / xanh ngọc lục bảo / cam, mỗi màu có ghế riêng (`MAU_XE`, `GHE_XE`, `XE` ghép từ hai khoá này).
+- Kịch bản có thêm token bối cảnh (`cong-cu/boi_canh.py`, gọi qua `gioi_tinh.tham_so()`): `ANH_SANG`, `DUONG_SAU`, `DUONG_TRONG`, `NGOAI_XA`, `AM_NEN`, `MAU_XE`, `GHE_XE` thay cho chữ ghi cứng "desert", "golden-hour", "red car". Biến thể gốc và bộ 20 tài xế được điền giá trị cũ (`boi_canh.MAC_DINH`, nền sa mạc, xe đỏ) nên vẫn ra như trước, chỉ khác vài chữ nhỏ ("sunset light" → "golden-hour light" ở cảnh 12, cảnh 9 tả nền giống góc A2). `goc_may.py` chạy lại vẫn không đổi kịch bản.
+- Đồng phục cảnh sát và xe SUV cảnh sát giữ kiểu Mỹ ở mọi nền (kể cả `pho-mexico`, `duong-dua`).
+- Dự án đã nhập vào Studio từ kịch bản cũ: PUT biến thể có 7 khoá mới (giá trị trong `boi_canh.MAC_DINH`) TRƯỚC khi chép kịch bản mới vào loại.
+- `kiem-tra`: 0 lỗi, 20 cảnh báo (cặp wrong/right, như bộ 20 tài xế). **Chưa gen video.**

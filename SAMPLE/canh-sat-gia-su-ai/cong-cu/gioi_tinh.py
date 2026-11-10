@@ -7,6 +7,10 @@ Token biến thể điền:
 goc_may.py gọi bo_tham_so() trước khi sửa và tham_so() trước khi ghi, nên vẫn chạy được như cũ."""
 import os
 import re
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import boi_canh  # noqa: E402   token bối cảnh (nền, ánh sáng, màu xe)
 
 S = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "KICH-BAN-CANH-SAT-GIA-SU-AI.txt")
 
@@ -56,11 +60,13 @@ def _than(t):
 def tham_so(t):
     for a, b in CAP:
         t = t.replace(a, b)
+    t = boi_canh.tham_so(t)   # sau giới tính: "behind {{CS_O}} ONLY the empty desert road, ..." -> "... ONLY {{DUONG_SAU}}"
     dau, than = _than(t)
     return dau + VN.sub("{{CHA_VN}}", than)
 
 
 def bo_tham_so(t):
+    t = boi_canh.bo_tham_so(t)   # ngược thứ tự tham_so
     for a, b in CAP:   # cụ thể trước: bản token của câu cụ thể chứa bản token của câu chung
         t = t.replace(b, a)
     return t.replace("{{CHA_VN}}", "bố")

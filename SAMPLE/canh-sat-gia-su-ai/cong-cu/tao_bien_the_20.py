@@ -11,6 +11,10 @@ import copy
 import csv
 import json
 import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import boi_canh  # noqa: E402   token bối cảnh: biến thể gốc giữ nền sa mạc, xe đỏ
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DIR = os.path.normpath(os.path.join(HERE, ".."))
@@ -73,7 +77,7 @@ def main():
     goc_all = json.load(open(GOC, encoding="utf-8"))
     goc = goc_all[0]
     # biến thể gốc: thêm token giới tính (bố + nữ cảnh sát, như cũ)
-    for k, v in {**NAM, **CS_NU, "NET_HOC": "curly hair, beard, gold hoop earring", "TIENG_BE": "tiếng Tây Ban Nha"}.items():
+    for k, v in {**NAM, **CS_NU, "NET_HOC": "curly hair, beard, gold hoop earring", "TIENG_BE": "tiếng Tây Ban Nha", **boi_canh.MAC_DINH}.items():
         goc.setdefault(k, v)
     json.dump(goc_all, open(GOC, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
