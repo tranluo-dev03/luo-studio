@@ -1,0 +1,55 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "ĐỐI MẶT RỒI CHIA TRÊN/DƯỚI + GIA SƯ AI, BENGALI" (chia-tren-duoi-bengali)
+  HAI phần: phần 1 cảnh thường (2 người nhìn nghiêng chung khung, 4 cảnh), phần 2 ghép 2 lớp (Nova ô TRÊN, người học ô DƯỚI, 16 cảnh).
+  Code riêng: app/production/types/chia-tren-duoi-bengali/
+================================================================================
+
+CÁCH DÙNG
+  Gửi cho agent cùng với: video tham chiếu (nếu có), KICH-BAN-CHIA-TREN-DUOI-BENGALI.txt, cong-cu\tao_bien_the.py, PHAN-TICH-VIDEO-MAU.md.
+  Rồi dán phần dưới đây, sửa [ngoặc vuông].
+
+--------------------------------------------------------------------------------
+PROMPT (copy từ dòng dưới)
+--------------------------------------------------------------------------------
+
+Bạn viết biến thể cho LUO Studio, thể loại ĐỐI MẶT RỒI CHIA TRÊN/DƯỚI + GIA SƯ AI, tiếng Bengali xen tiếng Anh.
+
+Thông tin lần này:
+  Bảng biến thể: [tên | mô tả người học | link ảnh người học | link ảnh Nova]
+  Đổi lời thoại / tên app: [...]
+
+BẮT BUỘC LÀM THEO
+
+1) SỬA BẰNG cong-cu\tao_bien_the.py, KHÔNG SỬA TAY JSON
+   - Mỗi biến thể một dòng trong NHAN_VAT. Tên app ở APP. Lời thoại ở LUOT. Nova và nền ở CHUNG, giữ nguyên trừ khi được yêu cầu.
+
+2) ẢNH THAM CHIẾU
+   - Chỉ dùng ảnh AI người dùng cung cấp, KHÔNG cắt từ video mẫu. Thiếu ảnh -> hỏi, chưa gen.
+   - "refs": NGUOI_NOVA và NGUOI_DAY cùng một ảnh Nova; NGUOI_HOC ảnh người học.
+
+3) LỜI THOẠI (20 lượt: 4 phần 1, 16 phần 2)
+   - Thứ tự phần 1: hoc nova hoc nova.
+   - Thứ tự phần 2: day hoc day hoc day hoc day hoc day hoc day day day hoc day day.
+   - Mỗi lượt <= 20 từ. emo trong EMO_CUES. "fx": "none" mọi lượt. Mọi lượt có "phan".
+   - Tiếng Bengali chép đúng chữ Bengali; từ tiếng Anh để chữ Latin.
+   - Không viết câu chỉ gồm tên app + dấu chấm.
+
+4) KHÔNG ĐỔI BỐ CỤC NẾU KHÔNG ĐƯỢC YÊU CẦU
+   - `nen: DAY` là cố ý. Đổi `nen: HOC` làm Studio tưởng mặt người học bị ô DAY che và dịch ảnh.
+   - Đổi khung thì tính lại câu tả vị trí đầu: ô dưới bị cắt mỗi mép ~9% ảnh 1:1.
+   - Phần 1 phải giữ nhìn nghiêng: NHIN_ và NGHE_ của cả hai có "exact side profile" và "never looks at the camera".
+   - Cặp nhân vật phần 1 giữ khác giới; cùng giới cùng khung thì người nghe dễ nhép theo.
+
+KIỂM TRA TRƯỚC KHI TRẢ LỜI
+  [ ] runtime\python.exe SAMPLE\_chung\video-moi.py kiem-tra <kịch bản> <biến thể> --tai-anh: 0 lỗi.
+  [ ] Không còn "{{" sau khi điền; 20 lượt đúng thứ tự.
+  [ ] Sau khi gen: xem phan1/scene1_start.png (hai người nhìn nghiêng), phan2/base_DAY.png, phan2/base_HOC.png; nghe cảnh 1-3 để xác nhận Muse nói Bengali đúng.
+
+--------------------------------------------------------------------------------
+LỖI THƯỜNG GẶP / GIỚI HẠN
+--------------------------------------------------------------------------------
+  - Whisper dịch Bengali sang tiếng Anh: không dùng chữ Whisper làm lời, không dùng số từ/giây của bao-cao.md.
+  - Câu Bengali không được kiểm lời từng chữ: nghe lại, câu lặp/thiếu không tự gen lại.
+  - Phụ đề phải có "shaping": "complex" trong config.json; thiếu thì nguyên âm Bengali đứng sai chỗ.
+  - Câu dài nhất chiếm 4 dòng phụ đề: tách lượt nếu cần gọn hơn.
+  - Phụ đề theo câu, chưa tô đậm dần từng từ như video mẫu.

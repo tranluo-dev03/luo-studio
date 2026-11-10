@@ -1,0 +1,68 @@
+"Kịch bản: 
+
+Robot: ইংলিশ শেখার সবচেয়ে প্রথম rule কি?
+
+Robot: এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।
+
+Robot: আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।
+
+Robot: AI এর সাথে।
+
+Robot: চলুন try করি।
+
+
+Robot: How old are you?
+
+Nam: উম, I have twenty five.
+
+Robot: আপনি বলতে চান, ""I am twenty five.""
+
+Nam: হ্যাঁ, একদম। I am twenty five.
+
+Robot: Where are you from?
+
+Nam: আ, I am Kolkata.
+
+Robot: ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, ""I am from Kolkata.""
+
+Nam: Sorry. আমি প্রায়ই এত ভুল করে ফেলি।
+
+
+Robot: কোন ব্যাপার না। AI teacher try করেছেন কি?
+
+Robot: Classes থেকে সাত গুণ সস্তা।
+
+Robot: রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।
+
+Robot: এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।
+
+
+Nam: Wow! আমি কিভাবে join করব?
+
+Robot: নিচে install-এর button চাপুন।
+
+Robot: Aiva AI install করুন, sign up করুন আর শুরু করুন।
+
+Robot: দিনেই improvement দেখা যাবে।",,,
+,,,
+STT biến thể,Kiểu biến thể,Mô tả biến thể_text,Link ảnh biến thể
+1,Nam trẻ đẹp,"Nam trẻ đẹp ~25, cao, mặt góc cạnh, tóc đen chải gọn, cạo râu sạch; mặc áo sơ mi trắng lịch sự + quần tây xám + thắt lưng da đen + giày da đen bóng; đứng full người, tay buông hai bên, tay không, cười tự tin; phông xanh lá #00FF00, không ngồi, không cầm, không vướng vật gì.",
+2,Nam trẻ đẹp,"Nam trẻ đẹp ~28, mặt oval, râu tỉa gọn; mặc áo blazer navy + áo sơ mi trắng + quần tây be + giày da nâu bóng; đứng full người, tay buông hai bên, tay không, cười ấm; phông xanh lá #00FF00, không ngồi, không cầm, không vướng vật gì.",
+3,Nam trẻ đẹp,"Nam trẻ đẹp ~22, mặt trẻ, tóc đen chải gọn; mặc áo sơ mi xanh nhạt lịch sự + quần tây tối + thắt lưng da đen + giày da đen bóng; đứng full người, tay buông hai bên, tay không, cười tươi; phông xanh lá #00FF00, không ngồi, không cầm, không vướng vật gì.",
+4,Nam trẻ đẹp,"Nam trẻ đẹp ~30, dáng athletic vai rộng, tóc ngắn gọn; mặc áo kurta màu be + vest Nehru + quần trắng + giày loafer bóng; đứng full người, tay buông hai bên, tay không, nhìn camera tự tin; phông xanh lá #00FF00, không ngồi, không cầm, không vướng vật gì.",
+5,Nam trẻ đẹp,"Nam trẻ đẹp ~26, đeo kính gọng đen, mặt sáng, tóc đen chải lệch; mặc áo sơ mi kẻ caro lịch sự + quần tây tối + thắt lưng da đen + giày da đen bóng; đứng full người, tay buông hai bên, tay không, cười nhẹ; phông xanh lá #00FF00, không ngồi, không cầm, không vướng vật gì.",
+6,Nữ trẻ đẹp,"Nữ trẻ đẹp ~24, tóc đen dài thẳng, mắt to, da sáng; mặc áo salwar kameez lụa hồng + dupatta voan + trang sức vàng nhẹ + sandal cao gót; đứng full người, tay buông hai bên, tay không, cười dịu; phông xanh lá #00FF00, không ngồi, không cầm, không vướng vật gì.",
+7,Nữ trẻ đẹp,"Nữ trẻ đẹp ~22, tóc búi cao gọn, mặt oval; mặc áo kurti dài hoa lịch sự + quần churidar + giày thêu; đứng full người, tay buông hai bên, tay không, cười tươi; phông xanh lá #00FF00, không ngồi, không cầm, không vướng vật gì.",
+8,Nữ trẻ đẹp,"Nữ trẻ đẹp ~27, tóc xoăn sóng dài; mặc sari lụa đỏ sang trọng + áo blouse ngắn + trang sức vàng nhẹ + sandal cao gót; đứng full người, tay buông hai bên, tay không, cười tự tin; phông xanh lá #00FF00, không ngồi, không cầm, không vướng vật gì.",
+9,Nữ trẻ đẹp,"Nữ trẻ đẹp ~20, tóc bob ngang vai, mặt trẻ; mặc áo kurta trắng lịch sự + váy dài xòe + sandal cao gót; đứng full người, tay buông hai bên, tay không, cười hồn nhiên; phông xanh lá #00FF00, không ngồi, không cầm, không vướng vật gì.",
+10,Nữ trẻ đẹp,"Nữ trẻ đẹp ~26, tóc dài thẳng đen; mặc váy anarkali dài màu xanh ngọc sang trọng + dupatta + trang sức vàng nhẹ + sandal cao gót; đứng full người, tay buông hai bên, tay không, cười ấm; phông xanh lá #00FF00, không ngồi, không cầm, không vướng vật gì.",
+11,Nam già đẹp,"Nam già đẹp ~70, tóc bạc chải gọn, mặt phúc hậu, râu bạc tỉa gọn; mặc áo kurta trắng tinh + vest Nehru be + quần trắng + giày da bóng; đứng full người, tay buông hai bên, tay không, cười hiền; phông xanh lá #00FF00, không ngồi, không cầm, không vướng vật gì.",
+12,Nam già đẹp,"Nam già đẹp ~65, tóc bạc, mặt hiền; mặc áo kurta lụa màu be + vest Nehru + quần trắng + giày da bóng; đứng full người, tay buông hai bên, tay không, cười ấm; phông xanh lá #00FF00, không ngồi, không cầm, không vướng vật gì.",
+13,Nam già đẹp,"Nam già đẹp ~72, râu bạc dài tỉa gọn, dáng phong độ; mặc áo kurta lụa xám + vest Nehru tối + quần trắng + giày da bóng; đứng full người, tay buông hai bên, tay không, cười hiền tự tin; phông xanh lá #00FF00, không ngồi, không cầm, không vướng vật gì.",
+14,Nam già đẹp,"Nam già đẹp ~60, tóc muối tiêu, mặt sáng; mặc áo sơ mi xanh nhạt lịch sự + áo blazer navy + quần tây tối + giày da bóng; đứng full người, tay buông hai bên, tay không, cười ấm; phông xanh lá #00FF00, không ngồi, không cầm, không vướng vật gì.",
+15,Nam già đẹp,"Nam già đẹp ~68, tóc bạc chải gọn, mặt phúc hậu; mặc áo kurta màu kem + vest Nehru + quần trắng + giày da bóng; đứng full người, tay buông hai bên, tay không, cười hiền; phông xanh lá #00FF00, không ngồi, không cầm, không vướng vật gì.",
+16,Nữ già đẹp,"Nữ già đẹp ~65, tóc bạc búi thấp gọn, mặt phúc hậu duyên dáng; mặc sari lụa nâu ấm + áo blouse + trang sức vàng nhẹ + sandal cao gót; đứng full người, tay buông hai bên, tay không, cười hiền; phông xanh lá #00FF00, không ngồi, không cầm, không vướng vật gì.",
+17,Nữ già đẹp,"Nữ già đẹp ~70, tóc bạc buộc gọn, mặt duyên dáng; mặc sari lụa xám + áo blouse + trang sức vàng nhẹ + sandal cao gót; đứng full người, tay buông hai bên, tay không, cười nhẹ; phông xanh lá #00FF00, không ngồi, không cầm, không vướng vật gì.",
+18,Nữ già đẹp,"Nữ già đẹp ~62, tóc bạc búi gọn, mặt duyên dáng; mặc salwar kameez lụa màu be + dupatta + trang sức nhẹ + giày thêu; đứng full người, tay buông hai bên, tay không, cười ấm; phông xanh lá #00FF00, không ngồi, không cầm, không vướng vật gì.",
+19,Nữ già đẹp,"Nữ già đẹp ~75, tóc trắng búi gọn, mặt phúc hậu; mặc sari lụa trắng tinh viền vàng + áo blouse + trang sức vàng nhẹ + sandal vàng; đứng full người, tay buông hai bên, tay không, cười hiền; phông xanh lá #00FF00, không ngồi, không cầm, không vướng vật gì.",
+20,Nữ già đẹp,"Nữ già đẹp ~68, tóc bạc búi gọn, mặt duyên dáng; mặc sari lụa xanh dương đậm viền vàng + áo blouse + trang sức vàng nhẹ + sandal cao gót; đứng full người, tay buông hai bên, tay không, cười nhẹ; phông xanh lá #00FF00, không ngồi, không cầm, không vướng vật gì.",

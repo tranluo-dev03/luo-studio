@@ -1017,7 +1017,7 @@ def _wh_release(w):
 
 
 _ES_MARK = re.compile(r"[¿¡ñáéíóú]", re.I)
-_INDIC = (("gu", re.compile(r"[઀-૿]")), ("hi", re.compile(r"[ऀ-ॿ]")))
+_INDIC = (("gu", re.compile(r"[઀-૿]")), ("hi", re.compile(r"[ऀ-ॿ]")), ("bn", re.compile(r"[ঀ-৿]")))
 _ES_WORDS = set("que es la el los las para por con una uno tu mi no si sí pero vamos decir tienes quisiste perdón siempre nada cuál cómo solo necesitas hablar "
                 "estudies úsalo buen intento todos días juntos mejorar inglés hola gracias usted ustedes está estás soy eres somos".split())
 
@@ -1065,12 +1065,16 @@ def voice_span(path, expected):
     # Số viết bằng chữ ("forty-eight") hay chữ số ("48") đều quy về chữ số; mọi số Whisper nghe được đều khớp với số trong lời thoại.
     toks = lambda s: [t for t in (re.sub(r"[^a-z0-9]", "", _NUMW.get(x, x)) for x in re.findall(r"[a-z0-9']+", _deaccent(s).lower().replace("-", " "))) if t]
     exp = toks(expected or "")
-    if not exp:
+    bengali = speech_lang(expected) == "bn"
+    if not exp and not bengali:
         return None
     has_num = any(e.isdigit() for e in exp)
     wav = path + ".span.wav"
     sh(["ffmpeg", "-y", "-i", path, "-vn", "-ac", "1", "-ar", "16000", wav])
     try:
+        if bengali:   # Whisper "small" treo khi nghe tiếng Bengali (10/11/2026: 300 s không trả lời, đặt language=bn hay tự nhận đều vậy): mốc lời lấy theo năng lượng âm thanh
+            onset, offset = _energy_span(wav)
+            return (onset, offset) if onset is not None and offset is not None and offset - onset > 0.5 else None
         words = [(t, a, b) for w, a, b in _transcribe(wav, True, speech_lang(expected))["words"] for t in toks(w)]
         onset, offset = _energy_span(wav)
     finally:
@@ -1322,7 +1326,7 @@ def speech_issues(expected, path):
     Whisper hay bịa "Thank you" ở đó) không tính là thừa.
     Trả về danh sách (mô tả tiếng Việt cho nhật ký, mô tả tiếng Anh cho ghi chú gen lại) (rỗng = đạt); None nếu không kiểm được (câu rỗng, không có Whisper)."""
     import difflib
-    if speech_lang(expected) in ("gu", "hi"):
+    if speech_lang(expected) in ("gu", "hi", "bn"):
         # câu chữ Gujarati/Devanagari (08/11/2026): _speech_tokens chỉ giữ chữ Latin, Whisper nghe thành chữ khác -> báo "thừa/thiếu" sai và gen lại vô ích.
         # Không kiểm từng chữ; cắt sát vẫn chạy nhờ voice_span (năng lượng âm thanh). Câu thuần tiếng Anh vẫn kiểm như cũ.
         return None

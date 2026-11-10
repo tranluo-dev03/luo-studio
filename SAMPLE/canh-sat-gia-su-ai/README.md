@@ -80,7 +80,26 @@ Sửa kịch bản giữa chừng: chạy `cong-cu/goc_may.py`, chép kịch b�
 | "Tu licencia…" đảo vị trí, muốn y hệt khung "Yes" | Cảnh 7 = góc B, `Khung đầu từ cảnh: 2` |
 | Đưa giấy tờ đảo vị trí; bố phải tự lấy và đưa giấy tờ | `Mở đầu khung từ cảnh: 2` + bố lấy ví ở hộc giữa đưa ra cửa sổ |
 | Phụ đề "I wish…" nhanh hơn lời | Phụ đề căn từ sau đoạn "Mở đầu" (`.pre` → `scenes.json` `speech`) |
-| LangLearn → Talka AI | Lời thoại 10, 22, 24 |
+| LangLearn → Talka AI → **Aiva AI** (10/11/2026) | Lời thoại 10, 22, 24 |
+| Đổi robot AI (10/11/2026) | Ảnh `anh/DAY-aiva.png` (robot tai nghe, mắt xanh, nền tím than); `NGUOI_DAY`, `NEN_DAY` tả lại theo ảnh mới. Ảnh cũ `anh/DAY.png` giữ lại |
 | Phần gọi AI: ô AI che mặt bố | `[NHAN VAT HOC]` ghi đầu ở ~45%; `split.py` dò mặt `base_HOC`, gen lại / dịch xuống nếu bị ô + phụ đề che |
 
 Cùng góc máy dùng nguyên khung đầu: 6, 8 ← 3; 7, 9 ← 2; 10 ← 5 (`cong-cu/goc_may.py` → `FROM`).
+
+## 20 biến thể đổi người lái xe (10/11/2026)
+
+File `BIEN-THE-20-TAI-XE.json` (sinh bằng `cong-cu/tao_bien_the_20.py`), dùng chung kịch bản `KICH-BAN-CANH-SAT-GIA-SU-AI.txt`.
+
+| | Nam (01–10) | Nữ (11–20) |
+|---|---|---|
+| Mexico | 01–04 | 11–13 |
+| Ấn Độ | 05–07 | 14–17 |
+| Mỹ | 08–10 | 18–20 |
+
+- Ảnh tài xế: `anh/20-tai-xe/tai-xe-XX.png` (3D, phông xanh, gen Muse bằng `cong-cu/gen_20_tai_xe.py`, người dùng duyệt `BANG-DUYET.png`); mô tả ở `danh-sach.csv`.
+- Tài xế nữ: "the mother" + **nam cảnh sát** (`canh-sat-nam.png`), lời 5–6 đổi She/her. Tài xế nam: nữ cảnh sát gốc.
+- Bé giống bố/mẹ: Mexico `anh/BE.png`, Ấn Độ `be-an.png` (câu cảnh 7 bằng tiếng Hindi chữ Devanagari), Mỹ da trắng `be-trang.png`, Mỹ gốc Phi `be-phi.png`.
+- Tài xế Mỹ: giữ y lời gốc (vẫn "tiếng Anh kém", bé dịch tiếng Tây Ban Nha) theo ý người dùng.
+- Kịch bản giờ có token giới tính (`cong-cu/gioi_tinh.py`): `CHA`, `CHA_ANH`, `CHA_CUA`, `CHA_O`, `CHA_VN`, `NET_HOC`, `CS_ANH`, `CS_CUA`, `CS_O`, `TIENG_BE`. Biến thể gốc đã được thêm các khoá này. `goc_may.py` tự bỏ/đặt lại token nên chạy lại vẫn được.
+- `config.json` phụ đề đổi font sang **Nirmala UI** (có chữ Devanagari cho câu Hindi).
+- `kiem-tra`: 0 lỗi (cảnh báo cặp wrong/right ở phần 2 có từ biến thể gốc). **Chưa gen video.**

@@ -24,9 +24,9 @@
   "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
   "DAO_DIEN_THOAI": "a blue smartphone",
   "TEN_DAY": "the AI tutor",
-  "NGUOI_DAY": "a sleek female-shaped humanoid robot, smooth glossy white head and face with calm glowing pale-blue eyes and a soft friendly closed-lip expression, white armoured shoulder, chest and arm panels with thin cyan light lines, black mechanical joints and cables at the neck and arms (copy the reference image exactly); realistic 3D render",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
   "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
-  "NEN_DAY": "a plain black background with soft concentric glowing white sound-wave rings behind her head",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
   "NEN_HOC": "the inside of the red car at golden hour, red leather seats and the desert through the rear windows",
   "NHIN_CANHSAT": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
   "NHIN_HOC": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
@@ -99,7 +99,7 @@
    },
    {
     "who": "be",
-    "text": "Three weeks with Talka AI. Real conversations every day.",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
     "emo": "proud, cheerful",
     "fx": "none",
     "phan": 1
@@ -190,7 +190,7 @@
    },
    {
     "who": "day",
-    "text": "It's I have no money. But don't worry, Talka AI is a completely free app.",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
     "emo": "reassuring",
     "fx": "none",
     "phan": 2
@@ -204,7 +204,7 @@
    },
    {
     "who": "day",
-    "text": "We can practice English anytime, anywhere. Just download Talka AI.",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
     "emo": "upbeat",
     "fx": "none",
     "phan": 2
@@ -228,9 +228,19 @@
     "SAMPLE/canh-sat-gia-su-ai/anh/BE.png"
    ],
    "NGUOI_DAY": [
-    "SAMPLE/canh-sat-gia-su-ai/anh/DAY.png"
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
    ]
   },
-  "nguoi_theo_canh": true
+  "nguoi_theo_canh": true,
+  "CHA": "father",
+  "CHA_ANH": "he",
+  "CHA_CUA": "his",
+  "CHA_O": "him",
+  "CHA_VN": "bố",
+  "CS_ANH": "she",
+  "CS_CUA": "her",
+  "CS_O": "her",
+  "NET_HOC": "curly hair, beard, gold hoop earring",
+  "TIENG_BE": "tiếng Tây Ban Nha"
  }
 ]

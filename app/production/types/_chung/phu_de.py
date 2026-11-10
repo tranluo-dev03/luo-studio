@@ -220,7 +220,7 @@ def _glow_box(times, dur, color, x0, w):
     return ",".join(fl)
 
 
-def burn(src, units, out, font="Arial", size=78, y=1345, dich_size=46, glow_box=None, glow_end=False):
+def burn(src, units, out, font="Arial", size=78, y=1345, dich_size=46, glow_box=None, glow_end=False, shaping=None):
     """Đốt phụ đề + viền nháy + tiếng hiệu ứng vào src (1080x1920 đầu ra), giữ tiếng gốc.
     glow_box = (x, rộng) theo tỉ lệ bề ngang: viền sai/đúng chỉ nháy trong vùng đó (mặc định cả khung).
     glow_end = True: viền + tiếng nháy ở cuối câu (0,6 giây trước khi hết lời) thay vì đầu câu, như video mẫu chia đôi."""
@@ -239,7 +239,7 @@ def burn(src, units, out, font="Arial", size=78, y=1345, dich_size=46, glow_box=
             glow = PP.glow_filters
         glows = [g for g in (glow(dings) if dings else "", glow(wrongs, 1.1, "FF2A2A") if wrongs else "",
                              glow(rights, 1.1, "2EE86A") if rights else "") if g]
-        fc = "[0:v]scale=1080:1920:flags=lanczos,fps=30,subtitles=subs.ass" + ("," + ",".join(glows) if glows else "") + "[v]"
+        fc = "[0:v]scale=1080:1920:flags=lanczos,fps=30," + (f"ass=subs.ass:shaping={shaping}" if shaping else "subtitles=subs.ass") + ("," + ",".join(glows) if glows else "") + "[v]"
         cmd, sfx = ["ffmpeg", "-y", "-i", "in.mp4"], []
         for kind, times, vol in (("ding", dings + rights, 0.9), ("buzz", wrongs, 0.85)):
             if times:

@@ -56,6 +56,6 @@ def main(type_dir, argv=None):
     print(f"Căn {len(units)} dòng phụ đề theo {len(scene_of_turn)} cảnh...")
     units = PD.align(a.raw, units, a.scenes, cfg.get("whisper", "small.en"))
     vien = cfg.get("vien") or {}   # {"x": 0.5, "rong": 0.5, "cuoi_cau": true}: viền sai/đúng chỉ ở một vùng, nháy ở cuối câu (màn hình chia đôi)
-    PD.burn(a.raw, units, a.out, font=cfg.get("font", "Arial"), size=int(cfg.get("co_chu", 78)), dich_size=int(cfg.get("co_chu_dich", 46)),
+    PD.burn(a.raw, units, a.out, font=cfg.get("font", "Arial"), shaping=cfg.get("shaping"), size=int(cfg.get("co_chu", 78)), dich_size=int(cfg.get("co_chu_dich", 46)),
             glow_box=(float(vien["x"]), float(vien["rong"])) if "x" in vien and "rong" in vien else None, glow_end=bool(vien.get("cuoi_cau")))
     print("XONG ->", a.out)

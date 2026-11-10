@@ -1,6 +1,7 @@
 {
   "nhoe": 1.0,
   "phu_de": {
+    "font": "Nirmala UI",
     "co_chu": 60,
     "co_chu_dich": 44,
     "y_theo_phan": {"1": 1320, "2": 645},

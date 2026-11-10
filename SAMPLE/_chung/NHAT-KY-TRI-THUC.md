@@ -514,3 +514,69 @@ Người dùng báo 6 lỗi; nguyên nhân đã chứng minh bằng số đo tr�
 - Kết quả: `kiem-tra --tai-anh` đạt; dự án có đủ refs. Gen thật: CHỜ KIỂM CHỨNG (LUO-API lỗi CDP chưa xử lý).
 - Áp dụng chung?: KHÔNG
 - Đã chưng cất vào: chưa
+
+### 2026-11-10 · chia-tren-duoi-bengali · phân tích video "oder 5" + tạo thể loại · loai: phan-tich
+- Hiện tượng: video nói Bengali xen tiếng Anh; Whisper trả chữ dịch sang tiếng Anh ("Don't make it difficult" cho "এটাকে মুখস্থ করবেন না"). `bao-cao.md` báo tới 13,89 từ/giây vì đếm trên chữ dịch. `speech_lang` chưa biết chữ Bengali nên câu Bengali bị coi là tiếng Anh.
+- Nguyên nhân (đã chứng minh): `_INDIC` trong engine chỉ có Gujarati và Devanagari.
+- Cách làm / sửa: lời đọc từ phụ đề trên hình; tốc độ thật ~3,3 từ/giây. `engine.py`: thêm `bn` (chữ Bengali) vào `_INDIC` và vào nhánh bỏ kiểm từng chữ của `speech_issues`; chỉ ảnh hưởng câu có chữ Bengali.
+- Kết quả: `kiem-tra` 0 lỗi, 0 cảnh báo; đã nhập Studio. Muse nói Bengali: CHỜ KIỂM CHỨNG (chưa gen, chờ ảnh tham chiếu người dùng).
+- Áp dụng chung?: CÓ (mọi video chữ Bengali)
+- Đã chưng cất vào: chưa
+
+### 2026-11-10 · chia-tren-duoi-bengali · đốt thử phụ đề Bengali · loai: hau-ky
+- Hiện tượng: đốt thử trên video mẫu, "কিন্তু" hiện như "কনি্তু", "করবেন" hiện như "করবনে". Thử thêm Devanagari và Gujarati: "किताब" hiện như "कतिाब", cùng lỗi.
+- Nguyên nhân (đã chứng minh): bộ lọc `subtitles` mặc định dựng chữ đơn giản; so ba cách trên cùng một tệp ASS, chỉ `ass=...:shaping=complex` đúng.
+- Cách làm / sửa: `phu_de.burn` thêm tham số `shaping`, `hau_ky` đọc `phu_de.shaping` trong `config.json`, mặc định tắt. Bật cho `chia-tren-duoi-bengali`.
+- Kết quả: ĐẠT (đốt lại trên video mẫu, cụm chữ ghép đúng). `chia-tren-duoi-marathi` và `check-hanh-ly-hindi` có cùng lỗi, CHƯA sửa, chờ người dùng quyết định.
+- Áp dụng chung?: CÓ (mọi thể loại phụ đề chữ Ấn Độ)
+- Đã chưng cất vào: SO-TAY mục 6
+
+### 2026-11-10 · chia-tren-duoi-bengali · chạy thử biến thể 01, Whisper treo ở tiếng Bengali · loai: cong-cu
+- Hiện tượng: cảnh 1 mất 18 phút dù Muse gen clip chỉ 52 giây. Ba lần gọi Whisper hết 300 giây chờ: kiểm tra hướng mặt (không ghi log), tìm mốc lời lần 1 và lần 2.
+- Nguyên nhân: Whisper `small` không trả lời khi `language=bn` hoặc tự nhận ngôn ngữ (thử riêng trên âm thanh cảnh 1: quá 60 giây); `language=hi` xong trong ~20 giây. Lý do bên trong mô hình chưa rõ.
+- Cách làm / sửa: `engine.voice_span` với câu Bengali lấy mốc theo năng lượng âm thanh, không gọi Whisper; `postprocess.align_by_scene` nghe câu Bengali bằng `hi`.
+- Kết quả: tìm mốc lời ĐẠT (10 giây ở cảnh 2 và 4). Căn phụ đề: CHỜ KIỂM CHỨNG. Cảnh 3 cảnh báo đầu câu có thể mất, cảnh 2 lời sát cuối clip 5 giây: CHỜ nghe lại.
+- Áp dụng chung?: CÓ (mọi video chữ Bengali)
+- Đã chưng cất vào: chưa
+
+### 2026-11-10 · chia-tren-duoi-bengali · ảnh tham chiếu và kiểm tra hướng mặt trên robot · loai: anh-tham-chieu
+- Hiện tượng: người dùng gửi robot trắng đầu không tóc, khác nhân vật hoạt hình của video mẫu; ảnh chàng trai do Muse gen từ lời tả theo yêu cầu người dùng. Khung đầu phần 1 đạt: hai người nhìn nghiêng, đúng ảnh tham chiếu. Cảnh 2 bị báo "quay mặt nhìn thẳng ống kính" hai lần dù ảnh ghép khung cho thấy robot chỉ xoay nhẹ.
+- Nguyên nhân (giả thuyết): đo hướng mặt bằng mediapipe không tin cậy trên mặt robot.
+- Cách làm / sửa: bỏ "never looks at the camera" khỏi `NHIN_NOVA`, `NGHE_NOVA` để tắt kiểm tra riêng cho robot; vẫn giữ "exact side profile" và cấm ở NEGATIVE. Người học giữ kiểm tra.
+- Kết quả: ĐẠT ở phần 1 (cảnh 2-4 không còn gen lại vì hướng mặt, xong phần 1 lúc 01:59). Lượt chạy dừng ở cảnh 12/20 theo yêu cầu người dùng để quét mã độc trên máy, chưa có video thành phẩm.
+- Áp dụng chung?: CÓ (nhân vật robot: không dùng "never looks at the camera" để tránh báo nhầm)
+- Đã chưng cất vào: chưa
+
+### 2026-11-10 · chia-tren-duoi-bengali · hậu kỳ treo ở câu Bengali, nguyên nhân Whisper · loai: cong-cu
+- Hiện tượng: hậu kỳ chạy 15 phút chưa xong, toàn bộ ở tiến trình Whisper căn phụ đề. Câu tiếng Anh 10 giây, câu Bengali quá 100 giây; video có 18 câu chữ Bengali.
+- Nguyên nhân (đo trên âm thanh cảnh 1): Whisper `small` với `language=bn` sinh một ký tự lặp vô nghĩa ("ༀ") tới hết độ dài cho phép, tỉ lệ nén 15,86. Chỉ riêng một lượt mất 16,3 giây; cấu hình mặc định còn thử lại ở nhiều nhiệt độ nên không xong sau 80 giây. Token hoá Bengali bình thường. Tự nhận ngôn ngữ cũng rơi vào đây. `hi` không kèm prompt xong trong 3-5 giây; `hi` kèm prompt chữ Bengali quá 100 giây (lý do chưa đo).
+- Cách làm / sửa: `postprocess.align_by_scene` không gửi câu chữ Bengali cho Whisper, phụ đề căn theo khoảng lời đã cắt sát của cảnh.
+- Kết quả: ĐẠT (hậu kỳ 104 giây, có final). Độ khớp phụ đề từng câu: CHỜ người dùng xem.
+- Áp dụng chung?: CÓ (mọi video chữ Bengali)
+- Đã chưng cất vào: chưa
+
+### 2026-11-10 · chia-tren-duoi-bengali · phụ đề Bengali hiện muộn, có video thành phẩm · loai: hau-ky
+- Hiện tượng: sau khi bỏ Whisper, câu Bengali hiện muộn và quá ngắn (câu 14 từ chỉ 1,8 giây). Đang hậu kỳ mà gọi /api/post lúc item "tự xếp lại hàng chờ" đang ghép: lượt ghép bị dừng, raw.mp4 còn 48 byte.
+- Nguyên nhân (đã chứng minh): `align()` chỉ đọc chữ Latin nên lấy mốc theo mấy từ tiếng Anh trong câu.
+- Cách làm / sửa: `align_by_scene` rải thẳng câu Bengali theo độ dài chữ trong khoảng lời của cảnh. raw.mp4 hỏng: bấm chạy tiếp item gen, Studio ghép lại từ các scene_cut, không gen lại.
+- Kết quả: ĐẠT (final 79,4 s). Video mẫu 58,8 s nên bản gen dài hơn ~20 s. Muse nói Bengali nghe được qua Whisper `hi`. CHỜ người dùng duyệt: khớp phụ đề, môi robot đỏ dần, cảnh 2 có thể hụt chữ cuối.
+- Áp dụng chung?: CÓ (mọi video chữ Bengali; đừng gọi /api/post khi item đang chờ tự chạy lại)
+- Đã chưng cất vào: chưa
+
+### 2026-11-10 · chia-tren-duoi-bengali · bộ 20 biến thể theo CSV · loai: kich-ban
+- Hiện tượng: CSV người dùng (tên ghi 40, thực có 20 dòng, chưa có link ảnh) đổi lời: phần 1 robot nói hết, app Aiva AI, bỏ vài câu; người học nam/nữ, trẻ/già.
+- Cách làm / sửa: kịch bản riêng `KICH-BAN-...-ROBOT-MO-DAU.txt` (phần 1 không dùng đại từ của người học, phần 2 lấy nguyên), `cong-cu/tao_bo_csv.py` sinh cả kịch bản và biến thể. Tuổi trong câu sửa lỗi theo từng biến thể (`TUOI_THEO_BIEN_THE`).
+- Kết quả: `kiem-tra` 0 lỗi, 0 cảnh báo. Chưa gen: CHỜ ảnh người học. Rủi ro chờ kiểm chứng: phần 1 chỉ robot nói, người thật có thể nhép theo, nhất là biến thể nữ.
+- Áp dụng chung?: KHÔNG (riêng thể loại này)
+- Đã chưng cất vào: chưa
+
+### 10/11/2026 — chia-tren-duoi-bengali: chạy 20 biến thể, 4 luồng (kiểm tra cảnh đầu)
+- **Hiện tượng:** bt-01 (nam-25-so-mi-trang) cảnh 1–2 xong sau ~2 phút mỗi cảnh; khung cuối `scene1_last.png`, `scene2_last.png`: robot nói, người học nhìn nghiêng, miệng khép, không nhép theo robot; ảnh người học khớp ảnh tham chiếu `bien-the/01.png`.
+- **Nguyên nhân/cách sửa:** phần 1 robot nói cả 4 lượt (kịch bản ROBOT-MO-DAU) nên người học chỉ nghe, tránh lỗi Muse gán giọng.
+- **Kết quả:** ĐẠT ở 2 cảnh đầu bt-01; bt-02..04 và các cảnh sau CHỜ KIỂM CHỨNG. Riêng thể loại. Chưa chưng cất.
+
+### 10/11/2026 — chia-tren-duoi-bengali: tổng kết lô 20 biến thể (máy 6 nhân/16 GB/HDD, 2→4→5→6 luồng)
+- **Số đo:** 20/20 video xong, 03:53–12:26 = 8 h 33 phút (kể cả 7 video chờ lỗi WinError 32 nhiều giờ và 1 lần Studio bị tắt làm dừng 2 video). Video chạy liền mạch 67–86 phút; chậm nhất 132–158 phút (bt-06, bt-19, bt-20, do tranh tài khoản/chạy lại).
+- **Theo cảnh (TB):** phần 1 robot 62 s/cảnh (trung vị 29 s); phần 2 người nói 265 s/cảnh; clip nghe 176 s/cảnh (max ~1000 s). Hậu kỳ + ghép TB 8,4 phút (max 23).
+- **Vấn đề:** WinError 32 (file đang bị tiến trình khác dùng) ở bước ghép cảnh 16 của 7 video; Studio mở lại thì số luồng về 2; hai video cùng tài khoản Muse.
+- **Kết quả:** CHỜ KIỂM CHỨNG chất lượng từng video; áp dụng chung (độ dài/luồng); chưa chưng cất.

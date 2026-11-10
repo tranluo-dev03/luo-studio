@@ -1,0 +1,3522 @@
+[
+  {
+    "name": "bt-01-nam-25-so-mi-trang",
+    "TEN_NOVA": "Nova",
+    "VAI_NOVA": "AI English tutor",
+    "POS_NOVA": "LEFT",
+    "NGUOI_NOVA": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_NOVA": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NHIN_NOVA": "looks only at the other person's face, straight across to the right in exact side profile",
+    "NGHE_NOVA": "keeps a gentle closed-mouth smile, the eyes on the other person's face, in exact side profile",
+    "NEN_NOVA": "a plain seamless studio backdrop of soft blurred grey tones with faint pale marbled ripple patterns, with no objects and no horizon",
+    "POS_HOC": "RIGHT",
+    "VAI_HOC": "learner",
+    "NHIN_HOC": "looks only at the robot's face, straight across to the left in exact side profile, and never looks at the camera",
+    "NGHE_HOC": "stays calm with the lips pressed together, the eyes open on the robot's face, in exact side profile, and never looks at the camera",
+    "TEN_DAY": "Nova",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a cosy living room in warm lamplight, slightly out of focus: a wide taupe sofa with a grey-green cushion and a striped rolled armrest on the right, a tall wooden bookcase with books behind on the left, a lit cream table lamp and a white mug on a side table at the left, long beige curtains and a bright window at the upper right",
+    "NEN_HOC": "a bright, tidy Bengali home, slightly out of focus: a cream wall, a wooden shelf full of colourful books on the left with small plain framed family photos on top, a large leafy potted plant on a shelf on the right, a smaller potted plant low on the left, sheer white curtains and soft daylight at the right, the back of a beige sofa at the bottom of the view",
+    "TEN_HOC": "the young man",
+    "NGUOI_HOC": "a young Bengali man about 25 years old, warm brown skin, tall, an angular face, neatly combed black hair, clean-shaven, a confident smile; a crisp white dress shirt; realistic skin and fabric",
+    "GIONG_HOC": "a real young Bengali man's voice, light baritone (around 130-170 Hz), plain and friendly, native Kolkata Bengali, says the English words like a beginner, a little slowly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "nova",
+        "text": "ইংলিশ শেখার সবচেয়ে প্রথম rule কি?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "AI এর সাথে। চলুন try করি।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "উম, I have twenty five.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "আপনি বলতে চান, I am twenty five.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "হ্যাঁ, একদম। I am twenty five.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "আ, I am Kolkata.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, I am from Kolkata.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sorry. আমি প্রায়ই এত ভুল করে ফেলি।",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "কোন ব্যাপার না। AI teacher try করেছেন কি?",
+        "emo": "reassuring",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Classes থেকে সাত গুণ সস্তা।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Wow! আমি কিভাবে join করব?",
+        "emo": "curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "নিচে install-এর button চাপুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aiva AI install করুন, sign up করুন আর শুরু করুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "দিনেই improvement দেখা যাবে।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_NOVA": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/bien-the/01.png"
+      ]
+    }
+  },
+  {
+    "name": "bt-02-nam-28-blazer-navy",
+    "TEN_NOVA": "Nova",
+    "VAI_NOVA": "AI English tutor",
+    "POS_NOVA": "LEFT",
+    "NGUOI_NOVA": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_NOVA": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NHIN_NOVA": "looks only at the other person's face, straight across to the right in exact side profile",
+    "NGHE_NOVA": "keeps a gentle closed-mouth smile, the eyes on the other person's face, in exact side profile",
+    "NEN_NOVA": "a plain seamless studio backdrop of soft blurred grey tones with faint pale marbled ripple patterns, with no objects and no horizon",
+    "POS_HOC": "RIGHT",
+    "VAI_HOC": "learner",
+    "NHIN_HOC": "looks only at the robot's face, straight across to the left in exact side profile, and never looks at the camera",
+    "NGHE_HOC": "stays calm with the lips pressed together, the eyes open on the robot's face, in exact side profile, and never looks at the camera",
+    "TEN_DAY": "Nova",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a cosy living room in warm lamplight, slightly out of focus: a wide taupe sofa with a grey-green cushion and a striped rolled armrest on the right, a tall wooden bookcase with books behind on the left, a lit cream table lamp and a white mug on a side table at the left, long beige curtains and a bright window at the upper right",
+    "NEN_HOC": "a bright, tidy Bengali home, slightly out of focus: a cream wall, a wooden shelf full of colourful books on the left with small plain framed family photos on top, a large leafy potted plant on a shelf on the right, a smaller potted plant low on the left, sheer white curtains and soft daylight at the right, the back of a beige sofa at the bottom of the view",
+    "TEN_HOC": "the young man",
+    "NGUOI_HOC": "a young Bengali man about 28 years old, warm brown skin, an oval face, a neatly trimmed beard, a warm smile; a navy blazer over a white dress shirt; realistic skin and fabric",
+    "GIONG_HOC": "a real young Bengali man's voice, light baritone (around 130-170 Hz), plain and friendly, native Kolkata Bengali, says the English words like a beginner, a little slowly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "nova",
+        "text": "ইংলিশ শেখার সবচেয়ে প্রথম rule কি?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "AI এর সাথে। চলুন try করি।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "উম, I have twenty eight.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "আপনি বলতে চান, I am twenty eight.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "হ্যাঁ, একদম। I am twenty eight.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "আ, I am Kolkata.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, I am from Kolkata.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sorry. আমি প্রায়ই এত ভুল করে ফেলি।",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "কোন ব্যাপার না। AI teacher try করেছেন কি?",
+        "emo": "reassuring",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Classes থেকে সাত গুণ সস্তা।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Wow! আমি কিভাবে join করব?",
+        "emo": "curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "নিচে install-এর button চাপুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aiva AI install করুন, sign up করুন আর শুরু করুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "দিনেই improvement দেখা যাবে।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_NOVA": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/bien-the/02.png"
+      ]
+    }
+  },
+  {
+    "name": "bt-03-nam-22-so-mi-xanh",
+    "TEN_NOVA": "Nova",
+    "VAI_NOVA": "AI English tutor",
+    "POS_NOVA": "LEFT",
+    "NGUOI_NOVA": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_NOVA": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NHIN_NOVA": "looks only at the other person's face, straight across to the right in exact side profile",
+    "NGHE_NOVA": "keeps a gentle closed-mouth smile, the eyes on the other person's face, in exact side profile",
+    "NEN_NOVA": "a plain seamless studio backdrop of soft blurred grey tones with faint pale marbled ripple patterns, with no objects and no horizon",
+    "POS_HOC": "RIGHT",
+    "VAI_HOC": "learner",
+    "NHIN_HOC": "looks only at the robot's face, straight across to the left in exact side profile, and never looks at the camera",
+    "NGHE_HOC": "stays calm with the lips pressed together, the eyes open on the robot's face, in exact side profile, and never looks at the camera",
+    "TEN_DAY": "Nova",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a cosy living room in warm lamplight, slightly out of focus: a wide taupe sofa with a grey-green cushion and a striped rolled armrest on the right, a tall wooden bookcase with books behind on the left, a lit cream table lamp and a white mug on a side table at the left, long beige curtains and a bright window at the upper right",
+    "NEN_HOC": "a bright, tidy Bengali home, slightly out of focus: a cream wall, a wooden shelf full of colourful books on the left with small plain framed family photos on top, a large leafy potted plant on a shelf on the right, a smaller potted plant low on the left, sheer white curtains and soft daylight at the right, the back of a beige sofa at the bottom of the view",
+    "TEN_HOC": "the young man",
+    "NGUOI_HOC": "a young Bengali man about 22 years old, warm brown skin, a youthful face, neatly combed black hair, a bright smile; a light-blue dress shirt; realistic skin and fabric",
+    "GIONG_HOC": "a real young Bengali man's voice, light baritone (around 130-170 Hz), plain and friendly, native Kolkata Bengali, says the English words like a beginner, a little slowly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "nova",
+        "text": "ইংলিশ শেখার সবচেয়ে প্রথম rule কি?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "AI এর সাথে। চলুন try করি।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "উম, I have twenty two.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "আপনি বলতে চান, I am twenty two.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "হ্যাঁ, একদম। I am twenty two.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "আ, I am Kolkata.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, I am from Kolkata.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sorry. আমি প্রায়ই এত ভুল করে ফেলি।",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "কোন ব্যাপার না। AI teacher try করেছেন কি?",
+        "emo": "reassuring",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Classes থেকে সাত গুণ সস্তা।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Wow! আমি কিভাবে join করব?",
+        "emo": "curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "নিচে install-এর button চাপুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aiva AI install করুন, sign up করুন আর শুরু করুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "দিনেই improvement দেখা যাবে।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_NOVA": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/bien-the/03.png"
+      ]
+    }
+  },
+  {
+    "name": "bt-04-nam-30-kurta-be",
+    "TEN_NOVA": "Nova",
+    "VAI_NOVA": "AI English tutor",
+    "POS_NOVA": "LEFT",
+    "NGUOI_NOVA": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_NOVA": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NHIN_NOVA": "looks only at the other person's face, straight across to the right in exact side profile",
+    "NGHE_NOVA": "keeps a gentle closed-mouth smile, the eyes on the other person's face, in exact side profile",
+    "NEN_NOVA": "a plain seamless studio backdrop of soft blurred grey tones with faint pale marbled ripple patterns, with no objects and no horizon",
+    "POS_HOC": "RIGHT",
+    "VAI_HOC": "learner",
+    "NHIN_HOC": "looks only at the robot's face, straight across to the left in exact side profile, and never looks at the camera",
+    "NGHE_HOC": "stays calm with the lips pressed together, the eyes open on the robot's face, in exact side profile, and never looks at the camera",
+    "TEN_DAY": "Nova",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a cosy living room in warm lamplight, slightly out of focus: a wide taupe sofa with a grey-green cushion and a striped rolled armrest on the right, a tall wooden bookcase with books behind on the left, a lit cream table lamp and a white mug on a side table at the left, long beige curtains and a bright window at the upper right",
+    "NEN_HOC": "a bright, tidy Bengali home, slightly out of focus: a cream wall, a wooden shelf full of colourful books on the left with small plain framed family photos on top, a large leafy potted plant on a shelf on the right, a smaller potted plant low on the left, sheer white curtains and soft daylight at the right, the back of a beige sofa at the bottom of the view",
+    "TEN_HOC": "the young man",
+    "NGUOI_HOC": "a young Bengali man about 30 years old, warm brown skin, an athletic build with broad shoulders, short neat hair, a confident look; a beige kurta under a Nehru vest; realistic skin and fabric",
+    "GIONG_HOC": "a real young Bengali man's voice, light baritone (around 130-170 Hz), plain and friendly, native Kolkata Bengali, says the English words like a beginner, a little slowly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "nova",
+        "text": "ইংলিশ শেখার সবচেয়ে প্রথম rule কি?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "AI এর সাথে। চলুন try করি।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "উম, I have thirty.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "আপনি বলতে চান, I am thirty.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "হ্যাঁ, একদম। I am thirty.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "আ, I am Kolkata.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, I am from Kolkata.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sorry. আমি প্রায়ই এত ভুল করে ফেলি।",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "কোন ব্যাপার না। AI teacher try করেছেন কি?",
+        "emo": "reassuring",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Classes থেকে সাত গুণ সস্তা।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Wow! আমি কিভাবে join করব?",
+        "emo": "curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "নিচে install-এর button চাপুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aiva AI install করুন, sign up করুন আর শুরু করুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "দিনেই improvement দেখা যাবে।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_NOVA": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/bien-the/04.png"
+      ]
+    }
+  },
+  {
+    "name": "bt-05-nam-26-kinh-caro",
+    "TEN_NOVA": "Nova",
+    "VAI_NOVA": "AI English tutor",
+    "POS_NOVA": "LEFT",
+    "NGUOI_NOVA": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_NOVA": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NHIN_NOVA": "looks only at the other person's face, straight across to the right in exact side profile",
+    "NGHE_NOVA": "keeps a gentle closed-mouth smile, the eyes on the other person's face, in exact side profile",
+    "NEN_NOVA": "a plain seamless studio backdrop of soft blurred grey tones with faint pale marbled ripple patterns, with no objects and no horizon",
+    "POS_HOC": "RIGHT",
+    "VAI_HOC": "learner",
+    "NHIN_HOC": "looks only at the robot's face, straight across to the left in exact side profile, and never looks at the camera",
+    "NGHE_HOC": "stays calm with the lips pressed together, the eyes open on the robot's face, in exact side profile, and never looks at the camera",
+    "TEN_DAY": "Nova",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a cosy living room in warm lamplight, slightly out of focus: a wide taupe sofa with a grey-green cushion and a striped rolled armrest on the right, a tall wooden bookcase with books behind on the left, a lit cream table lamp and a white mug on a side table at the left, long beige curtains and a bright window at the upper right",
+    "NEN_HOC": "a bright, tidy Bengali home, slightly out of focus: a cream wall, a wooden shelf full of colourful books on the left with small plain framed family photos on top, a large leafy potted plant on a shelf on the right, a smaller potted plant low on the left, sheer white curtains and soft daylight at the right, the back of a beige sofa at the bottom of the view",
+    "TEN_HOC": "the young man",
+    "NGUOI_HOC": "a young Bengali man about 26 years old, warm brown skin, black-rimmed glasses, a bright face, side-parted black hair, a soft smile; a smart checked dress shirt; realistic skin and fabric",
+    "GIONG_HOC": "a real young Bengali man's voice, light baritone (around 130-170 Hz), plain and friendly, native Kolkata Bengali, says the English words like a beginner, a little slowly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "nova",
+        "text": "ইংলিশ শেখার সবচেয়ে প্রথম rule কি?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "AI এর সাথে। চলুন try করি।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "উম, I have twenty six.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "আপনি বলতে চান, I am twenty six.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "হ্যাঁ, একদম। I am twenty six.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "আ, I am Kolkata.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, I am from Kolkata.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sorry. আমি প্রায়ই এত ভুল করে ফেলি।",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "কোন ব্যাপার না। AI teacher try করেছেন কি?",
+        "emo": "reassuring",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Classes থেকে সাত গুণ সস্তা।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Wow! আমি কিভাবে join করব?",
+        "emo": "curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "নিচে install-এর button চাপুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aiva AI install করুন, sign up করুন আর শুরু করুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "দিনেই improvement দেখা যাবে।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_NOVA": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/bien-the/05.png"
+      ]
+    }
+  },
+  {
+    "name": "bt-06-nu-24-salwar-hong",
+    "TEN_NOVA": "Nova",
+    "VAI_NOVA": "AI English tutor",
+    "POS_NOVA": "LEFT",
+    "NGUOI_NOVA": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_NOVA": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NHIN_NOVA": "looks only at the other person's face, straight across to the right in exact side profile",
+    "NGHE_NOVA": "keeps a gentle closed-mouth smile, the eyes on the other person's face, in exact side profile",
+    "NEN_NOVA": "a plain seamless studio backdrop of soft blurred grey tones with faint pale marbled ripple patterns, with no objects and no horizon",
+    "POS_HOC": "RIGHT",
+    "VAI_HOC": "learner",
+    "NHIN_HOC": "looks only at the robot's face, straight across to the left in exact side profile, and never looks at the camera",
+    "NGHE_HOC": "stays calm with the lips pressed together, the eyes open on the robot's face, in exact side profile, and never looks at the camera",
+    "TEN_DAY": "Nova",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a cosy living room in warm lamplight, slightly out of focus: a wide taupe sofa with a grey-green cushion and a striped rolled armrest on the right, a tall wooden bookcase with books behind on the left, a lit cream table lamp and a white mug on a side table at the left, long beige curtains and a bright window at the upper right",
+    "NEN_HOC": "a bright, tidy Bengali home, slightly out of focus: a cream wall, a wooden shelf full of colourful books on the left with small plain framed family photos on top, a large leafy potted plant on a shelf on the right, a smaller potted plant low on the left, sheer white curtains and soft daylight at the right, the back of a beige sofa at the bottom of the view",
+    "TEN_HOC": "the young woman",
+    "NGUOI_HOC": "a young Bengali woman about 24 years old, warm brown skin, long straight black hair, large eyes, fair skin, a gentle smile; a pink silk salwar kameez with a sheer dupatta and light gold jewellery; realistic skin and fabric",
+    "GIONG_HOC": "a real young Bengali woman's voice, soft mid pitch (around 190-235 Hz), lower and plainer than the tutor's, native Kolkata Bengali, says the English words like a beginner, a little slowly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "nova",
+        "text": "ইংলিশ শেখার সবচেয়ে প্রথম rule কি?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "AI এর সাথে। চলুন try করি।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "উম, I have twenty four.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "আপনি বলতে চান, I am twenty four.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "হ্যাঁ, একদম। I am twenty four.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "আ, I am Kolkata.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, I am from Kolkata.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sorry. আমি প্রায়ই এত ভুল করে ফেলি।",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "কোন ব্যাপার না। AI teacher try করেছেন কি?",
+        "emo": "reassuring",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Classes থেকে সাত গুণ সস্তা।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Wow! আমি কিভাবে join করব?",
+        "emo": "curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "নিচে install-এর button চাপুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aiva AI install করুন, sign up করুন আর শুরু করুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "দিনেই improvement দেখা যাবে।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_NOVA": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/bien-the/06.png"
+      ]
+    }
+  },
+  {
+    "name": "bt-07-nu-22-kurti-hoa",
+    "TEN_NOVA": "Nova",
+    "VAI_NOVA": "AI English tutor",
+    "POS_NOVA": "LEFT",
+    "NGUOI_NOVA": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_NOVA": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NHIN_NOVA": "looks only at the other person's face, straight across to the right in exact side profile",
+    "NGHE_NOVA": "keeps a gentle closed-mouth smile, the eyes on the other person's face, in exact side profile",
+    "NEN_NOVA": "a plain seamless studio backdrop of soft blurred grey tones with faint pale marbled ripple patterns, with no objects and no horizon",
+    "POS_HOC": "RIGHT",
+    "VAI_HOC": "learner",
+    "NHIN_HOC": "looks only at the robot's face, straight across to the left in exact side profile, and never looks at the camera",
+    "NGHE_HOC": "stays calm with the lips pressed together, the eyes open on the robot's face, in exact side profile, and never looks at the camera",
+    "TEN_DAY": "Nova",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a cosy living room in warm lamplight, slightly out of focus: a wide taupe sofa with a grey-green cushion and a striped rolled armrest on the right, a tall wooden bookcase with books behind on the left, a lit cream table lamp and a white mug on a side table at the left, long beige curtains and a bright window at the upper right",
+    "NEN_HOC": "a bright, tidy Bengali home, slightly out of focus: a cream wall, a wooden shelf full of colourful books on the left with small plain framed family photos on top, a large leafy potted plant on a shelf on the right, a smaller potted plant low on the left, sheer white curtains and soft daylight at the right, the back of a beige sofa at the bottom of the view",
+    "TEN_HOC": "the young woman",
+    "NGUOI_HOC": "a young Bengali woman about 22 years old, warm brown skin, hair in a neat high bun, an oval face, a bright smile; a long elegant floral kurti; realistic skin and fabric",
+    "GIONG_HOC": "a real young Bengali woman's voice, soft mid pitch (around 190-235 Hz), lower and plainer than the tutor's, native Kolkata Bengali, says the English words like a beginner, a little slowly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "nova",
+        "text": "ইংলিশ শেখার সবচেয়ে প্রথম rule কি?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "AI এর সাথে। চলুন try করি।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "উম, I have twenty two.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "আপনি বলতে চান, I am twenty two.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "হ্যাঁ, একদম। I am twenty two.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "আ, I am Kolkata.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, I am from Kolkata.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sorry. আমি প্রায়ই এত ভুল করে ফেলি।",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "কোন ব্যাপার না। AI teacher try করেছেন কি?",
+        "emo": "reassuring",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Classes থেকে সাত গুণ সস্তা।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Wow! আমি কিভাবে join করব?",
+        "emo": "curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "নিচে install-এর button চাপুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aiva AI install করুন, sign up করুন আর শুরু করুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "দিনেই improvement দেখা যাবে।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_NOVA": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/bien-the/07.png"
+      ]
+    }
+  },
+  {
+    "name": "bt-08-nu-27-sari-do",
+    "TEN_NOVA": "Nova",
+    "VAI_NOVA": "AI English tutor",
+    "POS_NOVA": "LEFT",
+    "NGUOI_NOVA": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_NOVA": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NHIN_NOVA": "looks only at the other person's face, straight across to the right in exact side profile",
+    "NGHE_NOVA": "keeps a gentle closed-mouth smile, the eyes on the other person's face, in exact side profile",
+    "NEN_NOVA": "a plain seamless studio backdrop of soft blurred grey tones with faint pale marbled ripple patterns, with no objects and no horizon",
+    "POS_HOC": "RIGHT",
+    "VAI_HOC": "learner",
+    "NHIN_HOC": "looks only at the robot's face, straight across to the left in exact side profile, and never looks at the camera",
+    "NGHE_HOC": "stays calm with the lips pressed together, the eyes open on the robot's face, in exact side profile, and never looks at the camera",
+    "TEN_DAY": "Nova",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a cosy living room in warm lamplight, slightly out of focus: a wide taupe sofa with a grey-green cushion and a striped rolled armrest on the right, a tall wooden bookcase with books behind on the left, a lit cream table lamp and a white mug on a side table at the left, long beige curtains and a bright window at the upper right",
+    "NEN_HOC": "a bright, tidy Bengali home, slightly out of focus: a cream wall, a wooden shelf full of colourful books on the left with small plain framed family photos on top, a large leafy potted plant on a shelf on the right, a smaller potted plant low on the left, sheer white curtains and soft daylight at the right, the back of a beige sofa at the bottom of the view",
+    "TEN_HOC": "the young woman",
+    "NGUOI_HOC": "a young Bengali woman about 27 years old, warm brown skin, long wavy curls, a confident smile; a luxurious red silk sari with a short blouse and light gold jewellery; realistic skin and fabric",
+    "GIONG_HOC": "a real young Bengali woman's voice, soft mid pitch (around 190-235 Hz), lower and plainer than the tutor's, native Kolkata Bengali, says the English words like a beginner, a little slowly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "nova",
+        "text": "ইংলিশ শেখার সবচেয়ে প্রথম rule কি?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "AI এর সাথে। চলুন try করি।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "উম, I have twenty seven.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "আপনি বলতে চান, I am twenty seven.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "হ্যাঁ, একদম। I am twenty seven.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "আ, I am Kolkata.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, I am from Kolkata.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sorry. আমি প্রায়ই এত ভুল করে ফেলি।",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "কোন ব্যাপার না। AI teacher try করেছেন কি?",
+        "emo": "reassuring",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Classes থেকে সাত গুণ সস্তা।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Wow! আমি কিভাবে join করব?",
+        "emo": "curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "নিচে install-এর button চাপুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aiva AI install করুন, sign up করুন আর শুরু করুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "দিনেই improvement দেখা যাবে।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_NOVA": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/bien-the/08.png"
+      ]
+    }
+  },
+  {
+    "name": "bt-09-nu-20-kurta-trang",
+    "TEN_NOVA": "Nova",
+    "VAI_NOVA": "AI English tutor",
+    "POS_NOVA": "LEFT",
+    "NGUOI_NOVA": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_NOVA": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NHIN_NOVA": "looks only at the other person's face, straight across to the right in exact side profile",
+    "NGHE_NOVA": "keeps a gentle closed-mouth smile, the eyes on the other person's face, in exact side profile",
+    "NEN_NOVA": "a plain seamless studio backdrop of soft blurred grey tones with faint pale marbled ripple patterns, with no objects and no horizon",
+    "POS_HOC": "RIGHT",
+    "VAI_HOC": "learner",
+    "NHIN_HOC": "looks only at the robot's face, straight across to the left in exact side profile, and never looks at the camera",
+    "NGHE_HOC": "stays calm with the lips pressed together, the eyes open on the robot's face, in exact side profile, and never looks at the camera",
+    "TEN_DAY": "Nova",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a cosy living room in warm lamplight, slightly out of focus: a wide taupe sofa with a grey-green cushion and a striped rolled armrest on the right, a tall wooden bookcase with books behind on the left, a lit cream table lamp and a white mug on a side table at the left, long beige curtains and a bright window at the upper right",
+    "NEN_HOC": "a bright, tidy Bengali home, slightly out of focus: a cream wall, a wooden shelf full of colourful books on the left with small plain framed family photos on top, a large leafy potted plant on a shelf on the right, a smaller potted plant low on the left, sheer white curtains and soft daylight at the right, the back of a beige sofa at the bottom of the view",
+    "TEN_HOC": "the young woman",
+    "NGUOI_HOC": "a young Bengali woman about 20 years old, warm brown skin, a shoulder-length bob, a youthful face, an innocent smile; an elegant white kurta; realistic skin and fabric",
+    "GIONG_HOC": "a real young Bengali woman's voice, soft mid pitch (around 190-235 Hz), lower and plainer than the tutor's, native Kolkata Bengali, says the English words like a beginner, a little slowly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "nova",
+        "text": "ইংলিশ শেখার সবচেয়ে প্রথম rule কি?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "AI এর সাথে। চলুন try করি।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "উম, I have twenty.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "আপনি বলতে চান, I am twenty.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "হ্যাঁ, একদম। I am twenty.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "আ, I am Kolkata.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, I am from Kolkata.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sorry. আমি প্রায়ই এত ভুল করে ফেলি।",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "কোন ব্যাপার না। AI teacher try করেছেন কি?",
+        "emo": "reassuring",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Classes থেকে সাত গুণ সস্তা।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Wow! আমি কিভাবে join করব?",
+        "emo": "curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "নিচে install-এর button চাপুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aiva AI install করুন, sign up করুন আর শুরু করুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "দিনেই improvement দেখা যাবে।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_NOVA": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/bien-the/09.png"
+      ]
+    }
+  },
+  {
+    "name": "bt-10-nu-26-anarkali-ngoc",
+    "TEN_NOVA": "Nova",
+    "VAI_NOVA": "AI English tutor",
+    "POS_NOVA": "LEFT",
+    "NGUOI_NOVA": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_NOVA": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NHIN_NOVA": "looks only at the other person's face, straight across to the right in exact side profile",
+    "NGHE_NOVA": "keeps a gentle closed-mouth smile, the eyes on the other person's face, in exact side profile",
+    "NEN_NOVA": "a plain seamless studio backdrop of soft blurred grey tones with faint pale marbled ripple patterns, with no objects and no horizon",
+    "POS_HOC": "RIGHT",
+    "VAI_HOC": "learner",
+    "NHIN_HOC": "looks only at the robot's face, straight across to the left in exact side profile, and never looks at the camera",
+    "NGHE_HOC": "stays calm with the lips pressed together, the eyes open on the robot's face, in exact side profile, and never looks at the camera",
+    "TEN_DAY": "Nova",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a cosy living room in warm lamplight, slightly out of focus: a wide taupe sofa with a grey-green cushion and a striped rolled armrest on the right, a tall wooden bookcase with books behind on the left, a lit cream table lamp and a white mug on a side table at the left, long beige curtains and a bright window at the upper right",
+    "NEN_HOC": "a bright, tidy Bengali home, slightly out of focus: a cream wall, a wooden shelf full of colourful books on the left with small plain framed family photos on top, a large leafy potted plant on a shelf on the right, a smaller potted plant low on the left, sheer white curtains and soft daylight at the right, the back of a beige sofa at the bottom of the view",
+    "TEN_HOC": "the young woman",
+    "NGUOI_HOC": "a young Bengali woman about 26 years old, warm brown skin, long straight black hair, a warm smile; a luxurious teal anarkali gown with a dupatta and light gold jewellery; realistic skin and fabric",
+    "GIONG_HOC": "a real young Bengali woman's voice, soft mid pitch (around 190-235 Hz), lower and plainer than the tutor's, native Kolkata Bengali, says the English words like a beginner, a little slowly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "nova",
+        "text": "ইংলিশ শেখার সবচেয়ে প্রথম rule কি?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "AI এর সাথে। চলুন try করি।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "উম, I have twenty six.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "আপনি বলতে চান, I am twenty six.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "হ্যাঁ, একদম। I am twenty six.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "আ, I am Kolkata.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, I am from Kolkata.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sorry. আমি প্রায়ই এত ভুল করে ফেলি।",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "কোন ব্যাপার না। AI teacher try করেছেন কি?",
+        "emo": "reassuring",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Classes থেকে সাত গুণ সস্তা।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Wow! আমি কিভাবে join করব?",
+        "emo": "curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "নিচে install-এর button চাপুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aiva AI install করুন, sign up করুন আর শুরু করুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "দিনেই improvement দেখা যাবে।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_NOVA": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/bien-the/10.png"
+      ]
+    }
+  },
+  {
+    "name": "bt-11-nam-70-kurta-trang",
+    "TEN_NOVA": "Nova",
+    "VAI_NOVA": "AI English tutor",
+    "POS_NOVA": "LEFT",
+    "NGUOI_NOVA": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_NOVA": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NHIN_NOVA": "looks only at the other person's face, straight across to the right in exact side profile",
+    "NGHE_NOVA": "keeps a gentle closed-mouth smile, the eyes on the other person's face, in exact side profile",
+    "NEN_NOVA": "a plain seamless studio backdrop of soft blurred grey tones with faint pale marbled ripple patterns, with no objects and no horizon",
+    "POS_HOC": "RIGHT",
+    "VAI_HOC": "learner",
+    "NHIN_HOC": "looks only at the robot's face, straight across to the left in exact side profile, and never looks at the camera",
+    "NGHE_HOC": "stays calm with the lips pressed together, the eyes open on the robot's face, in exact side profile, and never looks at the camera",
+    "TEN_DAY": "Nova",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a cosy living room in warm lamplight, slightly out of focus: a wide taupe sofa with a grey-green cushion and a striped rolled armrest on the right, a tall wooden bookcase with books behind on the left, a lit cream table lamp and a white mug on a side table at the left, long beige curtains and a bright window at the upper right",
+    "NEN_HOC": "a bright, tidy Bengali home, slightly out of focus: a cream wall, a wooden shelf full of colourful books on the left with small plain framed family photos on top, a large leafy potted plant on a shelf on the right, a smaller potted plant low on the left, sheer white curtains and soft daylight at the right, the back of a beige sofa at the bottom of the view",
+    "TEN_HOC": "the elderly man",
+    "NGUOI_HOC": "an elderly Bengali man about 70 years old, warm brown skin, neatly combed silver hair, a kindly face, a neatly trimmed silver beard, a gentle smile; a pure white kurta under a beige Nehru vest; realistic skin and fabric",
+    "GIONG_HOC": "a real elderly Bengali man's voice, warm low baritone (around 105-140 Hz), slightly gravelly and unhurried, native Kolkata Bengali, says the English words like a beginner, a little slowly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "nova",
+        "text": "ইংলিশ শেখার সবচেয়ে প্রথম rule কি?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "AI এর সাথে। চলুন try করি।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "উম, I have seventy.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "আপনি বলতে চান, I am seventy.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "হ্যাঁ, একদম। I am seventy.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "আ, I am Kolkata.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, I am from Kolkata.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sorry. আমি প্রায়ই এত ভুল করে ফেলি।",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "কোন ব্যাপার না। AI teacher try করেছেন কি?",
+        "emo": "reassuring",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Classes থেকে সাত গুণ সস্তা।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Wow! আমি কিভাবে join করব?",
+        "emo": "curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "নিচে install-এর button চাপুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aiva AI install করুন, sign up করুন আর শুরু করুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "দিনেই improvement দেখা যাবে।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_NOVA": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/bien-the/11.png"
+      ]
+    }
+  },
+  {
+    "name": "bt-12-nam-65-kurta-lua-be",
+    "TEN_NOVA": "Nova",
+    "VAI_NOVA": "AI English tutor",
+    "POS_NOVA": "LEFT",
+    "NGUOI_NOVA": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_NOVA": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NHIN_NOVA": "looks only at the other person's face, straight across to the right in exact side profile",
+    "NGHE_NOVA": "keeps a gentle closed-mouth smile, the eyes on the other person's face, in exact side profile",
+    "NEN_NOVA": "a plain seamless studio backdrop of soft blurred grey tones with faint pale marbled ripple patterns, with no objects and no horizon",
+    "POS_HOC": "RIGHT",
+    "VAI_HOC": "learner",
+    "NHIN_HOC": "looks only at the robot's face, straight across to the left in exact side profile, and never looks at the camera",
+    "NGHE_HOC": "stays calm with the lips pressed together, the eyes open on the robot's face, in exact side profile, and never looks at the camera",
+    "TEN_DAY": "Nova",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a cosy living room in warm lamplight, slightly out of focus: a wide taupe sofa with a grey-green cushion and a striped rolled armrest on the right, a tall wooden bookcase with books behind on the left, a lit cream table lamp and a white mug on a side table at the left, long beige curtains and a bright window at the upper right",
+    "NEN_HOC": "a bright, tidy Bengali home, slightly out of focus: a cream wall, a wooden shelf full of colourful books on the left with small plain framed family photos on top, a large leafy potted plant on a shelf on the right, a smaller potted plant low on the left, sheer white curtains and soft daylight at the right, the back of a beige sofa at the bottom of the view",
+    "TEN_HOC": "the elderly man",
+    "NGUOI_HOC": "an elderly Bengali man about 65 years old, warm brown skin, silver hair, a gentle face, a warm smile; a beige silk kurta under a Nehru vest; realistic skin and fabric",
+    "GIONG_HOC": "a real elderly Bengali man's voice, warm low baritone (around 105-140 Hz), slightly gravelly and unhurried, native Kolkata Bengali, says the English words like a beginner, a little slowly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "nova",
+        "text": "ইংলিশ শেখার সবচেয়ে প্রথম rule কি?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "AI এর সাথে। চলুন try করি।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "উম, I have sixty five.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "আপনি বলতে চান, I am sixty five.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "হ্যাঁ, একদম। I am sixty five.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "আ, I am Kolkata.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, I am from Kolkata.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sorry. আমি প্রায়ই এত ভুল করে ফেলি।",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "কোন ব্যাপার না। AI teacher try করেছেন কি?",
+        "emo": "reassuring",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Classes থেকে সাত গুণ সস্তা।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Wow! আমি কিভাবে join করব?",
+        "emo": "curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "নিচে install-এর button চাপুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aiva AI install করুন, sign up করুন আর শুরু করুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "দিনেই improvement দেখা যাবে।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_NOVA": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/bien-the/12.png"
+      ]
+    }
+  },
+  {
+    "name": "bt-13-nam-72-rau-bac",
+    "TEN_NOVA": "Nova",
+    "VAI_NOVA": "AI English tutor",
+    "POS_NOVA": "LEFT",
+    "NGUOI_NOVA": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_NOVA": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NHIN_NOVA": "looks only at the other person's face, straight across to the right in exact side profile",
+    "NGHE_NOVA": "keeps a gentle closed-mouth smile, the eyes on the other person's face, in exact side profile",
+    "NEN_NOVA": "a plain seamless studio backdrop of soft blurred grey tones with faint pale marbled ripple patterns, with no objects and no horizon",
+    "POS_HOC": "RIGHT",
+    "VAI_HOC": "learner",
+    "NHIN_HOC": "looks only at the robot's face, straight across to the left in exact side profile, and never looks at the camera",
+    "NGHE_HOC": "stays calm with the lips pressed together, the eyes open on the robot's face, in exact side profile, and never looks at the camera",
+    "TEN_DAY": "Nova",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a cosy living room in warm lamplight, slightly out of focus: a wide taupe sofa with a grey-green cushion and a striped rolled armrest on the right, a tall wooden bookcase with books behind on the left, a lit cream table lamp and a white mug on a side table at the left, long beige curtains and a bright window at the upper right",
+    "NEN_HOC": "a bright, tidy Bengali home, slightly out of focus: a cream wall, a wooden shelf full of colourful books on the left with small plain framed family photos on top, a large leafy potted plant on a shelf on the right, a smaller potted plant low on the left, sheer white curtains and soft daylight at the right, the back of a beige sofa at the bottom of the view",
+    "TEN_HOC": "the elderly man",
+    "NGUOI_HOC": "an elderly Bengali man about 72 years old, warm brown skin, a long neatly trimmed silver beard, a distinguished bearing, a kind confident smile; a grey silk kurta under a dark Nehru vest; realistic skin and fabric",
+    "GIONG_HOC": "a real elderly Bengali man's voice, warm low baritone (around 105-140 Hz), slightly gravelly and unhurried, native Kolkata Bengali, says the English words like a beginner, a little slowly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "nova",
+        "text": "ইংলিশ শেখার সবচেয়ে প্রথম rule কি?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "AI এর সাথে। চলুন try করি।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "উম, I have seventy two.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "আপনি বলতে চান, I am seventy two.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "হ্যাঁ, একদম। I am seventy two.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "আ, I am Kolkata.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, I am from Kolkata.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sorry. আমি প্রায়ই এত ভুল করে ফেলি।",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "কোন ব্যাপার না। AI teacher try করেছেন কি?",
+        "emo": "reassuring",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Classes থেকে সাত গুণ সস্তা।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Wow! আমি কিভাবে join করব?",
+        "emo": "curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "নিচে install-এর button চাপুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aiva AI install করুন, sign up করুন আর শুরু করুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "দিনেই improvement দেখা যাবে।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_NOVA": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/bien-the/13.png"
+      ]
+    }
+  },
+  {
+    "name": "bt-14-nam-60-blazer-navy",
+    "TEN_NOVA": "Nova",
+    "VAI_NOVA": "AI English tutor",
+    "POS_NOVA": "LEFT",
+    "NGUOI_NOVA": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_NOVA": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NHIN_NOVA": "looks only at the other person's face, straight across to the right in exact side profile",
+    "NGHE_NOVA": "keeps a gentle closed-mouth smile, the eyes on the other person's face, in exact side profile",
+    "NEN_NOVA": "a plain seamless studio backdrop of soft blurred grey tones with faint pale marbled ripple patterns, with no objects and no horizon",
+    "POS_HOC": "RIGHT",
+    "VAI_HOC": "learner",
+    "NHIN_HOC": "looks only at the robot's face, straight across to the left in exact side profile, and never looks at the camera",
+    "NGHE_HOC": "stays calm with the lips pressed together, the eyes open on the robot's face, in exact side profile, and never looks at the camera",
+    "TEN_DAY": "Nova",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a cosy living room in warm lamplight, slightly out of focus: a wide taupe sofa with a grey-green cushion and a striped rolled armrest on the right, a tall wooden bookcase with books behind on the left, a lit cream table lamp and a white mug on a side table at the left, long beige curtains and a bright window at the upper right",
+    "NEN_HOC": "a bright, tidy Bengali home, slightly out of focus: a cream wall, a wooden shelf full of colourful books on the left with small plain framed family photos on top, a large leafy potted plant on a shelf on the right, a smaller potted plant low on the left, sheer white curtains and soft daylight at the right, the back of a beige sofa at the bottom of the view",
+    "TEN_HOC": "the elderly man",
+    "NGUOI_HOC": "an elderly Bengali man about 60 years old, warm brown skin, salt-and-pepper hair, a bright face, a warm smile; a light-blue dress shirt under a navy blazer; realistic skin and fabric",
+    "GIONG_HOC": "a real elderly Bengali man's voice, warm low baritone (around 105-140 Hz), slightly gravelly and unhurried, native Kolkata Bengali, says the English words like a beginner, a little slowly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "nova",
+        "text": "ইংলিশ শেখার সবচেয়ে প্রথম rule কি?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "AI এর সাথে। চলুন try করি।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "উম, I have sixty.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "আপনি বলতে চান, I am sixty.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "হ্যাঁ, একদম। I am sixty.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "আ, I am Kolkata.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, I am from Kolkata.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sorry. আমি প্রায়ই এত ভুল করে ফেলি।",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "কোন ব্যাপার না। AI teacher try করেছেন কি?",
+        "emo": "reassuring",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Classes থেকে সাত গুণ সস্তা।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Wow! আমি কিভাবে join করব?",
+        "emo": "curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "নিচে install-এর button চাপুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aiva AI install করুন, sign up করুন আর শুরু করুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "দিনেই improvement দেখা যাবে।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_NOVA": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/bien-the/14.png"
+      ]
+    }
+  },
+  {
+    "name": "bt-15-nam-68-kurta-kem",
+    "TEN_NOVA": "Nova",
+    "VAI_NOVA": "AI English tutor",
+    "POS_NOVA": "LEFT",
+    "NGUOI_NOVA": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_NOVA": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NHIN_NOVA": "looks only at the other person's face, straight across to the right in exact side profile",
+    "NGHE_NOVA": "keeps a gentle closed-mouth smile, the eyes on the other person's face, in exact side profile",
+    "NEN_NOVA": "a plain seamless studio backdrop of soft blurred grey tones with faint pale marbled ripple patterns, with no objects and no horizon",
+    "POS_HOC": "RIGHT",
+    "VAI_HOC": "learner",
+    "NHIN_HOC": "looks only at the robot's face, straight across to the left in exact side profile, and never looks at the camera",
+    "NGHE_HOC": "stays calm with the lips pressed together, the eyes open on the robot's face, in exact side profile, and never looks at the camera",
+    "TEN_DAY": "Nova",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a cosy living room in warm lamplight, slightly out of focus: a wide taupe sofa with a grey-green cushion and a striped rolled armrest on the right, a tall wooden bookcase with books behind on the left, a lit cream table lamp and a white mug on a side table at the left, long beige curtains and a bright window at the upper right",
+    "NEN_HOC": "a bright, tidy Bengali home, slightly out of focus: a cream wall, a wooden shelf full of colourful books on the left with small plain framed family photos on top, a large leafy potted plant on a shelf on the right, a smaller potted plant low on the left, sheer white curtains and soft daylight at the right, the back of a beige sofa at the bottom of the view",
+    "TEN_HOC": "the elderly man",
+    "NGUOI_HOC": "an elderly Bengali man about 68 years old, warm brown skin, neatly combed silver hair, a kindly face, a gentle smile; a cream kurta under a Nehru vest; realistic skin and fabric",
+    "GIONG_HOC": "a real elderly Bengali man's voice, warm low baritone (around 105-140 Hz), slightly gravelly and unhurried, native Kolkata Bengali, says the English words like a beginner, a little slowly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "nova",
+        "text": "ইংলিশ শেখার সবচেয়ে প্রথম rule কি?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "AI এর সাথে। চলুন try করি।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "উম, I have sixty eight.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "আপনি বলতে চান, I am sixty eight.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "হ্যাঁ, একদম। I am sixty eight.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "আ, I am Kolkata.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, I am from Kolkata.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sorry. আমি প্রায়ই এত ভুল করে ফেলি।",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "কোন ব্যাপার না। AI teacher try করেছেন কি?",
+        "emo": "reassuring",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Classes থেকে সাত গুণ সস্তা।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Wow! আমি কিভাবে join করব?",
+        "emo": "curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "নিচে install-এর button চাপুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aiva AI install করুন, sign up করুন আর শুরু করুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "দিনেই improvement দেখা যাবে।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_NOVA": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/bien-the/15.png"
+      ]
+    }
+  },
+  {
+    "name": "bt-16-nu-65-sari-nau",
+    "TEN_NOVA": "Nova",
+    "VAI_NOVA": "AI English tutor",
+    "POS_NOVA": "LEFT",
+    "NGUOI_NOVA": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_NOVA": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NHIN_NOVA": "looks only at the other person's face, straight across to the right in exact side profile",
+    "NGHE_NOVA": "keeps a gentle closed-mouth smile, the eyes on the other person's face, in exact side profile",
+    "NEN_NOVA": "a plain seamless studio backdrop of soft blurred grey tones with faint pale marbled ripple patterns, with no objects and no horizon",
+    "POS_HOC": "RIGHT",
+    "VAI_HOC": "learner",
+    "NHIN_HOC": "looks only at the robot's face, straight across to the left in exact side profile, and never looks at the camera",
+    "NGHE_HOC": "stays calm with the lips pressed together, the eyes open on the robot's face, in exact side profile, and never looks at the camera",
+    "TEN_DAY": "Nova",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a cosy living room in warm lamplight, slightly out of focus: a wide taupe sofa with a grey-green cushion and a striped rolled armrest on the right, a tall wooden bookcase with books behind on the left, a lit cream table lamp and a white mug on a side table at the left, long beige curtains and a bright window at the upper right",
+    "NEN_HOC": "a bright, tidy Bengali home, slightly out of focus: a cream wall, a wooden shelf full of colourful books on the left with small plain framed family photos on top, a large leafy potted plant on a shelf on the right, a smaller potted plant low on the left, sheer white curtains and soft daylight at the right, the back of a beige sofa at the bottom of the view",
+    "TEN_HOC": "the elderly woman",
+    "NGUOI_HOC": "an elderly Bengali woman about 65 years old, warm brown skin, silver hair in a neat low bun, a kind graceful face, a gentle smile; a warm brown silk sari with a blouse and light gold jewellery; realistic skin and fabric",
+    "GIONG_HOC": "a real elderly Bengali woman's voice, mellow and slightly husky (around 160-200 Hz), unhurried, native Kolkata Bengali, says the English words like a beginner, a little slowly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "nova",
+        "text": "ইংলিশ শেখার সবচেয়ে প্রথম rule কি?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "AI এর সাথে। চলুন try করি।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "উম, I have sixty five.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "আপনি বলতে চান, I am sixty five.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "হ্যাঁ, একদম। I am sixty five.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "আ, I am Kolkata.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, I am from Kolkata.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sorry. আমি প্রায়ই এত ভুল করে ফেলি।",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "কোন ব্যাপার না। AI teacher try করেছেন কি?",
+        "emo": "reassuring",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Classes থেকে সাত গুণ সস্তা।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Wow! আমি কিভাবে join করব?",
+        "emo": "curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "নিচে install-এর button চাপুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aiva AI install করুন, sign up করুন আর শুরু করুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "দিনেই improvement দেখা যাবে।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_NOVA": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/bien-the/16.png"
+      ]
+    }
+  },
+  {
+    "name": "bt-17-nu-70-sari-xam",
+    "TEN_NOVA": "Nova",
+    "VAI_NOVA": "AI English tutor",
+    "POS_NOVA": "LEFT",
+    "NGUOI_NOVA": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_NOVA": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NHIN_NOVA": "looks only at the other person's face, straight across to the right in exact side profile",
+    "NGHE_NOVA": "keeps a gentle closed-mouth smile, the eyes on the other person's face, in exact side profile",
+    "NEN_NOVA": "a plain seamless studio backdrop of soft blurred grey tones with faint pale marbled ripple patterns, with no objects and no horizon",
+    "POS_HOC": "RIGHT",
+    "VAI_HOC": "learner",
+    "NHIN_HOC": "looks only at the robot's face, straight across to the left in exact side profile, and never looks at the camera",
+    "NGHE_HOC": "stays calm with the lips pressed together, the eyes open on the robot's face, in exact side profile, and never looks at the camera",
+    "TEN_DAY": "Nova",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a cosy living room in warm lamplight, slightly out of focus: a wide taupe sofa with a grey-green cushion and a striped rolled armrest on the right, a tall wooden bookcase with books behind on the left, a lit cream table lamp and a white mug on a side table at the left, long beige curtains and a bright window at the upper right",
+    "NEN_HOC": "a bright, tidy Bengali home, slightly out of focus: a cream wall, a wooden shelf full of colourful books on the left with small plain framed family photos on top, a large leafy potted plant on a shelf on the right, a smaller potted plant low on the left, sheer white curtains and soft daylight at the right, the back of a beige sofa at the bottom of the view",
+    "TEN_HOC": "the elderly woman",
+    "NGUOI_HOC": "an elderly Bengali woman about 70 years old, warm brown skin, neatly tied silver hair, a graceful face, a soft smile; a grey silk sari with a blouse and light gold jewellery; realistic skin and fabric",
+    "GIONG_HOC": "a real elderly Bengali woman's voice, mellow and slightly husky (around 160-200 Hz), unhurried, native Kolkata Bengali, says the English words like a beginner, a little slowly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "nova",
+        "text": "ইংলিশ শেখার সবচেয়ে প্রথম rule কি?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "AI এর সাথে। চলুন try করি।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "উম, I have seventy.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "আপনি বলতে চান, I am seventy.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "হ্যাঁ, একদম। I am seventy.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "আ, I am Kolkata.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, I am from Kolkata.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sorry. আমি প্রায়ই এত ভুল করে ফেলি।",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "কোন ব্যাপার না। AI teacher try করেছেন কি?",
+        "emo": "reassuring",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Classes থেকে সাত গুণ সস্তা।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Wow! আমি কিভাবে join করব?",
+        "emo": "curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "নিচে install-এর button চাপুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aiva AI install করুন, sign up করুন আর শুরু করুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "দিনেই improvement দেখা যাবে।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_NOVA": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/bien-the/17.png"
+      ]
+    }
+  },
+  {
+    "name": "bt-18-nu-62-salwar-be",
+    "TEN_NOVA": "Nova",
+    "VAI_NOVA": "AI English tutor",
+    "POS_NOVA": "LEFT",
+    "NGUOI_NOVA": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_NOVA": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NHIN_NOVA": "looks only at the other person's face, straight across to the right in exact side profile",
+    "NGHE_NOVA": "keeps a gentle closed-mouth smile, the eyes on the other person's face, in exact side profile",
+    "NEN_NOVA": "a plain seamless studio backdrop of soft blurred grey tones with faint pale marbled ripple patterns, with no objects and no horizon",
+    "POS_HOC": "RIGHT",
+    "VAI_HOC": "learner",
+    "NHIN_HOC": "looks only at the robot's face, straight across to the left in exact side profile, and never looks at the camera",
+    "NGHE_HOC": "stays calm with the lips pressed together, the eyes open on the robot's face, in exact side profile, and never looks at the camera",
+    "TEN_DAY": "Nova",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a cosy living room in warm lamplight, slightly out of focus: a wide taupe sofa with a grey-green cushion and a striped rolled armrest on the right, a tall wooden bookcase with books behind on the left, a lit cream table lamp and a white mug on a side table at the left, long beige curtains and a bright window at the upper right",
+    "NEN_HOC": "a bright, tidy Bengali home, slightly out of focus: a cream wall, a wooden shelf full of colourful books on the left with small plain framed family photos on top, a large leafy potted plant on a shelf on the right, a smaller potted plant low on the left, sheer white curtains and soft daylight at the right, the back of a beige sofa at the bottom of the view",
+    "TEN_HOC": "the elderly woman",
+    "NGUOI_HOC": "an elderly Bengali woman about 62 years old, warm brown skin, silver hair in a neat bun, a graceful face, a warm smile; a beige silk salwar kameez with a dupatta and light jewellery; realistic skin and fabric",
+    "GIONG_HOC": "a real elderly Bengali woman's voice, mellow and slightly husky (around 160-200 Hz), unhurried, native Kolkata Bengali, says the English words like a beginner, a little slowly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "nova",
+        "text": "ইংলিশ শেখার সবচেয়ে প্রথম rule কি?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "AI এর সাথে। চলুন try করি।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "উম, I have sixty two.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "আপনি বলতে চান, I am sixty two.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "হ্যাঁ, একদম। I am sixty two.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "আ, I am Kolkata.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, I am from Kolkata.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sorry. আমি প্রায়ই এত ভুল করে ফেলি।",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "কোন ব্যাপার না। AI teacher try করেছেন কি?",
+        "emo": "reassuring",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Classes থেকে সাত গুণ সস্তা।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Wow! আমি কিভাবে join করব?",
+        "emo": "curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "নিচে install-এর button চাপুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aiva AI install করুন, sign up করুন আর শুরু করুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "দিনেই improvement দেখা যাবে।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_NOVA": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/bien-the/18.png"
+      ]
+    }
+  },
+  {
+    "name": "bt-19-nu-75-sari-trang",
+    "TEN_NOVA": "Nova",
+    "VAI_NOVA": "AI English tutor",
+    "POS_NOVA": "LEFT",
+    "NGUOI_NOVA": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_NOVA": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NHIN_NOVA": "looks only at the other person's face, straight across to the right in exact side profile",
+    "NGHE_NOVA": "keeps a gentle closed-mouth smile, the eyes on the other person's face, in exact side profile",
+    "NEN_NOVA": "a plain seamless studio backdrop of soft blurred grey tones with faint pale marbled ripple patterns, with no objects and no horizon",
+    "POS_HOC": "RIGHT",
+    "VAI_HOC": "learner",
+    "NHIN_HOC": "looks only at the robot's face, straight across to the left in exact side profile, and never looks at the camera",
+    "NGHE_HOC": "stays calm with the lips pressed together, the eyes open on the robot's face, in exact side profile, and never looks at the camera",
+    "TEN_DAY": "Nova",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a cosy living room in warm lamplight, slightly out of focus: a wide taupe sofa with a grey-green cushion and a striped rolled armrest on the right, a tall wooden bookcase with books behind on the left, a lit cream table lamp and a white mug on a side table at the left, long beige curtains and a bright window at the upper right",
+    "NEN_HOC": "a bright, tidy Bengali home, slightly out of focus: a cream wall, a wooden shelf full of colourful books on the left with small plain framed family photos on top, a large leafy potted plant on a shelf on the right, a smaller potted plant low on the left, sheer white curtains and soft daylight at the right, the back of a beige sofa at the bottom of the view",
+    "TEN_HOC": "the elderly woman",
+    "NGUOI_HOC": "an elderly Bengali woman about 75 years old, warm brown skin, white hair in a neat bun, a kindly face, a gentle smile; a pure white silk sari with a gold border, a blouse and light gold jewellery; realistic skin and fabric",
+    "GIONG_HOC": "a real elderly Bengali woman's voice, mellow and slightly husky (around 160-200 Hz), unhurried, native Kolkata Bengali, says the English words like a beginner, a little slowly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "nova",
+        "text": "ইংলিশ শেখার সবচেয়ে প্রথম rule কি?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "AI এর সাথে। চলুন try করি।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "উম, I have seventy five.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "আপনি বলতে চান, I am seventy five.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "হ্যাঁ, একদম। I am seventy five.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "আ, I am Kolkata.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, I am from Kolkata.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sorry. আমি প্রায়ই এত ভুল করে ফেলি।",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "কোন ব্যাপার না। AI teacher try করেছেন কি?",
+        "emo": "reassuring",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Classes থেকে সাত গুণ সস্তা।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Wow! আমি কিভাবে join করব?",
+        "emo": "curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "নিচে install-এর button চাপুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aiva AI install করুন, sign up করুন আর শুরু করুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "দিনেই improvement দেখা যাবে।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_NOVA": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/bien-the/19.png"
+      ]
+    }
+  },
+  {
+    "name": "bt-20-nu-68-sari-xanh",
+    "TEN_NOVA": "Nova",
+    "VAI_NOVA": "AI English tutor",
+    "POS_NOVA": "LEFT",
+    "NGUOI_NOVA": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_NOVA": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NHIN_NOVA": "looks only at the other person's face, straight across to the right in exact side profile",
+    "NGHE_NOVA": "keeps a gentle closed-mouth smile, the eyes on the other person's face, in exact side profile",
+    "NEN_NOVA": "a plain seamless studio backdrop of soft blurred grey tones with faint pale marbled ripple patterns, with no objects and no horizon",
+    "POS_HOC": "RIGHT",
+    "VAI_HOC": "learner",
+    "NHIN_HOC": "looks only at the robot's face, straight across to the left in exact side profile, and never looks at the camera",
+    "NGHE_HOC": "stays calm with the lips pressed together, the eyes open on the robot's face, in exact side profile, and never looks at the camera",
+    "TEN_DAY": "Nova",
+    "NGUOI_DAY": "a sleek feminine humanoid robot, exactly as in its reference photo: a smooth glossy white helmet-like head with no hair and a few thin dark panel lines, a smooth white porcelain face with soft light-blue eyes and soft neutral pale lips that open and move like a real person's whenever it speaks, small dark ear discs, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 220-330 Hz), clear and lively like a favourite teacher, native Kolkata Bengali, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a cosy living room in warm lamplight, slightly out of focus: a wide taupe sofa with a grey-green cushion and a striped rolled armrest on the right, a tall wooden bookcase with books behind on the left, a lit cream table lamp and a white mug on a side table at the left, long beige curtains and a bright window at the upper right",
+    "NEN_HOC": "a bright, tidy Bengali home, slightly out of focus: a cream wall, a wooden shelf full of colourful books on the left with small plain framed family photos on top, a large leafy potted plant on a shelf on the right, a smaller potted plant low on the left, sheer white curtains and soft daylight at the right, the back of a beige sofa at the bottom of the view",
+    "TEN_HOC": "the elderly woman",
+    "NGUOI_HOC": "an elderly Bengali woman about 68 years old, warm brown skin, silver hair in a neat bun, a graceful face, a soft smile; a deep-blue silk sari with a gold border, a blouse and light gold jewellery; realistic skin and fabric",
+    "GIONG_HOC": "a real elderly Bengali woman's voice, mellow and slightly husky (around 160-200 Hz), unhurried, native Kolkata Bengali, says the English words like a beginner, a little slowly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "nova",
+        "text": "ইংলিশ শেখার সবচেয়ে প্রথম rule কি?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "এটাকে মুখস্থ করবেন না। এটাকে ব্যবহার করুন।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "আপনাকে শুধু কারো সাথে regularly কথা বলতে হবে।",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "nova",
+        "text": "AI এর সাথে। চলুন try করি।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "উম, I have sixty eight.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "আপনি বলতে চান, I am sixty eight.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "হ্যাঁ, একদম। I am sixty eight.",
+        "emo": "confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "আ, I am Kolkata.",
+        "emo": "unsure",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ভালো চেষ্টা। কিন্তু আপনার বলা উচিত, I am from Kolkata.",
+        "emo": "encouraging",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sorry. আমি প্রায়ই এত ভুল করে ফেলি।",
+        "emo": "embarrassed",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "কোন ব্যাপার না। AI teacher try করেছেন কি?",
+        "emo": "reassuring",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Classes থেকে সাত গুণ সস্তা।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "রোজ মাত্র পনেরো থেকে কুড়ি মিনিট বাংলার সাহায্যে শিখলে একদম perfect।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "এজন্যই এক কোটিরও বেশি মানুষ নিজেদের ইংলিশ উন্নত করছেন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Wow! আমি কিভাবে join করব?",
+        "emo": "curious",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "নিচে install-এর button চাপুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aiva AI install করুন, sign up করুন আর শুরু করুন।",
+        "emo": "enthusiastic",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "দিনেই improvement দেখা যাবে।",
+        "emo": "warm",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_NOVA": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/nova.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/chia-tren-duoi-bengali/anh/bien-the/20.png"
+      ]
+    }
+  }
+]

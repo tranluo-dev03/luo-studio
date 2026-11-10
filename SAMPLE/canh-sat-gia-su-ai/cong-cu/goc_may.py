@@ -3,6 +3,10 @@ Chạy lại được nhiều lần: thay Bối cảnh, Khung đầu, Hướng n
   .venv\\Scripts\\python.exe SAMPLE\\canh-sat-gia-su-ai\\cong-cu\\goc_may.py"""
 import os
 import re
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from gioi_tinh import bo_tham_so, tham_so  # noqa: E402   kịch bản lưu dạng token giới tính; công cụ này sửa trên bản gốc
 
 S = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "KICH-BAN-CANH-SAT-GIA-SU-AI.txt")
 PRE = "Generate exactly one still image now, vertical 9:16, stylized 3D animated feature-film look, warm golden-hour light. "
@@ -83,7 +87,7 @@ def rep(seg, f, val):
 
 
 def main():
-    t = open(S, encoding="utf-8").read()
+    t = bo_tham_so(open(S, encoding="utf-8").read())
     ms = list(re.finditer(r"^CẢNH (\d+) \(", t, re.M))
     end = t.find("\n=====", ms[-1].start()) + 1
     out = t[:ms[0].start()]
@@ -142,7 +146,7 @@ def main():
         out += seg + "\n"
     out += t[end:]
     assert len(re.findall(r"^CẢNH \d+ \(", out, re.M)) == 12
-    open(S, "w", encoding="utf-8").write(out)
+    open(S, "w", encoding="utf-8").write(tham_so(out))
     print("OK", ANG)
 
 

@@ -1,0 +1,108 @@
+[HAU KY]:
+loai: chia-tren-duoi-bengali
+
+[GHI CHU]:
+Thể loại "đối mặt nhìn nghiêng rồi chia trên/dưới + gia sư AI, tiếng Bengali xen tiếng Anh" (video mẫu: oder 5.mp4, 58,8 giây, 720x1280). MỘT dự án, 2 phần,
+  Studio chạy bằng code riêng app/production/types/chia-tren-duoi-bengali/gen.py (khai báo ở khối [HAU KY]).
+  PHẦN 1 (cảnh thường, 4 cảnh, 0:00-0:12,8): Nova (NOVA, mép TRÁI) và chàng trai (HOC, mép PHẢI) đứng đối mặt, nhìn nghiêng hẳn, nền xám; một khung, camera đứng yên.
+  PHẦN 2 (ghép 2 lớp, 16 cảnh, 0:12,8-0:58,8): Nova ô TRÊN (DAY, y 0 -> 0,541) ngồi sofa, chàng trai ô DƯỚI (HOC, y 0,541 -> 1). Không viền, không bo góc. Đường chia đo trên video: y = 693/1280.
+  Studio gen riêng từng nhân vật ở 1:1 rồi cắt giữa: ô trên mất ~2% mỗi mép trên/dưới, ô dưới mất ~9% mỗi mép trên/dưới.
+  nen: DAY là CỐ Ý (bài học chia-tren-duoi-marathi): để nen: HOC thì mặt người học trong ảnh 1:1 bị coi là nằm dưới ô DAY và ảnh bị dịch xuống oan.
+  Nova: khoá NOVA ở phần 1, DAY ở phần 2, cùng mô tả và giọng. Vào phần 2 cắt cứng như video mẫu.
+  Hậu kỳ riêng: phụ đề chữ đen ô trắng, font Nirmala UI (có chữ Bengali), tâm y 1699 ở cả hai phần.
+  Ảnh tham chiếu: anh/nova.png = robot trắng đầu không tóc do người dùng cung cấp (khác nhân vật tóc nâu áo cam của video mẫu); anh/nguoi-hoc.png = Muse gen theo yêu cầu người dùng (cong-cu/gen_anh_hoc.py). KHÔNG cắt ảnh từ video mẫu.
+Các dòng "===== PHAN n: ... =====" chia phần; mọi thứ phía trên dòng chia phần đầu tiên không gửi cho Muse.
+
+===== PHAN 1: DOI MAT NHIN NGHIENG (CANH THUONG) =====
+
+[STYLE LOCK]:
+Vertical 9:16 photorealistic look with glossy clean high-end CGI for the robot, one fixed static camera at head height, a single frame with no split screen. Two figures stand face to face in exact side profile. {{TEN_NOVA}} is at the {{POS_NOVA}} edge of the frame, her face pointing right, the back of her head and her left shoulder touching the left frame edge. {{TEN_HOC}} is at the {{POS_HOC}} edge of the frame, his face pointing left, the back of his head and his right shoulder touching the right frame edge. Both heads are large and level: the tops of the heads at about 32% of the frame height, the chins at about 60%, the upper third of the frame shows only the backdrop. A small gap of backdrop separates the two faces in the middle of the frame. The bodies are seen from the head down to the waist. Same camera, framing and light in every clip. The reference photos show only the robot's design and the man's face, hair and clothing: their backdrops, the glowing ring behind the robot and their poses are NOT part of the scene. No text, no letters, no logos anywhere in the frame.
+
+[CHAR LOCK]:
+The {{VAI_NOVA}}, {{TEN_NOVA}} ({{POS_NOVA}}): {{NGUOI_NOVA}}. Her two hands are loosely clasped in front of her waist at the bottom edge of the frame. VOICE LOCK {{TEN_NOVA}}: one single voice, {{GIONG_NOVA}}, same timbre and pitch in every clip.
+The {{VAI_HOC}}, {{TEN_HOC}} ({{POS_HOC}}): {{NGUOI_HOC}}. His arms hang at his sides, the hands below the frame. VOICE LOCK {{TEN_HOC}}: one single voice, {{GIONG_HOC}}, same timbre and pitch in every clip.
+EYE LINE: {{TEN_NOVA}} {{NHIN_NOVA}}; {{TEN_HOC}} {{NHIN_HOC}}. Each face stays in exact side profile the whole clip.
+When silent, {{TEN_NOVA}} {{NGHE_NOVA}}; when silent, {{TEN_HOC}} {{NGHE_HOC}}.
+RULE: in each clip exactly ONE character speaks one line with clear lip-sync; the other is silent the whole clip with the mouth closed.
+
+[SET LOCK]:
+Behind them: {{NEN_NOVA}}. The backdrop stays still; nobody else is in the frame.
+
+[VIDEO SUFFIX]:
+Static camera, no zoom, no pan, no shake, no cut. The speaker starts talking right away in natural conversational Kolkata Bengali, keeping the English words in English, at about 3.3 words per second, and finishes the line promptly. After the last word both characters keep a calm closed-mouth face and stay still until the end of the clip. Natural voices, not an announcer. Quiet studio room, no music. 9:16.
+
+[NEGATIVE]:
+text, captions, subtitles, logos, icons, watermark, letters; writing on the robot or the clothes; hair on the robot; split screen, overlay, inset window; anyone looking into the lens; a face turning toward the camera; a front or three-quarter view of a face; camera movement, zoom, shake; two voices in one clip; the silent character moving the mouth; a third person; face, hair, clothes or robot design changing; furniture or objects in the backdrop; background music; robotic text-to-speech voice; slow, dragged speech
+
+CẢNH 1 (0:00-0:02): Lượt 1
+Bối cảnh: một khung duy nhất, nền xám; Nova mép trái nhìn nghiêng sang phải, chàng trai mép phải nhìn nghiêng sang trái; không chữ.
+Voice: (Bengali, chỉ một người nói trong clip này) {{LUOT_1}}
+Khung đầu: Khung hoàn chỉnh: {{TEN_NOVA}} {{NGUOI_NOVA}} đứng mép trái, nhìn nghiêng hẳn sang phải, hai tay đan trước eo ở mép dưới khung; {{TEN_HOC}} {{NGUOI_HOC}} đứng mép phải, nhìn nghiêng hẳn sang trái; nền {{NEN_NOVA}}. Hai người miệng khép.
+Khung cuối: Hai người vẫn nhìn nhau, miệng khép; khung này là khung đầu của cảnh sau.
+Diễn biến: {{TEN_HOC}} hỏi, cằm hơi đưa về phía {{TEN_NOVA}}, chớp mắt một nhịp. {{TEN_NOVA}} im, môi khép, mỉm cười nhìn anh. Nói xong cả hai đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, a single frame with no split screen. Two figures stand face to face in exact side profile, both heads large and level, the tops of the heads at about 32% of the frame height and the chins at about 60%; the upper third of the frame shows only the backdrop. At the left edge: {{NGUOI_NOVA}}, her face pointing right, the back of her head and her left shoulder touching the left frame edge, the two hands loosely clasped at the waist at the bottom edge of the frame. At the right edge: {{NGUOI_HOC}}, his face pointing left, the back of his head and his right shoulder touching the right frame edge. A small gap of backdrop separates the two faces in the middle. Backdrop: {{NEN_NOVA}}. Mouths closed. Each one looks only at the other person's face. The reference photos give only the robot's design and the man's face, hair and clothing; their backdrops and the glowing ring behind the robot are not part of the scene. No text, no logos, no letters anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image. CHAR LOCK. In this clip: {{LUOT_1}} Only {{TEN_HOC}} speaks, with clear lip-sync, in exact side profile, the chin moving slightly toward {{TEN_NOVA}}. {{TEN_NOVA}} keeps the lips pressed together and smiles softly at him. After the line both stay still until the end. VIDEO SUFFIX.
+Audio: Chỉ giọng {{TEN_HOC}}, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc.
+Negative prompt: two voices; {{TEN_NOVA}} moving her mouth; text or captions; split screen; looking into the lens; camera movement.
+
+CẢNH 2 (0:02-0:08): Lượt 2
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và nền; không chữ.
+Voice: (Bengali, chỉ một người nói trong clip này) {{LUOT_2}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: {{TEN_NOVA}} mỉm cười miệng khép, nhìn {{TEN_HOC}}; {{TEN_HOC}} vẫn nhìn cô, miệng khép; khung này là khung đầu của cảnh sau.
+Diễn biến: {{TEN_NOVA}} nói, nhắm mắt một nhịp ở chữ đầu, nghiêng đầu rất nhẹ, tay giữ nguyên. {{TEN_HOC}} im suốt clip: môi mím, mắt mở nhìn mặt cô, đầu không động. Nói xong cả hai đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. {{TEN_HOC}} on the RIGHT is silent for this whole clip: the lips stay pressed together from the first frame to the last, the eyes stay open on her face, the head does not move; he does not copy her face or movements. In this clip: {{LUOT_2}} The voice comes only from {{TEN_NOVA}} on the LEFT edge: her lips open and move in clear sync with every word, with one slow blink and a very small head tilt, always in exact side profile. After the line both stay still until the end. VIDEO SUFFIX.
+Audio: Chỉ giọng {{TEN_NOVA}}, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc.
+Negative prompt: two voices; {{TEN_HOC}} moving the lips or mouthing the words; text or captions; split screen; looking into the lens; camera movement.
+
+CẢNH 3 (0:08-0:09): Lượt 3
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và nền; không chữ.
+Voice: (Bengali, chỉ một người nói trong clip này) {{LUOT_3}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: {{TEN_HOC}} lông mày hơi nhướn, miệng khép, nhìn {{TEN_NOVA}}; cô mỉm cười miệng khép; khung này là khung đầu của cảnh sau.
+Diễn biến: {{TEN_HOC}} hỏi, lông mày nhướn lên ở chữ đầu, mặt tò mò. {{TEN_NOVA}} im, môi khép, mỉm cười nhìn anh. Nói xong cả hai đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. In this clip: {{LUOT_3}} Only {{TEN_HOC}} speaks, with clear lip-sync, in exact side profile, the eyebrows rising with curiosity on the first word. {{TEN_NOVA}} keeps the lips pressed together and smiles softly at him. After the line both stay still until the end. VIDEO SUFFIX.
+Audio: Chỉ giọng {{TEN_HOC}}, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc.
+Negative prompt: two voices; {{TEN_NOVA}} moving her mouth; text or captions; split screen; looking into the lens; camera movement.
+
+CẢNH 4 (0:09-0:12,8): Lượt 4
+Bối cảnh: giữ nguyên bố cục, hai nhân vật và nền; không chữ.
+Voice: (Bengali, chỉ một người nói trong clip này) {{LUOT_4}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: {{TEN_NOVA}} cười tươi miệng khép, nhìn {{TEN_HOC}}; {{TEN_HOC}} mỉm cười miệng khép nhìn cô; kết thúc Phần 1.
+Diễn biến: {{TEN_NOVA}} nói, mắt sáng lên, cười tươi ở tên app, tay giữ nguyên. {{TEN_HOC}} im suốt clip: môi mím, nhìn mặt cô, nét mặt giãn ra thành nụ cười nhẹ. Nói xong cả hai đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. CHAR LOCK. {{TEN_HOC}} on the RIGHT is silent for this whole clip: the lips stay pressed together from the first frame to the last, the eyes stay open on her face, and his expression only softens into a slight closed-mouth smile; he does not copy her face or movements. In this clip: {{LUOT_4}} The voice comes only from {{TEN_NOVA}} on the LEFT edge: her lips open and move in clear sync with every word, her eyes light up and she smiles brightly on the app name, always in exact side profile. After the line both stay still until the end. VIDEO SUFFIX.
+Audio: Chỉ giọng {{TEN_NOVA}}, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc.
+Negative prompt: two voices; {{TEN_HOC}} moving the lips or mouthing the words; text or captions; split screen; looking into the lens; camera movement.
+
+===== PHAN 2: NOVA O TREN, NGUOI HOC O DUOI (GHEP 2 LOP) =====
+
+[GHEP HAI LOP]:
+nen: DAY
+khung DAY: 0, 0, 1, 0.541
+khung HOC: 0, 0.541, 1, 0.459
+bo goc: 0
+vien: khong
+noi: lien
+nghe: moi canh
+
+[STYLE LOCK]:
+Photorealistic look, crisp focus on the face, soft warm natural light. Realistic skin, hair and fabric detail for the person; glossy clean high-end CGI for the robot. The frame is square and is later trimmed slightly at the top and bottom, so the head always stays well inside the frame. No text, captions, logos, icons or watermarks anywhere in the frame.
+
+[NHAN VAT DAY]:
+{{TEN_DAY}}: {{NGUOI_DAY}}. The reference photo shows only the robot's look: its white backdrop, glowing ring and standing pose are NOT part of the scene. Square frame on a fixed tripod, seen from the top of the head down to the knees, sitting on a sofa, facing the camera straight on and perfectly centred left-right. The top of the head is about 4% down from the top edge, the centre of the face at about 28% of the frame height, the chin at about 42%, the head about one quarter of the frame width. Her hands rest on her knees. {{TEN_DAY}} keeps exactly this size in the frame in every clip. Behind: {{NEN_DAY}}. She looks straight into the lens, as if on a video call with the learner. While speaking her lips open and move naturally with every word, with small head tilts, lively eyebrows, a warm smile and natural blinks. VOICE: {{GIONG_DAY}}, the same timbre, pitch and loudness in every clip; speaks natural conversational Bengali and says the English words clearly.
+
+[NGHE DAY]:
+{{TEN_DAY}} waits calmly: looking into the lens, a gentle closed-mouth smile, slow blinks, a tiny head tilt now and then, hands on her knees. The lips stay gently pressed together the whole clip; the head stays mostly still apart from that small tilt.
+
+[NHAN VAT HOC]:
+{{TEN_HOC}}: {{NGUOI_HOC}}. The reference photo shows only the face, hair and clothing: its background and pose are NOT part of the scene. Square frame on a fixed tripod, framed from the chest up, sitting and facing the camera straight on, perfectly centred left-right. The top of the hair is about 19% down from the top edge, the centre of the face at about 39% of the frame height, the shoulders span most of the frame width, the chest reaches the bottom edge. The hands stay below the frame. {{TEN_HOC}} keeps exactly this size in the frame in every clip. Behind: {{NEN_HOC}}. The camera is locked off. {{TEN_HOC}} looks straight into the lens, as if on a video call with the AI tutor. While speaking: natural expressions, brows knit a little when unsure, small head tilts, a blink on a hard word, then back to the lens. VOICE: {{GIONG_HOC}}, the same timbre, pitch and loudness in every clip; speaks natural everyday Bengali and says the English words like a beginner, a little slowly.
+
+[NGHE HOC]:
+{{TEN_HOC}} pays attention to the AI tutor: a relaxed friendly face with a faint smile, eyes on the lens, slow natural blinks, a small nod now and then. The lips stay gently pressed together the whole clip; the head stays mostly still apart from that small nod.
+
+[VIDEO SUFFIX]:
+Natural spontaneous conversational delivery, real people on a video call, not text-to-speech, not an announcer. Bengali sentences with English words mixed in, exactly as written, every word said once. The tutor talks at about 3.3 words per second, warm and lively; the learner at about 3 words per second, plainer, unsure on the English words. The line starts right away, light natural breaths. Clean close voice, quiet room, no music, no singing or humming, no background chatter, no sound effects, no strong echo.
+
+[NEGATIVE]:
+text, letters, captions, subtitles, logos, icons, watermark; writing on the robot or the clothes; hair on the robot; phone or app interface in the frame; split screen or picture-in-picture inside the clip; a second person; hands touching the face or hair; camera cuts, zoom, push-in, pan, shake; the subject drifting off-centre; the head leaving the frame; face morphing, outfit change, hair change, age drift; distorted face; extra fingers; exaggerated gestures; repeated words; slow, dragged or stretched speech; flat monotone, robotic or announcer voice; singing, humming; background music; echo or reverb
