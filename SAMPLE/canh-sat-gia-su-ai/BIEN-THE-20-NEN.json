@@ -1,0 +1,5022 @@
+[
+ {
+  "name": "nen-01-agave-tai-xe-01-nam-mexico",
+  "TEN_CANHSAT": "the officer",
+  "NGUOI_CANHSAT": "a stylized 3D-animated young Latina policewoman, dark brown hair in a neat low bun, big brown eyes, a navy short-sleeved police uniform with a plain gold badge and shoulder patches without lettering, a black duty belt",
+  "GIONG_CANHSAT": "a calm, clear, firm young woman's voice, American accent, polite and professional",
+  "VAI_CANHSAT": "officer",
+  "POS_CANHSAT": "window-side",
+  "NGHE_CANHSAT": "stays leaning at the car window looking at whoever in the car is speaking, calm attentive face, mouth closed",
+  "TEN_HOC": "the father",
+  "NGUOI_HOC": "a stylized 3D-animated Mexican man about 35, slicked-back black hair, a thick black moustache, warm brown eyes, tan skin, a blue checked short-sleeved shirt with rolled sleeves, a silver wristwatch, the seat belt across the chest",
+  "GIONG_HOC": "a warm, slightly husky man's voice with a light Mexican accent, hesitant and nervous in English",
+  "VAI_HOC": "driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "sits at the wheel looking at whoever is speaking, worried attentive face, mouth closed, hands on the steering wheel unless the clip's action says otherwise",
+  "TEN_BE": "the little girl",
+  "NGUOI_BE": "a stylized 3D-animated Latina girl about five years old, very big brown eyes, long thin braids threaded with colourful beads, a pink ruffled sleeveless dress, sitting in a child car seat with the seat belt on",
+  "GIONG_BE": "a bright, sweet, confident little girl's voice, clear American English, also fluent Spanish",
+  "VAI_BE": "daughter",
+  "POS_BE": "child-seat",
+  "NGHE_BE": "sits in her child seat looking at whoever is speaking with big curious eyes, mouth closed",
+  "XE": "a glossy pearl-white four-door sedan with beige leather seats",
+  "NEN_DUONG": "an empty two-lane road through endless rows of blue agave fields at sunset: rolling hills and blue mountains on the horizon, a few tall cacti, an orange-and-pink sky",
+  "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
+  "DAO_DIEN_THOAI": "a blue smartphone",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
+  "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
+  "NEN_HOC": "the inside of the pearl-white car in warm orange sunset light, beige leather seats and the blue agave fields and mountains through the rear windows",
+  "NHIN_CANHSAT": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_BE": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "LUOT": [
+   {
+    "who": "canhsat",
+    "text": "Do you know you were speeding?",
+    "emo": "decisive, calm",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Yes.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "License and registration, please.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Uh... I... I... I...",
+    "emo": "hesitant, worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Officer, sorry. He's nervous, and his English isn't very good.",
+    "emo": "helpful, embarrassed",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "Does he have his license and registration?",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Tu licencia y los papeles del carro.",
+    "emo": "helpful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "All right. Slow down next time.",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "I wish I could speak English like you.",
+    "emo": "relieved, hopeful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Really?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Yep. Let me show you.",
+    "emo": "playful, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "day",
+    "text": "Where are you going?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I go to home.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "go to",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "You mean, I'm going home?",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Yes. I'm going home.",
+    "emo": "cheerful",
+    "fx": "right",
+    "icon": "check",
+    "to": "going",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am very hurry.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "am very",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm in a hurry, is the correct way to say that.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Oh, okay. Thank you. Wait, who are you?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "But I don't have moneys.",
+    "emo": "worried",
+    "fx": "none",
+    "icon": "dollar",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Seriously?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
+    "emo": "upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I will download now. Thank you so much.",
+    "emo": "delighted",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_CANHSAT": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/CANHSAT.png"
+   ],
+   "NGUOI_HOC": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/tai-xe-01.png"
+   ],
+   "NGUOI_BE": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/BE.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
+   ]
+  },
+  "nguoi_theo_canh": true,
+  "CHA": "father",
+  "CHA_ANH": "he",
+  "CHA_CUA": "his",
+  "CHA_O": "him",
+  "CHA_VN": "bố",
+  "CS_ANH": "she",
+  "CS_CUA": "her",
+  "CS_O": "her",
+  "NET_HOC": "slicked-back black hair, thick black moustache",
+  "TIENG_BE": "tiếng Tây Ban Nha",
+  "ANH_SANG": "warm orange sunset light",
+  "DUONG_SAU": "the empty road, blue agave fields, mountains and the sunset sky",
+  "DUONG_TRONG": "the empty road through the agave fields",
+  "NGOAI_XA": "the blue agave fields and mountains",
+  "AM_NEN": "open countryside ambience, soft wind",
+  "MAU_XE": "pearl-white",
+  "GHE_XE": "beige leather"
+ },
+ {
+  "name": "nen-02-pho-my-tai-xe-09-nam-us",
+  "TEN_CANHSAT": "the officer",
+  "NGUOI_CANHSAT": "a stylized 3D-animated young Latina policewoman, dark brown hair in a neat low bun, big brown eyes, a navy short-sleeved police uniform with a plain gold badge and shoulder patches without lettering, a black duty belt",
+  "GIONG_CANHSAT": "a calm, clear, firm young woman's voice, American accent, polite and professional",
+  "VAI_CANHSAT": "officer",
+  "POS_CANHSAT": "window-side",
+  "NGHE_CANHSAT": "stays leaning at the car window looking at whoever in the car is speaking, calm attentive face, mouth closed",
+  "TEN_HOC": "the father",
+  "NGUOI_HOC": "a stylized 3D-animated African-American man about 33, a short fade haircut, a neatly trimmed beard, warm dark-brown eyes, deep-brown skin, a fitted navy-blue T-shirt, the seat belt across the chest",
+  "GIONG_HOC": "a warm, slightly husky man's voice, American accent, hesitant and nervous",
+  "VAI_HOC": "driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "sits at the wheel looking at whoever is speaking, worried attentive face, mouth closed, hands on the steering wheel unless the clip's action says otherwise",
+  "TEN_BE": "the little girl",
+  "NGUOI_BE": "a stylized 3D-animated African-American girl about five years old, very big brown eyes, natural curly hair in two puffs with colourful bobbles, a pink ruffled sleeveless dress, sitting in a child car seat with the seat belt on",
+  "GIONG_BE": "a bright, sweet, confident little girl's voice, clear American English, also fluent Spanish",
+  "VAI_BE": "daughter",
+  "POS_BE": "child-seat",
+  "NGHE_BE": "sits in her child seat looking at whoever is speaking with big curious eyes, mouth closed",
+  "XE": "a glossy deep-blue four-door sedan with light-grey fabric seats",
+  "NEN_DUONG": "a quiet tree-lined American suburban street on a sunny late afternoon: neat two-storey houses with porches, green lawns, white picket fences, tall maple trees, a clear blue sky, no signs or lettering",
+  "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
+  "DAO_DIEN_THOAI": "a blue smartphone",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
+  "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
+  "NEN_HOC": "the inside of the deep-blue car in bright warm late-afternoon sunlight, light-grey fabric seats and the quiet suburban street with houses and maple trees through the rear windows",
+  "NHIN_CANHSAT": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_BE": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "LUOT": [
+   {
+    "who": "canhsat",
+    "text": "Do you know you were speeding?",
+    "emo": "decisive, calm",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Yes.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "License and registration, please.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Uh... I... I... I...",
+    "emo": "hesitant, worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Officer, sorry. He's nervous, and his English isn't very good.",
+    "emo": "helpful, embarrassed",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "Does he have his license and registration?",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Tu licencia y los papeles del carro.",
+    "emo": "helpful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "All right. Slow down next time.",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "I wish I could speak English like you.",
+    "emo": "relieved, hopeful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Really?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Yep. Let me show you.",
+    "emo": "playful, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "day",
+    "text": "Where are you going?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I go to home.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "go to",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "You mean, I'm going home?",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Yes. I'm going home.",
+    "emo": "cheerful",
+    "fx": "right",
+    "icon": "check",
+    "to": "going",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am very hurry.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "am very",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm in a hurry, is the correct way to say that.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Oh, okay. Thank you. Wait, who are you?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "But I don't have moneys.",
+    "emo": "worried",
+    "fx": "none",
+    "icon": "dollar",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Seriously?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
+    "emo": "upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I will download now. Thank you so much.",
+    "emo": "delighted",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_CANHSAT": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/CANHSAT.png"
+   ],
+   "NGUOI_HOC": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/tai-xe-09.png"
+   ],
+   "NGUOI_BE": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/be-phi.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
+   ]
+  },
+  "nguoi_theo_canh": true,
+  "CHA": "father",
+  "CHA_ANH": "he",
+  "CHA_CUA": "his",
+  "CHA_O": "him",
+  "CHA_VN": "bố",
+  "CS_ANH": "she",
+  "CS_CUA": "her",
+  "CS_O": "her",
+  "NET_HOC": "short fade haircut, trimmed beard",
+  "TIENG_BE": "tiếng Tây Ban Nha",
+  "ANH_SANG": "bright warm late-afternoon sunlight",
+  "DUONG_SAU": "the quiet suburban street, green lawns, maple trees and the blue sky",
+  "DUONG_TRONG": "the quiet suburban street",
+  "NGOAI_XA": "the quiet suburban street with houses and maple trees",
+  "AM_NEN": "quiet suburban street ambience, distant birdsong",
+  "MAU_XE": "deep-blue",
+  "GHE_XE": "light-grey fabric"
+ },
+ {
+  "name": "nen-03-duong-dua-tai-xe-05-nam-india",
+  "TEN_CANHSAT": "the officer",
+  "NGUOI_CANHSAT": "a stylized 3D-animated young Latina policewoman, dark brown hair in a neat low bun, big brown eyes, a navy short-sleeved police uniform with a plain gold badge and shoulder patches without lettering, a black duty belt",
+  "GIONG_CANHSAT": "a calm, clear, firm young woman's voice, American accent, polite and professional",
+  "VAI_CANHSAT": "officer",
+  "POS_CANHSAT": "window-side",
+  "NGHE_CANHSAT": "stays leaning at the car window looking at whoever in the car is speaking, calm attentive face, mouth closed",
+  "TEN_HOC": "the father",
+  "NGUOI_HOC": "a stylized 3D-animated Indian man about 34, neat short black hair with a side part, a thick black moustache, dark-brown eyes, medium-brown skin, a crisp white short-sleeved shirt, a steel kada bracelet, the seat belt across the chest",
+  "GIONG_HOC": "a warm man's voice with a clear Indian accent, hesitant and nervous in English",
+  "VAI_HOC": "driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "sits at the wheel looking at whoever is speaking, worried attentive face, mouth closed, hands on the steering wheel unless the clip's action says otherwise",
+  "TEN_BE": "the little girl",
+  "NGUOI_BE": "a stylized 3D-animated Indian girl about five years old, very big dark-brown eyes, long black hair in two braids tied with small red ribbons, a tiny bindi, a pink ruffled sleeveless dress, sitting in a child car seat with the seat belt on",
+  "GIONG_BE": "a bright, sweet, confident little girl's voice, clear English with a light Indian accent, also fluent Hindi",
+  "VAI_BE": "daughter",
+  "POS_BE": "child-seat",
+  "NGHE_BE": "sits in her child seat looking at whoever is speaking with big curious eyes, mouth closed",
+  "XE": "a glossy silver four-door sedan with black leather seats",
+  "NEN_DUONG": "a quiet two-lane road through a lush green landscape on a sunny morning: tall coconut palms and banana trees along the roadside, bright green rice paddies, misty green hills in the distance, a pale blue sky, no signs or lettering",
+  "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
+  "DAO_DIEN_THOAI": "a blue smartphone",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
+  "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
+  "NEN_HOC": "the inside of the silver car in soft warm morning sunlight, black leather seats and the green rice paddies and coconut palms through the rear windows",
+  "NHIN_CANHSAT": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_BE": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "LUOT": [
+   {
+    "who": "canhsat",
+    "text": "Do you know you were speeding?",
+    "emo": "decisive, calm",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Yes.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "License and registration, please.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Uh... I... I... I...",
+    "emo": "hesitant, worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Officer, sorry. He's nervous, and his English isn't very good.",
+    "emo": "helpful, embarrassed",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "Does he have his license and registration?",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "आपका लाइसेंस और गाड़ी के कागज़।",
+    "emo": "helpful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "All right. Slow down next time.",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "I wish I could speak English like you.",
+    "emo": "relieved, hopeful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Really?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Yep. Let me show you.",
+    "emo": "playful, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "day",
+    "text": "Where are you going?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I go to home.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "go to",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "You mean, I'm going home?",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Yes. I'm going home.",
+    "emo": "cheerful",
+    "fx": "right",
+    "icon": "check",
+    "to": "going",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am very hurry.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "am very",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm in a hurry, is the correct way to say that.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Oh, okay. Thank you. Wait, who are you?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "But I don't have moneys.",
+    "emo": "worried",
+    "fx": "none",
+    "icon": "dollar",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Seriously?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
+    "emo": "upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I will download now. Thank you so much.",
+    "emo": "delighted",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_CANHSAT": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/CANHSAT.png"
+   ],
+   "NGUOI_HOC": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/tai-xe-05.png"
+   ],
+   "NGUOI_BE": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/be-an.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
+   ]
+  },
+  "nguoi_theo_canh": true,
+  "CHA": "father",
+  "CHA_ANH": "he",
+  "CHA_CUA": "his",
+  "CHA_O": "him",
+  "CHA_VN": "bố",
+  "CS_ANH": "she",
+  "CS_CUA": "her",
+  "CS_O": "her",
+  "NET_HOC": "neat side-parted black hair, thick moustache",
+  "TIENG_BE": "tiếng Hindi",
+  "ANH_SANG": "soft warm morning sunlight",
+  "DUONG_SAU": "the quiet road, coconut palms, green rice paddies and the sky",
+  "DUONG_TRONG": "the quiet palm-lined road",
+  "NGOAI_XA": "the green rice paddies and coconut palms",
+  "AM_NEN": "tropical countryside ambience, birdsong",
+  "MAU_XE": "silver",
+  "GHE_XE": "black leather"
+ },
+ {
+  "name": "nen-04-pho-mexico-tai-xe-13-nu-mexico",
+  "TEN_CANHSAT": "the officer",
+  "NGUOI_CANHSAT": "a stylized 3D-animated American policeman in his early forties, short dark-brown hair, a clean-shaven square jaw, calm kind brown eyes, light-tan skin, a navy short-sleeved police uniform with a plain gold badge and shoulder patches without lettering, a black duty belt with a radio",
+  "GIONG_CANHSAT": "a calm, clear, firm man's voice, American accent, polite and professional",
+  "VAI_CANHSAT": "officer",
+  "POS_CANHSAT": "window-side",
+  "NGHE_CANHSAT": "stays leaning at the car window looking at whoever in the car is speaking, calm attentive face, mouth closed",
+  "TEN_HOC": "the mother",
+  "NGUOI_HOC": "a stylized 3D-animated young Mexican woman about 28, a short black bob haircut, red lipstick, dark-brown eyes, brown skin, a sunny-yellow T-shirt, small stud earrings, the seat belt across the chest",
+  "GIONG_HOC": "a warm woman's voice with a light Mexican accent, hesitant and nervous in English",
+  "VAI_HOC": "driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "sits at the wheel looking at whoever is speaking, worried attentive face, mouth closed, hands on the steering wheel unless the clip's action says otherwise",
+  "TEN_BE": "the little girl",
+  "NGUOI_BE": "a stylized 3D-animated Latina girl about five years old, very big brown eyes, long thin braids threaded with colourful beads, a pink ruffled sleeveless dress, sitting in a child car seat with the seat belt on",
+  "GIONG_BE": "a bright, sweet, confident little girl's voice, clear American English, also fluent Spanish",
+  "VAI_BE": "daughter",
+  "POS_BE": "child-seat",
+  "NGHE_BE": "sits in her child seat looking at whoever is speaking with big curious eyes, mouth closed",
+  "XE": "a glossy emerald-green four-door sedan with tan leather seats",
+  "NEN_DUONG": "a sunny cobblestone street in a colourful small Mexican town: pastel pink, yellow and turquoise one-storey houses with wrought-iron windows, pink bougainvillea over the walls, a white church bell tower in the distance, a clear blue sky, no signs or lettering",
+  "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
+  "DAO_DIEN_THOAI": "a blue smartphone",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
+  "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
+  "NEN_HOC": "the inside of the emerald-green car in bright warm afternoon sunlight, tan leather seats and the colourful pastel houses of the town through the rear windows",
+  "NHIN_CANHSAT": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_BE": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "LUOT": [
+   {
+    "who": "canhsat",
+    "text": "Do you know you were speeding?",
+    "emo": "decisive, calm",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Yes.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "License and registration, please.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Uh... I... I... I...",
+    "emo": "hesitant, worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Officer, sorry. She's nervous, and her English isn't very good.",
+    "emo": "helpful, embarrassed",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "Does she have her license and registration?",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Tu licencia y los papeles del carro.",
+    "emo": "helpful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "All right. Slow down next time.",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "I wish I could speak English like you.",
+    "emo": "relieved, hopeful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Really?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Yep. Let me show you.",
+    "emo": "playful, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "day",
+    "text": "Where are you going?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I go to home.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "go to",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "You mean, I'm going home?",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Yes. I'm going home.",
+    "emo": "cheerful",
+    "fx": "right",
+    "icon": "check",
+    "to": "going",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am very hurry.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "am very",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm in a hurry, is the correct way to say that.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Oh, okay. Thank you. Wait, who are you?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "But I don't have moneys.",
+    "emo": "worried",
+    "fx": "none",
+    "icon": "dollar",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Seriously?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
+    "emo": "upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I will download now. Thank you so much.",
+    "emo": "delighted",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_CANHSAT": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/canh-sat-nam.png"
+   ],
+   "NGUOI_HOC": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/tai-xe-13.png"
+   ],
+   "NGUOI_BE": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/BE.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
+   ]
+  },
+  "nguoi_theo_canh": true,
+  "CHA": "mother",
+  "CHA_ANH": "she",
+  "CHA_CUA": "her",
+  "CHA_O": "her",
+  "CHA_VN": "mẹ",
+  "CS_ANH": "he",
+  "CS_CUA": "his",
+  "CS_O": "him",
+  "NET_HOC": "short black bob, red lipstick",
+  "TIENG_BE": "tiếng Tây Ban Nha",
+  "ANH_SANG": "bright warm afternoon sunlight",
+  "DUONG_SAU": "the colourful cobblestone street, pastel houses, bougainvillea and the blue sky",
+  "DUONG_TRONG": "the colourful cobblestone street",
+  "NGOAI_XA": "the colourful pastel houses of the town",
+  "AM_NEN": "small-town street ambience, distant church bells",
+  "MAU_XE": "emerald-green",
+  "GHE_XE": "tan leather"
+ },
+ {
+  "name": "nen-05-duong-ngo-tai-xe-17-nu-india",
+  "TEN_CANHSAT": "the officer",
+  "NGUOI_CANHSAT": "a stylized 3D-animated American policeman in his early forties, short dark-brown hair, a clean-shaven square jaw, calm kind brown eyes, light-tan skin, a navy short-sleeved police uniform with a plain gold badge and shoulder patches without lettering, a black duty belt with a radio",
+  "GIONG_CANHSAT": "a calm, clear, firm man's voice, American accent, polite and professional",
+  "VAI_CANHSAT": "officer",
+  "POS_CANHSAT": "window-side",
+  "NGHE_CANHSAT": "stays leaning at the car window looking at whoever in the car is speaking, calm attentive face, mouth closed",
+  "TEN_HOC": "the mother",
+  "NGUOI_HOC": "a stylized 3D-animated Indian woman about 36, long straight black hair over one shoulder, a tiny nose stud, dark eyes, medium-brown skin, a purple kurti top, the seat belt across the chest",
+  "GIONG_HOC": "a warm woman's voice with a clear Indian accent, hesitant and nervous in English",
+  "VAI_HOC": "driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "sits at the wheel looking at whoever is speaking, worried attentive face, mouth closed, hands on the steering wheel unless the clip's action says otherwise",
+  "TEN_BE": "the little girl",
+  "NGUOI_BE": "a stylized 3D-animated Indian girl about five years old, very big dark-brown eyes, long black hair in two braids tied with small red ribbons, a tiny bindi, a pink ruffled sleeveless dress, sitting in a child car seat with the seat belt on",
+  "GIONG_BE": "a bright, sweet, confident little girl's voice, clear English with a light Indian accent, also fluent Hindi",
+  "VAI_BE": "daughter",
+  "POS_BE": "child-seat",
+  "NGHE_BE": "sits in her child seat looking at whoever is speaking with big curious eyes, mouth closed",
+  "XE": "a glossy sunset-orange four-door sedan with black leather seats",
+  "NEN_DUONG": "an empty two-lane country road through tall green cornfields at golden hour: a red wooden barn and a white farmhouse in the distance, a tall metal farm windmill, a soft orange-and-blue sky",
+  "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
+  "DAO_DIEN_THOAI": "a blue smartphone",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
+  "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
+  "NEN_HOC": "the inside of the sunset-orange car in warm golden-hour light, black leather seats and the green cornfields through the rear windows",
+  "NHIN_CANHSAT": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_BE": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "LUOT": [
+   {
+    "who": "canhsat",
+    "text": "Do you know you were speeding?",
+    "emo": "decisive, calm",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Yes.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "License and registration, please.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Uh... I... I... I...",
+    "emo": "hesitant, worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Officer, sorry. She's nervous, and her English isn't very good.",
+    "emo": "helpful, embarrassed",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "Does she have her license and registration?",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "आपका लाइसेंस और गाड़ी के कागज़।",
+    "emo": "helpful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "All right. Slow down next time.",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "I wish I could speak English like you.",
+    "emo": "relieved, hopeful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Really?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Yep. Let me show you.",
+    "emo": "playful, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "day",
+    "text": "Where are you going?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I go to home.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "go to",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "You mean, I'm going home?",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Yes. I'm going home.",
+    "emo": "cheerful",
+    "fx": "right",
+    "icon": "check",
+    "to": "going",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am very hurry.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "am very",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm in a hurry, is the correct way to say that.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Oh, okay. Thank you. Wait, who are you?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "But I don't have moneys.",
+    "emo": "worried",
+    "fx": "none",
+    "icon": "dollar",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Seriously?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
+    "emo": "upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I will download now. Thank you so much.",
+    "emo": "delighted",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_CANHSAT": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/canh-sat-nam.png"
+   ],
+   "NGUOI_HOC": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/tai-xe-17.png"
+   ],
+   "NGUOI_BE": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/be-an.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
+   ]
+  },
+  "nguoi_theo_canh": true,
+  "CHA": "mother",
+  "CHA_ANH": "she",
+  "CHA_CUA": "her",
+  "CHA_O": "her",
+  "CHA_VN": "mẹ",
+  "CS_ANH": "he",
+  "CS_CUA": "his",
+  "CS_O": "him",
+  "NET_HOC": "long straight black hair, tiny nose stud",
+  "TIENG_BE": "tiếng Hindi",
+  "ANH_SANG": "warm golden-hour light",
+  "DUONG_SAU": "the empty country road, tall green cornfields and the sky",
+  "DUONG_TRONG": "the empty country road",
+  "NGOAI_XA": "the green cornfields",
+  "AM_NEN": "countryside ambience, rustling corn leaves and crickets",
+  "MAU_XE": "sunset-orange",
+  "GHE_XE": "black leather"
+ },
+ {
+  "name": "nen-06-pho-my-tai-xe-18-nu-us",
+  "TEN_CANHSAT": "the officer",
+  "NGUOI_CANHSAT": "a stylized 3D-animated American policeman in his early forties, short dark-brown hair, a clean-shaven square jaw, calm kind brown eyes, light-tan skin, a navy short-sleeved police uniform with a plain gold badge and shoulder patches without lettering, a black duty belt with a radio",
+  "GIONG_CANHSAT": "a calm, clear, firm man's voice, American accent, polite and professional",
+  "VAI_CANHSAT": "officer",
+  "POS_CANHSAT": "window-side",
+  "NGHE_CANHSAT": "stays leaning at the car window looking at whoever in the car is speaking, calm attentive face, mouth closed",
+  "TEN_HOC": "the mother",
+  "NGUOI_HOC": "a stylized 3D-animated white American woman about 34, shoulder-length straight blonde hair, blue eyes, fair skin with light freckles, a sky-blue T-shirt, the seat belt across the chest",
+  "GIONG_HOC": "a warm woman's voice, American accent, hesitant and nervous",
+  "VAI_HOC": "driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "sits at the wheel looking at whoever is speaking, worried attentive face, mouth closed, hands on the steering wheel unless the clip's action says otherwise",
+  "TEN_BE": "the little girl",
+  "NGUOI_BE": "a stylized 3D-animated white American girl about five years old, very big blue eyes, light-brown hair in two pigtails with colourful clips, light freckles, a pink ruffled sleeveless dress, sitting in a child car seat with the seat belt on",
+  "GIONG_BE": "a bright, sweet, confident little girl's voice, clear American English, also fluent Spanish",
+  "VAI_BE": "daughter",
+  "POS_BE": "child-seat",
+  "NGHE_BE": "sits in her child seat looking at whoever is speaking with big curious eyes, mouth closed",
+  "XE": "a glossy pearl-white four-door sedan with beige leather seats",
+  "NEN_DUONG": "a quiet tree-lined American suburban street on a sunny late afternoon: neat two-storey houses with porches, green lawns, white picket fences, tall maple trees, a clear blue sky, no signs or lettering",
+  "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
+  "DAO_DIEN_THOAI": "a blue smartphone",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
+  "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
+  "NEN_HOC": "the inside of the pearl-white car in bright warm late-afternoon sunlight, beige leather seats and the quiet suburban street with houses and maple trees through the rear windows",
+  "NHIN_CANHSAT": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_BE": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "LUOT": [
+   {
+    "who": "canhsat",
+    "text": "Do you know you were speeding?",
+    "emo": "decisive, calm",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Yes.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "License and registration, please.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Uh... I... I... I...",
+    "emo": "hesitant, worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Officer, sorry. She's nervous, and her English isn't very good.",
+    "emo": "helpful, embarrassed",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "Does she have her license and registration?",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Tu licencia y los papeles del carro.",
+    "emo": "helpful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "All right. Slow down next time.",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "I wish I could speak English like you.",
+    "emo": "relieved, hopeful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Really?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Yep. Let me show you.",
+    "emo": "playful, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "day",
+    "text": "Where are you going?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I go to home.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "go to",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "You mean, I'm going home?",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Yes. I'm going home.",
+    "emo": "cheerful",
+    "fx": "right",
+    "icon": "check",
+    "to": "going",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am very hurry.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "am very",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm in a hurry, is the correct way to say that.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Oh, okay. Thank you. Wait, who are you?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "But I don't have moneys.",
+    "emo": "worried",
+    "fx": "none",
+    "icon": "dollar",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Seriously?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
+    "emo": "upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I will download now. Thank you so much.",
+    "emo": "delighted",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_CANHSAT": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/canh-sat-nam.png"
+   ],
+   "NGUOI_HOC": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/tai-xe-18.png"
+   ],
+   "NGUOI_BE": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/be-trang.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
+   ]
+  },
+  "nguoi_theo_canh": true,
+  "CHA": "mother",
+  "CHA_ANH": "she",
+  "CHA_CUA": "her",
+  "CHA_O": "her",
+  "CHA_VN": "mẹ",
+  "CS_ANH": "he",
+  "CS_CUA": "his",
+  "CS_O": "him",
+  "NET_HOC": "shoulder-length blonde hair",
+  "TIENG_BE": "tiếng Tây Ban Nha",
+  "ANH_SANG": "bright warm late-afternoon sunlight",
+  "DUONG_SAU": "the quiet suburban street, green lawns, maple trees and the blue sky",
+  "DUONG_TRONG": "the quiet suburban street",
+  "NGOAI_XA": "the quiet suburban street with houses and maple trees",
+  "AM_NEN": "quiet suburban street ambience, distant birdsong",
+  "MAU_XE": "pearl-white",
+  "GHE_XE": "beige leather"
+ },
+ {
+  "name": "nen-07-duong-dua-tai-xe-14-nu-india",
+  "TEN_CANHSAT": "the officer",
+  "NGUOI_CANHSAT": "a stylized 3D-animated American policeman in his early forties, short dark-brown hair, a clean-shaven square jaw, calm kind brown eyes, light-tan skin, a navy short-sleeved police uniform with a plain gold badge and shoulder patches without lettering, a black duty belt with a radio",
+  "GIONG_CANHSAT": "a calm, clear, firm man's voice, American accent, polite and professional",
+  "VAI_CANHSAT": "officer",
+  "POS_CANHSAT": "window-side",
+  "NGHE_CANHSAT": "stays leaning at the car window looking at whoever in the car is speaking, calm attentive face, mouth closed",
+  "TEN_HOC": "the mother",
+  "NGUOI_HOC": "a stylized 3D-animated Indian woman about 33, long black hair in a single side braid, a small red bindi, dark expressive eyes, medium-brown skin, a pink cotton kurti top, thin gold bangles, the seat belt across the chest",
+  "GIONG_HOC": "a warm woman's voice with a clear Indian accent, hesitant and nervous in English",
+  "VAI_HOC": "driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "sits at the wheel looking at whoever is speaking, worried attentive face, mouth closed, hands on the steering wheel unless the clip's action says otherwise",
+  "TEN_BE": "the little girl",
+  "NGUOI_BE": "a stylized 3D-animated Indian girl about five years old, very big dark-brown eyes, long black hair in two braids tied with small red ribbons, a tiny bindi, a pink ruffled sleeveless dress, sitting in a child car seat with the seat belt on",
+  "GIONG_BE": "a bright, sweet, confident little girl's voice, clear English with a light Indian accent, also fluent Hindi",
+  "VAI_BE": "daughter",
+  "POS_BE": "child-seat",
+  "NGHE_BE": "sits in her child seat looking at whoever is speaking with big curious eyes, mouth closed",
+  "XE": "a glossy deep-blue four-door sedan with light-grey fabric seats",
+  "NEN_DUONG": "a quiet two-lane road through a lush green landscape on a sunny morning: tall coconut palms and banana trees along the roadside, bright green rice paddies, misty green hills in the distance, a pale blue sky, no signs or lettering",
+  "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
+  "DAO_DIEN_THOAI": "a blue smartphone",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
+  "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
+  "NEN_HOC": "the inside of the deep-blue car in soft warm morning sunlight, light-grey fabric seats and the green rice paddies and coconut palms through the rear windows",
+  "NHIN_CANHSAT": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_BE": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "LUOT": [
+   {
+    "who": "canhsat",
+    "text": "Do you know you were speeding?",
+    "emo": "decisive, calm",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Yes.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "License and registration, please.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Uh... I... I... I...",
+    "emo": "hesitant, worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Officer, sorry. She's nervous, and her English isn't very good.",
+    "emo": "helpful, embarrassed",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "Does she have her license and registration?",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "आपका लाइसेंस और गाड़ी के कागज़।",
+    "emo": "helpful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "All right. Slow down next time.",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "I wish I could speak English like you.",
+    "emo": "relieved, hopeful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Really?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Yep. Let me show you.",
+    "emo": "playful, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "day",
+    "text": "Where are you going?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I go to home.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "go to",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "You mean, I'm going home?",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Yes. I'm going home.",
+    "emo": "cheerful",
+    "fx": "right",
+    "icon": "check",
+    "to": "going",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am very hurry.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "am very",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm in a hurry, is the correct way to say that.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Oh, okay. Thank you. Wait, who are you?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "But I don't have moneys.",
+    "emo": "worried",
+    "fx": "none",
+    "icon": "dollar",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Seriously?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
+    "emo": "upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I will download now. Thank you so much.",
+    "emo": "delighted",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_CANHSAT": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/canh-sat-nam.png"
+   ],
+   "NGUOI_HOC": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/tai-xe-14.png"
+   ],
+   "NGUOI_BE": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/be-an.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
+   ]
+  },
+  "nguoi_theo_canh": true,
+  "CHA": "mother",
+  "CHA_ANH": "she",
+  "CHA_CUA": "her",
+  "CHA_O": "her",
+  "CHA_VN": "mẹ",
+  "CS_ANH": "he",
+  "CS_CUA": "his",
+  "CS_O": "him",
+  "NET_HOC": "long black side braid, small red bindi",
+  "TIENG_BE": "tiếng Hindi",
+  "ANH_SANG": "soft warm morning sunlight",
+  "DUONG_SAU": "the quiet road, coconut palms, green rice paddies and the sky",
+  "DUONG_TRONG": "the quiet palm-lined road",
+  "NGOAI_XA": "the green rice paddies and coconut palms",
+  "AM_NEN": "tropical countryside ambience, birdsong",
+  "MAU_XE": "deep-blue",
+  "GHE_XE": "light-grey fabric"
+ },
+ {
+  "name": "nen-08-pho-mexico-tai-xe-02-nam-mexico",
+  "TEN_CANHSAT": "the officer",
+  "NGUOI_CANHSAT": "a stylized 3D-animated young Latina policewoman, dark brown hair in a neat low bun, big brown eyes, a navy short-sleeved police uniform with a plain gold badge and shoulder patches without lettering, a black duty belt",
+  "GIONG_CANHSAT": "a calm, clear, firm young woman's voice, American accent, polite and professional",
+  "VAI_CANHSAT": "officer",
+  "POS_CANHSAT": "window-side",
+  "NGHE_CANHSAT": "stays leaning at the car window looking at whoever in the car is speaking, calm attentive face, mouth closed",
+  "TEN_HOC": "the father",
+  "NGUOI_HOC": "a stylized 3D-animated Mexican man about 30, short curly dark-brown hair, a neatly trimmed full beard, brown eyes, light-brown skin, a plain white crew-neck T-shirt, a small silver cross necklace, the seat belt across the chest",
+  "GIONG_HOC": "a warm, slightly husky man's voice with a light Mexican accent, hesitant and nervous in English",
+  "VAI_HOC": "driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "sits at the wheel looking at whoever is speaking, worried attentive face, mouth closed, hands on the steering wheel unless the clip's action says otherwise",
+  "TEN_BE": "the little girl",
+  "NGUOI_BE": "a stylized 3D-animated Latina girl about five years old, very big brown eyes, long thin braids threaded with colourful beads, a pink ruffled sleeveless dress, sitting in a child car seat with the seat belt on",
+  "GIONG_BE": "a bright, sweet, confident little girl's voice, clear American English, also fluent Spanish",
+  "VAI_BE": "daughter",
+  "POS_BE": "child-seat",
+  "NGHE_BE": "sits in her child seat looking at whoever is speaking with big curious eyes, mouth closed",
+  "XE": "a glossy silver four-door sedan with black leather seats",
+  "NEN_DUONG": "a sunny cobblestone street in a colourful small Mexican town: pastel pink, yellow and turquoise one-storey houses with wrought-iron windows, pink bougainvillea over the walls, a white church bell tower in the distance, a clear blue sky, no signs or lettering",
+  "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
+  "DAO_DIEN_THOAI": "a blue smartphone",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
+  "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
+  "NEN_HOC": "the inside of the silver car in bright warm afternoon sunlight, black leather seats and the colourful pastel houses of the town through the rear windows",
+  "NHIN_CANHSAT": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_BE": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "LUOT": [
+   {
+    "who": "canhsat",
+    "text": "Do you know you were speeding?",
+    "emo": "decisive, calm",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Yes.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "License and registration, please.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Uh... I... I... I...",
+    "emo": "hesitant, worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Officer, sorry. He's nervous, and his English isn't very good.",
+    "emo": "helpful, embarrassed",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "Does he have his license and registration?",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Tu licencia y los papeles del carro.",
+    "emo": "helpful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "All right. Slow down next time.",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "I wish I could speak English like you.",
+    "emo": "relieved, hopeful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Really?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Yep. Let me show you.",
+    "emo": "playful, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "day",
+    "text": "Where are you going?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I go to home.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "go to",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "You mean, I'm going home?",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Yes. I'm going home.",
+    "emo": "cheerful",
+    "fx": "right",
+    "icon": "check",
+    "to": "going",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am very hurry.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "am very",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm in a hurry, is the correct way to say that.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Oh, okay. Thank you. Wait, who are you?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "But I don't have moneys.",
+    "emo": "worried",
+    "fx": "none",
+    "icon": "dollar",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Seriously?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
+    "emo": "upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I will download now. Thank you so much.",
+    "emo": "delighted",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_CANHSAT": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/CANHSAT.png"
+   ],
+   "NGUOI_HOC": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/tai-xe-02.png"
+   ],
+   "NGUOI_BE": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/BE.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
+   ]
+  },
+  "nguoi_theo_canh": true,
+  "CHA": "father",
+  "CHA_ANH": "he",
+  "CHA_CUA": "his",
+  "CHA_O": "him",
+  "CHA_VN": "bố",
+  "CS_ANH": "she",
+  "CS_CUA": "her",
+  "CS_O": "her",
+  "NET_HOC": "short curly hair, trimmed full beard",
+  "TIENG_BE": "tiếng Tây Ban Nha",
+  "ANH_SANG": "bright warm afternoon sunlight",
+  "DUONG_SAU": "the colourful cobblestone street, pastel houses, bougainvillea and the blue sky",
+  "DUONG_TRONG": "the colourful cobblestone street",
+  "NGOAI_XA": "the colourful pastel houses of the town",
+  "AM_NEN": "small-town street ambience, distant church bells",
+  "MAU_XE": "silver",
+  "GHE_XE": "black leather"
+ },
+ {
+  "name": "nen-09-duong-ngo-tai-xe-08-nam-us",
+  "TEN_CANHSAT": "the officer",
+  "NGUOI_CANHSAT": "a stylized 3D-animated young Latina policewoman, dark brown hair in a neat low bun, big brown eyes, a navy short-sleeved police uniform with a plain gold badge and shoulder patches without lettering, a black duty belt",
+  "GIONG_CANHSAT": "a calm, clear, firm young woman's voice, American accent, polite and professional",
+  "VAI_CANHSAT": "officer",
+  "POS_CANHSAT": "window-side",
+  "NGHE_CANHSAT": "stays leaning at the car window looking at whoever in the car is speaking, calm attentive face, mouth closed",
+  "TEN_HOC": "the father",
+  "NGUOI_HOC": "a stylized 3D-animated white American man about 36, sandy-blond short hair, a short sandy beard, blue eyes, fair lightly freckled skin, a red-and-black flannel shirt over a grey T-shirt, the seat belt across the chest",
+  "GIONG_HOC": "a warm, slightly husky man's voice, American accent, hesitant and nervous",
+  "VAI_HOC": "driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "sits at the wheel looking at whoever is speaking, worried attentive face, mouth closed, hands on the steering wheel unless the clip's action says otherwise",
+  "TEN_BE": "the little girl",
+  "NGUOI_BE": "a stylized 3D-animated white American girl about five years old, very big blue eyes, light-brown hair in two pigtails with colourful clips, light freckles, a pink ruffled sleeveless dress, sitting in a child car seat with the seat belt on",
+  "GIONG_BE": "a bright, sweet, confident little girl's voice, clear American English, also fluent Spanish",
+  "VAI_BE": "daughter",
+  "POS_BE": "child-seat",
+  "NGHE_BE": "sits in her child seat looking at whoever is speaking with big curious eyes, mouth closed",
+  "XE": "a glossy emerald-green four-door sedan with tan leather seats",
+  "NEN_DUONG": "an empty two-lane country road through tall green cornfields at golden hour: a red wooden barn and a white farmhouse in the distance, a tall metal farm windmill, a soft orange-and-blue sky",
+  "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
+  "DAO_DIEN_THOAI": "a blue smartphone",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
+  "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
+  "NEN_HOC": "the inside of the emerald-green car in warm golden-hour light, tan leather seats and the green cornfields through the rear windows",
+  "NHIN_CANHSAT": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_BE": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "LUOT": [
+   {
+    "who": "canhsat",
+    "text": "Do you know you were speeding?",
+    "emo": "decisive, calm",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Yes.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "License and registration, please.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Uh... I... I... I...",
+    "emo": "hesitant, worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Officer, sorry. He's nervous, and his English isn't very good.",
+    "emo": "helpful, embarrassed",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "Does he have his license and registration?",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Tu licencia y los papeles del carro.",
+    "emo": "helpful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "All right. Slow down next time.",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "I wish I could speak English like you.",
+    "emo": "relieved, hopeful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Really?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Yep. Let me show you.",
+    "emo": "playful, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "day",
+    "text": "Where are you going?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I go to home.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "go to",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "You mean, I'm going home?",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Yes. I'm going home.",
+    "emo": "cheerful",
+    "fx": "right",
+    "icon": "check",
+    "to": "going",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am very hurry.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "am very",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm in a hurry, is the correct way to say that.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Oh, okay. Thank you. Wait, who are you?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "But I don't have moneys.",
+    "emo": "worried",
+    "fx": "none",
+    "icon": "dollar",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Seriously?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
+    "emo": "upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I will download now. Thank you so much.",
+    "emo": "delighted",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_CANHSAT": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/CANHSAT.png"
+   ],
+   "NGUOI_HOC": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/tai-xe-08.png"
+   ],
+   "NGUOI_BE": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/be-trang.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
+   ]
+  },
+  "nguoi_theo_canh": true,
+  "CHA": "father",
+  "CHA_ANH": "he",
+  "CHA_CUA": "his",
+  "CHA_O": "him",
+  "CHA_VN": "bố",
+  "CS_ANH": "she",
+  "CS_CUA": "her",
+  "CS_O": "her",
+  "NET_HOC": "sandy-blond hair, short sandy beard",
+  "TIENG_BE": "tiếng Tây Ban Nha",
+  "ANH_SANG": "warm golden-hour light",
+  "DUONG_SAU": "the empty country road, tall green cornfields and the sky",
+  "DUONG_TRONG": "the empty country road",
+  "NGOAI_XA": "the green cornfields",
+  "AM_NEN": "countryside ambience, rustling corn leaves and crickets",
+  "MAU_XE": "emerald-green",
+  "GHE_XE": "tan leather"
+ },
+ {
+  "name": "nen-10-agave-tai-xe-12-nu-mexico",
+  "TEN_CANHSAT": "the officer",
+  "NGUOI_CANHSAT": "a stylized 3D-animated American policeman in his early forties, short dark-brown hair, a clean-shaven square jaw, calm kind brown eyes, light-tan skin, a navy short-sleeved police uniform with a plain gold badge and shoulder patches without lettering, a black duty belt with a radio",
+  "GIONG_CANHSAT": "a calm, clear, firm man's voice, American accent, polite and professional",
+  "VAI_CANHSAT": "officer",
+  "POS_CANHSAT": "window-side",
+  "NGHE_CANHSAT": "stays leaning at the car window looking at whoever in the car is speaking, calm attentive face, mouth closed",
+  "TEN_HOC": "the mother",
+  "NGUOI_HOC": "a stylized 3D-animated Mexican woman about 38, brown hair in a high ponytail, warm brown eyes, light-brown skin, a white embroidered peasant blouse with colourful flower embroidery at the neckline, the seat belt across the chest",
+  "GIONG_HOC": "a warm woman's voice with a light Mexican accent, hesitant and nervous in English",
+  "VAI_HOC": "driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "sits at the wheel looking at whoever is speaking, worried attentive face, mouth closed, hands on the steering wheel unless the clip's action says otherwise",
+  "TEN_BE": "the little girl",
+  "NGUOI_BE": "a stylized 3D-animated Latina girl about five years old, very big brown eyes, long thin braids threaded with colourful beads, a pink ruffled sleeveless dress, sitting in a child car seat with the seat belt on",
+  "GIONG_BE": "a bright, sweet, confident little girl's voice, clear American English, also fluent Spanish",
+  "VAI_BE": "daughter",
+  "POS_BE": "child-seat",
+  "NGHE_BE": "sits in her child seat looking at whoever is speaking with big curious eyes, mouth closed",
+  "XE": "a glossy sunset-orange four-door sedan with black leather seats",
+  "NEN_DUONG": "an empty two-lane road through endless rows of blue agave fields at sunset: rolling hills and blue mountains on the horizon, a few tall cacti, an orange-and-pink sky",
+  "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
+  "DAO_DIEN_THOAI": "a blue smartphone",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
+  "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
+  "NEN_HOC": "the inside of the sunset-orange car in warm orange sunset light, black leather seats and the blue agave fields and mountains through the rear windows",
+  "NHIN_CANHSAT": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_BE": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "LUOT": [
+   {
+    "who": "canhsat",
+    "text": "Do you know you were speeding?",
+    "emo": "decisive, calm",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Yes.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "License and registration, please.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Uh... I... I... I...",
+    "emo": "hesitant, worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Officer, sorry. She's nervous, and her English isn't very good.",
+    "emo": "helpful, embarrassed",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "Does she have her license and registration?",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Tu licencia y los papeles del carro.",
+    "emo": "helpful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "All right. Slow down next time.",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "I wish I could speak English like you.",
+    "emo": "relieved, hopeful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Really?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Yep. Let me show you.",
+    "emo": "playful, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "day",
+    "text": "Where are you going?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I go to home.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "go to",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "You mean, I'm going home?",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Yes. I'm going home.",
+    "emo": "cheerful",
+    "fx": "right",
+    "icon": "check",
+    "to": "going",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am very hurry.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "am very",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm in a hurry, is the correct way to say that.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Oh, okay. Thank you. Wait, who are you?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "But I don't have moneys.",
+    "emo": "worried",
+    "fx": "none",
+    "icon": "dollar",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Seriously?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
+    "emo": "upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I will download now. Thank you so much.",
+    "emo": "delighted",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_CANHSAT": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/canh-sat-nam.png"
+   ],
+   "NGUOI_HOC": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/tai-xe-12.png"
+   ],
+   "NGUOI_BE": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/BE.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
+   ]
+  },
+  "nguoi_theo_canh": true,
+  "CHA": "mother",
+  "CHA_ANH": "she",
+  "CHA_CUA": "her",
+  "CHA_O": "her",
+  "CHA_VN": "mẹ",
+  "CS_ANH": "he",
+  "CS_CUA": "his",
+  "CS_O": "him",
+  "NET_HOC": "brown high ponytail",
+  "TIENG_BE": "tiếng Tây Ban Nha",
+  "ANH_SANG": "warm orange sunset light",
+  "DUONG_SAU": "the empty road, blue agave fields, mountains and the sunset sky",
+  "DUONG_TRONG": "the empty road through the agave fields",
+  "NGOAI_XA": "the blue agave fields and mountains",
+  "AM_NEN": "open countryside ambience, soft wind",
+  "MAU_XE": "sunset-orange",
+  "GHE_XE": "black leather"
+ },
+ {
+  "name": "nen-11-duong-dua-tai-xe-16-nu-india",
+  "TEN_CANHSAT": "the officer",
+  "NGUOI_CANHSAT": "a stylized 3D-animated American policeman in his early forties, short dark-brown hair, a clean-shaven square jaw, calm kind brown eyes, light-tan skin, a navy short-sleeved police uniform with a plain gold badge and shoulder patches without lettering, a black duty belt with a radio",
+  "GIONG_CANHSAT": "a calm, clear, firm man's voice, American accent, polite and professional",
+  "VAI_CANHSAT": "officer",
+  "POS_CANHSAT": "window-side",
+  "NGHE_CANHSAT": "stays leaning at the car window looking at whoever in the car is speaking, calm attentive face, mouth closed",
+  "TEN_HOC": "the mother",
+  "NGUOI_HOC": "a stylized 3D-animated young Indian woman about 29, shoulder-length softly curled black hair, thin rounded glasses, dark-brown eyes, light-brown skin, a plain white cotton shirt, the seat belt across the chest",
+  "GIONG_HOC": "a warm woman's voice with a clear Indian accent, hesitant and nervous in English",
+  "VAI_HOC": "driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "sits at the wheel looking at whoever is speaking, worried attentive face, mouth closed, hands on the steering wheel unless the clip's action says otherwise",
+  "TEN_BE": "the little girl",
+  "NGUOI_BE": "a stylized 3D-animated Indian girl about five years old, very big dark-brown eyes, long black hair in two braids tied with small red ribbons, a tiny bindi, a pink ruffled sleeveless dress, sitting in a child car seat with the seat belt on",
+  "GIONG_BE": "a bright, sweet, confident little girl's voice, clear English with a light Indian accent, also fluent Hindi",
+  "VAI_BE": "daughter",
+  "POS_BE": "child-seat",
+  "NGHE_BE": "sits in her child seat looking at whoever is speaking with big curious eyes, mouth closed",
+  "XE": "a glossy pearl-white four-door sedan with beige leather seats",
+  "NEN_DUONG": "a quiet two-lane road through a lush green landscape on a sunny morning: tall coconut palms and banana trees along the roadside, bright green rice paddies, misty green hills in the distance, a pale blue sky, no signs or lettering",
+  "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
+  "DAO_DIEN_THOAI": "a blue smartphone",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
+  "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
+  "NEN_HOC": "the inside of the pearl-white car in soft warm morning sunlight, beige leather seats and the green rice paddies and coconut palms through the rear windows",
+  "NHIN_CANHSAT": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_BE": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "LUOT": [
+   {
+    "who": "canhsat",
+    "text": "Do you know you were speeding?",
+    "emo": "decisive, calm",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Yes.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "License and registration, please.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Uh... I... I... I...",
+    "emo": "hesitant, worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Officer, sorry. She's nervous, and her English isn't very good.",
+    "emo": "helpful, embarrassed",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "Does she have her license and registration?",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "आपका लाइसेंस और गाड़ी के कागज़।",
+    "emo": "helpful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "All right. Slow down next time.",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "I wish I could speak English like you.",
+    "emo": "relieved, hopeful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Really?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Yep. Let me show you.",
+    "emo": "playful, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "day",
+    "text": "Where are you going?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I go to home.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "go to",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "You mean, I'm going home?",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Yes. I'm going home.",
+    "emo": "cheerful",
+    "fx": "right",
+    "icon": "check",
+    "to": "going",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am very hurry.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "am very",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm in a hurry, is the correct way to say that.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Oh, okay. Thank you. Wait, who are you?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "But I don't have moneys.",
+    "emo": "worried",
+    "fx": "none",
+    "icon": "dollar",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Seriously?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
+    "emo": "upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I will download now. Thank you so much.",
+    "emo": "delighted",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_CANHSAT": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/canh-sat-nam.png"
+   ],
+   "NGUOI_HOC": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/tai-xe-16.png"
+   ],
+   "NGUOI_BE": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/be-an.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
+   ]
+  },
+  "nguoi_theo_canh": true,
+  "CHA": "mother",
+  "CHA_ANH": "she",
+  "CHA_CUA": "her",
+  "CHA_O": "her",
+  "CHA_VN": "mẹ",
+  "CS_ANH": "he",
+  "CS_CUA": "his",
+  "CS_O": "him",
+  "NET_HOC": "shoulder-length curled black hair, thin round glasses",
+  "TIENG_BE": "tiếng Hindi",
+  "ANH_SANG": "soft warm morning sunlight",
+  "DUONG_SAU": "the quiet road, coconut palms, green rice paddies and the sky",
+  "DUONG_TRONG": "the quiet palm-lined road",
+  "NGOAI_XA": "the green rice paddies and coconut palms",
+  "AM_NEN": "tropical countryside ambience, birdsong",
+  "MAU_XE": "pearl-white",
+  "GHE_XE": "beige leather"
+ },
+ {
+  "name": "nen-12-pho-mexico-tai-xe-11-nu-mexico",
+  "TEN_CANHSAT": "the officer",
+  "NGUOI_CANHSAT": "a stylized 3D-animated American policeman in his early forties, short dark-brown hair, a clean-shaven square jaw, calm kind brown eyes, light-tan skin, a navy short-sleeved police uniform with a plain gold badge and shoulder patches without lettering, a black duty belt with a radio",
+  "GIONG_CANHSAT": "a calm, clear, firm man's voice, American accent, polite and professional",
+  "VAI_CANHSAT": "officer",
+  "POS_CANHSAT": "window-side",
+  "NGHE_CANHSAT": "stays leaning at the car window looking at whoever in the car is speaking, calm attentive face, mouth closed",
+  "TEN_HOC": "the mother",
+  "NGUOI_HOC": "a stylized 3D-animated Mexican woman about 32, long wavy black hair, big brown eyes, tan skin, gold hoop earrings, a coral-orange sleeveless top, the seat belt across the chest",
+  "GIONG_HOC": "a warm woman's voice with a light Mexican accent, hesitant and nervous in English",
+  "VAI_HOC": "driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "sits at the wheel looking at whoever is speaking, worried attentive face, mouth closed, hands on the steering wheel unless the clip's action says otherwise",
+  "TEN_BE": "the little girl",
+  "NGUOI_BE": "a stylized 3D-animated Latina girl about five years old, very big brown eyes, long thin braids threaded with colourful beads, a pink ruffled sleeveless dress, sitting in a child car seat with the seat belt on",
+  "GIONG_BE": "a bright, sweet, confident little girl's voice, clear American English, also fluent Spanish",
+  "VAI_BE": "daughter",
+  "POS_BE": "child-seat",
+  "NGHE_BE": "sits in her child seat looking at whoever is speaking with big curious eyes, mouth closed",
+  "XE": "a glossy deep-blue four-door sedan with light-grey fabric seats",
+  "NEN_DUONG": "a sunny cobblestone street in a colourful small Mexican town: pastel pink, yellow and turquoise one-storey houses with wrought-iron windows, pink bougainvillea over the walls, a white church bell tower in the distance, a clear blue sky, no signs or lettering",
+  "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
+  "DAO_DIEN_THOAI": "a blue smartphone",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
+  "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
+  "NEN_HOC": "the inside of the deep-blue car in bright warm afternoon sunlight, light-grey fabric seats and the colourful pastel houses of the town through the rear windows",
+  "NHIN_CANHSAT": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_BE": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "LUOT": [
+   {
+    "who": "canhsat",
+    "text": "Do you know you were speeding?",
+    "emo": "decisive, calm",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Yes.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "License and registration, please.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Uh... I... I... I...",
+    "emo": "hesitant, worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Officer, sorry. She's nervous, and her English isn't very good.",
+    "emo": "helpful, embarrassed",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "Does she have her license and registration?",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Tu licencia y los papeles del carro.",
+    "emo": "helpful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "All right. Slow down next time.",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "I wish I could speak English like you.",
+    "emo": "relieved, hopeful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Really?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Yep. Let me show you.",
+    "emo": "playful, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "day",
+    "text": "Where are you going?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I go to home.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "go to",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "You mean, I'm going home?",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Yes. I'm going home.",
+    "emo": "cheerful",
+    "fx": "right",
+    "icon": "check",
+    "to": "going",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am very hurry.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "am very",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm in a hurry, is the correct way to say that.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Oh, okay. Thank you. Wait, who are you?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "But I don't have moneys.",
+    "emo": "worried",
+    "fx": "none",
+    "icon": "dollar",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Seriously?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
+    "emo": "upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I will download now. Thank you so much.",
+    "emo": "delighted",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_CANHSAT": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/canh-sat-nam.png"
+   ],
+   "NGUOI_HOC": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/tai-xe-11.png"
+   ],
+   "NGUOI_BE": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/BE.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
+   ]
+  },
+  "nguoi_theo_canh": true,
+  "CHA": "mother",
+  "CHA_ANH": "she",
+  "CHA_CUA": "her",
+  "CHA_O": "her",
+  "CHA_VN": "mẹ",
+  "CS_ANH": "he",
+  "CS_CUA": "his",
+  "CS_O": "him",
+  "NET_HOC": "long wavy black hair, gold hoop earrings",
+  "TIENG_BE": "tiếng Tây Ban Nha",
+  "ANH_SANG": "bright warm afternoon sunlight",
+  "DUONG_SAU": "the colourful cobblestone street, pastel houses, bougainvillea and the blue sky",
+  "DUONG_TRONG": "the colourful cobblestone street",
+  "NGOAI_XA": "the colourful pastel houses of the town",
+  "AM_NEN": "small-town street ambience, distant church bells",
+  "MAU_XE": "deep-blue",
+  "GHE_XE": "light-grey fabric"
+ },
+ {
+  "name": "nen-13-duong-ngo-tai-xe-06-nam-india",
+  "TEN_CANHSAT": "the officer",
+  "NGUOI_CANHSAT": "a stylized 3D-animated young Latina policewoman, dark brown hair in a neat low bun, big brown eyes, a navy short-sleeved police uniform with a plain gold badge and shoulder patches without lettering, a black duty belt",
+  "GIONG_CANHSAT": "a calm, clear, firm young woman's voice, American accent, polite and professional",
+  "VAI_CANHSAT": "officer",
+  "POS_CANHSAT": "window-side",
+  "NGHE_CANHSAT": "stays leaning at the car window looking at whoever in the car is speaking, calm attentive face, mouth closed",
+  "TEN_HOC": "the father",
+  "NGUOI_HOC": "a stylized 3D-animated Sikh Indian man about 38, a navy-blue turban, a full long black beard, kind dark eyes, medium-brown skin, a light-grey short-sleeved shirt, a steel kada bracelet, the seat belt across the chest",
+  "GIONG_HOC": "a warm man's voice with a clear Indian accent, hesitant and nervous in English",
+  "VAI_HOC": "driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "sits at the wheel looking at whoever is speaking, worried attentive face, mouth closed, hands on the steering wheel unless the clip's action says otherwise",
+  "TEN_BE": "the little girl",
+  "NGUOI_BE": "a stylized 3D-animated Indian girl about five years old, very big dark-brown eyes, long black hair in two braids tied with small red ribbons, a tiny bindi, a pink ruffled sleeveless dress, sitting in a child car seat with the seat belt on",
+  "GIONG_BE": "a bright, sweet, confident little girl's voice, clear English with a light Indian accent, also fluent Hindi",
+  "VAI_BE": "daughter",
+  "POS_BE": "child-seat",
+  "NGHE_BE": "sits in her child seat looking at whoever is speaking with big curious eyes, mouth closed",
+  "XE": "a glossy silver four-door sedan with black leather seats",
+  "NEN_DUONG": "an empty two-lane country road through tall green cornfields at golden hour: a red wooden barn and a white farmhouse in the distance, a tall metal farm windmill, a soft orange-and-blue sky",
+  "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
+  "DAO_DIEN_THOAI": "a blue smartphone",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
+  "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
+  "NEN_HOC": "the inside of the silver car in warm golden-hour light, black leather seats and the green cornfields through the rear windows",
+  "NHIN_CANHSAT": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_BE": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "LUOT": [
+   {
+    "who": "canhsat",
+    "text": "Do you know you were speeding?",
+    "emo": "decisive, calm",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Yes.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "License and registration, please.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Uh... I... I... I...",
+    "emo": "hesitant, worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Officer, sorry. He's nervous, and his English isn't very good.",
+    "emo": "helpful, embarrassed",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "Does he have his license and registration?",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "आपका लाइसेंस और गाड़ी के कागज़।",
+    "emo": "helpful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "All right. Slow down next time.",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "I wish I could speak English like you.",
+    "emo": "relieved, hopeful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Really?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Yep. Let me show you.",
+    "emo": "playful, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "day",
+    "text": "Where are you going?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I go to home.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "go to",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "You mean, I'm going home?",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Yes. I'm going home.",
+    "emo": "cheerful",
+    "fx": "right",
+    "icon": "check",
+    "to": "going",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am very hurry.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "am very",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm in a hurry, is the correct way to say that.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Oh, okay. Thank you. Wait, who are you?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "But I don't have moneys.",
+    "emo": "worried",
+    "fx": "none",
+    "icon": "dollar",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Seriously?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
+    "emo": "upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I will download now. Thank you so much.",
+    "emo": "delighted",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_CANHSAT": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/CANHSAT.png"
+   ],
+   "NGUOI_HOC": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/tai-xe-06.png"
+   ],
+   "NGUOI_BE": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/be-an.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
+   ]
+  },
+  "nguoi_theo_canh": true,
+  "CHA": "father",
+  "CHA_ANH": "he",
+  "CHA_CUA": "his",
+  "CHA_O": "him",
+  "CHA_VN": "bố",
+  "CS_ANH": "she",
+  "CS_CUA": "her",
+  "CS_O": "her",
+  "NET_HOC": "navy-blue turban, long black beard",
+  "TIENG_BE": "tiếng Hindi",
+  "ANH_SANG": "warm golden-hour light",
+  "DUONG_SAU": "the empty country road, tall green cornfields and the sky",
+  "DUONG_TRONG": "the empty country road",
+  "NGOAI_XA": "the green cornfields",
+  "AM_NEN": "countryside ambience, rustling corn leaves and crickets",
+  "MAU_XE": "silver",
+  "GHE_XE": "black leather"
+ },
+ {
+  "name": "nen-14-agave-tai-xe-19-nu-us",
+  "TEN_CANHSAT": "the officer",
+  "NGUOI_CANHSAT": "a stylized 3D-animated American policeman in his early forties, short dark-brown hair, a clean-shaven square jaw, calm kind brown eyes, light-tan skin, a navy short-sleeved police uniform with a plain gold badge and shoulder patches without lettering, a black duty belt with a radio",
+  "GIONG_CANHSAT": "a calm, clear, firm man's voice, American accent, polite and professional",
+  "VAI_CANHSAT": "officer",
+  "POS_CANHSAT": "window-side",
+  "NGHE_CANHSAT": "stays leaning at the car window looking at whoever in the car is speaking, calm attentive face, mouth closed",
+  "TEN_HOC": "the mother",
+  "NGUOI_HOC": "a stylized 3D-animated African-American woman about 31, natural curly hair in a high puff, silver hoop earrings, warm brown eyes, deep-brown skin, a white tank top, the seat belt across the chest",
+  "GIONG_HOC": "a warm woman's voice, American accent, hesitant and nervous",
+  "VAI_HOC": "driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "sits at the wheel looking at whoever is speaking, worried attentive face, mouth closed, hands on the steering wheel unless the clip's action says otherwise",
+  "TEN_BE": "the little girl",
+  "NGUOI_BE": "a stylized 3D-animated African-American girl about five years old, very big brown eyes, natural curly hair in two puffs with colourful bobbles, a pink ruffled sleeveless dress, sitting in a child car seat with the seat belt on",
+  "GIONG_BE": "a bright, sweet, confident little girl's voice, clear American English, also fluent Spanish",
+  "VAI_BE": "daughter",
+  "POS_BE": "child-seat",
+  "NGHE_BE": "sits in her child seat looking at whoever is speaking with big curious eyes, mouth closed",
+  "XE": "a glossy emerald-green four-door sedan with tan leather seats",
+  "NEN_DUONG": "an empty two-lane road through endless rows of blue agave fields at sunset: rolling hills and blue mountains on the horizon, a few tall cacti, an orange-and-pink sky",
+  "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
+  "DAO_DIEN_THOAI": "a blue smartphone",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
+  "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
+  "NEN_HOC": "the inside of the emerald-green car in warm orange sunset light, tan leather seats and the blue agave fields and mountains through the rear windows",
+  "NHIN_CANHSAT": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_BE": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "LUOT": [
+   {
+    "who": "canhsat",
+    "text": "Do you know you were speeding?",
+    "emo": "decisive, calm",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Yes.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "License and registration, please.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Uh... I... I... I...",
+    "emo": "hesitant, worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Officer, sorry. She's nervous, and her English isn't very good.",
+    "emo": "helpful, embarrassed",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "Does she have her license and registration?",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Tu licencia y los papeles del carro.",
+    "emo": "helpful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "All right. Slow down next time.",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "I wish I could speak English like you.",
+    "emo": "relieved, hopeful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Really?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Yep. Let me show you.",
+    "emo": "playful, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "day",
+    "text": "Where are you going?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I go to home.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "go to",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "You mean, I'm going home?",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Yes. I'm going home.",
+    "emo": "cheerful",
+    "fx": "right",
+    "icon": "check",
+    "to": "going",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am very hurry.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "am very",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm in a hurry, is the correct way to say that.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Oh, okay. Thank you. Wait, who are you?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "But I don't have moneys.",
+    "emo": "worried",
+    "fx": "none",
+    "icon": "dollar",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Seriously?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
+    "emo": "upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I will download now. Thank you so much.",
+    "emo": "delighted",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_CANHSAT": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/canh-sat-nam.png"
+   ],
+   "NGUOI_HOC": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/tai-xe-19.png"
+   ],
+   "NGUOI_BE": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/be-phi.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
+   ]
+  },
+  "nguoi_theo_canh": true,
+  "CHA": "mother",
+  "CHA_ANH": "she",
+  "CHA_CUA": "her",
+  "CHA_O": "her",
+  "CHA_VN": "mẹ",
+  "CS_ANH": "he",
+  "CS_CUA": "his",
+  "CS_O": "him",
+  "NET_HOC": "natural curly hair in a high puff, silver hoop earrings",
+  "TIENG_BE": "tiếng Tây Ban Nha",
+  "ANH_SANG": "warm orange sunset light",
+  "DUONG_SAU": "the empty road, blue agave fields, mountains and the sunset sky",
+  "DUONG_TRONG": "the empty road through the agave fields",
+  "NGOAI_XA": "the blue agave fields and mountains",
+  "AM_NEN": "open countryside ambience, soft wind",
+  "MAU_XE": "emerald-green",
+  "GHE_XE": "tan leather"
+ },
+ {
+  "name": "nen-15-pho-my-tai-xe-03-nam-mexico",
+  "TEN_CANHSAT": "the officer",
+  "NGUOI_CANHSAT": "a stylized 3D-animated young Latina policewoman, dark brown hair in a neat low bun, big brown eyes, a navy short-sleeved police uniform with a plain gold badge and shoulder patches without lettering, a black duty belt",
+  "GIONG_CANHSAT": "a calm, clear, firm young woman's voice, American accent, polite and professional",
+  "VAI_CANHSAT": "officer",
+  "POS_CANHSAT": "window-side",
+  "NGHE_CANHSAT": "stays leaning at the car window looking at whoever in the car is speaking, calm attentive face, mouth closed",
+  "TEN_HOC": "the father",
+  "NGUOI_HOC": "a stylized 3D-animated stocky Mexican man about 42, a short buzz cut with a few grey hairs, a round friendly face, a short greying goatee, brown skin, a dark-red polo shirt, the seat belt across the chest",
+  "GIONG_HOC": "a warm, slightly husky man's voice with a light Mexican accent, hesitant and nervous in English",
+  "VAI_HOC": "driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "sits at the wheel looking at whoever is speaking, worried attentive face, mouth closed, hands on the steering wheel unless the clip's action says otherwise",
+  "TEN_BE": "the little girl",
+  "NGUOI_BE": "a stylized 3D-animated Latina girl about five years old, very big brown eyes, long thin braids threaded with colourful beads, a pink ruffled sleeveless dress, sitting in a child car seat with the seat belt on",
+  "GIONG_BE": "a bright, sweet, confident little girl's voice, clear American English, also fluent Spanish",
+  "VAI_BE": "daughter",
+  "POS_BE": "child-seat",
+  "NGHE_BE": "sits in her child seat looking at whoever is speaking with big curious eyes, mouth closed",
+  "XE": "a glossy sunset-orange four-door sedan with black leather seats",
+  "NEN_DUONG": "a quiet tree-lined American suburban street on a sunny late afternoon: neat two-storey houses with porches, green lawns, white picket fences, tall maple trees, a clear blue sky, no signs or lettering",
+  "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
+  "DAO_DIEN_THOAI": "a blue smartphone",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
+  "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
+  "NEN_HOC": "the inside of the sunset-orange car in bright warm late-afternoon sunlight, black leather seats and the quiet suburban street with houses and maple trees through the rear windows",
+  "NHIN_CANHSAT": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_BE": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "LUOT": [
+   {
+    "who": "canhsat",
+    "text": "Do you know you were speeding?",
+    "emo": "decisive, calm",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Yes.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "License and registration, please.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Uh... I... I... I...",
+    "emo": "hesitant, worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Officer, sorry. He's nervous, and his English isn't very good.",
+    "emo": "helpful, embarrassed",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "Does he have his license and registration?",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Tu licencia y los papeles del carro.",
+    "emo": "helpful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "All right. Slow down next time.",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "I wish I could speak English like you.",
+    "emo": "relieved, hopeful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Really?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Yep. Let me show you.",
+    "emo": "playful, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "day",
+    "text": "Where are you going?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I go to home.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "go to",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "You mean, I'm going home?",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Yes. I'm going home.",
+    "emo": "cheerful",
+    "fx": "right",
+    "icon": "check",
+    "to": "going",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am very hurry.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "am very",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm in a hurry, is the correct way to say that.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Oh, okay. Thank you. Wait, who are you?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "But I don't have moneys.",
+    "emo": "worried",
+    "fx": "none",
+    "icon": "dollar",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Seriously?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
+    "emo": "upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I will download now. Thank you so much.",
+    "emo": "delighted",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_CANHSAT": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/CANHSAT.png"
+   ],
+   "NGUOI_HOC": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/tai-xe-03.png"
+   ],
+   "NGUOI_BE": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/BE.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
+   ]
+  },
+  "nguoi_theo_canh": true,
+  "CHA": "father",
+  "CHA_ANH": "he",
+  "CHA_CUA": "his",
+  "CHA_O": "him",
+  "CHA_VN": "bố",
+  "CS_ANH": "she",
+  "CS_CUA": "her",
+  "CS_O": "her",
+  "NET_HOC": "grey-flecked buzz cut, short greying goatee",
+  "TIENG_BE": "tiếng Tây Ban Nha",
+  "ANH_SANG": "bright warm late-afternoon sunlight",
+  "DUONG_SAU": "the quiet suburban street, green lawns, maple trees and the blue sky",
+  "DUONG_TRONG": "the quiet suburban street",
+  "NGOAI_XA": "the quiet suburban street with houses and maple trees",
+  "AM_NEN": "quiet suburban street ambience, distant birdsong",
+  "MAU_XE": "sunset-orange",
+  "GHE_XE": "black leather"
+ },
+ {
+  "name": "nen-16-pho-mexico-tai-xe-10-nam-us",
+  "TEN_CANHSAT": "the officer",
+  "NGUOI_CANHSAT": "a stylized 3D-animated young Latina policewoman, dark brown hair in a neat low bun, big brown eyes, a navy short-sleeved police uniform with a plain gold badge and shoulder patches without lettering, a black duty belt",
+  "GIONG_CANHSAT": "a calm, clear, firm young woman's voice, American accent, polite and professional",
+  "VAI_CANHSAT": "officer",
+  "POS_CANHSAT": "window-side",
+  "NGHE_CANHSAT": "stays leaning at the car window looking at whoever in the car is speaking, calm attentive face, mouth closed",
+  "TEN_HOC": "the father",
+  "NGUOI_HOC": "a stylized 3D-animated white American man about 40, short brown hair with a slightly receding hairline, black-framed glasses, clean-shaven, hazel eyes, fair skin, a heather-grey polo shirt, the seat belt across the chest",
+  "GIONG_HOC": "a warm, slightly husky man's voice, American accent, hesitant and nervous",
+  "VAI_HOC": "driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "sits at the wheel looking at whoever is speaking, worried attentive face, mouth closed, hands on the steering wheel unless the clip's action says otherwise",
+  "TEN_BE": "the little girl",
+  "NGUOI_BE": "a stylized 3D-animated white American girl about five years old, very big blue eyes, light-brown hair in two pigtails with colourful clips, light freckles, a pink ruffled sleeveless dress, sitting in a child car seat with the seat belt on",
+  "GIONG_BE": "a bright, sweet, confident little girl's voice, clear American English, also fluent Spanish",
+  "VAI_BE": "daughter",
+  "POS_BE": "child-seat",
+  "NGHE_BE": "sits in her child seat looking at whoever is speaking with big curious eyes, mouth closed",
+  "XE": "a glossy pearl-white four-door sedan with beige leather seats",
+  "NEN_DUONG": "a sunny cobblestone street in a colourful small Mexican town: pastel pink, yellow and turquoise one-storey houses with wrought-iron windows, pink bougainvillea over the walls, a white church bell tower in the distance, a clear blue sky, no signs or lettering",
+  "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
+  "DAO_DIEN_THOAI": "a blue smartphone",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
+  "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
+  "NEN_HOC": "the inside of the pearl-white car in bright warm afternoon sunlight, beige leather seats and the colourful pastel houses of the town through the rear windows",
+  "NHIN_CANHSAT": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_BE": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "LUOT": [
+   {
+    "who": "canhsat",
+    "text": "Do you know you were speeding?",
+    "emo": "decisive, calm",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Yes.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "License and registration, please.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Uh... I... I... I...",
+    "emo": "hesitant, worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Officer, sorry. He's nervous, and his English isn't very good.",
+    "emo": "helpful, embarrassed",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "Does he have his license and registration?",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Tu licencia y los papeles del carro.",
+    "emo": "helpful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "All right. Slow down next time.",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "I wish I could speak English like you.",
+    "emo": "relieved, hopeful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Really?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Yep. Let me show you.",
+    "emo": "playful, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "day",
+    "text": "Where are you going?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I go to home.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "go to",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "You mean, I'm going home?",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Yes. I'm going home.",
+    "emo": "cheerful",
+    "fx": "right",
+    "icon": "check",
+    "to": "going",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am very hurry.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "am very",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm in a hurry, is the correct way to say that.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Oh, okay. Thank you. Wait, who are you?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "But I don't have moneys.",
+    "emo": "worried",
+    "fx": "none",
+    "icon": "dollar",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Seriously?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
+    "emo": "upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I will download now. Thank you so much.",
+    "emo": "delighted",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_CANHSAT": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/CANHSAT.png"
+   ],
+   "NGUOI_HOC": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/tai-xe-10.png"
+   ],
+   "NGUOI_BE": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/be-trang.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
+   ]
+  },
+  "nguoi_theo_canh": true,
+  "CHA": "father",
+  "CHA_ANH": "he",
+  "CHA_CUA": "his",
+  "CHA_O": "him",
+  "CHA_VN": "bố",
+  "CS_ANH": "she",
+  "CS_CUA": "her",
+  "CS_O": "her",
+  "NET_HOC": "receding brown hair, black-framed glasses",
+  "TIENG_BE": "tiếng Tây Ban Nha",
+  "ANH_SANG": "bright warm afternoon sunlight",
+  "DUONG_SAU": "the colourful cobblestone street, pastel houses, bougainvillea and the blue sky",
+  "DUONG_TRONG": "the colourful cobblestone street",
+  "NGOAI_XA": "the colourful pastel houses of the town",
+  "AM_NEN": "small-town street ambience, distant church bells",
+  "MAU_XE": "pearl-white",
+  "GHE_XE": "beige leather"
+ },
+ {
+  "name": "nen-17-duong-ngo-tai-xe-20-nu-us",
+  "TEN_CANHSAT": "the officer",
+  "NGUOI_CANHSAT": "a stylized 3D-animated American policeman in his early forties, short dark-brown hair, a clean-shaven square jaw, calm kind brown eyes, light-tan skin, a navy short-sleeved police uniform with a plain gold badge and shoulder patches without lettering, a black duty belt with a radio",
+  "GIONG_CANHSAT": "a calm, clear, firm man's voice, American accent, polite and professional",
+  "VAI_CANHSAT": "officer",
+  "POS_CANHSAT": "window-side",
+  "NGHE_CANHSAT": "stays leaning at the car window looking at whoever in the car is speaking, calm attentive face, mouth closed",
+  "TEN_HOC": "the mother",
+  "NGUOI_HOC": "a stylized 3D-animated white American woman about 39, auburn hair in a loose messy bun, grey-blue eyes, fair skin, a navy-and-white checked short-sleeved shirt, the seat belt across the chest",
+  "GIONG_HOC": "a warm woman's voice, American accent, hesitant and nervous",
+  "VAI_HOC": "driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "sits at the wheel looking at whoever is speaking, worried attentive face, mouth closed, hands on the steering wheel unless the clip's action says otherwise",
+  "TEN_BE": "the little girl",
+  "NGUOI_BE": "a stylized 3D-animated white American girl about five years old, very big blue eyes, light-brown hair in two pigtails with colourful clips, light freckles, a pink ruffled sleeveless dress, sitting in a child car seat with the seat belt on",
+  "GIONG_BE": "a bright, sweet, confident little girl's voice, clear American English, also fluent Spanish",
+  "VAI_BE": "daughter",
+  "POS_BE": "child-seat",
+  "NGHE_BE": "sits in her child seat looking at whoever is speaking with big curious eyes, mouth closed",
+  "XE": "a glossy deep-blue four-door sedan with light-grey fabric seats",
+  "NEN_DUONG": "an empty two-lane country road through tall green cornfields at golden hour: a red wooden barn and a white farmhouse in the distance, a tall metal farm windmill, a soft orange-and-blue sky",
+  "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
+  "DAO_DIEN_THOAI": "a blue smartphone",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
+  "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
+  "NEN_HOC": "the inside of the deep-blue car in warm golden-hour light, light-grey fabric seats and the green cornfields through the rear windows",
+  "NHIN_CANHSAT": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_BE": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "LUOT": [
+   {
+    "who": "canhsat",
+    "text": "Do you know you were speeding?",
+    "emo": "decisive, calm",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Yes.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "License and registration, please.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Uh... I... I... I...",
+    "emo": "hesitant, worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Officer, sorry. She's nervous, and her English isn't very good.",
+    "emo": "helpful, embarrassed",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "Does she have her license and registration?",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Tu licencia y los papeles del carro.",
+    "emo": "helpful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "All right. Slow down next time.",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "I wish I could speak English like you.",
+    "emo": "relieved, hopeful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Really?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Yep. Let me show you.",
+    "emo": "playful, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "day",
+    "text": "Where are you going?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I go to home.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "go to",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "You mean, I'm going home?",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Yes. I'm going home.",
+    "emo": "cheerful",
+    "fx": "right",
+    "icon": "check",
+    "to": "going",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am very hurry.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "am very",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm in a hurry, is the correct way to say that.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Oh, okay. Thank you. Wait, who are you?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "But I don't have moneys.",
+    "emo": "worried",
+    "fx": "none",
+    "icon": "dollar",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Seriously?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
+    "emo": "upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I will download now. Thank you so much.",
+    "emo": "delighted",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_CANHSAT": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/canh-sat-nam.png"
+   ],
+   "NGUOI_HOC": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/tai-xe-20.png"
+   ],
+   "NGUOI_BE": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/be-trang.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
+   ]
+  },
+  "nguoi_theo_canh": true,
+  "CHA": "mother",
+  "CHA_ANH": "she",
+  "CHA_CUA": "her",
+  "CHA_O": "her",
+  "CHA_VN": "mẹ",
+  "CS_ANH": "he",
+  "CS_CUA": "his",
+  "CS_O": "him",
+  "NET_HOC": "auburn hair in a loose messy bun",
+  "TIENG_BE": "tiếng Tây Ban Nha",
+  "ANH_SANG": "warm golden-hour light",
+  "DUONG_SAU": "the empty country road, tall green cornfields and the sky",
+  "DUONG_TRONG": "the empty country road",
+  "NGOAI_XA": "the green cornfields",
+  "AM_NEN": "countryside ambience, rustling corn leaves and crickets",
+  "MAU_XE": "deep-blue",
+  "GHE_XE": "light-grey fabric"
+ },
+ {
+  "name": "nen-18-agave-tai-xe-04-nam-mexico",
+  "TEN_CANHSAT": "the officer",
+  "NGUOI_CANHSAT": "a stylized 3D-animated young Latina policewoman, dark brown hair in a neat low bun, big brown eyes, a navy short-sleeved police uniform with a plain gold badge and shoulder patches without lettering, a black duty belt",
+  "GIONG_CANHSAT": "a calm, clear, firm young woman's voice, American accent, polite and professional",
+  "VAI_CANHSAT": "officer",
+  "POS_CANHSAT": "window-side",
+  "NGHE_CANHSAT": "stays leaning at the car window looking at whoever in the car is speaking, calm attentive face, mouth closed",
+  "TEN_HOC": "the father",
+  "NGUOI_HOC": "a stylized 3D-animated slim Mexican man about 28, black undercut hairstyle, sunglasses pushed up on his head, clean-shaven, warm brown eyes, tan skin, a light-blue denim button shirt, the seat belt across the chest",
+  "GIONG_HOC": "a warm, slightly husky man's voice with a light Mexican accent, hesitant and nervous in English",
+  "VAI_HOC": "driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "sits at the wheel looking at whoever is speaking, worried attentive face, mouth closed, hands on the steering wheel unless the clip's action says otherwise",
+  "TEN_BE": "the little girl",
+  "NGUOI_BE": "a stylized 3D-animated Latina girl about five years old, very big brown eyes, long thin braids threaded with colourful beads, a pink ruffled sleeveless dress, sitting in a child car seat with the seat belt on",
+  "GIONG_BE": "a bright, sweet, confident little girl's voice, clear American English, also fluent Spanish",
+  "VAI_BE": "daughter",
+  "POS_BE": "child-seat",
+  "NGHE_BE": "sits in her child seat looking at whoever is speaking with big curious eyes, mouth closed",
+  "XE": "a glossy silver four-door sedan with black leather seats",
+  "NEN_DUONG": "an empty two-lane road through endless rows of blue agave fields at sunset: rolling hills and blue mountains on the horizon, a few tall cacti, an orange-and-pink sky",
+  "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
+  "DAO_DIEN_THOAI": "a blue smartphone",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
+  "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
+  "NEN_HOC": "the inside of the silver car in warm orange sunset light, black leather seats and the blue agave fields and mountains through the rear windows",
+  "NHIN_CANHSAT": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_BE": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "LUOT": [
+   {
+    "who": "canhsat",
+    "text": "Do you know you were speeding?",
+    "emo": "decisive, calm",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Yes.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "License and registration, please.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Uh... I... I... I...",
+    "emo": "hesitant, worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Officer, sorry. He's nervous, and his English isn't very good.",
+    "emo": "helpful, embarrassed",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "Does he have his license and registration?",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Tu licencia y los papeles del carro.",
+    "emo": "helpful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "All right. Slow down next time.",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "I wish I could speak English like you.",
+    "emo": "relieved, hopeful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Really?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Yep. Let me show you.",
+    "emo": "playful, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "day",
+    "text": "Where are you going?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I go to home.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "go to",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "You mean, I'm going home?",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Yes. I'm going home.",
+    "emo": "cheerful",
+    "fx": "right",
+    "icon": "check",
+    "to": "going",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am very hurry.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "am very",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm in a hurry, is the correct way to say that.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Oh, okay. Thank you. Wait, who are you?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "But I don't have moneys.",
+    "emo": "worried",
+    "fx": "none",
+    "icon": "dollar",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Seriously?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
+    "emo": "upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I will download now. Thank you so much.",
+    "emo": "delighted",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_CANHSAT": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/CANHSAT.png"
+   ],
+   "NGUOI_HOC": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/tai-xe-04.png"
+   ],
+   "NGUOI_BE": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/BE.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
+   ]
+  },
+  "nguoi_theo_canh": true,
+  "CHA": "father",
+  "CHA_ANH": "he",
+  "CHA_CUA": "his",
+  "CHA_O": "him",
+  "CHA_VN": "bố",
+  "CS_ANH": "she",
+  "CS_CUA": "her",
+  "CS_O": "her",
+  "NET_HOC": "black undercut hair, sunglasses pushed up on the head",
+  "TIENG_BE": "tiếng Tây Ban Nha",
+  "ANH_SANG": "warm orange sunset light",
+  "DUONG_SAU": "the empty road, blue agave fields, mountains and the sunset sky",
+  "DUONG_TRONG": "the empty road through the agave fields",
+  "NGOAI_XA": "the blue agave fields and mountains",
+  "AM_NEN": "open countryside ambience, soft wind",
+  "MAU_XE": "silver",
+  "GHE_XE": "black leather"
+ },
+ {
+  "name": "nen-19-pho-my-tai-xe-15-nu-india",
+  "TEN_CANHSAT": "the officer",
+  "NGUOI_CANHSAT": "a stylized 3D-animated American policeman in his early forties, short dark-brown hair, a clean-shaven square jaw, calm kind brown eyes, light-tan skin, a navy short-sleeved police uniform with a plain gold badge and shoulder patches without lettering, a black duty belt with a radio",
+  "GIONG_CANHSAT": "a calm, clear, firm man's voice, American accent, polite and professional",
+  "VAI_CANHSAT": "officer",
+  "POS_CANHSAT": "window-side",
+  "NGHE_CANHSAT": "stays leaning at the car window looking at whoever in the car is speaking, calm attentive face, mouth closed",
+  "TEN_HOC": "the mother",
+  "NGUOI_HOC": "a stylized 3D-animated Indian woman about 40, black hair in a low bun, large gold jhumka earrings, kind dark eyes, brown skin, a teal cotton kurti top with a small printed border, the seat belt across the chest",
+  "GIONG_HOC": "a warm woman's voice with a clear Indian accent, hesitant and nervous in English",
+  "VAI_HOC": "driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "sits at the wheel looking at whoever is speaking, worried attentive face, mouth closed, hands on the steering wheel unless the clip's action says otherwise",
+  "TEN_BE": "the little girl",
+  "NGUOI_BE": "a stylized 3D-animated Indian girl about five years old, very big dark-brown eyes, long black hair in two braids tied with small red ribbons, a tiny bindi, a pink ruffled sleeveless dress, sitting in a child car seat with the seat belt on",
+  "GIONG_BE": "a bright, sweet, confident little girl's voice, clear English with a light Indian accent, also fluent Hindi",
+  "VAI_BE": "daughter",
+  "POS_BE": "child-seat",
+  "NGHE_BE": "sits in her child seat looking at whoever is speaking with big curious eyes, mouth closed",
+  "XE": "a glossy emerald-green four-door sedan with tan leather seats",
+  "NEN_DUONG": "a quiet tree-lined American suburban street on a sunny late afternoon: neat two-storey houses with porches, green lawns, white picket fences, tall maple trees, a clear blue sky, no signs or lettering",
+  "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
+  "DAO_DIEN_THOAI": "a blue smartphone",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
+  "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
+  "NEN_HOC": "the inside of the emerald-green car in bright warm late-afternoon sunlight, tan leather seats and the quiet suburban street with houses and maple trees through the rear windows",
+  "NHIN_CANHSAT": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_BE": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "LUOT": [
+   {
+    "who": "canhsat",
+    "text": "Do you know you were speeding?",
+    "emo": "decisive, calm",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Yes.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "License and registration, please.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Uh... I... I... I...",
+    "emo": "hesitant, worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Officer, sorry. She's nervous, and her English isn't very good.",
+    "emo": "helpful, embarrassed",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "Does she have her license and registration?",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "आपका लाइसेंस और गाड़ी के कागज़।",
+    "emo": "helpful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "All right. Slow down next time.",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "I wish I could speak English like you.",
+    "emo": "relieved, hopeful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Really?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Yep. Let me show you.",
+    "emo": "playful, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "day",
+    "text": "Where are you going?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I go to home.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "go to",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "You mean, I'm going home?",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Yes. I'm going home.",
+    "emo": "cheerful",
+    "fx": "right",
+    "icon": "check",
+    "to": "going",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am very hurry.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "am very",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm in a hurry, is the correct way to say that.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Oh, okay. Thank you. Wait, who are you?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "But I don't have moneys.",
+    "emo": "worried",
+    "fx": "none",
+    "icon": "dollar",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Seriously?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
+    "emo": "upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I will download now. Thank you so much.",
+    "emo": "delighted",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_CANHSAT": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/canh-sat-nam.png"
+   ],
+   "NGUOI_HOC": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/tai-xe-15.png"
+   ],
+   "NGUOI_BE": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/be-an.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
+   ]
+  },
+  "nguoi_theo_canh": true,
+  "CHA": "mother",
+  "CHA_ANH": "she",
+  "CHA_CUA": "her",
+  "CHA_O": "her",
+  "CHA_VN": "mẹ",
+  "CS_ANH": "he",
+  "CS_CUA": "his",
+  "CS_O": "him",
+  "NET_HOC": "black low bun, large gold jhumka earrings",
+  "TIENG_BE": "tiếng Hindi",
+  "ANH_SANG": "bright warm late-afternoon sunlight",
+  "DUONG_SAU": "the quiet suburban street, green lawns, maple trees and the blue sky",
+  "DUONG_TRONG": "the quiet suburban street",
+  "NGOAI_XA": "the quiet suburban street with houses and maple trees",
+  "AM_NEN": "quiet suburban street ambience, distant birdsong",
+  "MAU_XE": "emerald-green",
+  "GHE_XE": "tan leather"
+ },
+ {
+  "name": "nen-20-duong-dua-tai-xe-07-nam-india",
+  "TEN_CANHSAT": "the officer",
+  "NGUOI_CANHSAT": "a stylized 3D-animated young Latina policewoman, dark brown hair in a neat low bun, big brown eyes, a navy short-sleeved police uniform with a plain gold badge and shoulder patches without lettering, a black duty belt",
+  "GIONG_CANHSAT": "a calm, clear, firm young woman's voice, American accent, polite and professional",
+  "VAI_CANHSAT": "officer",
+  "POS_CANHSAT": "window-side",
+  "NGHE_CANHSAT": "stays leaning at the car window looking at whoever in the car is speaking, calm attentive face, mouth closed",
+  "TEN_HOC": "the father",
+  "NGUOI_HOC": "a stylized 3D-animated young Indian man about 29, thick black hair styled up, light stubble, dark-brown eyes, brown skin, a short mustard-yellow cotton kurta shirt, the seat belt across the chest",
+  "GIONG_HOC": "a warm man's voice with a clear Indian accent, hesitant and nervous in English",
+  "VAI_HOC": "driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "sits at the wheel looking at whoever is speaking, worried attentive face, mouth closed, hands on the steering wheel unless the clip's action says otherwise",
+  "TEN_BE": "the little girl",
+  "NGUOI_BE": "a stylized 3D-animated Indian girl about five years old, very big dark-brown eyes, long black hair in two braids tied with small red ribbons, a tiny bindi, a pink ruffled sleeveless dress, sitting in a child car seat with the seat belt on",
+  "GIONG_BE": "a bright, sweet, confident little girl's voice, clear English with a light Indian accent, also fluent Hindi",
+  "VAI_BE": "daughter",
+  "POS_BE": "child-seat",
+  "NGHE_BE": "sits in her child seat looking at whoever is speaking with big curious eyes, mouth closed",
+  "XE": "a glossy sunset-orange four-door sedan with black leather seats",
+  "NEN_DUONG": "a quiet two-lane road through a lush green landscape on a sunny morning: tall coconut palms and banana trees along the roadside, bright green rice paddies, misty green hills in the distance, a pale blue sky, no signs or lettering",
+  "DAO_GIAY_TO": "a brown leather wallet with a driver's licence card and a folded white registration paper, no readable text",
+  "DAO_DIEN_THOAI": "a blue smartphone",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and face, softly sculpted human-like features, large glowing sapphire-blue eyes with dark lashes and a calm friendly closed-lip smile, thin panel seams on the head, a small glowing blue 'AI' emblem on the forehead, white over-ear headphones with a thin boom microphone at the left cheek, a segmented black-and-chrome mechanical neck with faint blue light, white armoured shoulders and chest with a small glowing open-book emblem on the chest (copy the reference image exactly, but as a full scene, never as a square app icon with rounded corners); realistic 3D render",
+  "GIONG_DAY": "a clear, warm, friendly young woman's voice with a very slightly synthetic digital sheen, American accent, bright and upbeat",
+  "NEN_DAY": "a deep navy-to-violet gradient background with a thin glowing violet-blue orbit ring around her head and faint dot patterns",
+  "NEN_HOC": "the inside of the sunset-orange car in soft warm morning sunlight, black leather seats and the green rice paddies and coconut palms through the rear windows",
+  "NHIN_CANHSAT": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC": "keeps the eyes on the person he is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_BE": "keeps the eyes on the person she is talking to, in the direction the clip's EYE LINE gives, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "LUOT": [
+   {
+    "who": "canhsat",
+    "text": "Do you know you were speeding?",
+    "emo": "decisive, calm",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Yes.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "License and registration, please.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Uh... I... I... I...",
+    "emo": "hesitant, worried",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Officer, sorry. He's nervous, and his English isn't very good.",
+    "emo": "helpful, embarrassed",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "Does he have his license and registration?",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "आपका लाइसेंस और गाड़ी के कागज़।",
+    "emo": "helpful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "canhsat",
+    "text": "All right. Slow down next time.",
+    "emo": "calm, friendly",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "I wish I could speak English like you.",
+    "emo": "relieved, hopeful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Three weeks with Aiva AI. Real conversations every day.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "Really?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "be",
+    "text": "Yep. Let me show you.",
+    "emo": "playful, cheerful",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "day",
+    "text": "Where are you going?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I go to home.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "go to",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "You mean, I'm going home?",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Yes. I'm going home.",
+    "emo": "cheerful",
+    "fx": "right",
+    "icon": "check",
+    "to": "going",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am very hurry.",
+    "emo": "cheerful",
+    "fx": "wrong",
+    "icon": "x",
+    "to": "am very",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm in a hurry, is the correct way to say that.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Oh, okay. Thank you. Wait, who are you?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I'm an AI tutor and I'm here to help you practice your English and eventually get better at speaking.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "But I don't have moneys.",
+    "emo": "worried",
+    "fx": "none",
+    "icon": "dollar",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "It's I have no money. But don't worry, Aiva AI is a completely free app.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Seriously?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "We can practice English anytime, anywhere. Just download Aiva AI.",
+    "emo": "upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I will download now. Thank you so much.",
+    "emo": "delighted",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_CANHSAT": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/CANHSAT.png"
+   ],
+   "NGUOI_HOC": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/tai-xe-07.png"
+   ],
+   "NGUOI_BE": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/20-tai-xe/be-an.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY-aiva.png"
+   ]
+  },
+  "nguoi_theo_canh": true,
+  "CHA": "father",
+  "CHA_ANH": "he",
+  "CHA_CUA": "his",
+  "CHA_O": "him",
+  "CHA_VN": "bố",
+  "CS_ANH": "she",
+  "CS_CUA": "her",
+  "CS_O": "her",
+  "NET_HOC": "thick black hair styled up, light stubble",
+  "TIENG_BE": "tiếng Hindi",
+  "ANH_SANG": "soft warm morning sunlight",
+  "DUONG_SAU": "the quiet road, coconut palms, green rice paddies and the sky",
+  "DUONG_TRONG": "the quiet palm-lined road",
+  "NGOAI_XA": "the green rice paddies and coconut palms",
+  "AM_NEN": "tropical countryside ambience, birdsong",
+  "MAU_XE": "sunset-orange",
+  "GHE_XE": "black leather"
+ }
+]

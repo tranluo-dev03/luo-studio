@@ -580,3 +580,38 @@ Người dùng báo 6 lỗi; nguyên nhân đã chứng minh bằng số đo tr�
 - **Theo cảnh (TB):** phần 1 robot 62 s/cảnh (trung vị 29 s); phần 2 người nói 265 s/cảnh; clip nghe 176 s/cảnh (max ~1000 s). Hậu kỳ + ghép TB 8,4 phút (max 23).
 - **Vấn đề:** WinError 32 (file đang bị tiến trình khác dùng) ở bước ghép cảnh 16 của 7 video; Studio mở lại thì số luồng về 2; hai video cùng tài khoản Muse.
 - **Kết quả:** CHỜ KIỂM CHỨNG chất lượng từng video; áp dụng chung (độ dài/luồng); chưa chưng cất.
+
+### 2026-11-09 · chia-tren-duoi-marathi · 40 biến thể từ CSV "Horizontal HINDI" (đổi Aiva AI -> Talka AI) · loai: bien-the
+- Hiện tượng: CSV có 40 dòng (mô tả người học + mô tả nền tiếng Việt, link ảnh người học + link ảnh nền) và lời thoại Marathi (Robot/Nam, 18 lượt).
+- Cách làm: `cong-cu/tao_bien_the_40.py` (bảng ANH = bản tiếng Anh các mô tả, đọc link từ CSV); refs `NGUOI_HOC` = ảnh người, `NEN_HOC` = ảnh nền (token kết thúc _HOC nên chỉ gửi cho người học). Kịch bản viết cho người học NAM: 18 biến thể NỮ đổi động từ nói về người học (गेली होतीस, कशी, म्हणालीस). Tạo loại + dự án qua API với timeout dài (tải 80 ảnh Drive).
+- Kết quả: CHỜ KIỂM CHỨNG (chưa gen). Tải được 80/80 ảnh Drive, 0 lỗi, đều là WebP hợp lệ; Studio chưa thử gửi ảnh nền kèm NEN_HOC.
+- Áp dụng chung?: CÓ: `video-moi.py nhap` có timeout 120 s, CSV nhiều ảnh thì gọi API trực tiếp với timeout dài.
+- Đã chưng cất vào: chưa
+
+### 2026-11-10 · quet-an-ninh-day-chuyen · nhập thể loại từ thư mục Drive NHIPTY · loai: nhap-studio
+- Hiện tượng: người dùng chỉ đường dẫn thư mục Drive đã có sẵn kịch bản + biến thể + 4 ảnh refs (nhân bản từ soi-hanh-ly-gia-su-ai, bản không bé).
+- Cách làm: chép thư mục vào `SAMPLE/quet-an-ninh-day-chuyen/`; `kiem-tra` báo LỖI thiếu `app/production/types/quet-an-ninh-day-chuyen/gen.py` nên tạo `gen.py`, `post.py`, `config.json` bằng cách sao từ soi-hanh-ly-gia-su-ai (đổi tên loại); nhập Studio (loại `QUET-AN-NINH-CO-THE---DAY-CHUYEN-c421`, dự án `quet-an-ninh-day-chuyen-a018`, 1 biến thể, 28 lượt).
+- Kết quả: `kiem-tra` 0 lỗi, 3 cảnh báo (nghe/nói ở phần 2, đầu dưới ô); không có refs lỗi. Chưa gen thật: CHỜ KIỂM CHỨNG.
+- Áp dụng chung?: CÓ: thư mục thể loại nhận từ ngoài thiếu code riêng thì sao 3 file từ thể loại gốc trước khi kiểm tra.
+- Đã chưng cất vào: chưa
+
+### 2026-11-10 · quet-an-ninh-day-chuyen · cảnh 1: nhân viên đứng SAU cổng, máy báo lúc cô bước qua · loai: kich-ban
+- Hiện tượng: người dùng yêu cầu cảnh đầu nhân viên đứng sau cổng dò, máy chỉ báo khi hành khách vừa bước qua (trước đó nhân viên đứng TRÁI cạnh cổng, bà đã qua cổng rồi mới báo).
+- Cách làm / sửa: sửa `cong-cu/tao_kich_ban.py` (WIDE[1], PRE[1], ANGLE P, CAM_PAN, mô tả VN cảnh 1), sinh lại kịch bản, đẩy vào loại dự án qua PUT /api/types.
+- Kết quả: `kiem-tra` 0 lỗi. Gen thật: CHỜ KIỂM CHỨNG. Các cảnh 3+ (góc A/C) vẫn để nhân viên TRÁI cạnh cổng nên có thể lệch vị trí khi cắt.
+- Áp dụng chung?: KHÔNG
+- Đã chưng cất vào: chưa
+
+### 2026-11-10 · quet-an-ninh-day-chuyen · Muse dựng sai cảnh 1 (nhân viên đứng trong/cạnh cổng, cô gái đứng cạnh cổng) · loai: kich-ban
+- Hiện tượng: `scene1_wide.png` nhân viên đứng cạnh cổng phía trước, cô đứng ngoài cổng; `scene1_pre_start.png` nhân viên đứng TRONG khung cổng, cô đứng ngoài. Lời "BEHIND the gate" mơ hồ nên Muse hiểu sai.
+- Cách làm / sửa: viết lại WIDE[1], PRE[1] theo hình học rõ: máy quay chính diện cổng, cô ở TRONG ô cổng đang bước qua, nhân viên cách cổng ~2 m phía xa, cổng nằm giữa ông và máy quay, "không ở trong, không ở trước cổng". Đẩy kịch bản vào Studio, gen lại từ cảnh 1 bằng `POST /api/queue/redo {id, from:1}`.
+- Kết quả: CHỜ KIỂM CHỨNG (đang gen lại).
+- Áp dụng chung?: CÓ: gen lại từ cảnh n dùng queue/redo, không add lượt mới (lượt mới dùng lại ảnh cũ).
+- Đã chưng cất vào: chưa
+
+### 2026-11-11 · quet-an-ninh-day-chuyen · 40 biến thể từ CSV "Sân bay_Quét an ninh" (nữ + nam) · loai: bien-the
+- Hiện tượng: CSV 40 biến thể (mô tả người học tiếng Việt, link ảnh prnt.sc/Drive, đổi "visiting my daughter" thành brother/husband/mother/son/wife/sister). 20 biến thể là NAM nhưng kịch bản viết cho nữ (~175 chỗ she/her).
+- Cách làm: `cong-cu/tao_bien_the_40.py` (bảng ANH = bản tiếng Anh các mô tả); kịch bản đổi she/her/herself thành token SHE, SHE_CAP, HER, HER_CAP, HER_OBJ, HERSELF (sinh trong tao_kich_ban.py), biến thể gốc điền sẵn đại từ nữ, biến thể nam điền he/his/him và các trường mô tả cũng đổi. "Ma'am" -> "Sir" cho nam; "I have/am 48" theo tuổi. Dự án mới `quet-an-ninh-day-chuyen-40-bien-the-93d3`, nhập bằng API timeout dài.
+- Kết quả: `kiem-tra` 0 lỗi; Studio tải đủ 40 ảnh, 0 refs lỗi. Biến thể 16-20 và 31-35 có em bé địu (kịch bản gốc không em bé): CHỜ KIỂM CHỨNG khi gen. Gen thật: chưa.
+- Áp dụng chung?: CÓ: kịch bản dùng chung cho cả hai giới thì đại từ hành khách phải là token; "her" đứng trước dấu câu là tân ngữ (him), còn lại là sở hữu (his).
+- Đã chưng cất vào: chưa
