@@ -1,0 +1,2022 @@
+[
+  {
+    "name": "bh01-everyday-slang",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve denim western shirt buttoned up, dark-blue jeans and a brown leather belt. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas! Here are four everyday slang words Americans use.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What's up? That means how are you.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Bet! That means okay, deal.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "No cap! That means no lie, for real.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Catch you later. That means see you soon.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say what's up? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "EVERYDAY SLANG"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "WHAT'S UP?",
+          "nghia": "how are you",
+          "moc_tu": "What's",
+          "moc_nghia": "how"
+        },
+        {
+          "luot": 2,
+          "tu": "BET",
+          "nghia": "okay, deal",
+          "moc_tu": "Bet",
+          "moc_nghia": "okay"
+        },
+        {
+          "luot": 3,
+          "tu": "NO CAP",
+          "nghia": "no lie, for real",
+          "moc_tu": "No",
+          "moc_nghia": "lie"
+        },
+        {
+          "luot": 4,
+          "tu": "CATCH YOU LATER",
+          "nghia": "see you soon",
+          "moc_tu": "Catch",
+          "moc_nghia": "see"
+        }
+      ],
+      "ngon_ngu": "en"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bh02-food-slang",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve denim western shirt buttoned up, dark-blue jeans and a brown leather belt. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas! Here are four food phrases Americans love.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "I'm starving! That means I'm very hungry.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Grab a bite! That means eat something quick.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "It hits the spot! That means exactly what I needed.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Pig out. That means eat way too much.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say I'm starving? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "FOOD SLANG"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "I'M STARVING",
+          "nghia": "I'm very hungry",
+          "moc_tu": "I'm",
+          "moc_nghia": "very"
+        },
+        {
+          "luot": 2,
+          "tu": "GRAB A BITE",
+          "nghia": "eat something quick",
+          "moc_tu": "Grab",
+          "moc_nghia": "eat"
+        },
+        {
+          "luot": 3,
+          "tu": "IT HITS THE SPOT",
+          "nghia": "exactly what I needed",
+          "moc_tu": "It",
+          "moc_nghia": "exactly"
+        },
+        {
+          "luot": 4,
+          "tu": "PIG OUT",
+          "nghia": "eat way too much",
+          "moc_tu": "Pig",
+          "moc_nghia": "eat"
+        }
+      ],
+      "ngon_ngu": "en"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bh03-money-slang",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve denim western shirt buttoned up, dark-blue jeans and a brown leather belt. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas! Here are four ways Americans talk about money.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Broke! That means no money at all.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Bucks! That means dollars.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Splurge! That means spend a lot for fun.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Costs an arm and a leg. That means very expensive.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say broke? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "MONEY SLANG"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "BROKE",
+          "nghia": "no money at all",
+          "moc_tu": "Broke",
+          "moc_nghia": "money"
+        },
+        {
+          "luot": 2,
+          "tu": "BUCKS",
+          "nghia": "dollars",
+          "moc_tu": "Bucks",
+          "moc_nghia": "dollars"
+        },
+        {
+          "luot": 3,
+          "tu": "SPLURGE",
+          "nghia": "spend a lot for fun",
+          "moc_tu": "Splurge",
+          "moc_nghia": "spend"
+        },
+        {
+          "luot": 4,
+          "tu": "COSTS AN ARM AND A LEG",
+          "nghia": "very expensive",
+          "moc_tu": "Costs",
+          "moc_nghia": "very"
+        }
+      ],
+      "ngon_ngu": "en"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bh04-work-slang",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve denim western shirt buttoned up, dark-blue jeans and a brown leather belt. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas! Here are four phrases Americans use at work.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Swamped! That means very busy.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Call it a day! That means stop working for today.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Touch base! That means talk for a moment.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Pull an all-nighter. That means work all night without sleep.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say swamped? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "WORK SLANG"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "SWAMPED",
+          "nghia": "very busy",
+          "moc_tu": "Swamped",
+          "moc_nghia": "very"
+        },
+        {
+          "luot": 2,
+          "tu": "CALL IT A DAY",
+          "nghia": "stop working for today",
+          "moc_tu": "Call",
+          "moc_nghia": "stop"
+        },
+        {
+          "luot": 3,
+          "tu": "TOUCH BASE",
+          "nghia": "talk for a moment",
+          "moc_tu": "Touch",
+          "moc_nghia": "talk"
+        },
+        {
+          "luot": 4,
+          "tu": "PULL AN ALL-NIGHTER",
+          "nghia": "work all night without sleep",
+          "moc_tu": "Pull",
+          "moc_nghia": "work"
+        }
+      ],
+      "ngon_ngu": "en"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bh05-happy-slang",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve denim western shirt buttoned up, dark-blue jeans and a brown leather belt. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas! Here are four ways Americans say they're happy.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Stoked! That means super excited.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Over the moon! That means very happy.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "On cloud nine! That means extremely happy.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Pumped. That means excited and ready.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say stoked? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "HAPPY SLANG"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "STOKED",
+          "nghia": "super excited",
+          "moc_tu": "Stoked",
+          "moc_nghia": "super"
+        },
+        {
+          "luot": 2,
+          "tu": "OVER THE MOON",
+          "nghia": "very happy",
+          "moc_tu": "Over",
+          "moc_nghia": "very"
+        },
+        {
+          "luot": 3,
+          "tu": "ON CLOUD NINE",
+          "nghia": "extremely happy",
+          "moc_tu": "On",
+          "moc_nghia": "extremely"
+        },
+        {
+          "luot": 4,
+          "tu": "PUMPED",
+          "nghia": "excited and ready",
+          "moc_tu": "Pumped",
+          "moc_nghia": "excited"
+        }
+      ],
+      "ngon_ngu": "en"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bh06-chill-slang",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve denim western shirt buttoned up, dark-blue jeans and a brown leather belt. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas! Here are four ways Americans say they're tired.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Beat! That means very tired.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Chill out! That means relax.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Crash! That means fall asleep fast.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Take it easy. That means relax, don't worry.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say beat? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "CHILL SLANG"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "BEAT",
+          "nghia": "very tired",
+          "moc_tu": "Beat",
+          "moc_nghia": "very"
+        },
+        {
+          "luot": 2,
+          "tu": "CHILL OUT",
+          "nghia": "relax",
+          "moc_tu": "Chill",
+          "moc_nghia": "relax"
+        },
+        {
+          "luot": 3,
+          "tu": "CRASH",
+          "nghia": "fall asleep fast",
+          "moc_tu": "Crash",
+          "moc_nghia": "fall"
+        },
+        {
+          "luot": 4,
+          "tu": "TAKE IT EASY",
+          "nghia": "relax, don't worry",
+          "moc_tu": "Take",
+          "moc_nghia": "relax"
+        }
+      ],
+      "ngon_ngu": "en"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bh07-saying-yes",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve denim western shirt buttoned up, dark-blue jeans and a brown leather belt. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas! Here are four ways Americans say yes.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Totally! That means completely, yes.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Sounds good! That means I agree.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "You bet! That means of course.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And I'm down. That means count me in.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say totally? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "SAYING YES"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "TOTALLY",
+          "nghia": "completely, yes",
+          "moc_tu": "Totally",
+          "moc_nghia": "completely"
+        },
+        {
+          "luot": 2,
+          "tu": "SOUNDS GOOD",
+          "nghia": "I agree",
+          "moc_tu": "Sounds",
+          "moc_nghia": "agree"
+        },
+        {
+          "luot": 3,
+          "tu": "YOU BET",
+          "nghia": "of course",
+          "moc_tu": "You",
+          "moc_nghia": "course"
+        },
+        {
+          "luot": 4,
+          "tu": "I'M DOWN",
+          "nghia": "count me in",
+          "moc_tu": "I'm",
+          "moc_nghia": "count"
+        }
+      ],
+      "ngon_ngu": "en"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bh08-surprise-slang",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve denim western shirt buttoned up, dark-blue jeans and a brown leather belt. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas! Here are four ways Americans show surprise.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "No way! That means I can't believe it.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "For real? That means really?.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Get out of here! That means you're kidding me.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Mind blown. That means totally amazed.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say no way? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "SURPRISE SLANG"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "NO WAY!",
+          "nghia": "I can't believe it",
+          "moc_tu": "No",
+          "moc_nghia": "can't"
+        },
+        {
+          "luot": 2,
+          "tu": "FOR REAL?",
+          "nghia": "really?",
+          "moc_tu": "For",
+          "moc_nghia": "really"
+        },
+        {
+          "luot": 3,
+          "tu": "GET OUT OF HERE!",
+          "nghia": "you're kidding me",
+          "moc_tu": "Get",
+          "moc_nghia": "you're"
+        },
+        {
+          "luot": 4,
+          "tu": "MIND BLOWN",
+          "nghia": "totally amazed",
+          "moc_tu": "Mind",
+          "moc_nghia": "totally"
+        }
+      ],
+      "ngon_ngu": "en"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bh09-cool-slang",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve denim western shirt buttoned up, dark-blue jeans and a brown leather belt. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas! Here are four ways Americans say something is cool.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Awesome! That means really great.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Lit! That means exciting and fun.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Fire! That means amazing.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Killing it. That means doing really well.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say awesome? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "COOL SLANG"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "AWESOME",
+          "nghia": "really great",
+          "moc_tu": "Awesome",
+          "moc_nghia": "really"
+        },
+        {
+          "luot": 2,
+          "tu": "LIT",
+          "nghia": "exciting and fun",
+          "moc_tu": "Lit",
+          "moc_nghia": "exciting"
+        },
+        {
+          "luot": 3,
+          "tu": "FIRE",
+          "nghia": "amazing",
+          "moc_tu": "Fire",
+          "moc_nghia": "amazing"
+        },
+        {
+          "luot": 4,
+          "tu": "KILLING IT",
+          "nghia": "doing really well",
+          "moc_tu": "Killing",
+          "moc_nghia": "doing"
+        }
+      ],
+      "ngon_ngu": "en"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bh10-weather-slang",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve denim western shirt buttoned up, dark-blue jeans and a brown leather belt. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas! Here are four ways Americans talk about the weather.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "It's pouring! That means raining hard.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Freezing! That means very cold.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Boiling! That means very hot.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Raining cats and dogs. That means a really heavy rain.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say it's pouring? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "WEATHER SLANG"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "IT'S POURING",
+          "nghia": "raining hard",
+          "moc_tu": "It's",
+          "moc_nghia": "raining"
+        },
+        {
+          "luot": 2,
+          "tu": "FREEZING",
+          "nghia": "very cold",
+          "moc_tu": "Freezing",
+          "moc_nghia": "very"
+        },
+        {
+          "luot": 3,
+          "tu": "BOILING",
+          "nghia": "very hot",
+          "moc_tu": "Boiling",
+          "moc_nghia": "very"
+        },
+        {
+          "luot": 4,
+          "tu": "RAINING CATS AND DOGS",
+          "nghia": "a really heavy rain",
+          "moc_tu": "Raining",
+          "moc_nghia": "really"
+        }
+      ],
+      "ngon_ngu": "en"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bh11-shopping-slang",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve denim western shirt buttoned up, dark-blue jeans and a brown leather belt. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas! Here are four shopping phrases Americans use.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Window shopping! That means looking without buying.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "A steal! That means very cheap.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "A rip-off! That means way too expensive.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Shop till you drop. That means shop until you're exhausted.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say window shopping? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "SHOPPING SLANG"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "WINDOW SHOPPING",
+          "nghia": "looking without buying",
+          "moc_tu": "Window",
+          "moc_nghia": "looking"
+        },
+        {
+          "luot": 2,
+          "tu": "A STEAL",
+          "nghia": "very cheap",
+          "moc_tu": "steal",
+          "moc_nghia": "very"
+        },
+        {
+          "luot": 3,
+          "tu": "A RIP-OFF",
+          "nghia": "way too expensive",
+          "moc_tu": "rip-off",
+          "moc_nghia": "way"
+        },
+        {
+          "luot": 4,
+          "tu": "SHOP TILL YOU DROP",
+          "nghia": "shop until you're exhausted",
+          "moc_tu": "Shop",
+          "moc_nghia": "shop"
+        }
+      ],
+      "ngon_ngu": "en"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bh12-dating-slang",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve denim western shirt buttoned up, dark-blue jeans and a brown leather belt. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas! Here are four dating phrases Americans use.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Crush! That means someone you secretly like.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Ghost! That means stop replying suddenly.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hit it off! That means like each other right away.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Head over heels. That means deeply in love.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say crush? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "DATING SLANG"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "CRUSH",
+          "nghia": "someone you secretly like",
+          "moc_tu": "Crush",
+          "moc_nghia": "someone"
+        },
+        {
+          "luot": 2,
+          "tu": "GHOST",
+          "nghia": "stop replying suddenly",
+          "moc_tu": "Ghost",
+          "moc_nghia": "stop"
+        },
+        {
+          "luot": 3,
+          "tu": "HIT IT OFF",
+          "nghia": "like each other right away",
+          "moc_tu": "Hit",
+          "moc_nghia": "like"
+        },
+        {
+          "luot": 4,
+          "tu": "HEAD OVER HEELS",
+          "nghia": "deeply in love",
+          "moc_tu": "Head",
+          "moc_nghia": "deeply"
+        }
+      ],
+      "ngon_ngu": "en"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bh13-travel-slang",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve denim western shirt buttoned up, dark-blue jeans and a brown leather belt. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas! Here are four travel phrases Americans use.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hit the road! That means start a trip.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Jet lag! That means tired after a long flight.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Bucket list! That means dreams to do in life.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Off the beaten path. That means far from tourist spots.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say hit the road? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "TRAVEL SLANG"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "HIT THE ROAD",
+          "nghia": "start a trip",
+          "moc_tu": "Hit",
+          "moc_nghia": "start"
+        },
+        {
+          "luot": 2,
+          "tu": "JET LAG",
+          "nghia": "tired after a long flight",
+          "moc_tu": "Jet",
+          "moc_nghia": "tired"
+        },
+        {
+          "luot": 3,
+          "tu": "BUCKET LIST",
+          "nghia": "dreams to do in life",
+          "moc_tu": "Bucket",
+          "moc_nghia": "dreams"
+        },
+        {
+          "luot": 4,
+          "tu": "OFF THE BEATEN PATH",
+          "nghia": "far from tourist spots",
+          "moc_tu": "Off",
+          "moc_nghia": "far"
+        }
+      ],
+      "ngon_ngu": "en"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bh14-racing-slang",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve denim western shirt buttoned up, dark-blue jeans and a brown leather belt. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas! Here are four racing phrases for race day.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Pole position! That means starting in first place.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Full throttle! That means as fast as possible.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Home stretch! That means almost at the finish.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Neck and neck. That means very close, side by side.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say pole position? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "RACING SLANG"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "POLE POSITION",
+          "nghia": "starting in first place",
+          "moc_tu": "Pole",
+          "moc_nghia": "starting"
+        },
+        {
+          "luot": 2,
+          "tu": "FULL THROTTLE",
+          "nghia": "as fast as possible",
+          "moc_tu": "Full",
+          "moc_nghia": "fast"
+        },
+        {
+          "luot": 3,
+          "tu": "HOME STRETCH",
+          "nghia": "almost at the finish",
+          "moc_tu": "Home",
+          "moc_nghia": "almost"
+        },
+        {
+          "luot": 4,
+          "tu": "NECK AND NECK",
+          "nghia": "very close, side by side",
+          "moc_tu": "Neck",
+          "moc_nghia": "very"
+        }
+      ],
+      "ngon_ngu": "en"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bh15-school-slang",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve denim western shirt buttoned up, dark-blue jeans and a brown leather belt. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas! Here are four school phrases Americans use.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hit the books! That means study hard.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Cram! That means study a lot at the last minute.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Ace it! That means do it perfectly.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Pass with flying colors. That means pass really easily.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say hit the books? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "SCHOOL SLANG"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "HIT THE BOOKS",
+          "nghia": "study hard",
+          "moc_tu": "Hit",
+          "moc_nghia": "study"
+        },
+        {
+          "luot": 2,
+          "tu": "CRAM",
+          "nghia": "study a lot at the last minute",
+          "moc_tu": "Cram",
+          "moc_nghia": "study"
+        },
+        {
+          "luot": 3,
+          "tu": "ACE IT",
+          "nghia": "do it perfectly",
+          "moc_tu": "Ace",
+          "moc_nghia": "perfectly"
+        },
+        {
+          "luot": 4,
+          "tu": "PASS WITH FLYING COLORS",
+          "nghia": "pass really easily",
+          "moc_tu": "Pass",
+          "moc_nghia": "pass"
+        }
+      ],
+      "ngon_ngu": "en"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bh16-oops-slang",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve denim western shirt buttoned up, dark-blue jeans and a brown leather belt. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas! Here are four ways Americans admit a mistake.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "My bad! That means my mistake.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Mess up! That means make a mistake.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Drop the ball! That means fail to do your part.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Back to square one. That means start all over again.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say my bad? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "OOPS SLANG"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "MY BAD",
+          "nghia": "my mistake",
+          "moc_tu": "My",
+          "moc_nghia": "mistake"
+        },
+        {
+          "luot": 2,
+          "tu": "MESS UP",
+          "nghia": "make a mistake",
+          "moc_tu": "Mess",
+          "moc_nghia": "make"
+        },
+        {
+          "luot": 3,
+          "tu": "DROP THE BALL",
+          "nghia": "fail to do your part",
+          "moc_tu": "Drop",
+          "moc_nghia": "fail"
+        },
+        {
+          "luot": 4,
+          "tu": "BACK TO SQUARE ONE",
+          "nghia": "start all over again",
+          "moc_tu": "Back",
+          "moc_nghia": "start"
+        }
+      ],
+      "ngon_ngu": "en"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bh17-internet-slang",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve denim western shirt buttoned up, dark-blue jeans and a brown leather belt. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas! Here are four internet slang words Americans use.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hit me up! That means message me.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Go viral! That means spread fast online.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "FOMO! That means fear of missing out.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Low-key. That means a little, quietly.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say hit me up? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "INTERNET SLANG"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "HIT ME UP",
+          "nghia": "message me",
+          "moc_tu": "Hit",
+          "moc_nghia": "message"
+        },
+        {
+          "luot": 2,
+          "tu": "GO VIRAL",
+          "nghia": "spread fast online",
+          "moc_tu": "Go",
+          "moc_nghia": "spread"
+        },
+        {
+          "luot": 3,
+          "tu": "FOMO",
+          "nghia": "fear of missing out",
+          "moc_tu": "FOMO",
+          "moc_nghia": "fear"
+        },
+        {
+          "luot": 4,
+          "tu": "LOW-KEY",
+          "nghia": "a little, quietly",
+          "moc_tu": "Low-key",
+          "moc_nghia": "little"
+        }
+      ],
+      "ngon_ngu": "en"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bh18-easy-or-hard",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve denim western shirt buttoned up, dark-blue jeans and a brown leather belt. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas! Here are four ways Americans say easy or hard.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Piece of cake! That means very easy.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "No-brainer! That means an easy decision.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Not rocket science! That means not difficult at all.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Easier said than done. That means harder than it sounds.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say piece of cake? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "EASY OR HARD?"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "PIECE OF CAKE",
+          "nghia": "very easy",
+          "moc_tu": "Piece",
+          "moc_nghia": "very"
+        },
+        {
+          "luot": 2,
+          "tu": "NO-BRAINER",
+          "nghia": "an easy decision",
+          "moc_tu": "No-brainer",
+          "moc_nghia": "easy"
+        },
+        {
+          "luot": 3,
+          "tu": "NOT ROCKET SCIENCE",
+          "nghia": "not difficult at all",
+          "moc_tu": "Not",
+          "moc_nghia": "not"
+        },
+        {
+          "luot": 4,
+          "tu": "EASIER SAID THAN DONE",
+          "nghia": "harder than it sounds",
+          "moc_tu": "Easier",
+          "moc_nghia": "harder"
+        }
+      ],
+      "ngon_ngu": "en"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bh19-pep-talk-slang",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve denim western shirt buttoned up, dark-blue jeans and a brown leather belt. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas! Here are four ways Americans cheer you on.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "You got this! That means you can do it.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Go for it! That means try it now.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hang in there! That means don't give up.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Break a leg. That means good luck.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say you got this? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "PEP TALK SLANG"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "YOU GOT THIS",
+          "nghia": "you can do it",
+          "moc_tu": "You",
+          "moc_nghia": "you"
+        },
+        {
+          "luot": 2,
+          "tu": "GO FOR IT",
+          "nghia": "try it now",
+          "moc_tu": "Go",
+          "moc_nghia": "try"
+        },
+        {
+          "luot": 3,
+          "tu": "HANG IN THERE",
+          "nghia": "don't give up",
+          "moc_tu": "Hang",
+          "moc_nghia": "don't"
+        },
+        {
+          "luot": 4,
+          "tu": "BREAK A LEG",
+          "nghia": "good luck",
+          "moc_tu": "Break",
+          "moc_nghia": "good"
+        }
+      ],
+      "ngon_ngu": "en"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "bh20-party-slang",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve denim western shirt buttoned up, dark-blue jeans and a brown leather belt. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, native American English, like a friendly travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a sunny historic main street in a Texas town at golden hour: two-storey red-brick buildings with wooden balconies and strings of warm bulb lights across the street, a leafy tree on the left, a cobblestone road leading away into a soft blur; the whole background softly out of focus.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "F1 is rolling into Texas! Here are four party phrases Americans use.",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hang out! That means spend time together.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Throw a party! That means host a party.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Party animal! That means someone who loves parties.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "And Sleep in. That means sleep late in the morning.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Would you say hang out? Tell me in the comments.",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "F1 IS IN TEXAS",
+        "PARTY SLANG"
+      ],
+      "badge": {
+        "trai": "OCT 23-25",
+        "phai": "US GRAND PRIX"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "IT MEANS",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "HANG OUT",
+          "nghia": "spend time together",
+          "moc_tu": "Hang",
+          "moc_nghia": "spend"
+        },
+        {
+          "luot": 2,
+          "tu": "THROW A PARTY",
+          "nghia": "host a party",
+          "moc_tu": "Throw",
+          "moc_nghia": "host"
+        },
+        {
+          "luot": 3,
+          "tu": "PARTY ANIMAL",
+          "nghia": "someone who loves parties",
+          "moc_tu": "Party",
+          "moc_nghia": "someone"
+        },
+        {
+          "luot": 4,
+          "tu": "SLEEP IN",
+          "nghia": "sleep late in the morning",
+          "moc_tu": "Sleep",
+          "moc_nghia": "sleep"
+        }
+      ],
+      "ngon_ngu": "en"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/bh/bh-bg.webp"
+      ]
+    }
+  }
+]

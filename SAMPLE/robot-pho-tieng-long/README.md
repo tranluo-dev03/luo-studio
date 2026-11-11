@@ -47,6 +47,25 @@ Trong trang dự án chọn Thương hiệu: logo cố định trên trái (badg
 - Giữ badge "OCT 23-25 / US GRAND PRIX" như video mẫu cho mọi bang (người dùng chỉ yêu cầu đổi câu thoại, nhân vật, nền, từ vựng). Dòng 12–19 (CSV không đổi lời) giữ Texas.
 - Robot đeo kính râm (bt01, bt03, bt26): dò mặt để đặt tiêu đề có thể trượt → tiêu đề dùng toạ độ mặc định; kiểm tra khung.
 
+## 60 biến thể mới (11/11/2026): đổi bài học / Ấn Độ / Brazil
+Yêu cầu người dùng: 20 biến thể đổi bài học, 20 biến thể đổi nhân vật + bối cảnh tiếng Ấn Độ, 20 biến thể đổi nhân vật + bối cảnh tiếng Bồ Đào Nha; ảnh nhân vật và bối cảnh nhờ Muse gen trước, tổng hợp để duyệt.
+
+| File | Nội dung |
+|---|---|
+| `BIEN-THE-20-BAI-HOC.json` | `bh01`–`bh20`: robot Aiva AI (trang phục sơ mi denim) + phố Texas + badge F1 giữ nguyên, mỗi biến thể một chủ đề 4 cụm tiếng lóng Mỹ (đồ ăn, tiền, công việc...). Chung 2 ảnh `anh/bh/` |
+| `BIEN-THE-20-AN-DO.json` | `in01`–`in20`: 20 thành phố Ấn Độ, robot **Aiva AI** (ảnh người dùng gửi, `anh/aiva/aiva-robot.webp`) giữ nguyên, chỉ đổi trang phục, **mặc trọn bộ như người** (áo kín tay dài + quần/váy/sari quấn đủ, chỉ lộ đầu, cổ, bàn tay robot; không mũ vì tai nghe Aiva; giọng nữ/nam xen kẽ). Bảng `FULL_IN`, `FULL_BR` trong `tao_60_bien_the.py`; ảnh robot bản cũ ở `anh/_robot-cu/`, nói **Hindi chữ Devanagari**, cụm tiếng lóng giữ tiếng Anh. Thẻ: nghĩa Hinglish chữ Latin (PIL không có raqm, không vẽ được Devanagari); phụ đề Devanagari (ASS, Nirmala UI, shaping complex) |
+| `BIEN-THE-20-BRAZIL.json` | `br01`–`br20`: 20 địa danh Brazil, robot **Aiva AI** giữ nguyên, chỉ đổi trang phục, nói **tiếng Bồ Đào Nha Brazil**; `br06` Interlagos mở đầu bằng F1 |
+| `cong-cu/tao_60_bien_the.py` | Sinh 3 file trên. 20 bộ bài học `BAI` dùng chung cho cả 3 nhóm (bộ k cho biến thể k), nghĩa viết sẵn EN / Hindi / Hinglish / PT |
+| `cong-cu/gen_anh_60.py` | Muse gen ảnh robot (nền xanh lá) + ảnh nền (cảnh trống) theo đúng mô tả trong biến thể → `anh/bh`, `anh/in`, `anh/br` (.webp). Bỏ qua ảnh đã có; `in03-nv --lai` để gen lại một ảnh |
+| `cong-cu/tao_trang_duyet.py` | Trang duyệt `DUYET-60-BIEN-THE.html`: ảnh + 6 lời + 4 thẻ của từng biến thể; bấm ảnh đánh dấu gen lại, nút chép lệnh gen lại |
+
+Hậu kỳ (`post.py`, chỉ thể loại này): `HAU_KY.ngon_ngu` (`en`/`hi`/`pt`) chọn Whisper (`small.en` hoặc `small` + mã ngôn ngữ), `HAU_KY.font_ass` + `shaping` cho phụ đề Devanagari, so khớp từ theo Unicode (trước chỉ a-z0-9), dấu `।` ngắt cụm phụ đề. Biến thể cũ (không có khoá) chạy như trước. Đã chạy thử offline trên video giả: chữ Devanagari và chữ có dấu hiện đúng.
+
+Rủi ro chưa xử lý (code chung `engine.py`, chưa sửa):
+- Câu Hindi kiểu "Chill out! इसका मतलब है, आराम करो।": `voice_span` chỉ khớp được từ tiếng Anh ở đầu câu và coi câu đã trọn → **có thể cắt mất phần nghĩa Hindi** khi cắt sát.
+- Câu Bồ Đào Nha: `speech_lang` không có `pt` (câu có á/é/í/ó/ú bị coi là Tây Ban Nha, câu khác là tiếng Anh) → kiểm lời có thể báo thừa/thiếu sai và gen lại vô ích.
+- Chưa chạy trên Muse cả 3 nhóm.
+
 ## Còn khác video mẫu
 - Badge "Talka AI" phải chọn ở Thương hiệu.
 - Ô tiêu đề là chuyển sắc xanh phẳng (mẫu có bóng nhẹ hơn); thẻ không có hoạt ảnh trượt vào.

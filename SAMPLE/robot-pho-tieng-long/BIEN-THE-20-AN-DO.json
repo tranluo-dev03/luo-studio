@@ -1,0 +1,2062 @@
+[
+  {
+    "name": "in01-mumbai-marine-drive",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a coral-pink cotton saree with a thin gold border, wrapped and pleated the traditional way down to the feet, the pallu over the left shoulder, with a matching coral long-sleeve blouse. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, a native Hindi speaker from India speaking natural, everyday Hindi, who says the English slang words in clear, fluent English; like a friendly Indian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "Mumbai's Marine Drive at golden hour: a wide seaside promenade with a low concrete sea wall, the curving blue bay, a row of cream art-deco apartment buildings and tall palm trees, warm hazy sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "मुंबई वालो, आज सीखते हैं अमेरिकन इंग्लिश के चार मज़ेदार स्लैंग!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What's up? इसका मतलब है, क्या चल रहा है।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Bet! इसका मतलब है, ठीक है, पक्का।",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "No cap! इसका मतलब है, सच में, झूठ नहीं।",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "और Catch you later. इसका मतलब है, बाद में मिलते हैं।",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आप what's up बोलोगे? कमेंट में बताओ!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "MUMBAI WALON,",
+        "SLANG SEEKHO!"
+      ],
+      "badge": {
+        "trai": "USA",
+        "phai": "ENGLISH SLANG"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "MATLAB",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "WHAT'S UP?",
+          "nghia": "kya chal raha hai",
+          "moc_tu": "What's",
+          "moc_nghia": "क्या"
+        },
+        {
+          "luot": 2,
+          "tu": "BET",
+          "nghia": "theek hai, pakka",
+          "moc_tu": "Bet",
+          "moc_nghia": "पक्का"
+        },
+        {
+          "luot": 3,
+          "tu": "NO CAP",
+          "nghia": "sach mein, jhooth nahi",
+          "moc_tu": "No",
+          "moc_nghia": "सच"
+        },
+        {
+          "luot": 4,
+          "tu": "CATCH YOU LATER",
+          "nghia": "baad mein milte hain",
+          "moc_tu": "Catch",
+          "moc_nghia": "मिलते"
+        }
+      ],
+      "ngon_ngu": "hi",
+      "font_ass": "Nirmala UI",
+      "shaping": "complex"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in01-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in01-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "in02-delhi-india-gate",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a white long-sleeve cotton kurta reaching the knees, a navy-blue Nehru jacket buttoned up over it, and white churidar trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young man's voice, a native Hindi speaker from India speaking natural, everyday Hindi, who says the English slang words in clear, fluent English; like a friendly Indian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the India Gate war memorial in New Delhi on a clear morning: the tall sandstone arch at the end of a wide green lawn and a straight red-gravel avenue, trees on both sides, pale blue sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "दिल्ली से नमस्ते! चलो, अमेरिकन लोगों की तरह इंग्लिश बोलना सीखें!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "I'm starving! इसका मतलब है, बहुत भूख लगी है।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Grab a bite! इसका मतलब है, जल्दी से कुछ खा लें।",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "It hits the spot! इसका मतलब है, एकदम मज़ा आ गया।",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "और Pig out. इसका मतलब है, जी भर के खाना।",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आप I'm starving बोलोगे? कमेंट में बताओ!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "DELHI WALON,",
+        "SLANG SEEKHO!"
+      ],
+      "badge": {
+        "trai": "USA",
+        "phai": "ENGLISH SLANG"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "MATLAB",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "I'M STARVING",
+          "nghia": "bahut bhookh lagi hai",
+          "moc_tu": "I'm",
+          "moc_nghia": "बहुत"
+        },
+        {
+          "luot": 2,
+          "tu": "GRAB A BITE",
+          "nghia": "jaldi se kuch kha lein",
+          "moc_tu": "Grab",
+          "moc_nghia": "जल्दी"
+        },
+        {
+          "luot": 3,
+          "tu": "IT HITS THE SPOT",
+          "nghia": "ekdum maza aa gaya",
+          "moc_tu": "It",
+          "moc_nghia": "एकदम"
+        },
+        {
+          "luot": 4,
+          "tu": "PIG OUT",
+          "nghia": "jee bhar ke khana",
+          "moc_tu": "Pig",
+          "moc_nghia": "जी"
+        }
+      ],
+      "ngon_ngu": "hi",
+      "font_ass": "Nirmala UI",
+      "shaping": "complex"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in02-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in02-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "in03-jaipur-hawa-mahal",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "an orange long-sleeve embroidered kurti reaching the knees, matching orange palazzo trousers, and a bright magenta-pink mirror-work dupatta over both shoulders. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, a native Hindi speaker from India speaking natural, everyday Hindi, who says the English slang words in clear, fluent English; like a friendly Indian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Hawa Mahal palace in Jaipur in warm morning light: the tall pink sandstone facade with hundreds of small latticed windows and domes, an empty wide street in front; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "जयपुर में हो? तो आज सीखो अमेरिकन इंग्लिश के चार स्लैंग!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Broke! इसका मतलब है, जेब बिल्कुल खाली।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Bucks! इसका मतलब है, डॉलर।",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Splurge! इसका मतलब है, दिल खोल के खर्चा।",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "और Costs an arm and a leg. इसका मतलब है, बहुत ही महँगा।",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आप broke बोलोगे? कमेंट में बताओ!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "JAIPUR WALON,",
+        "SLANG SEEKHO!"
+      ],
+      "badge": {
+        "trai": "USA",
+        "phai": "ENGLISH SLANG"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "MATLAB",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "BROKE",
+          "nghia": "jeb bilkul khaali",
+          "moc_tu": "Broke",
+          "moc_nghia": "बिल्कुल"
+        },
+        {
+          "luot": 2,
+          "tu": "BUCKS",
+          "nghia": "dollars",
+          "moc_tu": "Bucks",
+          "moc_nghia": "डॉलर"
+        },
+        {
+          "luot": 3,
+          "tu": "SPLURGE",
+          "nghia": "dil khol ke kharcha",
+          "moc_tu": "Splurge",
+          "moc_nghia": "खर्चा"
+        },
+        {
+          "luot": 4,
+          "tu": "COSTS AN ARM AND A LEG",
+          "nghia": "bahut hi mehenga",
+          "moc_tu": "Costs",
+          "moc_nghia": "बहुत"
+        }
+      ],
+      "ngon_ngu": "hi",
+      "font_ass": "Nirmala UI",
+      "shaping": "complex"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in03-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in03-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "in04-agra-taj-mahal",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a knee-length cream long-sleeve kurta with fine gold embroidery around the collar and down the front, and cream pyjama trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young man's voice, a native Hindi speaker from India speaking natural, everyday Hindi, who says the English slang words in clear, fluent English; like a friendly Indian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the gardens of the Taj Mahal in Agra at sunrise: the white marble mausoleum with its dome and four minarets at the end of a long reflecting pool lined with cypress trees, soft pink-gold sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "आगरा वालो, आज सीखते हैं अमेरिकन इंग्लिश के चार मज़ेदार स्लैंग!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Swamped! इसका मतलब है, काम में डूबा हुआ।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Call it a day! इसका मतलब है, आज के लिए बस।",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Touch base! इसका मतलब है, थोड़ी बात कर लें।",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "और Pull an all-nighter. इसका मतलब है, पूरी रात जागकर काम।",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आप swamped बोलोगे? कमेंट में बताओ!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "AGRA WALON,",
+        "SLANG SEEKHO!"
+      ],
+      "badge": {
+        "trai": "USA",
+        "phai": "ENGLISH SLANG"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "MATLAB",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "SWAMPED",
+          "nghia": "kaam mein dooba hua",
+          "moc_tu": "Swamped",
+          "moc_nghia": "काम"
+        },
+        {
+          "luot": 2,
+          "tu": "CALL IT A DAY",
+          "nghia": "aaj ke liye bas",
+          "moc_tu": "Call",
+          "moc_nghia": "आज"
+        },
+        {
+          "luot": 3,
+          "tu": "TOUCH BASE",
+          "nghia": "thodi baat kar lein",
+          "moc_tu": "Touch",
+          "moc_nghia": "थोड़ी"
+        },
+        {
+          "luot": 4,
+          "tu": "PULL AN ALL-NIGHTER",
+          "nghia": "poori raat jaagkar kaam",
+          "moc_tu": "Pull",
+          "moc_nghia": "जागकर"
+        }
+      ],
+      "ngon_ngu": "hi",
+      "font_ass": "Nirmala UI",
+      "shaping": "complex"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in04-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in04-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "in05-varanasi-ghats",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a saffron-yellow cotton saree wrapped and pleated the traditional way down to the feet, the pallu over the left shoulder, with a saffron long-sleeve blouse. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, a native Hindi speaker from India speaking natural, everyday Hindi, who says the English slang words in clear, fluent English; like a friendly Indian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the riverside ghats of Varanasi at early morning: wide stone steps going down to the calm Ganges river, old ochre and red temple-like buildings along the bank, wooden boats moored, soft misty light; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "वाराणसी से नमस्ते! चलो, अमेरिकन लोगों की तरह इंग्लिश बोलना सीखें!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Stoked! इसका मतलब है, बहुत एक्साइटेड।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Over the moon! इसका मतलब है, बहुत खुश।",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "On cloud nine! इसका मतलब है, खुशी से झूम उठना।",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "और Pumped. इसका मतलब है, जोश में तैयार।",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आप stoked बोलोगे? कमेंट में बताओ!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "VARANASI WALON,",
+        "SLANG SEEKHO!"
+      ],
+      "badge": {
+        "trai": "USA",
+        "phai": "ENGLISH SLANG"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "MATLAB",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "STOKED",
+          "nghia": "bahut excited",
+          "moc_tu": "Stoked",
+          "moc_nghia": "बहुत"
+        },
+        {
+          "luot": 2,
+          "tu": "OVER THE MOON",
+          "nghia": "bahut khush",
+          "moc_tu": "Over",
+          "moc_nghia": "बहुत"
+        },
+        {
+          "luot": 3,
+          "tu": "ON CLOUD NINE",
+          "nghia": "khushi se jhoom uthna",
+          "moc_tu": "On",
+          "moc_nghia": "उठना"
+        },
+        {
+          "luot": 4,
+          "tu": "PUMPED",
+          "nghia": "josh mein taiyaar",
+          "moc_tu": "Pumped",
+          "moc_nghia": "तैयार"
+        }
+      ],
+      "ngon_ngu": "hi",
+      "font_ass": "Nirmala UI",
+      "shaping": "complex"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in05-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in05-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "in06-kolkata-howrah",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a white long-sleeve panjabi kurta reaching the knees, white dhoti-style trousers, and a cream shawl with a thin red border folded over one shoulder. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young man's voice, a native Hindi speaker from India speaking natural, everyday Hindi, who says the English slang words in clear, fluent English; like a friendly Indian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a riverside promenade in Kolkata: the huge grey steel cantilever Howrah Bridge across the wide Hooghly river behind, a few old yellow Ambassador taxis parked along the road, warm afternoon haze; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "कोलकाता में हो? तो आज सीखो अमेरिकन इंग्लिश के चार स्लैंग!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Beat! इसका मतलब है, बहुत थका हुआ।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Chill out! इसका मतलब है, आराम करो।",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Crash! इसका मतलब है, तुरंत सो जाना।",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "और Take it easy. इसका मतलब है, टेंशन मत लो।",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आप beat बोलोगे? कमेंट में बताओ!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "KOLKATA WALON,",
+        "SLANG SEEKHO!"
+      ],
+      "badge": {
+        "trai": "USA",
+        "phai": "ENGLISH SLANG"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "MATLAB",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "BEAT",
+          "nghia": "bahut thaka hua",
+          "moc_tu": "Beat",
+          "moc_nghia": "बहुत"
+        },
+        {
+          "luot": 2,
+          "tu": "CHILL OUT",
+          "nghia": "aaram karo",
+          "moc_tu": "Chill",
+          "moc_nghia": "आराम"
+        },
+        {
+          "luot": 3,
+          "tu": "CRASH",
+          "nghia": "turant so jaana",
+          "moc_tu": "Crash",
+          "moc_nghia": "तुरंत"
+        },
+        {
+          "luot": 4,
+          "tu": "TAKE IT EASY",
+          "nghia": "tension mat lo",
+          "moc_tu": "Take",
+          "moc_nghia": "टेंशन"
+        }
+      ],
+      "ngon_ngu": "hi",
+      "font_ass": "Nirmala UI",
+      "shaping": "complex"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in06-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in06-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "in07-bengaluru-tech",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a navy-blue blazer buttoned over a white long-sleeve kurti, and slim navy-blue trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, a native Hindi speaker from India speaking natural, everyday Hindi, who says the English slang words in clear, fluent English; like a friendly Indian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a modern tech-park plaza in Bengaluru: glass office towers, a wide paved walkway, tall rain trees with purple jacaranda flowers and neat green lawns, bright blue sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "बेंगलुरु वालो, आज सीखते हैं अमेरिकन इंग्लिश के चार मज़ेदार स्लैंग!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Totally! इसका मतलब है, बिल्कुल।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Sounds good! इसका मतलब है, ठीक लगता है।",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "You bet! इसका मतलब है, ज़रूर।",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "और I'm down. इसका मतलब है, मैं तैयार हूँ।",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आप totally बोलोगे? कमेंट में बताओ!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "BENGALURU WALON,",
+        "SLANG SEEKHO!"
+      ],
+      "badge": {
+        "trai": "USA",
+        "phai": "ENGLISH SLANG"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "MATLAB",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "TOTALLY",
+          "nghia": "bilkul",
+          "moc_tu": "Totally",
+          "moc_nghia": "बिल्कुल"
+        },
+        {
+          "luot": 2,
+          "tu": "SOUNDS GOOD",
+          "nghia": "theek lagta hai",
+          "moc_tu": "Sounds",
+          "moc_nghia": "लगता"
+        },
+        {
+          "luot": 3,
+          "tu": "YOU BET",
+          "nghia": "zaroor",
+          "moc_tu": "You",
+          "moc_nghia": "ज़रूर"
+        },
+        {
+          "luot": 4,
+          "tu": "I'M DOWN",
+          "nghia": "main taiyaar hoon",
+          "moc_tu": "I'm",
+          "moc_nghia": "तैयार"
+        }
+      ],
+      "ngon_ngu": "hi",
+      "font_ass": "Nirmala UI",
+      "shaping": "complex"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in07-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in07-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "in08-hyderabad-charminar",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a dark bottle-green knee-length sherwani with long sleeves, buttoned up to the stand-up collar with small gold buttons, and cream churidar trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young man's voice, a native Hindi speaker from India speaking natural, everyday Hindi, who says the English slang words in clear, fluent English; like a friendly Indian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Charminar monument in Hyderabad in warm late-afternoon light: the square granite and limestone arch building with four tall minarets, old shop buildings with closed shutters on both sides of an empty street; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "हैदराबाद से नमस्ते! चलो, अमेरिकन लोगों की तरह इंग्लिश बोलना सीखें!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "No way! इसका मतलब है, यकीन नहीं होता।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "For real? इसका मतलब है, सच में?।",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Get out of here! इसका मतलब है, मज़ाक मत करो।",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "और Mind blown. इसका मतलब है, दिमाग हिल गया।",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आप no way बोलोगे? कमेंट में बताओ!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "HYDERABAD WALON,",
+        "SLANG SEEKHO!"
+      ],
+      "badge": {
+        "trai": "USA",
+        "phai": "ENGLISH SLANG"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "MATLAB",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "NO WAY!",
+          "nghia": "yakeen nahi hota",
+          "moc_tu": "No",
+          "moc_nghia": "यकीन"
+        },
+        {
+          "luot": 2,
+          "tu": "FOR REAL?",
+          "nghia": "sach mein?",
+          "moc_tu": "For",
+          "moc_nghia": "सच"
+        },
+        {
+          "luot": 3,
+          "tu": "GET OUT OF HERE!",
+          "nghia": "mazaak mat karo",
+          "moc_tu": "Get",
+          "moc_nghia": "मज़ाक"
+        },
+        {
+          "luot": 4,
+          "tu": "MIND BLOWN",
+          "nghia": "dimaag hil gaya",
+          "moc_tu": "Mind",
+          "moc_nghia": "दिमाग"
+        }
+      ],
+      "ngon_ngu": "hi",
+      "font_ass": "Nirmala UI",
+      "shaping": "complex"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in08-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in08-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "in09-goa-beach",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a white long-sleeve linen shirt buttoned up, light-beige linen trousers, and a turquoise-and-orange tie-dye scarf loosely around the neck. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, a native Hindi speaker from India speaking natural, everyday Hindi, who says the English slang words in clear, fluent English; like a friendly Indian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a quiet Goa beach at golden hour: soft pale sand, gentle turquoise waves, leaning coconut palm trees and a small bamboo beach shack with a palm-leaf roof, warm orange sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "गोवा में हो? तो आज सीखो अमेरिकन इंग्लिश के चार स्लैंग!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Awesome! इसका मतलब है, ज़बरदस्त।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Lit! इसका मतलब है, धमाकेदार।",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Fire! इसका मतलब है, कमाल का।",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "और Killing it. इसका मतलब है, छा गए।",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आप awesome बोलोगे? कमेंट में बताओ!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "GOA WALON,",
+        "SLANG SEEKHO!"
+      ],
+      "badge": {
+        "trai": "USA",
+        "phai": "ENGLISH SLANG"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "MATLAB",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "AWESOME",
+          "nghia": "zabardast",
+          "moc_tu": "Awesome",
+          "moc_nghia": "ज़बरदस्त"
+        },
+        {
+          "luot": 2,
+          "tu": "LIT",
+          "nghia": "dhamakedaar",
+          "moc_tu": "Lit",
+          "moc_nghia": "धमाकेदार"
+        },
+        {
+          "luot": 3,
+          "tu": "FIRE",
+          "nghia": "kamaal ka",
+          "moc_tu": "Fire",
+          "moc_nghia": "कमाल"
+        },
+        {
+          "luot": 4,
+          "tu": "KILLING IT",
+          "nghia": "chha gaye",
+          "moc_tu": "Killing",
+          "moc_nghia": "छा"
+        }
+      ],
+      "ngon_ngu": "hi",
+      "font_ass": "Nirmala UI",
+      "shaping": "complex"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in09-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in09-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "in10-rishikesh-ganga",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a long off-white linen kurta with long sleeves, loose white linen trousers, and a light-grey cotton scarf around the neck. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young man's voice, a native Hindi speaker from India speaking natural, everyday Hindi, who says the English slang words in clear, fluent English; like a friendly Indian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "Rishikesh by the Ganges: a long iron suspension footbridge over the clear turquoise river, green forested Himalayan foothills behind, old buildings on the far bank, soft morning light; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "ऋषिकेश वालो, आज सीखते हैं अमेरिकन इंग्लिश के चार मज़ेदार स्लैंग!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "It's pouring! इसका मतलब है, तेज़ बारिश हो रही है।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Freezing! इसका मतलब है, बहुत ठंड।",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Boiling! इसका मतलब है, बहुत गर्मी।",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "और Raining cats and dogs. इसका मतलब है, मूसलाधार बारिश।",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आप it's pouring बोलोगे? कमेंट में बताओ!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "RISHIKESH WALON,",
+        "SLANG SEEKHO!"
+      ],
+      "badge": {
+        "trai": "USA",
+        "phai": "ENGLISH SLANG"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "MATLAB",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "IT'S POURING",
+          "nghia": "tez baarish ho rahi hai",
+          "moc_tu": "It's",
+          "moc_nghia": "बारिश"
+        },
+        {
+          "luot": 2,
+          "tu": "FREEZING",
+          "nghia": "bahut thand",
+          "moc_tu": "Freezing",
+          "moc_nghia": "बहुत"
+        },
+        {
+          "luot": 3,
+          "tu": "BOILING",
+          "nghia": "bahut garmi",
+          "moc_tu": "Boiling",
+          "moc_nghia": "बहुत"
+        },
+        {
+          "luot": 4,
+          "tu": "RAINING CATS AND DOGS",
+          "nghia": "moosladhaar baarish",
+          "moc_tu": "Raining",
+          "moc_nghia": "मूसलाधार"
+        }
+      ],
+      "ngon_ngu": "hi",
+      "font_ass": "Nirmala UI",
+      "shaping": "complex"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in10-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in10-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "in11-udaipur-lake",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "an emerald-green silk saree with a wide gold border, wrapped and pleated the traditional way down to the feet, the pallu over the left shoulder, with an emerald long-sleeve blouse. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, a native Hindi speaker from India speaking natural, everyday Hindi, who says the English slang words in clear, fluent English; like a friendly Indian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "Lake Pichola in Udaipur at sunset: a white marble lakeside palace with domes and arches reflected in calm water, the Aravalli hills behind, a stone terrace in front, golden sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "उदयपुर से नमस्ते! चलो, अमेरिकन लोगों की तरह इंग्लिश बोलना सीखें!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Window shopping! इसका मतलब है, बस देखना, खरीदना नहीं।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "A steal! इसका मतलब है, बहुत सस्ता।",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "A rip-off! इसका मतलब है, लूट, बहुत महँगा।",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "और Shop till you drop. इसका मतलब है, थकने तक शॉपिंग।",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आप window shopping बोलोगे? कमेंट में बताओ!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "UDAIPUR WALON,",
+        "SLANG SEEKHO!"
+      ],
+      "badge": {
+        "trai": "USA",
+        "phai": "ENGLISH SLANG"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "MATLAB",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "WINDOW SHOPPING",
+          "nghia": "bas dekhna, kharidna nahi",
+          "moc_tu": "Window",
+          "moc_nghia": "देखना"
+        },
+        {
+          "luot": 2,
+          "tu": "A STEAL",
+          "nghia": "bahut sasta",
+          "moc_tu": "steal",
+          "moc_nghia": "बहुत"
+        },
+        {
+          "luot": 3,
+          "tu": "A RIP-OFF",
+          "nghia": "loot, bahut mehenga",
+          "moc_tu": "rip-off",
+          "moc_nghia": "बहुत"
+        },
+        {
+          "luot": 4,
+          "tu": "SHOP TILL YOU DROP",
+          "nghia": "thakne tak shopping",
+          "moc_tu": "Shop",
+          "moc_nghia": "थकने"
+        }
+      ],
+      "ngon_ngu": "hi",
+      "font_ass": "Nirmala UI",
+      "shaping": "complex"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in11-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in11-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "in12-shimla-mall-road",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a maroon wool V-neck sweater over a white collared shirt, grey wool trousers, and a grey knitted muffler around the neck. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young man's voice, a native Hindi speaker from India speaking natural, everyday Hindi, who says the English slang words in clear, fluent English; like a friendly Indian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Mall Road ridge in Shimla on a crisp clear day: a wide paved open square, a yellow neo-Gothic colonial church tower and old timber-framed buildings, pine-covered hills and distant snowy peaks; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "शिमला में हो? तो आज सीखो अमेरिकन इंग्लिश के चार स्लैंग!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Crush! इसका मतलब है, जो दिल को पसंद हो।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Ghost! इसका मतलब है, अचानक जवाब देना बंद।",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hit it off! इसका मतलब है, तुरंत जम जाना।",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "और Head over heels. इसका मतलब है, पूरी तरह प्यार में।",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आप crush बोलोगे? कमेंट में बताओ!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "SHIMLA WALON,",
+        "SLANG SEEKHO!"
+      ],
+      "badge": {
+        "trai": "USA",
+        "phai": "ENGLISH SLANG"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "MATLAB",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "CRUSH",
+          "nghia": "jo dil ko pasand ho",
+          "moc_tu": "Crush",
+          "moc_nghia": "पसंद"
+        },
+        {
+          "luot": 2,
+          "tu": "GHOST",
+          "nghia": "achanak jawab dena band",
+          "moc_tu": "Ghost",
+          "moc_nghia": "अचानक"
+        },
+        {
+          "luot": 3,
+          "tu": "HIT IT OFF",
+          "nghia": "turant jam jaana",
+          "moc_tu": "Hit",
+          "moc_nghia": "तुरंत"
+        },
+        {
+          "luot": 4,
+          "tu": "HEAD OVER HEELS",
+          "nghia": "poori tarah pyaar mein",
+          "moc_tu": "Head",
+          "moc_nghia": "तरह"
+        }
+      ],
+      "ngon_ngu": "hi",
+      "font_ass": "Nirmala UI",
+      "shaping": "complex"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in12-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in12-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "in13-kochi-fishing-nets",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a cream Kerala kasavu saree with a wide gold border, wrapped and pleated the traditional way down to the feet, the pallu over the left shoulder, with a cream long-sleeve blouse. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, a native Hindi speaker from India speaking natural, everyday Hindi, who says the English slang words in clear, fluent English; like a friendly Indian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Fort Kochi waterfront in Kerala at sunset: giant wooden Chinese fishing nets on teak poles over the calm sea, coconut palms along the shore, orange sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "कोच्चि वालो, आज सीखते हैं अमेरिकन इंग्लिश के चार मज़ेदार स्लैंग!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hit the road! इसका मतलब है, सफ़र शुरू करना।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Jet lag! इसका मतलब है, लंबी फ़्लाइट के बाद थकान।",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Bucket list! इसका मतलब है, ज़िंदगी के सपनों की लिस्ट।",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "और Off the beaten path. इसका मतलब है, भीड़ से दूर जगह।",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आप hit the road बोलोगे? कमेंट में बताओ!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "KOCHI WALON,",
+        "SLANG SEEKHO!"
+      ],
+      "badge": {
+        "trai": "USA",
+        "phai": "ENGLISH SLANG"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "MATLAB",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "HIT THE ROAD",
+          "nghia": "safar shuru karna",
+          "moc_tu": "Hit",
+          "moc_nghia": "सफ़र"
+        },
+        {
+          "luot": 2,
+          "tu": "JET LAG",
+          "nghia": "lambi flight ke baad thakaan",
+          "moc_tu": "Jet",
+          "moc_nghia": "फ़्लाइट"
+        },
+        {
+          "luot": 3,
+          "tu": "BUCKET LIST",
+          "nghia": "zindagi ke sapnon ki list",
+          "moc_tu": "Bucket",
+          "moc_nghia": "ज़िंदगी"
+        },
+        {
+          "luot": 4,
+          "tu": "OFF THE BEATEN PATH",
+          "nghia": "bheed se door jagah",
+          "moc_tu": "Off",
+          "moc_nghia": "जगह"
+        }
+      ],
+      "ngon_ngu": "hi",
+      "font_ass": "Nirmala UI",
+      "shaping": "complex"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in13-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in13-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "in14-darjeeling-tea",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a dark-green padded jacket zipped up, dark-grey trousers, and a thick grey knitted scarf around the neck. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young man's voice, a native Hindi speaker from India speaking natural, everyday Hindi, who says the English slang words in clear, fluent English; like a friendly Indian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a Darjeeling tea garden: neat rows of bright green tea bushes on steep hills, a few tall shade trees, distant snow-capped Himalayan peaks under a clear blue sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "दार्जिलिंग से नमस्ते! चलो, अमेरिकन लोगों की तरह इंग्लिश बोलना सीखें!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Pole position! इसका मतलब है, सबसे आगे से शुरुआत।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Full throttle! इसका मतलब है, पूरी रफ़्तार से।",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Home stretch! इसका मतलब है, मंज़िल बस पास है।",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "और Neck and neck. इसका मतलब है, बराबर की टक्कर।",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आप pole position बोलोगे? कमेंट में बताओ!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "DARJEELING WALON,",
+        "SLANG SEEKHO!"
+      ],
+      "badge": {
+        "trai": "USA",
+        "phai": "ENGLISH SLANG"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "MATLAB",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "POLE POSITION",
+          "nghia": "sabse aage se shuruaat",
+          "moc_tu": "Pole",
+          "moc_nghia": "सबसे"
+        },
+        {
+          "luot": 2,
+          "tu": "FULL THROTTLE",
+          "nghia": "poori raftaar se",
+          "moc_tu": "Full",
+          "moc_nghia": "रफ़्तार"
+        },
+        {
+          "luot": 3,
+          "tu": "HOME STRETCH",
+          "nghia": "manzil bas paas hai",
+          "moc_tu": "Home",
+          "moc_nghia": "मंज़िल"
+        },
+        {
+          "luot": 4,
+          "tu": "NECK AND NECK",
+          "nghia": "barabar ki takkar",
+          "moc_tu": "Neck",
+          "moc_nghia": "बराबर"
+        }
+      ],
+      "ngon_ngu": "hi",
+      "font_ass": "Nirmala UI",
+      "shaping": "complex"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in14-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in14-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "in15-lucknow-rumi-darwaza",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a white long-sleeve chikankari kurta with fine white thread embroidery reaching the knees, white straight trousers, and a pale-pink dupatta over one shoulder. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, a native Hindi speaker from India speaking natural, everyday Hindi, who says the English slang words in clear, fluent English; like a friendly Indian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Rumi Darwaza gateway in Lucknow on a clear afternoon: the huge ornate Mughal arch gate in pale stone, an empty wide road passing under it, trees and blue sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "लखनऊ में हो? तो आज सीखो अमेरिकन इंग्लिश के चार स्लैंग!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hit the books! इसका मतलब है, मन लगाकर पढ़ना।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Cram! इसका मतलब है, आख़िरी वक्त की रटाई।",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Ace it! इसका मतलब है, पूरे नंबर लाना।",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "और Pass with flying colors. इसका मतलब है, शानदार तरीके से पास।",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आप hit the books बोलोगे? कमेंट में बताओ!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "LUCKNOW WALON,",
+        "SLANG SEEKHO!"
+      ],
+      "badge": {
+        "trai": "USA",
+        "phai": "ENGLISH SLANG"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "MATLAB",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "HIT THE BOOKS",
+          "nghia": "man lagakar padhna",
+          "moc_tu": "Hit",
+          "moc_nghia": "लगाकर"
+        },
+        {
+          "luot": 2,
+          "tu": "CRAM",
+          "nghia": "aakhri waqt ki rataai",
+          "moc_tu": "Cram",
+          "moc_nghia": "आख़िरी"
+        },
+        {
+          "luot": 3,
+          "tu": "ACE IT",
+          "nghia": "poore number laana",
+          "moc_tu": "Ace",
+          "moc_nghia": "नंबर"
+        },
+        {
+          "luot": 4,
+          "tu": "PASS WITH FLYING COLORS",
+          "nghia": "shaandaar tarike se pass",
+          "moc_tu": "Pass",
+          "moc_nghia": "शानदार"
+        }
+      ],
+      "ngon_ngu": "hi",
+      "font_ass": "Nirmala UI",
+      "shaping": "complex"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in15-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in15-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "in16-ahmedabad-riverfront",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a white long-sleeve kediyu-style pleated top with colourful red and green embroidery across the chest, and white churidar trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young man's voice, a native Hindi speaker from India speaking natural, everyday Hindi, who says the English slang words in clear, fluent English; like a friendly Indian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Sabarmati Riverfront in Ahmedabad at golden hour: a wide paved promenade beside the calm river, a modern bridge with curved steel arches, green lawns and city buildings across the water; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "अहमदाबाद वालो, आज सीखते हैं अमेरिकन इंग्लिश के चार मज़ेदार स्लैंग!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "My bad! इसका मतलब है, मेरी गलती।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Mess up! इसका मतलब है, गड़बड़ कर देना।",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Drop the ball! इसका मतलब है, ज़िम्मेदारी में चूक।",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "और Back to square one. इसका मतलब है, फिर से शुरुआत।",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आप my bad बोलोगे? कमेंट में बताओ!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "AHMEDABAD WALON,",
+        "SLANG SEEKHO!"
+      ],
+      "badge": {
+        "trai": "USA",
+        "phai": "ENGLISH SLANG"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "MATLAB",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "MY BAD",
+          "nghia": "meri galti",
+          "moc_tu": "My",
+          "moc_nghia": "गलती"
+        },
+        {
+          "luot": 2,
+          "tu": "MESS UP",
+          "nghia": "gadbad kar dena",
+          "moc_tu": "Mess",
+          "moc_nghia": "गड़बड़"
+        },
+        {
+          "luot": 3,
+          "tu": "DROP THE BALL",
+          "nghia": "zimmedari mein chook",
+          "moc_tu": "Drop",
+          "moc_nghia": "ज़िम्मेदारी"
+        },
+        {
+          "luot": 4,
+          "tu": "BACK TO SQUARE ONE",
+          "nghia": "phir se shuruaat",
+          "moc_tu": "Back",
+          "moc_nghia": "शुरुआत"
+        }
+      ],
+      "ngon_ngu": "hi",
+      "font_ass": "Nirmala UI",
+      "shaping": "complex"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in16-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in16-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "in17-mysuru-palace",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a mustard-yellow Mysore silk saree with a maroon border, wrapped and pleated the traditional way down to the feet, the pallu over the left shoulder, with a maroon long-sleeve blouse. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, a native Hindi speaker from India speaking natural, everyday Hindi, who says the English slang words in clear, fluent English; like a friendly Indian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Mysore Palace in Karnataka in warm evening light: the grand palace with red domes, arches and a tall central tower behind wide manicured gardens, clear sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "मैसूर से नमस्ते! चलो, अमेरिकन लोगों की तरह इंग्लिश बोलना सीखें!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hit me up! इसका मतलब है, मुझे मैसेज करना।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Go viral! इसका मतलब है, इंटरनेट पर छा जाना।",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "FOMO! इसका मतलब है, कुछ छूट जाने का डर।",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "और Low-key. इसका मतलब है, थोड़ा-सा, चुपके से।",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आप hit me up बोलोगे? कमेंट में बताओ!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "MYSURU WALON,",
+        "SLANG SEEKHO!"
+      ],
+      "badge": {
+        "trai": "USA",
+        "phai": "ENGLISH SLANG"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "MATLAB",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "HIT ME UP",
+          "nghia": "mujhe message karna",
+          "moc_tu": "Hit",
+          "moc_nghia": "मैसेज"
+        },
+        {
+          "luot": 2,
+          "tu": "GO VIRAL",
+          "nghia": "internet par chha jaana",
+          "moc_tu": "Go",
+          "moc_nghia": "इंटरनेट"
+        },
+        {
+          "luot": 3,
+          "tu": "FOMO",
+          "nghia": "kuch chhoot jaane ka darr",
+          "moc_tu": "FOMO",
+          "moc_nghia": "कुछ"
+        },
+        {
+          "luot": 4,
+          "tu": "LOW-KEY",
+          "nghia": "thoda-sa, chupke se",
+          "moc_tu": "Low-key",
+          "moc_nghia": "थोड़ा-सा"
+        }
+      ],
+      "ngon_ngu": "hi",
+      "font_ass": "Nirmala UI",
+      "shaping": "complex"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in17-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in17-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "in18-chandigarh-sukhna",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a light-blue long-sleeve cricket-style jersey with a white collar and no letters, logos or numbers, and white cricket trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young man's voice, a native Hindi speaker from India speaking natural, everyday Hindi, who says the English slang words in clear, fluent English; like a friendly Indian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "Sukhna Lake in Chandigarh at golden hour: a wide paved lakeside promenade with lamp posts, calm water, low green Shivalik hills on the far side, warm sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "चंडीगढ़ में हो? तो आज सीखो अमेरिकन इंग्लिश के चार स्लैंग!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Piece of cake! इसका मतलब है, बहुत आसान।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "No-brainer! इसका मतलब है, सोचने की ज़रूरत नहीं।",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Not rocket science! इसका मतलब है, कोई मुश्किल काम नहीं।",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "और Easier said than done. इसका मतलब है, कहना आसान, करना मुश्किल।",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आप piece of cake बोलोगे? कमेंट में बताओ!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "CHANDIGARH WALON,",
+        "SLANG SEEKHO!"
+      ],
+      "badge": {
+        "trai": "USA",
+        "phai": "ENGLISH SLANG"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "MATLAB",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "PIECE OF CAKE",
+          "nghia": "bahut aasaan",
+          "moc_tu": "Piece",
+          "moc_nghia": "बहुत"
+        },
+        {
+          "luot": 2,
+          "tu": "NO-BRAINER",
+          "nghia": "sochne ki zaroorat nahi",
+          "moc_tu": "No-brainer",
+          "moc_nghia": "सोचने"
+        },
+        {
+          "luot": 3,
+          "tu": "NOT ROCKET SCIENCE",
+          "nghia": "koi mushkil kaam nahi",
+          "moc_tu": "Not",
+          "moc_nghia": "मुश्किल"
+        },
+        {
+          "luot": 4,
+          "tu": "EASIER SAID THAN DONE",
+          "nghia": "kehna aasaan, karna mushkil",
+          "moc_tu": "Easier",
+          "moc_nghia": "कहना"
+        }
+      ],
+      "ngon_ngu": "hi",
+      "font_ass": "Nirmala UI",
+      "shaping": "complex"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in18-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in18-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "in19-delhi-chandni-chowk",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a red long-sleeve salwar kameez with fine gold embroidery reaching the knees, red salwar trousers, and a light golden dupatta over both shoulders. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, a native Hindi speaker from India speaking natural, everyday Hindi, who says the English slang words in clear, fluent English; like a friendly Indian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "an old Delhi bazaar lane in Chandni Chowk early in the morning before opening: narrow old buildings with carved balconies, shop shutters closed, tangled overhead wires, warm soft light, completely empty; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "दिल्ली वालो, आज सीखते हैं अमेरिकन इंग्लिश के चार मज़ेदार स्लैंग!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "You got this! इसका मतलब है, तुम कर सकते हो।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Go for it! इसका मतलब है, कर डालो।",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hang in there! इसका मतलब है, हिम्मत रखो।",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "और Break a leg. इसका मतलब है, गुड लक।",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आप you got this बोलोगे? कमेंट में बताओ!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "DELHI WALON,",
+        "SLANG SEEKHO!"
+      ],
+      "badge": {
+        "trai": "USA",
+        "phai": "ENGLISH SLANG"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "MATLAB",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "YOU GOT THIS",
+          "nghia": "tum kar sakte ho",
+          "moc_tu": "You",
+          "moc_nghia": "सकते"
+        },
+        {
+          "luot": 2,
+          "tu": "GO FOR IT",
+          "nghia": "kar daalo",
+          "moc_tu": "Go",
+          "moc_nghia": "कर"
+        },
+        {
+          "luot": 3,
+          "tu": "HANG IN THERE",
+          "nghia": "himmat rakho",
+          "moc_tu": "Hang",
+          "moc_nghia": "हिम्मत"
+        },
+        {
+          "luot": 4,
+          "tu": "BREAK A LEG",
+          "nghia": "good luck",
+          "moc_tu": "Break",
+          "moc_nghia": "गुड"
+        }
+      ],
+      "ngon_ngu": "hi",
+      "font_ass": "Nirmala UI",
+      "shaping": "complex"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in19-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in19-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "in20-mumbai-bandstand",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a black bomber jacket half-zipped over a plain white t-shirt, and dark-blue jeans. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young man's voice, a native Hindi speaker from India speaking natural, everyday Hindi, who says the English slang words in clear, fluent English; like a friendly Indian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Bandstand seafront in Mumbai at sunset: a stone promenade with a railing above dark rocks and the sea, the long cable-stayed Bandra-Worli Sea Link bridge in the distance, orange sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "मुंबई से नमस्ते! चलो, अमेरिकन लोगों की तरह इंग्लिश बोलना सीखें!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hang out! इसका मतलब है, साथ में वक्त बिताना।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Throw a party! इसका मतलब है, पार्टी देना।",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Party animal! इसका मतलब है, पार्टी का शौकीन।",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "और Sleep in. इसका मतलब है, देर तक सोना।",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "आप hang out बोलोगे? कमेंट में बताओ!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "MUMBAI WALON,",
+        "SLANG SEEKHO!"
+      ],
+      "badge": {
+        "trai": "USA",
+        "phai": "ENGLISH SLANG"
+      },
+      "nhan_tu": "AMERICANS SAY",
+      "nhan_nghia": "MATLAB",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "HANG OUT",
+          "nghia": "saath mein waqt bitaana",
+          "moc_tu": "Hang",
+          "moc_nghia": "वक्त"
+        },
+        {
+          "luot": 2,
+          "tu": "THROW A PARTY",
+          "nghia": "party dena",
+          "moc_tu": "Throw",
+          "moc_nghia": "पार्टी"
+        },
+        {
+          "luot": 3,
+          "tu": "PARTY ANIMAL",
+          "nghia": "party ka shaukeen",
+          "moc_tu": "Party",
+          "moc_nghia": "पार्टी"
+        },
+        {
+          "luot": 4,
+          "tu": "SLEEP IN",
+          "nghia": "der tak sona",
+          "moc_tu": "Sleep",
+          "moc_nghia": "देर"
+        }
+      ],
+      "ngon_ngu": "hi",
+      "font_ass": "Nirmala UI",
+      "shaping": "complex"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in20-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/in/in20-bg.webp"
+      ]
+    }
+  }
+]

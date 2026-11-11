@@ -16,6 +16,7 @@ import re
 import shutil
 import sys
 import tempfile
+import unicodedata
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PROD = os.path.dirname(os.path.dirname(HERE))
@@ -33,7 +34,9 @@ W, H = 1080, 1920
 
 
 def norm(w):
-    return re.sub(r"[^a-z0-9]", "", str(w).lower())
+    """Dạng so khớp: chữ thường, bỏ dấu, chỉ giữ chữ/số (Latin, Devanagari...). 11/11/2026: biến thể Hindi/Bồ Đào Nha (trước chỉ giữ a-z0-9 nên từ Hindi bị bỏ)."""
+    s = "".join(c for c in unicodedata.normalize("NFD", str(w).lower()) if not unicodedata.combining(c))
+    return re.sub(r"[\W_]", "", s)
 
 
 def rgb(c):
@@ -46,7 +49,7 @@ def bgr_hex(c):
 
 
 # ---------------------------------------------------------------- mốc từng từ
-def words_of_turns(raw, luot, scenes, model):
+def words_of_turns(raw, luot, scenes, model, lang="en"):
     """{chỉ số lượt: [(từ của biến thể, s, e)]}: Whisper theo từng cảnh, khớp mờ tuần tự với lời của biến thể, từ không nghe thấy nội suy."""
     by_turn = {s["turn"]: s for s in scenes}
     total = PP.duration(raw)
@@ -55,7 +58,7 @@ def words_of_turns(raw, luot, scenes, model):
     for i in idx:
         sc = by_turn[i]
         a, b = max(0.0, sc.get("speech", sc["start"]) - 0.2), min(total, sc["end"] + 0.2)
-        jobs.append({"a": a, "b": b, "prompt": luot[i]["text"], "lang": "en"})
+        jobs.append({"a": a, "b": b, "prompt": luot[i]["text"], "lang": lang})
     heard = PP.transcribe(raw, model, None, vad=True, jobs=jobs) if jobs else []
     if heard is None:
         print("CẢNH BÁO: máy này không chạy được nhận dạng giọng; mốc từ ước lượng đều trong từng cảnh.")
@@ -251,7 +254,7 @@ def chunks_of(words, max_words):
     out, cur = [], []
     for i, (w, s, e) in enumerate(words):
         cur.append(i)
-        end_sent = bool(re.search(r"[.!?,…]$", w))
+        end_sent = bool(re.search(r"[.!?,…।]$", w))
         if end_sent or len(cur) >= max_words:
             out.append(cur)
             cur = []
@@ -259,18 +262,18 @@ def chunks_of(words, max_words):
         out.append(cur)
     merged = []
     for g in out:
-        if merged and len(g) == 1 and len(merged[-1]) < max_words + 1 and not re.search(r"[.!?]$", words[merged[-1][-1]][0]):
+        if merged and len(g) == 1 and len(merged[-1]) < max_words + 1 and not re.search(r"[.!?।]$", words[merged[-1][-1]][0]):
             merged[-1] = merged[-1] + g
         else:
             merged.append(g)
     return merged
 
 
-def write_subs(cfg, turn_words, scenes, path):
+def write_subs(cfg, turn_words, scenes, path, font=None):
     c = cfg["phu_de"]
     size, pad = c["co_chu"], c["pad_x"]
     blue, hi = bgr_hex(cfg["xanh"]), bgr_hex(cfg["xanh_nhat"])
-    font = cfg.get("font_ass", "Arial")
+    font = font or cfg.get("font_ass", "Arial")
     head = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {W}
@@ -329,9 +332,10 @@ def main():
     luot = [t for t in v.get("LUOT", []) if str(t.get("text", "")).strip()]
     hk = v.get("HAU_KY") or {}
     total = PP.duration(a.raw)
-    model = a.model or cfg.get("whisper", "small.en")
+    lang = str(hk.get("ngon_ngu") or "en")   # "hi" / "pt": Whisper đa ngôn ngữ; phụ đề chữ Devanagari cần font Nirmala UI + shaping complex (HAU_KY.font_ass, HAU_KY.shaping)
+    model = a.model or (cfg.get("whisper", "small.en") if lang == "en" else cfg.get("whisper_da_ngu", "small"))
     print(f"Biến thể \"{v.get('name', '')}\": {len(luot)} lượt, {len(scenes)} cảnh, {len(hk.get('the', []))} thẻ từ lóng; Whisper {model}")
-    turn_words = words_of_turns(a.raw, luot, scenes, model)
+    turn_words = words_of_turns(a.raw, luot, scenes, model, lang)
     work = tempfile.mkdtemp(prefix="pho_pp_")
     try:
         overlays = []   # (png, s, e)
@@ -366,7 +370,7 @@ def main():
                 overlays.append((p1, t_tu, t_ng))
             overlays.append((p2, max(t_tu, t_ng), t_next))
             print(f"  thẻ {dem} {c['tu']!r}: {t_tu:.2f}s, nghĩa {t_ng:.2f}s, giữ tới {t_next:.2f}s")
-        n_sub = write_subs(cfg, turn_words, scenes, os.path.join(work, "subs.ass"))
+        n_sub = write_subs(cfg, turn_words, scenes, os.path.join(work, "subs.ass"), hk.get("font_ass"))
         print(f"  phụ đề: {n_sub} mốc từ")
         cmd = ["ffmpeg", "-y", "-v", "error", "-i", os.path.abspath(a.raw)]
         fc = f"[0:v]scale={W}:{H}:flags=lanczos,fps=30[v0]"
@@ -375,7 +379,7 @@ def main():
             cmd += ["-i", png]
             fc += f";[{last}][{i + 1}:v]overlay=0:0:enable='between(t,{s:.3f},{e:.3f})'[v{i + 1}]"
             last = f"v{i + 1}"
-        fc += f";[{last}]subtitles=subs.ass[v]"
+        fc += f";[{last}]" + (f"ass=subs.ass:shaping={hk['shaping']}" if hk.get("shaping") else "subtitles=subs.ass") + "[v]"
         cmd += ["-filter_complex", fc, "-map", "[v]", "-map", "0:a?", "-c:v", "libx264", "-crf", "17", "-preset", "medium",
                 "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-ar", "44100", "out.mp4"]
         PP.run(cmd, cwd=work)

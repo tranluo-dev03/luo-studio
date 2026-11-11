@@ -1,0 +1,2022 @@
+[
+  {
+    "name": "br01-rio-copacabana",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a lime-green long-sleeve linen shirt buttoned up, and white linen trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, a native Brazilian Portuguese speaker speaking natural, everyday Brazilian Portuguese, who says the English slang words in clear, fluent American English; like a friendly Brazilian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Copacabana promenade in Rio de Janeiro on a sunny afternoon: the famous black-and-white wavy mosaic sidewalk, tall palm trees, the wide golden beach and blue ocean, green hills in the distance; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Oi, gente! Direto do Rio, bora aprender gírias do inglês americano!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What's up? Significa e aí, tudo bem.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Bet! Significa fechado.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "No cap! Significa é sério, sem mentira.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E Catch you later. Significa até mais.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Você usaria what's up? Conta aqui nos comentários!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "RIO DE JANEIRO",
+        "GÍRIAS EM INGLÊS"
+      ],
+      "badge": {
+        "trai": "EUA",
+        "phai": "INGLÊS AMERICANO"
+      },
+      "nhan_tu": "AMERICANOS DIZEM",
+      "nhan_nghia": "SIGNIFICA",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "WHAT'S UP?",
+          "nghia": "e aí, tudo bem",
+          "moc_tu": "What's",
+          "moc_nghia": "tudo"
+        },
+        {
+          "luot": 2,
+          "tu": "BET",
+          "nghia": "fechado",
+          "moc_tu": "Bet",
+          "moc_nghia": "fechado"
+        },
+        {
+          "luot": 3,
+          "tu": "NO CAP",
+          "nghia": "é sério, sem mentira",
+          "moc_tu": "No",
+          "moc_nghia": "sério"
+        },
+        {
+          "luot": 4,
+          "tu": "CATCH YOU LATER",
+          "nghia": "até mais",
+          "moc_tu": "Catch",
+          "moc_nghia": "até"
+        }
+      ],
+      "ngon_ngu": "pt"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br01-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br01-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "br02-rio-selaron",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a mustard-yellow long-sleeve camp-collar shirt buttoned up, and beige chino trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young man's voice, a native Brazilian Portuguese speaker speaking natural, everyday Brazilian Portuguese, who says the English slang words in clear, fluent American English; like a friendly Brazilian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Selarón Steps in Rio de Janeiro: a long staircase covered in bright red, yellow, blue and green ceramic tiles with plain patterns, colourful old houses on both sides, warm daylight; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Tá no Rio? Então aprende comigo quatro gírias do inglês americano!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "I'm starving! Significa morrendo de fome.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Grab a bite! Significa comer alguma coisa rápida.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "It hits the spot! Significa caiu como uma luva.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E Pig out. Significa comer até não aguentar.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Você usaria I'm starving? Conta aqui nos comentários!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "RIO DE JANEIRO",
+        "GÍRIAS EM INGLÊS"
+      ],
+      "badge": {
+        "trai": "EUA",
+        "phai": "INGLÊS AMERICANO"
+      },
+      "nhan_tu": "AMERICANOS DIZEM",
+      "nhan_nghia": "SIGNIFICA",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "I'M STARVING",
+          "nghia": "morrendo de fome",
+          "moc_tu": "I'm",
+          "moc_nghia": "morrendo"
+        },
+        {
+          "luot": 2,
+          "tu": "GRAB A BITE",
+          "nghia": "comer alguma coisa rápida",
+          "moc_tu": "Grab",
+          "moc_nghia": "comer"
+        },
+        {
+          "luot": 3,
+          "tu": "IT HITS THE SPOT",
+          "nghia": "caiu como uma luva",
+          "moc_tu": "It",
+          "moc_nghia": "caiu"
+        },
+        {
+          "luot": 4,
+          "tu": "PIG OUT",
+          "nghia": "comer até não aguentar",
+          "moc_tu": "Pig",
+          "moc_nghia": "comer"
+        }
+      ],
+      "ngon_ngu": "pt"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br02-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br02-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "br03-rio-pao-de-acucar",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a white long-sleeve crochet cardigan buttoned over a white top, and light-blue jeans. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, a native Brazilian Portuguese speaker speaking natural, everyday Brazilian Portuguese, who says the English slang words in clear, fluent American English; like a friendly Brazilian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Urca seawall in Rio de Janeiro at golden hour: a low stone wall by calm blue water with small fishing boats, Sugarloaf Mountain rising behind, warm orange sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Hoje, no Rio, vou te ensinar quatro gírias que os americanos usam!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Broke! Significa duro, sem grana.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Bucks! Significa dólares.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Splurge! Significa gastar muito por prazer.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E Costs an arm and a leg. Significa custa os olhos da cara.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Você usaria broke? Conta aqui nos comentários!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "RIO DE JANEIRO",
+        "GÍRIAS EM INGLÊS"
+      ],
+      "badge": {
+        "trai": "EUA",
+        "phai": "INGLÊS AMERICANO"
+      },
+      "nhan_tu": "AMERICANOS DIZEM",
+      "nhan_nghia": "SIGNIFICA",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "BROKE",
+          "nghia": "duro, sem grana",
+          "moc_tu": "Broke",
+          "moc_nghia": "duro"
+        },
+        {
+          "luot": 2,
+          "tu": "BUCKS",
+          "nghia": "dólares",
+          "moc_tu": "Bucks",
+          "moc_nghia": "dólares"
+        },
+        {
+          "luot": 3,
+          "tu": "SPLURGE",
+          "nghia": "gastar muito por prazer",
+          "moc_tu": "Splurge",
+          "moc_nghia": "gastar"
+        },
+        {
+          "luot": 4,
+          "tu": "COSTS AN ARM AND A LEG",
+          "nghia": "custa os olhos da cara",
+          "moc_tu": "Costs",
+          "moc_nghia": "custa"
+        }
+      ],
+      "ngon_ngu": "pt"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br03-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br03-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "br04-sao-paulo-paulista",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a charcoal-grey blazer buttoned over a black crew-neck sweater, and charcoal-grey trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young man's voice, a native Brazilian Portuguese speaker speaking natural, everyday Brazilian Portuguese, who says the English slang words in clear, fluent American English; like a friendly Brazilian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "Avenida Paulista in São Paulo on a bright day: a wide modern avenue lined with tall glass skyscrapers and trees, a wide pedestrian sidewalk, modern architecture, light clouds; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Oi, gente! Direto de São Paulo, bora aprender gírias do inglês americano!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Swamped! Significa atolado de trabalho.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Call it a day! Significa encerrar o expediente.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Touch base! Significa dar uma conversada rápida.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E Pull an all-nighter. Significa virar a noite trabalhando.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Você usaria swamped? Conta aqui nos comentários!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "SÃO PAULO",
+        "GÍRIAS EM INGLÊS"
+      ],
+      "badge": {
+        "trai": "EUA",
+        "phai": "INGLÊS AMERICANO"
+      },
+      "nhan_tu": "AMERICANOS DIZEM",
+      "nhan_nghia": "SIGNIFICA",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "SWAMPED",
+          "nghia": "atolado de trabalho",
+          "moc_tu": "Swamped",
+          "moc_nghia": "atolado"
+        },
+        {
+          "luot": 2,
+          "tu": "CALL IT A DAY",
+          "nghia": "encerrar o expediente",
+          "moc_tu": "Call",
+          "moc_nghia": "encerrar"
+        },
+        {
+          "luot": 3,
+          "tu": "TOUCH BASE",
+          "nghia": "dar uma conversada rápida",
+          "moc_tu": "Touch",
+          "moc_nghia": "dar"
+        },
+        {
+          "luot": 4,
+          "tu": "PULL AN ALL-NIGHTER",
+          "nghia": "virar a noite trabalhando",
+          "moc_tu": "Pull",
+          "moc_nghia": "virar"
+        }
+      ],
+      "ngon_ngu": "pt"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br04-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br04-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "br05-sao-paulo-murais",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "an oversized light-blue denim jacket buttoned over a white t-shirt, and black jeans. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, a native Brazilian Portuguese speaker speaking natural, everyday Brazilian Portuguese, who says the English slang words in clear, fluent American English; like a friendly Brazilian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a narrow alley in Vila Madalena, São Paulo, with every wall covered in huge colourful abstract street-art murals of faces, birds and flowers (pictures only, no letters), warm daylight; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Tá em São Paulo? Então aprende comigo quatro gírias do inglês americano!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Stoked! Significa super animado.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Over the moon! Significa muito feliz.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "On cloud nine! Significa nas nuvens.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E Pumped. Significa animado e pronto.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Você usaria stoked? Conta aqui nos comentários!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "SÃO PAULO",
+        "GÍRIAS EM INGLÊS"
+      ],
+      "badge": {
+        "trai": "EUA",
+        "phai": "INGLÊS AMERICANO"
+      },
+      "nhan_tu": "AMERICANOS DIZEM",
+      "nhan_nghia": "SIGNIFICA",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "STOKED",
+          "nghia": "super animado",
+          "moc_tu": "Stoked",
+          "moc_nghia": "super"
+        },
+        {
+          "luot": 2,
+          "tu": "OVER THE MOON",
+          "nghia": "muito feliz",
+          "moc_tu": "Over",
+          "moc_nghia": "muito"
+        },
+        {
+          "luot": 3,
+          "tu": "ON CLOUD NINE",
+          "nghia": "nas nuvens",
+          "moc_tu": "On",
+          "moc_nghia": "nas"
+        },
+        {
+          "luot": 4,
+          "tu": "PUMPED",
+          "nghia": "animado e pronto",
+          "moc_tu": "Pumped",
+          "moc_nghia": "animado"
+        }
+      ],
+      "ngon_ngu": "pt"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br05-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br05-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "br06-interlagos-f1",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a red racing team jacket with white side stripes, zipped up, with no logos and no letters, and black trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young man's voice, a native Brazilian Portuguese speaker speaking natural, everyday Brazilian Portuguese, who says the English slang words in clear, fluent American English; like a friendly Brazilian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Interlagos race circuit in São Paulo on race weekend: an empty grey asphalt track with red-and-white kerbs, a tall covered grandstand, catch fences, green trees around, bright sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "A Fórmula 1 chegou em Interlagos! Bora aprender gírias do inglês americano!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Beat! Significa morto de cansaço.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Chill out! Significa relaxa.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Crash! Significa apagar de sono.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E Take it easy. Significa vai com calma.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Você usaria beat? Conta aqui nos comentários!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "INTERLAGOS",
+        "GÍRIAS EM INGLÊS"
+      ],
+      "badge": {
+        "trai": "EUA",
+        "phai": "INGLÊS AMERICANO"
+      },
+      "nhan_tu": "AMERICANOS DIZEM",
+      "nhan_nghia": "SIGNIFICA",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "BEAT",
+          "nghia": "morto de cansaço",
+          "moc_tu": "Beat",
+          "moc_nghia": "morto"
+        },
+        {
+          "luot": 2,
+          "tu": "CHILL OUT",
+          "nghia": "relaxa",
+          "moc_tu": "Chill",
+          "moc_nghia": "relaxa"
+        },
+        {
+          "luot": 3,
+          "tu": "CRASH",
+          "nghia": "apagar de sono",
+          "moc_tu": "Crash",
+          "moc_nghia": "apagar"
+        },
+        {
+          "luot": 4,
+          "tu": "TAKE IT EASY",
+          "nghia": "vai com calma",
+          "moc_tu": "Take",
+          "moc_nghia": "vai"
+        }
+      ],
+      "ngon_ngu": "pt"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br06-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br06-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "br07-salvador-pelourinho",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a white long-sleeve lace Baiana-style blouse, a long full white skirt down to the feet, and a long colourful beaded necklace. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, a native Brazilian Portuguese speaker speaking natural, everyday Brazilian Portuguese, who says the English slang words in clear, fluent American English; like a friendly Brazilian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Pelourinho old town in Salvador: a sloping cobblestone square lined with pastel pink, blue, yellow and green colonial houses with tall windows, a baroque church far behind, bright sun; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Oi, gente! Direto de Salvador, bora aprender gírias do inglês americano!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Totally! Significa com certeza.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Sounds good! Significa parece ótimo.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "You bet! Significa pode apostar.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E I'm down. Significa tô dentro.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Você usaria totally? Conta aqui nos comentários!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "SALVADOR",
+        "GÍRIAS EM INGLÊS"
+      ],
+      "badge": {
+        "trai": "EUA",
+        "phai": "INGLÊS AMERICANO"
+      },
+      "nhan_tu": "AMERICANOS DIZEM",
+      "nhan_nghia": "SIGNIFICA",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "TOTALLY",
+          "nghia": "com certeza",
+          "moc_tu": "Totally",
+          "moc_nghia": "com"
+        },
+        {
+          "luot": 2,
+          "tu": "SOUNDS GOOD",
+          "nghia": "parece ótimo",
+          "moc_tu": "Sounds",
+          "moc_nghia": "parece"
+        },
+        {
+          "luot": 3,
+          "tu": "YOU BET",
+          "nghia": "pode apostar",
+          "moc_tu": "You",
+          "moc_nghia": "pode"
+        },
+        {
+          "luot": 4,
+          "tu": "I'M DOWN",
+          "nghia": "tô dentro",
+          "moc_tu": "I'm",
+          "moc_nghia": "dentro"
+        }
+      ],
+      "ngon_ngu": "pt"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br07-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br07-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "br08-florianopolis-praia",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a long-sleeve shirt with a blue ocean-wave print buttoned up, and light-khaki trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young man's voice, a native Brazilian Portuguese speaker speaking natural, everyday Brazilian Portuguese, who says the English slang words in clear, fluent American English; like a friendly Brazilian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a quiet beach in Florianópolis: soft white sand dunes with low green grass, clear turquoise water, a rocky green headland on the side, blue sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Tá em Floripa? Então aprende comigo quatro gírias do inglês americano!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "No way! Significa não acredito.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "For real? Significa sério mesmo?.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Get out of here! Significa para com isso.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E Mind blown. Significa fiquei de queixo caído.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Você usaria no way? Conta aqui nos comentários!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "FLORIANÓPOLIS",
+        "GÍRIAS EM INGLÊS"
+      ],
+      "badge": {
+        "trai": "EUA",
+        "phai": "INGLÊS AMERICANO"
+      },
+      "nhan_tu": "AMERICANOS DIZEM",
+      "nhan_nghia": "SIGNIFICA",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "NO WAY!",
+          "nghia": "não acredito",
+          "moc_tu": "No",
+          "moc_nghia": "não"
+        },
+        {
+          "luot": 2,
+          "tu": "FOR REAL?",
+          "nghia": "sério mesmo?",
+          "moc_tu": "For",
+          "moc_nghia": "sério"
+        },
+        {
+          "luot": 3,
+          "tu": "GET OUT OF HERE!",
+          "nghia": "para com isso",
+          "moc_tu": "Get",
+          "moc_nghia": "para"
+        },
+        {
+          "luot": 4,
+          "tu": "MIND BLOWN",
+          "nghia": "fiquei de queixo caído",
+          "moc_tu": "Mind",
+          "moc_nghia": "fiquei"
+        }
+      ],
+      "ngon_ngu": "pt"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br08-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br08-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "br09-foz-do-iguacu",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a khaki long-sleeve safari shirt with chest pockets buttoned up, and khaki cargo trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, a native Brazilian Portuguese speaker speaking natural, everyday Brazilian Portuguese, who says the English slang words in clear, fluent American English; like a friendly Brazilian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Iguaçu Falls viewpoint: wide curtains of white waterfalls pouring over red cliffs into a misty gorge, lush green rainforest around, a faint rainbow in the mist; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Hoje, em Foz do Iguaçu, vou te ensinar quatro gírias que os americanos usam!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Awesome! Significa incrível.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Lit! Significa animado, top.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Fire! Significa sensacional.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E Killing it. Significa mandando muito bem.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Você usaria awesome? Conta aqui nos comentários!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "FOZ DO IGUAÇU",
+        "GÍRIAS EM INGLÊS"
+      ],
+      "badge": {
+        "trai": "EUA",
+        "phai": "INGLÊS AMERICANO"
+      },
+      "nhan_tu": "AMERICANOS DIZEM",
+      "nhan_nghia": "SIGNIFICA",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "AWESOME",
+          "nghia": "incrível",
+          "moc_tu": "Awesome",
+          "moc_nghia": "incrível"
+        },
+        {
+          "luot": 2,
+          "tu": "LIT",
+          "nghia": "animado, top",
+          "moc_tu": "Lit",
+          "moc_nghia": "animado"
+        },
+        {
+          "luot": 3,
+          "tu": "FIRE",
+          "nghia": "sensacional",
+          "moc_tu": "Fire",
+          "moc_nghia": "sensacional"
+        },
+        {
+          "luot": 4,
+          "tu": "KILLING IT",
+          "nghia": "mandando muito bem",
+          "moc_tu": "Killing",
+          "moc_nghia": "mandando"
+        }
+      ],
+      "ngon_ngu": "pt"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br09-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br09-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "br10-manaus-teatro",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a sage-green long-sleeve linen shirt buttoned up, and cream linen trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young man's voice, a native Brazilian Portuguese speaker speaking natural, everyday Brazilian Portuguese, who says the English slang words in clear, fluent American English; like a friendly Brazilian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Amazon Theatre in Manaus: a pink Renaissance-style opera house with white columns and a dome of green, yellow and blue tiles, a wavy black-and-white mosaic square in front; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Oi, gente! Direto de Manaus, bora aprender gírias do inglês americano!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "It's pouring! Significa chovendo muito.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Freezing! Significa um gelo, muito frio.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Boiling! Significa um forno, muito calor.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E Raining cats and dogs. Significa chovendo canivete.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Você usaria it's pouring? Conta aqui nos comentários!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "MANAUS",
+        "GÍRIAS EM INGLÊS"
+      ],
+      "badge": {
+        "trai": "EUA",
+        "phai": "INGLÊS AMERICANO"
+      },
+      "nhan_tu": "AMERICANOS DIZEM",
+      "nhan_nghia": "SIGNIFICA",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "IT'S POURING",
+          "nghia": "chovendo muito",
+          "moc_tu": "It's",
+          "moc_nghia": "chovendo"
+        },
+        {
+          "luot": 2,
+          "tu": "FREEZING",
+          "nghia": "um gelo, muito frio",
+          "moc_tu": "Freezing",
+          "moc_nghia": "gelo"
+        },
+        {
+          "luot": 3,
+          "tu": "BOILING",
+          "nghia": "um forno, muito calor",
+          "moc_tu": "Boiling",
+          "moc_nghia": "forno"
+        },
+        {
+          "luot": 4,
+          "tu": "RAINING CATS AND DOGS",
+          "nghia": "chovendo canivete",
+          "moc_tu": "Raining",
+          "moc_nghia": "chovendo"
+        }
+      ],
+      "ngon_ngu": "pt"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br10-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br10-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "br11-amazonia-rio",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "an olive-green long-sleeve shirt with a khaki utility vest with many pockets over it, and olive cargo trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, a native Brazilian Portuguese speaker speaking natural, everyday Brazilian Portuguese, who says the English slang words in clear, fluent American English; like a friendly Brazilian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a wooden dock on the Amazon river: a wide brown calm river, dense green rainforest on both banks, a small wooden riverboat moored, soft humid light; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Tá na Amazônia? Então aprende comigo quatro gírias do inglês americano!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Window shopping! Significa só olhar, sem comprar.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "A steal! Significa uma pechincha.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "A rip-off! Significa um roubo, caro demais.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E Shop till you drop. Significa comprar até cansar.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Você usaria window shopping? Conta aqui nos comentários!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "AMAZÔNIA",
+        "GÍRIAS EM INGLÊS"
+      ],
+      "badge": {
+        "trai": "EUA",
+        "phai": "INGLÊS AMERICANO"
+      },
+      "nhan_tu": "AMERICANOS DIZEM",
+      "nhan_nghia": "SIGNIFICA",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "WINDOW SHOPPING",
+          "nghia": "só olhar, sem comprar",
+          "moc_tu": "Window",
+          "moc_nghia": "olhar"
+        },
+        {
+          "luot": 2,
+          "tu": "A STEAL",
+          "nghia": "uma pechincha",
+          "moc_tu": "steal",
+          "moc_nghia": "uma"
+        },
+        {
+          "luot": 3,
+          "tu": "A RIP-OFF",
+          "nghia": "um roubo, caro demais",
+          "moc_tu": "rip-off",
+          "moc_nghia": "roubo"
+        },
+        {
+          "luot": 4,
+          "tu": "SHOP TILL YOU DROP",
+          "nghia": "comprar até cansar",
+          "moc_tu": "Shop",
+          "moc_nghia": "comprar"
+        }
+      ],
+      "ngon_ngu": "pt"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br11-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br11-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "br12-olinda-ladeiras",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a long-sleeve shirt with a bold red, yellow, green and blue geometric frevo pattern buttoned up, and white trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young man's voice, a native Brazilian Portuguese speaker speaking natural, everyday Brazilian Portuguese, who says the English slang words in clear, fluent American English; like a friendly Brazilian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a steep cobblestone street in historic Olinda: small colonial houses painted in bright orange, blue, green and yellow, palm trees, a view down to the sea, bright sun; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Hoje, em Olinda, vou te ensinar quatro gírias que os americanos usam!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Crush! Significa aquela paixonite.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Ghost! Significa sumir sem responder.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hit it off! Significa se dar bem de cara.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E Head over heels. Significa perdidamente apaixonado.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Você usaria crush? Conta aqui nos comentários!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "OLINDA",
+        "GÍRIAS EM INGLÊS"
+      ],
+      "badge": {
+        "trai": "EUA",
+        "phai": "INGLÊS AMERICANO"
+      },
+      "nhan_tu": "AMERICANOS DIZEM",
+      "nhan_nghia": "SIGNIFICA",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "CRUSH",
+          "nghia": "aquela paixonite",
+          "moc_tu": "Crush",
+          "moc_nghia": "aquela"
+        },
+        {
+          "luot": 2,
+          "tu": "GHOST",
+          "nghia": "sumir sem responder",
+          "moc_tu": "Ghost",
+          "moc_nghia": "sumir"
+        },
+        {
+          "luot": 3,
+          "tu": "HIT IT OFF",
+          "nghia": "se dar bem de cara",
+          "moc_tu": "Hit",
+          "moc_nghia": "dar"
+        },
+        {
+          "luot": 4,
+          "tu": "HEAD OVER HEELS",
+          "nghia": "perdidamente apaixonado",
+          "moc_tu": "Head",
+          "moc_nghia": "perdidamente"
+        }
+      ],
+      "ngon_ngu": "pt"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br12-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br12-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "br13-fortaleza-jangadas",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a white long-sleeve cotton shirt with thin blue stripes buttoned up, and white linen trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, a native Brazilian Portuguese speaker speaking natural, everyday Brazilian Portuguese, who says the English slang words in clear, fluent American English; like a friendly Brazilian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a beach in Fortaleza at golden hour: golden sand, small wooden jangada sailboats with white triangular sails pulled up on the beach, palm trees, calm green sea; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Oi, gente! Direto de Fortaleza, bora aprender gírias do inglês americano!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hit the road! Significa pegar a estrada.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Jet lag! Significa cansaço depois de voo longo.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Bucket list! Significa lista de sonhos da vida.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E Off the beaten path. Significa longe dos lugares turísticos.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Você usaria hit the road? Conta aqui nos comentários!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "FORTALEZA",
+        "GÍRIAS EM INGLÊS"
+      ],
+      "badge": {
+        "trai": "EUA",
+        "phai": "INGLÊS AMERICANO"
+      },
+      "nhan_tu": "AMERICANOS DIZEM",
+      "nhan_nghia": "SIGNIFICA",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "HIT THE ROAD",
+          "nghia": "pegar a estrada",
+          "moc_tu": "Hit",
+          "moc_nghia": "pegar"
+        },
+        {
+          "luot": 2,
+          "tu": "JET LAG",
+          "nghia": "cansaço depois de voo longo",
+          "moc_tu": "Jet",
+          "moc_nghia": "cansaço"
+        },
+        {
+          "luot": 3,
+          "tu": "BUCKET LIST",
+          "nghia": "lista de sonhos da vida",
+          "moc_tu": "Bucket",
+          "moc_nghia": "lista"
+        },
+        {
+          "luot": 4,
+          "tu": "OFF THE BEATEN PATH",
+          "nghia": "longe dos lugares turísticos",
+          "moc_tu": "Off",
+          "moc_nghia": "longe"
+        }
+      ],
+      "ngon_ngu": "pt"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br13-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br13-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "br14-brasilia-congresso",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a navy-blue suit jacket buttoned over a light-blue shirt, no tie, and navy-blue suit trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young man's voice, a native Brazilian Portuguese speaker speaking natural, everyday Brazilian Portuguese, who says the English slang words in clear, fluent American English; like a friendly Brazilian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the National Congress in Brasília: two tall white twin towers between a white bowl-shaped dome and an upturned dome, a wide green lawn and a reflecting pool, huge blue sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Tá em Brasília? Então aprende comigo quatro gírias do inglês americano!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Pole position! Significa largar em primeiro.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Full throttle! Significa acelerar tudo.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Home stretch! Significa na reta final.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E Neck and neck. Significa lado a lado.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Você usaria pole position? Conta aqui nos comentários!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "BRASÍLIA",
+        "GÍRIAS EM INGLÊS"
+      ],
+      "badge": {
+        "trai": "EUA",
+        "phai": "INGLÊS AMERICANO"
+      },
+      "nhan_tu": "AMERICANOS DIZEM",
+      "nhan_nghia": "SIGNIFICA",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "POLE POSITION",
+          "nghia": "largar em primeiro",
+          "moc_tu": "Pole",
+          "moc_nghia": "largar"
+        },
+        {
+          "luot": 2,
+          "tu": "FULL THROTTLE",
+          "nghia": "acelerar tudo",
+          "moc_tu": "Full",
+          "moc_nghia": "acelerar"
+        },
+        {
+          "luot": 3,
+          "tu": "HOME STRETCH",
+          "nghia": "na reta final",
+          "moc_tu": "Home",
+          "moc_nghia": "reta"
+        },
+        {
+          "luot": 4,
+          "tu": "NECK AND NECK",
+          "nghia": "lado a lado",
+          "moc_tu": "Neck",
+          "moc_nghia": "lado"
+        }
+      ],
+      "ngon_ngu": "pt"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br14-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br14-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "br15-ouro-preto",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a mustard-yellow wool cardigan buttoned over a cream blouse, and dark-brown corduroy trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, a native Brazilian Portuguese speaker speaking natural, everyday Brazilian Portuguese, who says the English slang words in clear, fluent American English; like a friendly Brazilian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a steep cobblestone street in Ouro Preto: white colonial houses with colourful blue and green window frames, a baroque church with twin towers on the hill, green mountains, soft morning light; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Hoje, em Ouro Preto, vou te ensinar quatro gírias que os americanos usam!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hit the books! Significa estudar pra valer.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Cram! Significa estudar tudo na última hora.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Ace it! Significa gabaritar.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E Pass with flying colors. Significa passar com louvor.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Você usaria hit the books? Conta aqui nos comentários!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "OURO PRETO",
+        "GÍRIAS EM INGLÊS"
+      ],
+      "badge": {
+        "trai": "EUA",
+        "phai": "INGLÊS AMERICANO"
+      },
+      "nhan_tu": "AMERICANOS DIZEM",
+      "nhan_nghia": "SIGNIFICA",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "HIT THE BOOKS",
+          "nghia": "estudar pra valer",
+          "moc_tu": "Hit",
+          "moc_nghia": "estudar"
+        },
+        {
+          "luot": 2,
+          "tu": "CRAM",
+          "nghia": "estudar tudo na última hora",
+          "moc_tu": "Cram",
+          "moc_nghia": "estudar"
+        },
+        {
+          "luot": 3,
+          "tu": "ACE IT",
+          "nghia": "gabaritar",
+          "moc_tu": "Ace",
+          "moc_nghia": "gabaritar"
+        },
+        {
+          "luot": 4,
+          "tu": "PASS WITH FLYING COLORS",
+          "nghia": "passar com louvor",
+          "moc_tu": "Pass",
+          "moc_nghia": "passar"
+        }
+      ],
+      "ngon_ngu": "pt"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br15-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br15-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "br16-gramado-flores",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a grey wool peacoat buttoned up, a red wool scarf, and dark-grey trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young man's voice, a native Brazilian Portuguese speaker speaking natural, everyday Brazilian Portuguese, who says the English slang words in clear, fluent American English; like a friendly Brazilian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "a street in Gramado: Bavarian-style half-timbered houses with steep roofs, beds of blue hydrangea flowers along the sidewalk, tall pine trees, cool soft light; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Oi, gente! Direto de Gramado, bora aprender gírias do inglês americano!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "My bad! Significa foi mal.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Mess up! Significa fazer besteira.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Drop the ball! Significa pisar na bola.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E Back to square one. Significa voltar à estaca zero.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Você usaria my bad? Conta aqui nos comentários!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "GRAMADO",
+        "GÍRIAS EM INGLÊS"
+      ],
+      "badge": {
+        "trai": "EUA",
+        "phai": "INGLÊS AMERICANO"
+      },
+      "nhan_tu": "AMERICANOS DIZEM",
+      "nhan_nghia": "SIGNIFICA",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "MY BAD",
+          "nghia": "foi mal",
+          "moc_tu": "My",
+          "moc_nghia": "foi"
+        },
+        {
+          "luot": 2,
+          "tu": "MESS UP",
+          "nghia": "fazer besteira",
+          "moc_tu": "Mess",
+          "moc_nghia": "fazer"
+        },
+        {
+          "luot": 3,
+          "tu": "DROP THE BALL",
+          "nghia": "pisar na bola",
+          "moc_tu": "Drop",
+          "moc_nghia": "pisar"
+        },
+        {
+          "luot": 4,
+          "tu": "BACK TO SQUARE ONE",
+          "nghia": "voltar à estaca zero",
+          "moc_tu": "Back",
+          "moc_nghia": "voltar"
+        }
+      ],
+      "ngon_ngu": "pt"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br16-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br16-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "br17-pantanal",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a red-and-brown plaid long-sleeve shirt buttoned up, a brown leather vest over it, and blue jeans. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young man's voice, a native Brazilian Portuguese speaker speaking natural, everyday Brazilian Portuguese, who says the English slang words in clear, fluent American English; like a friendly Brazilian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Pantanal wetlands at sunrise: a wooden ranch fence, flat green grassland with shallow water pools, scattered palm trees, a few white herons in the distance, golden mist; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Tá no Pantanal? Então aprende comigo quatro gírias do inglês americano!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hit me up! Significa me chama.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Go viral! Significa viralizar.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "FOMO! Significa medo de ficar de fora.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E Low-key. Significa meio que, discretamente.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Você usaria hit me up? Conta aqui nos comentários!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "PANTANAL",
+        "GÍRIAS EM INGLÊS"
+      ],
+      "badge": {
+        "trai": "EUA",
+        "phai": "INGLÊS AMERICANO"
+      },
+      "nhan_tu": "AMERICANOS DIZEM",
+      "nhan_nghia": "SIGNIFICA",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "HIT ME UP",
+          "nghia": "me chama",
+          "moc_tu": "Hit",
+          "moc_nghia": "chama"
+        },
+        {
+          "luot": 2,
+          "tu": "GO VIRAL",
+          "nghia": "viralizar",
+          "moc_tu": "Go",
+          "moc_nghia": "viralizar"
+        },
+        {
+          "luot": 3,
+          "tu": "FOMO",
+          "nghia": "medo de ficar de fora",
+          "moc_tu": "FOMO",
+          "moc_nghia": "medo"
+        },
+        {
+          "luot": 4,
+          "tu": "LOW-KEY",
+          "nghia": "meio que, discretamente",
+          "moc_tu": "Low-key",
+          "moc_nghia": "meio"
+        }
+      ],
+      "ngon_ngu": "pt"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br17-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br17-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "br18-lencois-maranhenses",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a flowing white long-sleeve linen shirt buttoned up, and wide white linen trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, a native Brazilian Portuguese speaker speaking natural, everyday Brazilian Portuguese, who says the English slang words in clear, fluent American English; like a friendly Brazilian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Lençóis Maranhenses dunes: endless rolling white sand dunes with clear blue-green rainwater lagoons between them, bright blue sky with small clouds; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Hoje, no Maranhão, vou te ensinar quatro gírias que os americanos usam!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Piece of cake! Significa moleza.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "No-brainer! Significa decisão óbvia.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Not rocket science! Significa não é nenhum bicho de sete cabeças.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E Easier said than done. Significa falar é fácil, fazer é difícil.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Você usaria piece of cake? Conta aqui nos comentários!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "MARANHÃO",
+        "GÍRIAS EM INGLÊS"
+      ],
+      "badge": {
+        "trai": "EUA",
+        "phai": "INGLÊS AMERICANO"
+      },
+      "nhan_tu": "AMERICANOS DIZEM",
+      "nhan_nghia": "SIGNIFICA",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "PIECE OF CAKE",
+          "nghia": "moleza",
+          "moc_tu": "Piece",
+          "moc_nghia": "moleza"
+        },
+        {
+          "luot": 2,
+          "tu": "NO-BRAINER",
+          "nghia": "decisão óbvia",
+          "moc_tu": "No-brainer",
+          "moc_nghia": "decisão"
+        },
+        {
+          "luot": 3,
+          "tu": "NOT ROCKET SCIENCE",
+          "nghia": "não é nenhum bicho de sete cabeças",
+          "moc_tu": "Not",
+          "moc_nghia": "não"
+        },
+        {
+          "luot": 4,
+          "tu": "EASIER SAID THAN DONE",
+          "nghia": "falar é fácil, fazer é difícil",
+          "moc_tu": "Easier",
+          "moc_nghia": "falar"
+        }
+      ],
+      "ngon_ngu": "pt"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br18-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br18-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "br19-paraty",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a navy-and-white striped long-sleeve sailor top, and navy-blue trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young man's voice, a native Brazilian Portuguese speaker speaking natural, everyday Brazilian Portuguese, who says the English slang words in clear, fluent American English; like a friendly Brazilian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the historic centre of Paraty: a street of big irregular stones lined with white colonial houses with doors and window frames painted blue, yellow and green, colourful wooden boats in the bay at the end; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Oi, gente! Direto de Paraty, bora aprender gírias do inglês americano!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "You got this! Significa você consegue.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Go for it! Significa vai fundo.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hang in there! Significa aguenta firme.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E Break a leg. Significa boa sorte.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Você usaria you got this? Conta aqui nos comentários!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "PARATY",
+        "GÍRIAS EM INGLÊS"
+      ],
+      "badge": {
+        "trai": "EUA",
+        "phai": "INGLÊS AMERICANO"
+      },
+      "nhan_tu": "AMERICANOS DIZEM",
+      "nhan_nghia": "SIGNIFICA",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "YOU GOT THIS",
+          "nghia": "você consegue",
+          "moc_tu": "You",
+          "moc_nghia": "você"
+        },
+        {
+          "luot": 2,
+          "tu": "GO FOR IT",
+          "nghia": "vai fundo",
+          "moc_tu": "Go",
+          "moc_nghia": "vai"
+        },
+        {
+          "luot": 3,
+          "tu": "HANG IN THERE",
+          "nghia": "aguenta firme",
+          "moc_tu": "Hang",
+          "moc_nghia": "aguenta"
+        },
+        {
+          "luot": 4,
+          "tu": "BREAK A LEG",
+          "nghia": "boa sorte",
+          "moc_tu": "Break",
+          "moc_nghia": "boa"
+        }
+      ],
+      "ngon_ngu": "pt"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br19-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br19-bg.webp"
+      ]
+    }
+  },
+  {
+    "name": "br20-rio-arcos-da-lapa",
+    "TEN_DAY": "the robot host",
+    "NGUOI_DAY": "the Aiva AI robot: a glossy white-and-pale-lavender humanoid AI robot with a smooth sculpted feminine face with a calm friendly expression, glowing blue eyes and soft lips, a smooth glossy white skull with fine panel seams and no hair, a small glowing white \"AI\" mark on the forehead, a pair of white-and-black over-ear headphones worn over the ears with a thin microphone boom curving to the mouth, a black segmented mechanical neck, glossy white armor on the shoulders and chest with a small glowing white open-book icon at the centre of the chest.",
+    "TRANG_PHUC": "a shiny gold long-sleeve party top, and black high-waisted trousers. The robot is fully dressed like a person: the clothes cover the whole torso, shoulders, arms and legs; only the robot head, neck and hands are visible.",
+    "GIONG_DAY": "a warm, bright, natural young woman's voice, a native Brazilian Portuguese speaker speaking natural, everyday Brazilian Portuguese, who says the English slang words in clear, fluent American English; like a friendly Brazilian travel host recording a short tip video, lively varied intonation with a smile in the voice, clear crisp diction; completely human-sounding, not robotic",
+    "POS_DAY": "center",
+    "BOX_DAY": "0.33,0.08,0.67,0.38",
+    "VAI_DAY": "teacher",
+    "DAO_NGHI": "lips closed in a soft smile, head upright, eyes on the lens, arms relaxed at the sides",
+    "NEN_PHO": "the Lapa Arches in Rio de Janeiro at dusk: the long white double-tiered colonial aqueduct with many arches, warm street lamps, old buildings around, deep blue evening sky; the whole background softly out of focus, any lettering on signs unreadable.",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Tá na Lapa? Então aprende comigo quatro gírias do inglês americano!",
+        "emo": "excited, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Hang out! Significa sair junto.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Throw a party! Significa dar uma festa.",
+        "emo": "playful, upbeat",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Party animal! Significa festeiro.",
+        "emo": "confident, cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "E Sleep in. Significa dormir até tarde.",
+        "emo": "warm, playful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Você usaria hang out? Conta aqui nos comentários!",
+        "emo": "curious, friendly",
+        "fx": "none"
+      }
+    ],
+    "HAU_KY": {
+      "tieu_de": [
+        "LAPA, RIO",
+        "GÍRIAS EM INGLÊS"
+      ],
+      "badge": {
+        "trai": "EUA",
+        "phai": "INGLÊS AMERICANO"
+      },
+      "nhan_tu": "AMERICANOS DIZEM",
+      "nhan_nghia": "SIGNIFICA",
+      "the": [
+        {
+          "luot": 1,
+          "tu": "HANG OUT",
+          "nghia": "sair junto",
+          "moc_tu": "Hang",
+          "moc_nghia": "sair"
+        },
+        {
+          "luot": 2,
+          "tu": "THROW A PARTY",
+          "nghia": "dar uma festa",
+          "moc_tu": "Throw",
+          "moc_nghia": "dar"
+        },
+        {
+          "luot": 3,
+          "tu": "PARTY ANIMAL",
+          "nghia": "festeiro",
+          "moc_tu": "Party",
+          "moc_nghia": "festeiro"
+        },
+        {
+          "luot": 4,
+          "tu": "SLEEP IN",
+          "nghia": "dormir até tarde",
+          "moc_tu": "Sleep",
+          "moc_nghia": "dormir"
+        }
+      ],
+      "ngon_ngu": "pt"
+    },
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br20-nv.webp"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/robot-pho-tieng-long/anh/br/br20-bg.webp"
+      ]
+    }
+  }
+]
