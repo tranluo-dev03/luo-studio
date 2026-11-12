@@ -1,0 +1,2282 @@
+[
+  {
+    "name": "bien-the-01-nu-21-assam",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Hindi, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Indian chai café corner: a plain warm-cream wall with a colourful hand-painted Madhubani-style folk-art panel (orange, red, green and blue patterns) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white painted tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small clay kulhad cup of hot masala chai just left of centre, and two golden samosas on a small steel plate just right of centre",
+    "NGUOI_HOC": "a 21-year-old Indian woman from Assam, petite with narrow shoulders, a round face with full cheeks, big brown eyes and full lips, bright golden-yellow skin, long black hair past the shoulders in gentle waves with a white flower pinned on one side; a white silk mekhela chador with a gold-and-red border over a matching short-sleeved blouse, small gold earrings, a gold bracelet and a small red bindi in the middle of the forehead; gentle, elegant traditional Assamese style",
+    "GIONG_HOC": "a real Indian woman in her early twenties, a native speaker of Hindi with a light Assamese regional touch and a beginner's English: bright mid-high pitch, soft, sweet and a little shy; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "क्या आप अंग्रेज़ी बोलते हैं?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ी बहुत।",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 21.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "आपको ऐसे कहना चाहिए, I am 21.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 21.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "बहुत बढ़िया!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन आप कौन हैं?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मैं? मैं Talka AI हूँ, एक AI Tutor। मैं आपकी अंग्रेज़ी बेहतर बनाने में मदद करूँगी।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "पैसे किस बात के? आप यहाँ बिल्कुल मुफ़्त में सीख सकते हैं।",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मुफ़्त में? मज़ाक कर रही हो ना?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "नहीं, बिल्कुल सच! असली AI अवतार के साथ कभी भी, कहीं भी जितनी चाहें अंग्रेज़ी बातचीत की प्रैक्टिस करें।",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ, बिल्कुल! बहुत जल्द आप भी एक नेटिव स्पीकर की तरह अंग्रेज़ी बोलने लगेंगे। बस Talka AI डाउनलोड करें!",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/nhan-vat/bien-the-01.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-02-nu-24-goa",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Hindi, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Indian chai café corner: a plain warm-cream wall with a colourful hand-painted Madhubani-style folk-art panel (orange, red, green and blue patterns) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white painted tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small clay kulhad cup of hot masala chai just left of centre, and two golden samosas on a small steel plate just right of centre",
+    "NGUOI_HOC": "a 24-year-old Indian woman from Goa, balanced build with sloping shoulders, an oval face with moderate cheekbones and almond-shaped brown eyes, light bronze-brown skin, dark brown hair down to the mid back in voluminous waves tied half-up; a red-and-white checked Kunbi cotton sari with a short-sleeved red blouse, red bangles, gold earrings and a red bindi; bright, cheerful traditional Goan style",
+    "GIONG_HOC": "a real Indian woman in her mid twenties, a native speaker of Hindi with a light Konkani regional touch and a beginner's English: bright mid pitch, cheerful and playful; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "क्या आप अंग्रेज़ी बोलते हैं?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ी बहुत।",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 24.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "आपको ऐसे कहना चाहिए, I am 24.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 24.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "बहुत बढ़िया!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन आप कौन हैं?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मैं? मैं Talka AI हूँ, एक AI Tutor। मैं आपकी अंग्रेज़ी बेहतर बनाने में मदद करूँगी।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "पैसे किस बात के? आप यहाँ बिल्कुल मुफ़्त में सीख सकते हैं।",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मुफ़्त में? मज़ाक कर रही हो ना?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "नहीं, बिल्कुल सच! असली AI अवतार के साथ कभी भी, कहीं भी जितनी चाहें अंग्रेज़ी बातचीत की प्रैक्टिस करें।",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ, बिल्कुल! बहुत जल्द आप भी एक नेटिव स्पीकर की तरह अंग्रेज़ी बोलने लगेंगे। बस Talka AI डाउनलोड करें!",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/nhan-vat/bien-the-02.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-03-nu-27-kashmir",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Hindi, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Indian chai café corner: a plain warm-cream wall with a colourful hand-painted Madhubani-style folk-art panel (orange, red, green and blue patterns) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white painted tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small clay kulhad cup of hot masala chai just left of centre, and two golden samosas on a small steel plate just right of centre",
+    "NGUOI_HOC": "a 27-year-old Indian woman from Kashmir, tall and slim with sloping shoulders, an oval face with high cheekbones, hazel-green eyes and thin lips, fair golden-white skin, dark brown hair down to the mid back worn loose under a brown woollen headscarf; a long dark-brown woollen pheran with flower embroidery at the neckline, silver earrings and a silver bracelet; warm, modest traditional Kashmiri style",
+    "GIONG_HOC": "a real Indian woman in her late twenties, a native speaker of Hindi with a light Kashmiri regional touch and a beginner's English: clear mid pitch, calm and gentle; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "क्या आप अंग्रेज़ी बोलते हैं?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ी बहुत।",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 27.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "आपको ऐसे कहना चाहिए, I am 27.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 27.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "बहुत बढ़िया!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन आप कौन हैं?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मैं? मैं Talka AI हूँ, एक AI Tutor। मैं आपकी अंग्रेज़ी बेहतर बनाने में मदद करूँगी।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "पैसे किस बात के? आप यहाँ बिल्कुल मुफ़्त में सीख सकते हैं।",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मुफ़्त में? मज़ाक कर रही हो ना?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "नहीं, बिल्कुल सच! असली AI अवतार के साथ कभी भी, कहीं भी जितनी चाहें अंग्रेज़ी बातचीत की प्रैक्टिस करें।",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ, बिल्कुल! बहुत जल्द आप भी एक नेटिव स्पीकर की तरह अंग्रेज़ी बोलने लगेंगे। बस Talka AI डाउनलोड करें!",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/nhan-vat/bien-the-03.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-04-nu-30-haryana",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Hindi, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Indian chai café corner: a plain warm-cream wall with a colourful hand-painted Madhubani-style folk-art panel (orange, red, green and blue patterns) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white painted tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small clay kulhad cup of hot masala chai just left of centre, and two golden samosas on a small steel plate just right of centre",
+    "NGUOI_HOC": "a 30-year-old Indian woman from Haryana, tall with clear curves, an oval face with high cheekbones, big brown eyes and full lips, warm golden-brown skin, black hair down to the mid back in a thick braid over one shoulder with a gold borla ornament on the forehead; a deep-red silk ghagra choli with gold thread embroidery and a sheer gold odhni draped over the head and shoulders, layered gold bangles, large gold earrings and a red bindi; dazzling, glamorous traditional Haryanvi style",
+    "GIONG_HOC": "a real Indian woman around thirty, a native speaker of Hindi with a light Haryanvi regional touch and a beginner's English: confident mid pitch, direct and lively; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "क्या आप अंग्रेज़ी बोलते हैं?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ी बहुत।",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 30.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "आपको ऐसे कहना चाहिए, I am 30.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 30.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "बहुत बढ़िया!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन आप कौन हैं?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मैं? मैं Talka AI हूँ, एक AI Tutor। मैं आपकी अंग्रेज़ी बेहतर बनाने में मदद करूँगी।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "पैसे किस बात के? आप यहाँ बिल्कुल मुफ़्त में सीख सकते हैं।",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मुफ़्त में? मज़ाक कर रही हो ना?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "नहीं, बिल्कुल सच! असली AI अवतार के साथ कभी भी, कहीं भी जितनी चाहें अंग्रेज़ी बातचीत की प्रैक्टिस करें।",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ, बिल्कुल! बहुत जल्द आप भी एक नेटिव स्पीकर की तरह अंग्रेज़ी बोलने लगेंगे। बस Talka AI डाउनलोड करें!",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/nhan-vat/bien-the-04.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-05-nu-34-manipur",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Hindi, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Indian chai café corner: a plain warm-cream wall with a colourful hand-painted Madhubani-style folk-art panel (orange, red, green and blue patterns) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white painted tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small clay kulhad cup of hot masala chai just left of centre, and two golden samosas on a small steel plate just right of centre",
+    "NGUOI_HOC": "a 34-year-old Indian woman from Manipur, average build, a little full, a round face with full cheeks and big brown eyes, bright golden-yellow skin, long black hair in a low bun at the nape with a small white flower; a deep-pink phanek wrap skirt with a white sheer embroidered innaphee shawl over a matching short-sleeved blouse, silver earrings, a silver bracelet and a red bindi; gentle, feminine traditional Manipuri style",
+    "GIONG_HOC": "a real Indian woman in her mid thirties, a native speaker of Hindi with a light Manipuri regional touch and a beginner's English: soft mid pitch, gentle and warm; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "क्या आप अंग्रेज़ी बोलते हैं?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ी बहुत।",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 34.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "आपको ऐसे कहना चाहिए, I am 34.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 34.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "बहुत बढ़िया!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन आप कौन हैं?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मैं? मैं Talka AI हूँ, एक AI Tutor। मैं आपकी अंग्रेज़ी बेहतर बनाने में मदद करूँगी।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "पैसे किस बात के? आप यहाँ बिल्कुल मुफ़्त में सीख सकते हैं।",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मुफ़्त में? मज़ाक कर रही हो ना?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "नहीं, बिल्कुल सच! असली AI अवतार के साथ कभी भी, कहीं भी जितनी चाहें अंग्रेज़ी बातचीत की प्रैक्टिस करें।",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ, बिल्कुल! बहुत जल्द आप भी एक नेटिव स्पीकर की तरह अंग्रेज़ी बोलने लगेंगे। बस Talka AI डाउनलोड करें!",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/nhan-vat/bien-the-05.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-06-nu-39-chhattisgarh",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Hindi, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Indian chai café corner: a plain warm-cream wall with a colourful hand-painted Madhubani-style folk-art panel (orange, red, green and blue patterns) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white painted tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small clay kulhad cup of hot masala chai just left of centre, and two golden samosas on a small steel plate just right of centre",
+    "NGUOI_HOC": "a 39-year-old Indian woman from Chhattisgarh, balanced build with sloping shoulders, a heart-shaped face with moderate cheekbones, big brown eyes and light wrinkles around the eyes, light bronze-brown skin, black hair down to the mid back pinned in a neat low bun at the nape; a turmeric-yellow Kosa silk sari with a matching short-sleeved blouse, a gold necklace, gold earrings, a gold bracelet and a red bindi; dignified, calm traditional Chhattisgarhi style",
+    "GIONG_HOC": "a real Indian woman in her late thirties, a native speaker of Hindi with a light Chhattisgarhi regional touch and a beginner's English: steady mid pitch, calm and composed; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "क्या आप अंग्रेज़ी बोलते हैं?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ी बहुत।",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 39.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "आपको ऐसे कहना चाहिए, I am 39.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 39.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "बहुत बढ़िया!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन आप कौन हैं?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मैं? मैं Talka AI हूँ, एक AI Tutor। मैं आपकी अंग्रेज़ी बेहतर बनाने में मदद करूँगी।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "पैसे किस बात के? आप यहाँ बिल्कुल मुफ़्त में सीख सकते हैं।",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मुफ़्त में? मज़ाक कर रही हो ना?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "नहीं, बिल्कुल सच! असली AI अवतार के साथ कभी भी, कहीं भी जितनी चाहें अंग्रेज़ी बातचीत की प्रैक्टिस करें।",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ, बिल्कुल! बहुत जल्द आप भी एक नेटिव स्पीकर की तरह अंग्रेज़ी बोलने लगेंगे। बस Talka AI डाउनलोड करें!",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/nhan-vat/bien-the-06.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-07-nu-46-jharkhand",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Hindi, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Indian chai café corner: a plain warm-cream wall with a colourful hand-painted Madhubani-style folk-art panel (orange, red, green and blue patterns) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white painted tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small clay kulhad cup of hot masala chai just left of centre, and two golden samosas on a small steel plate just right of centre",
+    "NGUOI_HOC": "a 46-year-old Indian woman from Jharkhand, average build, a little full, a softly square face with high cheekbones, dark brown eyes and light wrinkles around the eyes and mouth, warm deep brown skin, black hair with a few silver strands, shoulder-length and pinned in a low bun; a red cotton sari with a white border and a short-sleeved red blouse, a tribal beaded necklace and metal bangles, large silver earrings and a red bindi; rustic, dignified traditional Jharkhandi style",
+    "GIONG_HOC": "a real Indian woman in her mid forties, a native speaker of Hindi with a light Jharkhandi regional touch and a beginner's English: even mid-low pitch, plain, warm and straightforward; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "क्या आप अंग्रेज़ी बोलते हैं?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ी बहुत।",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 46.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "आपको ऐसे कहना चाहिए, I am 46.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 46.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "बहुत बढ़िया!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन आप कौन हैं?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मैं? मैं Talka AI हूँ, एक AI Tutor। मैं आपकी अंग्रेज़ी बेहतर बनाने में मदद करूँगी।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "पैसे किस बात के? आप यहाँ बिल्कुल मुफ़्त में सीख सकते हैं।",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मुफ़्त में? मज़ाक कर रही हो ना?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "नहीं, बिल्कुल सच! असली AI अवतार के साथ कभी भी, कहीं भी जितनी चाहें अंग्रेज़ी बातचीत की प्रैक्टिस करें।",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ, बिल्कुल! बहुत जल्द आप भी एक नेटिव स्पीकर की तरह अंग्रेज़ी बोलने लगेंगे। बस Talka AI डाउनलोड करें!",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/nhan-vat/bien-the-07.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-08-nu-54-uttarakhand",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Hindi, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Indian chai café corner: a plain warm-cream wall with a colourful hand-painted Madhubani-style folk-art panel (orange, red, green and blue patterns) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white painted tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small clay kulhad cup of hot masala chai just left of centre, and two golden samosas on a small steel plate just right of centre",
+    "NGUOI_HOC": "a 54-year-old Indian woman from Uttarakhand, average build, a little full, an oval face with slightly sagging cheeks and light wrinkles around the eyes and mouth, warm golden-brown skin, black hair with many silver strands, shoulder-length and pinned in a low bun; a dark-red woollen choli with a golden pichora odhni embroidered with flowers draped over the head and shoulders, a gold necklace, gold earrings and a red bindi; formal, calm traditional Uttarakhandi style",
+    "GIONG_HOC": "a real Indian woman in her mid fifties, a native speaker of Hindi with a light Garhwali regional touch and a beginner's English: steady mid-low pitch, calm, dignified and kind; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "क्या आप अंग्रेज़ी बोलते हैं?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ी बहुत।",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 54.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "आपको ऐसे कहना चाहिए, I am 54.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 54.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "बहुत बढ़िया!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन आप कौन हैं?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मैं? मैं Talka AI हूँ, एक AI Tutor। मैं आपकी अंग्रेज़ी बेहतर बनाने में मदद करूँगी।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "पैसे किस बात के? आप यहाँ बिल्कुल मुफ़्त में सीख सकते हैं।",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मुफ़्त में? मज़ाक कर रही हो ना?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "नहीं, बिल्कुल सच! असली AI अवतार के साथ कभी भी, कहीं भी जितनी चाहें अंग्रेज़ी बातचीत की प्रैक्टिस करें।",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ, बिल्कुल! बहुत जल्द आप भी एक नेटिव स्पीकर की तरह अंग्रेज़ी बोलने लगेंगे। बस Talka AI डाउनलोड करें!",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/nhan-vat/bien-the-08.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-09-nu-63-himachal",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Hindi, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Indian chai café corner: a plain warm-cream wall with a colourful hand-painted Madhubani-style folk-art panel (orange, red, green and blue patterns) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white painted tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small clay kulhad cup of hot masala chai just left of centre, and two golden samosas on a small steel plate just right of centre",
+    "NGUOI_HOC": "a 63-year-old Indian woman from Himachal Pradesh, thin with narrow shoulders and a slight stoop, a long face with high cheekbones and clear wrinkles around the eyes and mouth, warm golden-brown skin, silver-grey hair down to the shoulders pinned in a low bun; a deep-green woollen choli under a striped woollen shawl, a small gold nath nose ring, gold earrings and a silver bracelet; rustic, modest traditional Himachali style",
+    "GIONG_HOC": "a real Indian woman in her early sixties, a native speaker of Hindi with a light Pahari regional touch and a beginner's English: a soft, slightly thin and mildly husky mid-pitch voice, kind and gently amused, a little slower than a young speaker; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "क्या आप अंग्रेज़ी बोलते हैं?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ी बहुत।",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 63.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "आपको ऐसे कहना चाहिए, I am 63.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 63.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "बहुत बढ़िया!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन आप कौन हैं?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मैं? मैं Talka AI हूँ, एक AI Tutor। मैं आपकी अंग्रेज़ी बेहतर बनाने में मदद करूँगी।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "पैसे किस बात के? आप यहाँ बिल्कुल मुफ़्त में सीख सकते हैं।",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मुफ़्त में? मज़ाक कर रही हो ना?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "नहीं, बिल्कुल सच! असली AI अवतार के साथ कभी भी, कहीं भी जितनी चाहें अंग्रेज़ी बातचीत की प्रैक्टिस करें।",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ, बिल्कुल! बहुत जल्द आप भी एक नेटिव स्पीकर की तरह अंग्रेज़ी बोलने लगेंगे। बस Talka AI डाउनलोड करें!",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/nhan-vat/bien-the-09.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-10-nu-71-telangana",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Hindi, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Indian chai café corner: a plain warm-cream wall with a colourful hand-painted Madhubani-style folk-art panel (orange, red, green and blue patterns) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white painted tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small clay kulhad cup of hot masala chai just left of centre, and two golden samosas on a small steel plate just right of centre",
+    "NGUOI_HOC": "a 71-year-old Indian woman from Telangana, short and a little plump with rounded shoulders, a broad face with a slight double chin and deep wrinkles around the eyes and mouth, deep bronze-brown skin with small age spots, short white hair cut at ear level and neatly combed; a red-and-blue geometric Pochampally ikat sari with a matching short-sleeved blouse, a gold necklace, gold earrings, a gold bracelet and a red bindi; dignified, respectful traditional Telangana style",
+    "GIONG_HOC": "a real Indian woman in her seventies, a native speaker of Hindi with a light Telugu regional touch and a beginner's English: a soft, slightly husky older voice, warm and grandmotherly, noticeably slower than a young speaker; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "क्या आप अंग्रेज़ी बोलते हैं?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ी बहुत।",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 71.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "आपको ऐसे कहना चाहिए, I am 71.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 71.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "बहुत बढ़िया!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन आप कौन हैं?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मैं? मैं Talka AI हूँ, एक AI Tutor। मैं आपकी अंग्रेज़ी बेहतर बनाने में मदद करूँगी।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "पैसे किस बात के? आप यहाँ बिल्कुल मुफ़्त में सीख सकते हैं।",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मुफ़्त में? मज़ाक कर रही हो ना?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "नहीं, बिल्कुल सच! असली AI अवतार के साथ कभी भी, कहीं भी जितनी चाहें अंग्रेज़ी बातचीत की प्रैक्टिस करें।",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ, बिल्कुल! बहुत जल्द आप भी एक नेटिव स्पीकर की तरह अंग्रेज़ी बोलने लगेंगे। बस Talka AI डाउनलोड करें!",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/nhan-vat/bien-the-10.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-11-nam-22-assam",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Hindi, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Indian chai café corner: a plain warm-cream wall with a colourful hand-painted Madhubani-style folk-art panel (orange, red, green and blue patterns) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white painted tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small clay kulhad cup of hot masala chai just left of centre, and two golden samosas on a small steel plate just right of centre",
+    "NGUOI_HOC": "a 22-year-old Indian man from Assam, tall and slim with level shoulders, a long face with a defined jawline, big brown eyes and a clean-shaven face, bright golden-yellow skin, thick black slightly wavy hair in a neat side part; a long-sleeved white kurta with a red-and-white gamocha scarf draped over one shoulder, a brown leather-strap watch; neat, elegant traditional Assamese style",
+    "GIONG_HOC": "a real Indian man in his early twenties, a native speaker of Hindi with a light Assamese regional touch and a beginner's English: a warm mid-low pitch, clearly lower than the tutor's voice, polite and friendly; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "क्या आप अंग्रेज़ी बोलते हैं?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ी बहुत।",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 22.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "आपको ऐसे कहना चाहिए, I am 22.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 22.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "बहुत बढ़िया!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन आप कौन हैं?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मैं? मैं Talka AI हूँ, एक AI Tutor। मैं आपकी अंग्रेज़ी बेहतर बनाने में मदद करूँगी।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "पैसे किस बात के? आप यहाँ बिल्कुल मुफ़्त में सीख सकते हैं।",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मुफ़्त में? मज़ाक कर रहे हो ना?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "नहीं, बिल्कुल सच! असली AI अवतार के साथ कभी भी, कहीं भी जितनी चाहें अंग्रेज़ी बातचीत की प्रैक्टिस करें।",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ, बिल्कुल! बहुत जल्द आप भी एक नेटिव स्पीकर की तरह अंग्रेज़ी बोलने लगेंगे। बस Talka AI डाउनलोड करें!",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/nhan-vat/bien-the-11.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-12-nam-26-goa",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Hindi, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Indian chai café corner: a plain warm-cream wall with a colourful hand-painted Madhubani-style folk-art panel (orange, red, green and blue patterns) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white painted tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small clay kulhad cup of hot masala chai just left of centre, and two golden samosas on a small steel plate just right of centre",
+    "NGUOI_HOC": "a 26-year-old Indian man from Goa, balanced build with moderately broad shoulders, an oval face with almond-shaped brown eyes and short stubble, light bronze-brown skin, black hair in a low fade with the top swept back; a white linen kurta with a turned-down collar, a black sports watch and a thin silver bracelet; easygoing, masculine traditional Goan style",
+    "GIONG_HOC": "a real Indian man in his mid twenties, a native speaker of Hindi with a light Konkani regional touch and a beginner's English: a relaxed low-mid baritone, clearly lower than the tutor's voice, easygoing and cheerful; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "क्या आप अंग्रेज़ी बोलते हैं?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ी बहुत।",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 26.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "आपको ऐसे कहना चाहिए, I am 26.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 26.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "बहुत बढ़िया!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन आप कौन हैं?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मैं? मैं Talka AI हूँ, एक AI Tutor। मैं आपकी अंग्रेज़ी बेहतर बनाने में मदद करूँगी।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "पैसे किस बात के? आप यहाँ बिल्कुल मुफ़्त में सीख सकते हैं।",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मुफ़्त में? मज़ाक कर रहे हो ना?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "नहीं, बिल्कुल सच! असली AI अवतार के साथ कभी भी, कहीं भी जितनी चाहें अंग्रेज़ी बातचीत की प्रैक्टिस करें।",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ, बिल्कुल! बहुत जल्द आप भी एक नेटिव स्पीकर की तरह अंग्रेज़ी बोलने लगेंगे। बस Talka AI डाउनलोड करें!",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/nhan-vat/bien-the-12.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-13-nam-29-kashmir",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Hindi, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Indian chai café corner: a plain warm-cream wall with a colourful hand-painted Madhubani-style folk-art panel (orange, red, green and blue patterns) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white painted tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small clay kulhad cup of hot masala chai just left of centre, and two golden samosas on a small steel plate just right of centre",
+    "NGUOI_HOC": "a 29-year-old Indian man from Kashmir, tall with broad shoulders, a long face with a defined jawline, hazel-green eyes and a short neatly trimmed full beard, fair golden-white skin, thick dark slightly wavy hair swept back under a brown karakul cap; a long dark-grey woollen pheran, a black leather-strap watch; formal, refined traditional Kashmiri style",
+    "GIONG_HOC": "a real Indian man in his late twenties, a native speaker of Hindi with a light Kashmiri regional touch and a beginner's English: a smooth low-mid baritone, clearly lower than the tutor's voice, polished and polite; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "क्या आप अंग्रेज़ी बोलते हैं?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ी बहुत।",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 29.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "आपको ऐसे कहना चाहिए, I am 29.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 29.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "बहुत बढ़िया!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन आप कौन हैं?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मैं? मैं Talka AI हूँ, एक AI Tutor। मैं आपकी अंग्रेज़ी बेहतर बनाने में मदद करूँगी।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "पैसे किस बात के? आप यहाँ बिल्कुल मुफ़्त में सीख सकते हैं।",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मुफ़्त में? मज़ाक कर रहे हो ना?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "नहीं, बिल्कुल सच! असली AI अवतार के साथ कभी भी, कहीं भी जितनी चाहें अंग्रेज़ी बातचीत की प्रैक्टिस करें।",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ, बिल्कुल! बहुत जल्द आप भी एक नेटिव स्पीकर की तरह अंग्रेज़ी बोलने लगेंगे। बस Talka AI डाउनलोड करें!",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/nhan-vat/bien-the-13.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-14-nam-33-haryana",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Hindi, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Indian chai café corner: a plain warm-cream wall with a colourful hand-painted Madhubani-style folk-art panel (orange, red, green and blue patterns) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white painted tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small clay kulhad cup of hot masala chai just left of centre, and two golden samosas on a small steel plate just right of centre",
+    "NGUOI_HOC": "a 33-year-old Indian man from Haryana, solid build with broad shoulders, a square face with a sharp jawline, dark brown eyes and a short full beard, warm golden-brown skin, a neatly tied orange pagri turban; a long-sleeved white kurta, a steel kara bracelet and a brown leather-strap watch; commanding, masculine traditional Haryanvi style",
+    "GIONG_HOC": "a real Indian man in his early thirties, a native speaker of Hindi with a light Haryanvi regional touch and a beginner's English: a deep low baritone, clearly lower than the tutor's voice, steady and confident; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "क्या आप अंग्रेज़ी बोलते हैं?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ी बहुत।",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 33.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "आपको ऐसे कहना चाहिए, I am 33.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 33.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "बहुत बढ़िया!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन आप कौन हैं?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मैं? मैं Talka AI हूँ, एक AI Tutor। मैं आपकी अंग्रेज़ी बेहतर बनाने में मदद करूँगी।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "पैसे किस बात के? आप यहाँ बिल्कुल मुफ़्त में सीख सकते हैं।",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मुफ़्त में? मज़ाक कर रहे हो ना?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "नहीं, बिल्कुल सच! असली AI अवतार के साथ कभी भी, कहीं भी जितनी चाहें अंग्रेज़ी बातचीत की प्रैक्टिस करें।",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ, बिल्कुल! बहुत जल्द आप भी एक नेटिव स्पीकर की तरह अंग्रेज़ी बोलने लगेंगे। बस Talka AI डाउनलोड करें!",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/nhan-vat/bien-the-14.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-15-nam-38-manipur",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Hindi, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Indian chai café corner: a plain warm-cream wall with a colourful hand-painted Madhubani-style folk-art panel (orange, red, green and blue patterns) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white painted tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small clay kulhad cup of hot masala chai just left of centre, and two golden samosas on a small steel plate just right of centre",
+    "NGUOI_HOC": "a 38-year-old Indian man from Manipur, balanced build with moderately broad shoulders, an oval face with big brown eyes and a short moustache, bright golden-yellow skin, thick short black hair swept back; a long-sleeved white kurta with a white cotton shawl draped over one shoulder, a black leather-strap watch; formal, refined traditional Manipuri style",
+    "GIONG_HOC": "a real Indian man in his late thirties, a native speaker of Hindi with a light Manipuri regional touch and a beginner's English: a calm low-mid baritone, clearly lower than the tutor's voice, gentle and measured; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "क्या आप अंग्रेज़ी बोलते हैं?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ी बहुत।",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 38.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "आपको ऐसे कहना चाहिए, I am 38.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 38.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "बहुत बढ़िया!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन आप कौन हैं?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मैं? मैं Talka AI हूँ, एक AI Tutor। मैं आपकी अंग्रेज़ी बेहतर बनाने में मदद करूँगी।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "पैसे किस बात के? आप यहाँ बिल्कुल मुफ़्त में सीख सकते हैं।",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मुफ़्त में? मज़ाक कर रहे हो ना?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "नहीं, बिल्कुल सच! असली AI अवतार के साथ कभी भी, कहीं भी जितनी चाहें अंग्रेज़ी बातचीत की प्रैक्टिस करें।",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ, बिल्कुल! बहुत जल्द आप भी एक नेटिव स्पीकर की तरह अंग्रेज़ी बोलने लगेंगे। बस Talka AI डाउनलोड करें!",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/nhan-vat/bien-the-15.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-16-nam-43-chhattisgarh",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Hindi, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Indian chai café corner: a plain warm-cream wall with a colourful hand-painted Madhubani-style folk-art panel (orange, red, green and blue patterns) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white painted tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small clay kulhad cup of hot masala chai just left of centre, and two golden samosas on a small steel plate just right of centre",
+    "NGUOI_HOC": "a 43-year-old Indian man from Chhattisgarh, average build, a little full with a slightly round belly, a round face with full cheeks, small dark brown eyes and a salt-and-pepper moustache, deep bronze-brown skin, short black-and-grey hair; a long turmeric-yellow kurta with a red gamchha scarf draped over one shoulder, a brown leather-strap watch; rustic, calm traditional Chhattisgarhi style",
+    "GIONG_HOC": "a real Indian man in his early forties, a native speaker of Hindi with a light Chhattisgarhi regional touch and a beginner's English: a warm mid-low baritone, clearly lower than the tutor's voice, calm and homely; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "क्या आप अंग्रेज़ी बोलते हैं?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ी बहुत।",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 43.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "आपको ऐसे कहना चाहिए, I am 43.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 43.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "बहुत बढ़िया!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन आप कौन हैं?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मैं? मैं Talka AI हूँ, एक AI Tutor। मैं आपकी अंग्रेज़ी बेहतर बनाने में मदद करूँगी।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "पैसे किस बात के? आप यहाँ बिल्कुल मुफ़्त में सीख सकते हैं।",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मुफ़्त में? मज़ाक कर रहे हो ना?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "नहीं, बिल्कुल सच! असली AI अवतार के साथ कभी भी, कहीं भी जितनी चाहें अंग्रेज़ी बातचीत की प्रैक्टिस करें।",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ, बिल्कुल! बहुत जल्द आप भी एक नेटिव स्पीकर की तरह अंग्रेज़ी बोलने लगेंगे। बस Talka AI डाउनलोड करें!",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/nhan-vat/bien-the-16.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-17-nam-50-jharkhand",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Hindi, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Indian chai café corner: a plain warm-cream wall with a colourful hand-painted Madhubani-style folk-art panel (orange, red, green and blue patterns) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white painted tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small clay kulhad cup of hot masala chai just left of centre, and two golden samosas on a small steel plate just right of centre",
+    "NGUOI_HOC": "a 50-year-old Indian man from Jharkhand, stocky build with a slightly big belly and broad shoulders, a square face with clear cheekbones, small dark brown eyes and a short salt-and-pepper full beard, warm deep brown skin with deep wrinkles around the eyes and mouth, short black hair with many silver strands, slightly thin at the crown; a long deep-green kurta, thin metal-framed glasses and a black leather-strap watch; formal, calm traditional Jharkhandi style",
+    "GIONG_HOC": "a real Indian man around fifty, a native speaker of Hindi with a light Jharkhandi regional touch and a beginner's English: a rich low baritone, clearly lower than the tutor's voice, plain, sturdy and calm; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "क्या आप अंग्रेज़ी बोलते हैं?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ी बहुत।",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 50.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "आपको ऐसे कहना चाहिए, I am 50.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 50.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "बहुत बढ़िया!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन आप कौन हैं?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मैं? मैं Talka AI हूँ, एक AI Tutor। मैं आपकी अंग्रेज़ी बेहतर बनाने में मदद करूँगी।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "पैसे किस बात के? आप यहाँ बिल्कुल मुफ़्त में सीख सकते हैं।",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मुफ़्त में? मज़ाक कर रहे हो ना?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "नहीं, बिल्कुल सच! असली AI अवतार के साथ कभी भी, कहीं भी जितनी चाहें अंग्रेज़ी बातचीत की प्रैक्टिस करें।",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ, बिल्कुल! बहुत जल्द आप भी एक नेटिव स्पीकर की तरह अंग्रेज़ी बोलने लगेंगे। बस Talka AI डाउनलोड करें!",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/nhan-vat/bien-the-17.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-18-nam-58-uttarakhand",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Hindi, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Indian chai café corner: a plain warm-cream wall with a colourful hand-painted Madhubani-style folk-art panel (orange, red, green and blue patterns) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white painted tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small clay kulhad cup of hot masala chai just left of centre, and two golden samosas on a small steel plate just right of centre",
+    "NGUOI_HOC": "a 58-year-old Indian man from Uttarakhand, average build, slightly thin with slightly sloping shoulders and a slight stoop, a long face with high cheekbones and deep wrinkles around the eyes and mouth, warm golden-brown skin, short black-and-grey hair under a brown woollen topi cap; a long grey woollen coat over a white kurta, thin metal-framed glasses; rustic, experienced traditional Uttarakhandi style",
+    "GIONG_HOC": "a real Indian man in his late fifties, a native speaker of Hindi with a light Garhwali regional touch and a beginner's English: a dry, slightly husky low-mid voice, clearly lower than the tutor's voice, plain and weathered; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "क्या आप अंग्रेज़ी बोलते हैं?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ी बहुत।",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 58.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "आपको ऐसे कहना चाहिए, I am 58.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 58.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "बहुत बढ़िया!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन आप कौन हैं?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मैं? मैं Talka AI हूँ, एक AI Tutor। मैं आपकी अंग्रेज़ी बेहतर बनाने में मदद करूँगी।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "पैसे किस बात के? आप यहाँ बिल्कुल मुफ़्त में सीख सकते हैं।",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मुफ़्त में? मज़ाक कर रहे हो ना?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "नहीं, बिल्कुल सच! असली AI अवतार के साथ कभी भी, कहीं भी जितनी चाहें अंग्रेज़ी बातचीत की प्रैक्टिस करें।",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ, बिल्कुल! बहुत जल्द आप भी एक नेटिव स्पीकर की तरह अंग्रेज़ी बोलने लगेंगे। बस Talka AI डाउनलोड करें!",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/nhan-vat/bien-the-18.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-19-nam-66-himachal",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Hindi, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Indian chai café corner: a plain warm-cream wall with a colourful hand-painted Madhubani-style folk-art panel (orange, red, green and blue patterns) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white painted tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small clay kulhad cup of hot masala chai just left of centre, and two golden samosas on a small steel plate just right of centre",
+    "NGUOI_HOC": "a 66-year-old Indian man from Himachal Pradesh, thin with slightly sloping shoulders and a slight stoop, a long face with high cheekbones and deep wrinkles around the eyes and mouth, dark bronze-brown skin, short thinning white hair under a green woollen Himachali topi cap; a long brown woollen coat over a white kurta with a striped woollen shawl, thin metal-framed glasses; rustic, experienced traditional Himachali style",
+    "GIONG_HOC": "a real Indian man in his mid sixties, a native speaker of Hindi with a light Pahari regional touch and a beginner's English: a gravelly, low older voice, clearly lower than the tutor's voice, plain, kind and a little slower than a young speaker; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "क्या आप अंग्रेज़ी बोलते हैं?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ी बहुत।",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 66.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "आपको ऐसे कहना चाहिए, I am 66.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 66.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "बहुत बढ़िया!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन आप कौन हैं?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मैं? मैं Talka AI हूँ, एक AI Tutor। मैं आपकी अंग्रेज़ी बेहतर बनाने में मदद करूँगी।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "पैसे किस बात के? आप यहाँ बिल्कुल मुफ़्त में सीख सकते हैं।",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मुफ़्त में? मज़ाक कर रहे हो ना?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "नहीं, बिल्कुल सच! असली AI अवतार के साथ कभी भी, कहीं भी जितनी चाहें अंग्रेज़ी बातचीत की प्रैक्टिस करें।",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ, बिल्कुल! बहुत जल्द आप भी एक नेटिव स्पीकर की तरह अंग्रेज़ी बोलने लगेंगे। बस Talka AI डाउनलोड करें!",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/nhan-vat/bien-the-19.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-20-nam-75-telangana",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Hindi, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Indian chai café corner: a plain warm-cream wall with a colourful hand-painted Madhubani-style folk-art panel (orange, red, green and blue patterns) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white painted tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small clay kulhad cup of hot masala chai just left of centre, and two golden samosas on a small steel plate just right of centre",
+    "NGUOI_HOC": "a 75-year-old Indian man from Telangana, short and slightly thin with narrow shoulders and a clear stoop, a long face with high cheekbones and slightly hollow cheeks, deep wrinkles around the eyes and mouth, warm deep brown skin with age spots, short thinning white hair; a long-sleeved white kurta with a white shoulder cloth, thin metal-framed glasses; rustic, dignified traditional Telangana style",
+    "GIONG_HOC": "a real Indian man in his mid seventies, a native speaker of Hindi with a light Telugu regional touch and a beginner's English: a thin, soft and slightly husky older male voice, still lower than the tutor's voice, gentle and wise, noticeably slower than a young speaker; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "क्या आप अंग्रेज़ी बोलते हैं?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ी बहुत।",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 75.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "आपको ऐसे कहना चाहिए, I am 75.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 75.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "बहुत बढ़िया!",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन आप कौन हैं?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "मैं? मैं Talka AI हूँ, एक AI Tutor। मैं आपकी अंग्रेज़ी बेहतर बनाने में मदद करूँगी।",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "शुक्रिया, लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "पैसे किस बात के? आप यहाँ बिल्कुल मुफ़्त में सीख सकते हैं।",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "मुफ़्त में? मज़ाक कर रहे हो ना?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "नहीं, बिल्कुल सच! असली AI अवतार के साथ कभी भी, कहीं भी जितनी चाहें अंग्रेज़ी बातचीत की प्रैक्टिस करें।",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ, बिल्कुल! बहुत जल्द आप भी एक नेटिव स्पीकर की तरह अंग्रेज़ी बोलने लगेंगे। बस Talka AI डाउनलोड करें!",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0043-hi/anh/nhan-vat/bien-the-20.webp"
+      ]
+    }
+  }
+]

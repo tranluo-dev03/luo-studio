@@ -1,0 +1,11 @@
+{
+  "phu_de": {
+    "co_chu": 56,
+    "y_theo_phan": {"1": 1300},
+    "kieu_theo_phan": {
+      "1": {"day": {"c": "white", "o": "black"}, "hoc": {"c": "yellow", "o": "black"}}
+    },
+    "vien": {"x": 0.5, "rong": 0.5, "cuoi_cau": true},
+    "whisper": "small"
+  }
+}

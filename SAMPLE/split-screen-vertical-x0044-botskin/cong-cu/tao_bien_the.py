@@ -1,0 +1,204 @@
+"""Sinh SAMPLE/split-screen-vertical-x0044-botskin/BIEN-THE-X0044-BOT-SKIN-20.json từ bảng X0044_20-bien-the-split-screen-BOT-skin.csv (20 biến thể Brazil, lời thoại tiếng Bồ Đào Nha, robot đổi trang phục theo từng biến thể).
+Sửa bảng BIEN_THE (nhân vật, giọng, tuổi, giới), bảng TRANG_PHUC_ROBOT hoặc luot() rồi chạy:
+    .venv/Scripts/python.exe SAMPLE/split-screen-vertical-x0044-botskin/cong-cu/tao_bien_the.py
+Ảnh nhân vật: anh/nhan-vat/bien-the-NN.webp; ảnh robot theo biến thể: anh/robot-skin/robot-NN.webp (tải từ link Drive trong CSV, cột "Link ảnh AI").
+Lời thoại: "How old are you?", "I have N.", "I am N." tiếng Anh, còn lại tiếng Bồ Đào Nha (Brazil); N khác nhau từng biến thể; nam nói "Obrigado", nữ "Obrigada"."""
+import json
+import os
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "..", "BIEN-THE-X0044-BOT-SKIN-20.json")
+DU_AN = "SAMPLE/split-screen-vertical-x0044-botskin"
+ROBOT_THAN = ("a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and "
+              "finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams "
+              "over black mechanical joints")
+# Trang phục robot theo từng biến thể (nhìn từ ảnh robot-skin trong CSV): chỉ phần từ đầu tới ngực/hông
+TRANG_PHUC_ROBOT = [
+    "wearing a neatly tied white turban with a white flower, a white lace blouse with puffed sleeves, a multicoloured beaded necklace and small gold drop earrings",
+    "wearing a jewelled gold head ornament with green gems, a green sequin top with a sheer green chiffon cape over the shoulders, long drop earrings and a gold bracelet",
+    "wearing long black hair in a high ponytail tied with colourful ribbons, a layered yellow-orange-red ruffle off-shoulder top, a wooden-bead necklace and large gold hoop earrings",
+    "wearing a wide-brimmed straw hat, a white floral short-sleeved blouse and a wooden-bead necklace",
+    "wearing a blue floral dirndl bodice over a white puffed-sleeve blouse with a white apron, and small silver earrings",
+    "wearing a white lace shawl over a white lace top, a pearl necklace and pearl earrings",
+    "wearing a brown cowboy hat and an open red-and-black checked long-sleeved shirt, small gold earrings",
+    "wearing a brown wide-brimmed felt hat, a white blouse with a turned-down collar and a red neckerchief around the neck",
+    "wearing a neatly tied white turban, a white long-sleeved lace blouse, a gold-bead necklace and large gold earrings",
+    "wearing a green leaf-print short-sleeved top, a wooden-bead necklace and wooden earrings",
+    "wearing a white sleeveless wrap top tied at the waist with a rope belt",
+    "wearing a cream Panama hat and a white linen shirt with a turned-down collar",
+    "wearing a black wide-brimmed hat with a red band and a red-and-black striped wool poncho with fringe over a white shirt",
+    "wearing a brown cowboy hat, a brown leather vest over a red-and-black checked long-sleeved shirt",
+    "wearing a wide-brimmed straw hat and a red-and-black checked shirt with a red bandana around the neck",
+    "wearing a wide-brimmed straw hat and a beige linen long-sleeved shirt",
+    "wearing a multicoloured embroidered maracatu hat and a bright embroidered cape with pom-pom trim over a white shirt",
+    "wearing a brown felt hat, a green embroidered vest over a white long-sleeved shirt",
+    "wearing a brown leather vest over a white shirt with a blue bandana around the neck",
+    "wearing a white Panama hat and an open white linen shirt",
+]
+assert len(TRANG_PHUC_ROBOT) == 20
+
+CHUNG = {
+    "TEN_DAY": "the AI tutor",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, native-sounding Brazilian Portuguese, clear, quick and confident, "
+                 "like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Brazilian café corner: a plain warm-cream wall with a colourful hand-painted Brazilian folk-art panel (yellow, green, blue and orange geometric "
+               "pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white azulejo tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a small white porcelain cup of black cafezinho coffee just left of centre, and a golden round pão de queijo cheese bread on a small wooden plate just "
+               "right of centre",
+}
+
+
+def giong(gioi, nhom_tuoi, am, tinh, vung):
+    who = "woman" if gioi == "nu" else "man"
+    pron = "actress" if gioi == "nu" else "actor"
+    return (f"a real Brazilian {who} {nhom_tuoi}, a native speaker of Brazilian Portuguese with a light {vung} accent and a beginner's English: {am}, "
+            f"{tinh}; a real person, not an {pron}")
+
+
+# (tên, ngoại hình, giọng, tuổi nói, giới)  Ảnh: anh/nhan-vat/bien-the-NN.webp
+BIEN_THE = [
+    ("bien-the-01-nu-20-bahia",
+     "a 20-year-old Brazilian woman from Bahia, petite with narrow shoulders, a round face with full cheeks, big brown eyes and full lips, deep brown glowing skin, "
+     "short black afro-textured curly hair close to the head under a neatly tied white turban (torço); a white lace blouse with puffed sleeves, a multicoloured "
+     "beaded necklace, gold earrings and a silver bracelet; bright, cheerful traditional baiana style",
+     giong("nu", "in her early twenties", "bright mid-high pitch", "warm and playful, a smile in the voice", "Bahian"), 20, "nu"),
+    ("bien-the-02-nu-23-rio",
+     "a 23-year-old Brazilian woman from Rio de Janeiro, tall with clear curves and balanced shoulders, a heart-shaped face with high cheekbones, almond-shaped brown "
+     "eyes and full lips, sun-tanned bronze-brown skin, dark brown hair down to the mid back in voluminous waves with a rhinestone headband; a fitted green sequin "
+     "samba dress with a matching sheer chiffon shawl over the shoulders, long rhinestone drop earrings and a gold bracelet; dazzling, glamorous samba style",
+     giong("nu", "in her early twenties", "bright, lively mid-high pitch", "flirty, energetic and fun", "Carioca"), 23, "nu"),
+    ("bien-the-03-nu-26-pernambuco",
+     "a 26-year-old Brazilian woman from Pernambuco, balanced build with sloping shoulders, an oval face with moderate cheekbones, big brown eyes and a wide smile, "
+     "light honey-brown skin, dark brown hair past the shoulders in soft waves tied half-up with a multicoloured ribbon; a vivid yellow-orange-red layered ruffle "
+     "dress with a square neckline and puffed sleeves, large gold hoop earrings and a wooden-bead necklace; bright, joyful, energetic frevo style",
+     giong("nu", "in her mid twenties", "bright mid pitch", "cheerful and energetic", "Pernambuco"), 26, "nu"),
+    ("bien-the-04-nu-31-minas",
+     "a 31-year-old Brazilian woman from Minas Gerais, balanced build with sloping shoulders, an oval face with moderate cheekbones and big brown eyes, medium olive-brown "
+     "skin, long brown hair down to the mid back in a thick braid over one shoulder, a wide-brimmed straw hat; a white floral short-sleeved maxi dress with a fabric "
+     "belt, small gold earrings and a beaded necklace; gentle, feminine countryside (caipira) style",
+     giong("nu", "around thirty", "soft mid pitch", "gentle and friendly", "Mineiro"), 31, "nu"),
+    ("bien-the-05-nu-35-parana",
+     "a 35-year-old Brazilian woman from Paraná of German descent, tall with balanced shoulders, an oval face with high cheekbones, green eyes and thin lips, fair "
+     "bright skin, golden-brown hair down to the mid back in two thick braids; a blue floral dirndl dress with a white puffed-sleeve blouse and a white apron tied at "
+     "the waist, silver earrings and a silver bracelet; elegant, gentle traditional German-Brazilian style",
+     giong("nu", "in her mid thirties", "clear mid pitch", "calm, kind and polite", "Southern Brazilian"), 35, "nu"),
+    ("bien-the-06-nu-40-ceara",
+     "a 40-year-old Brazilian woman from Ceará, balanced build with sloping shoulders, a heart-shaped face with moderate cheekbones, big brown eyes and light wrinkles "
+     "around the eyes, light bronze-brown skin, dark brown hair down to the mid back pinned in a neat low bun at the nape; a white lace dress with a white lace shawl, "
+     "a pearl necklace, pearl earrings and a silver bracelet; elegant, gentle traditional Ceará style",
+     giong("nu", "around forty", "steady mid pitch", "warm, calm and graceful", "Nordestino"), 40, "nu"),
+    ("bien-the-07-nu-47-goias",
+     "a 47-year-old Brazilian woman from Goiás, average build, a little full, a softly square face with high cheekbones, dark brown eyes and light wrinkles around the "
+     "eyes and mouth, deep olive-brown skin, dark brown shoulder-length hair in gentle waves under a brown cowboy hat; a red-and-black checked long-sleeved shirt, "
+     "gold earrings and a leather bracelet; strong, free-spirited country (sertaneja) style",
+     giong("nu", "in her late forties", "confident mid-low pitch", "friendly and direct", "Goiano"), 47, "nu"),
+    ("bien-the-08-nu-55-rs",
+     "a 55-year-old Brazilian woman from Rio Grande do Sul, average build, a little full, an oval face with slightly sagging cheeks and light wrinkles around the eyes "
+     "and mouth, light olive-white skin, brown hair with silver strands, shoulder-length and pinned in a low bun, a brown wide-brimmed hat; a white blouse with a "
+     "turned-down collar and a red neckerchief (lenço) around the neck, gold earrings and a silver bracelet; formal, calm traditional gaúcha style",
+     giong("nu", "in her mid fifties", "even mid-low pitch", "calm, composed and warm", "Gaúcho"), 55, "nu"),
+    ("bien-the-09-nu-64-bahia",
+     "a 64-year-old Brazilian woman from Bahia, short and a little plump with rounded shoulders, a broad face with a slight double chin and deep wrinkles around the "
+     "eyes and mouth, warm deep brown skin, short grey-silver hair under a neatly tied white turban (torço); a white long-sleeved lace blouse with a white lace shawl, "
+     "a multicoloured beaded necklace and large gold earrings, a silver bracelet; dignified, respectful traditional baiana style",
+     giong("nu", "in her mid sixties", "a soft, slightly husky mid-pitch voice", "kind and gently amused, a little slower than a young speaker", "Bahian"), 64, "nu"),
+    ("bien-the-10-nu-72-amazonas",
+     "a 72-year-old Brazilian woman from Amazonas, short and slightly thin with narrow shoulders and a slight stoop, a long face with high cheekbones and deep "
+     "wrinkles around the eyes and mouth, dark bronze-brown skin with small age spots, short white hair cut at ear level and neatly combed; a white dress with a green "
+     "leaf print and a matching fabric shawl, a wooden-bead necklace, gold earrings and a wooden bracelet; rustic, dignified Amazon style",
+     giong("nu", "in her seventies", "a thin, light and slightly husky older voice", "gentle and wise, noticeably slower than a young speaker", "Amazonian"), 72, "nu"),
+    ("bien-the-11-nam-24-bahia",
+     "a 24-year-old Brazilian man from Bahia, solid build with broad shoulders, a square face with a defined jawline, dark brown eyes and short stubble, deep brown "
+     "glowing skin, short black afro-textured curly hair close to the head; a white tank top with a yellow-and-green rope (corda) belt knot just visible, a "
+     "multicoloured fabric wristband; strong, energetic capoeira style",
+     giong("nam", "in his mid twenties", "a warm low-mid baritone, clearly lower than the tutor's voice", "energetic and upbeat", "Bahian"), 24, "nam"),
+    ("bien-the-12-nam-27-sp",
+     "a 27-year-old Brazilian man from São Paulo, balanced build with moderately broad shoulders, an oval face with big brown eyes, a wide smile and a short neatly "
+     "trimmed full beard, medium olive-brown skin, black hair in a low fade with the top swept back, a Panama straw hat; a white linen shirt with a turned-down collar, "
+     "a thin gold chain and a brown leather-strap watch; smart, cheerful samba-man style",
+     giong("nam", "in his late twenties", "a relaxed low-mid baritone, clearly lower than the tutor's voice", "cheerful and charming", "Paulista"), 27, "nam"),
+    ("bien-the-13-nam-30-rs",
+     "a 30-year-old Brazilian man from Rio Grande do Sul, solid build with broad shoulders, a square face with a sharp jawline, dark brown eyes and a short full beard, "
+     "light olive skin slightly sun-tanned, thick dark-brown slightly wavy hair swept back under a brown wide-brimmed hat; a white shirt with a turned-down collar "
+     "under a red-and-black striped wool poncho; strong, free-spirited gaúcho style",
+     giong("nam", "around thirty", "a deep, steady low baritone, clearly lower than the tutor's voice", "calm and strong", "Gaúcho"), 30, "nam"),
+    ("bien-the-14-nam-36-minas",
+     "a 36-year-old Brazilian man from Minas Gerais, solid build with broad shoulders, a square face with a defined jawline, dark brown eyes and a short full beard, "
+     "warm golden-brown skin, a brown cowboy hat; a red-and-black checked long-sleeved shirt under a brown leather vest; strong, free-spirited country (sertanejo) style",
+     giong("nam", "in his mid thirties", "a deep low baritone, clearly lower than the tutor's voice", "steady and friendly", "Mineiro"), 36, "nam"),
+    ("bien-the-15-nam-41-ceara",
+     "a 41-year-old Brazilian man from Ceará, average build, a little full with a slightly round belly, a round face with full cheeks, small dark brown eyes and a "
+     "short moustache, light bronze-brown skin, a wide-brimmed straw hat; a short-sleeved blue-and-white checked shirt with a red bandana knotted around the neck; "
+     "cheerful, friendly forró style",
+     giong("nam", "in his early forties", "a warm mid-low baritone, clearly lower than the tutor's voice", "jovial and friendly", "Nordestino"), 41, "nam"),
+    ("bien-the-16-nam-48-amazonas",
+     "a 48-year-old Brazilian man from Amazonas, thin with slightly sloping shoulders, a long slightly gaunt face with high cheekbones, deep-set brown eyes and a "
+     "stubbly grey-flecked moustache, dark sun-weathered brown skin with many wrinkles and dark spots, short thinning black-and-grey hair under a wide-brimmed straw "
+     "hat; a beige linen long-sleeved shirt with the sleeves rolled to the elbow, the strap of a canvas crossbody bag; rustic, experienced Amazon fisherman style",
+     giong("nam", "in his late forties", "a dry, slightly husky low-mid voice, clearly lower than the tutor's voice", "plain, quiet and weathered", "Amazonian"), 48, "nam"),
+    ("bien-the-17-nam-56-pernambuco",
+     "a 56-year-old Brazilian man from Pernambuco, stocky build with a slightly big belly and broad shoulders, a round face with full cheeks, small dark brown eyes and "
+     "a short salt-and-pepper full beard, warm deep brown skin with deep wrinkles around the eyes and mouth, short black-and-grey hair, a multicoloured embroidered "
+     "maracatu hat; an embroidered multicoloured patterned robe over a white shirt; vibrant, majestic maracatu style",
+     giong("nam", "in his mid fifties", "a rich, deep low baritone, clearly lower than the tutor's voice", "proud and warm", "Pernambuco"), 56, "nam"),
+    ("bien-the-18-nam-62-parana",
+     "a 62-year-old Brazilian man from Paraná of German descent, average build, a little full with a slightly round belly, a round face with full cheeks, small blue "
+     "eyes and a short silver moustache, fair bright skin with small age spots, short white-silver hair, a green felt hat; a short-sleeved red-and-white checked "
+     "shirt; cheerful, friendly traditional German-Brazilian style",
+     giong("nam", "in his early sixties", "a warm mid-low baritone, clearly lower than the tutor's voice", "jolly and friendly", "Southern Brazilian"), 62, "nam"),
+    ("bien-the-19-nam-69-goias",
+     "a 69-year-old Brazilian man from Goiás, short and stocky with broad shoulders and a slightly round belly, a square face with high cheekbones, small dark brown "
+     "eyes and a salt-and-pepper moustache, dark bronze-brown skin with many wrinkles, short black-and-grey hair under a brown leather cowboy hat; a long-sleeved "
+     "blue-and-black checked shirt under a brown leather vest, a red bandana around the neck; rustic, sturdy vaqueiro country style",
+     giong("nam", "in his late sixties", "a gravelly, low older voice, clearly lower than the tutor's voice", "plain, sturdy and a little slower than a young speaker", "Goiano"), 69, "nam"),
+    ("bien-the-20-nam-77-rio",
+     "a 77-year-old Brazilian man from Rio de Janeiro, short and slightly thin with narrow shoulders and a clear stoop, a long face with high cheekbones and slightly "
+     "hollow cheeks, deep wrinkles around the eyes and mouth, light olive-brown skin with age spots, short thinning white hair under a white Panama hat; a white linen "
+     "shirt with a turned-down collar, thin metal-framed glasses; elegant, dignified carioca style",
+     giong("nam", "in his late seventies", "a thin, soft and slightly husky older male voice, still lower than the tutor's voice", "refined and gentle, noticeably slower than a young speaker", "Carioca"), 77, "nam"),
+]
+
+
+def luot(n, gioi):
+    """15 lượt theo kịch bản CSV. Chỉ lượt 3, 4, 5 (một phần), 6 có tiếng Anh. Câu sai: chữ đỏ + viền đỏ; câu nói lại đúng: chữ xanh + viền xanh."""
+    obrigado = "Obrigada" if gioi == "nu" else "Obrigado"
+    L = [
+        ("day", "Você fala inglês?", "friendly"),
+        ("hoc", "Mais ou menos.", "hesitant"),
+        ("day", "How old are you?", "curious"),
+        ("hoc", f"I have {n}.", "unsure", {"c": "red", "fx": "wrong"}),
+        ("day", f"Você deve dizer: I am {n}.", "patient, encouraging"),
+        ("hoc", f"I am {n}.", "confident", {"c": "green", "fx": "right"}),
+        ("day", "Muito bem!", "warm, encouraging"),
+        ("hoc", f"{obrigado}, mas quem é você?", "curious"),
+        ("day", "Eu? Sou a Talka AI, sua tutora de inglês com inteligência artificial. Vou te ajudar a melhorar seu inglês.", "cheerful"),
+        ("hoc", f"{obrigado}, mas eu não tenho dinheiro.", "worried"),
+        ("day", "Que dinheiro? Você pode aprender de graça!", "playful"),
+        ("hoc", "De graça? Você tá brincando, né?", "surprised, skeptical"),
+        ("day", "Não, é sério! Pratique conversas em inglês sem limites com um avatar de IA, a qualquer hora, em qualquer lugar.", "confident, enthusiastic"),
+        ("hoc", "Sério?", "surprised, hopeful"),
+        ("day", "Sim, é verdade! Em pouco tempo, você vai falar inglês como um nativo. É só baixar o Talka AI!", "reassuring, upbeat"),
+    ]
+    out = []
+    for who, text, emo, *extra in L:
+        t = {"who": who, "text": text, "emo": emo, "fx": "none"}
+        t.update(extra[0] if extra else {})
+        out.append(t)
+    return out
+
+
+res = []
+for i, (name, nguoi, giong_hoc, tuoi, gioi) in enumerate(BIEN_THE, 1):
+    anh = f"{DU_AN}/anh/nhan-vat/bien-the-{i:02d}.webp"
+    robot = f"{DU_AN}/anh/robot-skin/robot-{i:02d}.webp"
+    assert os.path.isfile(os.path.join(HERE, "..", "..", "..", anh)), anh
+    assert os.path.isfile(os.path.join(HERE, "..", "..", "..", robot)), robot
+    assert (gioi == "nu") == (i <= 10)
+    v = {"name": name, **CHUNG, "NGUOI_HOC": nguoi, "GIONG_HOC": giong_hoc, "NGUOI_DAY": ROBOT_THAN + ", " + TRANG_PHUC_ROBOT[i - 1], "LUOT": luot(tuoi, gioi),
+         "refs": {"NGUOI_DAY": [robot], "NGUOI_HOC": [anh]}}
+    res.append(v)
+json.dump(res, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+print("ok", len(res))

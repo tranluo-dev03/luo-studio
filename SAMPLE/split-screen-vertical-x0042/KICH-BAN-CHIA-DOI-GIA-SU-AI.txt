@@ -1,0 +1,42 @@
+[HAU KY]:
+loai: chia-doi-gia-su-ai
+
+[GHI CHU]:
+Thể loại "chia đôi màn hình + gia sư AI" (video mẫu: 2110_langlearn vertical EN, 44,5 giây). MỘT phần, chế độ GHÉP 2 LỚP, mỗi lượt thoại một cảnh.
+  Bố cục: khung 9:16 chia đôi DỌC. Nửa TRÁI = robot gia sư AI (DAY), nửa PHẢI = người dùng ngồi ở bàn cà phê (HOC). Không viền, không bo góc.
+  Studio gen RIÊNG từng nhân vật ở 9:16 rồi cắt lấy DẢI GIỮA (một nửa bề ngang) đặt vào ô của nó: mọi thứ quan trọng (đầu, vai, cốc, bánh) phải nằm trong
+  nửa giữa của khung gen, hai phần tư hai bên sẽ bị cắt. Nối khung ("noi: lien"), clip nghe gen riêng từng cảnh ("nghe: moi canh").
+  Hậu kỳ riêng (app/production/types/chia-doi-gia-su-ai/post.py): phụ đề ô đen giữa khung (~68% chiều cao), lời AI chữ trắng, lời người dùng chữ vàng;
+  câu sai chữ đỏ + viền đỏ nháy ở NỬA PHẢI cuối câu; câu nói lại đúng chữ xanh lá + viền xanh nháy ở nửa phải. Badge "Talka AI" góc dưới trái:
+  Thương hiệu -> logo cố định của dự án (Studio không vẽ).
+  Gắn ảnh tham chiếu: NGUOI_DAY = ảnh robot (SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp), NGUOI_HOC = ảnh nhân vật của từng biến thể.
+
+[GHEP HAI LOP]:
+nen: HOC
+khung HOC: 0.5, 0, 0.5, 1
+khung DAY: 0, 0, 0.5, 1
+bo goc: 0
+vien: khong
+noi: lien
+nghe: moi canh
+
+[STYLE LOCK]:
+Vertical short-form social video look, natural soft daylight, crisp focus on the face, realistic skin, hair and fabric detail for the real person, glossy clean high-end CGI for the robot. The frame is later cut to a TALL NARROW SLICE: only the middle half of the width is kept, the left and right quarters are cropped away, so everything important stays inside the middle half of the width. No text, captions, logos, icons or watermarks anywhere in the frame.
+
+[NHAN VAT HOC]:
+{{TEN_HOC}}: {{NGUOI_HOC}}. The reference photo shows only the face, hair and clothing: its plain green background and standing pose are NOT part of the scene. Sitting at a small wooden café table, facing the camera straight on, framed from the chest up, perfectly centred left-right: the head, shoulders and face stay inside the middle half of the frame width. The top of the head is at about one fifth of the frame height, the face in the upper third, the table edge at about four fifths of the height; on the table in front: {{DAO_BAN}}, both inside the middle half of the width. Behind: {{NEN_HOC}}. The camera is a phone propped on the table at eye level, locked off: no arm, no hand and no phone in the frame, nobody holds the camera. {{TEN_HOC}} looks straight into the lens, as if on a video call with the AI tutor; the hands rest on the table below the frame and never come up into view. While speaking: natural facial expressions, raised eyebrows, small head tilts and nods, a quick glance up and to the side when searching for an English word, then back to the lens. VOICE: {{GIONG_HOC}}, the same timbre, pitch and loudness in every clip; speaks English a little slowly, like someone practising a foreign language, with small natural hesitations.
+
+[NGHE HOC]:
+{{TEN_HOC}} listens to the AI tutor: friendly attentive expression and a soft smile, eyes on the lens, slow natural blinks, a small nod now and then. The mouth stays closed in a soft smile the whole clip; calm and relaxed, the head mostly still apart from that small nod.
+
+[NHAN VAT DAY]:
+{{TEN_DAY}}: {{NGUOI_DAY}}. Portrait frame, a medium-wide shot: the robot stands upright facing the camera, perfectly centred left-right, seen from the top of the head down to the hips, arms hanging at the sides; a small gap above the head, the whole head only about one fifth of the frame height, the shoulders spanning about the middle half of the frame width. The robot keeps exactly this size in the frame in every clip. Behind it: {{NEN_DAY}}. The camera is locked off and never moves. The robot looks straight into the lens. While speaking it moves its lips in clear sync with the words, with small head tilts, a warm smile and slow blinks, like a patient, friendly teacher. VOICE: {{GIONG_DAY}}, the same timbre, pitch and loudness in every clip.
+
+[NGHE DAY]:
+{{TEN_DAY}} listens calmly: looking into the lens, a gentle closed-mouth smile, slow blinks, a tiny head tilt now and then, arms at the sides. The mouth stays closed in a gentle smile the whole clip; calm and relaxed, the head mostly still apart from that small tilt.
+
+[VIDEO SUFFIX]:
+Natural spontaneous conversational delivery, not text-to-speech, not an announcer. The tutor talks quickly and clearly, about 4.5 words per second (short questions up to 5), warm and upbeat; the learner speaks slower, about 2.5 words per second, with small hesitations like "um" when unsure. The line starts right away, light natural breaths, a smile audible in the voice when the line is positive. Clean close voice like a video call in a quiet café, no music, no background chatter, no sound effects, no strong echo.
+
+[NEGATIVE]:
+text, letters, captions, subtitles, logos, icons, watermark; phone or app interface in the frame; split screen or picture-in-picture inside the clip; a second person; hands, arms or a phone coming into the frame; camera cuts, zoom, push-in, pan, shake; the subject drifting off-centre or toward the side edges; face morphing, outfit change, hair change, age drift; distorted face; extra fingers; jerky or exaggerated gestures; hands touching the face or hair; slow, dragged or stretched speech; flat monotone, robotic or announcer voice; background music; echo or reverb

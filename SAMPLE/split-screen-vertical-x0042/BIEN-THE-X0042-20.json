@@ -1,0 +1,2282 @@
+[
+  {
+    "name": "bien-the-01-nu-22",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, neutral American accent, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Mexican café corner: a plain warm-cream wall with a colourful hand-woven Mexican tapestry (orange, red, blue and yellow geometric pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white talavera tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a talavera-painted ceramic mug of hot chocolate (blue, orange and white flower pattern) just left of centre, and a round sweet concha bun with a white sugar-shell top on a small wooden plate just right of centre",
+    "NGUOI_HOC": "a 22-year-old Mexican woman, tall slim build with sloping shoulders, a heart-shaped face with a small neat chin, big brown eyes and softly arched eyebrows, light honey-brown skin with naturally rosy cheeks, long black hair in a neat high ponytail with thin wispy bangs falling on the forehead; a cream round-neck short-sleeved knit crop top, small round silver earrings, a brown leather strap watch, the strap of a beige canvas tote on one shoulder; youthful, energetic weekend style",
+    "GIONG_HOC": "a real Mexican woman in her early twenties speaking English as a second language: bright mid-high pitch, a natural Mexican accent with Spanish vowels and a soft r, warm and playful, a smile in the voice; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Um, more or less.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 28.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 28.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 28.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar. Anytime, anywhere.",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll sound like a native in no time.",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0042/anh/nhan-vat/bien-the-01.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-02-nu-25",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, neutral American accent, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Mexican café corner: a plain warm-cream wall with a colourful hand-woven Mexican tapestry (orange, red, blue and yellow geometric pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white talavera tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a talavera-painted ceramic mug of hot chocolate (blue, orange and white flower pattern) just left of centre, and a round sweet concha bun with a white sugar-shell top on a small wooden plate just right of centre",
+    "NGUOI_HOC": "a 25-year-old Mexican woman, petite with narrow shoulders and a slim waist, a round face with full cheeks, almond-shaped eyes and moderately thick eyebrows, warm golden-brown skin with a light flush on the cheeks, chestnut-brown shoulder-length hair with curled-under ends framing the face and thin straight bangs; a white puffed-sleeve blouse with a square neckline, a small pearl necklace, gold teardrop earrings; feminine, soft vintage style",
+    "GIONG_HOC": "a real Mexican woman in her mid twenties speaking English as a second language: light, soft mid-high pitch, a natural Mexican accent with Spanish vowels and a soft r, gentle and friendly; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Um, more or less.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 28.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 28.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 28.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar. Anytime, anywhere.",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll sound like a native in no time.",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0042/anh/nhan-vat/bien-the-02.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-03-nu-28",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, neutral American accent, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Mexican café corner: a plain warm-cream wall with a colourful hand-woven Mexican tapestry (orange, red, blue and yellow geometric pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white talavera tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a talavera-painted ceramic mug of hot chocolate (blue, orange and white flower pattern) just left of centre, and a round sweet concha bun with a white sugar-shell top on a small wooden plate just right of centre",
+    "NGUOI_HOC": "a 28-year-old Mexican woman, tall and strong build with moderately broad shoulders, an oval face with a defined jawline, high cheekbones and full lips, deep olive-brown skin with natural skin texture, short black afro-textured curly hair close to the head with natural volume around the face; a fitted black t-shirt under a short brown leather jacket, large gold hoop earrings, the thin strap of a black crossbody bag; edgy, urban, strong yet feminine style",
+    "GIONG_HOC": "a real Mexican woman in her late twenties speaking English as a second language: confident mid pitch, a little low and smooth, a natural Mexican accent with Spanish vowels and a soft r, direct and self-assured; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Um, more or less.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 28.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 28.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 28.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar. Anytime, anywhere.",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll sound like a native in no time.",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0042/anh/nhan-vat/bien-the-03.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-04-nu-20",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, neutral American accent, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Mexican café corner: a plain warm-cream wall with a colourful hand-woven Mexican tapestry (orange, red, blue and yellow geometric pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white talavera tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a talavera-painted ceramic mug of hot chocolate (blue, orange and white flower pattern) just left of centre, and a round sweet concha bun with a white sugar-shell top on a small wooden plate just right of centre",
+    "NGUOI_HOC": "a 20-year-old Mexican woman, slender with narrow shoulders, an oval face with slightly rounded cheeks, big round eyes with naturally long lashes, light honey-brown skin and natural pink lips, auburn-brown hair past the shoulders in big waves with a centre part, the front strands framing the cheeks; a jade-green silk camisole with a V-neckline, long gold drop earrings and a thin bracelet; elegant, gentle style",
+    "GIONG_HOC": "a real Mexican woman in her early twenties speaking English as a second language: bright, light and youthful pitch, a natural Mexican accent with Spanish vowels and a soft r, sweet, a little shy and smiling; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Um, more or less.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 28.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 28.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 28.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar. Anytime, anywhere.",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll sound like a native in no time.",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0042/anh/nhan-vat/bien-the-04.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-05-nu-27",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, neutral American accent, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Mexican café corner: a plain warm-cream wall with a colourful hand-woven Mexican tapestry (orange, red, blue and yellow geometric pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white talavera tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a talavera-painted ceramic mug of hot chocolate (blue, orange and white flower pattern) just left of centre, and a round sweet concha bun with a white sugar-shell top on a small wooden plate just right of centre",
+    "NGUOI_HOC": "a 27-year-old Mexican woman, balanced build with straight shoulders, a slightly square face with a soft jawline and clear cheekbones, dark brown eyes, medium bronze-brown skin with natural pigmentation, a short black pixie cut with the fringe swept to one side; a grey pinstripe straight-cut blazer over a white round-neck t-shirt, small silver earrings, a gold-strap watch; modern, edgy, tidy office style",
+    "GIONG_HOC": "a real Mexican woman in her late twenties speaking English as a second language: clear mid pitch, a natural Mexican accent with Spanish vowels and a soft r, brisk and professional, confident; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Um, more or less.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 28.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 28.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 28.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar. Anytime, anywhere.",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll sound like a native in no time.",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0042/anh/nhan-vat/bien-the-05.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-06-nu-24",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, neutral American accent, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Mexican café corner: a plain warm-cream wall with a colourful hand-woven Mexican tapestry (orange, red, blue and yellow geometric pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white talavera tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a talavera-painted ceramic mug of hot chocolate (blue, orange and white flower pattern) just left of centre, and a round sweet concha bun with a white sugar-shell top on a small wooden plate just right of centre",
+    "NGUOI_HOC": "a 24-year-old Mexican woman, moderately full figure with slightly wide hips, a plump round face with full cheeks, big brown eyes and naturally curved eyebrows, warm golden-brown skin with a light flush on the cheeks, long chocolate-brown hair down to the mid back in a braid over one shoulder with a few strands framing the face; a burnt-orange long-sleeved turtleneck sweater, a thin cream wool scarf loosely around the neck, small gold earrings; warm, friendly autumn style",
+    "GIONG_HOC": "a real Mexican woman in her mid twenties speaking English as a second language: warm mid pitch, a natural Mexican accent with Spanish vowels and a soft r, cosy and cheerful; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Um, more or less.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 28.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 28.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 28.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar. Anytime, anywhere.",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll sound like a native in no time.",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0042/anh/nhan-vat/bien-the-06.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-07-nu-30",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, neutral American accent, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Mexican café corner: a plain warm-cream wall with a colourful hand-woven Mexican tapestry (orange, red, blue and yellow geometric pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white talavera tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a talavera-painted ceramic mug of hot chocolate (blue, orange and white flower pattern) just left of centre, and a round sweet concha bun with a white sugar-shell top on a small wooden plate just right of centre",
+    "NGUOI_HOC": "a 30-year-old Mexican woman, slim and tall with sloping shoulders, a long face with a straight nose bridge, high cheekbones and moderately thin lips, medium olive-brown skin with natural texture, long straight black hair with a side part tied low at the nape, a small gold hair clip holding the front strands; a moss-green V-neck dress with three-quarter sleeves under a long beige trench coat, small gold earrings and a silver metal-strap watch; elegant, mature, professional style",
+    "GIONG_HOC": "a real Mexican woman around thirty speaking English as a second language: smooth mid pitch, a natural Mexican accent with Spanish vowels and a soft r, calm, polished and composed; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Um, more or less.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 28.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 28.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 28.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar. Anytime, anywhere.",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll sound like a native in no time.",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0042/anh/nhan-vat/bien-the-07.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-08-nu-33",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, neutral American accent, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Mexican café corner: a plain warm-cream wall with a colourful hand-woven Mexican tapestry (orange, red, blue and yellow geometric pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white talavera tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a talavera-painted ceramic mug of hot chocolate (blue, orange and white flower pattern) just left of centre, and a round sweet concha bun with a white sugar-shell top on a small wooden plate just right of centre",
+    "NGUOI_HOC": "a 33-year-old Mexican woman, small and softly full build with rounded shoulders, a round face with full cheeks and a rounded chin, dark brown eyes, medium honey-brown skin with a few tiny pigment spots and natural smile lines, a dark brown shoulder-length bob with curled-under ends framing the face and a side part; a dusty-pink silk round-neck blouse with elbow-length sleeves, thin black-framed glasses and gold oval earrings; neat, calm, practical office style",
+    "GIONG_HOC": "a real Mexican woman in her early thirties speaking English as a second language: steady mid pitch, a natural Mexican accent with Spanish vowels and a soft r, calm, practical and kind; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Um, more or less.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 35.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 35.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 35.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar. Anytime, anywhere.",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll sound like a native in no time.",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0042/anh/nhan-vat/bien-the-08.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-09-nu-37",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, neutral American accent, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Mexican café corner: a plain warm-cream wall with a colourful hand-woven Mexican tapestry (orange, red, blue and yellow geometric pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white talavera tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a talavera-painted ceramic mug of hot chocolate (blue, orange and white flower pattern) just left of centre, and a round sweet concha bun with a white sugar-shell top on a small wooden plate just right of centre",
+    "NGUOI_HOC": "a 37-year-old Mexican woman, tall with moderately broad shoulders, a long oval face with a defined jawline, prominent cheekbones and very faint expression lines around the eyes, medium bronze-brown skin with natural pigmentation, black hair with a few silver strands, shoulder-length with soft waves and a centre part; a charcoal-grey single-breasted suit blazer over a white shirt with a spread collar, a gold-strap watch and pearl earrings; professional manager look, quietly elegant",
+    "GIONG_HOC": "a real Mexican woman in her late thirties speaking English as a second language: composed mid-low pitch, a natural Mexican accent with Spanish vowels and a soft r, measured and self-possessed; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Um, more or less.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 35.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 35.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 35.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar. Anytime, anywhere.",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll sound like a native in no time.",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0042/anh/nhan-vat/bien-the-09.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-10-nu-31",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, neutral American accent, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Mexican café corner: a plain warm-cream wall with a colourful hand-woven Mexican tapestry (orange, red, blue and yellow geometric pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white talavera tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a talavera-painted ceramic mug of hot chocolate (blue, orange and white flower pattern) just left of centre, and a round sweet concha bun with a white sugar-shell top on a small wooden plate just right of centre",
+    "NGUOI_HOC": "a 31-year-old Mexican woman, balanced build with slightly wide hips, a heart-shaped face with a slightly pointed chin, almond eyes and a modest low nose bridge, light olive-brown skin with a light flush on the cheeks, caramel-brown hair past the chest in large curls with a centre part, the front strands framing both cheeks; a blue-and-white striped long-sleeved shirt with the sleeves rolled to the forearm, small pearl earrings and a white leather-strap watch; young, creative, feminine yet professional style",
+    "GIONG_HOC": "a real Mexican woman in her early thirties speaking English as a second language: bright mid pitch, a natural Mexican accent with Spanish vowels and a soft r, lively and creative; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Um, more or less.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 35.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 35.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 35.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar. Anytime, anywhere.",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll sound like a native in no time.",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0042/anh/nhan-vat/bien-the-10.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-11-nam-26",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, neutral American accent, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Mexican café corner: a plain warm-cream wall with a colourful hand-woven Mexican tapestry (orange, red, blue and yellow geometric pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white talavera tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a talavera-painted ceramic mug of hot chocolate (blue, orange and white flower pattern) just left of centre, and a round sweet concha bun with a white sugar-shell top on a small wooden plate just right of centre",
+    "NGUOI_HOC": "a 26-year-old Mexican man, athletic build with broad shoulders and a moderately full chest, a masculine square face with a sharp jawline and a straight nose bridge, medium olive-brown skin, a short neatly trimmed full beard, thick black hair in an undercut with the top swept neatly back; a white polo shirt with a folded collar, black-framed sunglasses hooked on the collar, a brown leather strap watch and a thin leather bracelet; sporty, smart, friendly style",
+    "GIONG_HOC": "a real Mexican man in his mid twenties speaking English as a second language: a warm low-mid baritone, clearly lower than the tutor's voice, a natural Mexican accent with Spanish vowels and a soft r, relaxed and a little charming; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Um, more or less.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 28.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 28.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 28.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar. Anytime, anywhere.",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll sound like a native in no time.",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0042/anh/nhan-vat/bien-the-11.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-12-nam-29",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, neutral American accent, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Mexican café corner: a plain warm-cream wall with a colourful hand-woven Mexican tapestry (orange, red, blue and yellow geometric pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white talavera tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a talavera-painted ceramic mug of hot chocolate (blue, orange and white flower pattern) just left of centre, and a round sweet concha bun with a white sugar-shell top on a small wooden plate just right of centre",
+    "NGUOI_HOC": "a 29-year-old Mexican man, tall and lean with moderately broad shoulders, a long face with a slightly pointed chin, high cheekbones and deep-set eyes, light brown skin with a warm golden undertone, clean shaven, dark brown-black hair ear length swept to one side with slight volume; a grey turtleneck sweater under a long black wool coat, a grey wool scarf around the neck; elegant, mature, slightly quiet winter style",
+    "GIONG_HOC": "a real Mexican man in his late twenties speaking English as a second language: a calm low-mid baritone, clearly lower than the tutor's voice, a natural Mexican accent with Spanish vowels and a soft r, quiet and thoughtful; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Um, more or less.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 28.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 28.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 28.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar. Anytime, anywhere.",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll sound like a native in no time.",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0042/anh/nhan-vat/bien-the-12.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-13-nam-24",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, neutral American accent, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Mexican café corner: a plain warm-cream wall with a colourful hand-woven Mexican tapestry (orange, red, blue and yellow geometric pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white talavera tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a talavera-painted ceramic mug of hot chocolate (blue, orange and white flower pattern) just left of centre, and a round sweet concha bun with a white sugar-shell top on a small wooden plate just right of centre",
+    "NGUOI_HOC": "a 24-year-old Mexican man, slim but wiry build, an oval face with a soft jawline, slightly full cheeks, big brown eyes and a natural smile, light honey-brown skin with a thin neatly trimmed moustache, short natural curly black hair cut short at the sides with the fringe falling lightly on the forehead; a mid-blue denim shirt with the sleeves rolled to the elbow, a thin silver bracelet; young, easygoing, creative style",
+    "GIONG_HOC": "a real Mexican man in his early twenties speaking English as a second language: an easy mid-low pitch, lighter than an older man's, a natural Mexican accent with Spanish vowels and a soft r, friendly and easygoing; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Um, more or less.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 28.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 28.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 28.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar. Anytime, anywhere.",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll sound like a native in no time.",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0042/anh/nhan-vat/bien-the-13.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-14-nam-32",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, neutral American accent, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Mexican café corner: a plain warm-cream wall with a colourful hand-woven Mexican tapestry (orange, red, blue and yellow geometric pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white talavera tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a talavera-painted ceramic mug of hot chocolate (blue, orange and white flower pattern) just left of centre, and a round sweet concha bun with a white sugar-shell top on a small wooden plate just right of centre",
+    "NGUOI_HOC": "a 32-year-old Mexican man, solid build with big shoulders and a moderately thick neck, a rectangular face with a wide forehead, low cheekbones, a square jaw and a defined chin, slightly dark bronze-brown skin with short natural stubble, a black buzz cut close to the head; a fitted black t-shirt under a short black bomber jacket; masculine, strong, striking presence",
+    "GIONG_HOC": "a real Mexican man in his early thirties speaking English as a second language: a deep low baritone, clearly lower than the tutor's voice, a natural Mexican accent with Spanish vowels and a soft r, steady and a little gruff; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Um, more or less.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 28.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 28.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 28.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar. Anytime, anywhere.",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll sound like a native in no time.",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0042/anh/nhan-vat/bien-the-14.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-15-nam-28",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, neutral American accent, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Mexican café corner: a plain warm-cream wall with a colourful hand-woven Mexican tapestry (orange, red, blue and yellow geometric pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white talavera tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a talavera-painted ceramic mug of hot chocolate (blue, orange and white flower pattern) just left of centre, and a round sweet concha bun with a white sugar-shell top on a small wooden plate just right of centre",
+    "NGUOI_HOC": "a 28-year-old Mexican man, tall and lean with level shoulders, an oval face with a moderately defined jawline, a slightly broad nose, full lips and dark brown eyes, warm caramel-brown skin with a few small moles and clean shaven, black hair past the nape tied in a neat low ponytail with a centre part; a teal two-piece suit blazer with a modern two-button cut over a white spread-collar shirt with no tie, a white pocket square, a minimal silver ring; stylish, artistic, creative look",
+    "GIONG_HOC": "a real Mexican man in his late twenties speaking English as a second language: a warm mid-low baritone, clearly lower than the tutor's voice, a natural Mexican accent with Spanish vowels and a soft r, smooth and expressive; a real person, not an actor",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Um, more or less.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 28.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 28.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 28.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar. Anytime, anywhere.",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll sound like a native in no time.",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0042/anh/nhan-vat/bien-the-15.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-16-nu-64",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, neutral American accent, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Mexican café corner: a plain warm-cream wall with a colourful hand-woven Mexican tapestry (orange, red, blue and yellow geometric pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white talavera tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a talavera-painted ceramic mug of hot chocolate (blue, orange and white flower pattern) just left of centre, and a round sweet concha bun with a white sugar-shell top on a small wooden plate just right of centre",
+    "NGUOI_HOC": "a 64-year-old Mexican woman, medium build, a little fuller around the middle with rounded shoulders, a round face with slightly sagging cheeks and light wrinkles around the eyes and mouth, light olive-brown skin with small age spots and natural uneven pigmentation, grey-and-dark-brown hair about half and half, short with light volume and a side part; a white round-neck blouse with a tiny floral print and three-quarter sleeves, a small pearl necklace and round gold earrings; clean, ironed, gentle traditional style",
+    "GIONG_HOC": "a real Mexican woman in her mid sixties speaking English as a second language: a soft, slightly thin and mildly husky mid-pitch voice, a natural Mexican accent with Spanish vowels and a soft r, kind and gently amused, a little slower than a young speaker; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Um, more or less.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 68.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 68.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 68.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar. Anytime, anywhere.",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll sound like a native in no time.",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0042/anh/nhan-vat/bien-the-16.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-17-nu-70",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, neutral American accent, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Mexican café corner: a plain warm-cream wall with a colourful hand-woven Mexican tapestry (orange, red, blue and yellow geometric pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white talavera tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a talavera-painted ceramic mug of hot chocolate (blue, orange and white flower pattern) just left of centre, and a round sweet concha bun with a white sugar-shell top on a small wooden plate just right of centre",
+    "NGUOI_HOC": "a 70-year-old Mexican woman, a full build with rounded shoulders, a softly square face with a rounded chin and full cheeks, small wrinkles around the eyes and the corners of the mouth, medium honey-brown skin with a few dark spots on the cheeks, white hair in a short chin-length bob with natural volume and a side part; a light-purple cardigan with small buttons over a white round-neck t-shirt, small gold earrings and a silver bracelet; simple, cheerful everyday style",
+    "GIONG_HOC": "a real Mexican woman in her seventies speaking English as a second language: a soft, slightly husky older voice, a natural Mexican accent with Spanish vowels and a soft r, cheerful and chatty, a bit slower than a young speaker; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Um, more or less.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 68.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 68.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 68.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar. Anytime, anywhere.",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll sound like a native in no time.",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0042/anh/nhan-vat/bien-the-17.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-18-nu-75",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, neutral American accent, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Mexican café corner: a plain warm-cream wall with a colourful hand-woven Mexican tapestry (orange, red, blue and yellow geometric pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white talavera tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a talavera-painted ceramic mug of hot chocolate (blue, orange and white flower pattern) just left of centre, and a round sweet concha bun with a white sugar-shell top on a small wooden plate just right of centre",
+    "NGUOI_HOC": "a 75-year-old Mexican woman, small and thin with narrow shoulders and a slightly natural stoop, a long face with high cheekbones, slightly hollow cheeks and thin lips, clear wrinkles on the forehead and around the mouth, medium bronze-brown skin with age spots and realistic skin texture, white-grey hair in a neat low bun at the nape with a few loose strands at the temples; a dark-green long-sleeved round-neck top with a thin cream wool shawl draped around the shoulders, thin gold-framed glasses and small round earrings; neat, classic, graceful style",
+    "GIONG_HOC": "a real Mexican woman in her mid seventies speaking English as a second language: a thin, light and slightly husky older voice, a natural Mexican accent with Spanish vowels and a soft r, refined and gentle, noticeably slower than a young speaker; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Um, more or less.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 68.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 68.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 68.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar. Anytime, anywhere.",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll sound like a native in no time.",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0042/anh/nhan-vat/bien-the-18.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-19-nu-67",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, neutral American accent, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Mexican café corner: a plain warm-cream wall with a colourful hand-woven Mexican tapestry (orange, red, blue and yellow geometric pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white talavera tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a talavera-painted ceramic mug of hot chocolate (blue, orange and white flower pattern) just left of centre, and a round sweet concha bun with a white sugar-shell top on a small wooden plate just right of centre",
+    "NGUOI_HOC": "a 67-year-old Mexican woman, tall with moderately broad shoulders, an oval face with a soft jawline, natural wrinkles on the cheeks and slight shadows under the eyes, warm golden-brown skin with small pigment spots, brown hair mixed with grey, shoulder-length in gentle natural waves tied in a neat low ponytail; a white shirt with a spread collar under an earth-orange knitted wool vest, thin brown-framed glasses and minimal gold earrings; intellectual, elegant everyday style",
+    "GIONG_HOC": "a real Mexican woman in her late sixties speaking English as a second language: a clear, slightly husky mid-low voice, a natural Mexican accent with Spanish vowels and a soft r, thoughtful and warm, a little slower than a young speaker; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Um, more or less.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 68.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 68.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 68.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar. Anytime, anywhere.",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll sound like a native in no time.",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0042/anh/nhan-vat/bien-the-19.webp"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-20-nu-72",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek feminine humanoid robot: a white helmet-like head with a few dark panel lines, a smooth white porcelain face with soft light-blue eyes and finely sculpted lips, a black mechanical neck of cables and pistons, glossy white hexagonal chest and shoulder plates outlined with thin glowing cyan seams over black mechanical joints",
+    "GIONG_DAY": "a bright, warm, friendly young woman's voice with a light smooth synthetic sheen, neutral American accent, clear, quick and confident, like a cheerful language teacher on a video call",
+    "NEN_DAY": "a bright white and pale-blue futuristic studio backdrop with soft vertical light strips and a thin glowing white circular halo ring behind the head",
+    "TEN_HOC": "the learner",
+    "NEN_HOC": "a cosy Mexican café corner: a plain warm-cream wall with a colourful hand-woven Mexican tapestry (orange, red, blue and yellow geometric pattern) hanging on a thin wooden rod above and behind the head, a strip of blue-and-white talavera tiles at the far right edge, soft warm daylight",
+    "DAO_BAN": "a talavera-painted ceramic mug of hot chocolate (blue, orange and white flower pattern) just left of centre, and a round sweet concha bun with a white sugar-shell top on a small wooden plate just right of centre",
+    "NGUOI_HOC": "a 72-year-old Mexican woman, short and round with sloping shoulders, a plump round face with full cheeks, a slight double chin and small wrinkles around the eyes, light olive-brown skin with a few age spots on the cheeks, short white curly hair close to the head with natural volume and a side part, neatly combed; a navy long-sleeved dress with small white polka dots under a thin cream cardigan, a small pearl earring and a thin gold bracelet; warm, kindly, polite and tidy style",
+    "GIONG_HOC": "a real Mexican woman in her early seventies speaking English as a second language: a soft, warm and slightly thin older voice, a natural Mexican accent with Spanish vowels and a soft r, grandmotherly and kind, a bit slower than a young speaker; a real person, not an actress",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Do you speak English?",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Um, more or less.",
+        "emo": "hesitant",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "How old are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I have 68.",
+        "emo": "unsure",
+        "fx": "wrong",
+        "c": "red"
+      },
+      {
+        "who": "day",
+        "text": "You have to say, I am 68.",
+        "emo": "patient, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am 68.",
+        "emo": "confident",
+        "fx": "right",
+        "c": "green"
+      },
+      {
+        "who": "day",
+        "text": "Good job.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but who are you?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Me? I'm an AI tutor. I'll help you improve your English skills.",
+        "emo": "cheerful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Thank you, but I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What money? You can study for free.",
+        "emo": "playful",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "For free? You're joking, right?",
+        "emo": "surprised, skeptical",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Nope, I'm serious. You can practice unlimited English conversations with a real AI avatar. Anytime, anywhere.",
+        "emo": "confident, enthusiastic",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Really?",
+        "emo": "surprised, hopeful",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes, really. You'll sound like a native in no time.",
+        "emo": "reassuring, upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/split-screen-vertical-x0042/anh/robot-ai.webp"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/split-screen-vertical-x0042/anh/nhan-vat/bien-the-20.webp"
+      ]
+    }
+  }
+]

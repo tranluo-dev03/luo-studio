@@ -615,3 +615,48 @@ Người dùng báo 6 lỗi; nguyên nhân đã chứng minh bằng số đo tr�
 - Kết quả: `kiem-tra` 0 lỗi; Studio tải đủ 40 ảnh, 0 refs lỗi. Biến thể 16-20 và 31-35 có em bé địu (kịch bản gốc không em bé): CHỜ KIỂM CHỨNG khi gen. Gen thật: chưa.
 - Áp dụng chung?: CÓ: kịch bản dùng chung cho cả hai giới thì đại từ hành khách phải là token; "her" đứng trước dấu câu là tân ngữ (him), còn lại là sở hữu (his).
 - Đã chưng cất vào: chưa
+
+### 2026-11-11 · split-screen-vertical-x0042 · 20 biến thể nhân vật từ CSV X0042 (chia đôi + gia sư AI) · loai: bien-the
+- Hiện tượng: CSV 20 biến thể (mô tả người Mexico tiếng Việt, link Drive); BT 8-10 đổi "I am 28" thành 35, BT 16-20 thành 68 (phụ đề tự theo).
+- Cách làm: dự án mới `SAMPLE/split-screen-vertical-x0042/`, tải 20 ảnh từ Drive bằng `uc?export=download&id=` (tải thẳng được, đều là webp) vào `anh/nhan-vat/`, refs trỏ tệp trong dự án. `cong-cu/tao_bien_the.py` có bảng BIEN_THE tiếng Anh (bỏ đồ nửa dưới), hàm `giong()` sinh giọng; lời thoại từ `luot(tuoi)`.
+- Kết quả: JSON 20 biến thể hợp lệ, 15 lượt đúng thứ tự, đúng 1 wrong/1 right, token kịch bản đủ. Chưa nhập Studio, chưa gen.
+- Áp dụng chung?: CÓ: CSV có link Drive thì tải về tệp cục bộ để dự án không phụ thuộc quyền chia sẻ.
+- Đã chưng cất vào: chưa
+
+### 2026-11-11 · split-screen-vertical-x0045-pt · 20 biến thể Brazil, lời thoại tiếng Bồ Đào Nha, chia đôi dọc · loai: bien-the
+- Hiện tượng: CSV X0045 có kịch bản Bồ Đào Nha (chỉ "How old are you?", "I have/I am N" tiếng Anh), 20 biến thể (10 nữ, 10 nam) mỗi biến thể một tuổi N khác nhau; có link Drive.
+- Cách làm: dự án `SAMPLE/split-screen-vertical-x0045-pt/`, tải 20 ảnh Drive vào `anh/nhan-vat/`. Loại mới `app/production/types/chia-doi-gia-su-ai-pt/` (bản sao hậu kỳ, whisper `small` vì `small.en` chỉ tiếng Anh). Kịch bản đổi VOICE/VIDEO SUFFIX sang tiếng Bồ Đào Nha, "Obrigada/Obrigado" theo giới, nền và đồ bàn đổi sang Brazil. Lượt 13 rút còn 20 từ.
+- Kết quả: `kiem-tra` 0 lỗi 0 cảnh báo; nhập Studio (dự án `X0045-Split-screen-vertical-PT-20-bien-the-4715`), ảnh đã gắn. Gen thật: chưa, CHỜ KIỂM CHỨNG giọng Bồ Đào Nha và căn phụ đề.
+- Áp dụng chung?: CÓ: thể loại nói ngôn ngữ khác tiếng Anh phải tạo loại hậu kỳ riêng có `"whisper": "small"`; câu giới tính ("Obrigada/o") sinh theo giới trong script biến thể, không để cố định.
+- Đã chưng cất vào: chưa
+
+### 2026-11-11 · split-screen-vertical-x0043-hi · 20 biến thể Ấn Độ, lời thoại tiếng Hindi, chia đôi dọc · loai: bien-the
+- Hiện tượng: CSV X0043 có kịch bản Hindi (Devanagari; "How old are you?", "I have/I am N", Talka AI, AI Tutor tiếng Anh), 20 biến thể (10 nữ, 10 nam), mỗi biến thể một tuổi N; link Drive.
+- Cách làm: dự án `SAMPLE/split-screen-vertical-x0043-hi/`, tải 20 ảnh Drive vào `anh/nhan-vat/`. Loại mới `app/production/types/chia-doi-gia-su-ai-hi/` (whisper `small`, font Nirmala UI cho Devanagari). Lượt 12 chia động từ theo giới (रही/रहे). Lượt 13 rút 25 -> 18 từ (giới hạn 20).
+- Kết quả: `kiem-tra` 0 lỗi 0 cảnh báo; nhập Studio (`X0043-Split-screen-vertical-HI-20-bien-the-067c`), ảnh đã gắn. Gen thật: chưa, CHỜ KIỂM CHỨNG giọng Hindi và phụ đề Devanagari.
+- Áp dụng chung?: CÓ: ngôn ngữ chia động từ theo giới (Hindi, Bồ Đào Nha) thì sinh câu theo giới trong script biến thể; câu gốc quá 20 từ phải rút trước khi nhập.
+- Đã chưng cất vào: chưa
+
+### 2026-11-11 · split-screen-vertical-x0039-baihoc · 20 biến thể Brazil, bài học "Where are you from?", tiếng Anh, chia đôi dọc · loai: bien-the
+- Hiện tượng: CSV X0039 có kịch bản tiếng Anh mới (quê thay cho tuổi: "I am Mexico." sai, "I'm from Mexico." đúng), nhưng bảng 20 nhân vật và cột "đổi I am 28 thành I am N" y hệt X0045 (sót). Ảnh Drive giống hệt X0045.
+- Cách làm: dự án `SAMPLE/split-screen-vertical-x0039-baihoc/`, kịch bản từ bản tiếng Anh X0042 (loại `chia-doi-gia-su-ai`, whisper small.en), giọng người học thêm giọng Brazil; biến thể từ script X0045 đổi `luot(PLACE, gioi)`. Quê giữ "Mexico" theo kịch bản dù nhân vật Brazil (biến `PLACE`).
+- Kết quả: `kiem-tra` 0 lỗi 0 cảnh báo; nhập Studio (`X0039-Split-screen-vertical-BAI-HOC-20-bien-the-5d20`), ảnh đã gắn. Gen thật: chưa. CHỜ NGƯỜI DÙNG xác nhận quê Mexico hay Brazil.
+- Áp dụng chung?: CÓ: CSV cùng bảng nhân vật dùng lại cho nhiều kịch bản thì cột "kiểu biến thể" có thể sót, đối chiếu với kịch bản trước khi áp.
+- Đã chưng cất vào: chưa
+
+### 2026-11-11 · split-screen-vertical-x0044-botskin · 20 biến thể Brazil + robot đổi trang phục theo biến thể, tiếng Bồ Đào Nha · loai: bien-the
+- Hiện tượng: CSV X0044 y hệt X0045 (nhân vật, tuổi, lời thoại) nhưng thêm cột "Link ảnh AI": 20 ảnh robot, cùng một robot mặc trang phục khác nhau (khăn turban, mũ cao bồi, poncho...), nền xanh lá.
+- Cách làm: dự án `SAMPLE/split-screen-vertical-x0044-botskin/`, tải 20 ảnh nhân vật + 20 ảnh robot (`anh/robot-skin/`); ghép ảnh robot thành bảng để xem rồi viết `TRANG_PHUC_ROBOT` (tiếng Anh) nối vào `NGUOI_DAY` từng biến thể; `refs.NGUOI_DAY` trỏ ảnh robot riêng. Kịch bản thêm câu "nền xanh lá của ảnh robot KHÔNG thuộc cảnh". Dùng lại loại `chia-doi-gia-su-ai-pt`.
+- Kết quả: `kiem-tra` 0 lỗi 0 cảnh báo; nhập Studio (`X0044-Split-screen-vertical-BOT-skin-20-bien-the-976a`), ảnh đã gắn. Gen thật: chưa, CHỜ KIỂM CHỨNG robot mặc đúng trang phục và nền xanh không lọt vào cảnh.
+- Áp dụng chung?: CÓ: ảnh tham chiếu robot đổi theo biến thể thì phải đổi cả mô tả `NGUOI_DAY` (mô tả trắng thuần mâu thuẫn với ảnh); xem ảnh bằng bảng ghép 10 ảnh/ lần thay vì từng ảnh.
+- Đã chưng cất vào: chưa
+
+### 2026-11-12 · split-screen (X0042/X0043/X0045) · lỗi chồng nền ở nửa AI + người/AI quá cỡ · loai: ky-thuat
+- Hiện tượng: cảnh ghép 2 lớp nối khung (`noi: lien`): (1) nửa robot hiện thêm một đầu robot / vòng hào quang thứ hai phía trên, dải đen/vệt ở đáy (BT2 X0045 từ cảnh 3, BT19-20 X0042); (2) nhân vật to gấp 1,6-2 lần (X0045 BT13 nửa người dùng, X0043 BT6 cảnh 9-11) hoặc robot to/nhỏ x1,2-1,4 giữ nguyên tới hết video.
+- Nguyên nhân: (1) `align_to_tail` căn khung đầu clip về khung nối bằng phép thu nhỏ/dời rồi lấp phần mép hụt bằng chính khung nối (cỡ khác) -> lộ đầu cũ chồng lên; clip Muse gốc (`sceneN_spk.mp4`) vẫn sạch, chỉ bản `_khop` hỏng. (2) Mọi kiểm tra cỡ cũ (`_start_mismatch`, `face_under_panels`) dùng Mediapipe nên KHÔNG đo được robot, và chỉ so với khung nối nên lệch cộng dồn không bị thấy.
+- Cách sửa (`app/luo-studio/split.py`): `_cover_fix` luôn phóng thêm cho phủ kín khung (không lấp mép bằng khung nối); bỏ phép căn khung nối nếu lệch tới mức hụt mép (>6%) và không hoà khung nối khi khác cỡ; `size_dev` đo cỡ cả khung so với ẢNH GỐC bằng ORB (không cần dò mặt), lệch > `SIZE_MAX` (1,10) thì gen lại cảnh từ ảnh gốc 1 lần, giữ bản ít lệch hơn (cả clip nói và clip nghe). Tắt được bằng opts `check_size`.
+- Cách kiểm cảnh đã gen: ORB đo cỡ nửa khung so với ảnh gốc (1,00 = đúng cỡ; <0,9 hoặc >1,1 là lỗi) cộng ảnh ghép `sceneN_last.png`.
+- Kết quả: sửa xong code; gen lại các cảnh lỗi: xem dòng cập nhật bên dưới. CHỜ KIỂM CHỨNG.
+- Áp dụng chung?: CÓ: mọi thể loại ghép 2 lớp nối khung.
+- Đã chưng cất vào: chưa
+- Cập nhật 2026-11-12: đã khởi động lại Studio bằng code mới và xếp gen lại 15 video từ cảnh lỗi đầu tiên (X0042 BT13/15/18/19/20; X0043 BT1/3/6; X0045 BT2/3/6/7/9/13/15). X0045 BT17 chưa có trong hàng đợi. CHỜ KIỂM CHỨNG kết quả gen lại.
