@@ -80,6 +80,8 @@ class _Sess:
         self.created = time.time()
         self.cancel = threading.Event()
         self.mail: dict | None = None    # {"email","refresh_token","client_id"}: tự điền email + tự lấy OTP
+        self.fail_fast = False           # chạy theo lô: tự động thất bại hẳn thì báo lỗi ngay, không chờ người làm tay
+        self.auto_failed = ""            # lý do tự động thất bại hẳn (dùng với fail_fast)
 
     def public(self) -> dict:
         return {"token": self.token, "mode": self.mode, "label": self.label, "account_id": self.account_id,
@@ -191,7 +193,8 @@ class LoginBrowsers:
             if s.account_id == aid:
                 s.cancel.set()
 
-    def start_login(self, label: str = "", account_id: str | None = None, mail: dict | None = None) -> dict:
+    def start_login(self, label: str = "", account_id: str | None = None, mail: dict | None = None,
+                    fail_fast: bool = False) -> dict:
         with self._lock:
             for s in self._sess.values():   # đang có cửa sổ đăng nhập cho tài khoản này thì đưa lên trước
                 if s.mode == "login" and account_id and s.account_id == account_id and s.state in ("opening", "waiting"):
@@ -200,6 +203,7 @@ class LoginBrowsers:
             tmp = _Sess("login", label, account_id, "")
             tmp.profile = self._login_profile(tmp.token)
             tmp.mail = dict(mail) if mail and mail.get("refresh_token") else None
+            tmp.fail_fast = bool(fail_fast and tmp.mail)
             self._sess[tmp.token] = tmp
         shutil.rmtree(tmp.profile, ignore_errors=True)
         try:
@@ -366,9 +370,115 @@ class LoginBrowsers:
             page.send("Input.dispatchKeyEvent", {"type": t, "key": "Enter", "code": "Enter", "windowsVirtualKeyCode": 13,
                                                  **({"text": "\r"} if t == "keyDown" else {})}, timeout=10)
 
-    def _auto_login(self, s: _Sess):
-        """Điền email -> bấm tiếp tục -> đọc OTP trong Outlook -> điền mã. Lỗi ở bước nào thì báo, người dùng làm tay tiếp."""
+    # Trang báo mã sai / hết hạn (chỉ xét thông báo lỗi và khối quanh ô nhập mã, tránh nhầm với chữ khác trên trang)
+    _JS_CODE_ERROR = r"""(() => {
+      const vis = e => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && !e.disabled; };
+      const bad = /incorrect|invalid|wrong|expired|didn.?t match|doesn.?t match|not valid|not correct/i;
+      const al = [...document.querySelectorAll('[role=alert],[aria-live]')].map(e => e.innerText || '').join(' ');
+      if (bad.test(al)) return al.trim().slice(0, 100);
+      const lab = i => (i.name || '') + (i.id || '') + (i.placeholder || '') + (i.getAttribute('aria-label') || '');
+      const code = [...document.querySelectorAll('input')].filter(vis).find(i => i.autocomplete === 'one-time-code' || i.maxLength === 6 || i.maxLength === 1 || /code|otp|verif/i.test(lab(i)));
+      if (!code) return '';
+      const c = code.closest('form') || (code.parentElement && code.parentElement.parentElement && code.parentElement.parentElement.parentElement);
+      const t = (c && c.innerText) || '';
+      return bad.test(t) ? t.trim().slice(0, 100) : ''; })()"""
+
+    def _reload(self, page: CDP):
+        try:
+            page.evaluate("location.reload()", timeout=10)
+        except Exception:  # noqa: BLE001
+            pass
+        time.sleep(3)
+
+    def _auto_round(self, s: _Sess, page: CDP, rnd: int, new_token) -> tuple[str, str]:
+        """Một vòng: điền email -> Muse gửi mã -> lấy mã MỚI trong Outlook -> điền -> kiểm tra Muse có nhận không.
+        Trả ("ok", "") | ("retry", lý do) | ("fail", lý do)."""
         import outlook_otp
+        tag = f" (vòng {rnd}/3)" if rnd > 1 else ""
+        email = s.mail["email"]
+        sent, since, ignore = False, 0.0, None
+        for attempt in range(1, 4):   # chưa sang bước nhập mã thì tải lại trang và điền lại
+            if s.state != "waiting" or s.cancel.is_set():
+                return "ok", ""
+            s.message = f"Đang chờ trang Muse tải xong… (lần {attempt}/3){tag}"
+            if not self._wait_js(s, page, self._JS_EMAIL, 60):
+                return "fail", "Không thấy ô email trên trang Muse."
+            self._wait_ready(s, page)
+            s.message = f"Đang điền {email}… (lần {attempt}/3){tag}"
+            if not self._fill_email(page, email):
+                s.message = f"Không điền được email vào ô (lần {attempt}/3), tải lại trang…"
+                self._reload(page)
+                continue
+            try:   # chụp danh sách thư hiện có TRƯỚC khi bấm Continue: mã cũ trong hộp thư sẽ bị bỏ qua
+                ignore = outlook_otp.snapshot(s.mail, new_token)
+            except outlook_otp.MailAuthError as exc:
+                return "fail", f"{exc}."
+            except Exception as exc:  # noqa: BLE001
+                log.info("không chụp được hộp thư: %s", exc)
+                ignore = None
+            since = time.time()
+            if not page.evaluate(self._JS_SUBMIT, timeout=10):
+                self._press_enter(page)
+            end = time.time() + 20
+            while time.time() < end and s.state == "waiting" and not s.cancel.is_set():
+                try:
+                    if page.evaluate(self._JS_PAST_EMAIL, timeout=10):
+                        sent = True
+                        break
+                except Exception:  # noqa: BLE001
+                    pass
+                time.sleep(1)
+            if sent:
+                break
+            s.message = f"Muse chưa nhận email (lần {attempt}/3), tải lại trang và thử lại…"
+            self._reload(page)
+        if not sent:
+            return "fail", "Muse không chuyển sang bước nhập mã sau 3 lần thử (trang tải chậm hoặc có captcha)."
+        s.message = f"Đã gửi mã tới {email}, đang đợi thư MỚI trong hộp Outlook…{tag}"
+        try:
+            code = outlook_otp.wait_code(s.mail, since, timeout=180, cancel=s.cancel, on_new_token=new_token, ignore=ignore)
+        except outlook_otp.MailAuthError as exc:
+            return "fail", f"{exc}."
+        if s.state != "waiting" or s.cancel.is_set():
+            return "ok", ""
+        if not code:
+            return "fail", "Quá 3 phút chưa thấy thư mã mới của Muse (Hộp thư đến / Junk)."
+        kind = self._wait_js(s, page, self._JS_CODE, 30)
+        if not kind:
+            return "fail", f"Đã lấy được mã {code} nhưng không thấy ô nhập mã."
+        if kind == "multi":
+            for ch in code:
+                page.send("Input.insertText", {"text": ch}, timeout=10)
+                time.sleep(0.12)
+        else:
+            page.send("Input.insertText", {"text": code}, timeout=10)
+        s.message = f"Đã điền mã {code}, đang chờ Muse xác nhận…{tag}"
+        time.sleep(2.5)   # nhiều form tự gửi khi đủ 6 số; còn ô mã thì bấm nút / Enter
+        try:
+            if s.state == "waiting" and page.evaluate(self._JS_CODE, timeout=10):
+                if not page.evaluate(self._JS_SUBMIT, timeout=10):
+                    self._press_enter(page)
+        except Exception:  # noqa: BLE001
+            pass
+        # Kiểm tra kết quả: Muse báo mã sai / hết hạn thì lấy mã mới; đã qua bước mã thì để _watch_login lưu cookie
+        end = time.time() + 25
+        while time.time() < end:
+            if s.state != "waiting" or s.cancel.is_set():
+                return "ok", ""
+            try:
+                err = page.evaluate(self._JS_CODE_ERROR, timeout=10)
+                if err:
+                    return "retry", str(err)
+                if not page.evaluate(self._JS_CODE, timeout=10):
+                    return "ok", ""
+            except Exception:  # noqa: BLE001  (trang đang chuyển -> coi như đã qua bước mã)
+                return "ok", ""
+            time.sleep(1.5)
+        return "fail", f"Đã điền mã {code} nhưng Muse chưa xác nhận."
+
+    def _auto_login(self, s: _Sess):
+        """Tự điền email + OTP (tối đa 3 vòng nếu Muse từ chối mã). Thất bại hẳn: đăng nhập thường thì để người dùng làm tay
+        trong cửa sổ Chrome; chạy theo lô (fail_fast) thì báo lỗi ngay để sang tài khoản sau."""
         page = None
         manual = " Bạn làm tiếp bằng tay trong cửa sổ Chrome."
 
@@ -380,82 +490,32 @@ class LoginBrowsers:
                 except Exception:  # noqa: BLE001
                     pass
 
+        def fail(msg: str):
+            if s.state != "waiting":
+                return
+            s.message = msg + ("" if s.fail_fast else manual)
+            if s.fail_fast:
+                s.auto_failed = msg
+
         try:
             time.sleep(2)
             page = self._page(s)
-            since = 0.0
-            sent = False
-            for attempt in range(1, 4):   # tối đa 3 lần: chưa sang bước nhập mã thì tải lại trang và điền lại
-                if s.state != "waiting" or s.cancel.is_set():
+            for rnd in range(1, 4):
+                res, why = self._auto_round(s, page, rnd, new_token)
+                if res == "ok":
                     return
-                s.message = f"Đang chờ trang Muse tải xong… (lần {attempt}/3)"
-                if not self._wait_js(s, page, self._JS_EMAIL, 60):
-                    if s.state == "waiting":
-                        s.message = "Không thấy ô email trên trang Muse." + manual
-                    return
-                self._wait_ready(s, page)
-                s.message = f"Đang điền {s.mail['email']}… (lần {attempt}/3)"
-                if not self._fill_email(page, s.mail["email"]):
-                    s.message = f"Không điền được email vào ô (lần {attempt}/3), tải lại trang…"
-                    page.evaluate("location.reload()", timeout=10)
-                    time.sleep(3)
-                    continue
-                since = time.time()
-                if not page.evaluate(self._JS_SUBMIT, timeout=10):
-                    self._press_enter(page)
-                # Xác nhận Muse thật sự đã nhận email (sang bước nhập mã) trước khi đi đợi thư
-                end = time.time() + 20
-                while time.time() < end and s.state == "waiting" and not s.cancel.is_set():
-                    try:
-                        if page.evaluate(self._JS_PAST_EMAIL, timeout=10):
-                            sent = True
-                            break
-                    except Exception:  # noqa: BLE001
-                        pass
-                    time.sleep(1)
-                if sent:
-                    break
-                s.message = f"Muse chưa nhận email (lần {attempt}/3), tải lại trang và thử lại…"
-                page.evaluate("location.reload()", timeout=10)
-                time.sleep(3)
-            if not sent:
-                if s.state == "waiting":
-                    s.message = "Muse không chuyển sang bước nhập mã sau 3 lần thử (trang tải chậm hoặc có captcha)." + manual
-                return
-            s.message = f"Đã gửi mã tới {s.mail['email']}, đang đợi thư trong hộp Outlook…"
-            try:
-                code = outlook_otp.wait_code(s.mail, since, timeout=180, cancel=s.cancel, on_new_token=new_token)
-            except outlook_otp.MailAuthError as exc:
-                s.message = f"{exc}." + manual
-                return
-            if s.state != "waiting":
-                return
-            if not code:
-                s.message = "Quá 3 phút chưa thấy thư mã của Muse (Hộp thư đến / Junk)." + manual
-                return
-            kind = self._wait_js(s, page, self._JS_CODE, 30)
-            if not kind:
-                s.message = f"Đã lấy được mã {code} nhưng không thấy ô nhập mã. Hãy tự nhập mã này vào cửa sổ Chrome."
-                return
-            if kind == "multi":
-                for ch in code:
-                    page.send("Input.insertText", {"text": ch}, timeout=10)
-                    time.sleep(0.12)
-            else:
-                page.send("Input.insertText", {"text": code}, timeout=10)
-            s.message = f"Đã điền mã {code}, đang chờ Muse xác nhận…"
-            time.sleep(2.5)   # nhiều form tự gửi khi đủ 6 số; còn ô mã thì bấm nút / Enter
-            if s.state == "waiting" and page.evaluate(self._JS_CODE, timeout=10):
-                if not page.evaluate(self._JS_SUBMIT, timeout=10):
-                    self._press_enter(page)
+                if res == "fail":
+                    return fail(why)
+                if rnd == 3:
+                    return fail(f"Muse từ chối mã 3 lần liên tiếp ({why}).")
+                s.message = f"Muse báo mã không đúng/hết hạn ({why}). Lấy mã mới… (vòng {rnd + 1}/3)"
+                self._reload(page)
         except Exception as exc:  # noqa: BLE001
             log.info("tự đăng nhập Muse lỗi: %s", exc)
-            if s.state == "waiting":
-                s.message = f"Tự đăng nhập bị lỗi ({str(exc)[:120]})." + manual
+            fail(f"Tự đăng nhập bị lỗi ({str(exc)[:120]}).")
         finally:
             if page:
                 page.close()
-
 
     def _watch_login(self, s: _Sess):
         deadline = time.time() + LOGIN_TIMEOUT
@@ -464,6 +524,10 @@ class LoginBrowsers:
             while True:
                 if s.cancel.is_set():
                     s.state, s.message = "cancelled", "Đã huỷ đăng nhập."
+                    return
+                if s.fail_fast and s.auto_failed:
+                    s.message = s.auto_failed
+                    s.state = "error"
                     return
                 if not self._alive(s):
                     s.state, s.message = "closed", "Cửa sổ Chrome đã đóng trước khi đăng nhập xong."
@@ -602,6 +666,13 @@ class LoginBrowsers:
         threading.Thread(target=self._run_batch, args=(b,), daemon=True, name="muse-login-batch").start()
         return self.get_batch(b["token"])
 
+    def running_batch(self) -> dict | None:
+        """Lô đang chạy (nếu có) để giao diện mở lại bảng tiến độ sau khi người dùng đã đóng hộp thoại."""
+        for b in list(self._batches.values()):
+            if b["state"] == "running":
+                return self.get_batch(b["token"])
+        return None
+
     def get_batch(self, token: str) -> dict | None:
         b = self._batches.get(token)
         if not b:
@@ -639,7 +710,7 @@ class LoginBrowsers:
                 aid = self._find_by_email(mail["email"])
                 it["state"] = "running"
                 it["message"] = "Đăng nhập lại tài khoản đã có…" if aid else "Đang mở Chrome…"
-                r = self.start_login(label=mail["email"], account_id=aid, mail=mail)
+                r = self.start_login(label=mail["email"], account_id=aid, mail=mail, fail_fast=True)
                 if r["state"] == "error":
                     it["state"], it["message"] = "failed", r["message"]
                     continue
@@ -655,7 +726,7 @@ class LoginBrowsers:
                         it["state"], it["account_id"] = "done", s.account_id
                         break
                     if s.state in ("error", "closed", "cancelled"):
-                        it["state"] = "failed"
+                        it["state"], it["message"] = "failed", s.message
                         break
                     if b["cancel"].is_set():
                         s.cancel.set()

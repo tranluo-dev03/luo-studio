@@ -35,9 +35,10 @@ const typ = id => S.boot.types.find(t => t.id === id) || { id, name: id, scenes:
 const media = (p, v, f) => `/media/${encodeURIComponent(p)}/${encodeURIComponent(v)}/${f}`;
 const grow = el => { if (el.matches("textarea[data-k],textarea[data-s]")) return; el.style.height = "auto"; el.style.height = Math.min(el.scrollHeight, 260) + "px"; };
 const openModal = html => { $("#modal").innerHTML = html; $("#modal").classList.remove("hidden"); };
-const closeModal = () => { $("#modal").classList.add("hidden"); $("#modal").innerHTML = ""; };
-$("#modal").addEventListener("mousedown", e => { if (e.target.id === "modal") closeModal(); });
-document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+const closeModal = () => { window._mlock = false; $("#modal").classList.add("hidden"); $("#modal").innerHTML = ""; };
+// _mlock: hộp thoại đang có việc chạy (vd. thêm tài khoản theo lô) -> bấm ra ngoài / Esc không đóng nhầm
+$("#modal").addEventListener("mousedown", e => { if (e.target.id === "modal" && !window._mlock) closeModal(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !window._mlock) closeModal(); });
 
 // ---------------------------------------------------------------- shell
 function nav() {
@@ -899,25 +900,32 @@ async function pageApi() {
       <div class="row2" style="gap:8px;margin:8px 0"><button class="btn sm" id="bfile">${ico("plus")}Chọn file .txt</button><span id="bfn" style="color:var(--mute);font-size:12.5px;align-self:center"></span><input type="file" id="bfi" accept=".txt,text/plain" style="display:none"></div>
       <textarea id="bt" rows="7" spellcheck="false" style="width:100%;font-family:monospace;font-size:12px" placeholder="email1|pass|refresh_token|client_id&#10;email2|pass|refresh_token|client_id"></textarea>
       <div id="bst" class="card sec" style="display:none;margin-top:10px;font-size:13px;max-height:260px;overflow:auto"></div>
-      <div class="row2" style="margin-top:14px;justify-content:flex-end"><button class="btn ghost" id="bc">Đóng</button><button class="btn primary" id="bgo">${ico("user")}Bắt đầu</button></div></div>`);
+      <div class="row2" style="margin-top:14px;justify-content:flex-end"><button class="btn ghost" id="bc">Đóng</button><button class="btn ghost" id="bcx" style="display:none;color:var(--bad)">Huỷ lô</button><button class="btn primary" id="bgo">${ico("user")}Bắt đầu</button></div></div>`);
     const stset = (html) => { const b = $("#bst"); if (!b) return; b.style.display = ""; b.innerHTML = html; };
     const stop = () => { clearInterval(timer); timer = null; };
+    // Lô đang chạy: khoá đóng nhầm; nút Đóng thành "Ẩn (chạy nền)" (không huỷ), huỷ phải bấm "Huỷ lô"
+    const lock = on => { window._mlock = on; const x = $("#bcx"), c = $("#bc"); if (x) x.style.display = on ? "" : "none"; if (c) c.textContent = on ? "Ẩn (chạy nền)" : "Đóng"; };
     const render = (r) => { const c = r.counts || {};
       const head = `<div style="margin-bottom:8px"><b>${r.state === "running" ? "Đang chạy" : r.state === "done" ? "Xong" : r.state === "cancelled" ? "Đã huỷ" : r.state === "error" ? "Lỗi" : r.state}</b> · Xong ${c.done || 0}, Lỗi ${c.failed || 0}, Bỏ qua ${c.skipped || 0}, Chờ ${(c.pending || 0) + (c.running || 0)}</div>`;
       const rows = (r.items || []).map(i => { const s = ST[i.state] || [i.state, ""]; return `<div style="display:flex;gap:8px;padding:4px 0;border-top:1px solid var(--line)"><span class="tag ${s[1]}" style="flex:0 0 auto">${s[0]}</span><span style="flex:0 0 190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(i.email || "")}</span><span style="color:var(--mute);font-size:12px">${esc(i.message || "")}</span></div>`; }).join("");
       stset(head + rows); };
     const poll = async () => { if (!$("#bst")) return stop();
-      let r; try { r = await api("muse/accounts/login-batch/" + tok); } catch (e) { stset(`<span style="color:var(--bad)">${esc(e.message)}</span>`); return stop(); }
+      let r; try { r = await api("muse/accounts/login-batch/" + tok); } catch (e) { stset(`<span style="color:var(--bad)">${esc(e.message)}</span>`); running = false; lock(false); return stop(); }
       render(r);
-      if (r.state !== "running") { stop(); running = false; const g = $("#bgo"); if (g) { g.disabled = false; g.lastChild.textContent = "Bắt đầu lại"; } pageApi(); } };
+      if (r.state !== "running") { stop(); running = false; lock(false); const g = $("#bgo"); if (g) { g.disabled = false; g.lastChild.textContent = "Bắt đầu lại"; } pageApi(); } };
     $("#modal").onclick = async e => {
-      if (e.target.closest("#mx, #bc")) { if (running && tok) api(`muse/accounts/login-batch/${tok}/cancel`, { body: {} }).catch(() => {}); stop(); return closeModal(); }
+      if (e.target.closest("#mx, #bc")) { stop(); return closeModal(); }   // chỉ ẩn hộp thoại, lô (nếu đang chạy) vẫn chạy nền
+      if (e.target.closest("#bcx")) { if (!tok || !confirm("Huỷ lô đang chạy? Các dòng chưa làm sẽ bị bỏ qua.")) return;
+        api(`muse/accounts/login-batch/${tok}/cancel`, { body: {} }).then(() => toast("Đang huỷ lô…")).catch(er => toast(er.message, 1)); return; }
       if (e.target.closest("#bfile")) { $("#bfi").click(); return; }
       if (e.target.closest("#bgo")) { if (running) return;
         const text = ($("#bt").value || "").trim(); if (!text) return toast("Chưa có dòng nào", 1);
-        running = true; const g = $("#bgo"); g.disabled = true; stset("Đang bắt đầu…");
+        running = true; lock(true); const g = $("#bgo"); g.disabled = true; stset("Đang bắt đầu…");
         try { const r = await api("muse/accounts/login-batch", { body: { text } }); tok = r.token; render(r); timer = setInterval(poll, 2000); }
-        catch (er) { stset(`<span style="color:var(--bad)">${esc(er.message)}</span>`); running = false; g.disabled = false; } return; } };
+        catch (er) { stset(`<span style="color:var(--bad)">${esc(er.message)}</span>`); running = false; lock(false); g.disabled = false; } return; } };
+    // Mở lại hộp thoại khi lô vẫn đang chạy nền: nối lại bảng tiến độ
+    api("muse/accounts/login-batch").then(r => { const b = r && r.batch; if (!b || b.state !== "running" || !$("#bst") || running) return;
+      tok = b.token; running = true; lock(true); const g = $("#bgo"); if (g) g.disabled = true; render(b); timer = setInterval(poll, 2000); }).catch(() => {});
     $("#bfi").onchange = e => { const f = e.target.files[0]; if (!f) return;
       const rd = new FileReader(); rd.onload = () => { const cur = ($("#bt").value || "").trim(); $("#bt").value = (cur ? cur + "\n" : "") + rd.result; $("#bfn").textContent = f.name; }; rd.readAsText(f); }; };
   $("#ap-ref").onclick = () => pageApi();

@@ -97,28 +97,39 @@ def _subject(msg) -> str:
         return msg.get("Subject", "")
 
 
-def find_code(m: imaplib.IMAP4_SSL, since: float) -> str | None:
-    """Tìm mã 6 số trong thư Muse/Meta mới nhất nhận sau thời điểm since (epoch)."""
+def _recent(m: imaplib.IMAP4_SSL, folder: str, n: int = 15) -> list[bytes]:
+    """UID của n thư mới nhất trong thư mục (rỗng nếu thư mục không có / không mở được)."""
+    try:
+        typ, _ = m.select(folder, readonly=True)
+    except imaplib.IMAP4.error:
+        return []
+    if typ != "OK":
+        return []
+    typ, data = m.uid("SEARCH", None, "ALL")
+    return (data[0] or b"").split()[-n:] if typ == "OK" else []
+
+
+def find_code(m: imaplib.IMAP4_SSL, since: float, ignore: set | None = None) -> str | None:
+    """Tìm mã 6 số trong thư Muse/Meta MỚI nhất.
+
+    ignore: tập (thư mục, uid) đã có trước khi bấm Continue -> bỏ qua hẳn, nên không bao giờ lấy nhầm mã cũ
+    (mã cũ đã hết hạn / bị mã mới thay thế). Không có ignore thì chỉ nhận thư đến sau since (lệch đồng hồ 10 giây).
+    """
     for folder in FOLDERS:
-        try:
-            typ, _ = m.select(folder, readonly=True)
-        except imaplib.IMAP4.error:
-            continue
-        if typ != "OK":
-            continue
-        typ, data = m.search(None, "ALL")
-        ids = (data[0] or b"").split()[-10:] if typ == "OK" else []
-        for mid in reversed(ids):
-            typ, got = m.fetch(mid, "(RFC822)")
+        for uid in reversed(_recent(m, folder)):
+            if ignore is not None and (folder, uid) in ignore:
+                continue
+            typ, got = m.uid("FETCH", uid, "(RFC822)")
             if typ != "OK" or not got or not isinstance(got[0], tuple):
                 continue
             msg = email.message_from_bytes(got[0][1])
-            try:
-                ts = email.utils.parsedate_to_datetime(msg.get("Date")).timestamp()
-            except Exception:  # noqa: BLE001
-                ts = 0
-            if ts and ts < since - 60:   # cho lệch đồng hồ 1 phút
-                break
+            if ignore is None:
+                try:
+                    ts = email.utils.parsedate_to_datetime(msg.get("Date")).timestamp()
+                except Exception:  # noqa: BLE001
+                    ts = 0
+                if ts and ts < since - 10:
+                    continue
             frm, subj = msg.get("From", ""), _subject(msg)
             if not SENDER_HINT.search(frm + " " + subj):
                 continue
@@ -128,8 +139,24 @@ def find_code(m: imaplib.IMAP4_SSL, since: float) -> str | None:
     return None
 
 
-def wait_code(mail: dict, since: float, timeout: float = 180, cancel=None, on_new_token=None) -> str | None:
-    """Đợi thư OTP Muse đến (sau since) và trả mã 6 số; hết thời gian trả None. Lỗi token -> MailAuthError."""
+def snapshot(mail: dict, on_new_token=None) -> set:
+    """Các thư đang có trong hộp thư (để wait_code bỏ qua). Gọi NGAY TRƯỚC khi yêu cầu Muse gửi mã."""
+    access, new_rt = get_access_token(mail)
+    if new_rt and on_new_token:
+        on_new_token(new_rt)
+    m = _imap(mail, access)
+    try:
+        return {(f, u) for f in FOLDERS for u in _recent(m, f, 30)}
+    finally:
+        try:
+            m.logout()
+        except Exception:  # noqa: BLE001
+            pass
+
+
+def wait_code(mail: dict, since: float, timeout: float = 180, cancel=None, on_new_token=None,
+              ignore: set | None = None) -> str | None:
+    """Đợi thư OTP Muse đến (không nằm trong ignore) và trả mã 6 số; hết thời gian trả None. Lỗi token -> MailAuthError."""
     access, new_rt = get_access_token(mail)
     if new_rt and on_new_token:
         on_new_token(new_rt)
@@ -140,7 +167,7 @@ def wait_code(mail: dict, since: float, timeout: float = 180, cancel=None, on_ne
             if cancel is not None and cancel.is_set():
                 return None
             try:
-                code = find_code(m, since)
+                code = find_code(m, since, ignore)
             except (imaplib.IMAP4.abort, OSError):
                 m = _imap(mail, access)
                 code = None

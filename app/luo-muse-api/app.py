@@ -1897,6 +1897,12 @@ def login_batch(payload: dict = Body(default={}), _=Depends(auth)):
         raise HTTPException(409, str(exc)) from None
 
 
+@app.get("/admin/accounts/login-batch")
+def login_batch_current(_=Depends(auth)):
+    """Lô đang chạy (nếu có), để Studio nối lại bảng tiến độ khi mở lại hộp thoại."""
+    return {"batch": logins.running_batch()}
+
+
 @app.get("/admin/accounts/login-batch/{token}")
 def login_batch_status(token: str, _=Depends(auth)):
     r = logins.get_batch(token)
