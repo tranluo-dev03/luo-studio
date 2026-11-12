@@ -222,7 +222,9 @@ class Store:
     def list_accounts(self) -> list[dict]:
         out = []
         for a in self.accounts:
-            item = {k: v for k, v in a.items() if k != "cookies"}
+            item = {k: v for k, v in a.items() if k not in ("cookies", "mail")}
+            # Hộp thư tự lấy OTP: chỉ lộ địa chỉ, không trả refresh_token ra ngoài
+            item["mail_email"] = (a.get("mail") or {}).get("email") or ""
             # 计数只算今天的：过了零点还没生成新视频 -> 显示 0（下次生成时 record_video 也从 1 重计）
             item["video_count"] = (a.get("video_count") or 0) if a.get("video_day") == _day() else 0
             ce = a.get("cookies_exp") or {}

@@ -57,7 +57,7 @@ if not log.handlers:
     log.addHandler(_h)
 
 CFG.ensure_dirs()
-app = FastAPI(title="LUO-API", version="1.3.0")
+app = FastAPI(title="LUO-API", version="1.3.1")
 
 # Cookie 助手脚本从 muse.ai 页面发起导入请求，需要放行该来源；
 # 浏览器扩展从 chrome-extension:// 发起，也一并放行。
@@ -191,7 +191,7 @@ class AccountPoolManager:
 
 GEN_LOCK = ConcurrencyLock(limit=CFG.max_concurrency)
 ACCOUNT_POOL = AccountPoolManager(store, per_account=CFG.account_parallel)
-API_VERSION = "1.3.0"
+API_VERSION = "1.3.1"
 QUOTA_RE = re.compile(r"24-hour limit|budget is (?:still )?exhausted|video budget|quota (?:is )?exhausted|limit for the (?:last|past) 24 hours|(?:video|daily|generation) limit (?:is |has been )?reached", re.I)
 
 
@@ -633,6 +633,7 @@ class AccountRequest(BaseModel):
 class AccountPatch(BaseModel):
     label: str | None = None
     enabled: bool | None = None
+    mail: str | None = None        # "email|password|refresh_token|client_id" để tự lấy OTP; "" = bỏ hộp thư đã lưu
 
 
 # ------------------------- 提示词构造 -------------------------
@@ -1857,9 +1858,22 @@ def login_account(payload: dict = Body(default={}), _=Depends(auth)):
     """Mở Chrome hồ sơ trống ở muse.ai; người dùng tự đăng nhập, LUO tự lấy cookie và lưu (account_id: đăng nhập lại tài khoản đó)."""
     logins.reap()
     aid = str(payload.get("account_id") or "").strip() or None
-    if aid and not store.get_account(aid):
+    acc = store.get_account(aid) if aid else None
+    if aid and not acc:
         raise HTTPException(404, "账号不存在")
-    return logins.start_login(str(payload.get("label") or "").strip(), aid)
+    # Tuỳ chọn: chuỗi "email|password|refresh_token|client_id" -> LUO tự điền email và tự lấy mã OTP từ Outlook.
+    # Đăng nhập lại mà không gửi chuỗi thì dùng hộp thư đã lưu của tài khoản (nếu có).
+    raw = str(payload.get("mail") or "").strip()
+    mail = parse_mail_line(raw) if raw else ((acc or {}).get("mail") or None)
+    return logins.start_login(str(payload.get("label") or "").strip(), aid, mail=mail)
+
+
+def parse_mail_line(raw: str) -> dict:
+    from outlook_otp import parse_line
+    mail = parse_line(raw)
+    if not mail:
+        raise HTTPException(400, "Chuỗi hộp thư không đúng dạng email|password|refresh_token|client_id")
+    return mail
 
 
 @app.get("/admin/accounts/login/{token}")
@@ -1868,6 +1882,32 @@ def login_status(token: str, _=Depends(auth)):
     if not r:
         raise HTTPException(404, "Phiên đăng nhập không còn")
     return r
+
+
+@app.post("/admin/accounts/login-batch")
+def login_batch(payload: dict = Body(default={}), _=Depends(auth)):
+    """Thêm tài khoản theo lô: text gồm nhiều dòng email|password|refresh_token|client_id. LUO đăng nhập lần lượt
+    từng dòng trong Chrome (tự điền email + tự lấy OTP). Email đã có thì đăng nhập lại tài khoản đó."""
+    text = str(payload.get("text") or "")
+    try:
+        return logins.start_batch(text.splitlines(), int(payload.get("item_timeout") or 0) or 360)
+    except ValueError as exc:
+        raise HTTPException(400, str(exc)) from None
+    except RuntimeError as exc:
+        raise HTTPException(409, str(exc)) from None
+
+
+@app.get("/admin/accounts/login-batch/{token}")
+def login_batch_status(token: str, _=Depends(auth)):
+    r = logins.get_batch(token)
+    if not r:
+        raise HTTPException(404, "Lô đăng nhập không còn")
+    return r
+
+
+@app.post("/admin/accounts/login-batch/{token}/cancel")
+def login_batch_cancel(token: str, _=Depends(auth)):
+    return {"ok": logins.cancel_batch(token)}
 
 
 @app.post("/admin/accounts/login/{token}/cancel")
@@ -1926,11 +1966,14 @@ def add_account(req: AccountRequest, _=Depends(auth)):
 
 @app.patch("/admin/accounts/{aid}")
 def patch_account(aid: str, req: AccountPatch, _=Depends(auth)):
-    acc = store.update_account(aid, label=req.label, enabled=req.enabled)
+    mail = None
+    if req.mail is not None:
+        mail = parse_mail_line(req.mail) if req.mail.strip() else {}
+    acc = store.update_account(aid, label=req.label, enabled=req.enabled, mail=mail)
     if not acc:
         raise HTTPException(404, "账号不存在")
-    return {k: v for k, v in acc.items() if k != "cookies"} | {
-        "cookie_count": len(acc.get("cookies", {}))}
+    return {k: v for k, v in acc.items() if k not in ("cookies", "mail")} | {
+        "cookie_count": len(acc.get("cookies", {})), "mail_email": (acc.get("mail") or {}).get("email") or ""}
 
 
 @app.delete("/admin/accounts/{aid}")

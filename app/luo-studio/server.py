@@ -1142,7 +1142,7 @@ def pick_file(kind):
     return r.stdout.strip().replace("/", os.sep)
 
 
-MUSE_ALLOWED = re.compile(r"^(status|accounts|accounts/keepalive|accounts/[0-9a-f]{6,}|accounts/[0-9a-f]{6,}/(test|cookies|quota|keepalive|view)|accounts/login|accounts/login/[0-9a-f]{8,}|accounts/login/[0-9a-f]{8,}/cancel|tasks|tasks/clear|tasks/[A-Za-z0-9_]+|keepalive/status)$")
+MUSE_ALLOWED = re.compile(r"^(status|accounts|accounts/keepalive|accounts/[0-9a-f]{6,}|accounts/[0-9a-f]{6,}/(test|cookies|quota|keepalive|view)|accounts/login|accounts/login/[0-9a-f]{8,}|accounts/login/[0-9a-f]{8,}/cancel|accounts/login-batch|accounts/login-batch/[0-9a-f]{8,}|accounts/login-batch/[0-9a-f]{8,}/cancel|tasks|tasks/clear|tasks/[A-Za-z0-9_]+|keepalive/status)$")
 
 
 def muse_admin(method, sub, body=None, query=""):
