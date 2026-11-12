@@ -1,0 +1,3322 @@
+[
+  {
+    "name": "es01-carlos-hernandez",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Mexican woman about 28 years old, exactly as in her reference photo (same face, hair and build): long brown hair tied in a low ponytail, a bright professional face; a clean white shirt, black trousers, flat shoes",
+    "GIONG_PV": "a real young Mexican woman's voice, bright light mezzo (around 200-230 Hz), friendly and playful like a street-interview host, native Mexican Spanish; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "her",
+    "HIM_PV": "her",
+    "TOC_PV": "long brown hair tied in a low ponytail",
+    "NHIN_PV": "keeps her face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of her head; she never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps her face pointed at him, her head still, the camera seeing only the back of her head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street taco seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the stall",
+    "NGUOI_HOC": "a Mexican man about 24 years old, exactly as in his reference photo (same face, hair, build and clothes): short neat black hair, light stubble, a friendly smiling face, brown skin; a clean white T-shirt, a clean black apron, blue jeans, clean sneakers; photorealistic skin and fabric",
+    "GIONG_HOC": "a real young Mexican man's voice, low and relaxed (around 110-135 Hz), friendly, native Mexican Spanish; a real person, not an actor",
+    "SHE_HOC": "he",
+    "HER_HOC": "his",
+    "HERO_HOC": "him",
+    "SELF_HOC": "himself",
+    "DAO_GANG": "He works with bare hands.",
+    "DAO_GIU": "His hands resting on the edge of the cart at the start of every clip.",
+    "TAY_HOC": "his hands resting on the edge of the cart",
+    "VIEC_HOC": "keeps turning pieces of meat on the griddle with a metal spatula",
+    "VIEC2_HOC": "sets the spatula back on the griddle",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, his hands resting on the edge of the cart; he never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward him, his hands resting on the edge of the cart",
+    "DAO_XE": "a street taco cart with a steel griddle, a stack of corn tortillas, bowls of grilled meat, chopped onion and cilantro, and jars of salsa",
+    "NEN_PHO": "a sunny Mexican street in the daytime, houses painted yellow and orange, a few signboards that are blurred and unreadable; the place and the stall look exactly like the background reference photo (an empty view of this place), with his stall in front of him; any signboards are blurred and unreadable",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Mexican Spanish",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a sunny Mexican street in the daytime, houses painted yellow and orange, a few signboards that are blurred and unreadable, out of focus behind him; the place looks like the background reference photo; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "¿Cómo aprendiste a hablar inglés tan bien?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Hace un mes solo escuchaba inglés en la tele. Ahora ya hablo con fluidez todos los días.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿Y cuál es tu secreto, en serio?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Empecé a practicar inglés desde el primer día.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿De dónde eres tú exactamente?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Soy de Puebla, ven y te muestro cómo.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "En solo un mes hablarás como nativo. ¿Puedes repetir esta frase en inglés?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sí, claro, puedo intentarlo ahora mismo.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¡Perfecto! Tu pronunciación mejora cada día.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "¿Y esto no es muy caro, verdad?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, practica inglés gratis, sin límites.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Corrijo tu gramática y pronunciación al instante. Hablarás con confianza, como con un profesor real.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/robot-aiva.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/pv01.jpg"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nv01.jpg"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen01.jpg"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen01.jpg"
+      ]
+    }
+  },
+  {
+    "name": "es02-miguel-torres",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Mexican woman about 26 years old, exactly as in her reference photo (same face, hair and build): long straight black hair, a friendly face; a light-pink blouse, white trousers, flat shoes",
+    "GIONG_PV": "a real young Mexican woman's voice, bright light mezzo (around 200-230 Hz), friendly and playful like a street-interview host, native Mexican Spanish; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "her",
+    "HIM_PV": "her",
+    "TOC_PV": "long straight black hair",
+    "NHIN_PV": "keeps her face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of her head; she never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps her face pointed at him, her head still, the camera seeing only the back of her head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street grilled-corn (elote) seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the stall",
+    "NGUOI_HOC": "a Mexican man about 27 years old, exactly as in his reference photo (same face, hair, build and clothes): short curly black hair, a cheerful slightly puzzled face, brown skin; a clean navy-blue polo shirt, a clean apron, black jeans, clean sneakers; photorealistic skin and fabric",
+    "GIONG_HOC": "a real young Mexican man's voice, low and relaxed (around 110-135 Hz), friendly, native Mexican Spanish; a real person, not an actor",
+    "SHE_HOC": "he",
+    "HER_HOC": "his",
+    "HERO_HOC": "him",
+    "SELF_HOC": "himself",
+    "DAO_GANG": "He works with bare hands.",
+    "DAO_GIU": "His hands resting on the edge of the cart at the start of every clip.",
+    "TAY_HOC": "his hands resting on the edge of the cart",
+    "VIEC_HOC": "keeps turning a corn cob on the grill",
+    "VIEC2_HOC": "puts the corn cob back on the grill",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, his hands resting on the edge of the cart; he never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward him, his hands resting on the edge of the cart",
+    "DAO_XE": "a street cart with a charcoal grill of corn cobs, a bowl of mayonnaise, grated white cheese, chili powder and lime wedges",
+    "NEN_PHO": "a Mexican street in the daytime, houses painted blue and white, a small market far behind; the place and the stall look exactly like the background reference photo (an empty view of this place), with his stall in front of him; any signboards are blurred and unreadable",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Mexican Spanish",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a Mexican street in the daytime, houses painted blue and white, a small market far behind, out of focus behind him; the place looks like the background reference photo; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "¿Cómo aprendiste a hablar inglés tan bien?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Hace un mes solo escuchaba inglés en la tele. Ahora ya hablo con fluidez todos los días.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿Y cuál es tu secreto, en serio?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Empecé a practicar inglés desde el primer día.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿De dónde eres tú exactamente?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Soy de Puebla, ven y te muestro cómo.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "En solo un mes hablarás como nativo. ¿Puedes repetir esta frase en inglés?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sí, claro, puedo intentarlo ahora mismo.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¡Perfecto! Tu pronunciación mejora cada día.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "¿Y esto no es muy caro, verdad?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, practica inglés gratis, sin límites.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Corrijo tu gramática y pronunciación al instante. Hablarás con confianza, como con un profesor real.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/robot-aiva.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/pv02.jpg"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nv02.jpg"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen02.jpg"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen02.jpg"
+      ]
+    }
+  },
+  {
+    "name": "es03-diego-ramirez",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Mexican woman about 30 years old, exactly as in her reference photo (same face, hair and build): short brown hair at shoulder length, a confident face; a light-blue shirt, black trousers, flat shoes",
+    "GIONG_PV": "a real young Mexican woman's voice, bright light mezzo (around 200-230 Hz), friendly and playful like a street-interview host, native Mexican Spanish; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "her",
+    "HIM_PV": "her",
+    "TOC_PV": "short brown hair at shoulder length",
+    "NHIN_PV": "keeps her face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of her head; she never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps her face pointed at him, her head still, the camera seeing only the back of her head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street ice-cream seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the stall",
+    "NGUOI_HOC": "a Mexican man about 22 years old, exactly as in his reference photo (same face, hair, build and clothes): short black hair lightly styled, a gentle innocent smile, light-brown skin; a clean white shirt, a clean apron, beige khaki trousers, clean white sneakers; photorealistic skin and fabric",
+    "GIONG_HOC": "a real young Mexican man's voice, low and relaxed (around 110-135 Hz), friendly, native Mexican Spanish; a real person, not an actor",
+    "SHE_HOC": "he",
+    "HER_HOC": "his",
+    "HERO_HOC": "him",
+    "SELF_HOC": "himself",
+    "DAO_GANG": "He works with bare hands.",
+    "DAO_GIU": "His hands resting on the edge of the cart at the start of every clip.",
+    "TAY_HOC": "his hands resting on the edge of the cart",
+    "VIEC_HOC": "keeps scooping ice cream into a cone and smoothing it",
+    "VIEC2_HOC": "puts the scoop back in the tub",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, his hands resting on the edge of the cart; he never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward him, his hands resting on the edge of the cart",
+    "DAO_XE": "a street ice-cream cart with a freezer with round lids, tubs of ice cream, a scoop and a stack of cones",
+    "NEN_PHO": "a Mexican street in the daytime, houses painted pink and yellow, green trees on both sides of the street; the place and the stall look exactly like the background reference photo (an empty view of this place), with his stall in front of him; any signboards are blurred and unreadable",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Mexican Spanish",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a Mexican street in the daytime, houses painted pink and yellow, green trees on both sides of the street, out of focus behind him; the place looks like the background reference photo; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "¿Cómo aprendiste a hablar inglés tan bien?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Hace un mes solo escuchaba inglés en la tele. Ahora ya hablo con fluidez todos los días.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿Y cuál es tu secreto, en serio?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Empecé a practicar inglés desde el primer día.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿De dónde eres tú exactamente?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Soy de Puebla, ven y te muestro cómo.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "En solo un mes hablarás como nativo. ¿Puedes repetir esta frase en inglés?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sí, claro, puedo intentarlo ahora mismo.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¡Perfecto! Tu pronunciación mejora cada día.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "¿Y esto no es muy caro, verdad?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, practica inglés gratis, sin límites.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Corrijo tu gramática y pronunciación al instante. Hablarás con confianza, como con un profesor real.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/robot-aiva.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/pv03.jpg"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nv03.jpg"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen03.jpg"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen03.jpg"
+      ]
+    }
+  },
+  {
+    "name": "es04-alejandro-morales",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Mexican woman about 27 years old, exactly as in her reference photo (same face, hair and build): black hair in a low bun, a gentle face; a white blouse, a long navy-blue skirt, flat shoes",
+    "GIONG_PV": "a real young Mexican woman's voice, bright light mezzo (around 200-230 Hz), friendly and playful like a street-interview host, native Mexican Spanish; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "her",
+    "HIM_PV": "her",
+    "TOC_PV": "black hair in a low bun",
+    "NHIN_PV": "keeps her face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of her head; she never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps her face pointed at him, her head still, the camera seeing only the back of her head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street soft-drink (agua fresca) seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the stall",
+    "NGUOI_HOC": "a Mexican man about 26 years old, exactly as in his reference photo (same face, hair, build and clothes): short black hair, a serious, slightly tense face, brown skin; a clean grey T-shirt, a clean apron, blue jeans, clean sneakers; photorealistic skin and fabric",
+    "GIONG_HOC": "a real young Mexican man's voice, low and relaxed (around 110-135 Hz), friendly, native Mexican Spanish; a real person, not an actor",
+    "SHE_HOC": "he",
+    "HER_HOC": "his",
+    "HERO_HOC": "him",
+    "SELF_HOC": "himself",
+    "DAO_GANG": "He works with bare hands.",
+    "DAO_GIU": "His hands resting on the edge of the cart at the start of every clip.",
+    "TAY_HOC": "his hands resting on the edge of the cart",
+    "VIEC_HOC": "keeps stirring a jar of agua fresca with the long ladle",
+    "VIEC2_HOC": "puts the ladle back in the jar",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, his hands resting on the edge of the cart; he never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward him, his hands resting on the edge of the cart",
+    "DAO_XE": "a street cart with large glass jars of colourful agua fresca, a stack of plastic cups, a long ladle and a bucket of ice",
+    "NEN_PHO": "a Mexican street in the daytime, houses painted green and white, a few signboards that are blurred and unreadable; the place and the stall look exactly like the background reference photo (an empty view of this place), with his stall in front of him; any signboards are blurred and unreadable",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Mexican Spanish",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a Mexican street in the daytime, houses painted green and white, a few signboards that are blurred and unreadable, out of focus behind him; the place looks like the background reference photo; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "¿Cómo aprendiste a hablar inglés tan bien?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Hace un mes solo escuchaba inglés en la tele. Ahora ya hablo con fluidez todos los días.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿Y cuál es tu secreto, en serio?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Empecé a practicar inglés desde el primer día.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿De dónde eres tú exactamente?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Soy de Puebla, ven y te muestro cómo.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "En solo un mes hablarás como nativo. ¿Puedes repetir esta frase en inglés?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sí, claro, puedo intentarlo ahora mismo.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¡Perfecto! Tu pronunciación mejora cada día.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "¿Y esto no es muy caro, verdad?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, practica inglés gratis, sin límites.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Corrijo tu gramática y pronunciación al instante. Hablarás con confianza, como con un profesor real.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/robot-aiva.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/pv04.jpg"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nv04.jpg"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen04.jpg"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen04.jpg"
+      ]
+    }
+  },
+  {
+    "name": "es05-jorge-castillo",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Mexican woman about 29 years old, exactly as in her reference photo (same face, hair and build): long brown hair, a smiling face; a pale-yellow T-shirt, blue jeans, white sneakers",
+    "GIONG_PV": "a real young Mexican woman's voice, bright light mezzo (around 200-230 Hz), friendly and playful like a street-interview host, native Mexican Spanish; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "her",
+    "HIM_PV": "her",
+    "TOC_PV": "long brown hair",
+    "NHIN_PV": "keeps her face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of her head; she never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps her face pointed at him, her head still, the camera seeing only the back of her head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street fruit seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the stall",
+    "NGUOI_HOC": "a Mexican man about 28 years old, exactly as in his reference photo (same face, hair, build and clothes): short black hair, a short beard, a cheerful, smiling face, brown skin; a clean white shirt, a clean apron, grey trousers, clean sneakers; photorealistic skin and fabric",
+    "GIONG_HOC": "a real young Mexican man's voice, low and relaxed (around 110-135 Hz), friendly, native Mexican Spanish; a real person, not an actor",
+    "SHE_HOC": "he",
+    "HER_HOC": "his",
+    "HERO_HOC": "him",
+    "SELF_HOC": "himself",
+    "DAO_GANG": "He works with bare hands.",
+    "DAO_GIU": "His hands resting on the edge of the stand at the start of every clip.",
+    "TAY_HOC": "his hands resting on the edge of the stand",
+    "VIEC_HOC": "keeps arranging cut fruit in a clear cup",
+    "VIEC2_HOC": "puts a fruit cup back on the tray",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, his hands resting on the edge of the stand; he never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward him, his hands resting on the edge of the stand",
+    "DAO_XE": "a street fruit stand with trays of cut mango, watermelon, pineapple and jicama, clear cups, lime and chili",
+    "NEN_PHO": "a Mexican street fruit market in the daytime, colourful fruit stalls, houses painted orange and yellow; the place and the stall look exactly like the background reference photo (an empty view of this place), with his stall in front of him; any signboards are blurred and unreadable",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Mexican Spanish",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a Mexican street fruit market in the daytime, colourful fruit stalls, houses painted orange and yellow, out of focus behind him; the place looks like the background reference photo; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "¿Cómo aprendiste a hablar inglés tan bien?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Hace un mes solo escuchaba inglés en la tele. Ahora ya hablo con fluidez todos los días.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿Y cuál es tu secreto, en serio?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Empecé a practicar inglés desde el primer día.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿De dónde eres tú exactamente?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Soy de Puebla, ven y te muestro cómo.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "En solo un mes hablarás como nativo. ¿Puedes repetir esta frase en inglés?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sí, claro, puedo intentarlo ahora mismo.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¡Perfecto! Tu pronunciación mejora cada día.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "¿Y esto no es muy caro, verdad?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, practica inglés gratis, sin límites.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Corrijo tu gramática y pronunciación al instante. Hablarás con confianza, como con un profesor real.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/robot-aiva.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/pv05.jpg"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nv05.jpg"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen05.jpg"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen05.jpg"
+      ]
+    }
+  },
+  {
+    "name": "es06-maria-fernanda-lopez",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Mexican man about 29 years old, exactly as in his reference photo (same face, hair and build): short black hair, a friendly professional face; a clean white shirt, grey trousers, leather shoes",
+    "GIONG_PV": "a real young Mexican man's voice, light baritone (around 125-150 Hz), friendly and playful like a street-interview host, native Mexican Spanish; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "his",
+    "HIM_PV": "him",
+    "TOC_PV": "short black hair",
+    "NHIN_PV": "keeps his face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of his head; he never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps his face pointed at her, his head still, the camera seeing only the back of his head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street flower seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the stall",
+    "NGUOI_HOC": "a Mexican woman about 23 years old, exactly as in her reference photo (same face, hair, build and clothes): long black hair tied low, a pretty shy gentle smile, light-brown skin; a clean white blouse, a clean apron, a long skirt with a light flower pattern, clean sandals; photorealistic skin and fabric",
+    "GIONG_HOC": "a real young Mexican woman's voice, bright and lively (around 220-260 Hz), warm and confident, native Mexican Spanish; a real person, not an actress",
+    "SHE_HOC": "she",
+    "HER_HOC": "her",
+    "HERO_HOC": "her",
+    "SELF_HOC": "herself",
+    "DAO_GANG": "She works with bare hands.",
+    "DAO_GIU": "Her hands resting on the edge of the flower stand at the start of every clip.",
+    "TAY_HOC": "her hands resting on the edge of the flower stand",
+    "VIEC_HOC": "keeps arranging flowers into a bunch",
+    "VIEC2_HOC": "puts the bunch back in the bucket",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, her hands resting on the edge of the flower stand; she never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward her, her hands resting on the edge of the flower stand",
+    "DAO_XE": "a street flower stand with buckets of roses, sunflowers and carnations",
+    "NEN_PHO": "a Mexican street flower market in the daytime, colourful flower stalls, houses painted pink and purple; the place and the stall look exactly like the background reference photo (an empty view of this place), with her stall in front of her; any signboards are blurred and unreadable",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Mexican Spanish",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a Mexican street flower market in the daytime, colourful flower stalls, houses painted pink and purple, out of focus behind her; the place looks like the background reference photo; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "¿Cómo aprendiste a hablar inglés tan bien?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Hace un mes solo escuchaba inglés en la tele. Ahora ya hablo con fluidez todos los días.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿Y cuál es tu secreto, en serio?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Empecé a practicar inglés desde el primer día.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿De dónde eres tú exactamente?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Soy de Puebla, ven y te muestro cómo.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "En solo un mes hablarás como nativa. ¿Puedes repetir esta frase en inglés?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sí, claro, puedo intentarlo ahora mismo.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¡Perfecto! Tu pronunciación mejora cada día.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "¿Y esto no es muy caro, verdad?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, practica inglés gratis, sin límites.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Corrijo tu gramática y pronunciación al instante. Hablarás con confianza, como con un profesor real.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/robot-aiva.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/pv06.jpg"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nv06.jpg"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen06.jpg"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen06.jpg"
+      ]
+    }
+  },
+  {
+    "name": "es07-lucia-herrera",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Mexican man about 27 years old, exactly as in his reference photo (same face, hair and build): short black hair, a cheerful face; a green polo shirt, beige khaki trousers, sneakers",
+    "GIONG_PV": "a real young Mexican man's voice, light baritone (around 125-150 Hz), friendly and playful like a street-interview host, native Mexican Spanish; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "his",
+    "HIM_PV": "him",
+    "TOC_PV": "short black hair",
+    "NHIN_PV": "keeps his face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of his head; he never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps his face pointed at her, his head still, the camera seeing only the back of his head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street coffee seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the stall",
+    "NGUOI_HOC": "a Mexican woman about 25 years old, exactly as in her reference photo (same face, hair, build and clothes): long wavy brown hair, a fresh, confident face, brown skin; a clean white shirt, a clean black apron, blue jeans, clean white sneakers; photorealistic skin and fabric",
+    "GIONG_HOC": "a real young Mexican woman's voice, bright and lively (around 220-260 Hz), warm and confident, native Mexican Spanish; a real person, not an actress",
+    "SHE_HOC": "she",
+    "HER_HOC": "her",
+    "HERO_HOC": "her",
+    "SELF_HOC": "herself",
+    "DAO_GANG": "She works with bare hands.",
+    "DAO_GIU": "Her hands resting on the edge of the cart at the start of every clip.",
+    "TAY_HOC": "her hands resting on the edge of the cart",
+    "VIEC_HOC": "keeps pouring coffee into a paper cup",
+    "VIEC2_HOC": "sets the coffee pot back on the cart",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, her hands resting on the edge of the cart; she never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward her, her hands resting on the edge of the cart",
+    "DAO_XE": "a street coffee cart with a big steel coffee urn, rows of paper cups, a basket of sweet bread and a few jars of sugar",
+    "NEN_PHO": "a Mexican street in the morning, houses painted brown and yellow, a few signboards that are blurred and unreadable; the place and the stall look exactly like the background reference photo (an empty view of this place), with her stall in front of her; any signboards are blurred and unreadable",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Mexican Spanish",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a Mexican street in the morning, houses painted brown and yellow, a few signboards that are blurred and unreadable, out of focus behind her; the place looks like the background reference photo; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "¿Cómo aprendiste a hablar inglés tan bien?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Hace un mes solo escuchaba inglés en la tele. Ahora ya hablo con fluidez todos los días.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿Y cuál es tu secreto, en serio?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Empecé a practicar inglés desde el primer día.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿De dónde eres tú exactamente?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Soy de Puebla, ven y te muestro cómo.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "En solo un mes hablarás como nativa. ¿Puedes repetir esta frase en inglés?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sí, claro, puedo intentarlo ahora mismo.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¡Perfecto! Tu pronunciación mejora cada día.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "¿Y esto no es muy caro, verdad?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, practica inglés gratis, sin límites.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Corrijo tu gramática y pronunciación al instante. Hablarás con confianza, como con un profesor real.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/robot-aiva.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/pv07.jpg"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nv07.jpg"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen07.jpg"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen07.jpg"
+      ]
+    }
+  },
+  {
+    "name": "es08-valeria-sanchez",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Mexican man about 31 years old, exactly as in his reference photo (same face, hair and build): short black hair, a short beard, a calm face; a light-blue shirt, black trousers, leather shoes",
+    "GIONG_PV": "a real young Mexican man's voice, light baritone (around 125-150 Hz), friendly and playful like a street-interview host, native Mexican Spanish; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "his",
+    "HIM_PV": "him",
+    "TOC_PV": "short black hair",
+    "NHIN_PV": "keeps his face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of his head; he never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps his face pointed at her, his head still, the camera seeing only the back of his head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street churro seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the stall",
+    "NGUOI_HOC": "a Mexican woman about 21 years old, exactly as in her reference photo (same face, hair, build and clothes): long straight black hair, an innocent face with big eyes, light-brown skin; a clean white T-shirt, a clean apron, light-blue jeans, white sneakers; photorealistic skin and fabric",
+    "GIONG_HOC": "a real young Mexican woman's voice, bright and lively (around 220-260 Hz), warm and confident, native Mexican Spanish; a real person, not an actress",
+    "SHE_HOC": "she",
+    "HER_HOC": "her",
+    "HERO_HOC": "her",
+    "SELF_HOC": "herself",
+    "DAO_GANG": "She works with bare hands.",
+    "DAO_GIU": "Her hands resting on the edge of the cart at the start of every clip.",
+    "TAY_HOC": "her hands resting on the edge of the cart",
+    "VIEC_HOC": "keeps rolling a churro in cinnamon sugar",
+    "VIEC2_HOC": "puts the churro back on the tray",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, her hands resting on the edge of the cart; she never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward her, her hands resting on the edge of the cart",
+    "DAO_XE": "a street churro cart with a fryer, golden churros on a tray, sugar and small cups of chocolate",
+    "NEN_PHO": "a Mexican street in the daytime, houses painted red and yellow, a small market far behind; the place and the stall look exactly like the background reference photo (an empty view of this place), with her stall in front of her; any signboards are blurred and unreadable",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Mexican Spanish",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a Mexican street in the daytime, houses painted red and yellow, a small market far behind, out of focus behind her; the place looks like the background reference photo; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "¿Cómo aprendiste a hablar inglés tan bien?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Hace un mes solo escuchaba inglés en la tele. Ahora ya hablo con fluidez todos los días.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿Y cuál es tu secreto, en serio?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Empecé a practicar inglés desde el primer día.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿De dónde eres tú exactamente?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Soy de Puebla, ven y te muestro cómo.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "En solo un mes hablarás como nativa. ¿Puedes repetir esta frase en inglés?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sí, claro, puedo intentarlo ahora mismo.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¡Perfecto! Tu pronunciación mejora cada día.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "¿Y esto no es muy caro, verdad?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, practica inglés gratis, sin límites.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Corrijo tu gramática y pronunciación al instante. Hablarás con confianza, como con un profesor real.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/robot-aiva.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/pv08.jpg"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nv08.jpg"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen08.jpg"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen08.jpg"
+      ]
+    }
+  },
+  {
+    "name": "es09-camila-reyes",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Mexican man about 28 years old, exactly as in his reference photo (same face, hair and build): short black hair, a friendly face; a clean white shirt, blue jeans, sneakers",
+    "GIONG_PV": "a real young Mexican man's voice, light baritone (around 125-150 Hz), friendly and playful like a street-interview host, native Mexican Spanish; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "his",
+    "HIM_PV": "him",
+    "TOC_PV": "short black hair",
+    "NHIN_PV": "keeps his face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of his head; he never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps his face pointed at her, his head still, the camera seeing only the back of his head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street snack seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the stall",
+    "NGUOI_HOC": "a Mexican woman about 27 years old, exactly as in her reference photo (same face, hair, build and clothes): black hair in a neat high bun, a cheerful, often smiling face, brown skin; a pink blouse, a clean apron, black trousers, clean sandals; photorealistic skin and fabric",
+    "GIONG_HOC": "a real young Mexican woman's voice, bright and lively (around 220-260 Hz), warm and confident, native Mexican Spanish; a real person, not an actress",
+    "SHE_HOC": "she",
+    "HER_HOC": "her",
+    "HERO_HOC": "her",
+    "SELF_HOC": "herself",
+    "DAO_GANG": "She works with bare hands.",
+    "DAO_GIU": "Her hands resting on the edge of the cart at the start of every clip.",
+    "TAY_HOC": "her hands resting on the edge of the cart",
+    "VIEC_HOC": "keeps filling a bag with snacks",
+    "VIEC2_HOC": "puts a bag of snacks back on the shelf",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, her hands resting on the edge of the cart; she never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward her, her hands resting on the edge of the cart",
+    "DAO_XE": "a street snack cart with bags of chips, fried snacks, fruit cups and jars of sauce",
+    "NEN_PHO": "a Mexican street in the daytime, houses painted blue and orange, a few signboards that are blurred and unreadable; the place and the stall look exactly like the background reference photo (an empty view of this place), with her stall in front of her; any signboards are blurred and unreadable",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Mexican Spanish",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a Mexican street in the daytime, houses painted blue and orange, a few signboards that are blurred and unreadable, out of focus behind her; the place looks like the background reference photo; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "¿Cómo aprendiste a hablar inglés tan bien?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Hace un mes solo escuchaba inglés en la tele. Ahora ya hablo con fluidez todos los días.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿Y cuál es tu secreto, en serio?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Empecé a practicar inglés desde el primer día.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿De dónde eres tú exactamente?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Soy de Puebla, ven y te muestro cómo.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "En solo un mes hablarás como nativa. ¿Puedes repetir esta frase en inglés?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sí, claro, puedo intentarlo ahora mismo.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¡Perfecto! Tu pronunciación mejora cada día.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "¿Y esto no es muy caro, verdad?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, practica inglés gratis, sin límites.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Corrijo tu gramática y pronunciación al instante. Hablarás con confianza, como con un profesor real.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/robot-aiva.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/pv09.jpg"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nv09.jpg"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen09.jpg"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen09.jpg"
+      ]
+    }
+  },
+  {
+    "name": "es10-sofia-mendoza",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Mexican man about 30 years old, exactly as in his reference photo (same face, hair and build): short black hair, a confident face; a white polo shirt, grey trousers, leather shoes",
+    "GIONG_PV": "a real young Mexican man's voice, light baritone (around 125-150 Hz), friendly and playful like a street-interview host, native Mexican Spanish; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "his",
+    "HIM_PV": "him",
+    "TOC_PV": "short black hair",
+    "NHIN_PV": "keeps his face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of his head; he never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps his face pointed at her, his head still, the camera seeing only the back of his head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street sweet-bread (pan dulce) seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the stall",
+    "NGUOI_HOC": "a Mexican woman about 24 years old, exactly as in her reference photo (same face, hair, build and clothes): long brown hair, a gentle face with a soft smile, light-brown skin; a pale-yellow shirt, a clean apron, white trousers, flat shoes; photorealistic skin and fabric",
+    "GIONG_HOC": "a real young Mexican woman's voice, bright and lively (around 220-260 Hz), warm and confident, native Mexican Spanish; a real person, not an actress",
+    "SHE_HOC": "she",
+    "HER_HOC": "her",
+    "HERO_HOC": "her",
+    "SELF_HOC": "herself",
+    "DAO_GANG": "She works with bare hands.",
+    "DAO_GIU": "Her hands resting on the edge of the cart at the start of every clip.",
+    "TAY_HOC": "her hands resting on the edge of the cart",
+    "VIEC_HOC": "keeps arranging pieces of sweet bread on the tray",
+    "VIEC2_HOC": "puts a piece of bread back on the tray",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, her hands resting on the edge of the cart; she never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward her, her hands resting on the edge of the cart",
+    "DAO_XE": "a street bread cart with trays of pan dulce: conchas, cuernitos and orejas",
+    "NEN_PHO": "a Mexican street in the morning, houses painted yellow and white; the place and the stall look exactly like the background reference photo (an empty view of this place), with her stall in front of her; any signboards are blurred and unreadable",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Mexican Spanish",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a Mexican street in the morning, houses painted yellow and white, out of focus behind her; the place looks like the background reference photo; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "¿Cómo aprendiste a hablar inglés tan bien?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Hace un mes solo escuchaba inglés en la tele. Ahora ya hablo con fluidez todos los días.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿Y cuál es tu secreto, en serio?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Empecé a practicar inglés desde el primer día.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿De dónde eres tú exactamente?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Soy de Puebla, ven y te muestro cómo.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "En solo un mes hablarás como nativa. ¿Puedes repetir esta frase en inglés?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sí, claro, puedo intentarlo ahora mismo.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¡Perfecto! Tu pronunciación mejora cada día.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "¿Y esto no es muy caro, verdad?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, practica inglés gratis, sin límites.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Corrijo tu gramática y pronunciación al instante. Hablarás con confianza, como con un profesor real.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/robot-aiva.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/pv10.jpg"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nv10.jpg"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen10.jpg"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen10.jpg"
+      ]
+    }
+  },
+  {
+    "name": "es11-ricardo-vega",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Mexican woman about 35 years old, exactly as in her reference photo (same face, hair and build): long black hair, a professional, confident face; a white blouse, black trousers, flat shoes",
+    "GIONG_PV": "a real young Mexican woman's voice, bright light mezzo (around 200-230 Hz), friendly and playful like a street-interview host, native Mexican Spanish; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "her",
+    "HIM_PV": "her",
+    "TOC_PV": "long black hair",
+    "NHIN_PV": "keeps her face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of her head; she never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps her face pointed at him, her head still, the camera seeing only the back of her head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street food seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the stall",
+    "NGUOI_HOC": "a Mexican man about 48 years old, exactly as in his reference photo (same face, hair, build and clothes): black hair with grey strands, a short beard, a calm, slightly tired face, brown skin; a clean white shirt, a clean apron, grey trousers, leather shoes; photorealistic skin and fabric",
+    "GIONG_HOC": "a real older Mexican man's voice, low, slow and a little gravelly (around 100-125 Hz), warm and good-humoured, native Mexican Spanish; a real person, not an actor",
+    "SHE_HOC": "he",
+    "HER_HOC": "his",
+    "HERO_HOC": "him",
+    "SELF_HOC": "himself",
+    "DAO_GANG": "He works with bare hands.",
+    "DAO_GIU": "His hands resting on the edge of the stall at the start of every clip.",
+    "TAY_HOC": "his hands resting on the edge of the stall",
+    "VIEC_HOC": "keeps stirring the pan on the burner",
+    "VIEC2_HOC": "puts the spoon back in the pan",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, his hands resting on the edge of the stall; he never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward him, his hands resting on the edge of the stall",
+    "DAO_XE": "a street-food stall with steel trays of food, a small gas burner with a pan and a stack of plates",
+    "NEN_PHO": "a Mexican street in the daytime, houses painted brown and red, a small market far behind; the place and the stall look exactly like the background reference photo (an empty view of this place), with his stall in front of him; any signboards are blurred and unreadable",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Mexican Spanish",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a Mexican street in the daytime, houses painted brown and red, a small market far behind, out of focus behind him; the place looks like the background reference photo; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "¿Cómo aprendiste a hablar inglés tan bien?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Hace un mes solo escuchaba inglés en la tele. Ahora ya hablo con fluidez todos los días.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿Y cuál es tu secreto, en serio?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Empecé a practicar inglés desde el primer día.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿De dónde eres tú exactamente?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Soy de Puebla, ven y te muestro cómo.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "En solo un mes hablarás como nativo. ¿Puedes repetir esta frase en inglés?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sí, claro, puedo intentarlo ahora mismo.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¡Perfecto! Tu pronunciación mejora cada día.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "¿Y esto no es muy caro, verdad?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, practica inglés gratis, sin límites.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Corrijo tu gramática y pronunciación al instante. Hablarás con confianza, como con un profesor real.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/robot-aiva.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/pv11.jpg"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nv11.jpg"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen11.jpg"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen11.jpg"
+      ]
+    }
+  },
+  {
+    "name": "es12-fernando-ortiz",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Mexican woman about 32 years old, exactly as in her reference photo (same face, hair and build): brown hair in a low bun, a gentle face; a light-pink shirt, black trousers, flat shoes",
+    "GIONG_PV": "a real young Mexican woman's voice, bright light mezzo (around 200-230 Hz), friendly and playful like a street-interview host, native Mexican Spanish; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "her",
+    "HIM_PV": "her",
+    "TOC_PV": "brown hair in a low bun",
+    "NHIN_PV": "keeps her face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of her head; she never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps her face pointed at him, her head still, the camera seeing only the back of her head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street grilled-corn (elote) seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the stall",
+    "NGUOI_HOC": "a Mexican man about 55 years old, exactly as in his reference photo (same face, hair, build and clothes): short black hair with grey, a gently lined, resigned face, dark-brown skin; a grey T-shirt, a clean apron, blue jeans, clean sneakers; photorealistic skin and fabric",
+    "GIONG_HOC": "a real older Mexican man's voice, low, slow and a little gravelly (around 100-125 Hz), warm and good-humoured, native Mexican Spanish; a real person, not an actor",
+    "SHE_HOC": "he",
+    "HER_HOC": "his",
+    "HERO_HOC": "him",
+    "SELF_HOC": "himself",
+    "DAO_GANG": "He works with bare hands.",
+    "DAO_GIU": "His hands resting on the edge of the cart at the start of every clip.",
+    "TAY_HOC": "his hands resting on the edge of the cart",
+    "VIEC_HOC": "keeps turning a corn cob on the grill",
+    "VIEC2_HOC": "puts the corn cob back on the grill",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, his hands resting on the edge of the cart; he never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward him, his hands resting on the edge of the cart",
+    "DAO_XE": "a street cart with a charcoal grill of corn cobs, a bowl of mayonnaise, grated white cheese, chili powder and lime wedges",
+    "NEN_PHO": "a Mexican street in the daytime, houses painted blue and yellow, green trees on both sides of the street; the place and the stall look exactly like the background reference photo (an empty view of this place), with his stall in front of him; any signboards are blurred and unreadable",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Mexican Spanish",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a Mexican street in the daytime, houses painted blue and yellow, green trees on both sides of the street, out of focus behind him; the place looks like the background reference photo; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "¿Cómo aprendiste a hablar inglés tan bien?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Hace un mes solo escuchaba inglés en la tele. Ahora ya hablo con fluidez todos los días.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿Y cuál es tu secreto, en serio?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Empecé a practicar inglés desde el primer día.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿De dónde eres tú exactamente?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Soy de Puebla, ven y te muestro cómo.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "En solo un mes hablarás como nativo. ¿Puedes repetir esta frase en inglés?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sí, claro, puedo intentarlo ahora mismo.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¡Perfecto! Tu pronunciación mejora cada día.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "¿Y esto no es muy caro, verdad?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, practica inglés gratis, sin límites.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Corrijo tu gramática y pronunciación al instante. Hablarás con confianza, como con un profesor real.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/robot-aiva.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/pv12.jpg"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nv12.jpg"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen12.jpg"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen12.jpg"
+      ]
+    }
+  },
+  {
+    "name": "es13-jose-luis-navarro",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Mexican woman about 28 years old, exactly as in her reference photo (same face, hair and build): long black hair, a fresh face; a white blouse, a long navy-blue skirt, flat shoes",
+    "GIONG_PV": "a real young Mexican woman's voice, bright light mezzo (around 200-230 Hz), friendly and playful like a street-interview host, native Mexican Spanish; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "her",
+    "HIM_PV": "her",
+    "TOC_PV": "long black hair",
+    "NHIN_PV": "keeps her face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of her head; she never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps her face pointed at him, her head still, the camera seeing only the back of her head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street newspaper seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the stall",
+    "NGUOI_HOC": "a Mexican man about 62 years old, exactly as in his reference photo (same face, hair, build and clothes): short grey hair, a short grey beard, a kindly gentle smile, simple glasses, brown skin; a light-blue shirt, grey trousers, leather shoes; photorealistic skin and fabric",
+    "GIONG_HOC": "a real older Mexican man's voice, low, slow and a little gravelly (around 100-125 Hz), warm and good-humoured, native Mexican Spanish; a real person, not an actor",
+    "SHE_HOC": "he",
+    "HER_HOC": "his",
+    "HERO_HOC": "him",
+    "SELF_HOC": "himself",
+    "DAO_GANG": "He works with bare hands.",
+    "DAO_GIU": "His hands resting on the counter at the start of every clip.",
+    "TAY_HOC": "his hands resting on the counter",
+    "VIEC_HOC": "keeps straightening a stack of newspapers",
+    "VIEC2_HOC": "puts a newspaper back on the stack",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, his hands resting on the counter; he never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward him, his hands resting on the counter",
+    "DAO_XE": "a street newspaper stand with stacks of newspapers and magazines on a wooden counter",
+    "NEN_PHO": "a Mexican street in the daytime, houses painted white and blue, a few signboards that are blurred and unreadable; the place and the stall look exactly like the background reference photo (an empty view of this place), with his stall in front of him; any signboards are blurred and unreadable",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Mexican Spanish",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a Mexican street in the daytime, houses painted white and blue, a few signboards that are blurred and unreadable, out of focus behind him; the place looks like the background reference photo; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "¿Cómo aprendiste a hablar inglés tan bien?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Hace un mes solo escuchaba inglés en la tele. Ahora ya hablo con fluidez todos los días.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿Y cuál es tu secreto, en serio?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Empecé a practicar inglés desde el primer día.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿De dónde eres tú exactamente?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Soy de Puebla, ven y te muestro cómo.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "En solo un mes hablarás como nativo. ¿Puedes repetir esta frase en inglés?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sí, claro, puedo intentarlo ahora mismo.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¡Perfecto! Tu pronunciación mejora cada día.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "¿Y esto no es muy caro, verdad?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, practica inglés gratis, sin límites.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Corrijo tu gramática y pronunciación al instante. Hablarás con confianza, como con un profesor real.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/robot-aiva.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/pv13.jpg"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nv13.jpg"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen13.jpg"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen13.jpg"
+      ]
+    }
+  },
+  {
+    "name": "es14-antonio-delgado",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Mexican woman about 31 years old, exactly as in her reference photo (same face, hair and build): long brown hair, a friendly face; a light-blue shirt, grey trousers, flat shoes",
+    "GIONG_PV": "a real young Mexican woman's voice, bright light mezzo (around 200-230 Hz), friendly and playful like a street-interview host, native Mexican Spanish; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "her",
+    "HIM_PV": "her",
+    "TOC_PV": "long brown hair",
+    "NHIN_PV": "keeps her face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of her head; she never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps her face pointed at him, her head still, the camera seeing only the back of her head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street taco seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the stall",
+    "NGUOI_HOC": "a Mexican man about 50 years old, exactly as in his reference photo (same face, hair, build and clothes): black hair, slightly bald on top, a short black beard, a tense, direct look, brown skin; a clean white shirt, a clean apron, black trousers, leather shoes; photorealistic skin and fabric",
+    "GIONG_HOC": "a real older Mexican man's voice, low, slow and a little gravelly (around 100-125 Hz), warm and good-humoured, native Mexican Spanish; a real person, not an actor",
+    "SHE_HOC": "he",
+    "HER_HOC": "his",
+    "HERO_HOC": "him",
+    "SELF_HOC": "himself",
+    "DAO_GANG": "He works with bare hands.",
+    "DAO_GIU": "His hands resting on the edge of the cart at the start of every clip.",
+    "TAY_HOC": "his hands resting on the edge of the cart",
+    "VIEC_HOC": "keeps turning pieces of meat on the griddle with a metal spatula",
+    "VIEC2_HOC": "sets the spatula back on the griddle",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, his hands resting on the edge of the cart; he never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward him, his hands resting on the edge of the cart",
+    "DAO_XE": "a street taco cart with a steel griddle, a stack of corn tortillas, bowls of grilled meat, chopped onion and cilantro, and jars of salsa",
+    "NEN_PHO": "a Mexican street at midday, houses painted orange and red; the place and the stall look exactly like the background reference photo (an empty view of this place), with his stall in front of him; any signboards are blurred and unreadable",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Mexican Spanish",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a Mexican street at midday, houses painted orange and red, out of focus behind him; the place looks like the background reference photo; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "¿Cómo aprendiste a hablar inglés tan bien?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Hace un mes solo escuchaba inglés en la tele. Ahora ya hablo con fluidez todos los días.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿Y cuál es tu secreto, en serio?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Empecé a practicar inglés desde el primer día.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿De dónde eres tú exactamente?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Soy de Puebla, ven y te muestro cómo.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "En solo un mes hablarás como nativo. ¿Puedes repetir esta frase en inglés?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sí, claro, puedo intentarlo ahora mismo.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¡Perfecto! Tu pronunciación mejora cada día.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "¿Y esto no es muy caro, verdad?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, practica inglés gratis, sin límites.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Corrijo tu gramática y pronunciación al instante. Hablarás con confianza, como con un profesor real.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/robot-aiva.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/pv14.jpg"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nv14.jpg"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen14.jpg"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen14.jpg"
+      ]
+    }
+  },
+  {
+    "name": "es15-manuel-aguilar",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Mexican woman about 34 years old, exactly as in her reference photo (same face, hair and build): black hair in a neat bun, a professional face; a light-blue blouse, black trousers, flat shoes",
+    "GIONG_PV": "a real young Mexican woman's voice, bright light mezzo (around 200-230 Hz), friendly and playful like a street-interview host, native Mexican Spanish; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "her",
+    "HIM_PV": "her",
+    "TOC_PV": "black hair in a neat bun",
+    "NHIN_PV": "keeps her face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of her head; she never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps her face pointed at him, her head still, the camera seeing only the back of her head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street handicraft seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the stall",
+    "NGUOI_HOC": "a Mexican man about 68 years old, exactly as in his reference photo (same face, hair, build and clothes): short grey hair, a deeply lined kindly face, a clean cloth hat, brown skin; a white shirt, beige trousers, leather shoes; photorealistic skin and fabric",
+    "GIONG_HOC": "a real older Mexican man's voice, low, slow and a little gravelly (around 100-125 Hz), warm and good-humoured, native Mexican Spanish; a real person, not an actor",
+    "SHE_HOC": "he",
+    "HER_HOC": "his",
+    "HERO_HOC": "him",
+    "SELF_HOC": "himself",
+    "DAO_GANG": "He works with bare hands.",
+    "DAO_GIU": "His hands resting on the table at the start of every clip.",
+    "TAY_HOC": "his hands resting on the table",
+    "VIEC_HOC": "keeps straightening a woven basket on the table",
+    "VIEC2_HOC": "puts the basket back on the table",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, his hands resting on the table; he never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward him, his hands resting on the table",
+    "DAO_XE": "a street handicraft stall with colourful woven baskets, painted ceramic figures and embroidered cloths on a table",
+    "NEN_PHO": "a Mexican street handicraft market in the daytime, colourful craft stalls, houses painted purple and yellow; the place and the stall look exactly like the background reference photo (an empty view of this place), with his stall in front of him; any signboards are blurred and unreadable",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Mexican Spanish",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a Mexican street handicraft market in the daytime, colourful craft stalls, houses painted purple and yellow, out of focus behind him; the place looks like the background reference photo; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "¿Cómo aprendiste a hablar inglés tan bien?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Hace un mes solo escuchaba inglés en la tele. Ahora ya hablo con fluidez todos los días.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿Y cuál es tu secreto, en serio?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Empecé a practicar inglés desde el primer día.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿De dónde eres tú exactamente?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Soy de Puebla, ven y te muestro cómo.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "En solo un mes hablarás como nativo. ¿Puedes repetir esta frase en inglés?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sí, claro, puedo intentarlo ahora mismo.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¡Perfecto! Tu pronunciación mejora cada día.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "¿Y esto no es muy caro, verdad?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, practica inglés gratis, sin límites.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Corrijo tu gramática y pronunciación al instante. Hablarás con confianza, como con un profesor real.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/robot-aiva.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/pv15.jpg"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nv15.jpg"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen15.jpg"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen15.jpg"
+      ]
+    }
+  },
+  {
+    "name": "es16-carmen-salinas",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Mexican man about 33 years old, exactly as in his reference photo (same face, hair and build): short black hair, a friendly face; a clean white shirt, grey trousers, leather shoes",
+    "GIONG_PV": "a real young Mexican man's voice, light baritone (around 125-150 Hz), friendly and playful like a street-interview host, native Mexican Spanish; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "his",
+    "HIM_PV": "him",
+    "TOC_PV": "short black hair",
+    "NHIN_PV": "keeps his face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of his head; he never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps his face pointed at her, his head still, the camera seeing only the back of his head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street food seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the stall",
+    "NGUOI_HOC": "a Mexican woman about 52 years old, exactly as in her reference photo (same face, hair, build and clothes): black hair with grey strands in a neat bun, a kind face with a gentle smile, brown skin; a pink blouse, a clean apron, a long skirt with a light pattern, clean sandals; photorealistic skin and fabric",
+    "GIONG_HOC": "a real older Mexican woman's voice, warm, a little husky and unhurried (around 190-220 Hz), native Mexican Spanish; a real person, not an actress",
+    "SHE_HOC": "she",
+    "HER_HOC": "her",
+    "HERO_HOC": "her",
+    "SELF_HOC": "herself",
+    "DAO_GANG": "She works with bare hands.",
+    "DAO_GIU": "Her hands resting on the edge of the stall at the start of every clip.",
+    "TAY_HOC": "her hands resting on the edge of the stall",
+    "VIEC_HOC": "keeps arranging tamales on a tray",
+    "VIEC2_HOC": "puts a tamale back on the tray",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, her hands resting on the edge of the stall; she never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward her, her hands resting on the edge of the stall",
+    "DAO_XE": "a street food stall with steel pots, trays of tamales and a stack of plates",
+    "NEN_PHO": "a Mexican street in the daytime, houses painted pink and orange, a few signboards that are blurred and unreadable; the place and the stall look exactly like the background reference photo (an empty view of this place), with her stall in front of her; any signboards are blurred and unreadable",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Mexican Spanish",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a Mexican street in the daytime, houses painted pink and orange, a few signboards that are blurred and unreadable, out of focus behind her; the place looks like the background reference photo; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "¿Cómo aprendiste a hablar inglés tan bien?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Hace un mes solo escuchaba inglés en la tele. Ahora ya hablo con fluidez todos los días.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿Y cuál es tu secreto, en serio?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Empecé a practicar inglés desde el primer día.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿De dónde eres tú exactamente?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Soy de Puebla, ven y te muestro cómo.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "En solo un mes hablarás como nativa. ¿Puedes repetir esta frase en inglés?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sí, claro, puedo intentarlo ahora mismo.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¡Perfecto! Tu pronunciación mejora cada día.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "¿Y esto no es muy caro, verdad?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, practica inglés gratis, sin límites.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Corrijo tu gramática y pronunciación al instante. Hablarás con confianza, como con un profesor real.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/robot-aiva.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/pv16.jpg"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nv16.jpg"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen16.jpg"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen16.jpg"
+      ]
+    }
+  },
+  {
+    "name": "es17-rosa-jimenez",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Mexican man about 29 years old, exactly as in his reference photo (same face, hair and build): short black hair, a cheerful face; a white polo shirt, blue jeans, sneakers",
+    "GIONG_PV": "a real young Mexican man's voice, light baritone (around 125-150 Hz), friendly and playful like a street-interview host, native Mexican Spanish; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "his",
+    "HIM_PV": "him",
+    "TOC_PV": "short black hair",
+    "NHIN_PV": "keeps his face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of his head; he never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps his face pointed at her, his head still, the camera seeing only the back of his head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street fruit seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the stall",
+    "NGUOI_HOC": "a Mexican woman about 47 years old, exactly as in her reference photo (same face, hair, build and clothes): long black hair tied low, a slightly worried face, simple glasses, brown skin; a green blouse, black trousers, clean sandals; photorealistic skin and fabric",
+    "GIONG_HOC": "a real older Mexican woman's voice, warm, a little husky and unhurried (around 190-220 Hz), native Mexican Spanish; a real person, not an actress",
+    "SHE_HOC": "she",
+    "HER_HOC": "her",
+    "HERO_HOC": "her",
+    "SELF_HOC": "herself",
+    "DAO_GANG": "She works with bare hands.",
+    "DAO_GIU": "Her hands resting on the edge of the stand at the start of every clip.",
+    "TAY_HOC": "her hands resting on the edge of the stand",
+    "VIEC_HOC": "keeps arranging cut fruit on a tray",
+    "VIEC2_HOC": "puts a piece of fruit back on the tray",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, her hands resting on the edge of the stand; she never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward her, her hands resting on the edge of the stand",
+    "DAO_XE": "a street fruit stand with trays of cut mango, watermelon, pineapple and jicama, clear cups, lime and chili",
+    "NEN_PHO": "a Mexican street fruit market in the daytime, colourful fruit stalls, houses painted blue and white; the place and the stall look exactly like the background reference photo (an empty view of this place), with her stall in front of her; any signboards are blurred and unreadable",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Mexican Spanish",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a Mexican street fruit market in the daytime, colourful fruit stalls, houses painted blue and white, out of focus behind her; the place looks like the background reference photo; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "¿Cómo aprendiste a hablar inglés tan bien?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Hace un mes solo escuchaba inglés en la tele. Ahora ya hablo con fluidez todos los días.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿Y cuál es tu secreto, en serio?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Empecé a practicar inglés desde el primer día.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿De dónde eres tú exactamente?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Soy de Puebla, ven y te muestro cómo.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "En solo un mes hablarás como nativa. ¿Puedes repetir esta frase en inglés?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sí, claro, puedo intentarlo ahora mismo.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¡Perfecto! Tu pronunciación mejora cada día.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "¿Y esto no es muy caro, verdad?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, practica inglés gratis, sin límites.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Corrijo tu gramática y pronunciación al instante. Hablarás con confianza, como con un profesor real.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/robot-aiva.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/pv17.jpg"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nv17.jpg"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen17.jpg"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen17.jpg"
+      ]
+    }
+  },
+  {
+    "name": "es18-guadalupe-flores",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Mexican man about 32 years old, exactly as in his reference photo (same face, hair and build): short black hair, a calm face; a clean white shirt, black trousers, leather shoes",
+    "GIONG_PV": "a real young Mexican man's voice, light baritone (around 125-150 Hz), friendly and playful like a street-interview host, native Mexican Spanish; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "his",
+    "HIM_PV": "him",
+    "TOC_PV": "short black hair",
+    "NHIN_PV": "keeps his face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of his head; he never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps his face pointed at her, his head still, the camera seeing only the back of his head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street flower seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the stall",
+    "NGUOI_HOC": "a Mexican woman about 60 years old, exactly as in her reference photo (same face, hair, build and clothes): grey hair in a neat high bun, a deeply lined, kind, resigned face, brown skin; a white blouse, a long blue skirt, clean sandals; photorealistic skin and fabric",
+    "GIONG_HOC": "a real older Mexican woman's voice, warm, a little husky and unhurried (around 190-220 Hz), native Mexican Spanish; a real person, not an actress",
+    "SHE_HOC": "she",
+    "HER_HOC": "her",
+    "HERO_HOC": "her",
+    "SELF_HOC": "herself",
+    "DAO_GANG": "She works with bare hands.",
+    "DAO_GIU": "Her hands resting on the edge of the flower stand at the start of every clip.",
+    "TAY_HOC": "her hands resting on the edge of the flower stand",
+    "VIEC_HOC": "keeps arranging flowers into a bunch",
+    "VIEC2_HOC": "puts the bunch back in the bucket",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, her hands resting on the edge of the flower stand; she never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward her, her hands resting on the edge of the flower stand",
+    "DAO_XE": "a street flower stand with buckets of roses, sunflowers and carnations",
+    "NEN_PHO": "a Mexican street flower market in the daytime, colourful flower stalls, houses painted yellow and pink; the place and the stall look exactly like the background reference photo (an empty view of this place), with her stall in front of her; any signboards are blurred and unreadable",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Mexican Spanish",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a Mexican street flower market in the daytime, colourful flower stalls, houses painted yellow and pink, out of focus behind her; the place looks like the background reference photo; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "¿Cómo aprendiste a hablar inglés tan bien?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Hace un mes solo escuchaba inglés en la tele. Ahora ya hablo con fluidez todos los días.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿Y cuál es tu secreto, en serio?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Empecé a practicar inglés desde el primer día.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿De dónde eres tú exactamente?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Soy de Puebla, ven y te muestro cómo.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "En solo un mes hablarás como nativa. ¿Puedes repetir esta frase en inglés?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sí, claro, puedo intentarlo ahora mismo.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¡Perfecto! Tu pronunciación mejora cada día.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "¿Y esto no es muy caro, verdad?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, practica inglés gratis, sin límites.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Corrijo tu gramática y pronunciación al instante. Hablarás con confianza, como con un profesor real.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/robot-aiva.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/pv18.jpg"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nv18.jpg"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen18.jpg"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen18.jpg"
+      ]
+    }
+  },
+  {
+    "name": "es19-elena-cruz",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Mexican man about 30 years old, exactly as in his reference photo (same face, hair and build): short black hair, a friendly face; a light-blue shirt, grey trousers, leather shoes",
+    "GIONG_PV": "a real young Mexican man's voice, light baritone (around 125-150 Hz), friendly and playful like a street-interview host, native Mexican Spanish; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "his",
+    "HIM_PV": "him",
+    "TOC_PV": "short black hair",
+    "NHIN_PV": "keeps his face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of his head; he never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps his face pointed at her, his head still, the camera seeing only the back of his head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street clothes seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the stall",
+    "NGUOI_HOC": "a Mexican woman about 45 years old, exactly as in her reference photo (same face, hair, build and clothes): short wavy black hair, a serious, slightly tense face, brown skin; a light-yellow blouse, white trousers, clean sandals; photorealistic skin and fabric",
+    "GIONG_HOC": "a real older Mexican woman's voice, warm, a little husky and unhurried (around 190-220 Hz), native Mexican Spanish; a real person, not an actress",
+    "SHE_HOC": "she",
+    "HER_HOC": "her",
+    "HERO_HOC": "her",
+    "SELF_HOC": "herself",
+    "DAO_GANG": "She works with bare hands.",
+    "DAO_GIU": "Her hands resting on the pile of clothes at the start of every clip.",
+    "TAY_HOC": "her hands resting on the pile of clothes",
+    "VIEC_HOC": "keeps folding a shirt",
+    "VIEC2_HOC": "puts the folded shirt back on the pile",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, her hands resting on the pile of clothes; she never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward her, her hands resting on the pile of clothes",
+    "DAO_XE": "a street clothing stall with racks of colourful shirts, dresses and scarves",
+    "NEN_PHO": "a Mexican street in the daytime, houses painted blue and red, a few signboards that are blurred and unreadable; the place and the stall look exactly like the background reference photo (an empty view of this place), with her stall in front of her; any signboards are blurred and unreadable",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Mexican Spanish",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a Mexican street in the daytime, houses painted blue and red, a few signboards that are blurred and unreadable, out of focus behind her; the place looks like the background reference photo; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "¿Cómo aprendiste a hablar inglés tan bien?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Hace un mes solo escuchaba inglés en la tele. Ahora ya hablo con fluidez todos los días.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿Y cuál es tu secreto, en serio?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Empecé a practicar inglés desde el primer día.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿De dónde eres tú exactamente?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Soy de Puebla, ven y te muestro cómo.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "En solo un mes hablarás como nativa. ¿Puedes repetir esta frase en inglés?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sí, claro, puedo intentarlo ahora mismo.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¡Perfecto! Tu pronunciación mejora cada día.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "¿Y esto no es muy caro, verdad?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, practica inglés gratis, sin límites.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Corrijo tu gramática y pronunciación al instante. Hablarás con confianza, como con un profesor real.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/robot-aiva.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/pv19.jpg"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nv19.jpg"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen19.jpg"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen19.jpg"
+      ]
+    }
+  },
+  {
+    "name": "es20-teresa-medina",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Mexican man about 34 years old, exactly as in his reference photo (same face, hair and build): short black hair, a confident face; a navy-blue polo shirt, beige trousers, leather shoes",
+    "GIONG_PV": "a real young Mexican man's voice, light baritone (around 125-150 Hz), friendly and playful like a street-interview host, native Mexican Spanish; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "his",
+    "HIM_PV": "him",
+    "TOC_PV": "short black hair",
+    "NHIN_PV": "keeps his face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of his head; he never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps his face pointed at her, his head still, the camera seeing only the back of his head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street bread seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the stall",
+    "NGUOI_HOC": "a Mexican woman about 65 years old, exactly as in her reference photo (same face, hair, build and clothes): long grey hair in a low bun, a kind, gently lined, smiling face, brown skin; a light-pink blouse, a long skirt with a light pattern, clean sandals; photorealistic skin and fabric",
+    "GIONG_HOC": "a real older Mexican woman's voice, warm, a little husky and unhurried (around 190-220 Hz), native Mexican Spanish; a real person, not an actress",
+    "SHE_HOC": "she",
+    "HER_HOC": "her",
+    "HERO_HOC": "her",
+    "SELF_HOC": "herself",
+    "DAO_GANG": "She works with bare hands.",
+    "DAO_GIU": "Her hands resting on the edge of the cart at the start of every clip.",
+    "TAY_HOC": "her hands resting on the edge of the cart",
+    "VIEC_HOC": "keeps arranging pieces of bread on the tray",
+    "VIEC2_HOC": "puts a piece of bread back on the tray",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, her hands resting on the edge of the cart; she never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward her, her hands resting on the edge of the cart",
+    "DAO_XE": "a street cart with trays of bread and sweet pastries",
+    "NEN_PHO": "a Mexican street in the morning, houses painted white and yellow; the place and the stall look exactly like the background reference photo (an empty view of this place), with her stall in front of her; any signboards are blurred and unreadable",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Mexican Spanish",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a Mexican street in the morning, houses painted white and yellow, out of focus behind her; the place looks like the background reference photo; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "¿Cómo aprendiste a hablar inglés tan bien?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Hace un mes solo escuchaba inglés en la tele. Ahora ya hablo con fluidez todos los días.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿Y cuál es tu secreto, en serio?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Empecé a practicar inglés desde el primer día.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "¿De dónde eres tú exactamente?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Soy de Puebla, ven y te muestro cómo.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "En solo un mes hablarás como nativa. ¿Puedes repetir esta frase en inglés?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sí, claro, puedo intentarlo ahora mismo.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "¡Perfecto! Tu pronunciación mejora cada día.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "¿Y esto no es muy caro, verdad?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, practica inglés gratis, sin límites.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Corrijo tu gramática y pronunciación al instante. Hablarás con confianza, como con un profesor real.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/robot-aiva.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/pv20.jpg"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nv20.jpg"
+      ],
+      "NEN_PHO": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen20.jpg"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/phong-van-pho-tay-ban-nha/anh/bt20/nen20.jpg"
+      ]
+    }
+  }
+]

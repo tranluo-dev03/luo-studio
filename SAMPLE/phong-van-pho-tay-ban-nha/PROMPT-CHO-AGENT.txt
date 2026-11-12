@@ -1,0 +1,23 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "PHỎNG VẤN ĐƯỜNG PHỐ RỒI CHIA TRÊN/DƯỚI + GIA SƯ AI, TÂY BAN NHA (MEXICO)" (phong-van-pho-tay-ban-nha)
+  HAI phần: phần 1 cảnh thường (phóng viên qua vai + người bán hàng rong, MỘT góc, 6 cảnh),
+            phần 2 ghép 2 lớp (robot Aiva ô TRÊN, người bán selfie ô DƯỚI, 6 cảnh).
+  Code riêng: app/production/types/phong-van-pho-tay-ban-nha/
+================================================================================
+
+CÁCH DÙNG: gửi agent cùng cong-cu\tao_kich_ban.py, cong-cu\tao_20_bien_the.py, README.md (và PHAN-TICH-VIDEO-MAU.md của phong-van-pho-malayalam), rồi dán phần dưới, sửa [ngoặc vuông].
+
+PROMPT
+Bạn viết biến thể cho LUO Studio, thể loại PHỎNG VẤN ĐƯỜNG PHỐ RỒI CHIA TRÊN/DƯỚI + GIA SƯ AI, tiếng Tây Ban Nha (Mexico).
+Thông tin lần này: [bảng: tên | mô tả người bán | mô tả phóng viên | mô tả bối cảnh | link ảnh x3]. Đổi lời thoại / nghề: [...]
+
+BẮT BUỘC
+1) Sửa bằng cong-cu\tao_20_bien_the.py (bảng NV, lời `luot()`) và cong-cu\tao_kich_ban.py (cảnh, hành động); KHÔNG sửa tay JSON / TXT. Kịch bản đổi token mới => LOẠI DỰ ÁN MỚI trong Studio.
+2) Phóng viên LUÔN KHÁC GIỚI người bán (assert trong tao_20_bien_the.py). Không bao giờ để hai người cùng giới cùng khung (Muse gán giọng người này cho người kia, lặp câu).
+3) Mọi đại từ / ngoại hình phóng viên qua token HIS_PV, HIM_PV, TOC_PV, NGUOI_PV...; đại từ người bán qua SHE_/HER_/HERO_/SELF_HOC. Không viết cứng "his/he/her" trong kịch bản.
+4) Số lượt phần 1 = số CẢNH trong bảng SC (6); thêm/bớt lượt phần 1 thì sửa SC cùng lúc. Mỗi lượt <= 20 từ, một người nói; hai câu liền cùng người gộp thành một lượt.
+5) Lời tiếng Tây Ban Nha viết đúng chính tả có dấu (¿ ? ¡ !), địa danh Mexico (không dùng địa danh Ấn Độ); tính từ theo giới người bán (nativa/nativo).
+6) Ảnh tham chiếu chỉ là ảnh AI người dùng cấp (Drive); không cắt từ video mẫu. Thiếu ảnh => hỏi trước.
+7) Khoảng lặng KHÔNG tua nhanh: gen.py cắt sát theo lời (speedfix tắt, cut_margin 0,3).
+8) Tự kiểm: runtime\python.exe SAMPLE\_chung\video-moi.py kiem-tra <kịch bản> <biến thể> (0 lỗi), rồi chạy thử MỘT biến thể, xem scene1_start.png và nghe cảnh 1-3 trước khi chạy cả nhóm.
+9) Ghi mọi lượt gen / sửa vào SAMPLE\_chung\NHAT-KY-TRI-THUC.md.
