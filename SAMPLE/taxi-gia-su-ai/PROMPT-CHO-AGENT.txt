@@ -1,0 +1,41 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "TAXI + GIA SƯ AI" (taxi-gia-su-ai), hoạt hình 3D kể chuyện
+  HAI phần: phần 1 cảnh thường 25 cảnh (5 KHÔNG LỜI, 11 góc), phần 2 ghép 2 lớp (robot ô ngang trên)
+  Code riêng: app/production/types/taxi-gia-su-ai/ (gen.py đổi MARKER cảnh không lời, post.py phụ đề)
+================================================================================
+
+CÁCH DÙNG
+  Gửi cho agent: cong-cu/tao_kich_ban.py, cong-cu/tao_bien_the.py, PHAN-TICH-VIDEO-MAU.md, README.md, SAMPLE\_chung\SO-TAY-KY-THUAT.md.
+  Rồi dán phần dưới, sửa [ngoặc vuông].
+
+--------------------------------------------------------------------------------
+PROMPT
+--------------------------------------------------------------------------------
+
+Bạn viết biến thể mới cho thể loại TAXI + GIA SƯ AI. Sửa trong cong-cu/tao_bien_the.py (hoặc thêm biến thể) rồi chạy lại.
+
+Thông tin lần này:
+  Tài xế (HOC) / khách (KHACH) / quản lý (QUANLY) / tài xế trẻ (ARJUN) / con gái (CON): [ngoại hình EN, giọng EN, ảnh tham chiếu]
+  Thành phố / nghề (nếu đổi taxi): [...]
+  Ngôn ngữ mẹ đẻ: [mặc định tiếng Tây Ban Nha Mexico]
+
+BẮT BUỘC
+1) Khoá: HOC, KHACH, QUANLY, ARJUN, CON (phần 1), HOC + DAY (phần 2). Mỗi khoá đủ TEN_/NGUOI_/GIONG_/VAI_/POS_/NGHE_/NHIN_; NHIN_HOC@2 nhìn ống kính.
+   Mọi NGUOI_ bắt đầu "a stylized 3D-animated ...".
+2) LUOT phần 1 đúng 25 lượt, lượt n = cảnh n, người nói theo bảng S ("-" = cảnh KHÔNG LỜI: text = "[KHONG LOI]", who = người có mặt):
+   khach hoc khach khach khach khach - quanly quanly - - arjun - con hoc hoc con con hoc con - con con hoc con
+   KHÔNG để text rỗng ("") cho cảnh không lời: nhieu_phan bỏ lượt rỗng -> lệch số cảnh. MARKER phải trùng gen.py/post.py.
+3) Phần 2: mọi lượt "phan": 2, đúng một cặp fx wrong ("I am Mexico") -> right ("I am from Mexico"), "to" khai cụm cần tô.
+4) Lời 3-12 từ (tối đa 20); emo trong EMO_CUES (app/production/prompt_parts.py). Phần 1: câu tiếng Anh có "dich" tiếng mẹ đẻ, câu tiếng mẹ đẻ có "dich" tiếng Anh.
+5) refs: ảnh AI người dùng cung cấp / đồng ý gen cho MỌI nhân vật. Không cắt ảnh từ video mẫu. Thiếu ảnh -> hỏi, chưa gen.
+6) Hai người cùng giới cùng lộ mặt trong một khung (A, G, J) -> cảnh báo người dùng (người dùng chấp nhận giữ như gốc).
+
+LỖI HAY GẶP (cập nhật sau mỗi lần gen)
+  - Bám ĐÚNG bố cục/vị trí nhân vật của video gốc; không tự đổi góc để né lỗi Muse (người dùng bác góc A2, J qua vai 11/11).
+  - Góc A: khách nhỏ ghế sau dễ làm Muse tự cắt góc giữa clip -> mọi cảnh taxi "Khung đầu từ cảnh: 1" + khoá "ONE continuous shot".
+  - gen.py chỉ đổi MARKER khi opts["_part"] (không thì từ lần chạy thứ hai trong cùng tiến trình Studio lượt câm bị bỏ, lượt sau dồn lên).
+
+TỰ KIỂM TRA
+  [ ] runtime\python.exe SAMPLE\_chung\video-moi.py kiem-tra <kịch bản> <biến thể> --tai-anh -> 0 lỗi; "P1: 25 cảnh, P2: N cảnh".
+  [ ] Không chữ/logo/biển số/biển "TOP DRIVER" trong prompt; màn hình điện thoại chỉ robot hoặc ánh sáng.
+  [ ] Mô tả cảnh không lời không có say/speak/talk/voice (engine lọc câu).

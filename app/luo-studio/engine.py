@@ -830,6 +830,32 @@ def silent_prompt(text, v, who, said=""):
     return out.strip()
 
 
+def mute_prompt(text):
+    """Prompt của cảnh KHÔNG LỜI (lượt "text" rỗng): bỏ mọi câu nói về giọng / nói / lời (khoá giọng, nhịp nói, 'the speaker...'), thêm lệnh clip câm lên đầu.
+    Khác silent_prompt (clip câm lấy hình cho người nói quay lưng, vẫn có lượt thoại): ở đây không ai nói, hành động lấy từ "ACTION" của chính cảnh."""
+    keep = []
+    for line in text.split("\n"):
+        parts = re.split(r"(?<=[.!?;])\s+", line.strip())
+        keep.append(" ".join(p for p in parts if p and not _VOICE_RE.search(p)))
+    return ("SILENT CLIP (overrides every rule below about speaking, voices or lines): nobody speaks in this clip, no dialogue, no voice-over, no mumbling, "
+            "no singing; mouths stay closed unless the ACTION says a mouth opens without sound. Only the quiet natural sound of the place and of the action. "
+            "The ACTION fills the whole clip at the pace it describes.\n\n" + "\n".join(keep).strip())
+
+
+def mute_trim(path, keep=None, speed=None):
+    """Cảnh không lời: tua nhanh x`speed` (hình + tiếng) rồi giữ `keep` giây đầu. Trường kịch bản "Tua: 1.4" / "Cắt còn: 3.5"."""
+    k = max(1.0, min(3.0, float(speed or 1.0)))
+    vf = f"setpts=PTS/{k:.4f}"
+    tmp = path + ".tmp.mp4"
+    cmd = ["ffmpeg", "-y", "-i", path, "-vf", vf]
+    if has_audio(path):
+        cmd += ["-af", ",".join(["atempo=2.0"] * int(k >= 2.0) + [f"atempo={k / (2.0 if k >= 2.0 else 1.0):.4f}"])]
+    if keep:
+        cmd += ["-t", f"{float(keep):.3f}"]
+    sh_enc(cmd + ["-c:v", "libx264", "-crf", "17", "-pix_fmt", "yuv420p", "-c:a", "aac", tmp])
+    os.replace(tmp, path)
+
+
 def silent_negative(neg):
     return "; ".join(x.strip() for x in neg.split(";") if x.strip() and not re.search(r"speech|voice", x, re.I))
 
@@ -1017,7 +1043,7 @@ def _wh_release(w):
 
 
 _ES_MARK = re.compile(r"[¿¡ñáéíóú]", re.I)
-_INDIC = (("gu", re.compile(r"[઀-૿]")), ("hi", re.compile(r"[ऀ-ॿ]")), ("bn", re.compile(r"[ঀ-৿]")))
+_INDIC = (("gu", re.compile(r"[઀-૿]")), ("hi", re.compile(r"[ऀ-ॿ]")), ("bn", re.compile(r"[ঀ-৿]")), ("ml", re.compile(r"[ഀ-ൿ]")))
 _ES_WORDS = set("que es la el los las para por con una uno tu mi no si sí pero vamos decir tienes quisiste perdón siempre nada cuál cómo solo necesitas hablar "
                 "estudies úsalo buen intento todos días juntos mejorar inglés hola gracias usted ustedes está estás soy eres somos".split())
 
@@ -1065,7 +1091,7 @@ def voice_span(path, expected):
     # Số viết bằng chữ ("forty-eight") hay chữ số ("48") đều quy về chữ số; mọi số Whisper nghe được đều khớp với số trong lời thoại.
     toks = lambda s: [t for t in (re.sub(r"[^a-z0-9]", "", _NUMW.get(x, x)) for x in re.findall(r"[a-z0-9']+", _deaccent(s).lower().replace("-", " "))) if t]
     exp = toks(expected or "")
-    bengali = speech_lang(expected) == "bn"
+    bengali = speech_lang(expected) in ("bn", "ml")   # Malayalam (11/11/2026, phong-van-pho-malayalam): Whisper small nghe sai hoàn toàn -> cũng lấy mốc theo năng lượng
     if not exp and not bengali:
         return None
     has_num = any(e.isdigit() for e in exp)
@@ -1084,6 +1110,7 @@ def voice_span(path, expected):
             pass
     same = lambda t, e: (has_num and t.isdigit() and e.isdigit()) or difflib.SequenceMatcher(None, t, e).ratio() >= 0.78
     hit = [(a, b) for t, a, b in words if any(same(t, e) for e in exp)]
+    hit_t = [t for t, a, b in words if any(same(t, e) for e in exp)]
     # Muse hay nói THÊM một từ của câu sau quãng nghỉ ("How old are you? ... How?", 05/11): từ đó cũng khớp lời thoại nên trước đây được giữ
     # lại thành "thừa thoại". Nay: khi đã nghe đủ (>= 90%) các từ của câu theo đúng thứ tự mà sau đó có quãng nghỉ >= 0,6 s rồi mới có tiếng
     # tiếp, thì câu kết thúc trước quãng nghỉ đó; mọi thứ sau bị cắt bỏ. Câu nói thật không có quãng nghỉ dài như vậy ở giữa.
@@ -1098,7 +1125,7 @@ def voice_span(path, expected):
         if k >= need and i + 1 < len(hit) and hit[i + 1][0] - b >= 0.6:
             cut_after = i
     if cut_after is not None:
-        hit = hit[:cut_after + 1]
+        hit, hit_t = hit[:cut_after + 1], hit_t[:cut_after + 1]
     # Whisper ở đây là bản tiếng Anh (small.en). Với câu tiếng Tây Ban Nha nó chỉ khớp vài từ giữa câu: từ khớp đầu muộn hơn lời thật (mất đầu câu,
     # "El inglés", "Descarga Talka"), từ khớp cuối sớm hơn lời thật (mất đuôi câu, "fácil"), hoặc khớp quá ít -> trước đây trả None và cắt theo cách
     # thường, để lại đoạn nghỉ dài. Bổ sung lúc có tiếng nói thật theo năng lượng âm thanh (không phụ thuộc ngôn ngữ).
@@ -1106,7 +1133,11 @@ def voice_span(path, expected):
         return (onset, offset) if onset is not None and offset is not None and offset - onset > 0.5 else None
     start = onset if onset is not None and onset < hit[0][0] else hit[0][0]
     end = hit[-1][1]
-    if cut_after is None and offset is not None and end < offset <= end + 1.5:   # tiếng nói còn tiếp sau từ khớp cuối (từ cuối Whisper không nhận ra)
+    # tiếng nói còn tiếp sau từ khớp cuối (từ cuối Whisper không nhận ra) -> nới tới hết tiếng theo năng lượng. KHÔNG nới khi từ khớp cuối chính là
+    # từ cuối của câu: câu đã trọn, tiếng sau đó là cười / thở / tiếng nền (11/11/2026 tiem-thit cảnh 2 "Twenty years, my friend!": hết lời 2,76 s,
+    # tiếng cười tới 4,2 s bị giữ lại thành 1,5 s im không thoại).
+    done = bool(hit_t) and same(hit_t[-1], exp[-1])
+    if cut_after is None and not done and offset is not None and end < offset <= end + 1.5:
         end = offset
     return start, end
 
@@ -1326,7 +1357,7 @@ def speech_issues(expected, path):
     Whisper hay bịa "Thank you" ở đó) không tính là thừa.
     Trả về danh sách (mô tả tiếng Việt cho nhật ký, mô tả tiếng Anh cho ghi chú gen lại) (rỗng = đạt); None nếu không kiểm được (câu rỗng, không có Whisper)."""
     import difflib
-    if speech_lang(expected) in ("gu", "hi", "bn"):
+    if speech_lang(expected) in ("gu", "hi", "bn", "ml"):
         # câu chữ Gujarati/Devanagari (08/11/2026): _speech_tokens chỉ giữ chữ Latin, Whisper nghe thành chữ khác -> báo "thừa/thiếu" sai và gen lại vô ích.
         # Không kiểm từng chữ; cắt sát vẫn chạy nhờ voice_span (năng lượng âm thanh). Câu thuần tiếng Anh vẫn kiểm như cũ.
         return None
@@ -2023,7 +2054,12 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
         chars = MV.chars_of(vdata)
         spoken = bool(syll) or bool(turn and str(turn.get("text", "")).strip())   # cảnh không có lời thoại (hành động, chuyển cảnh): không đòi tiếng, không cắt theo lời, không đo miệng
         swap, vid_b, neg_b = False, "", ""   # swap: người nói quay lưng -> gen thêm clip câm lấy hình, clip có giọng chỉ lấy tiếng (xem silent_prompt)
-        if turn and spk_key in chars:
+        mute = bool(turn) and not spoken   # cảnh không lời (lượt "text" rỗng, Voice trống): không SPEAKER MAP (nó bảo Muse có người nói), bỏ câu về giọng/nói
+        if mute:
+            vid_p = mute_prompt(vid_p)
+            neg = silent_negative(neg) + "; speech; talking; dialogue; voice-over; singing; mouthing words"
+            emit("log", msg=f"Cảnh {n}: cảnh không lời (lượt rỗng): clip câm, giữ nguyên độ dài clip" + (", cắt/tua theo kịch bản" if sc["f"].get("Cắt còn") or sc["f"].get("Tua") else ""))
+        if turn and spk_key in chars and not mute:
             tt = MV.turn_text(vdata, turn["who"], turn.get("text", ""), turn.get("emo", ""))
             spos = MV.cpos(vdata, spk_key)
             said = re.sub(r"\s+", " ", str(turn.get("text", "")).strip().replace('"', "'"))
@@ -2285,6 +2321,10 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                 if spoken and not has_audio(vid_f):  # Muse đôi khi trả về clip câm (không có track tiếng): coi như lỗi để gen lại, nếu không bước ghép sẽ hỏng
                     os.remove(vid_f)
                     raise RuntimeError("Muse trả về clip không có tiếng (mất lời thoại)")
+                if mute and not has_audio(vid_f):   # cảnh không lời mà Muse trả clip không track tiếng: thêm tiếng lặng để bước ghép không hỏng
+                    tmp = vid_f + ".a.mp4"
+                    sh(["ffmpeg", "-y", "-i", vid_f, "-f", "lavfi", "-i", "anullsrc=r=48000:cl=stereo", "-shortest", "-c:v", "copy", "-c:a", "aac", tmp])
+                    os.replace(tmp, vid_f)
             tries = 0
             tried = []            # (điểm lỗi = mức mấp máy của người nghe, file) của các lần gen có lỗi, để cuối cùng giữ lần TỐT NHẤT
             base_vid_p = vid_p
@@ -2462,6 +2502,15 @@ def run_variant(vdata, template, out_dir, opts, emit, cancel):
                 sh_enc(["ffmpeg", "-y", "-i", vid_f, "-vf", vf_fix, "-c:v", "libx264", "-crf", "17", "-pix_fmt", "yuv420p", "-c:a", "copy", cut_f])
             else:
                 shutil.copy(vid_f, cut_f)
+            if mute:   # cảnh không lời: kịch bản tự quyết độ dài ("Cắt còn: N" giây) và nhịp ("Tua: K" lần, vd. chặt thịt nhanh)
+                k_ = re.search(r"\d+(?:[.,]\d+)?", str(sc["f"].get("Cắt còn", "")))
+                t_ = re.search(r"\d+(?:[.,]\d+)?", str(sc["f"].get("Tua", "")))
+                if k_ or t_:
+                    try:
+                        mute_trim(cut_f, float(k_.group(0).replace(",", ".")) if k_ else None, float(t_.group(0).replace(",", ".")) if t_ else None)
+                        emit("log", msg=f"Cảnh {n}: cảnh không lời còn {duration(cut_f):.1f}s" + (f" (tua x{t_.group(0)})" if t_ else ""))
+                    except Exception as ex:  # noqa: BLE001
+                        emit("log", msg=f"Cảnh {n}: không cắt/tua được cảnh không lời ({ex})", level="warn")
             grab_frame(cut_f, last_f, sseof=-0.06)
         try:
             if info:
@@ -2647,8 +2696,9 @@ def variant_values(v):
         if k.isupper() and isinstance(x, list) and k != "LUOT":
             for i, item in enumerate(x, 1):
                 vals[f"{k}_{i}"] = str(item)
-    for i, item in enumerate(v.get("LUOT", []), 1):
-        vals[f"LUOT_{i}"] = MV.turn_text(v, item["who"], item["text"], item.get("emo", ""), item.get("emo2", ""))
+    for i, item in enumerate(v.get("LUOT", []), 1):   # lượt "text" rỗng = cảnh KHÔNG LỜI (hành động, montage): token thành chuỗi rỗng, Voice trống
+        vals[f"LUOT_{i}"] = (MV.turn_text(v, item["who"], item["text"], item.get("emo", ""), item.get("emo2", ""))
+                             if str(item.get("text", "")).strip() else "")
     return vals
 
 

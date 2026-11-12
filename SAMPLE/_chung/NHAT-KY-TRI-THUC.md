@@ -441,6 +441,14 @@ Người dùng báo 6 lỗi; nguyên nhân đã chứng minh bằng số đo tr�
 - Áp dụng chung?: CÓ (quy trình CSV + link Drive → refs; xem ảnh bằng bảng ghép thay vì mở 60 ảnh lẻ).
 - Đã chưng cất vào: chưa.
 
+### 2026-11-11 · robot-pho-tieng-long · 60 biến thể (bài học / Ấn Độ Hindi / Brazil) + ảnh Muse · loai: kich-ban + anh-tham-chieu + hau-ky
+- Cách làm: `cong-cu/tao_60_bien_the.py` (20 bộ bài học dùng chung 3 nhóm), `gen_anh_60.py` (Muse gen robot nền xanh lá + nền trống từ chữ, 3 luồng, ~15 s/ảnh tính bình quân), `tao_trang_duyet.py` (trang duyệt HTML).
+- Hậu kỳ chữ Ấn Độ: Pillow của runtime KHÔNG có raqm → không vẽ đúng Devanagari bằng PIL; thẻ dùng Hinglish chữ Latin, phụ đề Devanagari qua ASS (`ass=...:shaping=complex`, Nirmala UI). Chạy thử trên video giả: ĐẠT.
+- Rủi ro đã thấy khi đọc code: `engine.voice_span` với câu "English! <Hindi>" coi câu trọn khi khớp từ tiếng Anh cuối → có thể cắt mất phần Hindi; `speech_lang` không nhận tiếng Bồ Đào Nha. CHƯA sửa (code chung, chờ người dùng).
+- Kết quả: `kiem-tra` 0 lỗi cả 3 file. Muse gen video: CHỜ KIỂM CHỨNG.
+- Áp dụng chung?: CÓ (câu trộn tiếng Anh + chữ Ấn Độ ở mọi thể loại: kiểm `voice_span` trước khi chạy cả nhóm).
+- Đã chưng cất vào: chưa.
+
 ### 2026-11-08 · check-hanh-ly-hindi · phân tích + tạo thể loại (nhân bản soi-hanh-ly-gia-su-ai) · loai: phan-tich
 - Hiện tượng: video "oder 6.mp4" nói Gujarati xen tiếng Anh; Whisper (mặc định en, và tự dò `gu` 0,41) đều trả lời DẠNG DỊCH sang tiếng Anh, không chép được chữ Gujarati.
 - Nguyên nhân: Whisper small yếu với Gujarati, có xu hướng dịch.
@@ -660,3 +668,205 @@ Người dùng báo 6 lỗi; nguyên nhân đã chứng minh bằng số đo tr�
 - Áp dụng chung?: CÓ: mọi thể loại ghép 2 lớp nối khung.
 - Đã chưng cất vào: chưa
 - Cập nhật 2026-11-12: đã khởi động lại Studio bằng code mới và xếp gen lại 15 video từ cảnh lỗi đầu tiên (X0042 BT13/15/18/19/20; X0043 BT1/3/6; X0045 BT2/3/6/7/9/13/15). X0045 BT17 chưa có trong hàng đợi. CHỜ KIỂM CHỨNG kết quả gen lại.
+### 2026-11-11 · tiem-thit-tieng-anh · tạo thể loại · loai: phan-tich / kich-ban / cong-cu
+- Hiện tượng: (1) video 177 s song ngữ: `--lang es` dịch câu tiếng Anh sang tiếng Tây Ban Nha ("That's a beautiful cut" → "Eso es un bonito cut", "my meat delivery didn't come" → "mi teléfono no salió"), không bỏ đoạn như du-lich-chia-doi; (2) `danh-gia` báo 13 "đổi cơ chế" giả: chỉ là cắt giữa cận một người và trung cảnh hai người (không có PiP); (3) `video-moi.py kiem-tra` báo "cảnh: 0" khi tiêu đề cảnh là `CẢNH n: Lượt n` (thiếu mốc thời gian); (4) dòng `===== PHAN 1 =====` duy nhất làm kịch bản thành "nhiều phần" (đòi gen.py + "phan").
+- Nguyên nhân: (1) Whisper ép ngôn ngữ thì dịch thay vì bỏ khi câu ngắn xen kẽ; (2) gợi ý khuôn dựa trên số mặt theo giây; (3) parser cần `CẢNH n (m:ss–m:ss): Lượt n`; (4) có dòng chia phần là chế độ nhiều phần.
+- Cách làm / sửa: chạy thêm `phan-tich-video.py --lang en` trên bản sao video, phân người nói theo phụ đề (dòng trắng EN + dòng vàng ES = câu tiếng Anh). Bỏ dòng chia phần, ghi chú đặt trong khối [HAU KY]. `tao_kich_ban.py` sinh mốc thời gian giả 5 s/cảnh. Khuôn: cảnh thường nhiều góc, một phần; giọng AI do robot trên màn hình điện thoại nói (góc P không thấy mặt người) thay vì giọng ngoài khung ở cảnh cận Tavo.
+- Kết quả: `kiem-tra` 0 lỗi, 0 cảnh báo. Chưa gen: CHỜ ảnh tham chiếu TAVO/TIO/KHACH/CHU + Studio chưa mở (chưa nhập). Rủi ro chờ kiểm chứng: robot nhép trên màn hình điện thoại (cảnh 22/24/26), cân màu kéo sáng cảnh đêm, ông chú + Tavo cùng khung.
+- Áp dụng chung?: CÓ cho (1) (video song ngữ: luôn chạy cả hai ngôn ngữ, Whisper có thể DỊCH chứ không chỉ bỏ) và (3)(4) (định dạng kịch bản một phần); KHÔNG cho phần khuôn.
+- Đã chưng cất vào: chưa
+
+### 2026-11-11 · tiem-thit-tieng-anh · ảnh tham chiếu Muse + chạy thử cảnh 1–2 · loai: anh-tham-chieu / muse / cong-cu
+- Hiện tượng: (1) `gen_anh_tham_chieu.py` (chép từ canh-sat) lỗi HTTP 401 "缺少 Authorization": `G.read_key()` không thấy khoá vì bản cài này để khoá ở `userdata/api/.env`; (2) "LUO Studio.bat" chạy qua `Start-Process cmd /c` ẩn cửa sổ không lên, chạy thẳng `.venv\Scripts\pythonw.exe app\launcher.py` thì lên (~1 phút mới có running.json); (3) 4 ảnh nhân vật gen chỉ từ chữ (mô tả NGUOI_ của biến thể + nền xám, Pixar), đúng ngoại hình, không chữ; (4) chạy thử: `scene1_start.png` (góc K) và `scene2_start.png` (góc A) bám rất sát bố cục video mẫu, đúng mặt theo ảnh tham chiếu; clip 1 (3,6 s) và 2 (4,5 s) nói đúng lời, ông chú vỗ ngực đúng hành động, Tavo cúi nhìn thớt, khách ở góc A chỉ thấy vai + gáy.
+- Cách làm / sửa: script đặt `MUSE2API_ENV_FILE=userdata/api/.env` nếu có; mỗi nhân vật một phiên Muse riêng.
+- Kết quả: ĐẠT (ảnh tham chiếu, cảnh 1–2). Còn nhỏ: cuối cảnh 1 khách xoay mặt gần về ống kính (EYE LINE ghi nhìn sang trái). Cảnh 3–37 CHỜ KIỂM CHỨNG (đặc biệt 6 B, 10 C, 21 N, 22 robot trên điện thoại).
+- Áp dụng chung?: CÓ cho (1)(2) (script gọi LUO-API ngoài Studio phải tìm khoá ở `userdata/api/.env`; mở Studio bằng pythonw launcher) và (3) (gen ảnh tham chiếu từ chính mô tả NGUOI_ của biến thể để prompt và ảnh khớp).
+- Đã chưng cất vào: chưa
+
+### 2026-11-11 · tiem-thit-tieng-anh · Studio tắt giữa chừng · loai: studio
+- Hiện tượng: chạy thử dừng sau cảnh 13/37 (scene13_last.png 11:21:39); Studio (pid 9704) và LUO-API (pid 4968) cùng mất, không có log lỗi (studio-loi.log không đổi, api.log dừng 11:21:18), không có sự kiện crash trong Windows; `userdata/running.json` còn sót.
+- Nguyên nhân (đã đối chiếu giờ): Studio do agent mở từ shell của Claude → là tiến trình con của app Claude; app Claude khởi động lại (mọi tiến trình `claude` mới bắt đầu 11:23:13) → kill cả cây tiến trình, Studio chết theo. Không phải lỗi Studio.
+- Cách sửa: mở Studio tách khỏi Claude (người dùng tự mở "LUO Studio.bat", hoặc `explorer.exe "...\LUO Studio.bat"`), rồi chạy tiếp biến thể (Studio dùng lại scene1..13 đã có).
+- Kết quả: CHỜ KIỂM CHỨNG (sau khi mở lại).
+- Áp dụng chung?: CÓ (mọi lần agent tự mở Studio)
+- Đã chưng cất vào: chưa
+
+### 2026-11-11 · tiem-thit-tieng-anh · chạy tiếp sau khi Studio tắt + duyệt cảnh 3–13 · loai: studio / muse
+- Hiện tượng: người dùng tự mở lại Studio; hàng đợi trống (không lưu qua lần tắt). `POST /api/queue/add` + `/api/queue/start` lại cùng biến thể → engine dùng lại scene1..13 có sẵn, gen tiếp từ cảnh 14 (log "Cảnh 14: gen ảnh khung đầu"). Cảnh 3–13: Whisper khớp đủ 11 câu (EN và ES); góc B ra rộng hơn mô tả "close two-shot" (thấy cả quầy) nhưng đúng vị trí; đồng xu ở cảnh 7 nhỏ, khó thấy; cảnh 13 Tavo (người nghe) xoè tay đầu clip.
+- Kết quả: ĐẠT (chạy tiếp; lời cảnh 1–13). Các cảnh sau CHỜ KIỂM CHỨNG.
+- Áp dụng chung?: CÓ (Studio tắt giữa chừng: mở lại rồi thêm lại đúng biến thể vào hàng đợi, không cần xoá gì)
+- Đã chưng cất vào: chưa
+
+### 2026-11-11 · phong-van-pho-malayalam · tạo thể loại · loai: phan-tich / kich-ban / code-chung
+- Hiện tượng: (1) video tên "interview street hindi" nhưng lời và phụ đề là MALAYALAM; `danh-gia --lang hi` cho 2 "câu" chữ Devanagari vô nghĩa (cả phần 2 dồn vào một câu 29 s), số từ/giây và cụm giọng vô dụng; (2) đếm mặt báo "đổi cơ chế" ở 4,83 s và 14,13 s: thật ra là cảnh chèn cận/đổi cỡ trong cùng góc qua vai, cơ chế chỉ đổi ở 25,7 s (vạch cam chia trên/dưới); (3) đo chuyển động miệng ô trên vô dụng (robot mẫu cử động liên tục), ô dưới thì phân biệt rõ lúc người bán nói; (4) engine chưa biết chữ Malayalam → câu Malayalam bị coi là 'en' và kiểm lời từng chữ bằng small.en.
+- Cách làm / sửa: chép lời bằng cách cắt dải phụ đề (y 590–720) mỗi 0,25 s, chỉ giữ khung đổi chữ, xếp 14 khung/ảnh rồi đọc; ai nói ở phần 2 theo chuyển động miệng ô dưới. Engine: `_INDIC` thêm `ml` (U+0D00–0D7F), `voice_span` lấy mốc theo năng lượng như Bengali, `speech_issues` bỏ kiểm từng chữ. Kiểm thử ffmpeg `ass:shaping=complex` + Nirmala UI: chữ Malayalam ghép đúng.
+- Kết quả: `kiem-tra --tai-anh` 0 lỗi 0 cảnh báo. Chưa gen: CHỜ ảnh tham chiếu phóng viên + người bán.
+- Áp dụng chung?: CÓ cho (1)(3) (video ngôn ngữ Ấn Độ: xem chữ phụ đề trước khi chọn --lang; cắt dải phụ đề để chép lời; dùng ô của người thật để đo ai nói) và (4) (thêm chữ viết mới vào `_INDIC`).
+- Đã chưng cất vào: chưa
+
+### 2026-11-11 · tiem-thit-tieng-anh · chạy thử xong biến thể đầu (37 cảnh) · loai: muse / hau-ky / studio
+- Hiện tượng: final.mp4 143 s 1080x1920 (gen 10:52–12:39, trừ ~7 phút Studio tắt). Whisper khớp lời mọi cảnh đã kiểm (1–26) cả EN lẫn ES; mặt 4 nhân vật + robot giữ ổn qua 15 góc. Cảnh đêm (21–26) giữ tối, cân màu không kéo sáng. Robot nói trên màn hình điện thoại (22/24/26): nhép miệng, không giao diện. Hậu kỳ: 44 dòng dịch, phụ đề trắng viền đen đúng vị trí.
+- Còn lỗi nhỏ: dòng dịch đỏ nhỏ khó đọc (kiểu cố định của `_chung/phu_de.py`); nền sau điện thoại ở góc P là quầy thịt đèn vàng chứ không phải kho tối; cảnh 36/37 màn hình điện thoại có nhãn chữ nhỏ dưới robot; cảnh 29 Studio báo "vẫn lỗi lời nói sau 2 lần gen lại" (thiếu "ni") nhưng giữ bản tốt nhất; 2 lần WinError 32 (cảnh 32, 34) ở `engine.crun` → `subprocess.Popen` khi gọi ffmpeg cân màu (khởi chạy exe bị chặn, nghi phần mềm diệt virus quét ffmpeg.exe), Studio tự chạy lại được.
+- Kết quả: ĐẠT (biến thể đầu chạy trọn). Chưa gắn Thương hiệu/Outro.
+- Áp dụng chung?: CÓ: (a) giọng AI do robot trên màn hình điện thoại nói, không thấy mặt người → không bị người nhép giọng AI; (b) WinError 32 là lỗi khởi chạy tiến trình, không phải file cảnh bị giữ.
+- Đã chưng cất vào: chưa
+
+### 2026-11-11 · phong-van-pho-malayalam · ảnh tham chiếu + nhập Studio · loai: anh-tham-chieu / studio
+- Hiện tượng: người dùng yêu cầu Muse gen ảnh phóng viên + người bán, robot dùng ảnh robot Talka (`xe-tai-canh-sat-gia-su-ai/anh/ai-robot-talka.png`). `gen_anh_tham_chieu.py` (chép từ tiem-thit, đổi sang ảnh thật) ra 2 ảnh 9:16 đầu gối trở lên, nền xám: đúng áo caro hồng + ba lô + kính + râu; đúng áo cánh hồng + sari caro nâu + bindi. Người bán ra già hơn mô tả (~55 thay vì 48) → sửa mô tả theo ảnh để prompt Muse và ảnh không mâu thuẫn.
+- Kết quả: ĐẠT (ảnh tham chiếu). Nhập Studio: `Phong-van-pho-Malayalam-9ba6` / `Interview-street-Malayalam---Talka-d5f1`, refs tải đủ 3 ảnh, `QUAY_LUNG_PV` có trong biến thể. Chạy thử biến thể 01: CHỜ KIỂM CHỨNG.
+- Áp dụng chung?: CÓ (ảnh tham chiếu gen từ chữ lệch tuổi → sửa mô tả theo ảnh, không gen lại nếu ảnh khác vẫn đạt)
+- Đã chưng cất vào: chưa
+
+### 2026-11-11 · phong-van-pho-malayalam · chạy thử phần 1 (11 cảnh) · loai: muse / studio / code-chung
+- Hiện tượng: (1) khung đầu cảnh 1 rất sát video mẫu (góc qua vai phải, PV chỉ lộ viền má + gọng kính, người bán ba phần tư, xe đẩy inox), 11 cảnh PV luôn quay lưng, người bán giữ mặt; biển hiệu nền mờ không đọc được. (2) Cảnh tiếng Anh cắt sát đúng (1,1–6,8 s). Cảnh Malayalam (1,3,5,7,9,11) dài đúng 5,0 s, log "không nhận ra đủ lời để cắt sát": còn 2–3 s im lặng đuôi (cảnh 3: một từ "ഉടനെ" trong 5 s). (3) Cảnh 11 (14 từ Malayalam) nói tới giây cuối clip 5 s → có thể cụt câu. (4) Cao độ: cảnh PV 143–174 Hz (nam), người bán 197–333 Hz: không nhầm giọng.
+- Nguyên nhân: (2) Studio mở TRƯỚC khi sửa engine.py → vẫn chạy code cũ (speech_lang 'en', Whisper small.en). Chạy `_energy_span` mới trên chính các clip: ra mốc đúng (cảnh 1: 0–2,57 s). (3) `gen_video.spoken_syllables` chỉ đếm chữ Latin → câu Malayalam = 0 âm tiết → `auto_duration` không dùng, clip 5 s.
+- Cách sửa: `spoken_syllables` cộng thêm âm tiết chữ Malayalam (nguyên âm độc lập + phụ âm không có virama); thử: câu 3 âm tiết → 5 s, 43 âm tiết → 10 s, tiếng Anh không đổi. Cần khởi động lại Studio để nạp engine.py + gen_video.py, rồi cắt lại cảnh 1,3,5,7,9 (xoá scene*_cut/_last, giữ scene*_clip) và gen lại cảnh 11.
+- Kết quả: CHƯA ĐẠT (cắt sát + độ dài clip Malayalam) → CHỜ KIỂM CHỨNG sau khi khởi động lại. Hình phần 1: ĐẠT.
+- Áp dụng chung?: CÓ: sửa code dùng chung thì phải khởi động lại Studio trước lượt gen; ngôn ngữ chữ viết mới phải kiểm cả `speech_lang` (engine) lẫn `spoken_syllables` (gen_video).
+- Đã chưng cất vào: chưa
+
+### 2026-11-11 · tiem-thit-tieng-anh · sửa theo góp ý người dùng (bản 46 cảnh, cảnh không lời) · loai: kich-ban / code-chung / hau-ky
+- Hiện tượng: người dùng xem bản 37 cảnh, chê 10 điểm: (1) cảnh 2 "Twenty years, my friend!" còn ~1,5 s im sau lời; thiếu các nhịp KHÔNG LỜI của video mẫu: Tavo ngơ ngác ấp úng ~3 s, bà chủ vào chợ tìm quầy, chặt thịt dài + nhanh và gói thịt nhanh (trước "Oh my God, ten minutes"), hôn trán (trước "You saved me today"), montage học nhiều ngày (sau "Again tomorrow"); "I'm sorry" phải là "I'm sorry, I don't speak Spanish"; cảnh "Aquí, siéntese" phải vội vã; app đổi Talka AI; "Me salvaste hoy" phải ngỡ ngàng.
+- Nguyên nhân: (1) `engine.voice_span`: Whisper nghe đủ câu, hết lời 2,76 s, nhưng quy tắc "tiếng còn tiếp sau từ khớp cuối thì nới tới hết tiếng theo năng lượng" (thêm cho câu Tây Ban Nha bị Whisper bỏ sót từ cuối) nới tới 4,2 s vì tiếng cười/thở. Các điểm còn lại: bản 37 cảnh bỏ/gộp cảnh không lời vì Studio chưa có đường chạy thật cho cảnh không lời (lượt rỗng vẫn bị SPEAKER MAP bảo "có người nói", `turn_text` trả câu nói rỗng).
+- Cách sửa: (a) `voice_span`: không nới khi từ khớp cuối chính là từ cuối của câu (đo lại cảnh 2: 0–2,76 s; câu Tây Ban Nha vẫn nới như cũ). (b) Cảnh không lời: `variant_values` cho lượt "text" rỗng → token rỗng; vòng gen: lượt rỗng + Voice trống → `mute_prompt` (bỏ câu có say/speak/talk/voice/lời/nói/giọng, thêm lệnh SILENT CLIP lên đầu), negative bỏ mục speech/voice + thêm "speech; talking...", không SPEAKER MAP, clip không track tiếng thì thêm tiếng lặng; trường mới `Cắt còn: N` / `Tua: K` (`gen_video.FIELDS`, `engine.mute_trim`, thử trên clip thật: 5 s → 3,5 s; tua 1,3 → 3,9 s). (c) `video-moi.py kiem-tra` đếm lượt rỗng là cảnh không lời. (d) `types/tiem-thit-tieng-anh/post.py`: hau_ky dùng chung đánh số lượt có lời liên tục (lượt có lời i = cảnh i) → map lại về đúng cảnh (kiểm: "You see? Nothing." → cảnh 7, "Talka AI." → cảnh 22). (e) Kịch bản 46 cảnh: 9 cảnh không lời (T, X, D2, Y, E hôn trán, Q1–Q4 chớp trắng), mô tả không dùng từ bị lọc (lần đầu "as if to say", "KHÔNG LỜI", "định nói" làm mất cả câu ACTION/diễn biến → đổi từ).
+- Kết quả: kiem-tra 0 lỗi 0 cảnh báo ("37 lượt có lời + 9 cảnh không lời = 46 cảnh"); dựng prompt khô cả 9 cảnh không lời đủ ACTION + diễn biến, Voice rỗng, 0 âm tiết. CHƯA gen thật bản 46 cảnh → CHỜ KIỂM CHỨNG (cần khởi động lại Studio để nạp engine.py + gen_video.py).
+- Áp dụng chung?: CÓ: (a) cảnh không lời dùng lượt rỗng + `Cắt còn`/`Tua` cho mọi thể loại cảnh thường; (b) hành động TRƯỚC câu nói → cảnh không lời riêng + cảnh có lời nối khung; (c) mô tả cảnh không lời tránh từ về nói/giọng; (d) hậu kỳ dùng chung chưa biết lượt rỗng → thể loại có cảnh không lời phải map lại (hoặc sửa `hau_ky.py` khi có thể loại thứ hai cần).
+- Đã chưng cất vào: SO-TAY-KY-THUAT.md §3.5 (dòng cảnh không lời + hành động trước câu nói); PROMPT-CHO-AGENT.txt (lỗi hay gặp)
+
+### 2026-11-11 · phong-van-pho-malayalam · hậu kỳ treo ở Whisper căn phụ đề · loai: hau-ky / code-chung
+- Hiện tượng: gen xong 26 cảnh lúc 15:18, hậu kỳ (`types/phong-van-pho-malayalam/post.py` → `postprocess.align_by_scene` → `--_whisper_windows`, mô hình "small") chạy 25 phút chưa xong, tiến trình Whisper ăn ~1000 giây CPU. Ngoài ra cảnh 11 (clip 5 s) còn tiếng nói tới khung cuối → cụt câu (xác nhận).
+- Nguyên nhân: `align_by_scene` chỉ bỏ qua Whisper cho câu chữ Bengali; câu Malayalam vẫn được đưa vào Whisper "small" kèm prompt Malayalam dài → giải mã lặp rất chậm, mà kết quả cũng không dùng được (align() chỉ đọc chữ Latin).
+- Cách sửa: `app/production/postprocess.py` hai chỗ regex Bengali thêm dải Malayalam U+0D00–0D7F: đoạn Whisper rỗng, phụ đề rải theo độ dài chữ trong khoảng lời đã cắt sát. Chỉ ảnh hưởng câu có chữ Malayalam. Dừng hậu kỳ treo; xoá scene{1,3,5,7,9}_cut/_last, toàn bộ scene11_*, raw.mp4 → Studio tự xếp lại, chạy lại với code mới (đã khởi động lại 14:57).
+- Kết quả: CHỜ KIỂM CHỨNG.
+- Áp dụng chung?: CÓ: ngôn ngữ chữ viết mới phải kiểm 3 chỗ: `engine.speech_lang`/`voice_span`, `gen_video.spoken_syllables`, `postprocess.align_by_scene` (bỏ Whisper nếu Whisper không nghe được).
+- Đã chưng cất vào: chưa
+
+### 2026-11-11 · phong-van-pho-malayalam · xoá nhầm làm gen lại clip phần 1 · loai: studio / quy-trinh
+- Hiện tượng: muốn "cắt lại" cảnh 1,3,5,7,9 (giữ scene*_clip) nhưng Studio gen lại cả khung đầu cảnh 1 và clip các cảnh đó; khung đầu cảnh 1 mới khác bố cục cũ (gần hơn, xe đẩy khác) → có thể giật hình ở chỗ cắt cảnh 1→2.
+- Nguyên nhân: tôi xoá cả `scene{n}_cut.mp4` ở THƯ MỤC CHẠY (cấp trên). `types/_chung/nhieu_phan.py` thấy file cắt cấp trên mất thì xoá MỌI `phan{k}/scene{l}_*` của cảnh đó (cả clip, cả start) để gen lại. Thêm: xoá file cắt của cảnh ĐÃ được duyệt qua trong lượt đang chạy làm thiếu file khi ghép (cảnh 2: phải cắt lại tay bằng `engine.voice_span` + `smart_cut` từ clip còn giữ).
+- Cách đúng: video nhiều phần muốn CẮT LẠI (không gen) → chỉ xoá `phan{k}/scene{l}_cut.mp4` + `_last.png`, GIỮ file cấp trên (engine cắt lại từ clip rồi `_link` ghi đè file cấp trên). Muốn GEN LẠI cảnh → xoá file cấp trên. Không xoá file của cảnh khi Studio đang chạy qua nó.
+- Kết quả: ĐẠT (đã hiểu cơ chế); lượt này mất 6 lần gen thừa (cảnh 1,3,5,7,9 + khung đầu cảnh 1).
+- Áp dụng chung?: CÓ (mọi thể loại nhiều phần).
+- Đã chưng cất vào: chưa
+
+### 2026-11-11 · phong-van-pho-malayalam · góp ý người dùng sau bản 130 s · loai: hau-ky / studio / code-chung
+- Hiện tượng: người dùng chê (1) phần 1 còn nhiều khoảng trống; (2) phụ đề 0–40 s phải xuống thấp, gần đáy; (3) cảnh không liền mạch, giật nhiều; (4) phần 2 hiện quá nhiều chữ một lúc. Đo: giật khung cuối→khung đầu cảnh sau (trung bình |Δ| ảnh 90x160) 54/28/28/33/21 ở 1→2, 3→4, 5→6, 7→8, 9→10, các chỗ khác 4–16.
+- Nguyên nhân: (3) cảnh lẻ bị gen lại (mục "xoá nhầm") còn cảnh chẵn vẫn nối từ khung cuối bản cũ của cảnh lẻ → chuỗi nối khung đứt. (1) cut_margin mặc định 0,5 s. (4) phụ đề theo câu.
+- Cách sửa: (3) gen lại tuần tự cảnh 2–11 (xoá file cắt cấp trên cảnh 2–11; cảnh 1 chỉ xoá phan1/scene1_cut+last để cắt lại). (1) `types/phong-van-pho-malayalam/gen.py`: cut_margin ≤ 0,2. (2) config `y_theo_phan` "1": 1560. (4) `types/_chung/hau_ky.py` thêm tuỳ chọn `cum_tu_theo_phan` (`chia_cum`: chia dòng đã căn giờ thành cụm ≤ N từ, chia đều, giờ theo số ký tự; dòng có dịch/tô từ/fx giữ nguyên); config "2": 3. Phần 2 cảnh 15, 22 (cắt bằng code cũ, dư 7 s / 3 s): chỉ xoá phan2/scene{4,11}_cut+last để cắt lại từ clip nói có sẵn.
+- Kết quả: CHỜ KIỂM CHỨNG (hàng đợi 4794b117).
+- Áp dụng chung?: CÓ: (a) sửa lại MỘT cảnh giữa chuỗi nối khung thì mọi cảnh sau trong chuỗi phải gen lại, không thì giật; (b) `cum_tu_theo_phan` dùng được cho thể loại nào có phụ đề 1–3 từ như video mẫu.
+- Đã chưng cất vào: chưa
+
+### 2026-11-11 · phong-van-pho-malayalam · kết quả sửa theo góp ý (bản 105 s) · loai: studio / hau-ky
+- Hiện tượng: sau khi gen lại cảnh 2–11 tuần tự: giật giữa cảnh còn 3–14 (trước 21–54): ĐẠT. Phụ đề phần 1 ở đáy, phần 2 cụm ≤ 3 từ: ĐẠT. Nhưng cảnh 3, 5, 6, 8 vẫn 4–5 s (lời ~0,5–1,4 s), cảnh 15 vẫn 10 s, tổng 138 s.
+- Nguyên nhân: (a) cut_margin 0,2 tôi đặt → engine hi = max(0,3, margin+0,05) = 0,3, lo = 0,18 → cửa sổ tìm điểm cắt đúng 0,12 s, phép so `>= 0.12` trượt vì làm tròn số → `smart_cut` giữ cả clip (thử lại trên cảnh 5 với mốc lời đúng 0,42–1,78: ra 4,7 s). (b) `engine._energy_span` lấy mức tiếng nói theo phân vị 90: câu Malayalam rất ngắn ("ഉടനെ", 0,3 s trong clip 5 s) thì phân vị 90 vẫn là nền → None; thêm điều kiện câu ml phải > 0,5 s.
+- Cách sửa: không cắt lại đuôi (đứt nối khung) mà TUA NHANH khoảng lặng đầu/giữa/cuối, giữ khung đầu + khung cuối: `SAMPLE/phong-van-pho-malayalam/cong-cu/nen_khoang_lang.py` (mức tiếng nói theo phân vị 99,5; bỏ tiếng động lẻ < 0,3 s; giữ 0,2 / 0,35 / 0,3 s; bản gốc lưu `*_cut.truoc-nen.mp4`), rồi xoá raw/final và cho Studio ghép + hậu kỳ lại (3 phút). gen.py: cut_margin ≤ 0,3 (không thấp hơn).
+- Kết quả: ĐẠT về số đo: 137,6 s → 105 s, phần 1 53 s → ~33 s. Chưa có ý kiến người dùng.
+- Áp dụng chung?: CÓ: (a) cut_margin < 0,3 làm hỏng cắt sát ở mọi thể loại (lỗi biên trong smart_cut, chưa sửa engine); (b) muốn bớt khoảng trống ở clip đã nối khung thì tua nhanh, không cắt đuôi; (c) `_energy_span` hụt câu rất ngắn trong clip dài (chưa sửa engine).
+- Đã chưng cất vào: chưa
+
+### 2026-11-11 · tiem-thit-tieng-anh · chạy thử bản 46 cảnh (cảnh không lời) · loai: muse / studio / code-chung
+- Hiện tượng: final.mp4 172 s 1080x1920 (dự án Tiem-thit---Tavo-46-canh-f51c, gen 15:08–17:01, song song với một video Malayalam của phiên khác); log không có cảnh báo/lỗi mức warn ngoài cảnh 6 gen lại 1 lần (Muse tự cắt sang góc khác, Studio phát hiện "máy trôi") và cảnh 5 cắt lại rộng hơn (Whisper nghe tên "Tavo" sai). 9 cảnh không lời đều ĐẠT: 6 Tavo ấp úng (3,5 s, không tiếng, chỉ một tiếng "uhh" rất nhỏ), 11 bà chủ tìm quầy trong chợ (máy đứng yên), 17 chặt thịt nhanh (7,8 s sau tua x1,3), 18 gói thịt (3,9 s), 24 hôn trán, 32–35 montage. Phụ đề đúng cảnh nhờ post.py map lại; "Talka AI", "I'm sorry, I don't speak Spanish", cảnh 28 ngỡ ngàng đúng.
+- Còn lỗi nhỏ: cảnh 18 thấy đỉnh đầu Tavo (dặn chỉ có tay) và chồng gói thịt có sẵn 4 gói từ đầu; cảnh 11 bà chỉ đi ngang chứ không bước về phía máy; cảnh 32 màn hình điện thoại có robot; cảnh 35 đèn sáng hơn "sáng sớm"; dòng dịch vẫn đỏ nhỏ; chưa gắn Thương hiệu/Outro.
+- Kết quả: ĐẠT (đường cảnh không lời chạy thật lần đầu). Cắt đuôi sau "Twenty years, my friend!" đã sửa (xem mục trước).
+- Áp dụng chung?: CÓ: cảnh không lời (lượt rỗng + Cắt còn/Tua) dùng được cho mọi thể loại cảnh thường; Studio chạy hai mục hàng đợi cùng lúc được; mở lại Studio sau khi sửa engine mới nạp code.
+- Đã chưng cất vào: SO-TAY-KY-THUAT.md §3.5 (đã bỏ chữ "chưa gen thật" ở bước sau)
+
+### 2026-11-11 · phong-van-pho-malayalam · bỏ tua nhanh, cắt sát theo lời (gen lại 4–11, rồi 9–11) · loai: studio / code-the-loai
+- Hiện tượng: người dùng chê bản tua nhanh khoảng lặng "không tự nhiên, không được tua nhanh". Trả lại 19 bản cắt gốc, xoá `nen_khoang_lang.py`. Studio mặc định cũng tua quãng ngắt >= 0,55 s (speedfix, tối đa x2).
+- Cách sửa: `types/phong-van-pho-malayalam/gen.py`: speedfix=False, cut_margin 0,3, và trong lúc chạy thể loại thay `E.voice_span` bằng `_span_ml` (năng lượng; mức lời theo phân vị 99,5; gộp nghỉ < 0,25 s; bỏ tiếng lẻ < 0,3 s cách > 0,8 s; sau quãng lặng >= 1 s bỏ phần còn lại nếu < 0,8 s hoặc nhỏ hơn lời chính >= 8 dB) cho MỌI câu (Whisper báo từ cuối "Otherwise." trễ 2 s). Thử trên clip: ഉടനെ 5 → 0,75 s, Otherwise 4,1 → 1,0, Therefore 5 → 1,0.
+- Gen lại 4–11 (cắt lại 3): 120 s, giật giữa cảnh 3–17. Cảnh 8 còn 5 s (ồn nền -30..-36 dB sau lời bị tính là lời) → thêm điều kiện "nhỏ hơn 8 dB", cắt lại 8, gen lại 9–11.
+- Kết quả: ĐẠT về số đo (hàng đợi 5c539137): 116 s, phần 1 35 s, cảnh 8 còn 1,0 s; không tua nhanh. Chỗ 10→11 đổi cỡ cảnh (Muse zoom dần trong cảnh 10, cảnh 11 về cỡ rộng). Chờ người dùng duyệt.
+- Áp dụng chung?: CÓ: (a) không tua nhanh (bộ nhớ khong-tua-nhanh-video); (b) cắt sát đầu clip nối khung ("head" của smart_cut) cũng làm lệch khung nối nhẹ (2→3: 17); (c) mốc Whisper từ cuối không đủ tin để cắt sát câu một từ.
+- Đã chưng cất vào: chưa
+
+### 2026-11-11 · taxi-gia-su-ai · phân tích + kịch bản (thể loại mới) · loai: phan-tich / kich-ban / code-the-loai
+- Hiện tượng: video mẫu 95 s song ngữ (taxi + gara tiếng Anh, phòng khách + phần AI tiếng Tây Ban Nha). `danh-gia` (Whisper en) dịch luôn câu Tây Ban Nha sang tiếng Anh ("Papá, ¿qué pasó?" → "Papa, what happened?") thay vì bỏ đoạn; phải chạy thêm `phan-tich-video.py --lang es` vào thư mục khác và đối chiếu phụ đề trên hình. Robot AI giọng 160–200 Hz bị gom chung cụm "A" với các giọng nam.
+- Video gốc có 5 cảnh không lời trong phần cảnh thường của dự án NHIỀU phần; `nhieu_phan.plan` lọc `text.strip()` nên lượt rỗng biến mất → số cảnh phần 1 lệch.
+- Cách làm: biến thể đặt `"text": "[KHONG LOI]"` (MARKER); `types/taxi-gia-su-ai/gen.py` bọc `engine.run_variant` đổi đúng MARKER thành "" trước khi engine chạy (clip câm như tiem-thit); `post.py` bỏ lượt MARKER khỏi phụ đề. Không sửa code dùng chung. Thử bằng code thật (giả run_variant): phần 1 25 lượt, rỗng ở 7/10/11/13/21; phụ đề 47 dòng, không dòng MARKER, cảnh câm không có phụ đề.
+- Kết quả: CHỜ KIỂM CHỨNG (lượt gen thử đầu tiên). `kiem-tra`: 0 lỗi, 0 cảnh báo (đã đổi emo impatient/frustrated/annoyed/sad → từ trong EMO_CUES).
+- Áp dụng chung?: CÓ (nếu gen thật đạt): (a) Whisper ép "en" trên đoạn Tây Ban Nha có thể DỊCH chứ không bỏ → luôn chạy ngôn ngữ thứ hai khi phụ đề trên hình là ngôn ngữ khác; (b) cảnh không lời trong dự án nhiều phần: dùng MARKER + gen.py, hoặc sửa `nhieu_phan.plan` giữ lượt rỗng (code chung, chưa làm).
+- Đã chưng cất vào: chưa
+### 2026-11-11 · taxi-gia-su-ai · chạy thử lần 1, cảnh 1 · loai: muse / kich-ban
+- Hiện tượng: `scene1_start.png` sát video mẫu (góc qua kính chắn gió: tài xế to bên phải, khách nhỏ ở ghế sau trái). Nhưng `phan1/scene1_clip.mp4`: Muse giữ khung đầu ~1,5 s (tài xế chớp mắt, không nói) rồi TỰ CẮT sang bố cục khác: khách ở giữa ghế sau, tài xế quay lưng mép trái; khách nói đúng lời. Studio (`start_jump`/`hold_after_jump`) giữ đoạn sau cú cắt → `scene1_cut.mp4` 5,1 s bố cục mới, chuỗi nối khung cảnh 2–6 sẽ lệch khung đầu góc A.
+- Nguyên nhân (giả thuyết mạnh): người nói (khách) quá nhỏ, ở hậu cảnh, trong khi người to tiền cảnh im → Muse "đạo diễn lại" cho người nói làm chủ thể. Cùng nhóm hiện tượng với "Muse gán giọng cho mặt nhìn thấy".
+- Cách sửa: dừng riêng mục hàng đợi (`POST /api/stop {"id"}`); thêm góc A2 = đúng bố cục Muse tự chọn (khách giữa ghế sau, chỉ thấy gáy/vai tài xế) cho mọi câu của khách (cảnh 1 ảnh mới, cảnh 3 `Khung đầu từ cảnh: 1`, 4–6 nối khung); câu tài xế (cảnh 2) giữ góc A với `Prompt ảnh` riêng; negative thêm "a cut to another camera angle". Chép kịch bản đè `userdata/studio/types/Taxi-gia-su-AI-a6ce.txt`, đổi tên thư mục chạy cũ thành `-lan1-loi-cat-goc`, chạy lại mục 83bafa6f.
+- Kết quả: CHỜ KIỂM CHỨNG (lần chạy 2).
+- Áp dụng chung?: CÓ (nếu lần 2 đạt): người nói nhỏ ở hậu cảnh trong khi người im to ở tiền cảnh → Muse tự cắt góc giữa clip; cho người nói làm chủ thể khung (người im chỉ thấy gáy/vai).
+- Đã chưng cất vào: chưa
+### 2026-11-11 · taxi-gia-su-ai · người dùng bác góc A2 / góc J qua vai · loai: kich-ban / phan-hoi
+- Hiện tượng: lần chạy 2 dùng góc A2 (khách giữa ghế sau, tài xế quay lưng) để né lỗi Muse tự cắt góc ở lần 1. Người dùng: "tại sao cảnh 1 lại ngồi như vậy? hãy bám sát cảnh, bố cục, vị trí nhân vật trong video gốc".
+- Nguyên nhân: mình tự đổi bố cục để giảm rủi ro Muse mà không hỏi; người dùng ưu tiên bám video gốc hơn né rủi ro.
+- Cách sửa: bỏ góc A2; mọi cảnh taxi dùng góc A như gốc; cảnh 2–6 dùng `Khung đầu từ cảnh: 1` (mỗi clip bắt đầu lại từ đúng bố cục gốc, clip nào Muse cắt góc thì không lan sang cảnh sau, và gen lại riêng clip đó); góc A khoá "ONE continuous shot… never cuts, never moves closer to the back seat"; negative "a cut to another camera angle". Góc J cũng bỏ "qua vai", về đúng gốc: hai người đối mặt cùng lộ mặt. Dùng lại `scene1_start.png` của lần 1 (đúng bố cục gốc).
+- Kết quả: CHỜ KIỂM CHỨNG (lần chạy 3).
+- Áp dụng chung?: CÓ: KHÔNG tự đổi bố cục/vị trí nhân vật so với video gốc để né rủi ro Muse; nếu cần thì hỏi người dùng trước. Né bằng cách khác (khung đầu từ cảnh, khoá máy, gen lại clip lỗi).
+- Đã chưng cất vào: chưa
+### 2026-11-11 · taxi-gia-su-ai · lần chạy 3: cảnh câm 7 bị điền câu của quản lý · loai: code-the-loai
+- Hiện tượng: cảnh 1–6 ĐẠT (bố cục gốc giữ suốt clip nhờ `Khung đầu từ cảnh: 1` + khoá "ONE continuous shot", lời đúng, Whisper khớp). Cảnh 7 (góc P, câm) có `{{LUOT_7}}` = câu "Arjun, your ratings…" của lượt 8; `phan.json` phần 1 chỉ 20 cảnh (đáng ra 25).
+- Nguyên nhân (đã chứng minh): `gen.py` thay `engine.run_variant` cho CẢ tiến trình Studio. Lần chạy đầu sau khi mở Studio thì đúng, nhưng từ lần thứ hai trong cùng tiến trình, lệnh gọi gốc của Studio (`server.gen_item` → `E.run_variant`) cũng đi qua hàm bọc → MARKER thành "" TRƯỚC `custom_gen` → `nhieu_phan.plan` bỏ lượt rỗng → lượt sau dồn lên.
+- Cách sửa: hàm bọc chỉ đổi MARKER khi `opts["_part"]` (nhieu_phan gọi cho một phần). Thử: nạp gen.py 2 lần, gọi gốc giữ 5 MARKER, gọi phần đổi 5. Khởi động lại Studio (bỏ bản bọc cũ trong bộ nhớ), giữ cảnh 1–6, chuyển cảnh 7+ sang `taxi-mexico-goc-lan3-cam-lech`, chạy tiếp.
+- Kết quả: CHỜ KIỂM CHỨNG (lần chạy 4).
+- Áp dụng chung?: CÓ: thể loại monkeypatch hàm engine phải gắn điều kiện (chỉ khi `_part` / chỉ thư mục thể loại mình), vì Studio chạy mọi dự án trong cùng một tiến trình và hàm đã thay tồn tại tới khi tắt Studio.
+- Đã chưng cất vào: chưa
+### 2026-11-11 · taxi-gia-su-ai · lần chạy 4: phần 1 xong 25 cảnh · loai: muse / studio
+- Hiện tượng: 25/25 cảnh phần 1 xong (18:41–19:27). Lời 20 cảnh có lời đều đúng (Whisper; câu ngắn "Papá, ¿qué pasó?", "Nada, hija." phải ép `es`). 5 cảnh câm đúng chỗ (7, 10, 11, 13, 21), độ dài theo `Cắt còn` (3 / 2,5 / 2 / 3 / 2 s), tiếng nền -15..-17 dB; riêng cảnh 13 có tiếng đỉnh -1,7 dB (cần nghe). Bố cục khớp gốc: taxi qua kính chắn gió giữ suốt 6 cảnh; gara 3 người, trao khoá, taxi mới; cảnh 12 hai người đối mặt (không thấy tài xế nhép theo trên ảnh ghép); phòng khách L/L2/L3; cận điện thoại robot (robot hoạt hình đơn giản, không chữ).
+- Lệch nhỏ: cảnh 22–25 điện thoại sang tay bố và màn hình tối (gốc con gái cầm, màn hình robot). Phần 2: `base_HOC` bị ô che lần đầu → Studio gen lại rồi dịch xuống (`.che1.png`, `.truoc-dich.png`), kết quả đạt.
+- Kết quả: ĐẠT (phần 1). Xác nhận: MARKER + điều kiện `_part` chạy thật; `Khung đầu từ cảnh: 1` giữ được bố cục khi người nói nhỏ ở hậu cảnh.
+- Áp dụng chung?: CÓ: (a) cảnh không lời trong dự án nhiều phần bằng MARKER chạy được; (b) người nói nhỏ ở hậu cảnh: dùng lại nguyên khung đầu cho mọi cảnh cùng góc + khoá "one continuous shot, never reframes on whoever speaks" thay vì đổi bố cục.
+- Đã chưng cất vào: chưa### 2026-11-11 · taxi-gia-su-ai · lần chạy 4: phần 2 + video hoàn chỉnh · loai: muse / studio
+- Hiện tượng: phần 2 xong 18 cảnh, `final.mp4` 152,9 s (gốc 95 s, phần 1 ~83 s vì mỗi cảnh dài hơn gốc ~1–1,5 s, phần 2 ~69 s; khoảng lặng > 0,7 s chỉ 5 chỗ ≤ 1,1 s → không tua). Ghép 2 lớp đạt: robot trắng trong ô bo góc, tài xế hai tay vô lăng nhìn ống kính, viền đỏ + ❌ ở "I am Mexico", ✅ xanh ở "I am from Mexico", 💲 ở "no tengo dinero", phụ đề vàng; phần 1 ô trắng + dòng dịch, cảnh câm không phụ đề. Whisper: 17/18 câu phần 2 đúng; cảnh 28 (phần 2 cảnh 3) robot lặp "Where are you? Are you from? Where are you from?" (clip 6,8 s). Cảnh 13 câm: đỉnh -9,7 dB trong video cuối (không phải tiếng nổ).
+- Nguyên nhân: Muse tự lặp/ấp úng câu tiếng Anh ngắn sau câu Tây Ban Nha trong cùng lượt (giả thuyết).
+- Cách sửa: xoá `scene28_cut.mp4` + `_last.png` cấp trên (nhieu_phan xoá `phan2/scene3_*`), cất `final.mp4` cũ vào `_cu-canh28/final-lan4.mp4`, chạy lại mục 83bafa6f để gen lại riêng cảnh đó.
+- Kết quả: ĐẠT. Clip mới 3,8 s, Whisper ép `en` nghe "¿De dónde eres? Where are you from?" (ép `es` thì phiên âm câu Anh thành "¿Dónde eres?", đừng tin), phụ đề hai dòng đúng; `final.mp4` 149,9 s. Các cảnh khác dùng lại, không gen lại.
+- Mẹo kiểm: câu song ngữ trong một lượt phải chạy Whisper cả `es` và `en`.
+- Áp dụng chung?: CHƯA RÕ (cần thêm lần lặp mới kết luận câu song ngữ trong một lượt hay bị lặp).
+- Đã chưng cất vào: chưa
+
+### 2026-11-12 · tiem-thit-tieng-anh · bản 50 cảnh (sửa theo góp ý lần 2) · loai: muse / kich-ban / studio
+- Hiện tượng (góp ý người dùng sau bản 46 cảnh): (1) "Tío, dijo que hoy me pagaba la semana" phải do Tavo nói; (2) chặt + gói thịt phải nhanh, chuyên nghiệp hơn; (3) cảnh bà chủ cảm ơn / hôn trán: trên nóc tủ phải là các gói thịt Tavo vừa gói; (4) sau "Again tomorrow" là nhiều cảnh nhanh Tavo vừa làm việc vừa học bằng app; (5) thêm cảnh bà chủ "No, the young guy." trước "Tú, cállate"; (6) bà chủ vui mừng, nhẹ nhàng ở mọi cảnh nói với Tavo về sau.
+- Nguyên nhân (1): Muse gán giọng cho MẶT NHÌN THẤY: cảnh 9 Tavo quay nghiêng miệng gần khép (emo "hesitant" có chữ "lips press"), ông chú nhìn thẳng Tavo → môi ông chú mấp máy theo lời Tavo (đã thấy trong clip bản 46 cảnh). Thể loại không đo được vì hai người cùng nhãn vị trí "behind-counter".
+- Cách sửa: (1) Tavo mặt 3/4 hướng máy, miệng cử động rõ, emo "hopeful, worried"; ông chú "nhìn xuống đồng xu, môi mím". Kết quả: Tavo mở miệng theo lời, môi ông chú khép (ông vẫn nhìn Tavo, không nhìn đồng xu). (2) chặt: lời dặn "extreme speed ... blur", Tua 1,3→1,5; gói: đầu clip chỉ 1 gói, cuối 4 gói, góc Y "đầu nằm dưới mép dưới khung" (Muse vẫn để lộ đỉnh đầu nhỏ ở mép dưới). (3) góc E: 4 gói giấy hồng ({{DAO_GOI}}) trên nóc tủ kính; cả cảnh 20 và hôn trán (24, khung đầu từ 20) đều đúng. (4) montage 4→7 cảnh x 2,5 s, chớp trắng 0,2; mỗi cảnh có điện thoại hiện app (góc mới Q5, Q6, Q7). (5) cảnh M "No, the young guy." dùng `Khung đầu từ cảnh` của cảnh M "Hi. A month ago..."; "Tú, cállate" dùng khung đầu cảnh M2 "Yes, yes, me" (công cụ: `id="m"` / `start="@m"` trong tao_kich_ban.py). (6) emo "delighted, warm" + eye/act bà chủ mỉm cười vui mừng cả lúc nghe.
+- Kết quả: ĐẠT các cảnh đã duyệt (9, 17, 18 một phần, 20, 24, 32–38, 41). final 178,7 s 1080x1920, 50 cảnh (38 có lời + 12 không lời), log không cảnh báo mức warn ngoài 1 lần WinError 32 tự chạy lại. Chưa duyệt kỹ từng cảnh 25–31, 39–50 (chỉ xem khung giữa).
+- Áp dụng chung?: CÓ: (a) hai người cùng khung, người nghe nhìn thẳng người nói → Muse gán giọng cho người nghe: cho người nghe nhìn đi chỗ khác / người nói quay mặt 3/4 về máy, tránh emo có "lips press" cho người cần mở miệng; (b) góc cận từ trên xuống: không giữ được "đầu ngoài khung"; (c) đạo cụ đã làm ở cảnh trước phải nêu rõ trong CAMERA ANGLE của các cảnh sau (gói thịt trên nóc tủ).
+- Đã chưng cất vào: SO-TAY-KY-THUAT.md (dòng cảnh không lời), README thể loại
+
+### 2026-11-12 · phong-van-pho-malayalam · 40 biến thể từ bảng người dùng · loai: bien-the / kich-ban / anh-tham-chieu
+- Hiện tượng: bảng csv 40 dòng: người bán đổi giới/tuổi/nghề + ảnh Drive (nhân vật phông xanh toàn thân 1152x2048, bối cảnh không người). Kịch bản cũ ghi cứng "the woman / gloved hands / pots / cart / saree" ở ANGLE, ACTION, NEGATIVE.
+- Cách sửa: kịch bản chuyển sang token (TEN_HOC, SHE_/HER_/HERO_/SELF_HOC, TAY_HOC, VIEC_HOC, VIEC2_HOC, DAO_GANG thành câu đầy đủ); biến thể 01 điền như cũ (so chữ: chỉ đổi woman→vendor, cart→stall). `tao_40_bien_the.py` tải ảnh Drive (uc?export=download, ảnh webp → jpg), refs NGUOI_HOC + NEN_PHO + NEN_HOC. Biến thể nam: TEN_HOC "the vendor" (không "the man": "him/his" lẫn với phóng viên nam), giọng nam 100-135 Hz cho khác phóng viên.
+- Kết quả: kiem-tra --tai-anh 0 lỗi 0 cảnh báo (324 mục). Đã nhập: loại `Phong-van-pho-Malayalam---40-nghe-5f1f`, dự án `Interview-street-Malayalam---40-bien-the-375b`, 40/40 biến thể đủ 5 ảnh refs. Chưa gen: CHỜ KIỂM CHỨNG (rủi ro cặp nam-nam cùng khung).
+- Áp dụng chung?: CÓ: (a) kịch bản định làm nhiều biến thể nghề/giới thì viết token đại từ + đạo cụ ngay từ đầu; (b) kịch bản thêm token mới → loại dự án mới, không sửa loại đang có dự án.
+- Đã chưng cất vào: chưa
+
+### 12/11/2026 phong-van-pho-malayalam: người bán NAM đổi phóng viên sang NỮ (20 biến thể bt01-10, bt21-30)
+- Hiện tượng/yêu cầu: người dùng yêu cầu người bán nam thì phóng viên phải là nữ để tránh lặp câu / người này nói câu của người kia (hai nam cùng khung, phóng viên quay lưng).
+- Cách làm: `cong-cu/tao_40_bien_the.py` thêm `PV_NU` (ngoại hình, giọng 200-230 Hz, NHIN_PV/NGHE_PV đại từ "her", ảnh `anh/phong-vien-nu.png` gen bằng `gen_anh_tham_chieu.py PVN`); chỉ biến thể người bán nam dùng. Cặp nữ bán + nam PV giữ nguyên. Cập nhật dự án qua PUT, xoá thư mục chạy + bản xuất cũ của 20 biến thể, xếp lại hàng đợi 4 luồng.
+- Kết quả: CHỜ KIỂM CHỨNG (xem lời có bị lặp/lẫn giọng không). Áp dụng riêng thể loại; quy tắc chung: cặp PV-người bán luôn khác giới. Chưa chưng cất.
+
+### 2026-11-12 · tiem-thit-tieng-anh · thay robot AI bằng ảnh người dùng cung cấp · loai: muse / quy-trinh
+- Yêu cầu: mọi cảnh có robot phải dùng đúng robot trong ảnh mới (anh/ROBOT.png).
+- Cách làm: lưu ảnh làm ref `NGUOI_ROBOT`, viết lại mô tả `NGUOI_ROBOT` theo ảnh; cảnh 49 (Tavo giơ điện thoại) thêm ref ROBOT + tả robot trong prompt ảnh (trước đó chỉ "mặt robot trắng" nên màn hình không đúng robot). Chỉ gen lại 5 cảnh có robot (27, 29, 31, 49, 50; cảnh 50 nối từ khung cuối 49): tạo dự án mới, copy file scene{n}_* của các cảnh còn lại từ run cũ rồi xoá scene27/29/31/49/50_*, script.txt, variant.json, final/raw trước khi bắt đầu hàng đợi.
+- Kết quả: ĐẠT. Robot ở cảnh 27 và điện thoại ở cảnh 49 giống ảnh (đầu trắng bóng có đường panel, giáp lục giác viền xanh, cổ cáp đen). final 177,8 s.
+- Áp dụng chung?: CÓ: đổi nhân vật phụ chỉ cần gen lại các cảnh có nhân vật đó bằng cách dùng lại file cảnh cũ; cảnh chỉ nhắc nhân vật trên màn hình/đạo cụ cũng phải có ref ảnh và mô tả trong prompt ảnh.
+### 2026-11-12 · taxi-gia-su-ai · xe taxi phải rõ là đang chạy · loai: muse / kich-ban
+- Hiện tượng: người dùng: đoạn taxi (0–20 s) xe đang chạy mà cảnh vật ngoài kính đứng im, cần thấy phố hai bên cửa kính đổi.
+- Nguyên nhân: prompt cũ ép nền đứng im ("Nothing moves in the background", NEN_PHO "all still", "LOCKED CAMERA on a tripod") nên Muse vẽ xe đỗ.
+- Cách sửa: góc A có khối "MOVING TAXI, CAR-MOUNTED CAMERA" (máy gắn đầu xe: khung giữ y nguyên, nhưng phố trôi liên tục từ trước ra sau, rung nhẹ, vệt nắng/bóng), bỏ "all still", STYLE LOCK/SET LOCK/NEGATIVE ghi ngoại lệ cho góc A, negative thêm "a parked or stopped taxi; a frozen street". Giữ nguyên ảnh khung đầu; gen lại clip cảnh 1–6 (bản cũ ở `_cu-xe-dung/`).
+- Kết quả: ĐẠT phần chuyển động: nhà, đèn giao thông, cột đèn trôi rõ ở cảnh 1–6, bố cục gốc giữ, lời 6 cảnh đúng (Whisper). Lệch: cảnh 3 tài xế quay đầu sang phải, giơ tay (bắt chước hành động khách) → thêm vào `act` cảnh 3 "the driver does NOT copy him…", gen lại riêng cảnh 3.
+- Kết quả lần gen lại cảnh 3 (12/11 15:49): hết giơ tay, lời đúng, cảnh vật vẫn trôi; nhưng nửa sau clip tài xế vẫn quay đầu nghiêng sang phải (về phía cửa sổ). `final.mp4` ghép lại 15:58. CHỜ người dùng quyết có gen lại lần nữa không.
+- Áp dụng chung?: CÓ, cho cảnh trong xe đang chạy: ghi rõ "camera fixed to the moving vehicle, outside streams past" thay vì khoá máy tripod + nền tĩnh; chạy xong phải soi người nghe có bắt chước cử chỉ người nói không.
+- Đã chưng cất vào: chưa
+
+### 2026-11-12 · tiem-thit-tieng-anh · nhạc nền, montage 1,3 s, cảnh 39–42 một góc · loai: studio / kich-ban / hau-ky
+- Yêu cầu: (1) thêm nhạc nền; (2) 7 cảnh Tavo vừa học vừa làm cắt còn 1–1,5 s; (3) từ "Hi, a month ago…" đến "Tú, cállate" chỉ một nền, một góc.
+- Cách làm: (1) Studio chưa có chức năng nhạc nền → công cụ riêng thể loại `cong-cu/them_nhac_nen.py` (nhạc guitar Latin tự tạo bằng numpy, không bản quyền; sidechain hạ nhạc khi có giọng; mặc định -15 dB), chạy trên final.mp4. (2) `keep=1.3` cho Q1–Q7; xoá scene{n}_cut/_last của 32–38 để cắt lại từ clip cũ, không gen lại. (3) cảnh 39–42 đều góc M (`start="noi"` nối khung cuối cảnh trước), bỏ M2; xoá scene39–42_* để gen lại.
+- Kết quả: ĐẠT các cảnh 39–42 cùng nền, cùng góc (xem khung giữa). final 169,9 s. Nhạc chưa nghe thử, chỉ kiểm tra mức âm lượng.
+- Áp dụng chung?: CÓ: đổi đoạn dài cần một góc → chọn góc có đủ cả hai người; cắt lại cảnh không lời chỉ cần xoá _cut và _last.
+### 2026-11-12 · taxi-gia-su-ai · cảnh 1–6 không liền mạch, tay lỗi · loai: muse / kich-ban
+- Hiện tượng: người dùng xem khung cuối 6 cảnh taxi: khách ngồi xa/gần khác nhau từng cảnh (cảnh 4 chồm sát tài xế), tư thế và hành động không nối nhau, mặt tài xế đổi giữa cảnh; cảnh 1 tay khách bị lỗi khi chỉ tay (một tay cầm điện thoại, tay kia chỉ).
+- Nguyên nhân: cảnh 2–6 đều `Khung đầu từ cảnh: 1` → mỗi clip bắt đầu lại từ cùng khung đầu nên cuối clip mỗi cảnh một kiểu; hành động chỉ tay/giơ tay một tay trong khi tay kia giữ điện thoại → Muse vẽ tay hỏng.
+- Cách sửa: cảnh 2–6 dùng `start="noi"` (khung đầu = khung cuối cảnh trước; máy gắn xe nên khung không đổi), mỗi cảnh kết thúc ở tư thế cố định (khách ngồi lùi, điện thoại áp tai, tay trống để trên đầu gối), bỏ chỉ tay: chỉ gật đầu/ngoái đầu/nâng bàn tay nhẹ; khi khách nói thêm "tài xế KHÔNG bắt chước, tay trên vô lăng, đầu/thân cố định"; khi tài xế nói thêm "khách ngồi lùi, không chồm tới gần". Cảnh nhìn ra cửa sổ: sửa "RIGHT" thành mép TRÁI khung (khách ngồi bên trái). Bản cũ cất ở `_cu-xe-dung/lan7/`.
+- Kết quả: KHÔNG ĐẠT. Nối khung + máy gắn xe đang chạy: cảnh 1–2 thành cảnh rộng (xe nhỏ), từ cảnh 3 Muse tự đổi sang góc trong xe, khách ngồi cạnh tài xế ở hàng trên, có chữ "E 42 St" trên đèn mui; lỗi lan hết cảnh 4–6. Ngoài ra `scene1_start.png` bị gen lại (16:08) vì mình chuyển cả `scene1_cut.mp4` cấp trên → nhieu_phan xoá sạch `phan1/scene1_*`. Người dùng: "các cảnh sau tự dưng khách ngồi lên chỗ tài xế".
+- Sửa lần 2: bỏ nối khung, cảnh 2–6 về lại `Khung đầu từ cảnh: 1`, giữ hành động đơn giản + tư thế cuối cố định; lấy lại ảnh khung đầu đã duyệt từ `taxi-mexico-goc-lan1-loi-cat-goc/phan1/scene1_start.png`; chỉ xoá file trong `phan1/` (giữ file cấp trên) để ảnh không bị gen lại. Bản lỗi cất ở `_cu-xe-dung/lan8-noi-khung/`. CHỜ KIỂM CHỨNG.
+- Áp dụng chung?: CÓ: (a) góc máy mà người nói nhỏ ở hậu cảnh thì KHÔNG nối khung chuỗi dài: Muse đổi góc và lỗi lan theo chuỗi; dùng lại một khung đầu đã duyệt. (b) Gen lại clip mà giữ ảnh khung đầu: chỉ xoá `phan{k}/scene{l}_clip/_cut/_last`, không đụng file cấp trên. (c) hành động phải có tay trống khi tay kia đã cầm vật.
+- Đã chưng cất vào: chưa
+- Sửa (12/11, người dùng báo "video chưa có nhạc"): bản trộn đầu để nhạc -15 dB + sidechain ngưỡng 0.02 → nhạc thấp hơn giọng ~12 dB và bị hạ liên tục (âm nền video luôn vượt ngưỡng), tăng âm lượng chỉ 0,1 dB nên không nghe ra. Đổi mặc định -8 dB, sidechain ngưỡng 0.1 tỉ lệ 2,5. Bài học: kiểm tra bằng so mean_volume trước/sau trộn (phải tăng ≥1 dB), đừng chỉ xem file đã ghi.

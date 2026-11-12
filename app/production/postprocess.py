@@ -233,7 +233,7 @@ def align_by_scene(src, units, scenes, model_name):
         us = [u for u in units if u.get("turn") == t]
         a, b = max(0.0, sc.get("speech", sc["start"]) - 0.2), min(total, sc["end"] + 0.2)   # "speech": cảnh có đoạn không lời ở đầu   # đệm nhỏ vì mốc cảnh tính từ độ dài clip, lệch vài chục mili giây
         text = " ".join(u["t"] for u in us)
-        if re.search("[\u0980-\u09ff]", text):   # chữ Bengali: Whisper "small" không trả lời (10/11/2026: bn, tự nhận, hi kèm prompt Bengali đều vậy); đoạn rỗng thì phụ đề căn theo khoảng lời đã cắt sát của cảnh
+        if re.search("[\u0980-\u09ffഀ-ൿ]", text):   # chữ Bengali (và Malayalam, 11/11/2026: Whisper "small" treo >20 phút): Whisper "small" không trả lời (10/11/2026: bn, tự nhận, hi kèm prompt Bengali đều vậy); đoạn rỗng thì phụ đề căn theo khoảng lời đã cắt sát của cảnh
             b = a
         lang = "es" if re.search(r"[¿¡ñÑ]", text) else None   # chữ chỉ có trong tiếng Tây Ban Nha: chốt ngôn ngữ; còn lại để Whisper tự nhận cho riêng cảnh này
         groups.append((sc, us))
@@ -246,7 +246,7 @@ def align_by_scene(src, units, scenes, model_name):
     for (sc, us), words in zip(groups, result):
         if not words:
             s0 = sc.get("speech", sc["start"])
-            if re.search("[\u0980-\u09ff]", " ".join(u["t"] for u in us)):   # align() chỉ đọc chữ Latin: câu Bengali sẽ bị lấy mốc theo mấy từ tiếng Anh trong câu (hiện muộn, quá ngắn); rải thẳng theo độ dài chữ
+            if re.search("[\u0980-\u09ff\u0d00-\u0d7f]", " ".join(u["t"] for u in us)):   # align() chỉ đọc chữ Latin: câu Bengali sẽ bị lấy mốc theo mấy từ tiếng Anh trong câu (hiện muộn, quá ngắn); rải thẳng theo độ dài chữ
                 cur, t_end, total_len = s0 + 0.1, max(s0 + 0.6, sc["end"] - 0.2), sum(len(u["t"]) + 1 for u in us) or 1
                 span = t_end - cur
                 for u in us:

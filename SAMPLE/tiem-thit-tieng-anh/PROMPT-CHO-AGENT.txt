@@ -1,0 +1,52 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "TIỆM THỊT HỌC TIẾNG ANH" (tiem-thit-tieng-anh), hoạt hình 3D kể chuyện
+  MỘT phần, cảnh thường, 50 cảnh (12 không lời), 26 góc máy; code riêng: app/production/types/tiem-thit-tieng-anh/ (chỉ hậu kỳ)
+================================================================================
+
+CÁCH DÙNG
+  Gửi cho agent: cong-cu/tao_kich_ban.py, cong-cu/tao_bien_the.py, PHAN-TICH-VIDEO-MAU.md, README.md, SAMPLE\_chung\SO-TAY-KY-THUAT.md.
+  Rồi dán phần dưới, sửa [ngoặc vuông].
+
+--------------------------------------------------------------------------------
+PROMPT
+--------------------------------------------------------------------------------
+
+Bạn viết biến thể mới cho thể loại TIỆM THỊT HỌC TIẾNG ANH. Sửa trong cong-cu/tao_bien_the.py (hoặc thêm biến thể vào danh sách) rồi chạy lại.
+
+Thông tin lần này:
+  Cậu bé (TAVO) / ông chủ (TIO) / khách (KHACH) / người tuyển dụng (CHU): [ngoại hình EN, giọng EN, link ảnh tham chiếu]
+  Nghề / bối cảnh (nếu đổi tiệm thịt): [...]
+  Ngôn ngữ mẹ đẻ: [mặc định tiếng Tây Ban Nha Mexico]
+  App: [tên app, hằng APP]
+
+BẮT BUỘC
+1) Khoá nhân vật: TAVO, TIO, KHACH, CHU, ROBOT; mỗi khoá đủ TEN_/NGUOI_/GIONG_/VAI_/POS_/NGHE_/NHIN_. POS_ giữ nhãn lạ
+   ("behind-counter", "customer-side", "phone-screen") vì vị trí đổi theo góc máy. Mọi NGUOI_ bắt đầu "a stylized 3D-animated ...".
+2) LUOT đúng 50 lượt, lượt n = cảnh n, đúng thứ tự người nói của bảng S trong tao_kich_ban.py ("-" = cảnh KHÔNG LỜI: lượt "text" rỗng,
+   who = người có mặt trong cảnh, dùng hằng CAM):
+   khach tio khach tio tio - tio tio tavo tio - chu chu tavo chu tavo - - chu chu tavo chu chu - chu tavo robot tavo robot tavo robot - - - - - - - chu tio chu tio tavo chu tavo chu tavo tavo tavo tavo.
+   Cảnh không lời: 6 Tavo ấp úng, 11 bà chủ tìm quầy, 17 chặt thịt nhanh, 18 gói thịt nhanh, 24 hôn trán, 32-38 montage 7 ngày học bằng app (2,5 s mỗi cảnh).
+   Đổi người nói của cảnh nào thì sửa góc/eye/act của cảnh đó trong tao_kich_ban.py.
+3) Lượt tiếng Anh có "dich" (bản dịch tiếng mẹ đẻ); lượt tiếng mẹ đẻ không có "dich". Đổi ngôn ngữ mẹ đẻ: sửa "lang" trong bảng S và GIONG_.
+4) Lời 3-12 từ (tối đa 20); emo trong EMO_CUES (app/production/prompt_parts.py). Giữ mạch: bị coi thường vì không biết tiếng Anh →
+   giúp người lạ → được giới thiệu app → học mỗi đêm với robot → một tháng sau nói được, được nhận việc → kêu gọi tải app.
+5) refs: ảnh AI người dùng cung cấp cho MỌI nhân vật (anh/<KHOÁ>.png). Không cắt ảnh từ video mẫu. Thiếu ảnh → hỏi, chưa gen.
+6) KHACH chỉ lộ mặt ở góc K (một mình). Không để hai người lớn cùng giới cùng lộ mặt nói chuyện trong một khung; nếu buộc phải, cảnh báo người dùng.
+
+LỖI HAY GẶP (cập nhật sau mỗi lần gen)
+  - (11/11/2026, bản 37 cảnh) Người dùng chê: thiếu cảnh không lời (Tavo ấp úng ~3 s, bà chủ vào chợ tìm quầy, chặt + gói thịt nhanh,
+    hôn trán, montage học nhiều ngày) -> đã thêm 9 cảnh không lời; đừng gộp hành động không lời vào cảnh có lời (bị cắt mất sau từ cuối).
+  - Hành động phải xảy ra TRƯỚC câu nói (hôn trán trước "You saved me today") -> cảnh không lời riêng rồi cảnh có lời nối khung cuối.
+  - Mô tả cảnh không lời KHÔNG dùng các từ say/speak/talk/voice/lời/nói/giọng: engine lọc bỏ cả câu chứa chúng (mute_prompt), mất luôn ACTION.
+  - "I'm sorry" phải là "I'm sorry, I don't speak Spanish." (người xem cần hiểu bà không nói tiếng Tây Ban Nha).
+  - "Me salvaste hoy..." là lúc Tavo NHẬN RA nghĩa câu: emo surprised, mặt ngỡ ngàng, không phải hesitant.
+
+  - (12/11) Hai người cùng khung: nếu người nghe nhìn thẳng người nói và người nói quay nghiêng, Muse gán giọng cho người nghe (cảnh 9 "Tío, dijo..."). Cho người nói mặt 3/4 hướng máy, người nghe nhìn xuống; emo tránh "lips press" (hesitant) cho lượt phải mở miệng.
+  - Đạo cụ làm ở cảnh trước (4 gói thịt) phải ghi lại trong CAMERA ANGLE của các cảnh sau cùng nền.
+  - Cảnh sau "No, the young guy" dùng `Khung đầu từ cảnh` qua `id`/`start="@id"` trong tao_kich_ban.py (số cảnh tự tính, không gõ tay).
+
+TỰ KIỂM TRA
+  [ ] runtime\python.exe SAMPLE\_chung\video-moi.py kiem-tra <kịch bản> <biến thể> --tai-anh → 0 lỗi.
+  [ ] Không chữ/logo/giá tiền có chữ trong prompt; màn hình điện thoại chỉ là robot hoặc ánh sáng.
+  [ ] Lượt robot (27, 29, 31) là câu gia sư nói; lượt 26/30 là Tavo tập nói; lượt 28 Tavo ngỡ ngàng.
+  [ ] Lượt rỗng đúng 12 chỗ; kiem-tra báo "38 lượt có lời + 12 cảnh không lời = 50 cảnh".

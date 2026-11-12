@@ -110,7 +110,8 @@ Người quay lưng là người nói → không có miệng để gán giọng 
 | `Lia theo tay: 1` (đi kèm `Lia nhanh`) | Muse để máy đứng yên khi nhân vật giơ tay chỉ; thêm N giây đẩy máy theo tay về phải-dưới | Đặt vật được chỉ ở phía phải-dưới khung đầu |
 | `Mở đầu ảnh/video/dài: 1.5` | Đoạn không lời trước câu nói (vali trôi ra khỏi máy soi) | Ghép cắt cứng, không thêm lượt; chuyển động khác khoá ghi "In this clip only ..." |
 | `Lớp phủ: camera [png]` | Giao diện camera điện thoại + viền bám mặt | Muse không vẽ gì; cảnh chỉ MỘT mặt rõ, đầu ở 1/3 trên |
-| Cảnh không `{{LUOT_n}}`, Voice trống | Cảnh hành động/b-roll không lời | Đường code có, chưa chạy thật: thử 1 biến thể |
+| Cảnh không lời: lượt n `"text": ""` (who = người có mặt), Voice chỉ `{{LUOT_n}}` | Cảnh hành động / montage / phản ứng im lặng xen giữa các cảnh có lời (ấp úng, đi tìm, chặt thịt, hôn trán) | 11/11 (tiem-thit-tieng-anh): engine bỏ SPEAKER MAP, lọc câu có say/speak/talk/voice/lời/nói/giọng (mô tả cảnh đừng dùng các từ đó, kẻo mất ACTION), thêm lệnh clip câm; clip dài theo mốc tiêu đề (5/6/8/10 s), `Cắt còn: N` giữ N giây đầu, `Tua: K` tua nhanh. Hậu kỳ dùng chung đánh số lượt có lời liên tục → thể loại map lại (xem `types/tiem-thit-tieng-anh/post.py`). Đã gen thật 11/11 (tiem-thit-tieng-anh, 9 cảnh không lời đạt) |
+| Hành động phải xảy ra TRƯỚC câu nói (hôn trán rồi mới nói) | — | Tách cảnh không lời + cảnh có lời nối khung cuối; đừng giao "làm X rồi nói" trong một clip (Muse nói trước, hoặc phần sau từ cuối bị cắt) |
 | `Khung đầu từ cảnh: N` | Cảnh quay lại đúng góc máy của cảnh N trước đó (người dùng muốn "y hệt khung cảnh X") | Dùng NGUYÊN ảnh khung đầu của cảnh N, không vẽ lại: nền, vị trí người, khung hình giống hệt (06/11, canh-sat-gia-su-ai). Không cần `Ảnh tổng quan` cho cảnh đó |
 | `Mở đầu khung từ cảnh: N` | Đoạn không lời đầu cảnh (đưa giấy tờ...) phải đúng bố cục cảnh N | Như trên, cho `Mở đầu ảnh` |
 

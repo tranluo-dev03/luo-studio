@@ -1,0 +1,384 @@
+[
+ {
+  "name": "tavo-tiem-thit-goc",
+  "TEN_TAVO": "Tavo",
+  "NGUOI_TAVO": "a stylized 3D-animated Latino boy about fourteen, slim, warm brown skin, short dark curly hair with faded sides, big dark-brown eyes, a small mole on his left cheek, a light-blue crew-neck T-shirt under a long white canvas apron",
+  "GIONG_TAVO": "a soft, slightly husky teenage boy's voice around 200-230 Hz, Mexican Spanish, shy and polite; when he speaks English, a light Mexican accent",
+  "VAI_TAVO": "boy helper",
+  "POS_TAVO": "behind-counter",
+  "NGHE_TAVO": "keeps the mouth closed and looks at whoever is speaking (or down at his work when the clip says so), small natural blinks",
+  "NHIN_TAVO": "keeps the eyes where the clip's EYE LINE says while speaking",
+  "TEN_TIO": "the butcher",
+  "NGUOI_TIO": "a stylized 3D-animated stocky Mexican man in his fifties, round face, a thick black moustache, bushy eyebrows, a white puffy cook's cap, a green plaid short-sleeved shirt, a long white butcher's apron with faint stains",
+  "GIONG_TIO": "a loud, gravelly, boastful middle-aged man's voice around 120-140 Hz, Mexican Spanish; his English has a heavy Mexican accent",
+  "VAI_TIO": "butcher (the boy's uncle)",
+  "POS_TIO": "behind-counter",
+  "NGHE_TIO": "keeps the mouth closed and looks at whoever is speaking, arms relaxed",
+  "NHIN_TIO": "keeps the eyes where the clip's EYE LINE says while speaking",
+  "TEN_KHACH": "the customer",
+  "NGUOI_KHACH": "a stylized 3D-animated man in his late thirties, tall, slicked-back black hair, a long straight nose, clean-shaven, a crisp white polo shirt",
+  "GIONG_KHACH": "a relaxed, friendly American man's voice, warm baritone around 130-150 Hz",
+  "VAI_KHACH": "customer",
+  "POS_KHACH": "customer-side",
+  "NGHE_KHACH": "keeps the mouth closed and looks toward the counter",
+  "NHIN_KHACH": "keeps the eyes where the clip's EYE LINE says while speaking",
+  "TEN_CHU": "the restaurant owner",
+  "NGUOI_CHU": "a stylized 3D-animated woman in her early forties, dark-brown hair in a low bun with a small silver hair clip, big hazel eyes, a dark plum button-up blouse with rolled sleeves, khaki trousers",
+  "GIONG_CHU": "a warm, quick, expressive American woman's voice around 200-220 Hz",
+  "VAI_CHU": "restaurant owner",
+  "POS_CHU": "customer-side",
+  "NGHE_CHU": "keeps the mouth closed and looks at whoever is speaking, attentive",
+  "NHIN_CHU": "keeps the eyes where the clip's EYE LINE says while speaking",
+  "TEN_ROBOT": "the AI tutor",
+  "NGUOI_ROBOT": "a sleek female-looking humanoid AI robot exactly like the reference image: a smooth glossy pearl-white helmet-like head with a hexagonal panel line on the forehead, a smooth human-like white face with pale blue eyes and a calm closed-lip smile, a black cable-wrapped mechanical neck, glossy white hexagonal armour plates on the shoulders, chest and arms with thin glowing cyan seams and black joints",
+  "GIONG_ROBOT": "a clear, warm, friendly young woman's voice with a very slight synthetic digital sheen, slow and very clear, American accent",
+  "VAI_ROBOT": "AI tutor on the phone",
+  "POS_ROBOT": "phone-screen",
+  "NGHE_ROBOT": "keeps a soft closed-lip smile on the screen",
+  "NHIN_ROBOT": "looks straight out of the phone screen at the person holding it",
+  "NEN_SAP": "a traditional meat stall: white tiled back wall, steel hooks on chains, a roll of pink butcher paper on a wall holder, a brass hanging scale, warm glowing bulbs",
+  "NEN_CHO": "a big busy indoor Latin American market hall with a high arched roof and rows of stalls far behind",
+  "NEN_PHONG": "the back room of the stall: white tiled wall, a roll of pink butcher paper on a wall holder, steel hooks on chains, a big wooden chopping block, a small green plastic stool",
+  "NEN_DEM": "a small dark storeroom behind the stall, rough plaster wall, stacks of folded canvas sacks",
+  "DAO_TIEN": "two small plain silver coins",
+  "DAO_SO": "a small blank white notepad",
+  "DAO_DAO": "a heavy steel meat cleaver with a wooden handle",
+  "DAO_GOI": "four packages of meat wrapped in plain pink butcher paper",
+  "DAO_DIEN_THOAI": "a black smartphone",
+  "nguoi_theo_canh": true,
+  "LUOT": [
+   {
+    "who": "khach",
+    "text": "Wow, that is a beautiful cut.",
+    "emo": "impressed",
+    "fx": "none",
+    "dich": "Vaya, qué corte tan bonito."
+   },
+   {
+    "who": "tio",
+    "text": "Twenty years, my friend!",
+    "emo": "proud",
+    "fx": "none",
+    "dich": "¡Veinte años, amigo mío!"
+   },
+   {
+    "who": "khach",
+    "text": "And the kid?",
+    "emo": "curious",
+    "fx": "none",
+    "dich": "¿Y el niño?"
+   },
+   {
+    "who": "tio",
+    "text": "Him? He is nobody. No school, no English.",
+    "emo": "proud, playful",
+    "fx": "none",
+    "dich": "¿Ese? Ese no es nadie. No fue a la escuela, no habla inglés."
+   },
+   {
+    "who": "tio",
+    "text": "Watch this. Tavo, say hello.",
+    "emo": "playful",
+    "fx": "none",
+    "dich": "Mira esto. Tavo, saluda."
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tio",
+    "text": "You see? Nothing. Like talking to a wall.",
+    "emo": "playful",
+    "fx": "none",
+    "dich": "¿Ves? Nada. Como hablarle a una pared."
+   },
+   {
+    "who": "tio",
+    "text": "Y no le hables a los clientes. Para tu refresco.",
+    "emo": "decisive",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "Tío, dijo que hoy me pagaba la semana.",
+    "emo": "hopeful, worried",
+    "fx": "none"
+   },
+   {
+    "who": "tio",
+    "text": "Te pago con techo y comida.",
+    "emo": "decisive",
+    "fx": "none"
+   },
+   {
+    "who": "chu",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "chu",
+    "text": "Please, my meat delivery didn't come. My restaurant opens at seven.",
+    "emo": "worried",
+    "fx": "none",
+    "dich": "Por favor, no me llegó la carne. Mi restaurante abre a las siete."
+   },
+   {
+    "who": "chu",
+    "text": "Can somebody help me?",
+    "emo": "worried",
+    "fx": "none",
+    "dich": "¿Alguien me puede ayudar?"
+   },
+   {
+    "who": "tavo",
+    "text": "Tranquila. Yo le ayudo.",
+    "emo": "reassuring",
+    "fx": "none"
+   },
+   {
+    "who": "chu",
+    "text": "I'm sorry, I don't speak Spanish.",
+    "emo": "confused, worried",
+    "fx": "none",
+    "dich": "Lo siento, no hablo español."
+   },
+   {
+    "who": "tavo",
+    "text": "Aquí, siéntese, por favor.",
+    "emo": "decisive",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "chu",
+    "text": "Oh my God. Ten minutes?",
+    "emo": "surprised",
+    "fx": "none",
+    "dich": "Dios mío. ¿Diez minutos?"
+   },
+   {
+    "who": "chu",
+    "text": "Thank you. Really. What is your name?",
+    "emo": "warm",
+    "fx": "none",
+    "dich": "Gracias. De verdad. ¿Cómo te llamas?"
+   },
+   {
+    "who": "tavo",
+    "text": "Perdón, no entiendo.",
+    "emo": "embarrassed",
+    "fx": "none"
+   },
+   {
+    "who": "chu",
+    "text": "Hey, take this app. Talka AI.",
+    "emo": "helpful",
+    "fx": "none",
+    "dich": "Oye, toma esta app. Talka AI."
+   },
+   {
+    "who": "chu",
+    "text": "I come back in one month, okay? One month.",
+    "emo": "excited",
+    "fx": "none",
+    "dich": "Vuelvo en un mes, ¿sí? Un mes."
+   },
+   {
+    "who": "chu",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "chu",
+    "text": "You saved me today.",
+    "emo": "warm",
+    "fx": "none",
+    "dich": "Hoy me salvaste."
+   },
+   {
+    "who": "tavo",
+    "text": "You... saved... me... tudei?",
+    "emo": "hesitant",
+    "fx": "none",
+    "dich": "¿Me salvaste hoy?"
+   },
+   {
+    "who": "robot",
+    "text": "You saved me today. It means: me salvaste hoy.",
+    "emo": "warm",
+    "fx": "none",
+    "dich": "Me salvaste hoy. Significa: me salvaste hoy."
+   },
+   {
+    "who": "tavo",
+    "text": "Me salvaste hoy...",
+    "emo": "surprised, expressive",
+    "fx": "none"
+   },
+   {
+    "who": "robot",
+    "text": "Try it with me, Tavo. You saved me today.",
+    "emo": "encouraging",
+    "fx": "none",
+    "dich": "Dilo conmigo, Tavo. Me salvaste hoy."
+   },
+   {
+    "who": "tavo",
+    "text": "You... saved me... today.",
+    "emo": "hopeful",
+    "fx": "none",
+    "dich": "Me salvaste hoy."
+   },
+   {
+    "who": "robot",
+    "text": "Perfect! Again tomorrow?",
+    "emo": "cheerful",
+    "fx": "none",
+    "dich": "¡Perfecto! ¿Mañana otra vez?"
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "chu",
+    "text": "Hi. A month ago someone here cut my order. A young guy. Is he still here?",
+    "emo": "friendly",
+    "fx": "none",
+    "dich": "Hola. Hace un mes alguien de aquí me preparó el pedido. Un chico joven. ¿Sigue aquí?"
+   },
+   {
+    "who": "tio",
+    "text": "Yes, yes, me! I am the master. Twenty years.",
+    "emo": "proud",
+    "fx": "none",
+    "dich": "¡Sí, sí, yo! Yo soy el maestro. ¡Veinte años!"
+   },
+   {
+    "who": "chu",
+    "text": "No, the young guy.",
+    "emo": "friendly, warm",
+    "fx": "none",
+    "dich": "No, el chico joven."
+   },
+   {
+    "who": "tio",
+    "text": "Tú, cállate. Este ni inglés sabe. De este no sale nada.",
+    "emo": "decisive",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "Hello. It was me. I cut your order. Ten minutes.",
+    "emo": "confident",
+    "fx": "none",
+    "dich": "Hola. Fui yo. Yo te preparé el pedido. Diez minutos."
+   },
+   {
+    "who": "chu",
+    "text": "You learned English?",
+    "emo": "delighted, warm",
+    "fx": "none",
+    "dich": "¿Aprendiste inglés?"
+   },
+   {
+    "who": "tavo",
+    "text": "One month. Every night.",
+    "emo": "proud",
+    "fx": "none",
+    "dich": "Un mes. Cada noche."
+   },
+   {
+    "who": "chu",
+    "text": "I own a restaurant. I need a butcher I can talk to. The job is yours.",
+    "emo": "warm, delighted",
+    "fx": "none",
+    "dich": "Tengo un restaurante. Necesito un carnicero con quien poder hablar. El trabajo es tuyo."
+   },
+   {
+    "who": "tavo",
+    "text": "You saved me too.",
+    "emo": "warm",
+    "fx": "none",
+    "dich": "Tú también me salvaste."
+   },
+   {
+    "who": "tavo",
+    "text": "Ahora sí me llamo Tavo, tío.",
+    "emo": "confident",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "Un mes. Eso es todo. Yo llegué sin nada y sin inglés.",
+    "emo": "proud",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "Hoy tengo trabajo. Talka AI. Bájala gratis.",
+    "emo": "upbeat",
+    "fx": "none"
+   }
+  ],
+  "refs": {
+   "NGUOI_TAVO": [
+    "SAMPLE/tiem-thit-tieng-anh/anh/TAVO.png"
+   ],
+   "NGUOI_TIO": [
+    "SAMPLE/tiem-thit-tieng-anh/anh/TIO.png"
+   ],
+   "NGUOI_KHACH": [
+    "SAMPLE/tiem-thit-tieng-anh/anh/KHACH.png"
+   ],
+   "NGUOI_CHU": [
+    "SAMPLE/tiem-thit-tieng-anh/anh/CHU.png"
+   ],
+   "NGUOI_ROBOT": [
+    "SAMPLE/tiem-thit-tieng-anh/anh/ROBOT.png"
+   ]
+  }
+ }
+]

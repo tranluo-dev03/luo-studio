@@ -493,7 +493,10 @@ def cmd_kiem_tra(a):
             if luot:
                 c.w(f"[{nm}] kịch bản không có {{{{LUOT_n}}}} nhưng biến thể có {len(luot)} lượt (Studio bỏ qua)")
             continue
-        if not split and not multi and len(luot) != an["scenes"]:
+        mute = len(v.get("LUOT", [])) - len(luot)   # lượt "text" rỗng = cảnh không lời (engine: clip câm, "Cắt còn" / "Tua")
+        if mute and not split and not multi and len(v.get("LUOT", [])) == an["scenes"]:
+            c.o(f"[{nm}] {len(luot)} lượt có lời + {mute} cảnh không lời = {an['scenes']} cảnh")
+        elif not split and not multi and len(luot) != an["scenes"]:
             c.w(f"[{nm}] {len(luot)} lượt nhưng kịch bản có {an['scenes']} cảnh " + ("(Studio nhân bản cảnh cuối cho đủ)" if len(luot) > an["scenes"] else "(Studio chỉ chạy các cảnh có lượt, bỏ cảnh cuối)"))
         chars = set(MV.chars_of({k: x for k, x in v.items() if "@" not in str(k)}))
         for i, t in enumerate(luot, 1):

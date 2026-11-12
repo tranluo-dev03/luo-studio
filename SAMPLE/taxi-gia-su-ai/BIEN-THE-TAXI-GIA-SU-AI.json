@@ -1,0 +1,408 @@
+[
+ {
+  "name": "taxi-mexico-goc",
+  "TEN_HOC": "Miguel",
+  "NGUOI_HOC": "a stylized 3D-animated Mexican man in his mid-forties, thick curly black hair, a thick black moustache, warm brown skin, kind tired brown eyes, a slightly heavy build, a dark chocolate-brown polo shirt with a few thin cream and tan horizontal stripes across the chest and sleeves, dark brown trousers",
+  "GIONG_HOC": "a warm, soft, slightly hoarse man's baritone around 105-130 Hz, Mexican Spanish; his English is slow and broken with a heavy Mexican accent",
+  "VAI_HOC": "taxi driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "keeps the mouth closed and looks where the clip's EYE LINE says (at the road, at the floor or at whoever is speaking), small natural blinks, hands where the clip puts them",
+  "NHIN_HOC": "keeps the eyes where the clip's EYE LINE says while speaking, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "TEN_KHACH": "the passenger",
+  "NGUOI_KHACH": "a stylized 3D-animated American businessman in his thirties, neatly combed dark-brown hair, clean-shaven, a navy-blue suit with a white shirt and a dark-blue tie",
+  "GIONG_KHACH": "a quick, clipped, impatient American man's voice, a clear tenor around 140-170 Hz, sharper and higher than the driver",
+  "VAI_KHACH": "taxi passenger",
+  "POS_KHACH": "back-seat",
+  "NGHE_KHACH": "keeps the mouth closed, the phone at his ear, looking out of the side window",
+  "NHIN_KHACH": "keeps the eyes where the clip's EYE LINE says while speaking, never into the lens",
+  "TEN_QUANLY": "the manager",
+  "NGUOI_QUANLY": "a stylized 3D-animated taxi-company manager in his early sixties, neatly combed silver-grey hair, a short grey beard, a navy-blue suit with a white shirt and a dark tie, a plain brown clipboard and a pen",
+  "GIONG_QUANLY": "a warm, hearty, proud older American man's voice around 115-135 Hz, upbeat and generous",
+  "VAI_QUANLY": "taxi company manager",
+  "POS_QUANLY": "garage-centre",
+  "NGHE_QUANLY": "keeps the mouth closed and smiles at whoever is speaking, holding his clipboard",
+  "NHIN_QUANLY": "keeps the eyes where the clip's EYE LINE says while speaking, never into the lens",
+  "TEN_ARJUN": "Arjun",
+  "NGUOI_ARJUN": "a stylized 3D-animated young Indian man in his mid-twenties, slim, short neat black hair, a trimmed black beard, a light-grey button-up shirt with rolled sleeves, dark jeans, a silver wristwatch",
+  "GIONG_ARJUN": "a smooth, light, smug young man's voice around 140-160 Hz, American English with a slight Indian lilt, a little mocking",
+  "VAI_ARJUN": "young taxi driver",
+  "POS_ARJUN": "garage-right",
+  "NGHE_ARJUN": "keeps the mouth closed with a confident smile, looking at whoever is speaking",
+  "NHIN_ARJUN": "keeps the eyes where the clip's EYE LINE says while speaking, never into the lens",
+  "TEN_CON": "Lucía",
+  "NGUOI_CON": "a stylized 3D-animated Mexican teenage girl about seventeen, long wavy chestnut-brown hair, big warm brown eyes, mint-green long-sleeved pajamas with small white polka dots, barefoot",
+  "GIONG_CON": "a bright, gentle, clear teenage girl's voice around 230-260 Hz, Mexican Spanish, caring and upbeat",
+  "VAI_CON": "daughter",
+  "POS_CON": "living-room",
+  "NGHE_CON": "keeps the mouth closed and looks at her father with a caring face",
+  "NHIN_CON": "keeps the eyes where the clip's EYE LINE says while speaking, never into the lens",
+  "TEN_DAY": "the AI tutor",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and a softly human-like face, pale blue eyes, soft pale lips that open and move naturally with every word whenever it speaks, thin panel seams on the head, a black segmented mechanical neck, white armoured shoulders with thin glowing blue seams (copy the reference image); realistic 3D render",
+  "GIONG_DAY": "a calm, clear, friendly young woman's voice around 180-210 Hz with a very slight synthetic digital sheen, neutral Latin American Spanish and clear American English",
+  "VAI_DAY": "AI tutor",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "NEN_DAY": "a plain deep black background with one thin soft white glowing arc behind the head",
+  "NEN_HOC": "the inside of a yellow New York taxi on a sunny afternoon: black seats, and through the rear window a busy avenue with yellow cabs and brick buildings, softly out of focus",
+  "XE": "a classic yellow New York taxi with black seats and a blank roof light",
+  "NEN_PHO": "a sunny New York-like avenue: tall brick buildings and skyscrapers, trees, other yellow cabs far behind",
+  "NEN_GARA": "a big taxi garage: grey concrete floor, a high ceiling with long fluorescent lights, metal lockers and a cork board on the wall, an open roll-up door with yellow taxis and a street outside",
+  "NEN_NHA": "a cosy living room: a light-beige sofa, a low wooden coffee table with an open book and a coffee cup on a saucer, tall windows with sheer white curtains, a potted plant",
+  "DAO_DIEN_THOAI_KH": "a black smartphone",
+  "DAO_DIEN_THOAI_TX": "an old black smartphone with a glowing screen",
+  "DAO_CHIA_KHOA": "a set of two new silver car keys on a ring with a black key fob",
+  "DAO_COC": "a plain white ceramic mug",
+  "DAO_DIEN_THOAI": "a blue smartphone whose screen shows only a friendly white humanoid robot face on a plain blue background, with no text, no buttons and no icons",
+  "nguoi_theo_canh": true,
+  "LUOT": [
+   {
+    "who": "khach",
+    "text": "Can you take a left on Fifth, so we can avoid the traffic?",
+    "emo": "decisive, skeptical",
+    "fx": "none",
+    "phan": 1,
+    "dich": "¿Puedes dar vuelta a la izquierda en la Quinta, para evitar el tráfico?"
+   },
+   {
+    "who": "hoc",
+    "text": "Fifth... sorry. I don't understand.",
+    "emo": "confused, embarrassed",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Eh, quinta... perdón. No entiendo."
+   },
+   {
+    "who": "khach",
+    "text": "Take the left on... You missed the turn!",
+    "emo": "decisive, surprised",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Da vuelta a la izquierda en... ¡Te pasaste la vuelta!"
+   },
+   {
+    "who": "khach",
+    "text": "I just told you to take the left!",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1,
+    "dich": "¡Acabo de decirte que dieras vuelta a la izquierda!"
+   },
+   {
+    "who": "khach",
+    "text": "Yeah, I'm in a cab. The driver barely speaks English.",
+    "emo": "skeptical",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Sí, voy en un taxi. El conductor apenas habla inglés."
+   },
+   {
+    "who": "khach",
+    "text": "I have to repeat everything I say.",
+    "emo": "skeptical, doubtful",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Tengo que repetir todo lo que digo."
+   },
+   {
+    "who": "hoc",
+    "text": "[KHONG LOI]",
+    "emo": "",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "quanly",
+    "text": "Arjun, your ratings are the best we've got. Customers love your conversations as well.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Arjun, tus calificaciones son las mejores que tenemos. A los clientes también les encantan tus conversaciones."
+   },
+   {
+    "who": "quanly",
+    "text": "You get our brand new car!",
+    "emo": "excited",
+    "fx": "none",
+    "phan": 1,
+    "dich": "¡Te toca nuestro carro nuevo!"
+   },
+   {
+    "who": "arjun",
+    "text": "[KHONG LOI]",
+    "emo": "",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "arjun",
+    "text": "[KHONG LOI]",
+    "emo": "",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "arjun",
+    "text": "You want the new car? Learn to talk to the customers first.",
+    "emo": "playful, proud",
+    "fx": "none",
+    "phan": 1,
+    "dich": "¿Quieres el carro nuevo? Primero aprende a hablar con los clientes."
+   },
+   {
+    "who": "hoc",
+    "text": "[KHONG LOI]",
+    "emo": "",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "con",
+    "text": "Papá, ¿qué pasó?",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Dad, what happened?"
+   },
+   {
+    "who": "hoc",
+    "text": "Nada, hija.",
+    "emo": "worried, calm",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Nothing, sweetheart."
+   },
+   {
+    "who": "hoc",
+    "text": "Hoy otra vez no pude entender a un cliente.",
+    "emo": "worried, embarrassed",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Today again I couldn't understand a customer."
+   },
+   {
+    "who": "con",
+    "text": "Sabes más inglés del que puedes expresar.",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 1,
+    "dich": "You know more English than you can express."
+   },
+   {
+    "who": "con",
+    "text": "Solo te falta practicarlo en voz alta.",
+    "emo": "encouraging",
+    "fx": "none",
+    "phan": 1,
+    "dich": "You're just missing practicing it out loud."
+   },
+   {
+    "who": "hoc",
+    "text": "¿Con quién estás hablando tú?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Who are you talking to?"
+   },
+   {
+    "who": "con",
+    "text": "Con mi tutor de inglés con inteligencia artificial.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1,
+    "dich": "With my English tutor with artificial intelligence."
+   },
+   {
+    "who": "con",
+    "text": "[KHONG LOI]",
+    "emo": "",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "con",
+    "text": "Es como hablar con un maestro de verdad.",
+    "emo": "excited",
+    "fx": "none",
+    "phan": 1,
+    "dich": "It's like talking with a real teacher."
+   },
+   {
+    "who": "con",
+    "text": "Te corrige mientras hablas y practicas conversaciones de la vida real.",
+    "emo": "excited",
+    "fx": "none",
+    "phan": 1,
+    "dich": "It corrects you while you speak and you practice real-life conversations."
+   },
+   {
+    "who": "hoc",
+    "text": "Pero las clases de inglés son muy caras.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1,
+    "dich": "But English classes are very expensive."
+   },
+   {
+    "who": "con",
+    "text": "No necesitas tomar clases.",
+    "emo": "reassuring, cheerful",
+    "fx": "none",
+    "phan": 1,
+    "dich": "You don't need to take classes."
+   },
+   {
+    "who": "day",
+    "text": "¡Hola! ¿Qué tal tu inglés?",
+    "emo": "cheerful",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Más o menos.",
+    "emo": "hesitant",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "¿De dónde eres? Where are you from?",
+    "emo": "curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am Mexico.",
+    "emo": "hesitant",
+    "fx": "wrong",
+    "phan": 2,
+    "icon": "x",
+    "to": "I am Mexico",
+    "c": "red"
+   },
+   {
+    "who": "day",
+    "text": "Casi. Mejor di: I am from Mexico.",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am from Mexico.",
+    "emo": "proud",
+    "fx": "right",
+    "phan": 2,
+    "icon": "check",
+    "to": "from",
+    "c": "green"
+   },
+   {
+    "who": "hoc",
+    "text": "Siempre me confundo con eso.",
+    "emo": "embarrassed",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "Para eso estoy yo. Para ayudarte a hablar bien.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Pero no tengo dinero.",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 2,
+    "icon": "dollar"
+   },
+   {
+    "who": "day",
+    "text": "¿Qué? No necesitas dinero. Puedes practicar inglés gratis.",
+    "emo": "reassuring",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "No es como las otras apps o cursos caros.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "¿Es en serio?",
+    "emo": "surprised",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "Claro, nada de trampas.",
+    "emo": "cheerful",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "Solo práctica real de conversación en inglés con tu tutor de inteligencia artificial.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "¿Como un tutor real?",
+    "emo": "curious, hopeful",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "Sí. Corrijo tu gramática, tu pronunciación y te ayudo a hablar con confianza.",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Ok, vamos a intentarlo.",
+    "emo": "hopeful, delighted",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "Muy buena decisión. Vamos a hablar inglés juntos.",
+    "emo": "cheerful, upbeat",
+    "fx": "none",
+    "phan": 2
+   }
+  ],
+  "refs": {
+   "NGUOI_HOC": [
+    "SAMPLE/taxi-gia-su-ai/anh/HOC.png"
+   ],
+   "NGUOI_KHACH": [
+    "SAMPLE/taxi-gia-su-ai/anh/KHACH.png"
+   ],
+   "NGUOI_QUANLY": [
+    "SAMPLE/taxi-gia-su-ai/anh/QUANLY.png"
+   ],
+   "NGUOI_ARJUN": [
+    "SAMPLE/taxi-gia-su-ai/anh/ARJUN.png"
+   ],
+   "NGUOI_CON": [
+    "SAMPLE/taxi-gia-su-ai/anh/CON.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY.png"
+   ]
+  }
+ }
+]

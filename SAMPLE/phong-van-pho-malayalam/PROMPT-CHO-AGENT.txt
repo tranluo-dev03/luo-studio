@@ -1,0 +1,55 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "PHỎNG VẤN ĐƯỜNG PHỐ RỒI CHIA TRÊN/DƯỚI + GIA SƯ AI, MALAYALAM" (phong-van-pho-malayalam)
+  HAI phần: phần 1 cảnh thường (phóng viên qua vai + người bán hàng rong, MỘT góc, 11 cảnh),
+            phần 2 ghép 2 lớp (robot Talka ô TRÊN, người bán selfie ô DƯỚI, 15 cảnh).
+  Code riêng: app/production/types/phong-van-pho-malayalam/
+================================================================================
+
+CÁCH DÙNG
+  Gửi cho agent cùng với: video tham chiếu (nếu có), cong-cu\tao_kich_ban.py, cong-cu\tao_bien_the.py, PHAN-TICH-VIDEO-MAU.md.
+  Rồi dán phần dưới đây, sửa [ngoặc vuông].
+
+--------------------------------------------------------------------------------
+PROMPT (copy từ dòng dưới)
+--------------------------------------------------------------------------------
+
+Bạn viết biến thể cho LUO Studio, thể loại PHỎNG VẤN ĐƯỜNG PHỐ RỒI CHIA TRÊN/DƯỚI + GIA SƯ AI, tiếng Malayalam xen tiếng Anh.
+
+Thông tin lần này:
+  Bảng biến thể: [tên | mô tả người bán | giọng | link ảnh người bán | link ảnh phóng viên]
+  Đổi lời thoại / quê quán / nghề: [...]
+
+BẮT BUỘC LÀM THEO
+
+1) SỬA BẰNG cong-cu\tao_bien_the.py (lời, nhân vật, refs) và cong-cu\tao_kich_ban.py (cảnh, hành động); KHÔNG SỬA TAY JSON / TXT.
+   - Phần 1 có đúng 11 lượt = 11 CẢNH trong bảng SC; thêm/bớt lượt phần 1 thì sửa SC cùng lúc (cột "ai nói" phải khớp).
+
+2) ẢNH THAM CHIẾU
+   - Chỉ dùng ảnh AI người dùng cung cấp, KHÔNG cắt từ video mẫu. Thiếu ảnh -> hỏi, chưa gen.
+   - "refs": NGUOI_DAY = anh/robot-talka.png; NGUOI_PV ảnh phóng viên; NGUOI_HOC ảnh người bán (dùng cho CẢ HAI phần, mặt phải khớp).
+   - Người dùng cho phép Muse gen ảnh PV/HOC từ mô tả: cong-cu\gen_anh_tham_chieu.py (sửa mô tả trong tao_bien_the.py trước).
+
+3) LỜI THOẠI (26 lượt: 11 phần 1, 15 phần 2)
+   - Thứ tự phần 1: pv hoc pv hoc pv hoc pv hoc pv hoc hoc.
+   - Thứ tự phần 2: day day day hoc day hoc day hoc day hoc day day day hoc day.
+   - Mỗi lượt <= 20 từ. emo trong EMO_CUES. "fx": "none". Mọi lượt có "phan".
+   - Tiếng Malayalam chép đúng chữ Malayalam; từ tiếng Anh chữ Latin. Tên riêng trong câu tiếng Anh viết Latin ("I am from Kannur").
+   - Câu sai / câu sửa phải cùng đổi (quê "Kannur" ở lượt 17 và 18).
+
+4) KHÔNG ĐỔI BỐ CỤC NẾU KHÔNG ĐƯỢC YÊU CẦU
+   - Phóng viên quay lưng: giữ QUAY_LUNG_PV, NHIN_PV, NGHE_PV; không thêm "lip-sync"/"mouth" cho phóng viên.
+   - Cặp phần 1 giữ khác giới; cùng giới cùng khung thì người nghe dễ nhép theo.
+   - `nen: DAY` là cố ý (bài học chia-tren-duoi-marathi).
+
+KIỂM TRA TRƯỚC KHI TRẢ LỜI
+  [ ] runtime\python.exe SAMPLE\_chung\video-moi.py kiem-tra <kịch bản> <biến thể> --tai-anh: 0 lỗi.
+  [ ] 26 lượt đúng thứ tự; không còn "{{".
+  [ ] Sau khi gen: phan1/scene1_start.png (phóng viên quay lưng, không lộ mặt), nghe cảnh 1-3 (Malayalam đúng?), phan2/base_DAY.png, phan2/base_HOC.png.
+
+--------------------------------------------------------------------------------
+LỖI THƯỜNG GẶP / GIỚI HẠN
+--------------------------------------------------------------------------------
+  - Whisper không nghe được Malayalam (ra chữ Devanagari vô nghĩa): lời lấy từ phụ đề trên hình; không dùng số từ/giây của bao-cao.md.
+  - Câu Malayalam không được kiểm lời từng chữ (engine: speech_lang = "ml"): nghe lại, câu lặp/thiếu không tự gen lại.
+  - Phụ đề cần "shaping": "complex" trong config.json; thiếu thì dấu nguyên âm Malayalam đứng sai chỗ.
+  - Chưa có vạch cam giữa hai ô như video mẫu.

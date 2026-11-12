@@ -51,7 +51,9 @@ LOCKS = ["STYLE LOCK", "CHAR LOCK", "SET LOCK", "VIDEO SUFFIX", "NEGATIVE"]
 # "Khung đầu từ cảnh: N" / "Mở đầu khung từ cảnh: N": dùng NGUYÊN ảnh khung đầu đã gen của cảnh N (cùng góc máy): nền, vị trí người, khung hình giống hệt (không vẽ lại)
 # "Mở đầu ảnh" / "Mở đầu video" / "Mở đầu dài" (giây, mặc định 1.5): đoạn không lời gen riêng rồi ghép trước clip của cảnh (vd. hành lý trôi ra khỏi máy soi trước câu hỏi), không cần thêm lượt thoại
 FIELDS = ["Bối cảnh", "Voice", "Khung đầu", "Khung cuối", "Diễn biến", "Prompt ảnh", "Prompt video", "Audio", "Negative prompt", "Chuyển cảnh", "Lớp phủ", "Giữ sau lời",
-          "Ảnh tổng quan", "Khung đầu cắt", "Lia nhanh", "Lia theo tay", "Mở đầu ảnh", "Mở đầu video", "Mở đầu dài", "Giữ yên dưới", "Ảnh bố cục", "Khung đầu từ cảnh", "Mở đầu khung từ cảnh"]
+          "Ảnh tổng quan", "Khung đầu cắt", "Lia nhanh", "Lia theo tay", "Mở đầu ảnh", "Mở đầu video", "Mở đầu dài", "Giữ yên dưới", "Ảnh bố cục", "Khung đầu từ cảnh", "Mở đầu khung từ cảnh",
+          "Cắt còn", "Tua"]
+# "Cắt còn" (giây) / "Tua" (lần): chỉ cho cảnh KHÔNG LỜI (lượt "text" rỗng): giữ N giây đầu / tua nhanh K lần cả clip (engine.mute_trim)
 
 
 def parse_script(text):
@@ -336,6 +338,9 @@ def spoken_syllables(voice):
         if w.endswith("e") and c > 1 and not re.search(r"(le|me|ne|re|de|te|se|ge|ve|ce)$", w):
             c -= 1
         n += max(1, c)
+    # chữ Malayalam (11/11/2026, phong-van-pho-malayalam): regex Latin ở trên đếm ra 0 -> clip luôn 5 s, câu 14 từ bị cụt.
+    # Âm tiết ~ nguyên âm độc lập + phụ âm không bị virama (്) triệt tiêu. Chỉ áp cho chữ Malayalam; Gujarati/Hindi/Bengali giữ như cũ.
+    n += len(re.findall(r"[അ-ഔ]|[ക-ഺ](?!്)", said))
     return n
 
 

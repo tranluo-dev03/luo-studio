@@ -1,0 +1,646 @@
+[HAU KY]:
+loai: tiem-thit-tieng-anh
+Thể loại "tiệm thịt học tiếng Anh" (hoạt hình 3D kể chuyện, video mẫu 0610_Cut meat ES, 177 giây): MỘT phần, cảnh thường, 50 cảnh (12 cảnh không lời).
+Tavo (cậu bé phụ việc tiệm thịt, không biết tiếng Anh) bị ông chú bóc lột và chê trước khách; một bà chủ nhà hàng cần gấp thịt, Tavo cắt giúp trong 10 phút,
+bà chỉ cho cậu app học tiếng Anh AI; Tavo học mỗi ngày trong lúc làm việc; một tháng sau bà quay lại, Tavo nói tiếng Anh, được nhận việc.
+Cảnh có lời: mỗi cảnh một người nói. Cảnh KHÔNG LỜI (lượt "text" rỗng trong biến thể, Voice trống): clip câm, engine bỏ SPEAKER MAP; "Cắt còn: N" giữ N giây đầu, "Tua: K" tua nhanh K lần.
+Góc máy: A (quầy rộng), K (cận khách), T (cận Tavo ấp úng), B (cận hai chú cháu ở thớt), X (bà chủ tìm quầy trong chợ), C (phòng sau quầy), D (thớt lớn), D2 (chặt thịt nhanh),
+Y (tay gói thịt), W (4 gói thịt), E (quầy cân treo), E1 (cận bà chủ), N (đêm, cận Tavo), P (điện thoại có robot AI), Q1–Q4 (montage học nhiều ngày),
+M/M2 (một tháng sau), F (hai người đối mặt), G (cận Tavo, ông chú mờ sau), H (Tavo nhìn ống kính).
+Cảnh có "Prompt ảnh" sinh khung đầu mới; "Khung đầu: Chính là khung cuối của cảnh trước" nối tiếp; "Khung đầu từ cảnh: N" dùng lại khung đầu cảnh N.
+BẮT BUỘC gắn ảnh tham chiếu cho TAVO, TIO, KHACH, CHU, ROBOT (refs trong biến thể): nhiều góc máy, không có ảnh thì mặt/trang phục đổi giữa các cảnh.
+Hậu kỳ riêng (post.py): phụ đề trắng viền đen; lượt tiếng Anh có dòng dịch tiếng Tây Ban Nha ("dich"). End card app: Thương hiệu -> Outro, không gen.
+Khối [HAU KY] này không gửi cho Muse.
+
+[STYLE LOCK]:
+Vertical 9:16 Pixar-style 3D CARTOON exactly like the character reference images: cartoon proportions, big round expressive eyes, simplified smooth features, soft rounded shapes, warm glowing skin, rich detail; never photorealistic or semi-realistic human faces. Every shot is one fixed static camera (no camera movement inside a clip). Each clip uses the camera angle described in its start frame. The same characters (each only in the shots that name them), the same market stall in every daytime clip. No text, no letters, no numbers, no logos, no captions, no icons, no price tags with writing, no lettering on clothes, signs, paper or phone screens anywhere in the frame.
+
+[CHAR LOCK]:
+CHARACTERS: each person appears ONLY in the shots whose CAMERA ANGLE names them; a close-up shows only its one person, and nobody else is ever added behind or beside them.
+The {{VAI_TAVO}}, {{TEN_TAVO}}: {{NGUOI_TAVO}}. VOICE LOCK BOY: one single voice, {{GIONG_TAVO}}, the same in every clip.
+The {{VAI_TIO}}, {{TEN_TIO}}: {{NGUOI_TIO}}. VOICE LOCK BUTCHER: one single voice, {{GIONG_TIO}}, the same in every clip.
+The {{VAI_KHACH}}, {{TEN_KHACH}}: {{NGUOI_KHACH}}. VOICE LOCK CUSTOMER: one single voice, {{GIONG_KHACH}}, the same in every clip.
+The {{VAI_CHU}}, {{TEN_CHU}}: {{NGUOI_CHU}}. VOICE LOCK WOMAN: one single voice, {{GIONG_CHU}}, the same in every clip.
+The {{VAI_ROBOT}}, {{TEN_ROBOT}}: {{NGUOI_ROBOT}}, seen only on a phone screen. VOICE LOCK ROBOT: one single voice, {{GIONG_ROBOT}}, the same in every clip.
+When a character who is in the shot is silent: the boy {{NGHE_TAVO}}; the butcher {{NGHE_TIO}}; the customer {{NGHE_KHACH}}; the woman {{NGHE_CHU}}; the robot {{NGHE_ROBOT}}.
+RULE: in each clip with a line exactly ONE character speaks, one line, with lip-sync and an expressive face, keeping the EYE LINE. Anyone else in the frame stays silent with the mouth closed. Each voice stays the same in every clip.
+EYE LINE (every clip): the speaker looks where the clip's EYE LINE says for the whole line; listeners look at the speaker. Nobody looks into the lens unless the clip's EYE LINE says so.
+ACTION CLIPS: a physical action is done WHILE the line is spoken and is complete by the last word. Props, the same in every clip: {{DAO_TIEN}}, {{DAO_SO}}, {{DAO_DAO}}, {{DAO_GOI}}, {{DAO_DIEN_THOAI}}; each appears only when a clip shows it, never duplicated, never with readable text.
+
+[SET LOCK]:
+Daytime: {{NEN_SAP}}, inside {{NEN_CHO}}. The back room: {{NEN_PHONG}}. Night: {{NEN_DEM}}. A shot shows ONLY the people its CAMERA ANGLE names; shoppers far in the background are tiny, blurred and stand still. Nothing moves in the background.
+
+[VIDEO SUFFIX]:
+Static camera, no zoom, no pan, no shake, no cut. Real people caught on camera, not actors. No subtitles, no text, no music. 9:16. In a clip with a line, the speaker starts right away at a natural conversational pace (about 3 words per second, short lines up to 4, short pauses allowed), finishes the line and then, after the last word and the action, everyone keeps a calm closed-mouth face and stays still until the end of the clip, with no crowd noise over the voice.
+
+[NEGATIVE]:
+text, captions, subtitles, logos, icons, emoji, numbers, price tags with writing, lettering on clothes, signs, paper or phone; app interface, buttons or chat bubbles on a phone screen; camera movement, zoom, shake, cut; two voices in one clip; a silent character moving the mouth; a character who is not in this shot appearing; extra people in the foreground; moving crowd; face, hair or outfit changing; realistic live-action look; photorealistic or semi-realistic faces; one character copying another's movements; background music; robotic or text-to-speech voice for the humans; a clip with a line but no speech; movement during the final still after the speech; props multiplying, vanishing or appearing in the wrong clip; slow, dragged speech; blood.
+
+
+CẢNH 1 (0:00–0:05): Lượt 1
+Bối cảnh: góc K: cận khách hàng từ ngực trở lên, đứng trước quầy, nền chợ mờ; chỉ một người; không có chữ, không người lạ.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_1}}
+Khung đầu: ảnh mới theo góc K; miệng mọi người khép.
+Khung cuối: Khách mỉm cười nhìn sang trái, miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the customer looks down-left at the meat on the counter, then at the butcher off-screen to the left; never into the lens.
+Diễn biến: Khách cúi nhìn miếng thịt Tavo vừa cắt, trầm trồ, rồi ngẩng lên nhìn ông chủ (ngoài khung bên trái). Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, warm soft daylight from the high windows of a big indoor market hall and warm glowing bulbs over the stall. CAMERA ANGLE K: medium close-up of {{TEN_KHACH}} ({{NGUOI_KHACH}}) from the chest up, standing in front of the meat stall, seen from just beside the counter, his body turned slightly to the LEFT toward the counter; behind him {{NEN_CHO}}, softly out of focus. He is the only person in the frame. EYE LINE: the customer looks down-left at the meat on the counter, then at the butcher off-screen to the left; never into the lens. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_KHACH}} is in this clip; nobody else ever appears. CAMERA LOCK: the camera is locked off on this close shot for the whole clip: no pan, no zoom out, no reframing. CHAR LOCK. In this clip: {{LUOT_1}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English. EYE LINE for the whole clip: the customer looks down-left at the meat on the counter, then at the butcher off-screen to the left; never into the lens; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the customer leans in a little to admire the cut, then straightens up with an impressed smile. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech; anyone else added behind or beside the person.
+
+CẢNH 2 (0:05–0:10): Lượt 2
+Bối cảnh: góc A: nhìn từ phía khách vào quầy thịt: tủ kính thịt ở 1/3 dưới, Tavo bên TRÁI sau thớt, ông chú ở GIỮA; mép PHẢI chỉ có vai + gáy khách áo polo trắng (không thấy mặt); không có chữ, không người lạ.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_2}}
+Khung đầu: ảnh mới theo góc A; miệng mọi người khép.
+Khung cuối: Ông chú cười, tay buông xuống quầy; Tavo cúi nhìn thớt; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the butcher looks at the customer at the right edge of the frame; the boy looks down at his cutting board.
+Diễn biến: Ông chú vỗ nhẹ tay lên ngực, khoe với khách, cười tự mãn; Tavo cúi nhìn thớt. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, warm soft daylight from the high windows of a big indoor market hall and warm glowing bulbs over the stall. CAMERA ANGLE A, medium-wide shot from the customer side, facing the meat stall: across the bottom third a glass display case full of neatly stacked raw red steaks; behind the counter {{TEN_TAVO}} ({{NGUOI_TAVO}}) stands at the LEFT behind a worn wooden cutting board, and {{TEN_TIO}} ({{NGUOI_TIO}}) stands in the CENTRE, both chest-up above the display; at the far RIGHT edge only the out-of-focus shoulder and the back of the head of a customer in a white polo shirt, his face never visible; behind them {{NEN_SAP}}. EYE LINE: the butcher looks at the customer at the right edge of the frame; the boy looks down at his cutting board. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_TAVO}} and {{TEN_TIO}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_2}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English. EYE LINE for the whole clip: the butcher looks at the customer at the right edge of the frame; the boy looks down at his cutting board; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the butcher pats his own chest once with one hand, proudly, then rests the hand on the counter. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 3 (0:10–0:15): Lượt 3
+Bối cảnh: góc K: cận khách hàng từ ngực trở lên, đứng trước quầy, nền chợ mờ; chỉ một người; không có chữ, không người lạ.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_3}}
+Khung đầu: ảnh mới theo góc K; miệng mọi người khép.
+Khung cuối: Khách nhìn sang trái, miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the customer looks toward the boy behind the counter, off-screen to the left; never into the lens.
+Diễn biến: Khách hất cằm về phía Tavo (ngoài khung bên trái), tò mò. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, warm soft daylight from the high windows of a big indoor market hall and warm glowing bulbs over the stall. CAMERA ANGLE K: medium close-up of {{TEN_KHACH}} ({{NGUOI_KHACH}}) from the chest up, standing in front of the meat stall, seen from just beside the counter, his body turned slightly to the LEFT toward the counter; behind him {{NEN_CHO}}, softly out of focus. He is the only person in the frame. EYE LINE: the customer looks toward the boy behind the counter, off-screen to the left; never into the lens. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_KHACH}} is in this clip; nobody else ever appears. CAMERA LOCK: the camera is locked off on this close shot for the whole clip: no pan, no zoom out, no reframing. CHAR LOCK. In this clip: {{LUOT_3}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English. EYE LINE for the whole clip: the customer looks toward the boy behind the counter, off-screen to the left; never into the lens; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the customer nods his chin once toward the left. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech; anyone else added behind or beside the person.
+Khung đầu từ cảnh: 1
+
+CẢNH 4 (0:15–0:20): Lượt 4
+Bối cảnh: góc A: nhìn từ phía khách vào quầy thịt: tủ kính thịt ở 1/3 dưới, Tavo bên TRÁI sau thớt, ông chú ở GIỮA; mép PHẢI chỉ có vai + gáy khách áo polo trắng (không thấy mặt); không có chữ, không người lạ.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_4}}
+Khung đầu: ảnh mới theo góc A; miệng mọi người khép.
+Khung cuối: Ông chú nhìn khách; Tavo cúi đầu; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the butcher glances at the boy on the left, then back at the customer at the right edge; the boy keeps looking down.
+Diễn biến: Ông chú liếc Tavo, phẩy tay coi thường, rồi quay lại nhìn khách; Tavo cúi đầu. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, warm soft daylight from the high windows of a big indoor market hall and warm glowing bulbs over the stall. CAMERA ANGLE A, medium-wide shot from the customer side, facing the meat stall: across the bottom third a glass display case full of neatly stacked raw red steaks; behind the counter {{TEN_TAVO}} ({{NGUOI_TAVO}}) stands at the LEFT behind a worn wooden cutting board, and {{TEN_TIO}} ({{NGUOI_TIO}}) stands in the CENTRE, both chest-up above the display; at the far RIGHT edge only the out-of-focus shoulder and the back of the head of a customer in a white polo shirt, his face never visible; behind them {{NEN_SAP}}. EYE LINE: the butcher glances at the boy on the left, then back at the customer at the right edge; the boy keeps looking down. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_TAVO}} and {{TEN_TIO}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_4}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English. EYE LINE for the whole clip: the butcher glances at the boy on the left, then back at the customer at the right edge; the boy keeps looking down; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the butcher gives a small dismissive wave of the hand toward the boy, then lowers the hand. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+Khung đầu từ cảnh: 2
+
+CẢNH 5 (0:20–0:25): Lượt 5
+Bối cảnh: góc A: nhìn từ phía khách vào quầy thịt: tủ kính thịt ở 1/3 dưới, Tavo bên TRÁI sau thớt, ông chú ở GIỮA; mép PHẢI chỉ có vai + gáy khách áo polo trắng (không thấy mặt); không có chữ, không người lạ. Nối từ khung cuối cảnh trước.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_5}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Ông chú nhìn Tavo; Tavo nhìn ông chú, sợ sệt; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the butcher turns his head to the boy on the left and looks at him; the boy looks up at the butcher, startled.
+Diễn biến: Ông chú quay sang Tavo, ra lệnh như trêu; Tavo ngẩng lên, mắt mở to, miệng vẫn khép. Nói xong mọi người đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. Only {{TEN_TAVO}} and {{TEN_TIO}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_5}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English. EYE LINE for the whole clip: the butcher turns his head to the boy on the left and looks at him; the boy looks up at the butcher, startled; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the butcher turns toward the boy and gestures at him with an open hand. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 6 (0:25–0:30): Lượt 6 (không lời)
+Bối cảnh: góc T: cận Tavo một mình sau quầy, đầu và vai, mặt hơi quay sang PHẢI về phía ông chú (ngoài khung), nền sạp mờ; không có chữ, không người lạ.
+Voice: {{LUOT_6}}
+Khung đầu: ảnh mới theo góc T; miệng mọi người khép.
+Khung cuối: Tavo cúi mặt, miệng khép, má đỏ lên.
+Hướng nhìn: the boy looks at the butcher just to the right of the lens, then glances further right toward the customer, then down; never into the lens.
+Diễn biến: CẢNH CÂM (~3,5 s): Tavo đứng sững, mắt mở to, hé miệng định đáp nhưng không ra tiếng, khép lại, nuốt khan, lại hé miệng, rồi cúi mặt xấu hổ.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, warm soft daylight from the high windows of a big indoor market hall and warm glowing bulbs over the stall. CAMERA ANGLE T: close-up of {{TEN_TAVO}} ({{NGUOI_TAVO}}) behind the meat counter, head and shoulders, centre, face turned slightly to the RIGHT of the lens toward the butcher off-screen; behind him {{NEN_SAP}}, softly out of focus. He is the only person in the frame. EYE LINE: the boy looks at the butcher just to the right of the lens, then glances further right toward the customer, then down; never into the lens. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_TAVO}} is in this clip; nobody else ever appears. CAMERA LOCK: the camera is locked off on this close shot for the whole clip: no pan, no zoom out, no reframing. CHAR LOCK. {{LUOT_6}} EYE LINE for the whole clip: the boy looks at the butcher just to the right of the lens, then glances further right toward the customer, then down; never into the lens. ACTION, from the first frame to the last: the boy freezes with wide eyes, opens his mouth as if about to answer but no sound comes out, closes it, swallows nervously, opens it a little again without a sound, then lowers his eyes in shame; tiny nervous movements only. Mouths closed unless the ACTION describes otherwise. Only the quiet natural sound of the place and of the action, no music. VIDEO SUFFIX.
+Audio: Không lời. Chỉ tiếng động tự nhiên của nơi đó và của hành động; không nhạc.
+Negative prompt: text or captions; camera movement; a character not in this shot appearing; anyone talking or mouthing words; music; anyone else added behind or beside the person.
+Cắt còn: 3.5
+
+CẢNH 7 (0:30–0:35): Lượt 7
+Bối cảnh: góc B: cận hai người qua thớt gỗ: Tavo nửa TRÁI, ông chú nửa PHẢI, từ ngực trở lên, mép thớt + khăn trắng gấp ở dưới; không có chữ, không người lạ.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_7}}
+Khung đầu: ảnh mới theo góc B; miệng mọi người khép.
+Khung cuối: Ông chú cười khẩy nhìn sang phải; Tavo cúi mặt; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the butcher looks off-screen to the right toward the customer; the boy looks down at the cutting board.
+Diễn biến: Ông chú quay sang khách (ngoài khung bên phải), xoè tay về phía Tavo, chê; Tavo cúi mặt xấu hổ. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, warm soft daylight from the high windows of a big indoor market hall and warm glowing bulbs over the stall. CAMERA ANGLE B, close two-shot across the wooden cutting board: {{TEN_TAVO}} ({{NGUOI_TAVO}}) on the LEFT half and {{TEN_TIO}} ({{NGUOI_TIO}}) on the RIGHT half, both from the chest up behind the counter, the worn edge of the wooden cutting board with a folded white towel along the bottom of the frame; behind them {{NEN_SAP}}. Only these two people are in the frame. EYE LINE: the butcher looks off-screen to the right toward the customer; the boy looks down at the cutting board. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_TAVO}} and {{TEN_TIO}} are in this clip; nobody else ever appears. CAMERA LOCK: the camera is locked off on this close shot for the whole clip: no pan, no zoom out, no reframing. CHAR LOCK. In this clip: {{LUOT_7}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English. EYE LINE for the whole clip: the butcher looks off-screen to the right toward the customer; the boy looks down at the cutting board; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the butcher opens one palm toward the boy as he speaks, then lowers it. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech; anyone else added behind or beside the person.
+
+CẢNH 8 (0:35–0:40): Lượt 8
+Bối cảnh: góc B: cận hai người qua thớt gỗ: Tavo nửa TRÁI, ông chú nửa PHẢI, từ ngực trở lên, mép thớt + khăn trắng gấp ở dưới; không có chữ, không người lạ. Nối từ khung cuối cảnh trước.
+Voice: (Spanish, chỉ một người nói trong clip này) {{LUOT_8}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Hai đồng xu nằm trên thớt; tay ông chú rút về; Tavo nhìn đồng xu; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the butcher leans toward the boy and looks at him; the boy looks at the coins on the board.
+Diễn biến: Ông chú cúi sát Tavo, nói nhỏ nghiêm; đặt hai đồng xu lên thớt cạnh khăn ở chữ 'refresco'. Nói xong mọi người đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. Only {{TEN_TAVO}} and {{TEN_TIO}} are in this clip; nobody else ever appears. CAMERA LOCK: the camera is locked off on this close shot for the whole clip: no pan, no zoom out, no reframing. CHAR LOCK. In this clip: {{LUOT_8}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: Spanish. EYE LINE for the whole clip: the butcher leans toward the boy and looks at him; the boy looks at the coins on the board; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the butcher leans toward the boy and, on the last words, puts {{DAO_TIEN}} down on the cutting board beside the towel, then pulls his hand back. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech; anyone else added behind or beside the person.
+
+CẢNH 9 (0:40–0:45): Lượt 9
+Bối cảnh: góc B: cận hai người qua thớt gỗ: Tavo nửa TRÁI, ông chú nửa PHẢI, từ ngực trở lên, mép thớt + khăn trắng gấp ở dưới; không có chữ, không người lạ. Nối từ khung cuối cảnh trước.
+Voice: (Spanish, chỉ một người nói trong clip này) {{LUOT_9}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Tavo nhìn ông chú; ông chú nhìn xuống hai đồng xu; hai đồng xu vẫn trên thớt; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the boy lifts his head and looks at the butcher on his right, his face turned three-quarters toward the camera, speaking; the butcher looks down at the two coins and does not look at the boy.
+Diễn biến: Tavo ngẩng lên, mặt hơi hướng ra máy, nhìn ông chú và nói nhỏ, rụt rè nhưng rõ ràng đòi lương tuần; miệng Tavo cử động rõ theo từng chữ; ông chú nhìn xuống hai đồng xu, môi mím chặt, không nói. Nói xong mọi người đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. Only {{TEN_TAVO}} and {{TEN_TIO}} are in this clip; nobody else ever appears. CAMERA LOCK: the camera is locked off on this close shot for the whole clip: no pan, no zoom out, no reframing. CHAR LOCK. In this clip: {{LUOT_9}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: Spanish. EYE LINE for the whole clip: the boy lifts his head and looks at the butcher on his right, his face turned three-quarters toward the camera, speaking; the butcher looks down at the two coins and does not look at the boy; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the boy lifts his eyes from the coins to the butcher and speaks, his mouth clearly forming every word with lip-sync and his face open to the camera; the butcher keeps his lips firmly sealed and stares down at the coins. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech; anyone else added behind or beside the person.
+
+CẢNH 10 (0:45–0:50): Lượt 10
+Bối cảnh: góc B: cận hai người qua thớt gỗ: Tavo nửa TRÁI, ông chú nửa PHẢI, từ ngực trở lên, mép thớt + khăn trắng gấp ở dưới; không có chữ, không người lạ. Nối từ khung cuối cảnh trước.
+Voice: (Spanish, chỉ một người nói trong clip này) {{LUOT_10}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Ông chú quay mặt sang phải; Tavo cúi nhìn đồng xu trên thớt; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the butcher looks at the boy, then turns his head away to the right; the boy looks down at the coins.
+Diễn biến: Ông chú cười nhạt, nói gọn rồi quay mặt đi; Tavo cúi nhìn hai đồng xu. Nói xong mọi người đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. Only {{TEN_TAVO}} and {{TEN_TIO}} are in this clip; nobody else ever appears. CAMERA LOCK: the camera is locked off on this close shot for the whole clip: no pan, no zoom out, no reframing. CHAR LOCK. In this clip: {{LUOT_10}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: Spanish. EYE LINE for the whole clip: the butcher looks at the boy, then turns his head away to the right; the boy looks down at the coins; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the butcher shrugs slightly and turns his head away to the right as he finishes. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech; anyone else added behind or beside the person.
+
+CẢNH 11 (0:50–0:55): Lượt 11 (không lời)
+Bối cảnh: góc X: lối đi trong chợ: bà chủ đi nhanh về phía máy giữa hai dãy sạp, cầm sổ, đảo mắt tìm quầy thịt; không có chữ, không người lạ.
+Voice: {{LUOT_11}}
+Khung đầu: ảnh mới theo góc X; miệng mọi người khép.
+Khung cuối: Bà chủ quay người sang phải, bước về phía quầy thịt; miệng khép.
+Hướng nhìn: the woman looks left and right along the stalls, searching, then fixes her eyes on something off-screen to the right; never into the lens.
+Diễn biến: CẢNH CÂM (~4 s): bà chủ nhà hàng bước nhanh vào chợ, cầm sổ, ráo riết đảo mắt trái phải tìm hàng thịt, rồi thấy quầy (ngoài khung bên phải) và rẽ về phía đó.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, warm soft daylight from the high windows of a big indoor market hall and warm glowing bulbs over the stall. CAMERA ANGLE X, medium-wide shot down an aisle of the big indoor market: {{TEN_CHU}} ({{NGUOI_CHU}}) walks toward the camera in the middle of the aisle, seen from the knees up, holding {{DAO_SO}}, between stalls of fruit, vegetables and spices on both sides; {{NEN_CHO}}; far shoppers are tiny, blurred and still. She is the only person clearly visible. EYE LINE: the woman looks left and right along the stalls, searching, then fixes her eyes on something off-screen to the right; never into the lens. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_CHU}} is in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame, even when a person walks. CHAR LOCK. {{LUOT_11}} EYE LINE for the whole clip: the woman looks left and right along the stalls, searching, then fixes her eyes on something off-screen to the right; never into the lens. ACTION, from the first frame to the last: the woman hurries forward with quick anxious steps, clutching the notepad, her head turning left and right as she scans the stalls, then she spots something off-screen to the right and turns toward it without slowing down. Mouths closed unless the ACTION describes otherwise. Only the quiet natural sound of the place and of the action, no music. VIDEO SUFFIX.
+Audio: Không lời. Chỉ tiếng động tự nhiên của nơi đó và của hành động; không nhạc.
+Negative prompt: text or captions; camera movement; a character not in this shot appearing; anyone talking or mouthing words; music.
+Cắt còn: 4
+
+CẢNH 12 (0:55–1:00): Lượt 12
+Bối cảnh: góc C: phòng sau quầy (tường gạch trắng, cuộn giấy hồng, móc xích, thớt lớn, ghế nhựa xanh): bà chủ nhà hàng bên TRÁI cầm sổ, Tavo mép PHẢI, hai người nhìn nhau; không có chữ, không người lạ.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_12}}
+Khung đầu: ảnh mới theo góc C; miệng mọi người khép.
+Khung cuối: Bà chủ nhìn Tavo, cầm sổ trước bụng; Tavo nhìn bà; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the woman looks at the boy on the right, pleading; the boy looks at her.
+Diễn biến: Bà chủ nhà hàng vừa chạy tới, thở gấp, cầm sổ, nói với Tavo giọng lo lắng. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, warm soft daylight from the high windows of a big indoor market hall and warm glowing bulbs over the stall. CAMERA ANGLE C, medium shot in the back room of the stall: {{TEN_CHU}} ({{NGUOI_CHU}}) at the LEFT, holding {{DAO_SO}} at waist height, body turned RIGHT in three-quarter view; {{TEN_TAVO}} ({{NGUOI_TAVO}}) at the RIGHT edge, from the chest up, turned LEFT toward her; behind them {{NEN_PHONG}}. Only these two people are in the frame. EYE LINE: the woman looks at the boy on the right, pleading; the boy looks at her. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_CHU}} and {{TEN_TAVO}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_12}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English. EYE LINE for the whole clip: the woman looks at the boy on the right, pleading; the boy looks at her; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the woman lifts {{DAO_SO}} a little and gestures with her free hand, worried. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 13 (1:00–1:05): Lượt 13
+Bối cảnh: góc C: phòng sau quầy (tường gạch trắng, cuộn giấy hồng, móc xích, thớt lớn, ghế nhựa xanh): bà chủ nhà hàng bên TRÁI cầm sổ, Tavo mép PHẢI, hai người nhìn nhau; không có chữ, không người lạ. Nối từ khung cuối cảnh trước.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_13}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Bà chủ nhìn Tavo; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the woman looks around the room and back at the boy; the boy looks at her.
+Diễn biến: Bà chủ nhìn quanh tìm người giúp, hai tay nắm sổ. Nói xong mọi người đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. Only {{TEN_CHU}} and {{TEN_TAVO}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_13}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English. EYE LINE for the whole clip: the woman looks around the room and back at the boy; the boy looks at her; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the woman glances around the room, then back at the boy, holding the notepad with both hands. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 14 (1:05–1:10): Lượt 14
+Bối cảnh: góc C: phòng sau quầy (tường gạch trắng, cuộn giấy hồng, móc xích, thớt lớn, ghế nhựa xanh): bà chủ nhà hàng bên TRÁI cầm sổ, Tavo mép PHẢI, hai người nhìn nhau; không có chữ, không người lạ. Nối từ khung cuối cảnh trước.
+Voice: (Spanish, chỉ một người nói trong clip này) {{LUOT_14}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Tavo hạ tay, nhìn bà chủ; bà nhìn cậu bối rối; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the boy looks at the woman on the left, calm; the woman looks at him.
+Diễn biến: Tavo giơ một bàn tay lên trấn an, bình tĩnh, nói nhẹ. Nói xong mọi người đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. Only {{TEN_CHU}} and {{TEN_TAVO}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_14}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: Spanish. EYE LINE for the whole clip: the boy looks at the woman on the left, calm; the woman looks at him; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the boy raises one open palm calmly at chest height, then lowers it. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 15 (1:10–1:15): Lượt 15
+Bối cảnh: góc C: phòng sau quầy (tường gạch trắng, cuộn giấy hồng, móc xích, thớt lớn, ghế nhựa xanh): bà chủ nhà hàng bên TRÁI cầm sổ, Tavo mép PHẢI, hai người nhìn nhau; không có chữ, không người lạ. Nối từ khung cuối cảnh trước.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_15}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Bà chủ nhìn Tavo bối rối, sốt ruột; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the woman looks at the boy, confused; the boy looks at her.
+Diễn biến: Bà chủ nghiêng đầu, lắc nhẹ, xin lỗi vì không nói được tiếng Tây Ban Nha. Nói xong mọi người đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. Only {{TEN_CHU}} and {{TEN_TAVO}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_15}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English. EYE LINE for the whole clip: the woman looks at the boy, confused; the boy looks at her; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the woman shakes her head slightly and opens one palm, apologetic and anxious. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 16 (1:15–1:20): Lượt 16
+Bối cảnh: góc D: cận thớt lớn: Tavo bên TRÁI cúi trên thớt cầm dao phay trên tảng thịt bò; bà chủ đứng sau thớt bên PHẢI nhìn; không có chữ, không người lạ.
+Voice: (Spanish, chỉ một người nói trong clip này) {{LUOT_16}}
+Khung đầu: ảnh mới theo góc D; miệng mọi người khép.
+Khung cuối: Tavo cầm dao phay giơ trên tảng thịt, sẵn sàng; bà chủ đứng nhìn, lo lắng; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the boy looks at the woman on the right while speaking, then down at the beef; the woman watches his hands.
+Diễn biến: Tavo nói nhanh, dứt khoát, chỉ vội chiếc ghế nhựa mời bà ngồi rồi chộp ngay con dao phay; mọi thứ gấp gáp. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, warm soft daylight from the high windows of a big indoor market hall and warm glowing bulbs over the stall. CAMERA ANGLE D: close shot over the big wooden chopping block in the back room: {{TEN_TAVO}} ({{NGUOI_TAVO}}) at the LEFT, leaning over the block, one hand resting on a large piece of raw red beef, {{DAO_DAO}} lying flat on the block beside it; {{TEN_CHU}} ({{NGUOI_CHU}}) stands behind the block at the RIGHT, from the waist up, watching him; behind them {{NEN_PHONG}}. Only these two people are in the frame. EYE LINE: the boy looks at the woman on the right while speaking, then down at the beef; the woman watches his hands. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_TAVO}} and {{TEN_CHU}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_16}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: Spanish. EYE LINE for the whole clip: the boy looks at the woman on the right while speaking, then down at the beef; the woman watches his hands; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: in a hurry, the boy points quickly toward a stool off-screen with one hand and at once grabs {{DAO_DAO}} from the block, ready to cut; brisk, urgent movements. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 17 (1:20–1:30): Lượt 17 (không lời)
+Bối cảnh: góc D2: cận thớt lớn phòng sau: tay Tavo cầm dao phay ở nửa dưới, tảng thịt bò; mặt Tavo cúi tập trung ở nửa trên; không có chữ, không người lạ.
+Voice: {{LUOT_17}}
+Khung đầu: ảnh mới theo góc D2; miệng mọi người khép.
+Khung cuối: Một chồng thịt cắt dày đều bên cạnh; Tavo vẫn cúi tập trung.
+Hướng nhìn: the boy looks down at the meat and the cleaver the whole time.
+Diễn biến: CẢNH CÂM (~8 s, tua x1,5): Tavo chặt thịt cực nhanh như thợ lành nghề: dao lên xuống liên tục, mỗi nhát một miếng dày đều, gạt sang bên và chặt tiếp ngay, tay gần như nhoè vì nhanh, không một nhịp nghỉ.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, warm soft daylight from the high windows of a big indoor market hall and warm glowing bulbs over the stall. CAMERA ANGLE D2: close shot over the big wooden chopping block in the back room: {{TEN_TAVO}} ({{NGUOI_TAVO}}) leans over the block in the upper half of the frame, eyes down on the meat, concentrated, his hands holding {{DAO_DAO}} over a large slab of raw red beef in the lower half; a few thick steaks already cut at the side; behind him {{NEN_PHONG}}, softly out of focus. He is the only person in the frame. EYE LINE: the boy looks down at the meat and the cleaver the whole time. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_TAVO}} is in this clip; nobody else ever appears. CAMERA LOCK: the camera is locked off on this close shot for the whole clip: no pan, no zoom out, no reframing. CHAR LOCK. {{LUOT_17}} EYE LINE for the whole clip: the boy looks down at the meat and the cleaver the whole time. ACTION, from the first frame to the last: the boy chops at extreme speed like a master butcher: the cleaver rises and falls again and again in a rapid blur of motion, one stroke per second or faster, each stroke slicing a thick even steak, the flat of the blade sweeping each finished steak aside while the other hand feeds the beef forward, never a pause, never slowing down; sure, expert and efficient, urgent as if the customer is waiting; clean cuts, no blood splashes. Mouths closed unless the ACTION describes otherwise. Only the quiet natural sound of the place and of the action, no music. VIDEO SUFFIX.
+Audio: Không lời. Chỉ tiếng động tự nhiên của nơi đó và của hành động; không nhạc.
+Negative prompt: text or captions; camera movement; a character not in this shot appearing; anyone talking or mouthing words; music; anyone else added behind or beside the person; blood splashes; slow movements.
+Tua: 1.5
+
+CẢNH 18 (1:30–1:35): Lượt 18 (không lời)
+Bối cảnh: góc Y: cận từ trên xuống quầy gỗ: chỉ hai bàn tay Tavo (tay áo xanh nhạt, tạp dề trắng) gói thịt bằng giấy hồng; chồng thịt bên trái, gói xong bên phải; không có chữ, không người lạ.
+Voice: {{LUOT_18}}
+Khung đầu: ảnh mới theo góc Y; miệng mọi người khép.
+Khung cuối: Bên phải có 4 gói thịt giấy hồng xếp ngay ngắn.
+Hướng nhìn: no face in the shot; the hands work on the counter.
+Diễn biến: CẢNH CÂM (~4 s, tua x1,5): chỉ thấy hai bàn tay Tavo gói thịt giấy hồng cực nhanh, thành thạo: mỗi gói chỉ vài giây (đặt, gấp, lật, ép), xếp lên chồng rồi với gói tiếp ngay. Đầu clip bên phải chỉ có 1 gói, cuối clip có 4 gói.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, warm soft daylight from the high windows of a big indoor market hall and warm glowing bulbs over the stall. CAMERA ANGLE Y: tight top-down close-up of the long wooden counter, framed so that only {{TEN_TAVO}}'s two hands and forearms (light-blue T-shirt sleeves) enter from the bottom edge; his head, face and body are below the bottom edge and never in the frame; a roll of plain pink butcher paper, a pile of freshly cut raw steaks at the LEFT, ONE wrapped pink package at the RIGHT. EYE LINE: no face in the shot; the hands work on the counter. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only the boy's two hands and forearms are in this clip; no face, nobody else ever appears. CAMERA LOCK: the camera is locked off on this close shot for the whole clip: no pan, no zoom out, no reframing. CHAR LOCK. {{LUOT_18}} EYE LINE for the whole clip: no face in the shot; the hands work on the counter. ACTION, from the first frame to the last: the boy's hands wrap the steaks in pink butcher paper at top speed with the folds of a professional: lay a steak on the paper, fold the sides, roll it over, press it flat, set the package on the stack at the right and snatch the next sheet and steak at once, hands almost a blur, never a pause. At the first frame only ONE wrapped package stands at the right; by the last frame there are exactly FOUR neatly stacked wrapped packages there. Mouths closed unless the ACTION describes otherwise. Only the quiet natural sound of the place and of the action, no music. VIDEO SUFFIX.
+Audio: Không lời. Chỉ tiếng động tự nhiên của nơi đó và của hành động; không nhạc.
+Negative prompt: text or captions; camera movement; a character not in this shot appearing; anyone talking or mouthing words; music; anyone else added behind or beside the person; blood splashes; slow movements.
+Tua: 1.5
+
+CẢNH 19 (1:35–1:40): Lượt 19
+Bối cảnh: góc W: sau quầy dài: Tavo TRÁI, bà chủ PHẢI, trước mặt 4 gói thịt bọc giấy hồng xếp hàng; không có chữ, không người lạ.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_19}}
+Khung đầu: ảnh mới theo góc W; miệng mọi người khép.
+Khung cuối: Bà chủ nhìn Tavo, mắt mở to; Tavo mỉm cười nhẹ; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the woman looks at the four packages, then at the boy on the left; the boy looks at her.
+Diễn biến: Bà chủ nhìn bốn gói thịt bọc giấy hồng đã xong, sững sờ, rồi nhìn Tavo. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, warm soft daylight from the high windows of a big indoor market hall and warm glowing bulbs over the stall. CAMERA ANGLE W, medium shot of the long wooden counter: {{TEN_TAVO}} ({{NGUOI_TAVO}}) at the LEFT and {{TEN_CHU}} ({{NGUOI_CHU}}) at the RIGHT stand behind it, from the waist up, turned toward each other; on the counter in front of them {{DAO_GOI}} lie in a neat row; behind them {{NEN_CHO}}, softly out of focus. Only these two people are in the frame. EYE LINE: the woman looks at the four packages, then at the boy on the left; the boy looks at her. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_TAVO}} and {{TEN_CHU}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_19}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English. EYE LINE for the whole clip: the woman looks at the four packages, then at the boy on the left; the boy looks at her; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the woman's eyes go from the row of packages to the boy, amazed. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 20 (1:40–1:45): Lượt 20
+Bối cảnh: góc E: quầy trước, cạnh cân đồng treo: bà chủ TRÁI tì tay lên tủ kính nhìn sang phải, Tavo mép PHẢI nhìn nghiêng sang trái; 4 gói thịt bọc giấy hồng (Tavo vừa gói) xếp hàng trên nóc tủ kính; không có chữ, không người lạ.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_20}}
+Khung đầu: ảnh mới theo góc E; miệng mọi người khép.
+Khung cuối: Bà chủ mỉm cười nhìn Tavo; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the woman looks at the boy on the right, warmly; the boy looks at her.
+Diễn biến: Bà chủ cảm ơn rối rít, hỏi tên Tavo. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, warm soft daylight from the high windows of a big indoor market hall and warm glowing bulbs over the stall. CAMERA ANGLE E, medium close shot at the front counter beside an old brass hanging scale on a chain: {{TEN_CHU}} ({{NGUOI_CHU}}) at the LEFT leans her forearms on the glass display, face in three-quarter view looking RIGHT; {{TEN_TAVO}} ({{NGUOI_TAVO}}) at the RIGHT edge, head and shoulders in profile, facing LEFT toward her; on top of the glass display between them lie the four packages of meat wrapped in plain pink butcher paper that the boy has just wrapped ({{DAO_GOI}}) in a neat row; raw steaks inside the glass display along the bottom; behind them {{NEN_SAP}}. Only these two people are in the frame. EYE LINE: the woman looks at the boy on the right, warmly; the boy looks at her. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_CHU}} and {{TEN_TAVO}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_20}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English. EYE LINE for the whole clip: the woman looks at the boy on the right, warmly; the boy looks at her; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the woman leans her forearms on the display and smiles at the boy. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 21 (1:45–1:50): Lượt 21
+Bối cảnh: góc E: quầy trước, cạnh cân đồng treo: bà chủ TRÁI tì tay lên tủ kính nhìn sang phải, Tavo mép PHẢI nhìn nghiêng sang trái; 4 gói thịt bọc giấy hồng (Tavo vừa gói) xếp hàng trên nóc tủ kính; không có chữ, không người lạ. Nối từ khung cuối cảnh trước.
+Voice: (Spanish, chỉ một người nói trong clip này) {{LUOT_21}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Tavo nhìn bà chủ, ngượng; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the boy looks at the woman on the left, embarrassed; the woman looks at him.
+Diễn biến: Tavo ngượng, khẽ lắc đầu: không hiểu. Nói xong mọi người đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. Only {{TEN_CHU}} and {{TEN_TAVO}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_21}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: Spanish. EYE LINE for the whole clip: the boy looks at the woman on the left, embarrassed; the woman looks at him; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the boy gives a small shake of the head. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 22 (1:50–1:55): Lượt 22
+Bối cảnh: góc E: quầy trước, cạnh cân đồng treo: bà chủ TRÁI tì tay lên tủ kính nhìn sang phải, Tavo mép PHẢI nhìn nghiêng sang trái; 4 gói thịt bọc giấy hồng (Tavo vừa gói) xếp hàng trên nóc tủ kính; không có chữ, không người lạ. Nối từ khung cuối cảnh trước.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_22}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Bà chủ cầm điện thoại giơ về phía Tavo; Tavo nhìn màn hình; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the woman looks at her phone, then at the boy; the boy looks at the phone.
+Diễn biến: Bà chủ lấy điện thoại ra, giơ màn hình về phía Tavo, chỉ vào màn hình ở chữ 'this app'. Nói xong mọi người đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. Only {{TEN_CHU}} and {{TEN_TAVO}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_22}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English. EYE LINE for the whole clip: the woman looks at her phone, then at the boy; the boy looks at the phone; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the woman lifts {{DAO_DIEN_THOAI}} with its screen turned toward the boy (the camera sees only a soft glow, no readable screen) and taps it once with her index finger. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 23 (1:55–2:00): Lượt 23
+Bối cảnh: góc E1: cận mặt bà chủ, một ngón tay giơ lên, tay kia cầm bút; chỉ một người; không có chữ, không người lạ.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_23}}
+Khung đầu: ảnh mới theo góc E1; miệng mọi người khép.
+Khung cuối: Bà chủ mỉm cười, ngón tay vẫn giơ; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the woman looks at the boy just to the right of the lens, never into it.
+Diễn biến: Bà chủ giơ một ngón tay lên, nhấn mạnh 'một tháng', hào hứng. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, warm soft daylight from the high windows of a big indoor market hall and warm glowing bulbs over the stall. CAMERA ANGLE E1: close-up of {{TEN_CHU}} ({{NGUOI_CHU}}), head and shoulders, face turned slightly to the RIGHT of the lens, a pen held in one hand at the bottom of the frame; behind her the stall, softly out of focus. She is the only person in the frame. EYE LINE: the woman looks at the boy just to the right of the lens, never into it. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_CHU}} is in this clip; nobody else ever appears. CAMERA LOCK: the camera is locked off on this close shot for the whole clip: no pan, no zoom out, no reframing. CHAR LOCK. In this clip: {{LUOT_23}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English. EYE LINE for the whole clip: the woman looks at the boy just to the right of the lens, never into it; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the woman raises her index finger as she says 'one month'. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech; anyone else added behind or beside the person.
+
+CẢNH 24 (2:00–2:05): Lượt 24 (không lời)
+Bối cảnh: góc E: quầy trước, cạnh cân đồng treo: bà chủ TRÁI tì tay lên tủ kính nhìn sang phải, Tavo mép PHẢI nhìn nghiêng sang trái; 4 gói thịt bọc giấy hồng (Tavo vừa gói) xếp hàng trên nóc tủ kính; không có chữ, không người lạ.
+Voice: {{LUOT_24}}
+Khung đầu: ảnh mới theo góc E; miệng mọi người khép.
+Khung cuối: Bà chủ đã đứng thẳng, mỉm cười nhìn Tavo; Tavo ngượng, má ửng đỏ; miệng khép.
+Hướng nhìn: the woman looks at the boy on the right, moved; the boy looks at her, surprised.
+Diễn biến: CẢNH CÂM (~3,5 s): bà chủ nghiêng người qua quầy, khẽ đỡ đầu Tavo, hôn nhẹ lên trán cậu như người mẹ rồi đứng thẳng lại; Tavo sững người, ngượng.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, warm soft daylight from the high windows of a big indoor market hall and warm glowing bulbs over the stall. CAMERA ANGLE E, medium close shot at the front counter beside an old brass hanging scale on a chain: {{TEN_CHU}} ({{NGUOI_CHU}}) at the LEFT leans her forearms on the glass display, face in three-quarter view looking RIGHT; {{TEN_TAVO}} ({{NGUOI_TAVO}}) at the RIGHT edge, head and shoulders in profile, facing LEFT toward her; on top of the glass display between them lie the four packages of meat wrapped in plain pink butcher paper that the boy has just wrapped ({{DAO_GOI}}) in a neat row; raw steaks inside the glass display along the bottom; behind them {{NEN_SAP}}. Only these two people are in the frame. EYE LINE: the woman looks at the boy on the right, moved; the boy looks at her, surprised. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_CHU}} and {{TEN_TAVO}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame, even when a person walks. CHAR LOCK. {{LUOT_24}} EYE LINE for the whole clip: the woman looks at the boy on the right, moved; the boy looks at her, surprised. ACTION, from the first frame to the last: the woman leans across the counter toward the boy, gently holds the side of his head with one hand and gives him a quick motherly kiss on the forehead, then straightens back up with a warm smile; the boy freezes in surprise and blushes. Mouths closed unless the ACTION describes otherwise. Only the quiet natural sound of the place and of the action, no music. VIDEO SUFFIX.
+Audio: Không lời. Chỉ tiếng động tự nhiên của nơi đó và của hành động; không nhạc.
+Negative prompt: text or captions; camera movement; a character not in this shot appearing; anyone talking or mouthing words; music.
+Khung đầu từ cảnh: 20
+Cắt còn: 3.5
+
+CẢNH 25 (2:05–2:10): Lượt 25
+Bối cảnh: góc E: quầy trước, cạnh cân đồng treo: bà chủ TRÁI tì tay lên tủ kính nhìn sang phải, Tavo mép PHẢI nhìn nghiêng sang trái; 4 gói thịt bọc giấy hồng (Tavo vừa gói) xếp hàng trên nóc tủ kính; không có chữ, không người lạ. Nối từ khung cuối cảnh trước.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_25}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Bà chủ ôm gói thịt, mỉm cười nhìn Tavo; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the woman looks at the boy on the right, grateful; the boy looks at her.
+Diễn biến: Bà chủ ôm gói thịt vào lòng, cảm động, nói lời cảm ơn. Nói xong mọi người đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. Only {{TEN_CHU}} and {{TEN_TAVO}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_25}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English. EYE LINE for the whole clip: the woman looks at the boy on the right, grateful; the boy looks at her; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the woman picks up one of the pink-wrapped packages from the top of the display and hugs it to her chest. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 26 (2:10–2:15): Lượt 26
+Bối cảnh: góc N: đêm, cận Tavo ngồi khom trong kho tối, mặt sáng từ dưới lên bởi màn hình điện thoại (lưng điện thoại hướng camera ở mép dưới); không có chữ, không người lạ.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_26}}
+Khung đầu: ảnh mới theo góc N; miệng mọi người khép.
+Khung cuối: Tavo nhìn màn hình, môi khép, căng thẳng. Mọi người đứng im đến hết clip.
+Hướng nhìn: the boy looks down at the phone screen in his hands.
+Diễn biến: Đêm, Tavo nhìn màn hình, cố đọc từng tiếng Anh, ngập ngừng. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, late at night, the only light is the cold bluish glow of a phone screen from below, deep soft shadows. CAMERA ANGLE N: close-up of {{TEN_TAVO}} ({{NGUOI_TAVO}}) at night, from the top of his hair to the chest, sitting hunched in {{NEN_DEM}}, holding {{DAO_DIEN_THOAI}} low in both hands at the bottom of the frame with the BACK of the phone toward the camera; his face is lit from below by the phone's cold glow, eyes on the screen. He is the only person in the frame. EYE LINE: the boy looks down at the phone screen in his hands. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_TAVO}} is in this clip; nobody else ever appears. CAMERA LOCK: the camera is locked off on this close shot for the whole clip: no pan, no zoom out, no reframing. CHAR LOCK. In this clip: {{LUOT_26}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English (very broken, heavy Spanish accent). EYE LINE for the whole clip: the boy looks down at the phone screen in his hands; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the boy frowns with concentration, trying each word slowly. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech; anyone else added behind or beside the person.
+
+CẢNH 27 (2:15–2:20): Lượt 27
+Bối cảnh: góc P: cận điện thoại trong hai bàn tay cậu bé (chỉ thấy tay), màn hình là robot gia sư AI gọi video trên nền xanh, không chữ, không nút; không có chữ, không người lạ.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_27}}
+Khung đầu: ảnh mới theo góc P; miệng mọi người khép.
+Khung cuối: Robot mỉm cười trên màn hình; tay cầm điện thoại yên. Mọi người đứng im đến hết clip.
+Hướng nhìn: the robot on the screen looks straight out of the phone, at the boy holding it.
+Diễn biến: Robot trên màn hình nói chậm rõ, giải nghĩa sang tiếng Tây Ban Nha. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, late at night, the only light is the cold bluish glow of a phone screen from below, deep soft shadows. CAMERA ANGLE P: close-up of {{DAO_DIEN_THOAI}} held upright in a boy's two hands at night (only the hands and thumbs at the sides, no face); the screen fills most of the frame and shows only {{TEN_ROBOT}} ({{NGUOI_ROBOT}}) in a video call, head and chest, centred, on a plain soft-blue background; no text, no buttons, no icons, no bars on the screen; the dark room around the phone. EYE LINE: the robot on the screen looks straight out of the phone, at the boy holding it. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_ROBOT}} on the phone screen and the boy's hands holding the phone are in this clip; no face of the boy, nobody else ever appears. CAMERA LOCK: the camera is locked off on this close shot for the whole clip: no pan, no zoom out, no reframing. CHAR LOCK. In this clip: {{LUOT_27}} Only the robot on the phone screen speaks, with lip-sync and a friendly expressive face. LANGUAGE of this line: English, then a few words of Spanish. EYE LINE for the whole clip: the robot on the screen looks straight out of the phone, at the boy holding it; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: only the robot on the screen moves its face; the hands holding the phone stay still. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech; anyone else added behind or beside the person; the boy's face; app buttons, chat bubbles or text on the screen.
+
+CẢNH 28 (2:20–2:25): Lượt 28
+Bối cảnh: góc N: đêm, cận Tavo ngồi khom trong kho tối, mặt sáng từ dưới lên bởi màn hình điện thoại (lưng điện thoại hướng camera ở mép dưới); không có chữ, không người lạ.
+Voice: (Spanish, chỉ một người nói trong clip này) {{LUOT_28}}
+Khung đầu: ảnh mới theo góc N; miệng mọi người khép.
+Khung cuối: Tavo mắt mở to, ngấn nước, một tay đặt lên ngực; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the boy looks at the phone screen, then lifts his eyes from it, staring into space as the meaning sinks in.
+Diễn biến: Tavo sững sờ, ngỡ ngàng khi hiểu ra ý nghĩa câu nói (bà chủ đã nói với cậu 'cậu đã cứu tôi'): mắt mở to, miệng hé, thì thầm lại nghĩa bằng tiếng Tây Ban Nha, mắt rưng rưng. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, late at night, the only light is the cold bluish glow of a phone screen from below, deep soft shadows. CAMERA ANGLE N: close-up of {{TEN_TAVO}} ({{NGUOI_TAVO}}) at night, from the top of his hair to the chest, sitting hunched in {{NEN_DEM}}, holding {{DAO_DIEN_THOAI}} low in both hands at the bottom of the frame with the BACK of the phone toward the camera; his face is lit from below by the phone's cold glow, eyes on the screen. He is the only person in the frame. EYE LINE: the boy looks at the phone screen, then lifts his eyes from it, staring into space as the meaning sinks in. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_TAVO}} is in this clip; nobody else ever appears. CAMERA LOCK: the camera is locked off on this close shot for the whole clip: no pan, no zoom out, no reframing. CHAR LOCK. In this clip: {{LUOT_28}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: Spanish. EYE LINE for the whole clip: the boy looks at the phone screen, then lifts his eyes from it, staring into space as the meaning sinks in; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the boy's eyes widen in astonishment as he realises what the words mean, his eyebrows rise, his lips part, he whispers the words in disbelief, his eyes fill with tears and one hand rises slowly to his chest. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech; anyone else added behind or beside the person.
+Khung đầu từ cảnh: 26
+
+CẢNH 29 (2:25–2:30): Lượt 29
+Bối cảnh: góc P: cận điện thoại trong hai bàn tay cậu bé (chỉ thấy tay), màn hình là robot gia sư AI gọi video trên nền xanh, không chữ, không nút; không có chữ, không người lạ.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_29}}
+Khung đầu: ảnh mới theo góc P; miệng mọi người khép.
+Khung cuối: Robot mỉm cười chờ; tay cầm điện thoại yên. Mọi người đứng im đến hết clip.
+Hướng nhìn: the robot on the screen looks straight out of the phone, at the boy holding it.
+Diễn biến: Robot mời Tavo nói theo. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, late at night, the only light is the cold bluish glow of a phone screen from below, deep soft shadows. CAMERA ANGLE P: close-up of {{DAO_DIEN_THOAI}} held upright in a boy's two hands at night (only the hands and thumbs at the sides, no face); the screen fills most of the frame and shows only {{TEN_ROBOT}} ({{NGUOI_ROBOT}}) in a video call, head and chest, centred, on a plain soft-blue background; no text, no buttons, no icons, no bars on the screen; the dark room around the phone. EYE LINE: the robot on the screen looks straight out of the phone, at the boy holding it. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_ROBOT}} on the phone screen and the boy's hands holding the phone are in this clip; no face of the boy, nobody else ever appears. CAMERA LOCK: the camera is locked off on this close shot for the whole clip: no pan, no zoom out, no reframing. CHAR LOCK. In this clip: {{LUOT_29}} Only the robot on the phone screen speaks, with lip-sync and a friendly expressive face. LANGUAGE of this line: English. EYE LINE for the whole clip: the robot on the screen looks straight out of the phone, at the boy holding it; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: only the robot on the screen moves its face; the hands holding the phone stay still. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech; anyone else added behind or beside the person; the boy's face; app buttons, chat bubbles or text on the screen.
+Khung đầu từ cảnh: 27
+
+CẢNH 30 (2:30–2:35): Lượt 30
+Bối cảnh: góc N: đêm, cận Tavo ngồi khom trong kho tối, mặt sáng từ dưới lên bởi màn hình điện thoại (lưng điện thoại hướng camera ở mép dưới); không có chữ, không người lạ.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_30}}
+Khung đầu: ảnh mới theo góc N; miệng mọi người khép.
+Khung cuối: Tavo mỉm cười nhìn màn hình; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the boy looks at the phone screen.
+Diễn biến: Tavo nói chậm từng chữ, lần đầu trọn câu; xong mỉm cười nhẹ, tự hào. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, late at night, the only light is the cold bluish glow of a phone screen from below, deep soft shadows. CAMERA ANGLE N: close-up of {{TEN_TAVO}} ({{NGUOI_TAVO}}) at night, from the top of his hair to the chest, sitting hunched in {{NEN_DEM}}, holding {{DAO_DIEN_THOAI}} low in both hands at the bottom of the frame with the BACK of the phone toward the camera; his face is lit from below by the phone's cold glow, eyes on the screen. He is the only person in the frame. EYE LINE: the boy looks at the phone screen. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_TAVO}} is in this clip; nobody else ever appears. CAMERA LOCK: the camera is locked off on this close shot for the whole clip: no pan, no zoom out, no reframing. CHAR LOCK. In this clip: {{LUOT_30}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English (slow, careful, light Spanish accent). EYE LINE for the whole clip: the boy looks at the phone screen; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the boy speaks slowly and carefully, then a small proud smile appears. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech; anyone else added behind or beside the person.
+Khung đầu từ cảnh: 26
+
+CẢNH 31 (2:35–2:40): Lượt 31
+Bối cảnh: góc P: cận điện thoại trong hai bàn tay cậu bé (chỉ thấy tay), màn hình là robot gia sư AI gọi video trên nền xanh, không chữ, không nút; không có chữ, không người lạ.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_31}}
+Khung đầu: ảnh mới theo góc P; miệng mọi người khép.
+Khung cuối: Robot cười tươi trên màn hình; tay cầm điện thoại yên. Mọi người đứng im đến hết clip.
+Hướng nhìn: the robot on the screen looks straight out of the phone, at the boy holding it.
+Diễn biến: Robot khen, hẹn mai học tiếp. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, late at night, the only light is the cold bluish glow of a phone screen from below, deep soft shadows. CAMERA ANGLE P: close-up of {{DAO_DIEN_THOAI}} held upright in a boy's two hands at night (only the hands and thumbs at the sides, no face); the screen fills most of the frame and shows only {{TEN_ROBOT}} ({{NGUOI_ROBOT}}) in a video call, head and chest, centred, on a plain soft-blue background; no text, no buttons, no icons, no bars on the screen; the dark room around the phone. EYE LINE: the robot on the screen looks straight out of the phone, at the boy holding it. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_ROBOT}} on the phone screen and the boy's hands holding the phone are in this clip; no face of the boy, nobody else ever appears. CAMERA LOCK: the camera is locked off on this close shot for the whole clip: no pan, no zoom out, no reframing. CHAR LOCK. In this clip: {{LUOT_31}} Only the robot on the phone screen speaks, with lip-sync and a friendly expressive face. LANGUAGE of this line: English. EYE LINE for the whole clip: the robot on the screen looks straight out of the phone, at the boy holding it; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: only the robot on the screen moves its face; the hands holding the phone stay still. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech; anyone else added behind or beside the person; the boy's face; app buttons, chat bubbles or text on the screen.
+Khung đầu từ cảnh: 27
+
+CẢNH 32 (2:40–2:45): Lượt 32 (không lời)
+Bối cảnh: góc Q1 (montage, ngày): Tavo chặt thịt sau quầy, điện thoại dựng cạnh cân đồng, một tai nghe trắng, liếc màn hình học; không có chữ, không người lạ.
+Voice: {{LUOT_32}}
+Khung đầu: ảnh mới theo góc Q1; miệng mọi người khép.
+Khung cuối: Tavo cúi chặt thịt, khẽ mỉm cười; miệng khép.
+Hướng nhìn: the boy looks down at the meat, glances at the phone screen beside him, then back at the meat.
+Diễn biến: CẢNH CÂM (ngày 1, ~2,5 s): ban ngày, Tavo chặt thịt nhanh tay, vừa nghe bài qua tai nghe vừa liếc màn hình điện thoại dựng cạnh cân, gật đầu.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, warm soft daylight from the high windows of a big indoor market hall and warm glowing bulbs over the stall. CAMERA ANGLE Q1, medium shot behind the meat counter in daylight: {{TEN_TAVO}} ({{NGUOI_TAVO}}) cuts a steak on the wooden board, a small white earbud in one ear; {{DAO_DIEN_THOAI}} stands propped against the brass hanging scale beside him, its screen turned toward him (the camera sees only a soft glow, nothing readable); behind him {{NEN_SAP}}. He is the only person in the frame. EYE LINE: the boy looks down at the meat, glances at the phone screen beside him, then back at the meat. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_TAVO}} is in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame, even when a person walks. CHAR LOCK. {{LUOT_32}} EYE LINE for the whole clip: the boy looks down at the meat, glances at the phone screen beside him, then back at the meat. ACTION, from the first frame to the last: the boy cuts the meat quickly while listening through the earbud, glances at the phone screen, nods to himself and goes on cutting. Mouths closed unless the ACTION describes otherwise. Only the quiet natural sound of the place and of the action, no music. VIDEO SUFFIX.
+Audio: Không lời. Chỉ tiếng động tự nhiên của nơi đó và của hành động; không nhạc.
+Negative prompt: text or captions; camera movement; a character not in this shot appearing; anyone talking or mouthing words; music.
+Chuyển cảnh: chớp trắng 0.2
+Cắt còn: 1.3
+
+CẢNH 33 (2:45–2:50): Lượt 33 (không lời)
+Bối cảnh: góc Q2 (montage, tối): chợ vắng đèn vàng, Tavo quét sàn trước sạp, điện thoại trong túi tạp dề, tai nghe trắng; không có chữ, không người lạ.
+Voice: {{LUOT_33}}
+Khung đầu: ảnh mới theo góc Q2; miệng mọi người khép.
+Khung cuối: Tavo dừng chổi, mỉm cười nhìn điện thoại; miệng khép.
+Hướng nhìn: the boy glances at the phone in his left hand, then down at the floor as he sweeps.
+Diễn biến: CẢNH CÂM (ngày 2, ~2,5 s): tối muộn, chợ vắng, Tavo một tay quét sàn, tay kia cầm điện thoại có app sáng, tai nghe một bên, gật gù.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, late evening, the market hall empty and dim, only a few warm bulbs still glowing over the stall. CAMERA ANGLE Q2, medium-wide shot of the closed meat stall in the late evening: {{TEN_TAVO}} ({{NGUOI_TAVO}}) sweeps the floor in front of the counter with a broom, seen from the knees up, {{DAO_DIEN_THOAI}} in the chest pocket of his apron, a small white earbud in one ear; behind him {{NEN_SAP}}, the shutters of other stalls half closed. He is the only person in the frame. EYE LINE: the boy glances at the phone in his left hand, then down at the floor as he sweeps. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_TAVO}} is in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame, even when a person walks. CHAR LOCK. {{LUOT_33}} EYE LINE for the whole clip: the boy glances at the phone in his left hand, then down at the floor as he sweeps. ACTION, from the first frame to the last: the boy sweeps with one hand and holds {{DAO_DIEN_THOAI}} in the other with its screen glowing toward him, glances at it, nods along to what he hears and smiles. Mouths closed unless the ACTION describes otherwise. Only the quiet natural sound of the place and of the action, no music. VIDEO SUFFIX.
+Audio: Không lời. Chỉ tiếng động tự nhiên của nơi đó và của hành động; không nhạc.
+Negative prompt: text or captions; camera movement; a character not in this shot appearing; anyone talking or mouthing words; music.
+Chuyển cảnh: chớp trắng 0.2
+Cắt còn: 1.3
+
+CẢNH 34 (2:50–2:55): Lượt 34 (không lời)
+Bối cảnh: góc Q5 (montage, ngày): phòng sau, Tavo cọ thớt gỗ lớn, điện thoại dựng trên kệ phát bài học, tai nghe một bên; không có chữ, không người lạ.
+Voice: {{LUOT_34}}
+Khung đầu: ảnh mới theo góc Q5; miệng mọi người khép.
+Khung cuối: Tavo cọ thớt, gật đầu hài lòng; miệng khép.
+Hướng nhìn: the boy looks at the board he scrubs, then up at the phone on the shelf, then back to the board.
+Diễn biến: CẢNH CÂM (ngày 3, ~2,5 s): phòng sau, Tavo cọ thớt gỗ thoăn thoắt, điện thoại dựng trên kệ phát bài học, ngước nhìn và gật.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, warm soft daylight from the high windows of a big indoor market hall and warm glowing bulbs over the stall. CAMERA ANGLE Q5, medium shot in the back room: {{TEN_TAVO}} ({{NGUOI_TAVO}}) scrubs the big wooden chopping block with a stiff brush, seen from the thighs up, a small white earbud in one ear; {{DAO_DIEN_THOAI}} stands propped on a shelf at the RIGHT with its screen glowing toward him (nothing readable); behind him {{NEN_PHONG}}. He is the only person in the frame. EYE LINE: the boy looks at the board he scrubs, then up at the phone on the shelf, then back to the board. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_TAVO}} is in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame, even when a person walks. CHAR LOCK. {{LUOT_34}} EYE LINE for the whole clip: the boy looks at the board he scrubs, then up at the phone on the shelf, then back to the board. ACTION, from the first frame to the last: the boy scrubs the chopping block with a brush in quick strokes, looks up at the phone propped on the shelf, nods and keeps scrubbing. Mouths closed unless the ACTION describes otherwise. Only the quiet natural sound of the place and of the action, no music. VIDEO SUFFIX.
+Audio: Không lời. Chỉ tiếng động tự nhiên của nơi đó và của hành động; không nhạc.
+Negative prompt: text or captions; camera movement; a character not in this shot appearing; anyone talking or mouthing words; music.
+Chuyển cảnh: chớp trắng 0.2
+Cắt còn: 1.3
+
+CẢNH 35 (2:55–3:00): Lượt 35 (không lời)
+Bối cảnh: góc Q3 (montage, đêm): kho tối, Tavo ngồi trên bao gấp, cầm điện thoại sáng, chăm chú luyện; không có chữ, không người lạ.
+Voice: {{LUOT_35}}
+Khung đầu: ảnh mới theo góc Q3; miệng mọi người khép.
+Khung cuối: Tavo nắm tay, cười tươi nhìn màn hình; miệng khép.
+Hướng nhìn: the boy looks at the phone screen in his hands.
+Diễn biến: CẢNH CÂM (ngày 4, ~2,5 s): đêm trong kho, Tavo ngồi trên đống bao nhìn màn hình app chăm chú, mặt sáng lên, nắm tay ăn mừng.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, late at night, the only light is the cold bluish glow of a phone screen from below, deep soft shadows. CAMERA ANGLE Q3, medium shot at night: {{TEN_TAVO}} ({{NGUOI_TAVO}}) sits on a pile of folded canvas sacks in {{NEN_DEM}}, seen from the knees up, holding {{DAO_DIEN_THOAI}} in both hands with its back to the camera, his face lit from below by its cold glow, eyes on the screen. He is the only person in the frame. EYE LINE: the boy looks at the phone screen in his hands. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_TAVO}} is in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame, even when a person walks. CHAR LOCK. {{LUOT_35}} EYE LINE for the whole clip: the boy looks at the phone screen in his hands. ACTION, from the first frame to the last: the boy studies the phone screen intently, his face lights up and he clenches one fist in a small silent celebration. Mouths closed unless the ACTION describes otherwise. Only the quiet natural sound of the place and of the action, no music. VIDEO SUFFIX.
+Audio: Không lời. Chỉ tiếng động tự nhiên của nơi đó và của hành động; không nhạc.
+Negative prompt: text or captions; camera movement; a character not in this shot appearing; anyone talking or mouthing words; music.
+Chuyển cảnh: chớp trắng 0.2
+Cắt còn: 1.3
+
+CẢNH 36 (3:00–3:05): Lượt 36 (không lời)
+Bối cảnh: góc Q6 (montage, sáng): trước tủ kính, Tavo bưng khay thịt đầy, điện thoại kẹp trên mép khay, tai nghe một bên; không có chữ, không người lạ.
+Voice: {{LUOT_36}}
+Khung đầu: ảnh mới theo góc Q6; miệng mọi người khép.
+Khung cuối: Tavo đặt khay xuống, nhìn điện thoại, mỉm cười; miệng khép.
+Hướng nhìn: the boy looks ahead at the display he walks to, then at the phone propped in the tray.
+Diễn biến: CẢNH CÂM (ngày 5, ~2,5 s): sáng, Tavo bưng khay thịt đầy đi nhanh đến tủ kính, điện thoại kẹp trên khay phát bài, tai nghe một bên.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, bright warm morning light streaming into the big indoor market hall. CAMERA ANGLE Q6, medium shot from the customer side in the morning: {{TEN_TAVO}} ({{NGUOI_TAVO}}) carries a tray of raw red steaks toward the curved glass display, seen from the thighs up, a small white earbud in one ear, {{DAO_DIEN_THOAI}} wedged on the edge of the tray with its screen glowing; behind him {{NEN_SAP}}, the market hall still quiet. He is the only person in the frame. EYE LINE: the boy looks ahead at the display he walks to, then at the phone propped in the tray. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_TAVO}} is in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame, even when a person walks. CHAR LOCK. {{LUOT_36}} EYE LINE for the whole clip: the boy looks ahead at the display he walks to, then at the phone propped in the tray. ACTION, from the first frame to the last: the boy walks briskly carrying a tray of raw steaks with {{DAO_DIEN_THOAI}} wedged on its edge, listening through the earbud, sets the tray down and glances at the phone with a smile. Mouths closed unless the ACTION describes otherwise. Only the quiet natural sound of the place and of the action, no music. VIDEO SUFFIX.
+Audio: Không lời. Chỉ tiếng động tự nhiên của nơi đó và của hành động; không nhạc.
+Negative prompt: text or captions; camera movement; a character not in this shot appearing; anyone talking or mouthing words; music.
+Chuyển cảnh: chớp trắng 0.2
+Cắt còn: 1.3
+
+CẢNH 37 (3:05–3:10): Lượt 37 (không lời)
+Bối cảnh: góc Q7 (montage, ngày): sau tủ kính, Tavo lau mặt kính, điện thoại tựa trên nóc tủ hiện app sáng; không có chữ, không người lạ.
+Voice: {{LUOT_37}}
+Khung đầu: ảnh mới theo góc Q7; miệng mọi người khép.
+Khung cuối: Tavo lau xong, nhìn điện thoại, gật đầu; miệng khép.
+Hướng nhìn: the boy looks at the glass he wipes, then at the phone leaning on the display.
+Diễn biến: CẢNH CÂM (ngày 6, ~2,5 s): Tavo lau tủ kính nhanh tay, điện thoại tựa trên nóc tủ hiện app, vừa lau vừa nhìn màn hình và gật đầu.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, warm soft daylight from the high windows of a big indoor market hall and warm glowing bulbs over the stall. CAMERA ANGLE Q7, medium close shot from the customer side: {{TEN_TAVO}} ({{NGUOI_TAVO}}) behind the glass display, chest-up, wiping the glass with a cloth, a small white earbud in one ear; {{DAO_DIEN_THOAI}} leans on top of the display with its screen glowing toward him (nothing readable); behind him {{NEN_SAP}}. He is the only person in the frame. EYE LINE: the boy looks at the glass he wipes, then at the phone leaning on the display. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_TAVO}} is in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame, even when a person walks. CHAR LOCK. {{LUOT_37}} EYE LINE for the whole clip: the boy looks at the glass he wipes, then at the phone leaning on the display. ACTION, from the first frame to the last: the boy wipes the glass display in fast circles with a cloth, {{DAO_DIEN_THOAI}} leaning on top of the display with its screen glowing, glances at it and nods. Mouths closed unless the ACTION describes otherwise. Only the quiet natural sound of the place and of the action, no music. VIDEO SUFFIX.
+Audio: Không lời. Chỉ tiếng động tự nhiên của nơi đó và của hành động; không nhạc.
+Negative prompt: text or captions; camera movement; a character not in this shot appearing; anyone talking or mouthing words; music.
+Chuyển cảnh: chớp trắng 0.2
+Cắt còn: 1.3
+
+CẢNH 38 (3:10–3:15): Lượt 38 (không lời)
+Bối cảnh: góc Q4 (montage, sáng sớm): Tavo xếp thịt vào tủ kính, đứng thẳng, hít sâu, mỉm cười tự tin; không có chữ, không người lạ.
+Voice: {{LUOT_38}}
+Khung đầu: ảnh mới theo góc Q4; miệng mọi người khép.
+Khung cuối: Tavo đứng thẳng, mỉm cười tự tin; miệng khép.
+Hướng nhìn: the boy looks at the steaks in the display, then straight ahead, past the lens; never into the lens.
+Diễn biến: CẢNH CÂM (sáng sớm, ~2,5 s): Tavo xếp miếng thịt cuối vào tủ kính, đứng thẳng, hít sâu, mỉm cười tự tin: đã sẵn sàng.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, bright warm morning light streaming into the big indoor market hall. CAMERA ANGLE Q4, medium shot from the customer side in the early morning: {{TEN_TAVO}} ({{NGUOI_TAVO}}) behind the curved glass display, chest-up, placing fresh raw steaks neatly in the display; behind him {{NEN_SAP}}, the market hall still quiet. He is the only person in the frame. EYE LINE: the boy looks at the steaks in the display, then straight ahead, past the lens; never into the lens. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_TAVO}} is in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame, even when a person walks. CHAR LOCK. {{LUOT_38}} EYE LINE for the whole clip: the boy looks at the steaks in the display, then straight ahead, past the lens; never into the lens. ACTION, from the first frame to the last: the boy places the last steak neatly in the display, stands up straight, takes a deep breath and smiles with quiet confidence. Mouths closed unless the ACTION describes otherwise. Only the quiet natural sound of the place and of the action, no music. VIDEO SUFFIX.
+Audio: Không lời. Chỉ tiếng động tự nhiên của nơi đó và của hành động; không nhạc.
+Negative prompt: text or captions; camera movement; a character not in this shot appearing; anyone talking or mouthing words; music.
+Chuyển cảnh: chớp trắng 0.2
+Cắt còn: 1.3
+
+CẢNH 39 (3:15–3:20): Lượt 39
+Bối cảnh: góc M: một tháng sau, sáng: bà chủ bên TRÁI nhìn sang phải cầm sổ; ông chú sau tủ kính cong bên PHẢI nhìn bà; nền mái chợ cao; không có chữ, không người lạ.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_39}}
+Khung đầu: ảnh mới theo góc M; miệng mọi người khép.
+Khung cuối: Bà chủ nhìn ông chú, chờ; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the woman looks at the butcher on the right; the butcher looks at her.
+Diễn biến: Một tháng sau, bà chủ quay lại quầy, hỏi ông chú về cậu trai đã cắt thịt cho bà. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, bright warm morning light streaming into the big indoor market hall. CAMERA ANGLE M, medium-wide shot along the front of the stall: {{TEN_CHU}} ({{NGUOI_CHU}}) at the LEFT, from the knees up, turned RIGHT in three-quarter view, holding {{DAO_SO}}; behind the curved glass display at the RIGHT stands {{TEN_TIO}} ({{NGUOI_TIO}}), chest-up, facing her; the high roof of the market hall in the background. Only these two people are in the frame; no boy. EYE LINE: the woman looks at the butcher on the right; the butcher looks at her. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_CHU}} and {{TEN_TIO}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_39}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English. EYE LINE for the whole clip: the woman looks at the butcher on the right; the butcher looks at her; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the woman holds {{DAO_SO}} and gestures lightly with it toward the stall. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 40 (3:20–3:25): Lượt 40
+Bối cảnh: góc M: một tháng sau, sáng: bà chủ bên TRÁI nhìn sang phải cầm sổ; ông chú sau tủ kính cong bên PHẢI nhìn bà; nền mái chợ cao; không có chữ, không người lạ. Nối từ khung cuối cảnh trước.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_40}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Ông chú cười toe, tay đặt trên ngực; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the butcher looks at the woman at the left, grinning proudly; the woman looks at him, her mouth closed.
+Diễn biến: Ông chú nhận vơ, vỗ ngực khoe 'tôi là thợ cả, hai mươi năm'. Nói xong mọi người đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. Only {{TEN_CHU}} and {{TEN_TIO}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_40}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English (heavy Spanish accent). EYE LINE for the whole clip: the butcher looks at the woman at the left, grinning proudly; the woman looks at him, her mouth closed; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the butcher pats his chest twice with one hand, grinning. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 41 (3:25–3:30): Lượt 41
+Bối cảnh: góc M: một tháng sau, sáng: bà chủ bên TRÁI nhìn sang phải cầm sổ; ông chú sau tủ kính cong bên PHẢI nhìn bà; nền mái chợ cao; không có chữ, không người lạ. Nối từ khung cuối cảnh trước.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_41}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Bà chủ nhìn ông chú, mỉm cười nhẹ; ông chú sững; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the woman looks at the butcher on the right and shakes her head gently with a kind small smile; the butcher looks at her, taken aback, his mouth closed.
+Diễn biến: Bà chủ lắc đầu nhẹ, mỉm cười, đính chính với ông chú: người bà cần tìm không phải ông mà là cậu trai trẻ; ông chú khựng lại, miệng khép. Nói xong mọi người đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. Only {{TEN_CHU}} and {{TEN_TIO}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_41}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English. EYE LINE for the whole clip: the woman looks at the butcher on the right and shakes her head gently with a kind small smile; the butcher looks at her, taken aback, his mouth closed; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the woman shakes her head gently and, with a kind small smile, lifts one open hand a little as if pointing out someone else. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 42 (3:30–3:35): Lượt 42
+Bối cảnh: góc M: một tháng sau, sáng: bà chủ bên TRÁI nhìn sang phải cầm sổ; ông chú sau tủ kính cong bên PHẢI nhìn bà; nền mái chợ cao; không có chữ, không người lạ. Nối từ khung cuối cảnh trước.
+Voice: (Spanish, chỉ một người nói trong clip này) {{LUOT_42}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Ông chú nhìn sang phải, cau mày; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the butcher turns his head sharply to the right, toward the boy off-screen, scolding; the woman at the left looks at the butcher, her mouth closed.
+Diễn biến: Ông chú quay sang phải (Tavo ngoài khung), quát khẽ, chê cậu. Nói xong mọi người đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. Only {{TEN_CHU}} and {{TEN_TIO}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_42}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: Spanish. EYE LINE for the whole clip: the butcher turns his head sharply to the right, toward the boy off-screen, scolding; the woman at the left looks at the butcher, her mouth closed; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the butcher turns his head to the right and flicks one hand dismissively. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 43 (3:35–3:40): Lượt 43
+Bối cảnh: góc F: hai người đứng nghiêng đối mặt: bà chủ TRÁI nhìn phải, Tavo PHẢI nhìn trái; sau lưng tủ kính dài đầy thịt, cân treo; không có chữ, không người lạ.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_43}}
+Khung đầu: ảnh mới theo góc F; miệng mọi người khép.
+Khung cuối: Tavo nhìn bà chủ; bà chủ sững lại rồi mắt sáng lên vui mừng; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the boy looks at the woman on the left, steady and calm; the woman looks at him, her eyes brightening with gentle joy.
+Diễn biến: Tavo bước ra, nói tiếng Anh rõ ràng, bình tĩnh: chính cậu đã cắt thịt. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, bright warm morning light streaming into the big indoor market hall. CAMERA ANGLE F, medium two-shot, both standing in profile facing each other: {{TEN_CHU}} ({{NGUOI_CHU}}) at the LEFT facing RIGHT, {{TEN_TAVO}} ({{NGUOI_TAVO}}) at the RIGHT facing LEFT, both from the thighs up; behind them the long glass display full of steaks and a brass hanging scale. Only these two people are in the frame. EYE LINE: the boy looks at the woman on the left, steady and calm; the woman looks at him, her eyes brightening with gentle joy. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_CHU}} and {{TEN_TAVO}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_43}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English (clear, light Spanish accent). EYE LINE for the whole clip: the boy looks at the woman on the left, steady and calm; the woman looks at him, her eyes brightening with gentle joy; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the boy stands up straight and speaks calmly. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 44 (3:40–3:45): Lượt 44
+Bối cảnh: góc F: hai người đứng nghiêng đối mặt: bà chủ TRÁI nhìn phải, Tavo PHẢI nhìn trái; sau lưng tủ kính dài đầy thịt, cân treo; không có chữ, không người lạ. Nối từ khung cuối cảnh trước.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_44}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Bà chủ nhìn Tavo, mỉm cười vui mừng; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the woman looks at the boy on the right with a bright, gentle, delighted smile; the boy looks at her.
+Diễn biến: Bà chủ vui mừng, nhẹ nhàng, mắt sáng, mỉm cười hỏi Tavo. Nói xong mọi người đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. Only {{TEN_CHU}} and {{TEN_TAVO}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_44}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English. EYE LINE for the whole clip: the woman looks at the boy on the right with a bright, gentle, delighted smile; the boy looks at her; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the woman's face lights up in a soft, happy, delighted smile, her eyebrows lifting gently. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 45 (3:45–3:50): Lượt 45
+Bối cảnh: góc F: hai người đứng nghiêng đối mặt: bà chủ TRÁI nhìn phải, Tavo PHẢI nhìn trái; sau lưng tủ kính dài đầy thịt, cân treo; không có chữ, không người lạ. Nối từ khung cuối cảnh trước.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_45}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Tavo mỉm cười nhìn bà; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the boy looks at the woman on the left; the woman listens with a warm, quietly happy smile.
+Diễn biến: Tavo mỉm cười khiêm tốn. Nói xong mọi người đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. Only {{TEN_CHU}} and {{TEN_TAVO}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_45}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English (clear, light Spanish accent). EYE LINE for the whole clip: the boy looks at the woman on the left; the woman listens with a warm, quietly happy smile; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the boy smiles modestly. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 46 (3:50–3:55): Lượt 46
+Bối cảnh: góc F: hai người đứng nghiêng đối mặt: bà chủ TRÁI nhìn phải, Tavo PHẢI nhìn trái; sau lưng tủ kính dài đầy thịt, cân treo; không có chữ, không người lạ. Nối từ khung cuối cảnh trước.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_46}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Bà chủ mỉm cười vui mừng nhìn Tavo; Tavo sững người; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the woman looks at the boy on the right with a warm, happy, gentle smile and bright eyes; the boy looks at her.
+Diễn biến: Bà chủ vui mừng, nhẹ nhàng, mời Tavo về làm cho nhà hàng của bà. Nói xong mọi người đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. Only {{TEN_CHU}} and {{TEN_TAVO}} are in this clip; nobody else ever appears. LOCKED CAMERA on a tripod: no pan, no tilt, no zoom; the framing of the start frame stays the same to the last frame. CHAR LOCK. In this clip: {{LUOT_46}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English. EYE LINE for the whole clip: the woman looks at the boy on the right with a warm, happy, gentle smile and bright eyes; the boy looks at her; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the woman, with a soft happy smile, holds out one open hand toward the boy on 'the job is yours', then lowers it. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech.
+
+CẢNH 47 (3:55–4:00): Lượt 47
+Bối cảnh: góc G: cận Tavo giữa-phải, mặt hơi hướng sang trái (bà chủ ngoài khung); ông chú mờ ở mép TRÁI phía sau; không có chữ, không người lạ.
+Voice: (English, chỉ một người nói trong clip này) {{LUOT_47}}
+Khung đầu: ảnh mới theo góc G; miệng mọi người khép.
+Khung cuối: Tavo mỉm cười, mắt sáng; ông chú phía sau nhìn cậu; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the boy looks at the woman off-screen to the left, moved, eyes shining; the butcher behind him stares at the boy.
+Diễn biến: Tavo xúc động, nói với bà chủ (ngoài khung bên trái). Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, bright warm morning light streaming into the big indoor market hall. CAMERA ANGLE G: close-up of {{TEN_TAVO}} ({{NGUOI_TAVO}}), head and shoulders, centre-right, face turned slightly to the LEFT of the lens; behind him at the LEFT edge {{TEN_TIO}} ({{NGUOI_TIO}}) stands soft and out of focus, looking at the boy; the market hall behind. EYE LINE: the boy looks at the woman off-screen to the left, moved, eyes shining; the butcher behind him stares at the boy. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_TAVO}} and {{TEN_TIO}} are in this clip; nobody else ever appears. CAMERA LOCK: the camera is locked off on this close shot for the whole clip: no pan, no zoom out, no reframing. CHAR LOCK. In this clip: {{LUOT_47}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: English (clear, light Spanish accent). EYE LINE for the whole clip: the boy looks at the woman off-screen to the left, moved, eyes shining; the butcher behind him stares at the boy; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the boy smiles with shining eyes. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech; anyone else added behind or beside the person.
+
+CẢNH 48 (4:00–4:05): Lượt 48
+Bối cảnh: góc G: cận Tavo giữa-phải, mặt hơi hướng sang trái (bà chủ ngoài khung); ông chú mờ ở mép TRÁI phía sau; không có chữ, không người lạ. Nối từ khung cuối cảnh trước.
+Voice: (Spanish, chỉ một người nói trong clip này) {{LUOT_48}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Tavo nhìn ông chú; ông chú sững sờ; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the boy turns his head over his shoulder to the left and looks at the butcher behind him; the butcher looks back, stunned.
+Diễn biến: Tavo quay đầu qua vai trái nhìn ông chú, nói tự tin. Nói xong mọi người đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. Only {{TEN_TAVO}} and {{TEN_TIO}} are in this clip; nobody else ever appears. CAMERA LOCK: the camera is locked off on this close shot for the whole clip: no pan, no zoom out, no reframing. CHAR LOCK. In this clip: {{LUOT_48}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: Spanish. EYE LINE for the whole clip: the boy turns his head over his shoulder to the left and looks at the butcher behind him; the butcher looks back, stunned; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the boy turns his head over his left shoulder toward the butcher as he speaks. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech; anyone else added behind or beside the person.
+
+CẢNH 49 (4:05–4:10): Lượt 49
+Bối cảnh: góc H: Tavo nhìn thẳng ống kính, ngực trở lên, giữa khung, nền chợ đông mờ; không có chữ, không người lạ.
+Voice: (Spanish, chỉ một người nói trong clip này) {{LUOT_49}}
+Khung đầu: ảnh mới theo góc H; miệng mọi người khép.
+Khung cuối: Tavo cầm điện thoại cạnh mặt, mỉm cười; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the boy looks straight into the lens, talking to the viewer.
+Diễn biến: Tavo nhìn thẳng ống kính, giơ điện thoại lên cạnh mặt (màn hình là ảnh robot, không chữ), kể lại hành trình. Nói xong mọi người đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, Pixar-style 3D animated feature-film look exactly like the character reference images, bright warm morning light streaming into the big indoor market hall. CAMERA ANGLE H: medium close shot of {{TEN_TAVO}} ({{NGUOI_TAVO}}) facing the camera, chest-up, centred, the busy market hall behind him softly out of focus. He holds {{DAO_DIEN_THOAI}} up beside his face, its screen toward the camera showing only {{TEN_ROBOT}} ({{NGUOI_ROBOT}}, copy the robot reference image), head and chest, no text. He is the only person in the frame. EYE LINE: the boy looks straight into the lens, talking to the viewer. Mouths closed, natural expressions. No text, no logos, no numbers, no lettering anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image and keep its camera angle. Only {{TEN_TAVO}} and {{TEN_ROBOT}} are in this clip; nobody else ever appears. CAMERA LOCK: the camera is locked off on this close shot for the whole clip: no pan, no zoom out, no reframing. CHAR LOCK. In this clip: {{LUOT_49}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: Spanish. EYE LINE for the whole clip: the boy looks straight into the lens, talking to the viewer; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the boy lifts {{DAO_DIEN_THOAI}} beside his face with the screen toward the camera, the screen showing only the glossy white humanoid robot face from the start frame, no text. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech; anyone else added behind or beside the person.
+
+CẢNH 50 (4:10–4:15): Lượt 50
+Bối cảnh: góc H: Tavo nhìn thẳng ống kính, ngực trở lên, giữa khung, nền chợ đông mờ; không có chữ, không người lạ. Nối từ khung cuối cảnh trước.
+Voice: (Spanish, chỉ một người nói trong clip này) {{LUOT_50}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: Tavo cười tươi nhìn ống kính; miệng khép. Mọi người đứng im đến hết clip.
+Hướng nhìn: the boy looks straight into the lens, talking to the viewer.
+Diễn biến: Tavo cười tươi, mời người xem tải app. Nói xong mọi người đứng im đến hết clip.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. Only {{TEN_TAVO}} and {{TEN_ROBOT}} are in this clip; nobody else ever appears. CAMERA LOCK: the camera is locked off on this close shot for the whole clip: no pan, no zoom out, no reframing. CHAR LOCK. In this clip: {{LUOT_50}} Only that character speaks, with lip-sync and an expressive face. LANGUAGE of this line: Spanish. EYE LINE for the whole clip: the boy looks straight into the lens, talking to the viewer; the speaker never turns the head away from where the EYE LINE says while talking. Anyone else in the shot keeps the mouth closed. Natural pace, about 3 words per second. ACTION, done WHILE the line is spoken: the boy breaks into a big confident smile. After the line and the action everyone stays still until the end. Same voices as always, clean dry sound, no music. VIDEO SUFFIX.
+Audio: Chỉ giọng của một nhân vật, rõ, gần; phần còn lại im lặng. Không nhạc, không tiếng ồn chợ đè lên giọng.
+Negative prompt: two voices; a silent character moving the mouth; text or captions; camera movement; a character not in this shot appearing; no speech; anyone else added behind or beside the person.

@@ -1,0 +1,14 @@
+{
+  "nhoe": 1.0,
+  "phu_de": {
+    "font": "Arial",
+    "co_chu": 58,
+    "co_chu_dich": 44,
+    "y_theo_phan": {"1": 1190, "2": 1290},
+    "kieu_theo_phan": {
+      "1": {"*": {"c": "black", "o": "white"}},
+      "2": {"*": {"c": "yellow"}}
+    },
+    "whisper": "small"
+  }
+}
