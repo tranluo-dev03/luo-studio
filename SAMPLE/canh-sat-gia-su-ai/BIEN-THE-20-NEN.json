@@ -248,7 +248,15 @@
   "NGOAI_XA": "the blue agave fields and mountains",
   "AM_NEN": "open countryside ambience, soft wind",
   "MAU_XE": "pearl-white",
-  "GHE_XE": "beige leather"
+  "GHE_XE": "beige leather",
+  "BE_LOAI": "girl",
+  "BE_ANH": "she",
+  "BE_CUA": "her",
+  "BE_O": "her",
+  "BE_CON": "daughter",
+  "BE_VN": "gái",
+  "GHE_BE": "pink",
+  "MAU_DONGPHUC": "navy"
  },
  {
   "name": "nen-02-pho-my-tai-xe-09-nam-us",
@@ -499,7 +507,15 @@
   "NGOAI_XA": "the quiet suburban street with houses and maple trees",
   "AM_NEN": "quiet suburban street ambience, distant birdsong",
   "MAU_XE": "deep-blue",
-  "GHE_XE": "light-grey fabric"
+  "GHE_XE": "light-grey fabric",
+  "BE_LOAI": "girl",
+  "BE_ANH": "she",
+  "BE_CUA": "her",
+  "BE_O": "her",
+  "BE_CON": "daughter",
+  "BE_VN": "gái",
+  "GHE_BE": "pink",
+  "MAU_DONGPHUC": "navy"
  },
  {
   "name": "nen-03-duong-dua-tai-xe-05-nam-india",
@@ -750,7 +766,15 @@
   "NGOAI_XA": "the green rice paddies and coconut palms",
   "AM_NEN": "tropical countryside ambience, birdsong",
   "MAU_XE": "silver",
-  "GHE_XE": "black leather"
+  "GHE_XE": "black leather",
+  "BE_LOAI": "girl",
+  "BE_ANH": "she",
+  "BE_CUA": "her",
+  "BE_O": "her",
+  "BE_CON": "daughter",
+  "BE_VN": "gái",
+  "GHE_BE": "pink",
+  "MAU_DONGPHUC": "navy"
  },
  {
   "name": "nen-04-pho-mexico-tai-xe-13-nu-mexico",
@@ -1001,7 +1025,15 @@
   "NGOAI_XA": "the colourful pastel houses of the town",
   "AM_NEN": "small-town street ambience, distant church bells",
   "MAU_XE": "emerald-green",
-  "GHE_XE": "tan leather"
+  "GHE_XE": "tan leather",
+  "BE_LOAI": "girl",
+  "BE_ANH": "she",
+  "BE_CUA": "her",
+  "BE_O": "her",
+  "BE_CON": "daughter",
+  "BE_VN": "gái",
+  "GHE_BE": "pink",
+  "MAU_DONGPHUC": "navy"
  },
  {
   "name": "nen-05-duong-ngo-tai-xe-17-nu-india",
@@ -1252,7 +1284,15 @@
   "NGOAI_XA": "the green cornfields",
   "AM_NEN": "countryside ambience, rustling corn leaves and crickets",
   "MAU_XE": "sunset-orange",
-  "GHE_XE": "black leather"
+  "GHE_XE": "black leather",
+  "BE_LOAI": "girl",
+  "BE_ANH": "she",
+  "BE_CUA": "her",
+  "BE_O": "her",
+  "BE_CON": "daughter",
+  "BE_VN": "gái",
+  "GHE_BE": "pink",
+  "MAU_DONGPHUC": "navy"
  },
  {
   "name": "nen-06-pho-my-tai-xe-18-nu-us",
@@ -1503,7 +1543,15 @@
   "NGOAI_XA": "the quiet suburban street with houses and maple trees",
   "AM_NEN": "quiet suburban street ambience, distant birdsong",
   "MAU_XE": "pearl-white",
-  "GHE_XE": "beige leather"
+  "GHE_XE": "beige leather",
+  "BE_LOAI": "girl",
+  "BE_ANH": "she",
+  "BE_CUA": "her",
+  "BE_O": "her",
+  "BE_CON": "daughter",
+  "BE_VN": "gái",
+  "GHE_BE": "pink",
+  "MAU_DONGPHUC": "navy"
  },
  {
   "name": "nen-07-duong-dua-tai-xe-14-nu-india",
@@ -1754,7 +1802,15 @@
   "NGOAI_XA": "the green rice paddies and coconut palms",
   "AM_NEN": "tropical countryside ambience, birdsong",
   "MAU_XE": "deep-blue",
-  "GHE_XE": "light-grey fabric"
+  "GHE_XE": "light-grey fabric",
+  "BE_LOAI": "girl",
+  "BE_ANH": "she",
+  "BE_CUA": "her",
+  "BE_O": "her",
+  "BE_CON": "daughter",
+  "BE_VN": "gái",
+  "GHE_BE": "pink",
+  "MAU_DONGPHUC": "navy"
  },
  {
   "name": "nen-08-pho-mexico-tai-xe-02-nam-mexico",
@@ -2005,7 +2061,15 @@
   "NGOAI_XA": "the colourful pastel houses of the town",
   "AM_NEN": "small-town street ambience, distant church bells",
   "MAU_XE": "silver",
-  "GHE_XE": "black leather"
+  "GHE_XE": "black leather",
+  "BE_LOAI": "girl",
+  "BE_ANH": "she",
+  "BE_CUA": "her",
+  "BE_O": "her",
+  "BE_CON": "daughter",
+  "BE_VN": "gái",
+  "GHE_BE": "pink",
+  "MAU_DONGPHUC": "navy"
  },
  {
   "name": "nen-09-duong-ngo-tai-xe-08-nam-us",
@@ -2256,7 +2320,15 @@
   "NGOAI_XA": "the green cornfields",
   "AM_NEN": "countryside ambience, rustling corn leaves and crickets",
   "MAU_XE": "emerald-green",
-  "GHE_XE": "tan leather"
+  "GHE_XE": "tan leather",
+  "BE_LOAI": "girl",
+  "BE_ANH": "she",
+  "BE_CUA": "her",
+  "BE_O": "her",
+  "BE_CON": "daughter",
+  "BE_VN": "gái",
+  "GHE_BE": "pink",
+  "MAU_DONGPHUC": "navy"
  },
  {
   "name": "nen-10-agave-tai-xe-12-nu-mexico",
@@ -2507,7 +2579,15 @@
   "NGOAI_XA": "the blue agave fields and mountains",
   "AM_NEN": "open countryside ambience, soft wind",
   "MAU_XE": "sunset-orange",
-  "GHE_XE": "black leather"
+  "GHE_XE": "black leather",
+  "BE_LOAI": "girl",
+  "BE_ANH": "she",
+  "BE_CUA": "her",
+  "BE_O": "her",
+  "BE_CON": "daughter",
+  "BE_VN": "gái",
+  "GHE_BE": "pink",
+  "MAU_DONGPHUC": "navy"
  },
  {
   "name": "nen-11-duong-dua-tai-xe-16-nu-india",
@@ -2758,7 +2838,15 @@
   "NGOAI_XA": "the green rice paddies and coconut palms",
   "AM_NEN": "tropical countryside ambience, birdsong",
   "MAU_XE": "pearl-white",
-  "GHE_XE": "beige leather"
+  "GHE_XE": "beige leather",
+  "BE_LOAI": "girl",
+  "BE_ANH": "she",
+  "BE_CUA": "her",
+  "BE_O": "her",
+  "BE_CON": "daughter",
+  "BE_VN": "gái",
+  "GHE_BE": "pink",
+  "MAU_DONGPHUC": "navy"
  },
  {
   "name": "nen-12-pho-mexico-tai-xe-11-nu-mexico",
@@ -3009,7 +3097,15 @@
   "NGOAI_XA": "the colourful pastel houses of the town",
   "AM_NEN": "small-town street ambience, distant church bells",
   "MAU_XE": "deep-blue",
-  "GHE_XE": "light-grey fabric"
+  "GHE_XE": "light-grey fabric",
+  "BE_LOAI": "girl",
+  "BE_ANH": "she",
+  "BE_CUA": "her",
+  "BE_O": "her",
+  "BE_CON": "daughter",
+  "BE_VN": "gái",
+  "GHE_BE": "pink",
+  "MAU_DONGPHUC": "navy"
  },
  {
   "name": "nen-13-duong-ngo-tai-xe-06-nam-india",
@@ -3260,7 +3356,15 @@
   "NGOAI_XA": "the green cornfields",
   "AM_NEN": "countryside ambience, rustling corn leaves and crickets",
   "MAU_XE": "silver",
-  "GHE_XE": "black leather"
+  "GHE_XE": "black leather",
+  "BE_LOAI": "girl",
+  "BE_ANH": "she",
+  "BE_CUA": "her",
+  "BE_O": "her",
+  "BE_CON": "daughter",
+  "BE_VN": "gái",
+  "GHE_BE": "pink",
+  "MAU_DONGPHUC": "navy"
  },
  {
   "name": "nen-14-agave-tai-xe-19-nu-us",
@@ -3511,7 +3615,15 @@
   "NGOAI_XA": "the blue agave fields and mountains",
   "AM_NEN": "open countryside ambience, soft wind",
   "MAU_XE": "emerald-green",
-  "GHE_XE": "tan leather"
+  "GHE_XE": "tan leather",
+  "BE_LOAI": "girl",
+  "BE_ANH": "she",
+  "BE_CUA": "her",
+  "BE_O": "her",
+  "BE_CON": "daughter",
+  "BE_VN": "gái",
+  "GHE_BE": "pink",
+  "MAU_DONGPHUC": "navy"
  },
  {
   "name": "nen-15-pho-my-tai-xe-03-nam-mexico",
@@ -3762,7 +3874,15 @@
   "NGOAI_XA": "the quiet suburban street with houses and maple trees",
   "AM_NEN": "quiet suburban street ambience, distant birdsong",
   "MAU_XE": "sunset-orange",
-  "GHE_XE": "black leather"
+  "GHE_XE": "black leather",
+  "BE_LOAI": "girl",
+  "BE_ANH": "she",
+  "BE_CUA": "her",
+  "BE_O": "her",
+  "BE_CON": "daughter",
+  "BE_VN": "gái",
+  "GHE_BE": "pink",
+  "MAU_DONGPHUC": "navy"
  },
  {
   "name": "nen-16-pho-mexico-tai-xe-10-nam-us",
@@ -4013,7 +4133,15 @@
   "NGOAI_XA": "the colourful pastel houses of the town",
   "AM_NEN": "small-town street ambience, distant church bells",
   "MAU_XE": "pearl-white",
-  "GHE_XE": "beige leather"
+  "GHE_XE": "beige leather",
+  "BE_LOAI": "girl",
+  "BE_ANH": "she",
+  "BE_CUA": "her",
+  "BE_O": "her",
+  "BE_CON": "daughter",
+  "BE_VN": "gái",
+  "GHE_BE": "pink",
+  "MAU_DONGPHUC": "navy"
  },
  {
   "name": "nen-17-duong-ngo-tai-xe-20-nu-us",
@@ -4264,7 +4392,15 @@
   "NGOAI_XA": "the green cornfields",
   "AM_NEN": "countryside ambience, rustling corn leaves and crickets",
   "MAU_XE": "deep-blue",
-  "GHE_XE": "light-grey fabric"
+  "GHE_XE": "light-grey fabric",
+  "BE_LOAI": "girl",
+  "BE_ANH": "she",
+  "BE_CUA": "her",
+  "BE_O": "her",
+  "BE_CON": "daughter",
+  "BE_VN": "gái",
+  "GHE_BE": "pink",
+  "MAU_DONGPHUC": "navy"
  },
  {
   "name": "nen-18-agave-tai-xe-04-nam-mexico",
@@ -4515,7 +4651,15 @@
   "NGOAI_XA": "the blue agave fields and mountains",
   "AM_NEN": "open countryside ambience, soft wind",
   "MAU_XE": "silver",
-  "GHE_XE": "black leather"
+  "GHE_XE": "black leather",
+  "BE_LOAI": "girl",
+  "BE_ANH": "she",
+  "BE_CUA": "her",
+  "BE_O": "her",
+  "BE_CON": "daughter",
+  "BE_VN": "gái",
+  "GHE_BE": "pink",
+  "MAU_DONGPHUC": "navy"
  },
  {
   "name": "nen-19-pho-my-tai-xe-15-nu-india",
@@ -4766,7 +4910,15 @@
   "NGOAI_XA": "the quiet suburban street with houses and maple trees",
   "AM_NEN": "quiet suburban street ambience, distant birdsong",
   "MAU_XE": "emerald-green",
-  "GHE_XE": "tan leather"
+  "GHE_XE": "tan leather",
+  "BE_LOAI": "girl",
+  "BE_ANH": "she",
+  "BE_CUA": "her",
+  "BE_O": "her",
+  "BE_CON": "daughter",
+  "BE_VN": "gái",
+  "GHE_BE": "pink",
+  "MAU_DONGPHUC": "navy"
  },
  {
   "name": "nen-20-duong-dua-tai-xe-07-nam-india",
@@ -5017,6 +5169,14 @@
   "NGOAI_XA": "the green rice paddies and coconut palms",
   "AM_NEN": "tropical countryside ambience, birdsong",
   "MAU_XE": "sunset-orange",
-  "GHE_XE": "black leather"
+  "GHE_XE": "black leather",
+  "BE_LOAI": "girl",
+  "BE_ANH": "she",
+  "BE_CUA": "her",
+  "BE_O": "her",
+  "BE_CON": "daughter",
+  "BE_VN": "gái",
+  "GHE_BE": "pink",
+  "MAU_DONGPHUC": "navy"
  }
 ]

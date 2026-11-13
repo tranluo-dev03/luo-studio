@@ -121,3 +121,15 @@ File `BIEN-THE-20-NEN.json` (sinh bằng `cong-cu/tao_bien_the_20_nen.py`, chạ
 - Đồng phục cảnh sát và xe SUV cảnh sát giữ kiểu Mỹ ở mọi nền (kể cả `pho-mexico`, `duong-dua`).
 - Dự án đã nhập vào Studio từ kịch bản cũ: PUT biến thể có 7 khoá mới (giá trị trong `boi_canh.MAC_DINH`) TRƯỚC khi chép kịch bản mới vào loại.
 - `kiem-tra`: 0 lỗi, 20 cảnh báo (cặp wrong/right, như bộ 20 tài xế). **Chưa gen video.**
+
+## 20 biến thể gia đình Ấn Độ, lời Hindi (12/11/2026)
+
+File `BIEN-THE-20-AN-DO-HINDI.json` (sinh bằng `cong-cu/tao_bien_the_20_hindi.py`), dùng chung kịch bản `KICH-BAN-CANH-SAT-GIA-SU-AI.txt`. Nguồn: CSV "20 biến thể IN dừng xe quá tốc độ" (bản chép `anh/20-an-do-hindi/bang-goc.csv`).
+
+- **Ảnh đính kèm trong kho mã**: `anh/20-an-do-hindi/` có `tai-xe-01..20.png`, `canh-sat-nu-1..4.png`, `canh-sat-nam-1..2.png`, `be-trai.png` (tải từ Drive bằng `cong-cu/tai_anh_20_hindi.py`, đổi webp → png). Mỗi biến thể ghi `refs` bằng đường dẫn tương đối từ gốc kho mã, Studio tự chép ảnh vào dự án khi nhập, nên máy khác chỉ cần có kho mã, không phụ thuộc link Drive.
+- 10 tài xế nam (1–5, 11–15) + nữ cảnh sát; 10 tài xế nữ (6–10, 16–20) + nam cảnh sát (cảnh sát kaki Ấn Độ có mũ); **bé trai** ngồi cạnh, cùng một ảnh.
+- Lời thoại 25 lượt bằng Hindi (Devanagari) xen English theo CSV; phần English chỗ CSV giữ English (hỏi giá "monies", "I go to home"…). Tài xế nữ: động từ giống cái, English she/her. CSV ghi "Ava AI", đã giữ "Aiva AI" như cả dự án.
+- CSV gán lượt 11, 12, 14, 15 cho "AI Tutor" nhưng phần 1 là cảnh trong xe chưa có robot: giữ người nói là **bé** (như biến thể gốc); robot bắt đầu từ "Where are you going?".
+- Nền `duong-dua` (đường dừa, ruộng lúa) cho cả 20, màu xe xoay vòng 5 màu (`tao_bien_the_20_nen.XE`). Muốn nền khác: đổi `nen = N.NEN["duong-dua"]` trong script.
+- Kịch bản có thêm token giới tính đứa trẻ + đồng phục (`gioi_tinh.py`: `BE_LOAI`, `BE_ANH`, `BE_CUA`, `BE_O`, `BE_CON`, `BE_VN`, `GHE_BE`, `MAU_DONGPHUC`). 3 file biến thể cũ đã được điền giá trị cũ (bé gái, ghế hồng, navy) nên ra y như trước.
+- `kiem-tra --tai-anh`: 0 lỗi, 20 cảnh báo (cặp wrong/right như các bộ khác). **Chưa gen video.**

@@ -19,6 +19,9 @@ MAC_DINH = {
     "AM_NEN": "desert ambience",
     "MAU_XE": "red",
     "GHE_XE": "red leather",
+    # giới tính đứa trẻ + đồng phục (gioi_tinh.py, 12/11/2026): giá trị cũ = bé gái, ghế hồng, cảnh sát đồng phục navy
+    "BE_LOAI": "girl", "BE_ANH": "she", "BE_CUA": "her", "BE_O": "her", "BE_CON": "daughter", "BE_VN": "gái",
+    "GHE_BE": "pink", "MAU_DONGPHUC": "navy",
 }
 
 # (nguyên văn, bản token): cụ thể trước, chung sau. Nguyên văn phải khớp chuỗi goc_may.py ghi ra.
