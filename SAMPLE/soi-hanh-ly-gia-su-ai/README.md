@@ -34,6 +34,10 @@ Giữa phần 1 và 2: nhoè chuyển động 0,5 giây. Bố cục phần 2: ô
 | `BIEN-THE-SOI-HANH-LY-20-KHONG-BE.json` | Bộ "20 biến thể Check luggage" (05/11/2026), biến thể 1-15 (5 nam, 10 nữ, không địu con): dùng với kịch bản KHONG-BE |
 | `BIEN-THE-SOI-HANH-LY-20-DIU-CON.json` | Biến thể 16-20 (người mẹ địu con): dùng với kịch bản có em bé |
 | `cong-cu/tao_bien_the_20.py` | Sinh 2 file trên từ bảng: chỉ đổi hành khách + giọng, tuổi trong câu "I have / I am", câu "visiting my ..." hợp tuổi; ảnh tham chiếu `NGUOI_HOC` = link prnt.sc từng biến thể, `NGUOI_DAY` = `ROBOT-GIA-SU-AI.png` |
+| `BIEN-THE-SOI-HANH-LY-X0076-40-KHONG-BE.json` / `...-DIU-CON.json` | Bộ X0076 "40 biến thể Check luggage" (Mexico, lời thoại tiếng Anh như biến thể mẫu): 30 biến thể không địu con (11-40) + 10 địu con (1-10). Nguồn: `nguon-csv/X0076-MEXICO-40.csv` |
+| `BIEN-THE-SOI-HANH-LY-X0077-HINDI-20-KHONG-BE.json` / `...-DIU-CON.json` | Bộ X0077 "20 biến thể Check luggage HINDI" (Ấn Độ, lời thoại Hindi xen tiếng Anh, Talka AI): 15 không địu con (6-20) + 5 địu con (1-5). Nguồn: `nguon-csv/X0077-HINDI-20.csv`. Dùng với kịch bản `...-HINDI*.txt` (thứ tự thoại phần 1 khác bản tiếng Anh) |
+| `cong-cu/tao_bien_the_x0076_x0077.py` | Sinh 4 file trên từ 2 CSV (dịch mô tả ngoại hình sang tiếng Anh, đối chiếu tuổi và có/không em bé với CSV, link ảnh Drive vào `refs.NGUOI_HOC`) |
+| `KICH-BAN-SOI-HANH-LY-GIA-SU-AI-HINDI.txt` / `...-HINDI-KHONG-BE.txt` | Kịch bản cho bộ X0077 Hindi (có / không em bé), `loai: soi-hanh-ly-hindi`. Cảnh 3-7, 9, 12, 13 viết lại cho khớp thứ tự thoại mới. Sinh bằng `cong-cu/tao_kich_ban.py --hindi [--khong-be]`, không sửa tay. Code thể loại: `app/production/types/soi-hanh-ly-hindi/` (phụ đề Nirmala UI, Whisper `small`) |
 | `PHAN-TICH-VIDEO-MAU.md` | Bảng từng cảnh, bố cục/vị trí, hiệu ứng, bảng lượt thoại + hành động, bảng "video gốc → kịch bản" |
 | `PROMPT-CHO-AGENT.txt` | Quy tắc riêng để agent viết biến thể mới |
 

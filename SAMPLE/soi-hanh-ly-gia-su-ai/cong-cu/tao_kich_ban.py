@@ -7,9 +7,10 @@ import os
 import re
 import sys
 
-_args = [a for a in sys.argv[1:] if not a.startswith("--")]   # --khong-be: bản không em bé (xem cuối file)
+_args = [a for a in sys.argv[1:] if not a.startswith("--")]   # --khong-be: bản không em bé (xem cuối file); --hindi: lời thoại X0077 (xem "BẢN HINDI")
+HINDI = "--hindi" in sys.argv
 OUT = _args[0] if _args else os.path.join(os.path.dirname(os.path.abspath(__file__)), "..",
-                                          "KICH-BAN-SOI-HANH-LY-GIA-SU-AI-KHONG-BE.txt" if "--khong-be" in sys.argv else "KICH-BAN-SOI-HANH-LY-GIA-SU-AI.txt")
+                                          "KICH-BAN-SOI-HANH-LY-GIA-SU-AI" + ("-HINDI" if HINDI else "") + ("-KHONG-BE" if "--khong-be" in sys.argv else "") + ".txt")
 
 HEAD = """[HAU KY]:
 loai: soi-hanh-ly-gia-su-ai
@@ -249,6 +250,72 @@ DELIV = {
 AUDIO = "Audio: Chỉ giọng của một nhân vật, gần, rõ, tự nhiên như hội thoại thật, có độ vang nhẹ của sảnh lớn; nói nhanh và xong sớm. Không nhạc, không tiếng loa, không tiếng ồn đè lên giọng, không tiếng em bé."
 NEG = "Negative prompt: two voices; the silent character moving the mouth; text or captions; split screen; anyone looking into the lens; pointing at the wrong object, sideways or at a person or the baby; people moving in the background; the baby waking or crying; no speech."
 PACE = "Quick natural unscripted pace, about 4.5 to 5 words per second (short lines up to 6), no long pauses."
+
+# ---------------------------------------------------------------------------------------------------------------------------------
+# BẢN HINDI (X0077, 16/11/2026): cùng 13 cảnh phần 1, nhưng lời thoại đổi thứ tự so với bản tiếng Anh:
+#   3 NV "First time in America?" | 4 HK "Yes. We're, we're here to join my husband." | 5 NV "The scanner detected something unusual in your bag. I need you to open it."
+#   6 HK "Okay. It might be my power bank. Would you like me to take it out?" | 7 NV "Yes, please. You speak English really well, by the way."
+#   9 NV "With AI? How?" | 12 NV "Sounds useful." | 13 HK "And it's free. Here, let me show you."   (cảnh 1, 2, 8, 10, 11 giữ nguyên)
+# Hành động cảnh 3-7, 9, 12, 13 viết lại cho khớp lời; cảnh 5 dùng lại động tác chỉ vali + mời mở vali của cảnh 3 cũ, cảnh 6 dùng lại động tác mở vali của cảnh 4 cũ.
+# Phần 1 chỉ có tiếng Anh; Hindi chỉ ở phần 2 (gia sư AI + hành khách). Loại: soi-hanh-ly-hindi (phụ đề font Nirmala UI + Whisper đa ngôn ngữ).
+# ---------------------------------------------------------------------------------------------------------------------------------
+if HINDI:
+    _old = {r[0]: r for r in SC}
+
+    def _new(n, **kw):
+        keys = ["n", "t", "ang", "img", "kd", "db", "kc", "act", "eye", "pose", "cam", "keep", "trans"]
+        r = dict(zip(keys, _old[n]))
+        r.update(kw)
+        return tuple(r[k] for k in keys)
+
+    _o3, _o4 = _old[3], _old[4]
+    NEW = {
+        3: _new(3,
+                db="Nhân viên hơi nghiêng người về phía hành khách, nhướng mày thân thiện, ngửa bàn tay trái về phía cô khi hỏi 'First time in America?'; tay phải vẫn đặt trên mép máy soi. "
+                   "Hành khách nhìn ông, một tay trên lưng em bé, hơi ngạc nhiên rồi mỉm cười nhẹ.",
+                kc="Nhân viên hạ tay trái, tay phải trên mép máy soi; hành khách mỉm cười, một tay trên lưng em bé; hai người nhìn nhau; miệng khép.",
+                act="the officer leans slightly toward the mother, raises his eyebrows in a friendly way and opens his left hand palm-up toward her as he asks, his right hand staying on the edge of the scanner; "
+                    "on the last word he lowers his left hand; the mother keeps her eyes on him with a small surprised look that turns into a gentle smile, one hand on the baby's back",
+                eye=EYE_A),
+        4: _new(4,
+                db="Hành khách mỉm cười, gật một cái ở 'Yes'; ở 'We're, we're' tay rảnh đưa nhẹ vào ngực (nói về mẹ con), hơi ngập ngừng một nhịp; tới 'to join my husband' cô cười ấm áp, rồi đặt lại lên lưng em bé. "
+                   "Nhân viên nghe, gật nhẹ một cái, mặt thân thiện.",
+                kc="Hành khách mỉm cười ấm áp, một tay trên lưng em bé; nhân viên tay trên mép máy soi, gật nhẹ; miệng khép.",
+                act="the mother smiles and gives one nod on 'Yes'; on 'We're, we're' she touches her free hand lightly to her chest and pauses for a tiny natural beat; on 'to join my husband' her smile turns warm and she rests it on the baby's back again; "
+                    "the officer listens with a friendly face and gives one small nod",
+                eye=EYE_A),
+        5: _new(5, img=False, kd="", db=_o3[5], kc=_o3[6], act=_o3[7], eye=_o3[8]),
+        6: _new(6, db="Hành khách bước sát lại, đặt cả hai bàn tay lên nắp vali xanh (tay trái gần quai, tay phải gần khoá kéo) khi nói 'Okay. It might be my power bank'; "
+                      "tới câu hỏi 'Would you like me to take it out?' cô ngước lên nhìn nhân viên. Nhân viên nhìn theo tay cô xuống vali rồi nhìn lại mặt cô.",
+                kc=_o4[6], act=_o4[7], eye=_o4[8]),
+        7: _new(7, db="Nhân viên gật một cái ở 'Yes, please', ngửa tay trái về phía vali như mời; ở 'You speak English really well' ông nhướng mày, ngửa một bàn tay ra ngang hông về phía hành khách như khen, mỉm cười nhẹ, "
+                      "rồi hạ tay. Hành khách nhấc hai tay khỏi vali, đưa tay phải về lưng em bé, cười tươi hơn, gật nhẹ.",
+                kc="Nhân viên đứng thẳng, tay hạ; hành khách cười, một tay trên lưng em bé; miệng khép. Hết góc A.",
+                act="the officer gives one short nod on 'Yes, please' and opens his left hand toward the suitcase as if inviting her; on 'You speak English really well' he raises his eyebrows and opens one hand palm-up at waist height toward the mother in an impressed, "
+                    "approving gesture, smiles slightly, then lowers it; meanwhile the mother lifts her hands off the suitcase, brings one hand back to the baby's back, her smile widens and she gives a small nod",
+                eye=EYE_A),
+        9: _new(9, db="Nhân viên hỏi, hơi nghiêng đầu, nhướng mày tò mò ở 'How?', vẫn nhìn hành khách (mặt nghiêng 3/4, không quay ra ống kính). Hành khách mỉm cười."),
+        12: _new(12, db="Nhân viên liếc xuống màn hình điện thoại, gật nhẹ một cái tỏ ra ấn tượng, tay phải ngửa thấp ngang hông khi nói 'Sounds useful', rồi nhìn lại hành khách. Hành khách mỉm cười biết ý, vẫn giơ điện thoại.",
+                 act="the officer glances down at the phone screen, gives one small approving nod and opens his right hand palm-up low at hip height as he says it, then looks back at the mother with an interested, slightly impressed face; "
+                     "the mother keeps the phone up and smiles knowingly"),
+        13: _new(13, db="Hành khách cười, ở 'And it's free' cô nghiêng đầu cười tươi; ở 'Here' cô xoay điện thoại về phía mình, cầm bằng hai tay trước ngực; tới 'let me show you' cô chạm màn hình bằng ngón cái; "
+                       "nhân viên nghiêng người lại, cúi nhìn màn hình, cả hai cùng nhìn điện thoại. Nửa giây cuối máy đẩy nhẹ vào hai người. Hết phần 1 (sau đó nhoè chuyển sang phần 2).",
+                 act="the mother tilts her head with a bright smile on 'And it's free'; on 'Here' she turns {{DAO_DIEN_THOAI}} toward herself and holds it in both hands at chest height; on 'let me show you' she taps the screen with her thumb; "
+                     "the officer leans in and looks down at the screen, so both look at the phone together; in the last half second the camera pushes in slightly toward the two of them (the only camera move of this clip, smooth, no shake)"),
+    }
+    SC = [NEW.get(r[0], r) for r in SC]
+    DELIV.update({
+        3: "friendly and conversational, a small genuine curiosity, the pitch rising at the end of the question",
+        4: "'Yes' short and warm; 'We're, we're' with a small natural stumble and repeat, then 'here to join my husband' soft and happy, falling at the end; her own accent natural",
+        5: "matter-of-fact and even, the pitch falling at the end of each sentence; 'I need you to open it' polite but routine",
+        6: "eager to cooperate: 'Okay' quick; 'It might be my power bank' a little apologetic with a light uncertain lift; the question helpful, rising at the end",
+        7: "'Yes, please' short, polite and flat; then genuinely surprised and warmer, a small smile in the voice; 'by the way' tossed off lower and quicker",
+        9: "short, curious, a little surprised, 'How?' rising at the end",
+        10: "animated and a bit faster, explaining with enthusiasm, 'Talka AI' clearly pronounced, natural accent, not rehearsed",
+        12: "lower, thoughtful and mildly impressed, falling at the end",
+        13: "'And it's free' bright and smiling; 'Here, let me show you' eager and a little faster",
+    })
+    HEAD = HEAD.replace("loai: soi-hanh-ly-gia-su-ai", "loai: soi-hanh-ly-hindi")
 
 out = [HEAD]
 for n, t, ang, img, kd, db, kc, act, eye, pose, cam, keep, trans in SC:
