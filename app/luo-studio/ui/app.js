@@ -44,7 +44,7 @@ document.addEventListener("keydown", e => { if (e.key === "Escape" && !window._m
 function nav() {
   const r = S.route.page, running = S.q && S.q.busy, queued = S.q ? S.q.items.filter(i => i.state === "queued").length : 0;
   const b = (h, ic, tip, on, dot, badge) => `<a data-go="#/${h}" class="nav-b ${on ? "on" : ""}">${ico(ic)}${dot ? '<span class="dot"></span>' : ""}${badge ? `<span class="nbadge">${badge}</span>` : ""}<span class="tip">${tip}</span></a>`;
-  $("#nav").innerHTML = `<div class="logo"><img src="logo.png" alt="LUO Studio"></div>${b("", "folder", "Dự án", r === "home" || r === "edit")}${b("run", "bolt", "Hàng đợi", r === "run", running, queued)}${b("results", "film", "Kết quả", r === "results")}${b("types", "layers", "Loại dự án", r === "types")}${b("api", "server", "API Muse", r === "api")}<div class="spacer"></div><div class="ver" style="font-size:10px;opacity:.55;padding:4px 0">${S.health && S.health.version ? "v" + S.health.version : ""}</div>${b("settings", "gear", "Cài đặt", r === "settings")}`;
+  $("#nav").innerHTML = `<div class="logo"><img src="logo.png" alt="LUO Studio"></div>${b("", "folder", "Dự án", r === "home" || r === "edit")}${b("run", "bolt", "Hàng đợi", r === "run", running, queued)}${b("results", "film", "Kết quả", r === "results")}${b("claude", "sparkle", "Video mới (Claude)", r === "claude", S.cjobs && S.cjobs.some(j => j.state === "running"))}${b("types", "layers", "Loại dự án", r === "types")}${b("api", "server", "API Muse", r === "api")}<div class="spacer"></div><div class="ver" style="font-size:10px;opacity:.55;padding:4px 0">${S.health && S.health.version ? "v" + S.health.version : ""}</div>${b("settings", "gear", "Cài đặt", r === "settings")}`;
 }
 function setTop(title, extra = "") {
   const h = S.health, cls = h ? (h.ok ? "ok" : "bad") : "";
@@ -66,6 +66,7 @@ async function route() {
   if (page === "types") return pageTypes();
   if (page === "settings") return pageSettings();
   if (page === "api") return pageApi();
+  if (page === "claude") return pageClaude();
 }
 try { if (!window.__fs) { window.__fs = 1; if (outerWidth < screen.availWidth - 40 || outerHeight < screen.availHeight - 40) { moveTo(0, 0); resizeTo(screen.availWidth, screen.availHeight); } } } catch (e) {}
 window.addEventListener("hashchange", route);
@@ -574,6 +575,7 @@ const itemThumb = it => { const sc = [...it.scenes].reverse().find(s => s.thumb)
 function drawRun() {
   const q = S.q, v = $("#view"); if (!q) return;
   if (S.qview && !q.items.find(i => i.id === S.qview)) S.qview = null;
+  if (S.qview && document.activeElement && document.activeElement.dataset && document.activeElement.dataset.qfb !== undefined) return;   // đang gõ góp ý cho Claude: không vẽ lại
   const keepY = v.scrollTop;
   if (S.qview) drawDetail(q.items.find(i => i.id === S.qview)); else drawQueue();
   v.scrollTop = keepY;
@@ -734,6 +736,7 @@ function redoModal(it, n) {
   };
 }
 function drawDetail(it) {
+  const cx = it.kind === "gen" && typeof claudeCtx === "function" ? claudeCtx(it) : null, hasC = !!(cx && cx.job);
   const q = S.q, v = $("#view"), running = it.state === "running", sc = it.scenes || [], done = sc.filter(s => s.state === "done").length, tot = it.total || sc.length;
   setTop(esc(it.variant), `<span class="tag ${it.state === "done" ? "ok" : it.state === "error" ? "bad" : it.state === "stopped" ? "warn" : ""}">${qstateText(it)}</span>`
     + (it.kind === "gen" && it.state !== "done" ? `<button class="btn" id="dacc" title="Chọn tài khoản Muse khác để gen video này">${ico("user")}${esc(accText(it))}</button>` : "")
@@ -752,18 +755,24 @@ function drawDetail(it) {
     const thumb = s.thumb ? `<img loading="lazy" src="${media(it.project, it.variant, s.thumb)}?t=${s.secs || s.pct || 0}">` : (act ? `<div class="spin"></div>` : ico("img"));
     const t = sceneSecs(s, it);
     return `<div class="sc ${st} ${act ? "active" : ""}"><div class="th">${thumb}<span class="num">${s.n}</span><span class="wh" style="background:${s.who === "hoc" ? "var(--hoc)" : !s.who || s.who === "day" ? "var(--day)" : CHAR_DOTS[0]}" title="${esc(s.who || "")}"></span>${s.clip ? `<div class="play" data-play="${s.clip}">${ico("play")}</div>` : ""}</div>
-      <div class="bd"><div class="tx">${esc(s.text)}</div>${s.account ? `<div class="acc" title="Tài khoản Muse đã gen cảnh này">${ico("user")}${esc(s.account)}</div>` : ""}<div class="mini"><div style="width:${pc}%"></div></div><div class="st"><span>${STATE[st] || st}${["image", "video"].includes(st) && s.pct ? " " + s.pct + "%" : ""}${s.note ? " · " + esc(s.note) : ""}</span><span class="tm">${st !== "wait" ? `<button class="trbtn" data-trace="${s.n}" title="Xem từng bước gen của cảnh này và thời gian mỗi bước">${ico("clock")}Các bước</button>` : ""}<b data-tm="scene:${it.id}:${s.n}">${t ? fmtDur(t) : ""}</b>${s.secs ? ` · ${s.secs}s` : ""}</span></div></div>
+      <div class="bd"><div class="tx">${esc(s.text)}</div>${s.account ? `<div class="acc" title="Tài khoản Muse đã gen cảnh này">${ico("user")}${esc(s.account)}</div>` : ""}<div class="mini"><div style="width:${pc}%"></div></div><div class="st"><span>${STATE[st] || st}${["image", "video"].includes(st) && s.pct ? " " + s.pct + "%" : ""}${s.note ? " · " + esc(s.note) : ""}</span><span class="tm">${st !== "wait" ? `<button class="trbtn" data-trace="${s.n}" title="Xem từng bước gen của cảnh này và thời gian mỗi bước">${ico("clock")}Các bước</button>` : ""}<b data-tm="scene:${it.id}:${s.n}">${t ? fmtDur(t) : ""}</b>${s.secs ? ` · ${s.secs}s` : ""}</span></div>${hasC ? claudeSceneBox(cx, s.n) : ""}</div>
       ${st === "done" || (st === "error" && !running) ? `<button class="ib redo" data-redo="${s.n}" title="${running ? "Dừng video đang chạy rồi gen lại cảnh này" : "Gen lại cảnh này: chỉ riêng cảnh này hoặc từ cảnh này trở đi (có thể thêm yêu cầu sửa)"}">${ico("redo")}</button>` : ""}</div>`;
   }).join("")}</div>` : "";
   const err = it.error ? `<div class="tag bad" style="margin-bottom:14px;white-space:normal">${esc(it.error)}</div>` : "";
   const logs = (it.log || []).slice(-60).map(l => `<div class="${l.level}">${l.t}  ${esc(l.msg)}</div>`).join("");
   const ol = $(".log"), logY = ol && ol.scrollHeight - ol.scrollTop - ol.clientHeight > 40 ? ol.scrollTop : null;   // đang cuộn lên đọc: giữ chỗ; đang ở cuối: theo dòng mới
-  v.innerHTML = `<div class="runhead"><button class="btn ghost" id="dback">${ico("back")}Hàng đợi</button><span class="tag mute">${esc(it.pname)}</span><div class="bar"><div style="width:${it.kind === "post" ? (running ? 60 : 100) : (tot ? Math.round(done / tot * 100) : 0)}%"></div></div>${it.kind === "gen" ? `<span class="tag">${done}/${tot}</span>` : ""}</div>${err}${res}${grid}
+  v.innerHTML = `<div class="runhead"><button class="btn ghost" id="dback">${ico("back")}Hàng đợi</button><span class="tag mute">${esc(it.pname)}</span><div class="bar"><div style="width:${it.kind === "post" ? (running ? 60 : 100) : (tot ? Math.round(done / tot * 100) : 0)}%"></div></div>${it.kind === "gen" ? `<span class="tag">${done}/${tot}</span>` : ""}</div>${err}${res}${hasC ? claudeTopCard(cx) : ""}${grid}${hasC ? claudeRegenCard(cx) : ""}
     <details ${S.logOpen ? "open" : ""} id="logd"><summary style="cursor:pointer;color:var(--mute);margin-top:20px">Nhật ký</summary><div class="log">${logs}</div></details>`;
   const nl = $(".log"); if (nl) nl.scrollTop = logY != null ? logY : nl.scrollHeight;
   $("#logd").ontoggle = e => { S.logOpen = e.target.open; };
+  if (hasC) { v.oninput = e => claudeFbInput(e, it); claudeWatch(); } else v.oninput = null;
   v.onclick = async e => {
     let x;
+    if ((x = e.target.closest("[data-fbopen]"))) return claudeOpenFb(it, x.dataset.fbopen);
+    if ((x = e.target.closest("[data-fbimg]"))) return claudePickImg(it, x.dataset.fbimg);
+    if ((x = e.target.closest("[data-fbrm]"))) return claudeRmImg(it, x.dataset.fbrm);
+    if (e.target.closest("#qregen")) return claudeRegen(it);
+    if (e.target.closest("#qself")) return claudeSelfCheck(it);
     if (e.target.closest("#dback")) { S.qview = null; return drawRun(); }
     if (e.target.closest("#dacc")) return accModal(it);
     if (e.target.closest("#dstop")) { toast("Đang dừng video này…"); await api("stop", { body: { id: it.id } }); return pollQueue(); }
