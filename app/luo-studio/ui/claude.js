@@ -9,7 +9,7 @@ function cDisp(j) {
   const g = j.gen, active = g && ["queued", "running", "waiting"].includes(g.state);
   if (j.state === "done" && active) return "gening";
   // vừa dừng/lỗi chưa tới 30 giây: có thể đang tự chạy lại hoặc làm lại cảnh, chưa báo lỗi vội
-  if (j.state === "done" && g && ["error", "stopped"].includes(g.state)) return g.age > 30 ? "gen_bad" : "gening";
+  if (j.state === "done" && g && ["error", "stopped"].includes(g.state)) return g.age > 30 || g.user_stop ? "gen_bad" : "gening";
   return j.state;
 }
 const CFILTERS = [["all", "Tất cả"], ["running", "Đang chạy"], ["queued", "Đang chờ"], ["attention", "Cần xử lý"], ["done", "Xong"]];
@@ -117,7 +117,7 @@ async function pageClaude() {
     const sig = JSON.stringify([S.cfilter, S.cpar, Math.floor(now / 10), jobs.map(j => [j.id, j.ds, j.gen && [j.gen.state, j.gen.done, j.gen.total], j.step_n, j.step, j.note, j.project_id, j.cost, j.name, j.activity, (j.live || {}).out])]);
     if (sig === S.csig) return;
     S.csig = sig;
-    const busyN = cnt("running") + cnt("queued");
+    const genAct = j => j.gen && ["queued", "running", "waiting"].includes(j.gen.state), busyN = cnt("running") + cnt("queued") + jobs.filter(j => j.ds === "gening" && genAct(j)).length;
     $("#cbar").innerHTML = `${CFILTERS.map(([k, l]) => `<span class="cw-chip ${S.cfilter === k ? "on" : ""} ${k === "attention" && cnt(k) ? "alert" : ""}" data-f="${k}">${l} <b>${cnt(k)}</b></span>`).join("")}
       <div style="flex:1"></div>
       ${busyN ? '<button class="btn sm danger" data-bulk="stop">Dừng tất cả</button>' : ""}${cnt("done") ? '<button class="btn sm ghost" data-bulk="clean">Dọn việc đã xong</button>' : ""}
@@ -129,7 +129,7 @@ async function pageClaude() {
       const [lb, cl] = CST[ds] || [ds, ""];
       const gBad = ds === "gen_bad";
       let cur = j.step_n || 0; if (gAct || gBad) cur = Math.min(cur || 5, 5);   // video test còn đang gen thì bước 5 chưa xong, bước 6 chưa tới
-      const gtxt = gAct ? `Gen video test ${g.done}/${g.total || "?"} cảnh` : "";
+      const gtxt = gAct ? `${g.stopping ? "Đang dừng · " : ""}Gen video test ${g.done}/${g.total || "?"} cảnh` : "";
       const pct = ds === "done" ? 100 : ds === "queued" ? 0 : (gAct || gBad) ? Math.round((4 + (g.total ? g.done / g.total : 0)) / 6 * 100) : Math.round((Math.max(cur - 1, 0) + (cur ? .5 : 0.15)) / 6 * 100);
       const stepTxt = ds === "done" ? "Hoàn tất" : ds === "gen_bad" ? `Bước 5/6 · Gen dừng ở ${g.done}/${g.total || "?"} cảnh` : ds === "queued" ? "Đang chờ tới lượt" : ds === "gening" ? `Bước 5/6 · ${gtxt}` : cur ? `Bước ${cur}/6 · ${CSTEPS[cur - 1] || ""}` : j.state === "error" ? "Bị lỗi" : "Đang khởi động Claude";
       const bad = ds === "error" || ds === "needs_user" || ds === "gen_bad";
@@ -155,7 +155,7 @@ async function pageClaude() {
           <div class="cc-info">${info.join("")}</div>
           <div class="cc-dots">${dots}</div>
           <div class="cc-act">
-            ${busy ? '<button class="btn sm danger" data-a="stop">Dừng</button>' : `${gBad ? '<button class="btn sm primary" data-a="resume" title="Chạy tiếp video test từ chỗ đã dừng, các cảnh đã xong được giữ lại">Tiếp tục gen</button>' : ""}${openBtn}${["error", "stopped", "needs_user"].includes(ds) ? '<button class="btn sm" data-a="retry">Chạy lại</button>' : ""}${ds === "done" || ds === "gen_bad" ? '<button class="btn sm" data-a="restart" title="Chạy lại toàn bộ quy trình phân tích từ đầu, cập nhật dự án cũ">Phân tích lại</button>' : ""}<button class="btn sm ghost" data-a="del" title="Xoá việc này (không xoá dự án trong Studio)">Xoá</button>`}
+            ${busy ? '<button class="btn sm danger" data-a="stop">Dừng</button>' : `${ds === "gening" && g.stopping ? '<button class="btn sm" disabled>Đang dừng…</button>' : ds === "gening" && g.state === "queued" ? '<button class="btn sm primary" data-a="resume" title="Video test đang xếp hàng chưa chạy: bắt đầu gen ngay">Bắt đầu gen</button>' : ds === "gening" && ["running", "waiting"].includes(g.state) ? '<button class="btn sm danger" data-a="stopgen" title="Dừng gen video test (các cảnh đã xong được giữ, bấm Tiếp tục gen để chạy tiếp)">Dừng gen</button>' : ""}${gBad ? '<button class="btn sm primary" data-a="resume" title="Chạy tiếp video test từ chỗ đã dừng, các cảnh đã xong được giữ lại">Tiếp tục gen</button>' : ""}${openBtn}${["error", "stopped", "needs_user"].includes(ds) ? '<button class="btn sm" data-a="retry">Chạy lại</button>' : ""}${ds === "done" || ds === "gen_bad" ? '<button class="btn sm" data-a="restart" title="Chạy lại toàn bộ quy trình phân tích từ đầu, cập nhật dự án cũ">Phân tích lại</button>' : ""}<button class="btn sm ghost" data-a="del" title="Xoá việc này (không xoá dự án trong Studio)">Xoá</button>`}
             <span class="meta">${t} <button class="ib" data-a="usage" title="Chi phí và token đã dùng" style="width:24px;height:24px;display:inline-grid;vertical-align:middle">${ico("table")}</button></span></div></div></div>`;
     };
     $("#cgrid").innerHTML = `<div class="cw-add" id="cadd">${ico("up2")}<b>Thả video gốc vào đây</b><span style="font-size:12.5px">hoặc bấm để chọn · nhiều video cùng lúc</span></div>`
@@ -168,7 +168,13 @@ async function pageClaude() {
     const bk = e.target.closest("[data-bulk]");
     if (bk) {
       try {
-        if (bk.dataset.bulk === "stop") { if (!confirm("Dừng tất cả việc đang chạy và đang chờ?")) return; for (const j of S.cjobs.filter(j => ["running", "queued"].includes(j.state))) await api("claude/jobs/" + j.id + "/stop", { body: {} }); }
+        if (bk.dataset.bulk === "stop") { if (!confirm("Dừng tất cả: Claude đang phân tích và video test đang gen?")) return;
+          let n = 0;
+          for (const j of S.cjobs) {
+            if (["running", "queued"].includes(j.state)) { await api("claude/jobs/" + j.id + "/stop", { body: {} }); n++; }
+            if (j.gen && ["queued", "running", "waiting"].includes(j.gen.state)) { await api("stop", { body: { id: j.gen.id } }); n++; }
+          }
+          toast(n ? `Đã gửi lệnh dừng ${n} việc` : "Không có việc nào đang chạy"); }
         else { const d = S.cjobs.filter(j => j.ds === "done"); if (!confirm(`Xoá ${d.length} việc đã xong khỏi danh sách? (không xoá dự án trong Studio)`)) return; for (const j of d) await api("claude/jobs/" + j.id, { method: "DELETE" }); }
       } catch (er) { toast(er.message, 1); }
       S.csig = ""; return draw();
@@ -190,6 +196,7 @@ async function pageClaude() {
       }
       if (a === "restart" && !confirm("Phân tích lại từ đầu? Claude sẽ cập nhật dự án cũ (tốn thêm quota Claude).")) return;
       if (a === "stop") await api("claude/jobs/" + id + "/stop", { body: {} });
+      else if (a === "stopgen") { const j = S.cjobs.find(x => x.id === id); await api("stop", { body: { id: j.gen.id } }); toast("Đang dừng gen video test…"); S.csig = ""; }
       else if (a === "del") { if (!confirm("Xoá việc này? (không xoá dự án đã tạo trong Studio)")) return; await api("claude/jobs/" + id, { method: "DELETE" }); }
       else await api("claude/jobs/" + id + "/" + a, { body: {} });
     } catch (er) { toast(er.message, 1); }

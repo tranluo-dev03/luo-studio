@@ -32,15 +32,40 @@ DEFAULT_SETTINGS = {"api_url": os.environ.get("LUO_API_URL", "http://127.0.0.1:1
 # ------------------------------------------------------------------ lưu trữ
 def jread(path, default=None):
     try:
-        return json.load(open(path, encoding="utf-8"))
+        with open(path, encoding="utf-8") as f:
+            txt = f.read()
     except Exception:
         return default
+    try:
+        return json.loads(txt)
+    except Exception:
+        try:   # tệp có rác thừa phía sau (ghi chồng cũ): lấy phần JSON hợp lệ đầu tiên thay vì coi như rỗng
+            return json.JSONDecoder().raw_decode(txt)[0]
+        except Exception:
+            return default
+
+
+_JW_LOCKS = {}
+_JW_GUARD = threading.Lock()
 
 
 def jwrite(path, obj):
-    tmp = path + ".tmp"
-    json.dump(obj, open(tmp, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
-    os.replace(tmp, path)
+    """Ghi JSON an toàn: mỗi lần ghi một tệp tạm riêng + khoá theo đường dẫn, rồi đổi tên nguyên tử.
+    (Trước đây mọi luồng dùng chung `<tệp>.tmp`: hai lần ghi chồng nhau làm hỏng queue.json và hàng đợi biến mất.)"""
+    with _JW_GUARD:
+        lk = _JW_LOCKS.setdefault(os.path.abspath(path), threading.Lock())
+    with lk:
+        tmp = f"{path}.{os.getpid()}.{threading.get_ident()}.tmp"
+        try:
+            with open(tmp, "w", encoding="utf-8") as f:
+                json.dump(obj, f, ensure_ascii=False, indent=2)
+            os.replace(tmp, path)
+        finally:
+            if os.path.exists(tmp):
+                try:
+                    os.remove(tmp)
+                except OSError:
+                    pass
 
 
 def settings():
@@ -768,6 +793,7 @@ def _run_item(iid):
     cx = ICANCEL[iid] = ItemCancel()
     with LOCK:
         it.pop("_requeue", None)
+        it.pop("user_stop", None)
         it.update({"state": "running", "error": "", "started": time.time(), "ended": 0.0, "stopping": False, "retry_at": 0})
         if it["kind"] == "gen" and not it.get("only_post"):
             it["_prev_trace"] = {sc["n"]: sc["trace"] for sc in it.get("scenes", []) if sc.get("trace")}
@@ -954,6 +980,8 @@ def stop_items(ids=None):
                     it["retry_at"] = 0
         for iid in targets:
             cx, it = ICANCEL.get(iid), qfind(iid)
+            if it:
+                it["user_stop"] = time.time()   # người dùng chủ động dừng: tab Video mới báo "dừng" ngay, không chờ 30 giây
             if cx and it:
                 cx.ev.set()
                 it["stopping"] = True
@@ -1682,7 +1710,7 @@ def gen_info(j):
     sc = it.get("scenes") or []
     ended = float(it.get("ended") or 0)
     return {"id": it["id"], "variant": it["variant"], "state": it.get("state"), "done": sum(1 for s in sc if s.get("state") == "done"),
-            "total": it.get("total") or len(sc), "error": (it.get("error") or "")[:200], "age": round(time.time() - ended) if ended else 9999}
+            "total": it.get("total") or len(sc), "error": (it.get("error") or "")[:200], "stopping": bool(it.get("stopping")), "user_stop": bool(it.get("user_stop")), "age": round(time.time() - ended) if ended else 9999}
 
 
 def claude_done(j):
