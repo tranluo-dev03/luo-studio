@@ -1183,6 +1183,15 @@ def app_version():
         return ""
 
 
+def app_code():
+    """Version code: số nguyên tăng sau mỗi lần commit + push (dòng `code N` trong version.txt); rỗng nếu không có."""
+    try:
+        m = re.search(r"^code\s+(\d+)", open(os.path.join(HERE, "..", "..", "version.txt"), encoding="utf-8-sig").read(), re.M)
+        return int(m.group(1)) if m else 0
+    except OSError:
+        return 0
+
+
 _MOUTH = {"t": 0.0, "res": None}
 _MOUTH_PROBE = FM.probe_code()
 
@@ -1238,9 +1247,9 @@ def health():
         with urllib.request.urlopen(req, timeout=4) as r:
             d = json.loads(r.read().decode())
         ok = d.get("status") == "ready"
-        return {"ok": ok, "accounts": d.get("accounts", 0), "status": d.get("status"), "key": bool(api_key()), "version": app_version()}
+        return {"ok": ok, "accounts": d.get("accounts", 0), "status": d.get("status"), "key": bool(api_key()), "version": app_version(), "code": app_code()}
     except Exception as e:  # noqa: BLE001
-        return {"ok": False, "error": str(e)[:120], "key": bool(api_key()), "version": app_version()}
+        return {"ok": False, "error": str(e)[:120], "key": bool(api_key()), "version": app_version(), "code": app_code()}
 
 
 # ------------------------------------------------------------------ HTTP
