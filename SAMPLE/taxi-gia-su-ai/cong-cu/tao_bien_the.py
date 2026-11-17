@@ -86,6 +86,8 @@ V = {
     "VAI_KHACH": "taxi passenger",
     "POS_KHACH": "back-seat",
     "NGHE_KHACH": "keeps the mouth closed, the phone at his ear, looking out of the side window",
+    "HIS_KHACH": "his",   # đại từ của khách trong kịch bản (GIOI_KHACH, tao_kich_ban.py); khách nữ đặt "her"
+    "HIM_KHACH": "him",
     "NHIN_KHACH": NHIN,
     "TEN_QUANLY": "the manager",
     "NGUOI_QUANLY": "a stylized 3D-animated taxi-company manager in his early sixties, neatly combed silver-grey hair, a short grey beard, a navy-blue suit with a white shirt and a dark tie, a plain brown clipboard and a pen",

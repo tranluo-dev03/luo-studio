@@ -20,7 +20,7 @@ ANG = {
           DAY,
           "CAMERA ANGLE A, medium shot looking into a yellow taxi through its clean windscreen from just above the yellow bonnet (the glossy yellow bonnet fills the bottom fifth of the frame): "
           "{{TEN_HOC}} ({{NGUOI_HOC}}) sits behind the steering wheel on the RIGHT half, chest-up, both hands on the wheel; in the back seat on the LEFT, smaller and further away, "
-          "{{TEN_KHACH}} ({{NGUOI_KHACH}}) sits upright holding {{DAO_DIEN_THOAI_KH}} to his right ear; above the taxi roof and through the rear window {{NEN_PHO}}. The taxi is DRIVING forward down the avenue: the street outside the side windows, the rear window and above the roof slides past from front to back with a soft motion blur. ONE continuous shot exactly like the start frame for the whole clip: the passenger stays small in the back seat at the LEFT and the driver stays big at the RIGHT; the camera never cuts, never moves closer to the back seat and never reframes on whoever speaks.",
+          "{{TEN_KHACH}} ({{NGUOI_KHACH}}) sits upright holding {{DAO_DIEN_THOAI_KH}} to his right ear; above the taxi roof and through the rear window {{NEN_PHO}}; the taxi roof light is plain blank yellow with nothing written on it. The taxi is DRIVING forward down the avenue: the street outside the side windows, the rear window and above the roof slides past from front to back with a soft motion blur. ONE continuous shot exactly like the start frame for the whole clip: the passenger stays small in the back seat at the LEFT and the driver stays big at the RIGHT; the camera never cuts, never moves closer to the back seat and never reframes on whoever speaks.",
           ["HOC", "KHACH"], False),
     "P": ("góc P: trong xe, từ ghế phụ nhìn sang: tài xế ngồi ghế lái giữa-trái, nghiêng 3/4 về camera, cầm điện thoại thấp trong hai tay gần vô lăng, nhìn màn hình; cửa sổ sau lưng là phố gạch yên tĩnh",
           DAY,
@@ -98,7 +98,7 @@ S = [
          eye="the passenger looks forward at the driver, then over his own shoulder back through the rear window; the driver looks ahead at the road, sad",
          dien="Khách bắt đầu nói 'rẽ trái ở...' rồi ngoái lại nhìn qua cửa kính sau, bực: xe đã qua chỗ rẽ.",
          cuoi="Khách ngồi yên ghế sau, điện thoại áp tai, nhìn tài xế bực; tài xế nhìn đường, lo; miệng khép.",
-         act="the passenger, phone still at his ear, turns his head to glance back through the rear window, then turns it back toward the driver with an annoyed frown; his free hand rests on his knee"),
+         act="the passenger, phone still at his ear, frowns, raises his eyebrows in disbelief and gives one annoyed small shake of the head; his free hand rests on his knee; nobody turns around"),
     dict(g="A", w="KHACH", lang="English", start=1,
          eye="the passenger glares at the back of the driver's head; the driver keeps his eyes on the road, embarrassed",
          dien="Khách gắt, giơ tay lên trời.",
@@ -113,7 +113,7 @@ S = [
          eye="the passenger looks out of the side window beside him at the LEFT edge of the frame, talking into the phone; the driver looks ahead at the road, sad",
          dien="Khách thở dài với người trong điện thoại; tài xế mím môi, cúi mắt.",
          cuoi="Khách nhìn ra cửa sổ; tài xế cúi mắt nhìn vô lăng, buồn; miệng khép.",
-         act="the passenger rolls his eyes and rubs his forehead once with his free hand"),
+         act="the passenger rolls his eyes and lets out a tired sigh, his free hand resting on his knee; no hand touches any face"),
     dict(g="P", w=None, start="moi", keep=3, trans="chớp đen 0.4",
          eye="the driver looks down at the phone screen in his hands, then lifts his eyes and stares out of the windscreen; never into the lens",
          dien="CẢNH CÂM (~3 s): xe đã dừng, tài xế ngồi một mình nhìn điện thoại (đánh giá tệ của khách), thở dài, mặt buồn rười rượi, nhìn ra kính trước.",
@@ -148,7 +148,7 @@ S = [
          eye="the driver looks down at the floor, then lifts his eyes slightly to the right, hurt; never into the lens",
          dien="CẢNH CÂM (~3 s): cận tài xế đứng một mình, cúi mặt, buồn, nuốt khan, mắt hơi ngấn nước.",
          cuoi="Tài xế cúi mặt buồn; miệng khép.",
-         act="the driver lowers his eyes, swallows hard, his moustache trembles slightly and his eyes glisten; he stays where he is"),
+         act="the driver lowers his eyes, swallows hard, his lips tremble slightly and his eyes glisten; he stays where he is"),
     dict(g="L", w="CON", lang="Spanish", start="moi", trans="chớp trắng 0.3",
          eye="the girl looks at her father on the left, worried; the father keeps looking down",
          dien="Tối ở nhà: con gái đứng phía sau, cầm cốc, thấy bố ngồi buồn, bước lên một bước hỏi han.",
@@ -275,7 +275,7 @@ Vertical short-form video look, stylized Pixar-style 3D animated feature-film ch
 {{TEN_DAY}} listens to the person on the other end of the call: soft attentive smile, slow natural blinks, facing the camera; the head and body stay still and centred exactly as in the start frame, no head tilt, no sway, no sliding. Lips stay sealed.
 
 [NHAN VAT HOC]:
-{{TEN_HOC}}: {{NGUOI_HOC}}, alone in the driver's seat of the taxi, the seat belt across his chest. Seen from a phone mounted on the dashboard in front of him, chest-up, centred, both hands on the steering wheel at the bottom of the frame; his head is LOW in the frame: the top of his curly hair at about 38% down from the top edge, his face in the middle of the frame; the upper 35% of the frame shows only the taxi's roof lining and the rear window with no part of his head (it is covered later by a call window). Behind him: {{NEN_HOC}}. The seat beside him and the back seat are empty. He looks into the lens while speaking, as if talking to the phone. Small natural head movements only, no cuts, no zoom. VOICE: {{GIONG_HOC}}, the same timbre, pitch and loudness in every clip.
+{{TEN_HOC}}: {{NGUOI_HOC}}, alone in the driver's seat of the taxi, the seat belt across his chest. Seen from a phone mounted on the dashboard in front of him, chest-up, centred, both hands on the steering wheel at the bottom of the frame; his head is LOW in the frame: the top of his head at about 38% down from the top edge, his face in the middle of the frame; the upper 35% of the frame shows only the taxi's roof lining and the rear window with no part of his head (it is covered later by a call window). Behind him: {{NEN_HOC}}. The seat beside him and the back seat are empty. He looks into the lens while speaking, as if talking to the phone. Small natural head movements only, no cuts, no zoom. VOICE: {{GIONG_HOC}}, the same timbre, pitch and loudness in every clip.
 
 [NGHE HOC]:
 {{TEN_HOC}} listens to the phone on the dashboard: eyes on the lens, friendly attentive expression, slow blinks, a small nod now and then, both hands on the steering wheel. Lips stay sealed.
@@ -391,6 +391,30 @@ def scene(i, s, a, b):
     return "\n".join(lines)
 
 
+# Đại từ của KHÁCH trong lời tả cảnh -> token {{HIS_KHACH}} / {{HIM_KHACH}} (biến thể đặt "his"/"him" hoặc "her"/"her").
+# Chỉ áp ở main() bản Mexico; bản Ấn Độ (tao_kich_ban_an_do.py) gọi scene() riêng và tự đổi sang "her".
+GIOI_KHACH = [
+    ("to his right ear", "to {{HIS_KHACH}} right ear"),
+    ("phone held at his ear", "phone held at {{HIS_KHACH}} ear"),
+    ("phone still at his ear", "phone still at {{HIS_KHACH}} ear"),
+    ("the phone stays at his ear", "the phone stays at {{HIS_KHACH}} ear"),
+    ("phone at his ear", "phone at {{HIS_KHACH}} ear"),
+    ("toward the road ahead with his head only, then sits back; his free hand rests on his knee",
+     "toward the road ahead with {{HIS_KHACH}} head only, then sits back; {{HIS_KHACH}} free hand rests on {{HIS_KHACH}} knee"),
+    ("over his own shoulder", "over {{HIS_KHACH}} own shoulder"),
+    ("raises his eyebrows in disbelief and gives one annoyed small shake of the head; his free hand rests on his knee",
+     "raises {{HIS_KHACH}} eyebrows in disbelief and gives one annoyed small shake of the head; {{HIS_KHACH}} free hand rests on {{HIS_KHACH}} knee"),
+    ("the passenger lifts his free open hand a little toward the driver in annoyance, then lowers it to his knee",
+     "the passenger lifts {{HIS_KHACH}} free open hand a little toward the driver in annoyance, then lowers it to {{HIS_KHACH}} knee"),
+    ("the side window beside him", "the side window beside {{HIM_KHACH}}"),
+    ("the passenger turns his head", "the passenger turns {{HIS_KHACH}} head"),
+    ("the passenger rolls his eyes and lets out a tired sigh, his free hand resting on his knee",
+     "the passenger rolls {{HIS_KHACH}} eyes and lets out a tired sigh, {{HIS_KHACH}} free hand resting on {{HIS_KHACH}} knee"),
+    ("both men keep exactly the framing", "both people keep exactly the framing"),
+    ("sweeping across the two men", "sweeping across the two people"),
+]
+
+
 def main():
     n_cam = sum(1 for s in S if s["w"] is None)
     parts = [HEAD.replace("{N_CANH}", str(len(S))).replace("{N_CAM}", str(n_cam))]
@@ -404,7 +428,11 @@ def main():
         ln = s.get("len", 5)   # mốc thời gian chỉ quyết định độ dài clip của cảnh KHÔNG LỜI (cảnh có lời: Studio tính theo số âm tiết)
         parts.append(scene(i, s, t, t + ln))
         t += ln
-    open(OUT, "w", encoding="utf-8").write("\n\n".join(parts) + "\n" + PART2)
+    txt = "\n\n".join(parts) + "\n" + PART2
+    for a, b in GIOI_KHACH:   # 16/11 X0060: 40 biến thể có khách nữ -> đại từ của khách thành token biến thể
+        assert a in txt, f"không thấy cụm '{a}' để đổi đại từ khách"
+        txt = txt.replace(a, b)
+    open(OUT, "w", encoding="utf-8").write(txt)
     print(f"Đã ghi {os.path.normpath(OUT)}: phần 1 {len(S)} cảnh ({n_cam} không lời) + phần 2 ghép 2 lớp")
     print("Người nói phần 1:", " ".join((s["w"] or "-").lower() for s in S))
 
