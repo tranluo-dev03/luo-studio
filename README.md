@@ -17,6 +17,10 @@ Tao hang loat video quang cao dang hoi thoai (xem `HUONG-DAN.md` de biet cach du
    ```
 3. Chay: bam `LUO Studio.bat` (hoac `LUO Studio (xem loi).bat` de xem log).
 
+## Cai dat tren Linux (Ubuntu 22.04/24.04)
+
+`bash setup.sh` roi `./luo-studio.sh`. Chi tiet (may chu khong man hinh, duong ham SSH, systemd): `HUONG-DAN-LINUX.md`.
+
 ## Cap nhat len ban moi (khong mat du lieu)
 
 Dong ung dung roi bam dup `Cap nhat.bat` (hoac chay `powershell -ExecutionPolicy Bypass -File update.ps1`).

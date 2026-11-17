@@ -1164,6 +1164,8 @@ def pick_file(kind):
             import tkinter  # noqa: F401
         except ImportError:
             return _pick_file_windows(kind)
+    if os.name != "nt" and sys.platform != "darwin" and not (os.environ.get("DISPLAY") or os.environ.get("WAYLAND_DISPLAY")):
+        return ""   # máy chủ không có màn hình: không mở được hộp thoại chọn tệp (dán đường dẫn thủ công)
     code = ("import tkinter as tk, tkinter.filedialog as fd, sys; r=tk.Tk(); r.withdraw(); r.attributes('-topmost',True); "
             "ft=[('Tệp','*.mov *.webm *.png *.jpg *.mp4 *.json *.txt')] if sys.argv[1]!='json' else [('JSON','*.json')]; "
             "print(fd.askopenfilename(filetypes=ft) or '')")
@@ -1662,11 +1664,14 @@ class H(BaseHTTPRequestHandler):
             b = self.body()
             d = os.path.join(RUNS, slug(b["project"]), slug(b["variant"])) if b.get("variant") else RUNS
             named = os.path.join(d, safe_name(b["variant"]) + ".mp4") if b.get("variant") else ""
-            if named and os.path.exists(named):
-                subprocess.Popen(["explorer", "/select,", os.path.normpath(named)])  # mở thư mục và chọn sẵn video mang tên biến thể
-            elif os.path.isdir(d):
-                os.startfile(d)  # noqa: S606
-            return self.send_json({"ok": True})
+            if os.name == "nt":
+                if named and os.path.exists(named):
+                    subprocess.Popen(["explorer", "/select,", os.path.normpath(named)])  # mở thư mục và chọn sẵn video mang tên biến thể
+                elif os.path.isdir(d):
+                    os.startfile(d)  # noqa: S606
+            elif os.path.isdir(d) and (os.environ.get("DISPLAY") or os.environ.get("WAYLAND_DISPLAY") or sys.platform == "darwin"):
+                subprocess.Popen(["open" if sys.platform == "darwin" else "xdg-open", d], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            return self.send_json({"ok": True, "path": d})
         if a == "delete-result" and m == "POST":
             b = self.body()
             shutil.rmtree(os.path.join(RUNS, slug(b["project"]), slug(b["variant"])), ignore_errors=True)

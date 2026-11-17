@@ -72,6 +72,9 @@ def claude_exe():
             for d in os.listdir(base):
                 if d.startswith("Anthropic.ClaudeCode"):
                     cands.append(os.path.join(base, d, "claude.exe"))
+    if os.name != "nt":
+        cands += [os.path.join(hm, ".local", "bin", "claude"), os.path.join(hm, ".claude", "local", "claude"), os.path.join(hm, ".npm-global", "bin", "claude"),
+                  "/usr/local/bin/claude", "/usr/bin/claude", "/opt/homebrew/bin/claude"]
     cands += [os.path.join(ap, "npm", "claude.cmd"), os.path.join(hm, ".local", "bin", "claude.exe"), os.path.join(hm, ".claude", "local", "claude.exe")]
     return next((c for c in cands if os.path.exists(c)), "")
 

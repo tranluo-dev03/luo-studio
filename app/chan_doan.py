@@ -23,13 +23,28 @@ def out(s=""):
 
 def cpu_features():
     """AVX / AVX2 / AVX-512 theo Windows (IsProcessorFeaturePresent). mediapipe can AVX; may ao (VM) khong cap AVX thuong gay loi DLL init hoac crash."""
-    if os.name != "nt":
+    if os.name != "nt":   # Linux: đọc cờ CPU trong /proc/cpuinfo
+        try:
+            for ln in open("/proc/cpuinfo", encoding="utf-8", errors="ignore"):
+                if ln.startswith("flags"):
+                    fl = set(ln.split(":", 1)[1].split())
+                    return {"AVX": "avx" in fl, "AVX2": "avx2" in fl, "AVX-512F": "avx512f" in fl}
+        except OSError:
+            pass
         return {}
     k = ctypes.windll.kernel32
     return {name: bool(k.IsProcessorFeaturePresent(code)) for name, code in (("AVX", 39), ("AVX2", 40), ("AVX-512F", 41))}
 
 
 def cpu_name():
+    if os.name != "nt":
+        try:
+            for ln in open("/proc/cpuinfo", encoding="utf-8", errors="ignore"):
+                if ln.startswith("model name"):
+                    return ln.split(":", 1)[1].strip()
+        except OSError:
+            pass
+        return platform.processor() or "?"
     try:
         import winreg
         with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"HARDWARE\DESCRIPTION\System\CentralProcessor\0") as k:
@@ -39,6 +54,11 @@ def cpu_name():
 
 
 def machine_model():
+    if os.name != "nt":
+        try:
+            return open("/sys/class/dmi/id/product_name", encoding="utf-8").read().strip() or "?"
+        except OSError:
+            return "?"
     try:
         r = subprocess.run(["powershell", "-NoProfile", "-Command", "(Get-CimInstance Win32_ComputerSystem | ForEach-Object { $_.Manufacturer + ' / ' + $_.Model })"],
                            capture_output=True, text=True, timeout=30)
@@ -81,12 +101,18 @@ out(f"CPU: {cpu_name()}")
 feat = cpu_features()
 if feat:
     out("Lenh CPU: " + ", ".join(f"{k}={'co' if v else 'KHONG'}" for k, v in feat.items()))
-ok_vc, vcver = vcredist()
+if os.name == "nt":
+    ok_vc, vcver = vcredist()
+else:   # Linux không cần Visual C++; kiểm tra ffmpeg thay thế
+    ok_vc, vcver = True, ""
+    import shutil
+    out(f"ffmpeg: {shutil.which('ffmpeg') or 'KHONG THAY (sudo apt install ffmpeg)'}")
 try:   # v14.29.30133.00 -> (14, 29)
     vc_old = ok_vc and tuple(int(x) for x in vcver.lstrip("v").split(".")[:2]) < (14, 40)
 except ValueError:
     vc_old = False
-out(f"Microsoft Visual C++ Redistributable x64: {'co (' + vcver + ')' if ok_vc else 'KHONG THAY'}" + ("  -> QUA CU, can tu 14.40" if vc_old else ""))
+if os.name == "nt":
+    out(f"Microsoft Visual C++ Redistributable x64: {'co (' + vcver + ')' if ok_vc else 'KHONG THAY'}" + ("  -> QUA CU, can tu 14.40" if vc_old else ""))
 out("")
 out("Phien ban thu vien:")
 for p in ("faster-whisper", "ctranslate2", "onnxruntime", "numpy", "mediapipe", "opencv-contrib-python", "av", "pillow", "fastapi", "uvicorn"):

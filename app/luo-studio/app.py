@@ -6,7 +6,18 @@ sys.path.insert(0, HERE)
 import server  # noqa: E402
 
 
+def has_display():
+    """Windows/macOS luôn có màn hình; Linux cần X11/Wayland (VPS không giao diện thì không mở được cửa sổ)."""
+    return os.name == "nt" or sys.platform == "darwin" or bool(os.environ.get("DISPLAY") or os.environ.get("WAYLAND_DISPLAY"))
+
+
 def find_browser():
+    if os.name != "nt":
+        for n in ("google-chrome", "google-chrome-stable", "chromium", "chromium-browser", "microsoft-edge", "microsoft-edge-stable"):
+            w = shutil.which(n)
+            if w:
+                return w
+        return None
     for p in (r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe", r"C:\Program Files\Microsoft\Edge\Application\msedge.exe",
               r"C:\Program Files\Google\Chrome\Application\chrome.exe", r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"):
         if os.path.exists(p):
@@ -21,7 +32,7 @@ def main():
     url = f"http://127.0.0.1:{port}/"
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     print(f"LUO Studio: {url}")
-    if "--no-window" in sys.argv:
+    if "--no-window" in sys.argv or not has_display():
         try:
             while True:
                 time.sleep(3600)

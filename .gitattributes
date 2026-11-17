@@ -1,0 +1,2 @@
+# Script Linux phai giu xuong dong LF (CRLF lam bash bao "bad interpreter")
+*.sh text eol=lf
