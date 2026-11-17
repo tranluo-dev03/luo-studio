@@ -6,16 +6,16 @@ $ErrorActionPreference = "Continue"
 Set-Location $PSScriptRoot
 function Get-Code([string]$text) { if ($text -match "(?m)^code\s+(\d+)") { return [int]$Matches[1] } return 0 }
 function Set-Code([int]$n) {
-  $t = [IO.File]::ReadAllText("version.txt")
+  $t = [IO.File]::ReadAllText((Join-Path $PSScriptRoot "version.txt"))
   if ($t -match "(?m)^code\s+\d+") { $t = [regex]::Replace($t, "(?m)^code\s+\d+", "code $n") } else { $t = $t.TrimEnd() + "`r`ncode $n`r`n" }
-  [IO.File]::WriteAllText("version.txt", $t, (New-Object Text.UTF8Encoding($true)))
+  [IO.File]::WriteAllText((Join-Path $PSScriptRoot "version.txt"), $t, (New-Object Text.UTF8Encoding($true)))
 }
 if ($All) { git add -A } elseif ($Files) { git add -- $Files }
 if (-not (git diff --cached --name-only)) { Write-Host "Khong co gi de commit (git add truoc, hoac dung -Files / -All)." -ForegroundColor Yellow; exit 1 }
 for ($try = 1; $try -le 5; $try++) {
   git fetch origin main --quiet
   $remote = Get-Code (git show origin/main:version.txt 2>$null | Out-String)
-  $local = Get-Code ([IO.File]::ReadAllText("version.txt"))
+  $local = Get-Code ([IO.File]::ReadAllText((Join-Path $PSScriptRoot "version.txt")))
   $new = [Math]::Max($remote, $local) + 1
   Set-Code $new
   git add version.txt
