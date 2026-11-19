@@ -239,6 +239,7 @@ def load_project(pid):
 # Studio lấy ảnh trong kho (anh/<MÃ>.webp; máy chưa có thì tự tải theo danh mục) và gắn làm ảnh tham chiếu của nhân vật đó.
 KHO_DIR = os.path.normpath(os.path.join(HERE, "..", "..", "SAMPLE", "_chung", "kho-nhan-vat"))
 _KHO = {"mt": 0, "items": {}, "mod": None}
+_KHO_LOCK = threading.Lock()
 
 
 def kho_items():
@@ -268,11 +269,31 @@ def kho_code(s):
 def kho_file(code):
     """Đường dẫn ảnh của một mã trong kho; chưa có trên máy thì tải về theo danh mục."""
     if _KHO["mod"] is None:
-        import importlib.util
-        sp = importlib.util.spec_from_file_location("kho_tai_anh", os.path.join(KHO_DIR, "tai-anh.py"))
-        _KHO["mod"] = importlib.util.module_from_spec(sp)
-        sp.loader.exec_module(_KHO["mod"])
+        with _KHO_LOCK:   # tab Kho nhân vật xin hàng chục ảnh cùng lúc: chỉ một luồng nạp module, và chỉ gán sau khi nạp XONG
+            if _KHO["mod"] is None:   # (trước đây gán trước khi nạp xong -> các luồng khác gọi hàm chưa tồn tại -> ảnh lỗi 404)
+                import importlib.util
+                sp = importlib.util.spec_from_file_location("kho_tai_anh", os.path.join(KHO_DIR, "tai-anh.py"))
+                mod = importlib.util.module_from_spec(sp)
+                sp.loader.exec_module(mod)
+                _KHO["mod"] = mod
     return _KHO["mod"].tai(kho_items()[code])
+
+
+def kho_thumb(code, src):
+    """Ảnh thu nhỏ (rộng 360px, JPEG) của một ảnh kho, lưu đệm trong thư mục dữ liệu; lỗi (thiếu Pillow...) thì trả ảnh gốc."""
+    dst = os.path.join(DATA, "kho-thumb", code + ".jpg")
+    try:
+        if os.path.isfile(dst) and os.path.getmtime(dst) >= os.path.getmtime(src):
+            return dst
+        from PIL import Image
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        im = Image.open(src).convert("RGB")
+        im.thumbnail((360, 720))
+        im.save(dst + ".tmp", "JPEG", quality=82)
+        os.replace(dst + ".tmp", dst)
+        return dst
+    except Exception:  # noqa: BLE001
+        return src
 
 
 def _download_image(url, dest_dir, cache):
@@ -1430,6 +1451,17 @@ class H(BaseHTTPRequestHandler):
                 if len(parts) != 2 or any(".." in x for x in parts):
                     return self.send_json({"error": "bad path"}, 400)
                 return self.send_file(os.path.join(DATA, "assets", slug(parts[0]), os.path.basename(parts[1])))
+            if path.startswith(("/kho/", "/kho-nho/")):   # ảnh của một mã trong kho nhân vật / kho bot (tab Kho nhân vật)
+                try:
+                    code = kho_code(urllib.parse.unquote(path.split("/", 2)[2]))
+                    if not code:
+                        return self.send_json({"error": "not found"}, 404)
+                    fp = kho_file(code)
+                    if path.startswith("/kho-nho/"):   # ảnh thu nhỏ cho lưới (216 ảnh gốc 1120x2240 tải và giải mã rất chậm); không tạo được thì trả ảnh gốc
+                        fp = kho_thumb(code, fp)
+                    return self.send_file(fp, {".webp": "image/webp", ".png": "image/png", ".jpg": "image/jpeg"}.get(os.path.splitext(fp)[1].lower()))
+                except Exception as e:  # noqa: BLE001 - mã lạ / chưa tải được ảnh
+                    return self.send_json({"error": str(e)[:200]}, 404)
             if path.startswith("/media/"):
                 parts = [urllib.parse.unquote(x) for x in path[7:].split("/")]
                 if len(parts) != 3 or any(".." in x for x in parts):

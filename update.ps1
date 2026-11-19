@@ -2,10 +2,9 @@
 # Cach dung:  powershell -ExecutionPolicy Bypass -File update.ps1      (hoac bam dup "Cap nhat.bat")
 # Viec script lam:
 #   1. Tu choi chay neu LUO Studio dang mo (dong ung dung truoc).
-#   2. Sao luu nhe du lieu quan trong vao userdata-backup\<ngay-gio>\ (tai khoan Muse, du an, loai du an, cai dat); giu 3 ban gan nhat.
-#   3. Cap nhat ma nguon: thu muc co .git thi "git pull"; con lai tai ZIP ban moi roi chep de len
+#   2. Cap nhat ma nguon: thu muc co .git thi "git pull"; con lai tai ZIP ban moi roi chep de len
 #      (KHONG dong vao userdata\, .venv\, bin\, runtime\).
-#   4. Chay lai setup.ps1 de cap nhat thu vien (nhanh neu khong co gi moi).
+#   3. Chay lai setup.ps1 de cap nhat thu vien (nhanh neu khong co gi moi).
 # Tuy chon:  -Branch main   nhanh can lay (mac dinh main)
 #            -ZipFile "C:\...\luo-studio-main.zip"   dung file ZIP da tai san (may khong co git / mang han che)
 #            -SkipSetup   khong chay lai setup.ps1
@@ -37,62 +36,8 @@ if (-not $Force -and (Test-Path "userdata\running.json")) {
   catch {}
 }
 
-# 2. Sao luu nhe (khong chep video, mo hinh giong noi, ho so trinh duyet: rat nang va co the tao lai)
-Write-Host "[1/3] Sao luu du lieu quan trong..." -ForegroundColor Cyan
-$bk = Join-Path "userdata-backup" (Get-Date -Format "yyyyMMdd-HHmmss")
-New-Item -ItemType Directory -Force -Path $bk | Out-Null
-
-# Chep tung tep va ve thanh tien trinh (theo dung luong) de nguoi dung biet dang sao luu den dau.
-# Cau truc ban sao giu nhu truoc: moi muc nam truc tiep trong $bk (api\, projects\, types\, settings.json, queue.json).
-# Tu ve bang chu (khong dung Write-Progress) nen hien dung ca khi $ProgressPreference = SilentlyContinue.
-function Copy-WithBar([string[]]$Items, [string]$Dest) {
-  $list = New-Object System.Collections.Generic.List[object]
-  foreach ($it in $Items) {
-    if (-not (Test-Path $it)) { continue }
-    $root = (Resolve-Path $it).Path
-    $leaf = Split-Path $root -Leaf
-    if ((Get-Item $root).PSIsContainer) {
-      foreach ($f in Get-ChildItem $root -Recurse -File -Force) {
-        $list.Add([pscustomobject]@{ Src = $f.FullName; Rel = (Join-Path $leaf $f.FullName.Substring($root.Length).TrimStart('\')); Len = $f.Length })
-      }
-      $null = New-Item -ItemType Directory -Force -Path (Join-Path $Dest $leaf)   # giu ca thu muc rong
-    } else {
-      $list.Add([pscustomobject]@{ Src = $root; Rel = $leaf; Len = (Get-Item $root).Length })
-    }
-  }
-  $totalBytes = [double](($list | Measure-Object Len -Sum).Sum)
-  $total = $list.Count
-  if ($total -eq 0) { return 0 }
-  $doneBytes = 0.0; $n = 0; $last = [DateTime]::MinValue
-  $mb = { param($b) ("{0:N1}" -f ($b / 1MB)) }
-  $draw = {
-    param($name, [bool]$final)
-    $pct = if ($totalBytes -gt 0) { $doneBytes / $totalBytes } else { $n / $total }
-    $fill = [int][math]::Floor(30 * $pct)
-    $bar = ("#" * $fill) + ("-" * (30 - $fill))
-    if ($name.Length -gt 28) { $name = "..." + $name.Substring($name.Length - 25) }
-    $line = "  [{0}] {1,3}%  {2}/{3} MB  ({4}/{5} tep)  {6}" -f $bar, [int][math]::Floor(100 * $pct), (& $mb $doneBytes), (& $mb $totalBytes), $n, $total, $name
-    [Console]::Write("`r" + $line.PadRight(100))
-    if ($final) { [Console]::WriteLine() }
-  }
-  foreach ($f in $list) {
-    $to = Join-Path $Dest $f.Rel
-    $null = New-Item -ItemType Directory -Force -Path (Split-Path $to -Parent)
-    Copy-Item -LiteralPath $f.Src -Destination $to -Force
-    $doneBytes += $f.Len; $n++
-    if (([DateTime]::Now - $last).TotalMilliseconds -ge 100) { & $draw $f.Rel $false; $last = [DateTime]::Now }   # khong ve moi tep cho nhe
-  }
-  & $draw "xong" $true
-  return $total
-}
-
-$items = "userdata\api", "userdata\studio\projects", "userdata\studio\types", "userdata\studio\settings.json", "userdata\studio\queue.json"
-$count = Copy-WithBar $items $bk
-Get-ChildItem "userdata-backup" -Directory | Sort-Object Name -Descending | Select-Object -Skip 3 | Remove-Item -Recurse -Force
-Write-Host "  Da sao luu $count tep vao $bk"
-
-# 3. Cap nhat ma nguon
-Write-Host "[2/3] Cap nhat ma nguon..." -ForegroundColor Cyan
+# 2. Cap nhat ma nguon (khong sao luu truoc: buoc nay khong dong vao userdata\, du lieu van nguyen cho cu)
+Write-Host "[1/2] Cap nhat ma nguon..." -ForegroundColor Cyan
 $tmp = $null
 try {
   if ((Test-Path ".git") -and -not $ZipFile) {
@@ -119,12 +64,12 @@ try {
     if ($LASTEXITCODE -ge 8) { throw "Chep file that bai (robocopy ma $LASTEXITCODE)." }
   }
 
-  # 4. Cap nhat thu vien
+  # 3. Cap nhat thu vien
   if (-not $SkipSetup) {
-    Write-Host "[3/3] Cap nhat thu vien (chay setup.ps1)..." -ForegroundColor Cyan
+    Write-Host "[2/2] Cap nhat thu vien (chay setup.ps1)..." -ForegroundColor Cyan
     & (Join-Path $PSScriptRoot "setup.ps1")
   } else {
-    Write-Host "[3/3] Bo qua setup.ps1 (-SkipSetup)." -ForegroundColor Yellow
+    Write-Host "[2/2] Bo qua setup.ps1 (-SkipSetup)." -ForegroundColor Yellow
   }
   if ($src) { Copy-Item (Join-Path $src.FullName "update.ps1") -Destination "update.ps1" -Force -ErrorAction SilentlyContinue }
 } finally {

@@ -44,7 +44,7 @@ document.addEventListener("keydown", e => { if (e.key === "Escape" && !window._m
 function nav() {
   const r = S.route.page, running = S.q && S.q.busy, queued = S.q ? S.q.items.filter(i => i.state === "queued").length : 0;
   const b = (h, ic, tip, on, dot, badge) => `<a data-go="#/${h}" class="nav-b ${on ? "on" : ""}">${ico(ic)}${dot ? '<span class="dot"></span>' : ""}${badge ? `<span class="nbadge">${badge}</span>` : ""}<span class="tip">${tip}</span></a>`;
-  $("#nav").innerHTML = `<div class="logo"><img src="logo.png" alt="LUO Studio"></div>${b("", "folder", "Dự án", r === "home" || r === "edit")}${b("run", "bolt", "Hàng đợi", r === "run", running, queued)}${b("results", "film", "Kết quả", r === "results")}${b("claude", "sparkle", "Video mới (Claude)", r === "claude", S.cjobs && S.cjobs.some(j => j.state === "running"))}${b("types", "layers", "Loại dự án", r === "types")}${b("api", "server", "API Muse", r === "api")}<div class="spacer"></div><div class="ver" style="font-size:10px;opacity:.55;padding:4px 0">${S.health && S.health.version ? "v" + S.health.version + (S.health.code ? " · " + S.health.code : "") : ""}</div>${b("settings", "gear", "Cài đặt", r === "settings")}`;
+  $("#nav").innerHTML = `<div class="logo"><img src="logo.png" alt="LUO Studio"></div>${b("", "folder", "Dự án", r === "home" || r === "edit")}${b("run", "bolt", "Hàng đợi", r === "run", running, queued)}${b("results", "film", "Kết quả", r === "results")}${b("claude", "sparkle", "Video mới (Claude)", r === "claude", S.cjobs && S.cjobs.some(j => j.state === "running"))}${b("types", "layers", "Loại dự án", r === "types")}${b("kho", "users", "Kho nhân vật", r === "kho")}${b("api", "server", "API Muse", r === "api")}<div class="spacer"></div><div class="ver" style="font-size:10px;opacity:.55;padding:4px 0">${S.health && S.health.version ? "v" + S.health.version + (S.health.code ? " · " + S.health.code : "") : ""}</div>${b("settings", "gear", "Cài đặt", r === "settings")}`;
 }
 function setTop(title, extra = "") {
   const h = S.health, cls = h ? (h.ok ? "ok" : "bad") : "";
@@ -69,6 +69,7 @@ async function route() {
   if (page === "types") return pageTypes();
   if (page === "settings") return pageSettings();
   if (page === "api") return pageApi();
+  if (page === "kho") return pageKho();
   if (page === "claude") return S.route.id ? pageClaudeJob(S.route.id) : pageClaude();
 }
 try { if (!window.__fs) { window.__fs = 1; if (outerWidth < screen.availWidth - 40 || outerHeight < screen.availHeight - 40) { moveTo(0, 0); resizeTo(screen.availWidth, screen.availHeight); } } } catch (e) {}
@@ -1222,9 +1223,9 @@ document.addEventListener("click", e => {
   const b = e.target.closest("[data-lb]");
   if (b) { e.stopPropagation(); return b.dataset.lb === "x" ? lbClose() : lbStep(+b.dataset.lb); }
   if (e.target.closest("#lb")) { if (!e.target.closest("#lb img")) lbClose(); return; }
-  const img = e.target.closest(".chip.img img"); if (!img) return;
-  const all = [...document.querySelectorAll(".chip.img img")];
-  LB.list = all.map(x => ({ src: x.currentSrc || x.src, name: x.title || "" })); LB.i = Math.max(0, all.indexOf(img)); lbDraw();
+  const img = e.target.closest(".chip.img img, img[data-zoom]"); if (!img) return;
+  const all = [...document.querySelectorAll(img.matches("[data-zoom]") ? "img[data-zoom]" : ".chip.img img")];
+  LB.list = all.map(x => ({ src: x.dataset.full || x.currentSrc || x.src, name: x.title || "" })); LB.i = Math.max(0, all.indexOf(img)); lbDraw();
 });
 document.addEventListener("keydown", e => {
   if (!$("#lb")) return;
@@ -1232,6 +1233,67 @@ document.addEventListener("keydown", e => {
   else if (e.key === "ArrowLeft" && LB.list.length > 1) lbStep(-1);
   else if (e.key === "ArrowRight" && LB.list.length > 1) lbStep(1);
 }, true);
+
+// ------------------------------------------------------------------ tab Kho nhân vật
+// Danh sách nhân vật + bot có sẵn (SAMPLE/_chung/kho-nhan-vat): lọc theo loại / giới / tuổi / thị trường / thương hiệu bot, tìm theo mã.
+// Bấm ảnh để xem lớn, bấm mã để chép (dán vào "refs" của biến thể hoặc ô mô tả nhóm biến thể).
+async function pageKho() {
+  setTop("Kho nhân vật");
+  const tok = S.rtok;
+  if (!S.kho) { S.kho = await api("kho").catch(() => []); if (tok !== S.rtok) return; }
+  const all = S.kho, F = S.khoF || (S.khoF = { loai: "", gioi: "", tuoi: "", tt: "", bot: "", lb: "", q: "" });
+  const TT = t => ({ "Âu Mỹ": "aumy", "Latinh": "latin", "India": "india" }[t] || t);   // người ghi "Latinh", bot cũng "Latinh": gom theo tên thị trường
+  const uniq = k => [...new Set(all.map(x => x[k]).filter(Boolean))];
+  const seg = (key, opts) => `<div class="seg" data-kf="${key}">${[["", "Tất cả"], ...opts].map(([v, n]) => `<button data-v="${esc(v)}" class="${F[key] === v ? "on" : ""}">${esc(n)}</button>`).join("")}</div>`;
+  const match = x => (!F.loai || x.loai === F.loai) && (!F.tt || x.thi_truong === F.tt)
+    && (x.loai === "bot" ? (!F.bot || x.bot === F.bot) && (!F.lb || x.loai_bot === F.lb) && !F.gioi && !F.tuoi
+                         : (!F.gioi || x.gioi === F.gioi) && (!F.tuoi || x.tuoi === F.tuoi) && !F.bot && !F.lb)
+    && (!F.q || F.q.toUpperCase().split(/[\s,;]+/).filter(Boolean).every(w => x.ma.includes(w)));
+  const card = x => `<div class="kh-card" data-ma="${esc(x.ma)}">
+      <div class="kh-img"><img loading="lazy" data-zoom data-full="/kho/${encodeURIComponent(x.ma)}" src="/kho-nho/${encodeURIComponent(x.ma)}" title="${esc(x.ma)}" alt="${esc(x.ma)}"></div>
+      <button class="kh-ma" data-copy="${esc(x.ma)}" title="Bấm để chép mã">${esc(x.ma)}</button>
+      <div class="kh-meta">${esc(x.loai === "bot" ? [x.bot, x.loai_bot, x.thi_truong].join(" · ") : [x.gioi, x.tuoi, x.thi_truong].join(" · "))}</div></div>`;
+  const draw = () => {
+    const list = all.filter(match), nNg = all.filter(x => x.loai === "nguoi").length, nBot = all.length - nNg;
+    const showNg = F.loai !== "bot", showBot = F.loai !== "nguoi";
+    $("#view").innerHTML = `<div class="kh">
+      <div class="kh-bar">
+        <input class="input" id="kh-q" placeholder="Tìm theo mã, vd: NU-30-45 hoặc AUMY 05" value="${esc(F.q)}" style="width:300px">
+        ${seg("loai", [["nguoi", `Người (${nNg})`], ["bot", `Bot (${nBot})`]])}
+        ${seg("tt", uniq("thi_truong").map(v => [v, v]))}
+        <span class="kh-n">${list.length} / ${all.length}</span>
+        ${Object.values(F).some(Boolean) ? `<button class="btn sm ghost" id="kh-clear">Bỏ lọc</button>` : ""}
+      </div>
+      <div class="kh-bar">
+        ${showNg ? `<label>Giới</label>${seg("gioi", uniq("gioi").map(v => [v, v]))}<label>Tuổi</label>${seg("tuoi", uniq("tuoi").map(v => [v, v]))}` : ""}
+        ${showBot ? `<label>Bot</label>${seg("bot", uniq("bot").map(v => [v, v]))}<label>Loại bot</label>${seg("lb", uniq("loai_bot").map(v => [v, v]))}` : ""}
+      </div>
+      ${all.length ? "" : `<div class="empty">Chưa có danh mục kho nhân vật (SAMPLE/_chung/kho-nhan-vat/danh-muc.json).</div>`}
+      ${all.length && !list.length ? `<div class="empty">Không có mã nào khớp bộ lọc.</div>` : ""}
+      <div class="kh-grid">${list.map(card).join("")}</div></div>`;
+    const q = $("#kh-q");
+    q.oninput = () => { F.q = q.value; const p = q.selectionStart; draw(); const n = $("#kh-q"); n.focus(); n.setSelectionRange(p, p); };
+  };
+  $("#view").onclick = e => {
+    if (S.route.page !== "kho") return;
+    const b = e.target.closest("[data-kf] button");
+    if (b) {
+      const k = b.parentElement.dataset.kf; F[k] = b.dataset.v;
+      if (k === "loai") { if (F.loai === "bot") F.gioi = F.tuoi = ""; if (F.loai === "nguoi") F.bot = F.lb = ""; }
+      if ((k === "gioi" || k === "tuoi") && F[k]) { F.bot = F.lb = ""; if (F.loai === "bot") F.loai = ""; }
+      if ((k === "bot" || k === "lb") && F[k]) { F.gioi = F.tuoi = ""; if (F.loai === "nguoi") F.loai = ""; }
+      return draw();
+    }
+    if (e.target.closest("#kh-clear")) { Object.keys(F).forEach(k => F[k] = ""); return draw(); }
+    const c = e.target.closest("[data-copy]");
+    if (c) {
+      const ma = c.dataset.copy, done = () => toast("Đã chép mã " + ma);
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(ma).then(done, () => toast("Không chép được, mã: " + ma, 1));
+      else { const t = document.createElement("textarea"); t.value = ma; document.body.appendChild(t); t.select(); document.execCommand("copy"); t.remove(); done(); }
+    }
+  };
+  draw();
+}
 
 (async function init() {
   S.boot = await api("boot");
