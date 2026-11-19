@@ -1,0 +1,6 @@
+Thể loại 2e3fa1bf-canh-sat-xe-tai: viết biến thể mới (đổi nhân vật, bối cảnh, câu sai) theo cong-cu/tao_bien_the.py.
+- Cặp tài xế/cảnh sát luôn KHÁC GIỚI. Đổi sang tài xế nam + nữ cảnh sát thì thêm HE_/HIS_ vào kịch bản nếu cần đại từ (hiện kịch bản chỉ dùng HIM_CANHSAT: đổi thành "her").
+- Mỗi lượt 3–12 từ, một người nói; có đúng một cặp wrong (lượt 1) → right (lượt 3), `to` là cụm sai/đúng có trong câu.
+- Kịch bản B: đổi hook thì đổi đồng thời lượt 1, 2, 3 và HOOK_TV/HOOK_CS; không đụng lượt 4.
+- Không chữ/logo trong prompt; nhân vật không nhìn camera; tay không cầm gì.
+- Tự kiểm: runtime\python.exe SAMPLE\_chung\video-moi.py kiem-tra <kịch bản> <biến thể> --tai-anh.

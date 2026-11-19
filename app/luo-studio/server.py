@@ -1060,6 +1060,35 @@ def start_post(pid, vname, opts):
 qload()
 
 
+_DUR = {}   # (đường dẫn, mtime, cỡ) -> độ dài video; ffprobe mỗi video ~0,3 giây nên không đo lại mỗi lần mở tab Kết quả
+
+
+def _durations(paths):
+    """Độ dài (giây) của nhiều video: lấy từ bộ nhớ đệm, video mới/đổi thì đo song song."""
+    from concurrent.futures import ThreadPoolExecutor
+
+    def key(p):
+        st = os.stat(p)
+        return (p, int(st.st_mtime), st.st_size)
+
+    def one(k):
+        try:
+            return round(E.duration(k[0]), 1)
+        except Exception:  # noqa: BLE001 - file đang ghi dở / hỏng: coi như 0, lần sau đo lại
+            return None
+    keys = {p: key(p) for p in paths}
+    todo = [k for k in keys.values() if k not in _DUR]
+    if todo:
+        with ThreadPoolExecutor(max_workers=8) as ex:
+            for k, d in zip(todo, ex.map(one, todo)):
+                if d is not None:
+                    _DUR[k] = d
+        live = set(keys.values())
+        for k in [k for k in _DUR if k not in live]:
+            _DUR.pop(k, None)
+    return {p: _DUR.get(k, 0) for p, k in keys.items()}
+
+
 def results():
     out = []
     for pid in sorted(os.listdir(RUNS)) if os.path.isdir(RUNS) else []:
@@ -1075,7 +1104,10 @@ def results():
             posting = any(x["id"] in ACTIVE for x in posts)
             last = posts[-1] if posts else None
             out.append({"posting": posting, "post_error": (last["error"] if last and last["state"] == "error" and not posting else ""), "project": pid, "project_name": (p or {}).get("name", pid), "variant": vn, "raw": os.path.exists(raw), "final": os.path.exists(fin),
-                        "mtime": int(os.path.getmtime(best)), "secs": round(E.duration(best), 1), "size": os.path.getsize(best)})
+                        "mtime": int(os.path.getmtime(best)), "_best": best, "size": os.path.getsize(best)})
+    secs = _durations([x["_best"] for x in out])
+    for x in out:
+        x["secs"] = secs.get(x.pop("_best"), 0)
     out.sort(key=lambda x: -x["mtime"])
     return out
 
@@ -1447,10 +1479,65 @@ class H(BaseHTTPRequestHandler):
                     return self.send_file(th, "image/jpeg")
                 if len(p) == 2 and m == "GET":
                     d = CB.get(jid, int((q.get("since") or ["0"])[0]))
-                    return self.send_json(d) if d else self.send_json({"error": "not found"}, 404)
+                    return self.send_json(job_view(CB.JOBS[jid], d)) if d else self.send_json({"error": "not found"}, 404)
                 if len(p) == 2 and m == "DELETE":
                     CB.delete(jid)
                     return self.send_json({"ok": True})
+                if len(p) == 3 and m == "POST" and p[2] in ("groups", "write", "save", "trial", "mkproject"):
+                    j, b = CB.JOBS.get(jid), self.body()
+                    if not j:
+                        return self.send_json({"error": "Không có việc này"}, 404)
+                    if p[2] == "groups":   # bản nháp các nhóm biến thể (thể loại biến thể + số lượng)
+                        return self.send_json({"groups": CB.set_groups(jid, b.get("groups") or [])})
+                    sync_scripts(j)
+                    if p[2] == "write":   # giao Claude viết biến thể cho các nhóm
+                        if "groups" in b:
+                            CB.set_groups(jid, b.get("groups") or [])
+                        CB.write_groups(jid, [str(x) for x in b.get("ids") or []])
+                        return self.send_json({"ok": True})
+                    if p[2] == "save":   # xác nhận kịch bản dùng được: đánh dấu loại dự án là kịch bản đã lưu
+                        s = (j.get("scripts") or {}).get(b.get("key", "")) or {}
+                        tp = jread(type_path(s["type_id"])) if s.get("type_id") else None
+                        if not tp:
+                            return self.send_json({"error": "Kịch bản này chưa có loại dự án trong Studio"}, 400)
+                        on = b.get("saved", True)
+                        tp.update({"saved": int(time.time()) if on else 0, "claude_job": jid, "kind": s["key"]})
+                        jwrite(type_path(tp["id"]), tp)
+                        CB.save_script(jid, s["key"], on)
+                        return self.send_json({"ok": True, "type": tp["id"], "name": tp["name"]})
+                    if p[2] == "trial":   # chạy thử biến thể mẫu của một kịch bản
+                        s = (j.get("scripts") or {}).get(b.get("key", "")) or {}
+                        if not s.get("project_id"):
+                            return self.send_json({"error": "Kịch bản này chưa có dự án trong Studio"}, 400)
+                        try:
+                            s["variant"] = regen_variant(s["project_id"], s.get("variant") or "")
+                        except RuntimeError as e:
+                            return self.send_json({"error": str(e)}, 400)
+                        CB._save(j)
+                        return self.send_json({"ok": True, "variant": s["variant"]})
+                    # mkproject: thêm dự án từ danh sách biến thể của một nhóm (chạy bao nhiêu biến thể là việc của người dùng)
+                    g = next((x for x in j.get("groups") or [] if x["id"] == b.get("id")), None)
+                    if not g or g.get("state") != "xong" or not g.get("file"):
+                        return self.send_json({"error": "Nhóm này chưa viết xong biến thể"}, 400)
+                    old = load_project(g["project_id"]) if g.get("project_id") else None
+                    if old:
+                        return self.send_json({"id": old["id"], "name": old["name"], "existing": True})
+                    s = (j.get("scripts") or {}).get(g["script"]) or {}
+                    if not (s.get("type_id") and jread(type_path(s["type_id"]))):
+                        return self.send_json({"error": "Không tìm thấy loại dự án của kịch bản này"}, 400)
+                    src = os.path.abspath(os.path.join(CB.ROOT, g["file"]))
+                    if os.path.commonpath([src, CB.ROOT]) != CB.ROOT or not os.path.isfile(src):
+                        return self.send_json({"error": "Không tìm thấy file biến thể: " + g["file"]}, 400)
+                    variants = json.load(open(src, encoding="utf-8-sig"))
+                    if not isinstance(variants, list) or not variants or not all(isinstance(v, dict) and v.get("name") for v in variants):
+                        return self.send_json({"error": "File biến thể không đúng dạng (mảng các biến thể có name)"}, 400)
+                    name = (b.get("name") or "").strip() or f"{j['name']} · {'đổi hook' if g['script'] == 'hook' else 'đổi nhân vật'} · {len(variants)} biến thể"
+                    proj = new_project(name[:80], s["type_id"], variants)
+                    proj["claude_job"] = jid
+                    jwrite(project_path(proj["id"]), proj)
+                    g["project_id"] = proj["id"]
+                    CB._save(j)
+                    return self.send_json({"id": proj["id"], "name": proj["name"], "variants": len(variants)})
                 if len(p) == 3 and m == "POST":
                     if p[2] == "stop":
                         CB.stop(jid)
@@ -1702,13 +1789,15 @@ def regen_variant(pid, vname):
 
 def gen_info(j):
     """Tiến độ gen của biến thể test (mục hàng đợi) của một việc Claude: để tab Video mới chỉ báo Hoàn tất khi video test đã gen xong."""
-    pid = j.get("project_id")
+    return gen_info_for(j.get("project_id"), j.get("variant") or "")
+
+
+def gen_info_for(pid, v=""):
     if not pid:
         return None
     items = [x for x in QUEUE if x.get("project") == pid and x.get("kind") == "gen"]
     if not items:
         return None
-    v = j.get("variant") or ""
     # nhiều mục của cùng dự án: ưu tiên mục đang chạy/chờ, rồi mục trùng tên biến thể (Claude có thể ghi kèm chú thích), rồi mục cuối
     it = (next((x for x in items if x.get("state") in ("running", "waiting", "queued") or "_requeue" in x), None)
           or next((x for x in items if x.get("variant") == v), None) or next((x for x in items if v and v.startswith(x.get("variant", "~~"))), None) or items[-1])
@@ -1716,6 +1805,45 @@ def gen_info(j):
     ended = float(it.get("ended") or 0)
     return {"id": it["id"], "variant": it["variant"], "state": it.get("state"), "done": sum(1 for s in sc if s.get("state") == "done"),
             "total": it.get("total") or len(sc), "error": (it.get("error") or "")[:200], "stopping": bool(it.get("stopping")), "user_stop": bool(it.get("user_stop")), "age": round(time.time() - ended) if ended else 9999}
+
+
+def sync_scripts(j):
+    """Hai kịch bản của một việc Claude (goc = giữ nguyên, hook = đổi hook): gắn dự án + loại dự án trong Studio với việc này.
+    Việc cũ (trước khi có hai kịch bản) chỉ có project_id: coi là kịch bản `goc`."""
+    sc = j.setdefault("scripts", {})
+    if "goc" not in sc and j.get("project_id"):
+        sc["goc"] = {"key": "goc", "ma": j.get("type_id", ""), "project_id": j["project_id"], "variant": j.get("variant", "")}
+    for k, s in sc.items():
+        p = load_project(s.get("project_id") or "") if s.get("project_id") else None
+        if not p:
+            continue
+        if p.get("claude_job") != j["id"]:
+            p["claude_job"] = j["id"]
+            jwrite(project_path(p["id"]), p)
+        if not (s.get("type_id") and jread(type_path(s["type_id"]))):
+            s["type_id"] = p.get("template", "")
+        if not s.get("variant") and p.get("variants"):
+            s["variant"] = p["variants"][0]["name"]
+        tp = jread(type_path(s["type_id"])) if s.get("type_id") else None
+        if tp and s.get("kich_ban") and not tp.get("builtin") and (tp.get("claude_job") != j["id"] or tp.get("kind") != k):
+            tp.update({"claude_job": j["id"], "kind": k})   # loại do Claude vừa tạo: trang Loại dự án hiện "Đang thử" tới khi người dùng bấm Lưu kịch bản
+            tp.setdefault("saved", 0)
+            jwrite(type_path(tp["id"]), tp)
+    return sc
+
+
+def job_view(j, d):
+    """Thông tin thêm cho trang chi tiết việc Claude: tên loại/dự án và tiến độ gen video test của từng kịch bản, dự án của từng nhóm biến thể."""
+    out = {}
+    for k, s in sync_scripts(j).items():
+        p = load_project(s.get("project_id") or "") if s.get("project_id") else None
+        tp = jread(type_path(s["type_id"])) if s.get("type_id") else None
+        out[k] = {**s, "project_name": (p or {}).get("name", ""), "project_ok": bool(p), "type_name": (tp or {}).get("name", ""), "type_ok": bool(tp),
+                  "saved": (tp or {}).get("saved") or 0, "gen": gen_info_for(s.get("project_id"), s.get("variant") or "") if p else None}
+    d["scripts"] = out
+    d["groups"] = [{**g, "project_ok": bool(g.get("project_id") and load_project(g["project_id"]))} for g in j.get("groups") or []]
+    d["gen"] = gen_info(j)
+    return d
 
 
 def claude_done(j):
@@ -1732,7 +1860,9 @@ def claude_done(j):
         if p.get("claude_job") != j["id"]:
             p["claude_job"] = j["id"]
             jwrite(project_path(p["id"]), p)
-    if p and j["state"] == "done" and not j.get("regen") and (j.get("opts") or {}).get("trial", True) and not any(x["project"] == p["id"] for x in QUEUE):
+    sync_scripts(j)
+    if (p and j["state"] == "done" and not j.get("regen") and j.get("cur_kind") in ("new", "retry", "restart") and (j.get("opts") or {}).get("trial", True)
+            and not any(x["project"] == p["id"] for x in QUEUE)):
         try:   # Claude đã nhập xong nhưng chưa đưa biến thể test vào chạy: Studio tự đưa vào và chạy
             vn = regen_variant(p["id"], j.get("variant") or "")
             j["variant"] = vn

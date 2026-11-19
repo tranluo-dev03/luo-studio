@@ -510,6 +510,15 @@ def cmd_kiem_tra(a):
                 c.w(f'[{nm}] lượt {i}: emo "{t.get("emo")}" không có từ nào trong EMO_CUES ({", ".join(sorted(cues)[:8])}…)')
             if t.get("fx") not in (None, "none", "wrong", "right", "ding"):
                 c.e(f'[{nm}] lượt {i}: fx "{t.get("fx")}" lạ')
+        for i, t in enumerate(luot, 1):   # lượt nhiều câu có fx: hiệu ứng rơi vào câu chứa cụm "to", thiếu "to" thì rơi vào câu đầu (thường là câu chào)
+            if t.get("fx") not in ("wrong", "right"):
+                continue
+            tos = [x for x in ([t["to"]] if isinstance(t.get("to"), str) else list(t.get("to") or [])) if x]
+            cau = [p for p in re.findall(r"[^.!?…]+[.!?…]*", str(t.get("text", ""))) if p.strip()]
+            if tos and not any(x.lower() in str(t.get("text", "")).lower() for x in tos):
+                c.e(f'[{nm}] lượt {i}: "to" {tos} không có trong lời thoại: hiệu ứng {t["fx"]} sẽ rơi vào câu đầu')
+            elif not tos and len(cau) > 1:
+                c.w(f'[{nm}] lượt {i}: {len(cau)} câu, fx {t["fx"]} nhưng chưa khai "to": hiệu ứng rơi vào câu đầu "{cau[0].strip()}"; thêm "to": "<cụm sai/đúng>"')
         fx = [(i, t.get("fx")) for i, t in enumerate(luot, 1) if t.get("fx") in ("wrong", "right")]
         if fx:
             seq = [f for _, f in fx]

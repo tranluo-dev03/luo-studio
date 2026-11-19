@@ -56,8 +56,11 @@ async function refreshHealth() { try { S.health = await api("health"); } catch {
 async function route() {
   const h = location.hash.replace(/^#\/?/, "").split("/");
   const page = h[0] === "p" ? "edit" : h[0] || "home";
+  const prev = S.route || {};
   S.route = { page, id: h[1] ? decodeURIComponent(h[1]) : h[1] };
-  if (!S.boot) S.boot = await api("boot");
+  const tok = S.rtok = (S.rtok || 0) + 1;   // mỗi lần chuyển trang một số mới: trang cũ tải xong muộn thì không vẽ đè lên trang mới
+  if (prev.page !== page || prev.id !== S.route.id) { nav(); $("#view").innerHTML = '<div class="empty"><div class="spin"></div></div>'; }
+  if (!S.boot) { S.boot = await api("boot"); if (tok !== S.rtok) return; }
   nav();
   if (page === "home") return pageHome();
   if (page === "edit") return pageEditor(S.route.id);
@@ -66,7 +69,7 @@ async function route() {
   if (page === "types") return pageTypes();
   if (page === "settings") return pageSettings();
   if (page === "api") return pageApi();
-  if (page === "claude") return pageClaude();
+  if (page === "claude") return S.route.id ? pageClaudeJob(S.route.id) : pageClaude();
 }
 try { if (!window.__fs) { window.__fs = 1; if (outerWidth < screen.availWidth - 40 || outerHeight < screen.availHeight - 40) { moveTo(0, 0); resizeTo(screen.availWidth, screen.availHeight); } } } catch (e) {}
 window.addEventListener("hashchange", route);
@@ -114,9 +117,16 @@ function fillVariant(v, T) {
   return o;
 }
 
-async function pageHome() {
-  S.boot = await api("boot");
+async function pageHome(cached) {
+  const tok = S.rtok;
   setTop("Dự án");
+  if (!cached) {   // có dữ liệu sẵn thì vẽ ngay, rồi tải lại ngầm và chỉ vẽ lại khi có thay đổi
+    if (S.boot && $("#view>.empty>.spin")) pageHome(true);   // chỉ khi vừa chuyển tab; làm mới tại chỗ (sau khi xoá/tạo) thì chờ dữ liệu mới
+    const had = S.boot && JSON.stringify(S.boot), b = await api("boot");
+    if (tok !== S.rtok) { S.boot = b; return; }
+    S.boot = b;
+    if (had === JSON.stringify(b) || $("#modal").innerHTML) return;
+  }
   const cards = S.boot.projects.map(p => `<div class="card click pcard" data-open="${p.id}">
     <button class="ib danger del" data-del="${p.id}" title="Xoá">${ico("trash")}</button>
     <div><h3>${esc(p.name)}</h3></div>
@@ -176,7 +186,7 @@ const charLabel = (v, c) => (v || {})["VAI_" + c.toUpperCase()] || (c === "day" 
 
 async function pageEditor(id) {
   if (!S.boot) S.boot = await api("boot");
-  if (!S.project || S.project.id !== id) { S.project = await api("projects/" + id); S.sel = 0; }
+  if (!S.project || S.project.id !== id) { const tok = S.rtok, pr = await api("projects/" + id); if (tok !== S.rtok) return; S.project = pr; S.sel = 0; }
   const p = S.project, T = typ(p.template), ck = S.checked[id] || (S.checked[id] = new Set(p.variants.map(v => v.name)));
   const v = curV(), hasTurns = "LUOT" in (T.series || {}), need = (T.series || {}).LUOT || 0, n = (v.LUOT || []).length;
   setTop(`<input id="pname" class="input" style="width:280px;font-weight:650;font-size:16px;background:none;border-color:transparent" value="${esc(p.name)}">`,
@@ -253,7 +263,7 @@ async function pageEditor(id) {
       await save(); pageEditor(p.id); return;
     }
     if (el.dataset.c !== undefined) { curV().LUOT[+el.dataset.i].c = el.value; touch(); drawTurns(); }
-    if (el.dataset.t === "who") drawTurns(); };
+    if (el.dataset.t === "who" || el.dataset.t === "fx") drawTurns(); };
   $("#view").onclick = e => editorClick(e);
   brandBind(p);
 }
@@ -296,7 +306,7 @@ function drawTurns() {
     ${whoCell(t, i)}
     <textarea data-t="text" data-i="${i}" rows="1" placeholder="Lời thoại">${esc(t.text || "")}</textarea>
     <input class="emo" list="emos" data-t="emo" data-i="${i}" value="${esc(t.emo || "")}" placeholder="cảm xúc người nói">
-    <select class="fxsel" data-t="fx" data-i="${i}" title="Hiệu ứng hậu kỳ: Sai = viền đỏ nháy + tiếng tè tè; Đúng = viền xanh lá nháy + tiếng tinh tinh. Để trống = tự động (người học nói đầu tiên là sai, câu AI sửa ngay sau là đúng)"><option value="" ${!t.fx ? "selected" : ""}>Hiệu ứng: tự động</option><option value="none" ${t.fx === "none" ? "selected" : ""}>Không</option><option value="wrong" ${t.fx === "wrong" ? "selected" : ""}>Sai (đỏ + tè tè)</option><option value="right" ${t.fx === "right" ? "selected" : ""}>Đúng (xanh + tinh)</option></select>
+    <div class="fxc"><select class="fxsel" data-t="fx" data-i="${i}" title="Hiệu ứng hậu kỳ: Sai = viền đỏ nháy + tiếng tè tè; Đúng = viền xanh lá nháy + tiếng tinh tinh. Để trống = tự động (người học nói đầu tiên là sai, câu AI sửa ngay sau là đúng)"><option value="" ${!t.fx ? "selected" : ""}>Hiệu ứng: tự động</option><option value="none" ${t.fx === "none" ? "selected" : ""}>Không</option><option value="wrong" ${t.fx === "wrong" ? "selected" : ""}>Sai (đỏ + tè tè)</option><option value="right" ${t.fx === "right" ? "selected" : ""}>Đúng (xanh + tinh)</option></select>${t.fx === "wrong" || t.fx === "right" ? `<input class="fxto" data-t="to" data-i="${i}" value="${esc(Array.isArray(t.to) ? t.to[0] || "" : t.to || "")}" placeholder="cụm ${t.fx === "wrong" ? "sai" : "đúng"} (nếu lượt có nhiều câu)" title="Lượt có nhiều câu: gõ cụm chữ ${t.fx === "wrong" ? "sai" : "đúng"} (vd. I have fifty years) để viền và tiếng rơi đúng vào câu chứa cụm đó. Để trống = câu đầu của lượt.">` : ""}</div>
     <div class="colr" title="Màu phụ đề"><i class="c-${t.c || "white"}"></i><select data-c data-i="${i}">${COLORS.map(([c, n]) => `<option value="${c}" ${(t.c || "white") === c ? "selected" : ""}>${n}</option>`).join("")}</select></div>
     <div class="acts"><button class="ib" data-mv="-1" data-i="${i}">${ico("up")}</button><button class="ib" data-mv="1" data-i="${i}">${ico("down")}</button><button class="ib danger" data-rm="${i}">${ico("x")}</button></div></div>`).join("");
   $("#turns").querySelectorAll("textarea").forEach(grow);
@@ -805,9 +815,19 @@ async function postModal(pid, variant) {
 }
 
 // ---------------------------------------------------------------- Kết quả
-async function pageResults() {
+async function pageResults(cached) {
+  const tok = S.rtok;
   setTop("Kết quả");
-  S.results = await api("results");
+  if (!cached) {
+    if (S.resOk && $("#view>.empty>.spin")) pageResults(true);
+    const had = S.resOk && JSON.stringify(S.results), r = await api("results");
+    if (tok !== S.rtok || S.route.page !== "results") { S.results = r; S.resOk = true; return; }
+    // tự cập nhật ngay trong tab: video vừa gen / hậu kỳ xong hiện lên mà không cần chuyển tab (dữ liệu không đổi thì không vẽ lại)
+    clearTimeout(S.resT); S.resT = setTimeout(() => { if (S.route && S.route.page === "results") pageResults(); }, r.some(x => x.posting) ? 2000 : 5000);
+    if (S.resOk && $("#modal").innerHTML) return;   // đang mở hộp thoại (xem video): giữ nguyên, lần sau vẽ lại
+    S.results = r; S.resOk = true;
+    if (had === JSON.stringify(r)) return;
+  }
   if (!S.results.length) { $("#view").innerHTML = `<div class="empty"><div class="big">${ico("film")}</div><div>Chưa có video</div></div>`; return; }
   $("#view").innerHTML = `<div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(210px,1fr))">${S.results.map((r, i) => {
     const w = r.final ? "final" : "raw";
@@ -815,8 +835,6 @@ async function pageResults() {
       <div class="bd"><div><div class="nm" title="${esc(r.variant)}">${esc(r.variant)}</div><div class="sub">${esc(r.project_name)} · ${r.secs}s · ${(r.size / 1048576).toFixed(0)} MB · ${ago(r.mtime)}</div></div>
       <div class="row">${r.posting ? `<button class="btn sm" disabled><i class="spin sm"></i>Đang hậu kỳ…</button>` : `<button class="btn sm" data-post="${i}">${ico("wand")}${r.final ? "Xuất lại" : "Hậu kỳ"}</button>`}${r.post_error ? `<span class="tag bad" title="${esc(r.post_error)}" style="margin-left:6px">Hậu kỳ lỗi</span>` : ""}<span style="flex:1"></span><button class="ib" data-open="${i}" title="Mở thư mục">${ico("folderopen")}</button><button class="ib danger" data-del="${i}" title="Xoá">${ico("trash")}</button></div></div></div>`;
   }).join("")}</div>`;
-  clearTimeout(S.resT);
-  if (S.results.some(r => r.posting)) S.resT = setTimeout(() => { if (S.route && S.route.page === "results") pageResults(); }, 2000);  // đang hậu kỳ: tự cập nhật đến khi xong
   $("#view").onclick = async e => {
     let x;
     if ((x = e.target.closest("[data-play]"))) { const r = S.results[+x.dataset.play]; return playModal(media(r.project, r.variant, (r.final ? "final" : "raw") + ".mp4"), r.variant); }
@@ -832,13 +850,21 @@ const viNote = n => { for (const [re, t] of NOTE_VI) if (re.test(n || "")) retur
 const TASK_VI = { queued: "Đang chờ", processing: "Đang xử lý", completed: "Xong", failed: "Lỗi", succeeded: "Xong" };
 const VIDEO_LIMIT = 100, VIDEO_WARN = 80;   // Muse giới hạn ~100 video / ngày mỗi tài khoản: chỉ cảnh báo, không chặn gen
 const quotaPct = q => q.extra_used_pct ?? q.weekly_used_pct;   // hạn mức chính là token Extra; chưa có Extra thì lấy hạn mức tuần
-async function pageApi() {
+// auto = lần tự làm mới theo chu kỳ: dữ liệu không đổi thì không vẽ lại (không giật, không mất vị trí cuộn)
+async function pageApi(auto) {
   clearTimeout(S.apiT);
   setTop("API Muse", `<button class="btn" id="ap-ref">${ico("redo")}Làm mới</button><button class="btn" id="ap-ka" title="Gia hạn phiên đăng nhập của tất cả tài khoản">Giữ phiên tất cả</button><button class="btn" id="ap-batch" title="Thêm nhiều tài khoản cùng lúc từ một file .txt (mỗi dòng email|password|refresh_token|client_id)">${ico("plus")}Thêm theo lô</button><button class="btn primary" id="ap-add">${ico("plus")}Thêm tài khoản</button>`);
   const v = $("#view");
   let d, tk;
-  try { d = await api("muse/status"); tk = (await api("muse/tasks?limit=30")).tasks || d.tasks || []; }
+  const tok = S.rtok;
+  try { let t2; [d, t2] = await Promise.all([api("muse/status"), api("muse/tasks?limit=30").catch(() => ({}))]); tk = t2.tasks || d.tasks || []; if (tok !== S.rtok || S.route.page !== "api") return; }
   catch (e) { v.innerHTML = `<div class="empty"><div class="big">${ico("server")}</div><div>Không kết nối được LUO-API</div><div style="max-width:420px;font-size:13px;color:var(--mute)">${esc(e.message)}<br>Kiểm tra địa chỉ và khoá API ở Cài đặt, và LUO-API đã chạy chưa.</div><a class="btn primary" data-go="#/settings">Mở Cài đặt</a></div>`; S.apiT = setTimeout(() => { if (S.route.page === "api") pageApi(); }, 8000); return; }
+  // Tự làm mới mỗi 4 giây, kể cả khi đang mở hộp thoại (thêm tài khoản, thêm theo lô): tài khoản mới hiện ngay trong tab.
+  // (Trước đây hẹn giờ 10 giây chỉ chạy một lần và bỏ qua khi có hộp thoại, nên sau khi mở hộp thoại là hết tự cập nhật.)
+  const again = () => { clearTimeout(S.apiT); S.apiT = setTimeout(() => { if (S.route.page === "api") pageApi(true); }, 4000); };
+  const sig = JSON.stringify([d, tk, Math.floor(Date.now() / 60000)]);
+  if (auto && sig === S.apSig && $("#view .apsum")) return again();
+  S.apSig = sig;
   const accs = d.accounts || [], on = accs.filter(a => a.enabled), usable = on.filter(a => a.ok !== false && (quotaPct(a.quota || {}) ?? 0) < 100);
   const cnt = st => tk.filter(t => t.status === st).length, ago2 = t => t ? ago(t) : "—";
   const days = a => a.expires_at ? Math.max(0, Math.round((a.expires_at - Date.now() / 1000) / 86400)) : null;
@@ -849,7 +875,7 @@ async function pageApi() {
     return `<div class="apvid ${cls}" title="Số video gen thành công trên tài khoản này trong hôm nay, tính từ 00:00. Qua ngày mới thì về 0. Chỉ để cảnh báo, không chặn gen.">Số video: <b>${n}</b> / ~${VIDEO_LIMIT}${n >= VIDEO_LIMIT ? " · đã chạm giới hạn" : n >= VIDEO_WARN ? " · sắp chạm giới hạn" : ""}</div>`; };
   const acc = a => { const q = a.quota || {}, pct = quotaPct(q), extra = q.extra_used_pct != null, dd = days(a), bad = a.ok === false;
     return `<div class="card apacc ${a.enabled ? "" : "off"}" data-id="${a.id}">
-      <div class="aphead"><b>${esc(a.label || a.id)}</b><span class="tag mute">${a.id.slice(0, 6)}</span><span class="grow"></span>
+      <div class="aphead"><b title="${esc(a.label || a.id)}">${esc(a.label || a.id)}</b><span class="tag mute">${a.id.slice(0, 6)}</span><span class="grow"></span>
         <span class="tag ${bad ? "bad" : a.ok ? "ok" : "mute"}">${bad ? "Lỗi đăng nhập" : a.ok ? "Phiên ổn" : "Chưa kiểm tra"}</span><div class="sw2 ${a.enabled ? "on" : ""}" data-aptog="${a.id}" title="Bật / tắt tài khoản này"></div></div>
       <div class="apq">${pct == null ? `<span class="tag mute">Chưa đo hạn mức</span>` : `<div class="apbar"><div class="${pct >= 100 ? "full" : pct >= 80 ? "hi" : ""}" style="width:${Math.min(100, pct)}%"></div></div>${extra ? `<span>Extra: <b>${q.extra_used_pct}%</b>${q.extra_left ? " · còn " + esc(q.extra_left.replace(/\s*left$/i, "")) : ""}</span>` : ""}${q.weekly_used_pct != null ? `<span${extra ? ' class="mute"' : ""}>Tuần: ${extra ? q.weekly_used_pct + "%" : `<b>${q.weekly_used_pct}%</b>`}${q.weekly_reset ? " · reset " + esc(q.weekly_reset) : ""}</span>` : ""}<span class="mute">${esc(q.plan || "")}${q.checked_at ? " · đo " + ago(q.checked_at) : ""}</span>`}</div>
       ${vid(a)}
@@ -902,7 +928,7 @@ async function pageApi() {
           cancel(); closeModal(); toast("Đã lưu"); pageApi(); } catch (er) { toast(er.message, 1); } } }; };
   // Thêm nhiều tài khoản cùng lúc từ một file .txt (mỗi dòng email|password|refresh_token|client_id).
   // LUO đăng nhập LẦN LƯỢT từng dòng trong Chrome: tự điền email + tự lấy mã OTP từ hộp thư Outlook, lưu cookie, rồi sang dòng kế.
-  const batchModal = () => { let tok = null, timer = null, running = false;
+  const batchModal = () => { let tok = null, timer = null, running = false, seen = -1;
     const ST = { pending: ["Chờ", "mute"], running: ["Đang chạy", ""], done: ["Xong", "ok"], failed: ["Lỗi", "bad"], skipped: ["Bỏ qua", "mute"] };
     openModal(`<div class="mbox" style="max-width:640px"><h2>Thêm tài khoản theo lô <button class="ib" id="mx">${ico("x")}</button></h2>
       <p style="color:var(--dim);font-size:13px;line-height:1.6">Mỗi dòng một tài khoản dạng <code>email|password|refresh_token|client_id</code> (mail Outlook/Hotmail có refresh_token). LUO đăng nhập lần lượt từng dòng: tự điền email, tự lấy mã OTP trong hộp thư rồi lưu. Dòng trống hoặc bắt đầu bằng <code>#</code> được bỏ qua. Email đã có trong LUO thì đăng nhập lại chính tài khoản đó.</p>
@@ -921,6 +947,8 @@ async function pageApi() {
     const poll = async () => { if (!$("#bst")) return stop();
       let r; try { r = await api("muse/accounts/login-batch/" + tok); } catch (e) { stset(`<span style="color:var(--bad)">${esc(e.message)}</span>`); running = false; lock(false); return stop(); }
       render(r);
+      const fin = ((r.counts || {}).done || 0) + ((r.counts || {}).failed || 0);
+      if (r.state === "running" && fin !== seen) { seen = fin; pageApi(true); }
       if (r.state !== "running") { stop(); running = false; lock(false); const g = $("#bgo"); if (g) { g.disabled = false; g.lastChild.textContent = "Bắt đầu lại"; } pageApi(); } };
     $("#modal").onclick = async e => {
       if (e.target.closest("#mx, #bc")) { stop(); return closeModal(); }   // chỉ ẩn hộp thoại, lô (nếu đang chạy) vẫn chạy nền
@@ -950,13 +978,15 @@ async function pageApi() {
     if ((x = e.target.closest("[data-apren]"))) { const a = accs.find(z => z.id === x.dataset.apren), nn = prompt("Tên mới cho tài khoản", a.label || ""); if (nn != null) return run(null, () => api("muse/accounts/" + a.id, { method: "PUT", body: { label: nn.trim() } })); return; }
     if ((x = e.target.closest("[data-apdel]"))) { const a = accs.find(z => z.id === x.dataset.apdel); if (!confirm(`Xoá tài khoản "${a.label || a.id}"? Việc này không hoàn tác được.`)) return; return run(null, () => api("muse/accounts/" + a.id, { method: "DELETE" }), "Đã xoá tài khoản"); }
     if ((x = e.target.closest("[data-aptd]"))) return run(null, () => api("muse/tasks/" + x.dataset.aptd, { method: "DELETE" })); };
-  S.apiT = setTimeout(() => { if (S.route.page === "api" && !$("#modal").innerHTML) pageApi(); }, 10000);
+  again();
 }
 
 // ---------------------------------------------------------------- Cài đặt
 async function pageSettings() {
   setTop("Cài đặt");
-  const s = await api("settings"); await refreshHealth();
+  const tok = S.rtok;
+  const s = await api("settings"); if (tok !== S.rtok) return;
+  refreshHealth();   // không chờ: trạng thái LUO-API tự cập nhật trên thanh trên cùng
   const h = S.health || {};
   const pick = (k, label) => `<div class="f"><label>${label}</label><div class="pick"><input class="input" id="st-${k}" readonly value="${esc(s[k] || "")}" placeholder="Không dùng"><button class="btn sm" data-pick="${k}">Chọn</button><button class="ib" data-clr="${k}">${ico("x")}</button></div></div>`;
   $("#view").innerHTML = `<div class="set">
@@ -1019,12 +1049,19 @@ async function pageSettings() {
 }
 
 // ---------------------------------------------------------------- Loại dự án
-async function pageTypes() {
-  S.boot = await api("boot");
+async function pageTypes(cached) {
+  const tok = S.rtok;
+  if (!cached) {
+    if (S.boot && $("#view>.empty>.spin")) pageTypes(true);
+    const had = S.boot && JSON.stringify(S.boot), b = await api("boot");
+    if (tok !== S.rtok) { S.boot = b; return; }
+    S.boot = b;
+    if (had === JSON.stringify(b) && $("#view .grid")) return;
+  }
   setTop("Loại dự án", `<button class="btn primary" id="tnew">${ico("plus")}Loại mới</button>`);
   const used = t => S.boot.projects.filter(p => p.template === t.id).length;
   $("#view").innerHTML = `<div class="grid">${S.boot.types.map(t => `<div class="card pcard">
-      <div style="display:flex;justify-content:space-between;gap:10px"><h3>${esc(t.name)}</h3>${t.builtin ? '<span class="tag mute">Có sẵn</span>' : ""}</div>
+      <div style="display:flex;justify-content:space-between;gap:10px"><h3>${esc(t.name)}</h3>${t.builtin ? '<span class="tag mute">Có sẵn</span>' : t.saved ? `<span class="tag ok" style="white-space:nowrap;align-self:flex-start" title="Kịch bản đã được xác nhận dùng được (bấm Lưu kịch bản trong trang chi tiết phân tích)">Đã lưu${t.kind === "hook" ? " · đổi hook" : ""}</span>` : t.claude_job && t.saved === 0 ? `<a class="tag warn" style="white-space:nowrap;align-self:flex-start" data-go="#/claude/${t.claude_job}" title="Kịch bản Claude vừa viết, chưa xác nhận. Bấm để mở trang chi tiết và lưu khi đã test xong.">Đang thử</a>` : ""}</div>
       <div class="meta"><span>${t.split ? "Ghép 2 lớp" : t.scenes + " cảnh"}</span>·<span>${t.fields.length} trường</span>${Object.entries(t.series || {}).map(([k, n]) => `<span class="tag">${esc(k)} ×${n}</span>`).join("")}</div>
       <div class="meta"><span>${used(t)} dự án</span></div>
       <div class="row2" style="margin-top:auto"><button class="btn sm" data-edit="${t.id}">Sửa</button><button class="btn sm" data-dup="${t.id}">Nhân bản</button><span style="flex:1"></span><button class="ib danger" data-deltype="${t.id}" title="Xoá">${ico("trash")}</button></div></div>`).join("")}

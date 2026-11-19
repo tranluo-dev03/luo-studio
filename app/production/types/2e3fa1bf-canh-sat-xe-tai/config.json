@@ -1,0 +1,10 @@
+{
+  "nhoe": 1.0,
+  "phu_de": {
+    "co_chu": 60,
+    "co_chu_dich": 44,
+    "y_theo_phan": {"1": 1320},
+    "kieu_theo_phan": {"1": {"canhsat": {"c": "white", "o": "black"}, "hoc": {"c": "white", "o": "black"}}},
+    "whisper": "small"
+  }
+}

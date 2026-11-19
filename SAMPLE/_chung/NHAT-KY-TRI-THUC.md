@@ -970,3 +970,12 @@ Người dùng báo 6 lỗi; nguyên nhân đã chứng minh bằng số đo tr�
 - Hiện tượng: lần trước chưa gen vì Muse hết tài khoản. Lần này gen ảnh nền xanh (gen_anh.py) đạt cả 4; robot gốc có tai nghe nhưng ảnh robot-talka.png không có.
 - Cách sửa: thêm tai nghe + mic vào NGUOI_DAY; cập nhật dự án cũ qua PUT /api/projects/<id> (ảnh mới tải bằng POST .../asset, PUT không tự tải link refs).
 - Kết quả: scene1_start.png đạt (PV quay lưng); cảnh 1-2 gen xong. Nghe Hindi và base_DAY: CHỜ KIỂM CHỨNG. Riêng thể loại, chưa chưng cất.
+
+### 19/11/2026 - 2e3fa1bf-canh-sat-xe-tai: thể loại mới + gen ảnh nhân vật thật + chạy thử cảnh 1
+- Hiện tượng: `_chung/gen-anh-nhan-vat.py` mặc định phong cách hoạt hình 3D ("never photorealistic"), không dùng được cho video người thật. Ảnh HOC (nữ ~57) và CANHSAT (nam ~32) gen bằng bản sao `SAMPLE/2e3fa1bf-canh-sat-xe-tai/cong-cu/gen-anh-nhan-vat-that.py` (STYLE ảnh thật) đạt lần đầu, nền xanh phẳng; tài xế trông hơi già hơn mô tả.
+- Chạy thử bien-the-01-goc (dự án Canh-sat-xe-tai-noi-sai-tuoi-4d30): scene1_start.png đúng người/bối cảnh nhưng máy rộng hơn mẫu (thấy cả đường); scene1_cut.mp4 3,0 s: tài xế nói, cảnh sát ngẩng nhìn lên, không quay ống kính.
+- Kết quả: cảnh 1 ĐẠT; cảnh 2-4 và kịch bản B (đổi hook) CHỜ KIỂM CHỨNG. Riêng thể loại; gợi ý (chưa chưng cất): thêm tuỳ chọn phong cách ảnh thật cho gen-anh-nhan-vat.py dùng chung.
+
+### 19/11/2026 - 2e3fa1bf-canh-sat-xe-tai: nhóm biến thể tx4wnb (5 cặp, goc) và x2oly3 (5 hook, hook)
+- Hiện tượng: gen 10 ảnh nền xanh bằng `gen-anh-nhan-vat-that.py`: 9 đạt lần đầu, TX_B lỗi Muse "fs.raw path not found" (gen lại một lần đạt). Cả 10 ảnh: một người, đúng giới/tuổi, không chữ.
+- Cách làm: tuổi trong lời thoại, `to`, cách gọi (Sir/Ma'am) và HIM_CANHSAT (him/her) sinh theo bảng; cặp luôn khác giới. `kiem-tra` cả hai nhóm 0 lỗi, 0 cảnh báo. Chưa gen video: CHỜ KIỂM CHỨNG (xe buýt/xe van cần xem khung đầu vì kịch bản tả "cabin window"). Riêng thể loại.
