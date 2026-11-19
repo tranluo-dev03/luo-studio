@@ -4,6 +4,7 @@ Như video mẫu: phần 1 phụ đề ô trắng chữ đen + dòng dịch (ti�
 phần 2 chữ vàng viền đen, không dịch; "fx"/"icon"/"to" cho cặp "I am Mexico" -> "I am from Mexico".
 Cảnh KHÔNG LỜI của phần 1 có "text" = MARKER: vẫn có trong phan.json (đúng số cảnh) nhưng không có dòng phụ đề.
 Toàn bộ logic còn lại dùng chung: ../_chung/hau_ky.py (kiểu trong config.json)."""
+import json
 import os
 import sys
 
@@ -21,6 +22,30 @@ def units_bo_khong_loi(v, scene_of_turn):
     return [u for u in _units(v, scene_of_turn) if u.get("lid") not in cam]
 
 
+def _co_devanagari(path):
+    try:
+        v = json.load(open(path, encoding="utf-8"))
+    except (OSError, ValueError):
+        return False
+    chu = " ".join(str(t.get(k, "")) for t in v.get("LUOT", []) for k in ("text", "dich"))
+    return any("ऀ" <= ch <= "ॿ" for ch in chu)
+
+
+def _font_hindi():
+    """Bản Ấn Độ (13/11/2026): lời/dịch có chữ Devanagari mà Arial không có -> dùng font_devanagari của config (Nirmala UI có cả Latin).
+    Bản Mexico không có chữ Devanagari nên giữ Arial như cũ."""
+    if "--variant" not in sys.argv or not _co_devanagari(sys.argv[sys.argv.index("--variant") + 1]):
+        return
+    cfg = json.load(open(os.path.join(HERE, "config.json"), encoding="utf-8")).get("phu_de", {})
+    font, burn = cfg.get("font_devanagari", "Nirmala UI"), hau_ky.PD.burn
+
+    def burn_hindi(*a, **kw):
+        kw["font"] = font
+        return burn(*a, **kw)
+    hau_ky.PD.burn = burn_hindi
+
+
 if __name__ == "__main__":
     hau_ky.PD.units_from_variant = units_bo_khong_loi
+    _font_hindi()
     hau_ky.main(HERE)

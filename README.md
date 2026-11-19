@@ -17,10 +17,14 @@ Tao hang loat video quang cao dang hoi thoai (xem `HUONG-DAN.md` de biet cach du
    ```
 3. Chay: bam `LUO Studio.bat` (hoac `LUO Studio (xem loi).bat` de xem log).
 
+## Cai dat tren Linux (Ubuntu 22.04/24.04)
+
+`bash setup.sh` roi `./luo-studio.sh`. Chi tiet (may chu khong man hinh, duong ham SSH, systemd): `HUONG-DAN-LINUX.md`.
+
 ## Cap nhat len ban moi (khong mat du lieu)
 
 Dong ung dung roi bam dup `Cap nhat.bat` (hoac chay `powershell -ExecutionPolicy Bypass -File update.ps1`).
-Script tu sao luu nhe du lieu quan trong vao `userdata-backup/`, cap nhat ma nguon (`git pull` neu cai bang git,
+Script cap nhat ma nguon (`git pull` neu cai bang git,
 tai ZIP moi neu cai bang ZIP) roi chay lai `setup.ps1`. Thu muc `userdata/` khong bi dung toi.
 May khong co git hoac mang han che: tai ZIP ve roi chay `update.ps1 -ZipFile "duong-dan\luo-studio-main.zip"`.
 Ban cai cu chua co `Cap nhat.bat`: cap nhat tay mot lan (`git pull` hoac giai nen ZIP de len, giu nguyen `userdata/`), tu do ve sau dung `Cap nhat.bat`.

@@ -293,6 +293,18 @@ class assembly_slot:
         return False
 
 
+def _popen_retry(cmd, tries=8, **kw):
+    """Popen, thử lại khi Windows báo [WinError 32] lúc CreateProcess: file .exe (ffmpeg/ffprobe) bị tiến trình khác (thường là trình
+    diệt virus quét file mỗi lần mở) giữ thoáng qua khi nhiều luồng gọi liên tục. Trước đây lỗi này làm hỏng cả cảnh đang làm."""
+    for i in range(tries):
+        try:
+            return subprocess.Popen(cmd, **kw)
+        except PermissionError as e:
+            if getattr(e, "winerror", None) != 32 or i == tries - 1:
+                raise
+            time.sleep(0.3 * (i + 1))
+
+
 def crun(cmd, capture_output=False, text=False, encoding=None, errors=None, **kw):
     """subprocess.run có thể huỷ: nếu luồng hiện tại có cờ huỷ (set trong run_variant) thì kill tiến trình và ném Cancelled.
     ffmpeg mã hoá (libx264) đi qua cửa ENC_MAX (trừ khi đang trong assembly_slot) và chạy ở ưu tiên thấp."""
@@ -305,7 +317,7 @@ def crun(cmd, capture_output=False, text=False, encoding=None, errors=None, **kw
     if gate:
         _acquire(_ENC_SEM, cx)
     try:
-        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=text, encoding=encoding, errors=errors, **kw)
+        proc = _popen_retry(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=text, encoding=encoding, errors=errors, **kw)
         while True:
             try:
                 out, err = proc.communicate(timeout=0.3)
@@ -2677,12 +2689,16 @@ def subs_from_variant(v, auto_hook=True):
     marks = {} if explicit or not auto_hook else hook_marks(turns)
     for ti, t in enumerate(turns):
         merged = _sub_parts(t.get("text", ""))
+        # Lượt nhiều câu: viền + tiếng sai/đúng rơi vào câu chứa cụm "to" (cụm chữ sai/đúng), không có "to" thì câu đầu như cũ.
+        # Cùng quy ước với hậu kỳ riêng (types/_chung/phu_de.py): "Good evening, officer! I have fifty years!" + "to": "I have fifty years" -> nháy ở câu thứ hai.
+        tos = [x.lower() for x in ([t["to"]] if isinstance(t.get("to"), str) else list(t.get("to") or [])) if x]
+        fx_i = next((i for i, p in enumerate(merged) if any(x in p.lower() for x in tos)), 0)
         for i, p in enumerate(merged):
             u = {"t": p, "c": t.get("c") or "white", "turn": ti}   # "turn": cảnh chứa phụ đề này (căn phụ đề theo từng cảnh)
             if i == 0 and t.get("icon"):
                 u["icon"] = t["icon"]
             fx = t.get("fx") if explicit else marks.get(ti)
-            if i == 0 and fx in ("wrong", "right"):
+            if i == fx_i and fx in ("wrong", "right"):
                 u["fx"] = fx
             units.append(u)
     return units

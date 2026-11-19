@@ -24,6 +24,7 @@ SHEET = ("Character reference picture: ONE person only, shown from the knees up,
          "relaxed neutral friendly face, mouth closed, arms relaxed at the sides, empty hands, on a plain flat light-grey studio background. "
          "No text, no logo, no lettering anywhere, nothing written on the clothes. Vertical 9:16.")
 KEYS = ["HOC", "KHACH", "QUANLY", "ARJUN", "CON"]
+TEN_FILE = {"CON": "NGUOI-CON"}  # CON là tên thiết bị dành riêng trên Windows, không đặt được tên file
 
 
 def prompt(k):
@@ -45,11 +46,11 @@ def main():
         print(f"[{k}] gen...", flush=True)
         b = api.generate("image", G.muse_image_prompt(prompt(k), "text, letters, logo, watermark, extra people, distorted face, photorealistic", 0),
                          [], sess, timeout=600, cancel=threading.Event(), aspect="9:16")
-        out = os.path.join(ANH, f"{k}.png")
+        out = os.path.join(ANH, f"{TEN_FILE.get(k, k)}.png")
         if os.path.exists(out):
-            os.replace(out, os.path.join(ANH, f"{k}-cu-{time.strftime('%H%M%S')}.png"))
+            os.replace(out, os.path.join(ANH, f"{TEN_FILE.get(k, k)}-cu-{time.strftime('%H%M%S')}.png"))
         open(out, "wb").write(b)
-        print(f"[{k}] -> anh/{k}.png ({len(b) // 1024} KB)", flush=True)
+        print(f"[{k}] -> anh/{TEN_FILE.get(k, k)}.png ({len(b) // 1024} KB)", flush=True)
 
 
 if __name__ == "__main__":

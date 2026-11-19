@@ -1,0 +1,6 @@
+{
+  "hook": {"tu": "0:00", "den": "0:06", "luot": "1-2", "tom_tat": "Nữ tài xế nhoài ra cửa sổ cabin nói sai tuổi bằng 'have' (I have fifty years) với vẻ tự tin; cảnh sát ngẩng nhìn, bối rối hỏi lại.", "loi": ["Officer, I have fifty years!", "Ma'am, you mean you are fifty years old?"]},
+  "tinh_huong": {"tu": "0:06", "den": "0:14.5", "luot": "3-4", "tom_tat": "Tài xế nhận ra lỗi, ngượng, nói lại câu đúng; cảnh sát khen và gợi ý luyện tiếng Anh mỗi ngày với gia sư AI.", "loi": ["Oh no! Yes, I am fifty years old.", "Perfect! Practice English every day with an AI tutor."]},
+  "quang_cao": null,
+  "hook_moi": {"tom_tat": "Cùng cấu trúc, đổi câu sai: tài xế nói 'my old is fifty' (sai cách nói tuổi kiểu dịch từ tiếng mẹ đẻ) thay vì 'I have fifty years'; cảnh sát vẫn hỏi lại cùng câu, tình huống giữ nguyên.", "loi": ["Officer, my old is fifty!", "Ma'am, you mean you are fifty years old?"]}
+}

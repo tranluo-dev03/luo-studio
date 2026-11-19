@@ -969,3 +969,102 @@ Người dùng báo 6 lỗi; nguyên nhân đã chứng minh bằng số đo tr�
 - Cách sửa: mỗi Prompt video cảnh 1,3,4,5,6,7 có câu `SETTING: ... stays on the conference stage exactly as in the start frame ({{NEN_HOC}}); never a ballroom, reception ...`; Negative prompt các cảnh đó thêm "ballroom, reception hall, chandeliers, champagne glasses, banquet tables, ... a change of location"; cảnh 3 ghi rõ khung đầu là khung sân khấu cảnh 1 (không phải "khung cuối cảnh trước"). Cảnh tiệc chỉ cảnh 2.
 - Phải gen lại các dự án đã chạy: từ cảnh 3 trở đi (cảnh 4–6 đang bắt đầu từ khung cuối trôi nền).
 - Áp dụng chung?: CÓ: khoá trung tính địa điểm thì từng cảnh phải tự nêu địa điểm; cảnh xen (tiệc) rồi quay lại phải có câu địa điểm + negative của nền xen.
+
+### 2026-11-13 · taxi-gia-su-ai · bản Ấn Độ 20 biến thể (sheet X0061) · loai: kich-ban / code-the-loai
+- Việc: người dùng đưa sheet 20 biến thể (lời tiếng Anh + Hindi khác bản Mexico; tài xế nam + khách NỮ có ảnh Drive). Người dùng chọn: bối cảnh thành phố Ấn Độ; Priya + sếp gen Muse; biến thể 2 (tài xế tên Arjun) đổi đồng nghiệp thành Rahul.
+- Làm: kịch bản mới `KICH-BAN-TAXI-AN-DO.txt` (sinh bằng `cong-cu/tao_kich_ban_an_do.py`, dùng lại hàm dựng cảnh của bản Mexico, thay bảng góc Mumbai): P1 20 cảnh (5 câm; góc mới M: tài xế + sếp đối mặt cho câu Hindi xin xe + câu sếp mỉa), P2 ghép 2 lớp 9 lượt (Ava, "I am India" → "I am from India"), P3 2 cảnh kết (góc A + cận T3). Biến thể `BIEN-THE-TAXI-AN-DO-20.json` (`tao_bien_the_an_do.py`). Ảnh `anh/an-do/NGUOI-CON.png`, `QUANLY.png` (`gen_anh_an_do.py`), đã xem: đạt.
+- Code thể loại: `post.py` biến thể có chữ Devanagari → font `font_devanagari` (Nirmala UI) thay Arial (Arial không có Devanagari; bản Mexico không đổi); `config.json` thêm kiểu/vị trí phụ đề phần 3.
+- Kiểm tra: video-moi kiem-tra --tai-anh 0 lỗi, 40 link Drive tải được; nhieu_phan.plan 3 phần 20+9+2 cảnh. Nhập Studio: loại `Taxi-An-Do-gia-su-AI-07ef`, dự án `Taxi-An-Do---20-bien-the-05ff`, chạy cả 20 với 4 luồng (người dùng yêu cầu).
+- Kết quả: ĐẠT (13/11, 2 video đầu taxi-in-01-raj, taxi-in-04-rohan, ~103 s). Whisper en: đủ và đúng mọi câu tiếng Anh; câu Hindi Whisper dịch ra đúng nghĩa (en) / chép đúng câu hết tiền (hi). Khách nữ - tài xế nam không nhép nhầm. Phụ đề Devanagari hiện đúng font Nirmala UI; ❌/✅ và icon tiền đúng chỗ; phần 3 đủ 2 cảnh. Lỗi nhỏ không hệ thống: BT4 cảnh 1 Muse zoom vào (mất nắp capô, khách to hơn) nhưng vẫn đúng chỗ ngồi sau-trái.
+- Áp dụng chung?: CÓ cho khuôn 'khách khác giới với tài xế' (nhép không nhầm khi khác giới, khớp [[muse-gan-giong-cho-mat-nhin-thay]]) và font Devanagari tự chọn trong post.py.
+- Đã chưng cất vào: chưa
+
+### 2026-11-13 · lõi Studio (engine.py) · [WinError 32] khi chạy ffmpeg/ffprobe · loai: code-loi
+- Việc: người dùng hỏi vì sao vài video Taxi Ấn Độ báo "[WinError 32] The process cannot access the file because it is being used by another process".
+- Tìm ra: traceback trong `userdata/logs/studio-loi.log` (5 video taxi-in-02/03/05/07/09) đều hỏng ở `subprocess.Popen` → `CreateProcess` của ffprobe/ffmpeg (đo màu, cắt sát lời, lấy khung cuối, đo độ dài): file .exe bị giữ thoáng qua lúc khởi chạy (nghi trình diệt virus quét .exe khi 4 luồng gọi liên tục). Không riêng thể loại nào: 84 lần trong log từ 10/11 (~10 lần/ngày). Hậu quả cũ: video tự xếp lại sau 2 phút nhưng bỏ cảnh đang làm (mất clip Muse vừa gen).
+- Làm: `engine.py` thêm `_popen_retry` (thử lại tối đa 8 lần, chờ 0.3 s, 0.6 s, ... khi PermissionError winerror 32), `crun` dùng nó. Thử giả lập 2 lần lỗi: lần 3 chạy được.
+- Kết quả: CHỜ KIỂM CHỨNG (chỉ có hiệu lực sau khi Studio khởi động lại; xem log không còn dòng WinError 32 mới).
+- Khởi động lại (người dùng yêu cầu, 13/11): taskkill cây tiến trình launcher (không gọi /api/stop để khỏi xoá cảnh dở + ảnh khung đầu), soát file ghi trong 3 phút cuối bằng ffprobe (chỉ phan2/raw.mp4 của BT11 hỏng → xoá), mở lại qua explorer, /api/queue/start 17 mục còn lại parallel 4 (4 mục đang chạy dở đứng đầu): các cảnh đã xong được dùng lại.
+- Áp dụng chung?: CÓ (mọi thể loại, lõi Studio).
+- Đã chưng cất vào: chưa
+
+### 2026-11-16 · taxi-gia-su-ai · 40 biến thể bản Mexico (sheet X0060) vào dự án "Taxi - Miguel" · loai: bien-the / kich-ban
+- Việc: người dùng đưa sheet X0060 (40 dòng: tài xế nam Mexico 23-65 tuổi + khách doanh nhân, 20 khách NỮ ở dòng 11-20, 31-40), yêu cầu tạo file biến thể cho dự án Taxi - Miguel, tải đủ ảnh link Drive về và gắn vào biến thể.
+- Lời trong sheet là bản dịch tiếng Anh của đúng video gốc -> giữ nguyên LUOT của taxi-mexico-goc (tiếng Anh/Tây Ban Nha như gốc); chỉ đổi tài xế + khách.
+- Làm: `cong-cu/tao_bien_the_x0060.py` -> `BIEN-THE-TAXI-X0060-40.json` (taxi-es-01-carlos ... taxi-es-40-adrian). Mô tả EN dịch từ sheet (bỏ giày/dáng đứng), sửa theo ảnh (BT7/22/30/35 là áo gilê chứ không phải blazer). Giọng tài xế theo tuổi (<30 / <46 / già), khách theo giới + tuổi, khách luôn cao giọng hơn tài xế. 80 ảnh tải về `anh/x0060/NN-HOC.png`, `NN-KHACH.png` (drive.usercontent ... confirm=t), đã xem: khớp mô tả.
+- Kịch bản (dùng chung bản Mexico): đại từ của KHÁCH -> token `{{HIS_KHACH}}`/`{{HIM_KHACH}}` (bảng GIOI_KHACH trong tao_kich_ban.py, assert mỗi cụm phải có); bỏ chữ cứng theo ngoại hình Miguel ("his moustache trembles" -> "his lips tremble", "curly hair" -> "head") vì tài xế mới có người không ria/không tóc xoăn. Biến thể gốc thêm HIS_KHACH=his, HIM_KHACH=him. Bản Ấn Độ không đổi (gọi scene() riêng).
+- Kiểm tra: video-moi kiem-tra --tai-anh 0 lỗi (364 mục); điền token cả 41 biến thể của dự án không còn {{.
+- Studio: chép kịch bản mới vào loại Taxi-gia-su-AI-a6ce; PUT dự án Taxi---Miguel-9d63 = gốc + 40 biến thể, ảnh gắn đủ (không lỗi). Chưa chạy (người dùng chưa yêu cầu).
+- Kết quả: ĐẠT (chạy thử taxi-es-11-andres, khách nữ Valentina, 16/11 12:59, 148s). Whisper en+es: đủ 43 lượt, đúng lời; khách nữ nhép đúng lượt của mình (cảnh 1-6), tài xế không nhép nhầm; khách ngồi ghế sau trái suốt, xe chạy rõ; bến xe 3 người, phòng khách với Lucía; phần 2 robot có ❌/✅ ở "I am Mexico"/"I am from Mexico" và icon đồng xu ở "no tengo dinero"; phụ đề EN+ES đủ. Token HIS_KHACH/HIM_KHACH hoạt động (her/her).
+- Áp dụng chung?: CÓ cho cách làm "đại từ nhân vật đổi giới theo biến thể = token trong kịch bản" và "không viết cứng ngoại hình nhân vật có thể đổi trong lời tả cảnh".
+- Đã chưng cất vào: chưa
+
+### 2026-11-17 · taxi-gia-su-ai · video "435d2a85-0510_cartoon-turn-car_015_1" (chính là video mẫu của thể loại) → biến thể toàn tiếng Anh · loai: bien-the
+- Việc: Studio gửi video tham chiếu chạy ngầm (không ảnh tham chiếu mới, ngôn ngữ lời English, 1 biến thể). `video-moi.py danh-gia`: 95,1 s, 42 câu, 4,12 từ/giây, 9 cảnh cắt, 2 cụm giọng (133 Hz / 225 Hz), 4 đoạn bố cục (taxi, gara, phòng khách, ô robot trên) + end card. Xem 4 ảnh tổng quan: trùng khít thể loại `taxi-gia-su-ai` (bản mẫu 0510_cartoon turn car_015_1) → KHÔNG tạo thể loại mới, KHÔNG sửa kịch bản/code.
+- Làm: thêm `SAMPLE/taxi-gia-su-ai/cong-cu/tao_bien_the_tieng_anh.py` (import bảng V + LUOT của tao_bien_the.py, thay lời sang tiếng Anh cho cả phần 1 gia đình và phần 2 robot, bỏ `dich` tiếng Tây Ban Nha, giọng thành tiếng Anh giọng Mexico nhẹ) → `BIEN-THE-TAXI-TIENG-ANH.json` (taxi-tieng-anh-01, 43 lượt, 5 không lời).
+- Ảnh tham chiếu: người dùng không đưa ảnh → dùng lại ảnh có sẵn của thể loại (HOC, KHACH, QUANLY, ARJUN, CON, DAY; ảnh AI người dùng đã đồng ý 11/11). Không gen thêm ảnh, không chạy thử.
+- Kiểm tra: `kiem-tra --tai-anh` 0 lỗi 0 cảnh báo; P1 25 cảnh + P2 18 cảnh. Nhập Studio: loại `Taxi-gia-su-AI-a6ce`, dự án `Taxi---English-435d2a85-1800`. CHƯA gen.
+- Kết quả: CHỜ KIỂM CHỨNG (chưa gen). Rủi ro như bản gốc: hai nam chung khung ở góc A/G/J, đổi 3 góc phòng khách; lời Anh của gia đình có thể làm Whisper `small` vẫn ổn (đa ngôn ngữ).
+- Áp dụng chung?: KHÔNG (riêng thể loại).
+- Đã chưng cất vào: không cần
+
+### 2026-11-17 · phong-van-pho-tieng-anh · thể loại mới từ video phỏng vấn đường phố, lời tiếng Anh, 1 biến thể, chưa có ảnh refs · loai: kich-ban / bien-the
+- Việc: Studio nhận lại video `1510_interview street hindi_005 (11)` (bản tải lên `e2a15ce0-1510_interview-street-hindi_005-11-onlin.mp4`, chạy ngầm), yêu cầu lời tiếng Anh, 1 biến thể, người dùng không đưa ảnh nhân vật.
+- Phân tích lại bằng `video-moi.py danh-gia`: 76,9 s, 9 cảnh cắt, giọng 211/254 Hz, máy đứng yên; xem 4 ảnh tong-quan: khớp phân tích malayalam (phần 1 phố qua vai tới ~26 s, phần 2 robot trên / người bán selfie dưới).
+- Làm: thư mục thể loại riêng `phong-van-pho-tieng-anh` chép từ tay-ban-nha (kịch bản đổi Mexico/Spanish → Mỹ/English, bỏ câu "reference photo" vì không có ảnh; `tao_bien_the.py` 1 biến thể, `refs` trống; PV nam + người bán nữ). Lời: dịch mạch tay-ban-nha, "Soy de Puebla" → "I'm from Denver". Code loại (gen/post/config) chép nguyên, chỉ đổi tên.
+- Kiểm tra: `kiem-tra` 0 lỗi, 0 cảnh báo, 7 mục đạt. Nhập Studio KHÔNG chạy thử (thiếu ảnh refs).
+- Kết quả: CHỜ KIỂM CHỨNG (chưa gen). Rủi ro: không refs nên mặt người bán có thể lệch giữa phần 1 và phần 2.
+- Áp dụng chung?: KHÔNG (riêng thể loại). Bài học quy trình: khi chạy ngầm gặp video đã có thể loại cùng khuôn khác ngôn ngữ, chép thể loại gần nhất thay vì phân tích lại từ đầu; mô tả nhân vật bằng chữ khi chưa có ảnh.
+- Đã chưng cất vào: không cần
+
+### 2026-11-17 · taxi-gia-su-ai · tự kiểm tra dự án "Taxi - English (435d2a85)" · loai: kiem-tra
+- Hiện tượng: hàng đợi Studio không có mục nào của `Taxi---English-435d2a85-1800`, `userdata/studio/runs/` không có thư mục của dự án → chưa có scene*_start.png/clip để đối chiếu. Dự án chỉ có file `projects/Taxi---English-435d2a85-1800.json`.
+- Nguyên nhân: bước 5 chạy ngầm không kèm `--chay-thu` (người dùng không đưa ảnh nhân vật mới).
+- Cách sửa: không có gì để sửa tại chỗ (chưa có lỗi gen); không gen thêm.
+- Kết quả: CHỜ KIỂM CHỨNG. Áp dụng chung: không.
+- Đã chưng cất vào: không cần
+
+### 2026-11-17 · taxi-gia-su-ai · video "f2be28b2-0510_cartoon-turn-car_015_1" (video mẫu) → 3 biến thể Ấn Độ, tự gen ảnh thất bại · loai: bien-the
+- Việc: Studio chạy ngầm, ngôn ngữ india, 3 biến thể, không ảnh. Đo lại như lần trước (95,1 s, 4,12 từ/giây, 9 cảnh cắt, 133/225 Hz).
+- Làm: `cong-cu/tao_bien_the_an_do_3.py` (import bảng từ tao_bien_the_an_do.py, 3 cặp tài xế + khách mới) + kịch bản `KICH-BAN-TAXI-AN-DO.txt`; `kiem-tra` 0 lỗi; nhập dự án `Taxi-An-Do---3-bien-the-f2be28b2-8b57`.
+- Gen ảnh nhân vật: 2 lần đầu `gen-anh-nhan-vat.py` lỗi "没有可用账号" (Muse hết tài khoản); gen lại sau đó thì 6/6 ảnh đạt (một người, đúng giới/tuổi, nền xanh phẳng, không chữ) → `anh/an-do-3/HOC1-3, KHACH1-3.png`, tạo lại biến thể có refs (`kiem-tra --tai-anh` 0 lỗi, 31 mục). Dự án đầu (không refs) đã xoá, nhập lại `Taxi-An-Do---3-bien-the-f2be28b2-7236`.
+- Chạy thử taxi-in-3-01-ravi: `scene1_start.png` đúng bố cục góc A (tài xế phải, khách nữ sari xanh ghế sau trái nói điện thoại, taxi đen-vàng Mumbai). Studio bị khởi động lại 3 lần giữa chừng (đổi cổng trong running.json) làm mục hàng đợi thành `stopped` → phải `POST /api/queue/add` + `/api/queue/start` lại; lần 4 gen xong cảnh 1 (4,9 s): bố cục giữ suốt clip, khách nói, tài xế nhìn sang nghe, miệng không nhép rõ. Lệch nhỏ: mặt tài xế sau khung đầu hơi thực hơn ảnh hoạt hình.
+- Kết quả: ĐẠT cảnh 1; các cảnh sau CHỜ KIỂM CHỨNG. Áp dụng chung?: KHÔNG (bài học quy trình: đọc cổng mới trong `userdata/running.json` và kiểm trạng thái mục hàng đợi sau mỗi lần Studio khởi động lại). Đã chưng cất vào: không cần
+
+### 2026-11-17 · phong-van-pho-hindi · thể loại mới từ video phỏng vấn đường phố, lời Hindi, 3 biến thể, Muse hết tài khoản nên chưa có ảnh refs · loai: kich-ban / bien-the
+- Việc: Studio chạy ngầm với `23be8c7e-1510_interview-street-hindi_005-11-onlin.mp4` (cùng video mẫu `1510_interview street hindi_005 (11)` của phong-van-pho-malayalam), ngôn ngữ india, 3 biến thể, không ảnh nhân vật. Phân tích lại bằng `danh-gia` (76,9 s, 9 cảnh cắt, giọng 211/254 Hz) và xem tong-quan_1/3: khớp phân tích malayalam (phần 1 phố qua vai tới 25,7 s, phần 2 robot trên / người bán selfie dưới). Tên file "hindi" nhưng phụ đề là Malayalam.
+- Làm: thư mục riêng `phong-van-pho-hindi` chép từ malayalam (kịch bản + `tao_kich_ban.py` đổi sang Hindi/miền bắc Ấn, thêm câu "ảnh tham chiếu chỉ là mặt/tóc/trang phục, nền không thuộc cảnh"; `tao_bien_the.py` viết lại lời Hindi chữ Devanagari xen từ Anh, 26 lượt, ≤ 20 từ). PV nam + người bán nữ (V1 ~50 tuổi bám sát video, V2 ~28 tuổi quầy puri, V3 ~62 tuổi quầy trái cây). `types/phong-van-pho-hindi/gen.py`: ngoài `_span_ml`, đếm âm tiết chữ Devanagari (gen_video chỉ đếm Latin + Malayalam → câu Hindi bị clip 5 s cụt) bằng cách bọc `E.G.spoken_syllables` trong lúc chạy thể loại này, và `voice_span` bỏ Whisper cho câu `hi`. `cong-cu/gen_anh.py` bọc `_chung/gen-anh-nhan-vat.py` đổi STYLE sang photoreal (script chung cố định phong cách hoạt hình Pixar, không hợp video người thật).
+- Kiểm tra: `kiem-tra` 0 lỗi, 0 cảnh báo. Nhập Studio: loại `Phong-van-pho-Hindi-66b8`, dự án `Interview-street-Hindi---Talka-d288` (3 biến thể, chưa gen).
+- Gen ảnh: `/api/health` báo `no_account` (0 tài khoản Muse); `gen_anh.py` lỗi "没有可用账号，请先在管理页面导入 cookie" cho cả PV, V1, V2, V3 → `refs` chỉ có robot Talka; không chạy thử.
+- Kết quả: CHƯA ĐẠT / CHỜ KIỂM CHỨNG (chưa gen). Rủi ro: tiếng Hindi qua Muse chưa kiểm chứng (đã có Gujarati/Bengali/Malayalam), thiếu refs thì mặt người bán lệch giữa phần 1 và 2. Áp dụng chung?: KHÔNG (riêng thể loại). Đã chưng cất vào: không cần
+
+### 2026-11-17 · tiem-thit-hindi · video "17790cf1-0610_Cut-meat-ES_015_02" (chính là video mẫu của tiem-thit-tieng-anh) → 3 biến thể Hindi · loai: bien-the
+- Việc: Studio chạy ngầm, ngôn ngữ india, 3 biến thể. `danh-gia`: 177 s, 65 câu, 4,24 từ/giây, 28 cảnh cắt, giọng 152/239 Hz, khớp phân tích tiem-thit-tieng-anh.
+- Làm: thể loại anh em `SAMPLE/tiem-thit-hindi/` (kịch bản sinh bằng cách import bảng của tiem-thit-tieng-anh và đổi Spanish -> Hindi; `tao_bien_the.py` 3 biến thể Raju/Kabir/Arjun, lời Devanagari, dich Hindi) + `types/tiem-thit-hindi/` (post.py chép, config font Nirmala UI + shaping complex). `kiem-tra` 0 lỗi 0 cảnh báo; nhập Studio dự án `Tiem-thit---Hindi-17790cf1-127c`, chưa gen.
+- Gen ảnh TAVO/TIO: `gen-anh-nhan-vat.py` lỗi "没有可用账号" 2 lần (Muse hết tài khoản) -> refs chỉ có CHU/KHACH/ROBOT dùng lại từ tiem-thit-tieng-anh; không chạy thử.
+- Kết quả: CHƯA ĐẠT / CHỜ KIỂM CHỨNG. Áp dụng chung?: KHÔNG. Đã chưng cất vào: không cần
+
+### 2026-11-17 · tiem-thit-hindi · chạy thử biến thể raju-tiem-thit-goc · loai: gen
+- Hiện tượng: Muse có lại tài khoản; gen đủ 6 ảnh TAVO/TIO (A/B/C) nền xanh, xem từng ảnh: một người, đúng tuổi/giới, không chữ. Cập nhật `refs` vào dự án cũ (tạo dự án tạm để Studio tải ảnh, PUT biến thể sang dự án cũ, xoá file dự án tạm) thay vì tạo dự án v2.
+- Chạy thử: `scene1_start.png` đạt (khách polo trắng một mình, chợ Ấn), `scene1_last.png` khách cười nói, nghiêng về quầy; các cảnh sau đang gen.
+- Lưu ý quy trình: Studio khởi động lại làm đổi cổng (50820 → 58360): luôn đọc `userdata/running.json` ngay trước mỗi lệnh API.
+- Kết quả: ĐẠT cảnh 1; phần còn lại CHỜ KIỂM CHỨNG. Áp dụng chung?: KHÔNG. Đã chưng cất vào: không cần
+
+26-11-17 · tiem-thit-hindi · phân tích lại video (lần 2) · loai: phan-tich
+- Hiện tượng: đo lại video (cùng file với tiem-thit-tieng-anh: 38 lượt có lời, giọng A 121–176 Hz / B 229–286 Hz) khớp kịch bản 50 cảnh hiện có; `kiem-tra --tai-anh` vẫn 0 lỗi, 0 cảnh báo. Không có chỗ nào lệch cần sửa nên KHÔNG đổi kịch bản/biến thể và KHÔNG gen lại.
+- Chạy thử: `scene2_start.png` (góc A) ĐẠT: Tavo trái cúi nhìn thớt, ông chú giữa nhìn sang phải, mép phải chỉ vai + gáy khách áo polo trắng, tủ kính thịt ở 1/3 dưới.
+- Kết quả: ĐẠT cảnh 1–2; phần còn lại CHỜ KIỂM CHỨNG. Áp dụng chung?: KHÔNG. Đã chưng cất vào: không cần
+
+### 17/11/2026 - phong-van-pho-hindi: phân tích lại + gen ảnh PV/V1-V3 + chạy thử 01
+- Hiện tượng: lần trước chưa gen vì Muse hết tài khoản. Lần này gen ảnh nền xanh (gen_anh.py) đạt cả 4; robot gốc có tai nghe nhưng ảnh robot-talka.png không có.
+- Cách sửa: thêm tai nghe + mic vào NGUOI_DAY; cập nhật dự án cũ qua PUT /api/projects/<id> (ảnh mới tải bằng POST .../asset, PUT không tự tải link refs).
+- Kết quả: scene1_start.png đạt (PV quay lưng); cảnh 1-2 gen xong. Nghe Hindi và base_DAY: CHỜ KIỂM CHỨNG. Riêng thể loại, chưa chưng cất.
+
+### 19/11/2026 - 2e3fa1bf-canh-sat-xe-tai: thể loại mới + gen ảnh nhân vật thật + chạy thử cảnh 1
+- Hiện tượng: `_chung/gen-anh-nhan-vat.py` mặc định phong cách hoạt hình 3D ("never photorealistic"), không dùng được cho video người thật. Ảnh HOC (nữ ~57) và CANHSAT (nam ~32) gen bằng bản sao `SAMPLE/2e3fa1bf-canh-sat-xe-tai/cong-cu/gen-anh-nhan-vat-that.py` (STYLE ảnh thật) đạt lần đầu, nền xanh phẳng; tài xế trông hơi già hơn mô tả.
+- Chạy thử bien-the-01-goc (dự án Canh-sat-xe-tai-noi-sai-tuoi-4d30): scene1_start.png đúng người/bối cảnh nhưng máy rộng hơn mẫu (thấy cả đường); scene1_cut.mp4 3,0 s: tài xế nói, cảnh sát ngẩng nhìn lên, không quay ống kính.
+- Kết quả: cảnh 1 ĐẠT; cảnh 2-4 và kịch bản B (đổi hook) CHỜ KIỂM CHỨNG. Riêng thể loại; gợi ý (chưa chưng cất): thêm tuỳ chọn phong cách ảnh thật cho gen-anh-nhan-vat.py dùng chung.
+
+### 19/11/2026 - 2e3fa1bf-canh-sat-xe-tai: nhóm biến thể tx4wnb (5 cặp, goc) và x2oly3 (5 hook, hook)
+- Hiện tượng: gen 10 ảnh nền xanh bằng `gen-anh-nhan-vat-that.py`: 9 đạt lần đầu, TX_B lỗi Muse "fs.raw path not found" (gen lại một lần đạt). Cả 10 ảnh: một người, đúng giới/tuổi, không chữ.
+- Cách làm: tuổi trong lời thoại, `to`, cách gọi (Sir/Ma'am) và HIM_CANHSAT (him/her) sinh theo bảng; cặp luôn khác giới. `kiem-tra` cả hai nhóm 0 lỗi, 0 cảnh báo. Chưa gen video: CHỜ KIỂM CHỨNG (xe buýt/xe van cần xem khung đầu vì kịch bản tả "cabin window"). Riêng thể loại.

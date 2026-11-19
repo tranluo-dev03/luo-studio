@@ -510,6 +510,15 @@ def cmd_kiem_tra(a):
                 c.w(f'[{nm}] lượt {i}: emo "{t.get("emo")}" không có từ nào trong EMO_CUES ({", ".join(sorted(cues)[:8])}…)')
             if t.get("fx") not in (None, "none", "wrong", "right", "ding"):
                 c.e(f'[{nm}] lượt {i}: fx "{t.get("fx")}" lạ')
+        for i, t in enumerate(luot, 1):   # lượt nhiều câu có fx: hiệu ứng rơi vào câu chứa cụm "to", thiếu "to" thì rơi vào câu đầu (thường là câu chào)
+            if t.get("fx") not in ("wrong", "right"):
+                continue
+            tos = [x for x in ([t["to"]] if isinstance(t.get("to"), str) else list(t.get("to") or [])) if x]
+            cau = [p for p in re.findall(r"[^.!?…]+[.!?…]*", str(t.get("text", ""))) if p.strip()]
+            if tos and not any(x.lower() in str(t.get("text", "")).lower() for x in tos):
+                c.e(f'[{nm}] lượt {i}: "to" {tos} không có trong lời thoại: hiệu ứng {t["fx"]} sẽ rơi vào câu đầu')
+            elif not tos and len(cau) > 1:
+                c.w(f'[{nm}] lượt {i}: {len(cau)} câu, fx {t["fx"]} nhưng chưa khai "to": hiệu ứng rơi vào câu đầu "{cau[0].strip()}"; thêm "to": "<cụm sai/đúng>"')
         fx = [(i, t.get("fx")) for i, t in enumerate(luot, 1) if t.get("fx") in ("wrong", "right")]
         if fx:
             seq = [f for _, f in fx]
@@ -605,6 +614,11 @@ def cmd_kiem_tra(a):
             except Exception as ex:  # noqa: BLE001
                 c.w(f"parse_script: {ex}")
     # refs
+    try:
+        _dm = json.load(open(os.path.join(ROOT, "SAMPLE", "_chung", "kho-nhan-vat", "danh-muc.json"), encoding="utf-8"))
+        kho = {r["ma"].upper(): r for r in _dm.get("nguoi", []) + _dm.get("bot", [])}
+    except (OSError, ValueError):
+        kho = {}
     for v in variants:
         refs = v.get("refs")
         if refs is None:
@@ -615,7 +629,15 @@ def cmd_kiem_tra(a):
             if isinstance(items, (str, dict)):
                 items = [items]
             for it in items or []:
-                url = it if isinstance(it, str) else it.get("url", "")
+                url = it if isinstance(it, str) else (it.get("url") or it.get("ma") or "")
+                ma = str(url).strip().upper()
+                if re.fullmatch(r"[A-Z0-9]+(?:-[A-Z0-9]+)+", ma) and (ma in kho or re.match(r"(NAM|NU|BOT)-", ma)):   # mã kho nhân vật / kho bot
+                    if ma not in kho:
+                        c.e(f"[{v.get('name')}] refs.{k}: mã {ma} không có trong kho nhân vật (SAMPLE/_chung/kho-nhan-vat/danh-muc.json)")
+                    else:
+                        r = kho[ma]
+                        c.o(f"[{v.get('name')}] refs.{k}: kho {ma} ({' · '.join(str(r[x]) for x in ('gioi', 'tuoi', 'bot', 'loai_bot', 'thi_truong') if r.get(x))})")
+                    continue
                 if a.tai_anh:
                     ok, msg = _download_ok(url)
                     (c.o if ok else c.e)(f"[{v.get('name')}] refs.{k}: {msg} ({url[:70]})")

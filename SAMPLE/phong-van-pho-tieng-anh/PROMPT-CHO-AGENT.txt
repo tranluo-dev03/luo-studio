@@ -1,0 +1,22 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "PHỎNG VẤN ĐƯỜNG PHỐ RỒI CHIA TRÊN/DƯỚI + GIA SƯ AI, TIẾNG ANH" (phong-van-pho-tieng-anh)
+  HAI phần: phần 1 cảnh thường (phóng viên qua vai + người bán hàng rong, MỘT góc, 6 cảnh),
+            phần 2 ghép 2 lớp (robot Aiva ô TRÊN, người bán selfie ô DƯỚI, 6 cảnh).
+  Code riêng: app/production/types/phong-van-pho-tieng-anh/
+================================================================================
+
+CÁCH DÙNG: gửi agent cong-cu\tao_kich_ban.py, cong-cu\tao_bien_the.py, README.md (và PHAN-TICH-VIDEO-MAU.md của phong-van-pho-malayalam), rồi dán phần dưới.
+
+PROMPT
+Bạn viết biến thể cho LUO Studio, thể loại PHỎNG VẤN ĐƯỜNG PHỐ RỒI CHIA TRÊN/DƯỚI + GIA SƯ AI, lời tiếng Anh.
+Thông tin lần này: [người bán | phóng viên | bối cảnh | link ảnh]. Đổi lời / nghề: [...]
+
+BẮT BUỘC
+1) Sửa bằng cong-cu\tao_bien_the.py (lời LUOT, mô tả nhân vật, REFS) và cong-cu\tao_kich_ban.py; KHÔNG sửa tay JSON / TXT. Đổi token kịch bản => LOẠI DỰ ÁN MỚI trong Studio.
+2) Phóng viên LUÔN KHÁC GIỚI người bán. Phóng viên quay lưng: giữ QUAY_LUNG_PV, NHIN_PV, EYE LINE.
+3) Đại từ phóng viên qua HIS_PV/HIM_PV/TOC_PV; đại từ người bán qua SHE_/HER_/HERO_/SELF_HOC. Không viết cứng his/her trong kịch bản.
+4) Số lượt phần 1 = số CẢNH trong bảng SC (6). Mỗi lượt <= 20 từ, một người nói.
+5) Ảnh tham chiếu chỉ là ảnh AI người dùng cấp; không cắt từ video mẫu; thiếu ảnh => không gen, hỏi người dùng.
+6) Không tua nhanh khoảng lặng (gen.py cắt sát theo lời).
+7) Tự kiểm: runtime\python.exe SAMPLE\_chung\video-moi.py kiem-tra <kịch bản> <biến thể> (0 lỗi), chạy thử MỘT biến thể, xem scene1_start.png và nghe cảnh 1-3 trước khi chạy cả nhóm.
+8) Ghi mọi lượt gen / sửa vào SAMPLE\_chung\NHAT-KY-TRI-THUC.md.

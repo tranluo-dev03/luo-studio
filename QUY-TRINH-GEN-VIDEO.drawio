@@ -1,0 +1,97 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="quy-trinh-gen-video" name="Quy trình gen video">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="QUY TRÌNH GEN VIDEO BẰNG LUO TOOLS" style="text;html=1;align=left;verticalAlign=middle;fontSize=22;fontStyle=1;fontColor=#1F2937;" vertex="1" parent="1">
+          <mxGeometry x="40" y="10" width="700" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="s1" value="&lt;b&gt;1. ĐẦU VÀO&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#6B7280&quot;&gt;UA chuẩn bị&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;strokeWidth=2;fontSize=15;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="260" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="&lt;b&gt;2. PHÂN TÍCH KỊCH BẢN&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#6B7280&quot;&gt;Luo tools + Claude CLI&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE9FE;strokeColor=#7C3AED;strokeWidth=2;fontSize=15;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="400" y="100" width="260" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3" value="&lt;b&gt;3. SỬA QUA NHIỀU ROUND&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#6B7280&quot;&gt;UA xem và góp ý&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;strokeWidth=2;fontSize=15;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="760" y="100" width="260" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="s4" value="&lt;b&gt;4. GEN BATCH&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#6B7280&quot;&gt;Luo tools + Muse&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D1FAE5;strokeColor=#059669;strokeWidth=2;fontSize=15;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="100" width="260" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="d1" value="• Video ref&lt;br&gt;• Insight text&lt;br&gt;• Cấu trúc hook + tình huống&lt;br&gt;• Nội dung các biến thể" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=12;spacingTop=8;fillColor=#FFFFFF;strokeColor=#93C5FD;fontSize=13;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="260" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="d2" value="• Tách hook / tình huống&lt;br&gt;• Viết kịch bản + biến thể mẫu&lt;br&gt;• Gen thử video đầu tiên" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=12;spacingTop=8;fillColor=#FFFFFF;strokeColor=#C4B5FD;fontSize=13;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="400" y="200" width="260" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="d3" value="• UA xem video, ghi góp ý&lt;br&gt;• Sửa kịch bản / biến thể&lt;br&gt;• Gen lại cảnh cần đổi&lt;br&gt;• F0 → F1 → … → Fn" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=12;spacingTop=8;fillColor=#FFFFFF;strokeColor=#FCD34D;fontSize=13;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="760" y="200" width="260" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="d4" value="• Lưu kịch bản đã chốt&lt;br&gt;• Thêm dự án từ danh sách biến thể&lt;br&gt;• Muse gen hàng loạt" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=12;spacingTop=8;fillColor=#FFFFFF;strokeColor=#6EE7B7;fontSize=13;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="200" width="260" height="110" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="q" value="Đủ chất lượng&lt;br&gt;để gen batch?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D97706;strokeWidth=2;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="75" width="150" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="o2" value="&lt;b&gt;Video F0&lt;/b&gt;&lt;br&gt;bản đầu tiên" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#F5F3FF;strokeColor=#7C3AED;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="455" y="360" width="150" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="o3" value="&lt;b&gt;Video Fn&lt;/b&gt;&lt;br&gt;bản đạt chất lượng" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#FFFBEB;strokeColor=#D97706;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="815" y="360" width="150" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="o4" value="&lt;b&gt;Loạt video biến thể&lt;/b&gt;&lt;br&gt;gen hàng loạt từ Fn" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="360" width="180" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#374151;endArrow=block;endFill=1;" edge="1" parent="1" source="s1" target="s2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e23" value="F0" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#374151;endArrow=block;endFill=1;fontSize=13;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="s2" target="s3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3q" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#374151;endArrow=block;endFill=1;" edge="1" parent="1" source="s3" target="q">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eq4" value="Đạt (Fn)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#059669;endArrow=block;endFill=1;fontSize=13;fontStyle=1;fontColor=#059669;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="q" target="s4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eq3" value="Chưa đạt: sửa thêm một round" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;strokeColor=#DC2626;dashed=1;endArrow=block;endFill=1;fontSize=13;fontStyle=1;fontColor=#DC2626;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="q" target="s3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1155" y="55"/>
+              <mxPoint x="890" y="55"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="l1" style="html=1;strokeColor=#9CA3AF;dashed=1;endArrow=none;" edge="1" parent="1" source="s1" target="d1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" style="html=1;strokeColor=#9CA3AF;dashed=1;endArrow=none;" edge="1" parent="1" source="s2" target="d2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="l3" style="html=1;strokeColor=#9CA3AF;dashed=1;endArrow=none;" edge="1" parent="1" source="s3" target="d3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="l4" style="html=1;strokeColor=#9CA3AF;dashed=1;endArrow=none;" edge="1" parent="1" source="s4" target="d4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m2" value="kết quả" style="html=1;strokeColor=#7C3AED;endArrow=open;fontSize=11;fontColor=#6B7280;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="d2" target="o2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m3" value="kết quả" style="html=1;strokeColor=#D97706;endArrow=open;fontSize=11;fontColor=#6B7280;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="d3" target="o3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m4" value="kết quả" style="html=1;strokeColor=#059669;endArrow=open;fontSize=11;fontColor=#6B7280;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="d4" target="o4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

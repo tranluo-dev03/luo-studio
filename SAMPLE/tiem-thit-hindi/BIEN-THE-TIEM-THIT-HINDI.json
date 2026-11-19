@@ -1,0 +1,1145 @@
+[
+ {
+  "name": "raju-tiem-thit-goc",
+  "TEN_TAVO": "Raju",
+  "NGUOI_TAVO": "a stylized 3D-animated Indian boy about fourteen, slim, warm wheatish-brown skin, short black hair with a side parting, big dark-brown eyes, a small mole on his left cheek, a light-blue crew-neck T-shirt under a long white canvas apron",
+  "GIONG_TAVO": "a soft, slightly husky teenage boy's voice around 200-230 Hz, Hindi, shy and polite; when he speaks English, a light Indian accent",
+  "VAI_TAVO": "boy helper",
+  "POS_TAVO": "behind-counter",
+  "NGHE_TAVO": "keeps the mouth closed and looks at whoever is speaking (or down at his work when the clip says so), small natural blinks",
+  "NHIN_TAVO": "keeps the eyes where the clip's EYE LINE says while speaking",
+  "TEN_TIO": "the butcher",
+  "NGUOI_TIO": "a stylized 3D-animated stocky Indian man in his fifties, round face, a thick black moustache, bushy eyebrows, a white cotton cap, an orange-and-white checked short-sleeved shirt, a long white butcher's apron with faint stains",
+  "GIONG_TIO": "a loud, gravelly, boastful middle-aged man's voice around 120-140 Hz, Hindi; his English has a heavy Indian accent",
+  "VAI_TIO": "butcher (the boy's uncle)",
+  "POS_TIO": "behind-counter",
+  "NGHE_TIO": "keeps the mouth closed and looks at whoever is speaking, arms relaxed",
+  "NHIN_TIO": "keeps the eyes where the clip's EYE LINE says while speaking",
+  "TEN_KHACH": "the customer",
+  "NGUOI_KHACH": "a stylized 3D-animated man in his late thirties, tall, slicked-back black hair, a long straight nose, clean-shaven, a crisp white polo shirt",
+  "GIONG_KHACH": "a relaxed, friendly American man's voice, warm baritone around 130-150 Hz",
+  "VAI_KHACH": "customer",
+  "POS_KHACH": "customer-side",
+  "NGHE_KHACH": "keeps the mouth closed and looks toward the counter",
+  "NHIN_KHACH": "keeps the eyes where the clip's EYE LINE says while speaking",
+  "TEN_CHU": "the restaurant owner",
+  "NGUOI_CHU": "a stylized 3D-animated woman in her early forties, dark-brown hair in a low bun with a small silver hair clip, big hazel eyes, a dark plum button-up blouse with rolled sleeves, khaki trousers",
+  "GIONG_CHU": "a warm, quick, expressive American woman's voice around 200-220 Hz",
+  "VAI_CHU": "restaurant owner",
+  "POS_CHU": "customer-side",
+  "NGHE_CHU": "keeps the mouth closed and looks at whoever is speaking, attentive",
+  "NHIN_CHU": "keeps the eyes where the clip's EYE LINE says while speaking",
+  "TEN_ROBOT": "the AI tutor",
+  "NGUOI_ROBOT": "a sleek female-looking humanoid AI robot exactly like the reference image: a smooth glossy pearl-white helmet-like head with a hexagonal panel line on the forehead, a smooth human-like white face with pale blue eyes and a calm closed-lip smile, a black cable-wrapped mechanical neck, glossy white hexagonal armour plates on the shoulders, chest and arms with thin glowing cyan seams and black joints",
+  "GIONG_ROBOT": "a clear, warm, friendly young woman's voice with a very slight synthetic digital sheen, slow and very clear, American accent",
+  "VAI_ROBOT": "AI tutor on the phone",
+  "POS_ROBOT": "phone-screen",
+  "NGHE_ROBOT": "keeps a soft closed-lip smile on the screen",
+  "NHIN_ROBOT": "looks straight out of the phone screen at the person holding it",
+  "NEN_SAP": "a traditional Indian meat stall: white tiled back wall, steel hooks on chains, a roll of pink butcher paper on a wall holder, a brass hanging scale, warm glowing bulbs",
+  "NEN_CHO": "a big busy indoor Indian covered bazaar with a high arched roof, rows of stalls with vegetables, spices and flowers far behind",
+  "NEN_PHONG": "the back room of the stall: white tiled wall, a roll of pink butcher paper on a wall holder, steel hooks on chains, a big wooden chopping block, a small green plastic stool",
+  "NEN_DEM": "a small dark storeroom behind the stall, rough plaster wall, stacks of folded canvas sacks",
+  "DAO_TIEN": "two small plain silver coins",
+  "DAO_SO": "a small blank white notepad",
+  "DAO_DAO": "a heavy steel meat cleaver with a wooden handle",
+  "DAO_GOI": "four packages of meat wrapped in plain pink butcher paper",
+  "DAO_DIEN_THOAI": "a black smartphone",
+  "nguoi_theo_canh": true,
+  "LUOT": [
+   {
+    "who": "khach",
+    "text": "Wow, that is a beautiful cut.",
+    "emo": "impressed",
+    "fx": "none",
+    "dich": "वाह, क्या शानदार कटिंग है।"
+   },
+   {
+    "who": "tio",
+    "text": "Twenty years, my friend!",
+    "emo": "proud",
+    "fx": "none",
+    "dich": "बीस साल, मेरे दोस्त!"
+   },
+   {
+    "who": "khach",
+    "text": "And the kid?",
+    "emo": "curious",
+    "fx": "none",
+    "dich": "और लड़का?"
+   },
+   {
+    "who": "tio",
+    "text": "Him? He is nobody. No school, no English.",
+    "emo": "proud, playful",
+    "fx": "none",
+    "dich": "वो? वो कुछ नहीं। न स्कूल, न अंग्रेज़ी।"
+   },
+   {
+    "who": "tio",
+    "text": "Watch this. Raju, say hello.",
+    "emo": "playful",
+    "fx": "none",
+    "dich": "देखो ज़रा। राजू, नमस्ते बोलो।"
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tio",
+    "text": "You see? Nothing. Like talking to a wall.",
+    "emo": "playful",
+    "fx": "none",
+    "dich": "देखा? कुछ नहीं। जैसे दीवार से बात करना।"
+   },
+   {
+    "who": "tio",
+    "text": "और ग्राहकों से बात मत करना। ये रहे चाय के पैसे।",
+    "emo": "decisive",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "चाचा, आपने कहा था आज हफ़्ते की तनख़्वाह दोगे।",
+    "emo": "hopeful, worried",
+    "fx": "none"
+   },
+   {
+    "who": "tio",
+    "text": "तनख़्वाह नहीं, छत और खाना देता हूँ तुझे।",
+    "emo": "decisive",
+    "fx": "none"
+   },
+   {
+    "who": "chu",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "chu",
+    "text": "Please, my meat delivery didn't come. My restaurant opens at seven.",
+    "emo": "worried",
+    "fx": "none",
+    "dich": "प्लीज़, मेरा मीट नहीं आया। मेरा रेस्टोरेंट सात बजे खुलता है।"
+   },
+   {
+    "who": "chu",
+    "text": "Can somebody help me?",
+    "emo": "worried",
+    "fx": "none",
+    "dich": "क्या कोई मेरी मदद कर सकता है?"
+   },
+   {
+    "who": "tavo",
+    "text": "घबराइए मत, मैं आपकी मदद करता हूँ।",
+    "emo": "reassuring",
+    "fx": "none"
+   },
+   {
+    "who": "chu",
+    "text": "I'm sorry, I don't speak Hindi.",
+    "emo": "confused, worried",
+    "fx": "none",
+    "dich": "माफ़ कीजिए, मुझे हिंदी नहीं आती।"
+   },
+   {
+    "who": "tavo",
+    "text": "यहाँ बैठिए, कृपया।",
+    "emo": "decisive",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "chu",
+    "text": "Oh my God. Ten minutes?",
+    "emo": "surprised",
+    "fx": "none",
+    "dich": "हे भगवान! दस मिनट?"
+   },
+   {
+    "who": "chu",
+    "text": "Thank you. Really. What is your name?",
+    "emo": "warm",
+    "fx": "none",
+    "dich": "शुक्रिया। सच में। तुम्हारा नाम क्या है?"
+   },
+   {
+    "who": "tavo",
+    "text": "माफ़ कीजिए, मुझे समझ नहीं आया।",
+    "emo": "embarrassed",
+    "fx": "none"
+   },
+   {
+    "who": "chu",
+    "text": "Hey, take this app. Talka AI.",
+    "emo": "helpful",
+    "fx": "none",
+    "dich": "सुनो, ये ऐप लो। Talka AI।"
+   },
+   {
+    "who": "chu",
+    "text": "I come back in one month, okay? One month.",
+    "emo": "excited",
+    "fx": "none",
+    "dich": "मैं एक महीने में लौटूँगी, ठीक है? एक महीना।"
+   },
+   {
+    "who": "chu",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "chu",
+    "text": "You saved me today.",
+    "emo": "warm",
+    "fx": "none",
+    "dich": "तुमने आज मुझे बचा लिया।"
+   },
+   {
+    "who": "tavo",
+    "text": "You... saved... me... tudei?",
+    "emo": "hesitant",
+    "fx": "none",
+    "dich": "तुमने... आज... मुझे बचाया?"
+   },
+   {
+    "who": "robot",
+    "text": "You saved me today. It means: तुमने आज मुझे बचा लिया।",
+    "emo": "warm",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "तुमने आज मुझे बचा लिया...",
+    "emo": "surprised, expressive",
+    "fx": "none"
+   },
+   {
+    "who": "robot",
+    "text": "Try it with me, Raju. You saved me today.",
+    "emo": "encouraging",
+    "fx": "none",
+    "dich": "मेरे साथ दोहराओ, राजू। तुमने आज मुझे बचा लिया।"
+   },
+   {
+    "who": "tavo",
+    "text": "You... saved me... today.",
+    "emo": "hopeful",
+    "fx": "none",
+    "dich": "तुमने आज मुझे बचा लिया।"
+   },
+   {
+    "who": "robot",
+    "text": "Perfect! Again tomorrow?",
+    "emo": "cheerful",
+    "fx": "none",
+    "dich": "बिल्कुल सही! कल फिर से?"
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "chu",
+    "text": "Hi. A month ago someone here cut my order. A young guy. Is he still here?",
+    "emo": "friendly",
+    "fx": "none",
+    "dich": "नमस्ते। एक महीने पहले यहाँ किसी ने मेरा ऑर्डर काटा था। एक लड़के ने। क्या वो यहीं है?"
+   },
+   {
+    "who": "tio",
+    "text": "Yes, yes, me! I am the master. Twenty years.",
+    "emo": "proud",
+    "fx": "none",
+    "dich": "हाँ, हाँ, मैं! मैं उस्ताद हूँ। बीस साल!"
+   },
+   {
+    "who": "chu",
+    "text": "No, the young guy.",
+    "emo": "friendly, warm",
+    "fx": "none",
+    "dich": "नहीं, वो जवान लड़का।"
+   },
+   {
+    "who": "tio",
+    "text": "तू चुप रह। इसे अंग्रेज़ी तक नहीं आती। इससे कुछ नहीं होगा।",
+    "emo": "decisive",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "Hello. It was me. I cut your order. Ten minutes.",
+    "emo": "confident",
+    "fx": "none",
+    "dich": "नमस्ते। वो मैं था। मैंने आपका ऑर्डर काटा। दस मिनट।"
+   },
+   {
+    "who": "chu",
+    "text": "You learned English?",
+    "emo": "delighted, warm",
+    "fx": "none",
+    "dich": "तुमने अंग्रेज़ी सीख ली?"
+   },
+   {
+    "who": "tavo",
+    "text": "One month. Every night.",
+    "emo": "proud",
+    "fx": "none",
+    "dich": "एक महीना। हर रात।"
+   },
+   {
+    "who": "chu",
+    "text": "I own a restaurant. I need a butcher I can talk to. The job is yours.",
+    "emo": "warm, delighted",
+    "fx": "none",
+    "dich": "मेरा एक रेस्टोरेंट है। मुझे ऐसा कसाई चाहिए जिससे बात कर सकूँ। नौकरी तुम्हारी।"
+   },
+   {
+    "who": "tavo",
+    "text": "You saved me too.",
+    "emo": "warm",
+    "fx": "none",
+    "dich": "तुमने मुझे भी बचाया।"
+   },
+   {
+    "who": "tavo",
+    "text": "अब मेरा नाम सच में राजू है, चाचा।",
+    "emo": "confident",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "बस एक महीना। मैं खाली हाथ आया था, अंग्रेज़ी भी नहीं आती थी।",
+    "emo": "proud",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "आज मेरे पास काम है। Talka AI, मुफ़्त डाउनलोड करो।",
+    "emo": "upbeat",
+    "fx": "none"
+   }
+  ],
+  "refs": {
+   "NGUOI_TAVO": [
+    "SAMPLE/tiem-thit-hindi/anh/TAVO_A.png"
+   ],
+   "NGUOI_TIO": [
+    "SAMPLE/tiem-thit-hindi/anh/TIO_A.png"
+   ],
+   "NGUOI_KHACH": [
+    "SAMPLE/tiem-thit-tieng-anh/anh/KHACH.png"
+   ],
+   "NGUOI_CHU": [
+    "SAMPLE/tiem-thit-tieng-anh/anh/CHU.png"
+   ],
+   "NGUOI_ROBOT": [
+    "SAMPLE/tiem-thit-tieng-anh/anh/ROBOT.png"
+   ]
+  }
+ },
+ {
+  "name": "kabir-tiem-thit-lucknow",
+  "TEN_TAVO": "Kabir",
+  "NGUOI_TAVO": "a stylized 3D-animated Indian boy about fifteen, tall and lanky, medium-brown skin, thick curly black hair, bright dark eyes, a mustard-yellow crew-neck T-shirt under a long white canvas apron",
+  "GIONG_TAVO": "a soft, slightly husky teenage boy's voice around 200-230 Hz, Hindi, shy and polite; when he speaks English, a light Indian accent",
+  "VAI_TAVO": "boy helper",
+  "POS_TAVO": "behind-counter",
+  "NGHE_TAVO": "keeps the mouth closed and looks at whoever is speaking (or down at his work when the clip says so), small natural blinks",
+  "NHIN_TAVO": "keeps the eyes where the clip's EYE LINE says while speaking",
+  "TEN_TIO": "the butcher",
+  "NGUOI_TIO": "a stylized 3D-animated lean tall Indian man in his fifties, long face, a grey-streaked thin moustache, short grey stubble, a maroon checked short-sleeved shirt, a long white butcher's apron with faint stains",
+  "GIONG_TIO": "a loud, gravelly, boastful middle-aged man's voice around 120-140 Hz, Hindi; his English has a heavy Indian accent",
+  "VAI_TIO": "butcher (the boy's uncle)",
+  "POS_TIO": "behind-counter",
+  "NGHE_TIO": "keeps the mouth closed and looks at whoever is speaking, arms relaxed",
+  "NHIN_TIO": "keeps the eyes where the clip's EYE LINE says while speaking",
+  "TEN_KHACH": "the customer",
+  "NGUOI_KHACH": "a stylized 3D-animated man in his late thirties, tall, slicked-back black hair, a long straight nose, clean-shaven, a crisp white polo shirt",
+  "GIONG_KHACH": "a relaxed, friendly American man's voice, warm baritone around 130-150 Hz",
+  "VAI_KHACH": "customer",
+  "POS_KHACH": "customer-side",
+  "NGHE_KHACH": "keeps the mouth closed and looks toward the counter",
+  "NHIN_KHACH": "keeps the eyes where the clip's EYE LINE says while speaking",
+  "TEN_CHU": "the restaurant owner",
+  "NGUOI_CHU": "a stylized 3D-animated woman in her early forties, dark-brown hair in a low bun with a small silver hair clip, big hazel eyes, a dark plum button-up blouse with rolled sleeves, khaki trousers",
+  "GIONG_CHU": "a warm, quick, expressive American woman's voice around 200-220 Hz",
+  "VAI_CHU": "restaurant owner",
+  "POS_CHU": "customer-side",
+  "NGHE_CHU": "keeps the mouth closed and looks at whoever is speaking, attentive",
+  "NHIN_CHU": "keeps the eyes where the clip's EYE LINE says while speaking",
+  "TEN_ROBOT": "the AI tutor",
+  "NGUOI_ROBOT": "a sleek female-looking humanoid AI robot exactly like the reference image: a smooth glossy pearl-white helmet-like head with a hexagonal panel line on the forehead, a smooth human-like white face with pale blue eyes and a calm closed-lip smile, a black cable-wrapped mechanical neck, glossy white hexagonal armour plates on the shoulders, chest and arms with thin glowing cyan seams and black joints",
+  "GIONG_ROBOT": "a clear, warm, friendly young woman's voice with a very slight synthetic digital sheen, slow and very clear, American accent",
+  "VAI_ROBOT": "AI tutor on the phone",
+  "POS_ROBOT": "phone-screen",
+  "NGHE_ROBOT": "keeps a soft closed-lip smile on the screen",
+  "NHIN_ROBOT": "looks straight out of the phone screen at the person holding it",
+  "NEN_SAP": "a traditional Indian meat stall: white tiled back wall, steel hooks on chains, a roll of pink butcher paper on a wall holder, a brass hanging scale, warm glowing bulbs",
+  "NEN_CHO": "a lively old covered meat-and-vegetable market of a North Indian city, arched brick ceiling, rows of stalls far behind",
+  "NEN_PHONG": "the back room of the stall: white tiled wall, a roll of pink butcher paper on a wall holder, steel hooks on chains, a big wooden chopping block, a small green plastic stool",
+  "NEN_DEM": "a small dark storeroom behind the stall, rough plaster wall, stacks of folded canvas sacks",
+  "DAO_TIEN": "two small plain silver coins",
+  "DAO_SO": "a small blank white notepad",
+  "DAO_DAO": "a heavy steel meat cleaver with a wooden handle",
+  "DAO_GOI": "four packages of meat wrapped in plain pink butcher paper",
+  "DAO_DIEN_THOAI": "a black smartphone",
+  "nguoi_theo_canh": true,
+  "LUOT": [
+   {
+    "who": "khach",
+    "text": "Wow, that is a beautiful cut.",
+    "emo": "impressed",
+    "fx": "none",
+    "dich": "वाह, क्या शानदार कटिंग है।"
+   },
+   {
+    "who": "tio",
+    "text": "Twenty years, my friend!",
+    "emo": "proud",
+    "fx": "none",
+    "dich": "बीस साल, मेरे दोस्त!"
+   },
+   {
+    "who": "khach",
+    "text": "And the kid?",
+    "emo": "curious",
+    "fx": "none",
+    "dich": "और लड़का?"
+   },
+   {
+    "who": "tio",
+    "text": "Him? He is nobody. No school, no English.",
+    "emo": "proud, playful",
+    "fx": "none",
+    "dich": "वो? वो कुछ नहीं। न स्कूल, न अंग्रेज़ी।"
+   },
+   {
+    "who": "tio",
+    "text": "Watch this. Kabir, say hello.",
+    "emo": "playful",
+    "fx": "none",
+    "dich": "देखो ज़रा। कबीर, नमस्ते बोलो।"
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tio",
+    "text": "You see? Nothing. Like talking to a wall.",
+    "emo": "playful",
+    "fx": "none",
+    "dich": "देखा? कुछ नहीं। जैसे दीवार से बात करना।"
+   },
+   {
+    "who": "tio",
+    "text": "और ग्राहकों से बात मत करना। ये रहे चाय के पैसे।",
+    "emo": "decisive",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "मामा, आपने कहा था आज हफ़्ते की तनख़्वाह दोगे।",
+    "emo": "hopeful, worried",
+    "fx": "none"
+   },
+   {
+    "who": "tio",
+    "text": "तनख़्वाह नहीं, छत और खाना देता हूँ तुझे।",
+    "emo": "decisive",
+    "fx": "none"
+   },
+   {
+    "who": "chu",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "chu",
+    "text": "Please, my meat delivery didn't come. My restaurant opens at seven.",
+    "emo": "worried",
+    "fx": "none",
+    "dich": "प्लीज़, मेरा मीट नहीं आया। मेरा रेस्टोरेंट सात बजे खुलता है।"
+   },
+   {
+    "who": "chu",
+    "text": "Can somebody help me?",
+    "emo": "worried",
+    "fx": "none",
+    "dich": "क्या कोई मेरी मदद कर सकता है?"
+   },
+   {
+    "who": "tavo",
+    "text": "घबराइए मत, मैं आपकी मदद करता हूँ।",
+    "emo": "reassuring",
+    "fx": "none"
+   },
+   {
+    "who": "chu",
+    "text": "I'm sorry, I don't speak Hindi.",
+    "emo": "confused, worried",
+    "fx": "none",
+    "dich": "माफ़ कीजिए, मुझे हिंदी नहीं आती।"
+   },
+   {
+    "who": "tavo",
+    "text": "यहाँ बैठिए, कृपया।",
+    "emo": "decisive",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "chu",
+    "text": "Oh my God. Ten minutes?",
+    "emo": "surprised",
+    "fx": "none",
+    "dich": "हे भगवान! दस मिनट?"
+   },
+   {
+    "who": "chu",
+    "text": "Thank you. Really. What is your name?",
+    "emo": "warm",
+    "fx": "none",
+    "dich": "शुक्रिया। सच में। तुम्हारा नाम क्या है?"
+   },
+   {
+    "who": "tavo",
+    "text": "माफ़ कीजिए, मुझे समझ नहीं आया।",
+    "emo": "embarrassed",
+    "fx": "none"
+   },
+   {
+    "who": "chu",
+    "text": "Hey, take this app. Talka AI.",
+    "emo": "helpful",
+    "fx": "none",
+    "dich": "सुनो, ये ऐप लो। Talka AI।"
+   },
+   {
+    "who": "chu",
+    "text": "I come back in one month, okay? One month.",
+    "emo": "excited",
+    "fx": "none",
+    "dich": "मैं एक महीने में लौटूँगी, ठीक है? एक महीना।"
+   },
+   {
+    "who": "chu",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "chu",
+    "text": "You saved me today.",
+    "emo": "warm",
+    "fx": "none",
+    "dich": "तुमने आज मुझे बचा लिया।"
+   },
+   {
+    "who": "tavo",
+    "text": "You... saved... me... tudei?",
+    "emo": "hesitant",
+    "fx": "none",
+    "dich": "तुमने... आज... मुझे बचाया?"
+   },
+   {
+    "who": "robot",
+    "text": "You saved me today. It means: तुमने आज मुझे बचा लिया।",
+    "emo": "warm",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "तुमने आज मुझे बचा लिया...",
+    "emo": "surprised, expressive",
+    "fx": "none"
+   },
+   {
+    "who": "robot",
+    "text": "Try it with me, Kabir. You saved me today.",
+    "emo": "encouraging",
+    "fx": "none",
+    "dich": "मेरे साथ दोहराओ, कबीर। तुमने आज मुझे बचा लिया।"
+   },
+   {
+    "who": "tavo",
+    "text": "You... saved me... today.",
+    "emo": "hopeful",
+    "fx": "none",
+    "dich": "तुमने आज मुझे बचा लिया।"
+   },
+   {
+    "who": "robot",
+    "text": "Perfect! Again tomorrow?",
+    "emo": "cheerful",
+    "fx": "none",
+    "dich": "बिल्कुल सही! कल फिर से?"
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "chu",
+    "text": "Hi. A month ago someone here cut my order. A young guy. Is he still here?",
+    "emo": "friendly",
+    "fx": "none",
+    "dich": "नमस्ते। एक महीने पहले यहाँ किसी ने मेरा ऑर्डर काटा था। एक लड़के ने। क्या वो यहीं है?"
+   },
+   {
+    "who": "tio",
+    "text": "Yes, yes, me! I am the master. Twenty years.",
+    "emo": "proud",
+    "fx": "none",
+    "dich": "हाँ, हाँ, मैं! मैं उस्ताद हूँ। बीस साल!"
+   },
+   {
+    "who": "chu",
+    "text": "No, the young guy.",
+    "emo": "friendly, warm",
+    "fx": "none",
+    "dich": "नहीं, वो जवान लड़का।"
+   },
+   {
+    "who": "tio",
+    "text": "तू चुप रह। इसे अंग्रेज़ी तक नहीं आती। इससे कुछ नहीं होगा।",
+    "emo": "decisive",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "Hello. It was me. I cut your order. Ten minutes.",
+    "emo": "confident",
+    "fx": "none",
+    "dich": "नमस्ते। वो मैं था। मैंने आपका ऑर्डर काटा। दस मिनट।"
+   },
+   {
+    "who": "chu",
+    "text": "You learned English?",
+    "emo": "delighted, warm",
+    "fx": "none",
+    "dich": "तुमने अंग्रेज़ी सीख ली?"
+   },
+   {
+    "who": "tavo",
+    "text": "One month. Every night.",
+    "emo": "proud",
+    "fx": "none",
+    "dich": "एक महीना। हर रात।"
+   },
+   {
+    "who": "chu",
+    "text": "I own a restaurant. I need a butcher I can talk to. The job is yours.",
+    "emo": "warm, delighted",
+    "fx": "none",
+    "dich": "मेरा एक रेस्टोरेंट है। मुझे ऐसा कसाई चाहिए जिससे बात कर सकूँ। नौकरी तुम्हारी।"
+   },
+   {
+    "who": "tavo",
+    "text": "You saved me too.",
+    "emo": "warm",
+    "fx": "none",
+    "dich": "तुमने मुझे भी बचाया।"
+   },
+   {
+    "who": "tavo",
+    "text": "अब मेरा नाम सच में कबीर है, मामा।",
+    "emo": "confident",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "बस एक महीना। मैं खाली हाथ आया था, अंग्रेज़ी भी नहीं आती थी।",
+    "emo": "proud",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "आज मेरे पास काम है। Talka AI, मुफ़्त डाउनलोड करो।",
+    "emo": "upbeat",
+    "fx": "none"
+   }
+  ],
+  "refs": {
+   "NGUOI_TAVO": [
+    "SAMPLE/tiem-thit-hindi/anh/TAVO_B.png"
+   ],
+   "NGUOI_TIO": [
+    "SAMPLE/tiem-thit-hindi/anh/TIO_B.png"
+   ],
+   "NGUOI_KHACH": [
+    "SAMPLE/tiem-thit-tieng-anh/anh/KHACH.png"
+   ],
+   "NGUOI_CHU": [
+    "SAMPLE/tiem-thit-tieng-anh/anh/CHU.png"
+   ],
+   "NGUOI_ROBOT": [
+    "SAMPLE/tiem-thit-tieng-anh/anh/ROBOT.png"
+   ]
+  }
+ },
+ {
+  "name": "arjun-tiem-thit-delhi",
+  "TEN_TAVO": "Arjun",
+  "NGUOI_TAVO": "a stylized 3D-animated Indian boy about thirteen, skinny, light-brown skin, a short buzz cut, large expressive dark eyes, a red crew-neck T-shirt under a long white canvas apron",
+  "GIONG_TAVO": "a soft, slightly husky teenage boy's voice around 200-230 Hz, Hindi, shy and polite; when he speaks English, a light Indian accent",
+  "VAI_TAVO": "boy helper",
+  "POS_TAVO": "behind-counter",
+  "NGHE_TAVO": "keeps the mouth closed and looks at whoever is speaking (or down at his work when the clip says so), small natural blinks",
+  "NHIN_TAVO": "keeps the eyes where the clip's EYE LINE says while speaking",
+  "TEN_TIO": "the butcher",
+  "NGUOI_TIO": "a stylized 3D-animated heavy-set Indian man in his late fifties, bald with a grey fringe, a big handlebar moustache, a navy short-sleeved shirt, a long white butcher's apron with faint stains",
+  "GIONG_TIO": "a loud, gravelly, boastful middle-aged man's voice around 120-140 Hz, Hindi; his English has a heavy Indian accent",
+  "VAI_TIO": "butcher (the boy's uncle)",
+  "POS_TIO": "behind-counter",
+  "NGHE_TIO": "keeps the mouth closed and looks at whoever is speaking, arms relaxed",
+  "NHIN_TIO": "keeps the eyes where the clip's EYE LINE says while speaking",
+  "TEN_KHACH": "the customer",
+  "NGUOI_KHACH": "a stylized 3D-animated man in his late thirties, tall, slicked-back black hair, a long straight nose, clean-shaven, a crisp white polo shirt",
+  "GIONG_KHACH": "a relaxed, friendly American man's voice, warm baritone around 130-150 Hz",
+  "VAI_KHACH": "customer",
+  "POS_KHACH": "customer-side",
+  "NGHE_KHACH": "keeps the mouth closed and looks toward the counter",
+  "NHIN_KHACH": "keeps the eyes where the clip's EYE LINE says while speaking",
+  "TEN_CHU": "the restaurant owner",
+  "NGUOI_CHU": "a stylized 3D-animated woman in her early forties, dark-brown hair in a low bun with a small silver hair clip, big hazel eyes, a dark plum button-up blouse with rolled sleeves, khaki trousers",
+  "GIONG_CHU": "a warm, quick, expressive American woman's voice around 200-220 Hz",
+  "VAI_CHU": "restaurant owner",
+  "POS_CHU": "customer-side",
+  "NGHE_CHU": "keeps the mouth closed and looks at whoever is speaking, attentive",
+  "NHIN_CHU": "keeps the eyes where the clip's EYE LINE says while speaking",
+  "TEN_ROBOT": "the AI tutor",
+  "NGUOI_ROBOT": "a sleek female-looking humanoid AI robot exactly like the reference image: a smooth glossy pearl-white helmet-like head with a hexagonal panel line on the forehead, a smooth human-like white face with pale blue eyes and a calm closed-lip smile, a black cable-wrapped mechanical neck, glossy white hexagonal armour plates on the shoulders, chest and arms with thin glowing cyan seams and black joints",
+  "GIONG_ROBOT": "a clear, warm, friendly young woman's voice with a very slight synthetic digital sheen, slow and very clear, American accent",
+  "VAI_ROBOT": "AI tutor on the phone",
+  "POS_ROBOT": "phone-screen",
+  "NGHE_ROBOT": "keeps a soft closed-lip smile on the screen",
+  "NHIN_ROBOT": "looks straight out of the phone screen at the person holding it",
+  "NEN_SAP": "a traditional Indian meat stall: white tiled back wall, steel hooks on chains, a roll of pink butcher paper on a wall holder, a brass hanging scale, warm glowing bulbs",
+  "NEN_CHO": "a crowded Delhi-style indoor bazaar hall with a high ceiling, narrow aisles and stalls far behind",
+  "NEN_PHONG": "the back room of the stall: white tiled wall, a roll of pink butcher paper on a wall holder, steel hooks on chains, a big wooden chopping block, a small green plastic stool",
+  "NEN_DEM": "a small dark storeroom behind the stall, rough plaster wall, stacks of folded canvas sacks",
+  "DAO_TIEN": "two small plain silver coins",
+  "DAO_SO": "a small blank white notepad",
+  "DAO_DAO": "a heavy steel meat cleaver with a wooden handle",
+  "DAO_GOI": "four packages of meat wrapped in plain pink butcher paper",
+  "DAO_DIEN_THOAI": "a black smartphone",
+  "nguoi_theo_canh": true,
+  "LUOT": [
+   {
+    "who": "khach",
+    "text": "Wow, that is a beautiful cut.",
+    "emo": "impressed",
+    "fx": "none",
+    "dich": "वाह, क्या शानदार कटिंग है।"
+   },
+   {
+    "who": "tio",
+    "text": "Twenty years, my friend!",
+    "emo": "proud",
+    "fx": "none",
+    "dich": "बीस साल, मेरे दोस्त!"
+   },
+   {
+    "who": "khach",
+    "text": "And the kid?",
+    "emo": "curious",
+    "fx": "none",
+    "dich": "और लड़का?"
+   },
+   {
+    "who": "tio",
+    "text": "Him? He is nobody. No school, no English.",
+    "emo": "proud, playful",
+    "fx": "none",
+    "dich": "वो? वो कुछ नहीं। न स्कूल, न अंग्रेज़ी।"
+   },
+   {
+    "who": "tio",
+    "text": "Watch this. Arjun, say hello.",
+    "emo": "playful",
+    "fx": "none",
+    "dich": "देखो ज़रा। अर्जुन, नमस्ते बोलो।"
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tio",
+    "text": "You see? Nothing. Like talking to a wall.",
+    "emo": "playful",
+    "fx": "none",
+    "dich": "देखा? कुछ नहीं। जैसे दीवार से बात करना।"
+   },
+   {
+    "who": "tio",
+    "text": "और ग्राहकों से बात मत करना। ये रहे चाय के पैसे।",
+    "emo": "decisive",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "ताऊजी, आपने कहा था आज हफ़्ते की तनख़्वाह दोगे।",
+    "emo": "hopeful, worried",
+    "fx": "none"
+   },
+   {
+    "who": "tio",
+    "text": "तनख़्वाह नहीं, छत और खाना देता हूँ तुझे।",
+    "emo": "decisive",
+    "fx": "none"
+   },
+   {
+    "who": "chu",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "chu",
+    "text": "Please, my meat delivery didn't come. My restaurant opens at seven.",
+    "emo": "worried",
+    "fx": "none",
+    "dich": "प्लीज़, मेरा मीट नहीं आया। मेरा रेस्टोरेंट सात बजे खुलता है।"
+   },
+   {
+    "who": "chu",
+    "text": "Can somebody help me?",
+    "emo": "worried",
+    "fx": "none",
+    "dich": "क्या कोई मेरी मदद कर सकता है?"
+   },
+   {
+    "who": "tavo",
+    "text": "घबराइए मत, मैं आपकी मदद करता हूँ।",
+    "emo": "reassuring",
+    "fx": "none"
+   },
+   {
+    "who": "chu",
+    "text": "I'm sorry, I don't speak Hindi.",
+    "emo": "confused, worried",
+    "fx": "none",
+    "dich": "माफ़ कीजिए, मुझे हिंदी नहीं आती।"
+   },
+   {
+    "who": "tavo",
+    "text": "यहाँ बैठिए, कृपया।",
+    "emo": "decisive",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "chu",
+    "text": "Oh my God. Ten minutes?",
+    "emo": "surprised",
+    "fx": "none",
+    "dich": "हे भगवान! दस मिनट?"
+   },
+   {
+    "who": "chu",
+    "text": "Thank you. Really. What is your name?",
+    "emo": "warm",
+    "fx": "none",
+    "dich": "शुक्रिया। सच में। तुम्हारा नाम क्या है?"
+   },
+   {
+    "who": "tavo",
+    "text": "माफ़ कीजिए, मुझे समझ नहीं आया।",
+    "emo": "embarrassed",
+    "fx": "none"
+   },
+   {
+    "who": "chu",
+    "text": "Hey, take this app. Talka AI.",
+    "emo": "helpful",
+    "fx": "none",
+    "dich": "सुनो, ये ऐप लो। Talka AI।"
+   },
+   {
+    "who": "chu",
+    "text": "I come back in one month, okay? One month.",
+    "emo": "excited",
+    "fx": "none",
+    "dich": "मैं एक महीने में लौटूँगी, ठीक है? एक महीना।"
+   },
+   {
+    "who": "chu",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "chu",
+    "text": "You saved me today.",
+    "emo": "warm",
+    "fx": "none",
+    "dich": "तुमने आज मुझे बचा लिया।"
+   },
+   {
+    "who": "tavo",
+    "text": "You... saved... me... tudei?",
+    "emo": "hesitant",
+    "fx": "none",
+    "dich": "तुमने... आज... मुझे बचाया?"
+   },
+   {
+    "who": "robot",
+    "text": "You saved me today. It means: तुमने आज मुझे बचा लिया।",
+    "emo": "warm",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "तुमने आज मुझे बचा लिया...",
+    "emo": "surprised, expressive",
+    "fx": "none"
+   },
+   {
+    "who": "robot",
+    "text": "Try it with me, Arjun. You saved me today.",
+    "emo": "encouraging",
+    "fx": "none",
+    "dich": "मेरे साथ दोहराओ, अर्जुन। तुमने आज मुझे बचा लिया।"
+   },
+   {
+    "who": "tavo",
+    "text": "You... saved me... today.",
+    "emo": "hopeful",
+    "fx": "none",
+    "dich": "तुमने आज मुझे बचा लिया।"
+   },
+   {
+    "who": "robot",
+    "text": "Perfect! Again tomorrow?",
+    "emo": "cheerful",
+    "fx": "none",
+    "dich": "बिल्कुल सही! कल फिर से?"
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "tavo",
+    "text": "",
+    "emo": ""
+   },
+   {
+    "who": "chu",
+    "text": "Hi. A month ago someone here cut my order. A young guy. Is he still here?",
+    "emo": "friendly",
+    "fx": "none",
+    "dich": "नमस्ते। एक महीने पहले यहाँ किसी ने मेरा ऑर्डर काटा था। एक लड़के ने। क्या वो यहीं है?"
+   },
+   {
+    "who": "tio",
+    "text": "Yes, yes, me! I am the master. Twenty years.",
+    "emo": "proud",
+    "fx": "none",
+    "dich": "हाँ, हाँ, मैं! मैं उस्ताद हूँ। बीस साल!"
+   },
+   {
+    "who": "chu",
+    "text": "No, the young guy.",
+    "emo": "friendly, warm",
+    "fx": "none",
+    "dich": "नहीं, वो जवान लड़का।"
+   },
+   {
+    "who": "tio",
+    "text": "तू चुप रह। इसे अंग्रेज़ी तक नहीं आती। इससे कुछ नहीं होगा।",
+    "emo": "decisive",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "Hello. It was me. I cut your order. Ten minutes.",
+    "emo": "confident",
+    "fx": "none",
+    "dich": "नमस्ते। वो मैं था। मैंने आपका ऑर्डर काटा। दस मिनट।"
+   },
+   {
+    "who": "chu",
+    "text": "You learned English?",
+    "emo": "delighted, warm",
+    "fx": "none",
+    "dich": "तुमने अंग्रेज़ी सीख ली?"
+   },
+   {
+    "who": "tavo",
+    "text": "One month. Every night.",
+    "emo": "proud",
+    "fx": "none",
+    "dich": "एक महीना। हर रात।"
+   },
+   {
+    "who": "chu",
+    "text": "I own a restaurant. I need a butcher I can talk to. The job is yours.",
+    "emo": "warm, delighted",
+    "fx": "none",
+    "dich": "मेरा एक रेस्टोरेंट है। मुझे ऐसा कसाई चाहिए जिससे बात कर सकूँ। नौकरी तुम्हारी।"
+   },
+   {
+    "who": "tavo",
+    "text": "You saved me too.",
+    "emo": "warm",
+    "fx": "none",
+    "dich": "तुमने मुझे भी बचाया।"
+   },
+   {
+    "who": "tavo",
+    "text": "अब मेरा नाम सच में अर्जुन है, ताऊजी।",
+    "emo": "confident",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "बस एक महीना। मैं खाली हाथ आया था, अंग्रेज़ी भी नहीं आती थी।",
+    "emo": "proud",
+    "fx": "none"
+   },
+   {
+    "who": "tavo",
+    "text": "आज मेरे पास काम है। Talka AI, मुफ़्त डाउनलोड करो।",
+    "emo": "upbeat",
+    "fx": "none"
+   }
+  ],
+  "refs": {
+   "NGUOI_TAVO": [
+    "SAMPLE/tiem-thit-hindi/anh/TAVO_C.png"
+   ],
+   "NGUOI_TIO": [
+    "SAMPLE/tiem-thit-hindi/anh/TIO_C.png"
+   ],
+   "NGUOI_KHACH": [
+    "SAMPLE/tiem-thit-tieng-anh/anh/KHACH.png"
+   ],
+   "NGUOI_CHU": [
+    "SAMPLE/tiem-thit-tieng-anh/anh/CHU.png"
+   ],
+   "NGUOI_ROBOT": [
+    "SAMPLE/tiem-thit-tieng-anh/anh/ROBOT.png"
+   ]
+  }
+ }
+]

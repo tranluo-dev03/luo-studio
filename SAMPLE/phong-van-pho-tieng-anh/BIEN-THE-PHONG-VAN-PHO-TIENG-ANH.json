@@ -1,0 +1,151 @@
+[
+  {
+    "name": "en01-street-food-vendor",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young American man about 28 years old with short dark hair and thin glasses, a pink-and-white checked shirt, a black backpack strap over the shoulder",
+    "GIONG_PV": "a real young American man's voice, light baritone (around 125-150 Hz), friendly and playful like a street-interview host, native American English; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "HIS_PV": "his",
+    "HIM_PV": "him",
+    "TOC_PV": "short dark hair",
+    "NHIN_PV": "keeps his face pointed at the vendor's face, to the right and slightly down, the camera seeing only the back and the right edge of his head; he never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the vendor and keeps his face pointed at her, his head still, the camera seeing only the back of his head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "TEN_HOC": "the vendor",
+    "VAI_HOC": "street food seller",
+    "POS_HOC": "CENTRE-RIGHT, behind the cart",
+    "NGUOI_HOC": "an American woman about 45 years old with black hair in a neat bun, a friendly open face, a magenta blouse and a brown-grey shawl over the shoulder, a small red dot on the forehead; photorealistic skin and fabric",
+    "GIONG_HOC": "a real American woman's voice, warm, a little husky and unhurried (around 200-225 Hz), native American English; a real person, not an actress",
+    "SHE_HOC": "she",
+    "HER_HOC": "her",
+    "HERO_HOC": "her",
+    "SELF_HOC": "herself",
+    "DAO_GANG": "She wears thin clear plastic food-service gloves.",
+    "DAO_GIU": "Her gloved hands rest on the edge of the cart at the start of every clip.",
+    "TAY_HOC": "her gloved hands resting on the edge of the cart",
+    "VIEC_HOC": "keeps shaping a small dumpling with her gloved fingers",
+    "VIEC2_HOC": "her gloved hands go back to the dough on the cart",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, her gloved hands resting on the edge of the cart; she never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward her, her gloved hands resting on the edge of the cart",
+    "DAO_XE": "a stainless-steel street-food cart with several round steel pots of filling and sauce, a tray of fried snacks and small steel bowls",
+    "NEN_PHO": "a quiet American small-town street in the daytime, two-storey brick buildings, a blue shop awning, a few trees, overcast sky; any signboards are blurred and unreadable; she stands behind her food cart",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a glossy white humanoid AI robot with a smooth, calm, human-like face, glowing blue eyes, a small glowing AI mark on the forehead and dark glossy neck joints",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native American English",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "NEN_HOC": "a busy outdoor food market with food trays and people walking, out of focus behind her; any signboards are blurred and unreadable",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "How did you learn to speak English so well?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "A month ago I only heard English on TV. Now I speak fluently every day.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "So what's your secret, really?",
+        "emo": "amazed, friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I started practicing English from the very first day.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "And where are you from, exactly?",
+        "emo": "curious, playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "I'm from Denver. Come, I'll show you how.",
+        "emo": "cheerful, inviting",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "In just one month you'll speak like a native. Can you say this sentence after me?",
+        "emo": "warm, encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Yes, sure, I can try it right now.",
+        "emo": "hesitant, willing",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Perfect! Your pronunciation gets better every day.",
+        "emo": "delighted",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "And this isn't very expensive, is it?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "No, you practice English for free, with no limits.",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "I fix your grammar and pronunciation instantly. You'll speak with confidence, like with a real teacher.",
+        "emo": "warm, confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ]
+  }
+]

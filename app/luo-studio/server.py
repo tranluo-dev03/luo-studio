@@ -23,23 +23,49 @@ for d in (PROJ, RUNS, TYPES):
 
 import engine as E  # noqa: E402
 import face_mesh as FM  # noqa: E402
+import claude_bridge as CB  # noqa: E402
 
 LOCK = threading.RLock()
 DEFAULT_SETTINGS = {"api_url": os.environ.get("LUO_API_URL", "http://127.0.0.1:18610"), "api_key": "", "timeout": 900, "retries": 2, "cut": True, "speedfix": True, "normalize": True, "color_mode": "anchor", "color_strength": 1.0, "video_char_refs": True, "listen_mode": "idle", "check_overlap": True, "mouth_note": "", "overlap_retries": 2, "mouth_sens": "normal", "precise_cut": True, "muse_directive": True, "check_camera": True, "fx_hook": True, "cut_margin": 0.5, "voice_split": True, "export_dir": "", "speed_max": 1.25, "chat_every": 1, "parallel": 1, "fx_ding": False, "fx_pop": False, "auto_retry": 3,
-                    "logo": "", "endcard": "", "topbar": "", "whisper": "auto"}
+                    "logo": "", "endcard": "", "topbar": "", "whisper": "auto", "claude_path": "", "claude_model": "", "claude_parallel": 2}
 
 # ------------------------------------------------------------------ lưu trữ
 def jread(path, default=None):
     try:
-        return json.load(open(path, encoding="utf-8"))
+        with open(path, encoding="utf-8") as f:
+            txt = f.read()
     except Exception:
         return default
+    try:
+        return json.loads(txt)
+    except Exception:
+        try:   # tệp có rác thừa phía sau (ghi chồng cũ): lấy phần JSON hợp lệ đầu tiên thay vì coi như rỗng
+            return json.JSONDecoder().raw_decode(txt)[0]
+        except Exception:
+            return default
+
+
+_JW_LOCKS = {}
+_JW_GUARD = threading.Lock()
 
 
 def jwrite(path, obj):
-    tmp = path + ".tmp"
-    json.dump(obj, open(tmp, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
-    os.replace(tmp, path)
+    """Ghi JSON an toàn: mỗi lần ghi một tệp tạm riêng + khoá theo đường dẫn, rồi đổi tên nguyên tử.
+    (Trước đây mọi luồng dùng chung `<tệp>.tmp`: hai lần ghi chồng nhau làm hỏng queue.json và hàng đợi biến mất.)"""
+    with _JW_GUARD:
+        lk = _JW_LOCKS.setdefault(os.path.abspath(path), threading.Lock())
+    with lk:
+        tmp = f"{path}.{os.getpid()}.{threading.get_ident()}.tmp"
+        try:
+            with open(tmp, "w", encoding="utf-8") as f:
+                json.dump(obj, f, ensure_ascii=False, indent=2)
+            os.replace(tmp, path)
+        finally:
+            if os.path.exists(tmp):
+                try:
+                    os.remove(tmp)
+                except OSError:
+                    pass
 
 
 def settings():
@@ -208,6 +234,68 @@ def load_project(pid):
     return jread(project_path(pid))
 
 
+# ------------------------------------------------------------------ kho nhân vật / kho bot có sẵn
+# SAMPLE/_chung/kho-nhan-vat/danh-muc.json: mã -> ảnh (Google Drive). Biến thể chỉ cần ghi MÃ ở "refs" (vd. "NGUOI_HOC": "NU-30-45-AUMY-05"):
+# Studio lấy ảnh trong kho (anh/<MÃ>.webp; máy chưa có thì tự tải theo danh mục) và gắn làm ảnh tham chiếu của nhân vật đó.
+KHO_DIR = os.path.normpath(os.path.join(HERE, "..", "..", "SAMPLE", "_chung", "kho-nhan-vat"))
+_KHO = {"mt": 0, "items": {}, "mod": None}
+_KHO_LOCK = threading.Lock()
+
+
+def kho_items():
+    f = os.path.join(KHO_DIR, "danh-muc.json")
+    try:
+        mt = os.path.getmtime(f)
+    except OSError:
+        return {}
+    if mt != _KHO["mt"]:
+        d = jread(f) or {}
+        _KHO.update(mt=mt, items={r["ma"].upper(): r for r in (d.get("nguoi") or []) + (d.get("bot") or [])})
+    return _KHO["items"]
+
+
+def kho_code(s):
+    """Chuỗi là một mã trong kho (không phân biệt hoa thường) -> mã chuẩn; không phải mã -> None. Chuỗi CÓ DẠNG mã (NAM-/NU-/BOT-...) mà không có trong kho -> ValueError."""
+    s = str(s or "").strip().upper()
+    if not re.fullmatch(r"[A-Z0-9]+(?:-[A-Z0-9]+)+", s):
+        return None
+    if s in kho_items():
+        return s
+    if re.match(r"(NAM|NU|BOT)-", s):
+        raise ValueError(f"mã {s} không có trong kho nhân vật")
+    return None
+
+
+def kho_file(code):
+    """Đường dẫn ảnh của một mã trong kho; chưa có trên máy thì tải về theo danh mục."""
+    if _KHO["mod"] is None:
+        with _KHO_LOCK:   # tab Kho nhân vật xin hàng chục ảnh cùng lúc: chỉ một luồng nạp module, và chỉ gán sau khi nạp XONG
+            if _KHO["mod"] is None:   # (trước đây gán trước khi nạp xong -> các luồng khác gọi hàm chưa tồn tại -> ảnh lỗi 404)
+                import importlib.util
+                sp = importlib.util.spec_from_file_location("kho_tai_anh", os.path.join(KHO_DIR, "tai-anh.py"))
+                mod = importlib.util.module_from_spec(sp)
+                sp.loader.exec_module(mod)
+                _KHO["mod"] = mod
+    return _KHO["mod"].tai(kho_items()[code])
+
+
+def kho_thumb(code, src):
+    """Ảnh thu nhỏ (rộng 360px, JPEG) của một ảnh kho, lưu đệm trong thư mục dữ liệu; lỗi (thiếu Pillow...) thì trả ảnh gốc."""
+    dst = os.path.join(DATA, "kho-thumb", code + ".jpg")
+    try:
+        if os.path.isfile(dst) and os.path.getmtime(dst) >= os.path.getmtime(src):
+            return dst
+        from PIL import Image
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        im = Image.open(src).convert("RGB")
+        im.thumbnail((360, 720))
+        im.save(dst + ".tmp", "JPEG", quality=82)
+        os.replace(dst + ".tmp", dst)
+        return dst
+    except Exception:  # noqa: BLE001
+        return src
+
+
 def _download_image(url, dest_dir, cache):
     """Tải ảnh từ link (link ảnh trực tiếp, hoặc trang xem ảnh như prnt.sc: lấy og:image) vào dest_dir. Trả về (tên tệp, loại)."""
     orig = url
@@ -259,8 +347,16 @@ def attach_ref_links(p):
             for it in items or []:
                 if isinstance(it, str):
                     it = {"url": it}
+                if it.get("ma") and not it.get("url"):   # {"ma": "<mã kho>"}
+                    it = dict(it, url=it["ma"])
                 if it.get("url") and not it.get("file"):
                     try:
+                        code = kho_code(it["url"])
+                        if code:   # mã trong kho nhân vật / kho bot: lấy ảnh của kho, tên hiển thị = mã
+                            fn, typ = _download_image(kho_file(code), d, cache)
+                            it = {"type": typ, "file": fn, "name": code, "kho": code}
+                            out.append(it)
+                            continue
                         fn, typ = _download_image(it["url"], d, cache)
                         it = {"type": typ, "file": fn, "name": it.get("name") or it["url"].rstrip("/").rsplit("/", 1)[-1], "url": it["url"]}
                     except Exception as e:  # noqa: BLE001 - link hỏng không được làm hỏng cả dự án
@@ -767,6 +863,7 @@ def _run_item(iid):
     cx = ICANCEL[iid] = ItemCancel()
     with LOCK:
         it.pop("_requeue", None)
+        it.pop("user_stop", None)
         it.update({"state": "running", "error": "", "started": time.time(), "ended": 0.0, "stopping": False, "retry_at": 0})
         if it["kind"] == "gen" and not it.get("only_post"):
             it["_prev_trace"] = {sc["n"]: sc["trace"] for sc in it.get("scenes", []) if sc.get("trace")}
@@ -953,6 +1050,8 @@ def stop_items(ids=None):
                     it["retry_at"] = 0
         for iid in targets:
             cx, it = ICANCEL.get(iid), qfind(iid)
+            if it:
+                it["user_stop"] = time.time()   # người dùng chủ động dừng: tab Video mới báo "dừng" ngay, không chờ 30 giây
             if cx and it:
                 cx.ev.set()
                 it["stopping"] = True
@@ -1031,6 +1130,35 @@ def start_post(pid, vname, opts):
 qload()
 
 
+_DUR = {}   # (đường dẫn, mtime, cỡ) -> độ dài video; ffprobe mỗi video ~0,3 giây nên không đo lại mỗi lần mở tab Kết quả
+
+
+def _durations(paths):
+    """Độ dài (giây) của nhiều video: lấy từ bộ nhớ đệm, video mới/đổi thì đo song song."""
+    from concurrent.futures import ThreadPoolExecutor
+
+    def key(p):
+        st = os.stat(p)
+        return (p, int(st.st_mtime), st.st_size)
+
+    def one(k):
+        try:
+            return round(E.duration(k[0]), 1)
+        except Exception:  # noqa: BLE001 - file đang ghi dở / hỏng: coi như 0, lần sau đo lại
+            return None
+    keys = {p: key(p) for p in paths}
+    todo = [k for k in keys.values() if k not in _DUR]
+    if todo:
+        with ThreadPoolExecutor(max_workers=8) as ex:
+            for k, d in zip(todo, ex.map(one, todo)):
+                if d is not None:
+                    _DUR[k] = d
+        live = set(keys.values())
+        for k in [k for k in _DUR if k not in live]:
+            _DUR.pop(k, None)
+    return {p: _DUR.get(k, 0) for p, k in keys.items()}
+
+
 def results():
     out = []
     for pid in sorted(os.listdir(RUNS)) if os.path.isdir(RUNS) else []:
@@ -1046,7 +1174,10 @@ def results():
             posting = any(x["id"] in ACTIVE for x in posts)
             last = posts[-1] if posts else None
             out.append({"posting": posting, "post_error": (last["error"] if last and last["state"] == "error" and not posting else ""), "project": pid, "project_name": (p or {}).get("name", pid), "variant": vn, "raw": os.path.exists(raw), "final": os.path.exists(fin),
-                        "mtime": int(os.path.getmtime(best)), "secs": round(E.duration(best), 1), "size": os.path.getsize(best)})
+                        "mtime": int(os.path.getmtime(best)), "_best": best, "size": os.path.getsize(best)})
+    secs = _durations([x["_best"] for x in out])
+    for x in out:
+        x["secs"] = secs.get(x.pop("_best"), 0)
     out.sort(key=lambda x: -x["mtime"])
     return out
 
@@ -1135,6 +1266,8 @@ def pick_file(kind):
             import tkinter  # noqa: F401
         except ImportError:
             return _pick_file_windows(kind)
+    if os.name != "nt" and sys.platform != "darwin" and not (os.environ.get("DISPLAY") or os.environ.get("WAYLAND_DISPLAY")):
+        return ""   # máy chủ không có màn hình: không mở được hộp thoại chọn tệp (dán đường dẫn thủ công)
     code = ("import tkinter as tk, tkinter.filedialog as fd, sys; r=tk.Tk(); r.withdraw(); r.attributes('-topmost',True); "
             "ft=[('Tệp','*.mov *.webm *.png *.jpg *.mp4 *.json *.txt')] if sys.argv[1]!='json' else [('JSON','*.json')]; "
             "print(fd.askopenfilename(filetypes=ft) or '')")
@@ -1180,6 +1313,15 @@ def app_version():
         return m.group(0) if m else ""
     except OSError:
         return ""
+
+
+def app_code():
+    """Version code: số nguyên tăng sau mỗi lần commit + push (dòng `code N` trong version.txt); rỗng nếu không có."""
+    try:
+        m = re.search(r"^code\s+(\d+)", open(os.path.join(HERE, "..", "..", "version.txt"), encoding="utf-8-sig").read(), re.M)
+        return int(m.group(1)) if m else 0
+    except OSError:
+        return 0
 
 
 _MOUTH = {"t": 0.0, "res": None}
@@ -1237,9 +1379,9 @@ def health():
         with urllib.request.urlopen(req, timeout=4) as r:
             d = json.loads(r.read().decode())
         ok = d.get("status") == "ready"
-        return {"ok": ok, "accounts": d.get("accounts", 0), "status": d.get("status"), "key": bool(api_key()), "version": app_version()}
+        return {"ok": ok, "accounts": d.get("accounts", 0), "status": d.get("status"), "key": bool(api_key()), "version": app_version(), "code": app_code()}
     except Exception as e:  # noqa: BLE001
-        return {"ok": False, "error": str(e)[:120], "key": bool(api_key()), "version": app_version()}
+        return {"ok": False, "error": str(e)[:120], "key": bool(api_key()), "version": app_version(), "code": app_code()}
 
 
 # ------------------------------------------------------------------ HTTP
@@ -1309,6 +1451,17 @@ class H(BaseHTTPRequestHandler):
                 if len(parts) != 2 or any(".." in x for x in parts):
                     return self.send_json({"error": "bad path"}, 400)
                 return self.send_file(os.path.join(DATA, "assets", slug(parts[0]), os.path.basename(parts[1])))
+            if path.startswith(("/kho/", "/kho-nho/")):   # ảnh của một mã trong kho nhân vật / kho bot (tab Kho nhân vật)
+                try:
+                    code = kho_code(urllib.parse.unquote(path.split("/", 2)[2]))
+                    if not code:
+                        return self.send_json({"error": "not found"}, 404)
+                    fp = kho_file(code)
+                    if path.startswith("/kho-nho/"):   # ảnh thu nhỏ cho lưới (216 ảnh gốc 1120x2240 tải và giải mã rất chậm); không tạo được thì trả ảnh gốc
+                        fp = kho_thumb(code, fp)
+                    return self.send_file(fp, {".webp": "image/webp", ".png": "image/png", ".jpg": "image/jpeg"}.get(os.path.splitext(fp)[1].lower()))
+                except Exception as e:  # noqa: BLE001 - mã lạ / chưa tải được ảnh
+                    return self.send_json({"error": str(e)[:200]}, 404)
             if path.startswith("/media/"):
                 parts = [urllib.parse.unquote(x) for x in path[7:].split("/")]
                 if len(parts) != 3 or any(".." in x for x in parts):
@@ -1340,6 +1493,158 @@ class H(BaseHTTPRequestHandler):
         except Exception as e:  # noqa: BLE001
             self.send_json({"error": str(e)}, 500)
 
+    def claude_api(self, m, p, q):
+        """Tab "Video mới": giao việc cho Claude CLI (xem claude_bridge.py)."""
+        try:
+            if p == ["status"]:
+                return self.send_json(CB.status())
+            if p == ["upload"] and m == "POST":   # thân yêu cầu = byte thô của file; tên file ở ?name=
+                name = os.path.basename(urllib.parse.unquote((q.get("name") or [""])[0]))
+                ext = os.path.splitext(name)[1].lower()
+                if ext not in CB.VIDEO_EXT + CB.IMG_EXT:
+                    return self.send_json({"error": "Chỉ nhận video (mp4, mov, mkv, webm) hoặc ảnh (png, jpg, webp)"}, 400)
+                dst = os.path.join(CB.uploads_dir(), uuid.uuid4().hex[:8] + "-" + slug(os.path.splitext(name)[0])[:40] + ext)
+                left = int(self.headers.get("Content-Length") or 0)
+                with open(dst, "wb") as f:
+                    while left > 0:
+                        chunk = self.rfile.read(min(1 << 20, left))
+                        if not chunk:
+                            break
+                        f.write(chunk)
+                        left -= len(chunk)
+                return self.send_json({"path": dst, "name": name})
+            if p == ["ctx"] and m == "GET":   # trang chi tiết video: dự án này có việc Claude không, và góp ý đã soạn của biến thể
+                pid, vname = (q.get("project") or [""])[0], (q.get("variant") or [""])[0]
+                proj = load_project(pid) or {}
+                jid = proj.get("claude_job") or ""
+                j = CB.JOBS.get(jid)
+                busy = bool(j and j["state"] in ("running", "queued", "stopping"))
+                return self.send_json({"job": jid if j else "", "busy": busy, "step": (j or {}).get("step", ""), "state": (j or {}).get("state", ""), "note": (j or {}).get("note", ""),
+                                       "fb": (proj.get("fb") or {}).get(vname) or {"general": "", "scenes": {}}})
+            if p == ["img"] and m == "GET":   # ảnh đính kèm góp ý (chỉ trong thư mục _uploads)
+                f = os.path.join(CB.uploads_dir(), os.path.basename((q.get("f") or [""])[0]))
+                ext = os.path.splitext(f)[1].lower()
+                if ext not in CB.IMG_EXT or not os.path.isfile(f):
+                    return self.send_json({"error": "not found"}, 404)
+                return self.send_file(f, "image/jpeg" if ext in (".jpg", ".jpeg") else "image/" + ext[1:])
+            if p == ["fb"] and m == "POST":
+                b = self.body()
+                proj = load_project(b.get("project", ""))
+                if not proj:
+                    return self.send_json({"error": "not found"}, 404)
+                ud = os.path.realpath(CB.uploads_dir())
+
+                def _imgs(lst):   # chỉ nhận ảnh đã tải lên thư mục _uploads
+                    return [x for x in (lst or []) if isinstance(x, str) and os.path.realpath(x).startswith(ud) and os.path.splitext(x)[1].lower() in CB.IMG_EXT]
+                proj.setdefault("fb", {})[b.get("variant", "")] = {
+                    "general": str(b.get("general", "")), "scenes": {str(k): str(v) for k, v in (b.get("scenes") or {}).items()},
+                    "gimgs": _imgs(b.get("gimgs")), "simgs": {str(k): _imgs(v) for k, v in (b.get("simgs") or {}).items()}}
+                jwrite(project_path(proj["id"]), proj)
+                return self.send_json({"ok": True})
+            if p == ["jobs"]:
+                if m == "POST":
+                    b = self.body()
+                    ids = CB.create(b.get("videos") or [], b.get("images") or [], b.get("opts") or {}, b.get("name"), b.get("extra") or [])
+                    return self.send_json({"ids": ids})
+                return self.send_json([{**x, "gen": gen_info(x)} for x in CB.list_jobs()])
+            if len(p) >= 2 and p[0] == "jobs":
+                jid = p[1]
+                if len(p) == 3 and p[2] == "thumb" and m == "GET":   # ảnh nhỏ của video gốc cho thẻ việc
+                    j = CB.JOBS.get(jid)
+                    th = os.path.join(CB._jdir(jid), "thumb.jpg")
+                    if j and not os.path.exists(th):
+                        try:
+                            E.sh(["ffmpeg", "-y", "-ss", "1", "-i", j["video"], "-vf", "scale=180:-2", "-frames:v", "1", th])
+                        except Exception:  # noqa: BLE001 - không có ảnh thì giao diện hiện biểu tượng thay thế
+                            pass
+                    return self.send_file(th, "image/jpeg")
+                if len(p) == 2 and m == "GET":
+                    d = CB.get(jid, int((q.get("since") or ["0"])[0]))
+                    return self.send_json(job_view(CB.JOBS[jid], d)) if d else self.send_json({"error": "not found"}, 404)
+                if len(p) == 2 and m == "DELETE":
+                    CB.delete(jid)
+                    return self.send_json({"ok": True})
+                if len(p) == 3 and m == "POST" and p[2] in ("groups", "write", "save", "trial", "mkproject"):
+                    j, b = CB.JOBS.get(jid), self.body()
+                    if not j:
+                        return self.send_json({"error": "Không có việc này"}, 404)
+                    if p[2] == "groups":   # bản nháp các nhóm biến thể (thể loại biến thể + số lượng)
+                        return self.send_json({"groups": CB.set_groups(jid, b.get("groups") or [])})
+                    sync_scripts(j)
+                    if p[2] == "write":   # giao Claude viết biến thể cho các nhóm
+                        if "groups" in b:
+                            CB.set_groups(jid, b.get("groups") or [])
+                        CB.write_groups(jid, [str(x) for x in b.get("ids") or []])
+                        return self.send_json({"ok": True})
+                    if p[2] == "save":   # xác nhận kịch bản dùng được: đánh dấu loại dự án là kịch bản đã lưu
+                        s = (j.get("scripts") or {}).get(b.get("key", "")) or {}
+                        tp = jread(type_path(s["type_id"])) if s.get("type_id") else None
+                        if not tp:
+                            return self.send_json({"error": "Kịch bản này chưa có loại dự án trong Studio"}, 400)
+                        on = b.get("saved", True)
+                        tp.update({"saved": int(time.time()) if on else 0, "claude_job": jid, "kind": s["key"]})
+                        jwrite(type_path(tp["id"]), tp)
+                        CB.save_script(jid, s["key"], on)
+                        return self.send_json({"ok": True, "type": tp["id"], "name": tp["name"]})
+                    if p[2] == "trial":   # chạy thử biến thể mẫu của một kịch bản
+                        s = (j.get("scripts") or {}).get(b.get("key", "")) or {}
+                        if not s.get("project_id"):
+                            return self.send_json({"error": "Kịch bản này chưa có dự án trong Studio"}, 400)
+                        try:
+                            s["variant"] = regen_variant(s["project_id"], s.get("variant") or "")
+                        except RuntimeError as e:
+                            return self.send_json({"error": str(e)}, 400)
+                        CB._save(j)
+                        return self.send_json({"ok": True, "variant": s["variant"]})
+                    # mkproject: thêm dự án từ danh sách biến thể của một nhóm (chạy bao nhiêu biến thể là việc của người dùng)
+                    g = next((x for x in j.get("groups") or [] if x["id"] == b.get("id")), None)
+                    if not g or g.get("state") != "xong" or not g.get("file"):
+                        return self.send_json({"error": "Nhóm này chưa viết xong biến thể"}, 400)
+                    old = load_project(g["project_id"]) if g.get("project_id") else None
+                    if old:
+                        return self.send_json({"id": old["id"], "name": old["name"], "existing": True})
+                    s = (j.get("scripts") or {}).get(g["script"]) or {}
+                    if not (s.get("type_id") and jread(type_path(s["type_id"]))):
+                        return self.send_json({"error": "Không tìm thấy loại dự án của kịch bản này"}, 400)
+                    src = os.path.abspath(os.path.join(CB.ROOT, g["file"]))
+                    if os.path.commonpath([src, CB.ROOT]) != CB.ROOT or not os.path.isfile(src):
+                        return self.send_json({"error": "Không tìm thấy file biến thể: " + g["file"]}, 400)
+                    variants = json.load(open(src, encoding="utf-8-sig"))
+                    if not isinstance(variants, list) or not variants or not all(isinstance(v, dict) and v.get("name") for v in variants):
+                        return self.send_json({"error": "File biến thể không đúng dạng (mảng các biến thể có name)"}, 400)
+                    name = (b.get("name") or "").strip() or f"{j['name']} · {'đổi hook' if g['script'] == 'hook' else 'đổi nhân vật'} · {len(variants)} biến thể"
+                    proj = new_project(name[:80], s["type_id"], variants)
+                    proj["claude_job"] = jid
+                    jwrite(project_path(proj["id"]), proj)
+                    g["project_id"] = proj["id"]
+                    CB._save(j)
+                    return self.send_json({"id": proj["id"], "name": proj["name"], "variants": len(variants)})
+                if len(p) == 3 and m == "POST":
+                    if p[2] == "stop":
+                        CB.stop(jid)
+                    elif p[2] == "regen":   # nút "Gen lại toàn bộ" trong dự án: gửi mọi góp ý cho Claude sửa, rồi Studio gen lại biến thể test
+                        b = self.body()
+                        pid, vname = b.get("project", ""), b.get("variant", "")
+                        proj, j = load_project(pid), CB.JOBS.get(jid)
+                        if not proj or not j:
+                            return self.send_json({"error": "Không tìm thấy dự án hoặc việc Claude"}, 404)
+                        j["variant"] = vname
+                        text = feedback_text(proj, vname)
+                        if text:
+                            CB.send(jid, "feedback", text, regen=True)
+                            fb = (proj.get("fb") or {}).pop(vname, None) or {}
+                            proj.setdefault("fb_log", []).append({"t": int(time.time()), "variant": vname, **fb})
+                            jwrite(project_path(pid), proj)
+                        else:
+                            regen_variant(pid, vname)
+                        return self.send_json({"ok": True, "claude": bool(text)})
+                    else:
+                        CB.send(jid, p[2], self.body().get("text", ""))
+                    return self.send_json({"ok": True})
+            return self.send_json({"error": "unknown endpoint"}, 404)
+        except ValueError as e:
+            return self.send_json({"error": str(e)}, 400)
+
     # ---- API
     def api(self, m, path, q):
         parts = path[5:].strip("/").split("/")
@@ -1363,6 +1668,8 @@ class H(BaseHTTPRequestHandler):
             if b.get("clear_key"):
                 s["api_key"] = ""
             jwrite(os.path.join(DATA, "settings.json"), s)
+            if "claude_parallel" in b:
+                CB._pump()   # tăng số việc Claude chạy cùng lúc thì cho việc đang chờ chạy ngay
             if "parallel" in b:
                 schedule()  # tăng số luồng thì chạy ngay mục đang chờ
             return self.send_json({"ok": True})
@@ -1517,17 +1824,24 @@ class H(BaseHTTPRequestHandler):
             return self.send_json({"ok": True})
         if a == "results":
             return self.send_json(results())
+        if a == "kho" and m == "GET":   # danh mục kho nhân vật / kho bot (ô chọn mã trong trình sửa biến thể)
+            return self.send_json([{k: v for k, v in r.items() if k not in ("link", "drive_id")} for r in kho_items().values()])
+        if a == "claude":
+            return self.claude_api(m, parts[1:], q)
         if a == "pick" and m == "POST":
             return self.send_json({"path": pick_file(self.body().get("kind", "file"))})
         if a == "open" and m == "POST":
             b = self.body()
             d = os.path.join(RUNS, slug(b["project"]), slug(b["variant"])) if b.get("variant") else RUNS
             named = os.path.join(d, safe_name(b["variant"]) + ".mp4") if b.get("variant") else ""
-            if named and os.path.exists(named):
-                subprocess.Popen(["explorer", "/select,", os.path.normpath(named)])  # mở thư mục và chọn sẵn video mang tên biến thể
-            elif os.path.isdir(d):
-                os.startfile(d)  # noqa: S606
-            return self.send_json({"ok": True})
+            if os.name == "nt":
+                if named and os.path.exists(named):
+                    subprocess.Popen(["explorer", "/select,", os.path.normpath(named)])  # mở thư mục và chọn sẵn video mang tên biến thể
+                elif os.path.isdir(d):
+                    os.startfile(d)  # noqa: S606
+            elif os.path.isdir(d) and (os.environ.get("DISPLAY") or os.environ.get("WAYLAND_DISPLAY") or sys.platform == "darwin"):
+                subprocess.Popen(["open" if sys.platform == "darwin" else "xdg-open", d], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            return self.send_json({"ok": True, "path": d})
         if a == "delete-result" and m == "POST":
             b = self.body()
             shutil.rmtree(os.path.join(RUNS, slug(b["project"]), slug(b["variant"])), ignore_errors=True)
@@ -1535,7 +1849,147 @@ class H(BaseHTTPRequestHandler):
         self.send_json({"error": "unknown endpoint"}, 404)
 
 
+def regen_variant(pid, vname):
+    """GEN LẠI TOÀN BỘ một biến thể: dừng nếu đang chạy, xoá file của mọi cảnh, xếp lại hàng và chạy từ cảnh 1."""
+    p = load_project(pid)
+    if not p or not p.get("variants"):
+        raise RuntimeError("Không tìm thấy dự án")
+    v = next((x for x in p["variants"] if x["name"] == vname), None) or p["variants"][0]
+    name = v["name"]
+    it = next((x for x in QUEUE if x["project"] == pid and x["variant"] == name), None)
+    if it:
+        if not stop_and_wait(it):
+            raise RuntimeError("Video đang bận, chưa dừng được. Thử lại sau vài giây.")
+        redo_from(pid, name, 1)
+        with LOCK:
+            it.update({"state": "queued", "scenes": [], "raw": "", "final": "", "error": "", "notes": {}})
+        qsave()
+        queue_start([it["id"]])
+    else:
+        queue_start(queue_add(pid, [name]))
+    return name
+
+
+def gen_info(j):
+    """Tiến độ gen của biến thể test (mục hàng đợi) của một việc Claude: để tab Video mới chỉ báo Hoàn tất khi video test đã gen xong."""
+    return gen_info_for(j.get("project_id"), j.get("variant") or "")
+
+
+def gen_info_for(pid, v=""):
+    if not pid:
+        return None
+    items = [x for x in QUEUE if x.get("project") == pid and x.get("kind") == "gen"]
+    if not items:
+        return None
+    # nhiều mục của cùng dự án: ưu tiên mục đang chạy/chờ, rồi mục trùng tên biến thể (Claude có thể ghi kèm chú thích), rồi mục cuối
+    it = (next((x for x in items if x.get("state") in ("running", "waiting", "queued") or "_requeue" in x), None)
+          or next((x for x in items if x.get("variant") == v), None) or next((x for x in items if v and v.startswith(x.get("variant", "~~"))), None) or items[-1])
+    sc = it.get("scenes") or []
+    ended = float(it.get("ended") or 0)
+    return {"id": it["id"], "variant": it["variant"], "state": it.get("state"), "done": sum(1 for s in sc if s.get("state") == "done"),
+            "total": it.get("total") or len(sc), "error": (it.get("error") or "")[:200], "stopping": bool(it.get("stopping")), "user_stop": bool(it.get("user_stop")), "age": round(time.time() - ended) if ended else 9999}
+
+
+def sync_scripts(j):
+    """Hai kịch bản của một việc Claude (goc = giữ nguyên, hook = đổi hook): gắn dự án + loại dự án trong Studio với việc này.
+    Việc cũ (trước khi có hai kịch bản) chỉ có project_id: coi là kịch bản `goc`."""
+    sc = j.setdefault("scripts", {})
+    if "goc" not in sc and j.get("project_id"):
+        sc["goc"] = {"key": "goc", "ma": j.get("type_id", ""), "project_id": j["project_id"], "variant": j.get("variant", "")}
+    for k, s in sc.items():
+        p = load_project(s.get("project_id") or "") if s.get("project_id") else None
+        if not p:
+            continue
+        if p.get("claude_job") != j["id"]:
+            p["claude_job"] = j["id"]
+            jwrite(project_path(p["id"]), p)
+        if not (s.get("type_id") and jread(type_path(s["type_id"]))):
+            s["type_id"] = p.get("template", "")
+        if not s.get("variant") and p.get("variants"):
+            s["variant"] = p["variants"][0]["name"]
+        tp = jread(type_path(s["type_id"])) if s.get("type_id") else None
+        if tp and s.get("kich_ban") and not tp.get("builtin") and (tp.get("claude_job") != j["id"] or tp.get("kind") != k):
+            tp.update({"claude_job": j["id"], "kind": k})   # loại do Claude vừa tạo: trang Loại dự án hiện "Đang thử" tới khi người dùng bấm Lưu kịch bản
+            tp.setdefault("saved", 0)
+            jwrite(type_path(tp["id"]), tp)
+    return sc
+
+
+def job_view(j, d):
+    """Thông tin thêm cho trang chi tiết việc Claude: tên loại/dự án và tiến độ gen video test của từng kịch bản, dự án của từng nhóm biến thể."""
+    out = {}
+    for k, s in sync_scripts(j).items():
+        p = load_project(s.get("project_id") or "") if s.get("project_id") else None
+        tp = jread(type_path(s["type_id"])) if s.get("type_id") else None
+        out[k] = {**s, "project_name": (p or {}).get("name", ""), "project_ok": bool(p), "type_name": (tp or {}).get("name", ""), "type_ok": bool(tp),
+                  "saved": (tp or {}).get("saved") or 0, "gen": gen_info_for(s.get("project_id"), s.get("variant") or "") if p else None}
+    d["scripts"] = out
+    d["groups"] = [{**g, "project_ok": bool(g.get("project_id") and load_project(g["project_id"]))} for g in j.get("groups") or []]
+    d["gen"] = gen_info(j)
+    return d
+
+
+def claude_done(j):
+    """Gọi khi một việc Claude kết thúc: gắn dự án test với việc này; nếu là 'gen lại toàn bộ' và Claude báo XONG thì gen lại biến thể test."""
+    p = load_project(j.get("project_id") or "") if j.get("project_id") else None
+    if not p and j.get("project_name"):
+        for f in os.listdir(PROJ):
+            q = jread(os.path.join(PROJ, f)) if f.endswith(".json") else None
+            if q and q.get("name") == j["project_name"]:
+                p = q
+                break
+    if p:
+        j["project_id"] = p["id"]
+        if p.get("claude_job") != j["id"]:
+            p["claude_job"] = j["id"]
+            jwrite(project_path(p["id"]), p)
+    sync_scripts(j)
+    if (p and j["state"] == "done" and not j.get("regen") and j.get("cur_kind") in ("new", "retry", "restart") and (j.get("opts") or {}).get("trial", True)
+            and not any(x["project"] == p["id"] for x in QUEUE)):
+        try:   # Claude đã nhập xong nhưng chưa đưa biến thể test vào chạy: Studio tự đưa vào và chạy
+            vn = regen_variant(p["id"], j.get("variant") or "")
+            j["variant"] = vn
+            CB._log(j, "sys", f"Studio tự đưa biến thể test vào chạy: {vn}")
+        except RuntimeError as e:
+            CB._log(j, "sys", "Không tự chạy được: " + str(e))
+    regen, j["regen"] = j.get("regen"), False
+    if regen and j["state"] == "done" and p:
+        try:
+            j["variant"] = regen_variant(p["id"], j.get("variant") or "")
+            CB._log(j, "sys", f"Đã gen lại toàn bộ biến thể test: {j['variant']}")
+        except RuntimeError as e:
+            CB._log(j, "sys", "Không gen lại được: " + str(e))
+
+
+def feedback_text(p, vname):
+    """Gộp góp ý tổng + góp ý từng cảnh của dự án thành một đoạn gửi cho Claude."""
+    fb = (p.get("fb") or {}).get(vname) or {}
+    v = next((x for x in p["variants"] if x["name"] == vname), None) or p["variants"][0]
+    out = []
+    gi = [x for x in fb.get("gimgs") or [] if os.path.isfile(x)]
+    if (fb.get("general") or "").strip() or gi:
+        out.append("GÓP Ý TỔNG:\n" + (fb.get("general") or "").strip()
+                   + ("\nẢnh tham chiếu đính kèm (mở bằng Read để xem): " + "; ".join(gi) if gi else ""))
+    si = {int(k): [x for x in l if os.path.isfile(x)] for k, l in (fb.get("simgs") or {}).items() if str(k).isdigit()}
+    sc = {int(k): t.strip() for k, t in (fb.get("scenes") or {}).items() if str(t).strip() and str(k).isdigit()}
+    for n, l in si.items():
+        if l:
+            sc.setdefault(n, "")
+    sc = sorted(sc.items())
+    if sc:
+        rows = []
+        for n, t in sc:
+            turn = (v.get("LUOT") or [])[n - 1] if 0 < n <= len(v.get("LUOT") or []) else {}
+            said = (turn.get("text") or "")[:80]
+            im = si.get(n) or []
+            rows.append(f"- Cảnh {n}" + (f" (lời: \"{said}\")" if said else "") + ": " + (t or "(chỉ có ảnh tham chiếu)")
+                        + (" | ẢNH THAM CHIẾU cho cảnh này (mở bằng Read, dùng làm nhân vật/nền của cảnh đó, đưa vào refs của lượt): " + "; ".join(im) if im else ""))
+        out.append(f"GÓP Ý TỪNG CẢNH (biến thể test \"{v['name']}\"):\n" + "\n".join(rows))
+    return "\n\n".join(out)
+
+
 def make_server(port=0):
     srv = ThreadingHTTPServer(("127.0.0.1", port), H)
     srv.daemon_threads = True
+    CB.init(DATA, settings, lambda: f"http://127.0.0.1:{srv.server_address[1]}", claude_done)
     return srv

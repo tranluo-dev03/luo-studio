@@ -93,8 +93,19 @@ def kill_tree(proc):
     try:
         if os.name == "nt":
             subprocess.run(["taskkill", "/PID", str(proc.pid), "/T", "/F"], capture_output=True, creationflags=CREATE_NO_WINDOW)
-        else:
-            proc.terminate()
+        else:   # API chạy trong nhóm tiến trình riêng (start_new_session): tắt cả nhóm để trình duyệt con cũng chết
+            import signal
+            try:
+                os.killpg(proc.pid, signal.SIGTERM)
+            except OSError:
+                proc.terminate()
+            try:
+                proc.wait(timeout=8)
+            except Exception:
+                try:
+                    os.killpg(proc.pid, signal.SIGKILL)
+                except OSError:
+                    proc.kill()
     except Exception:
         pass
 
@@ -155,15 +166,28 @@ def reap_stale_processes():
     """Tắt tiến trình treo của các lần chạy trước (bản cũ chưa có Job Object, hoặc trình khởi động bị crash):
     (1) trình khởi động / LUO-API ghi trong running.json của thư mục này mà máy chủ không còn trả lời; (2) LUO-API mồ côi của BẤT KỲ bản cài nào (trình khởi động đã chết).
     Chạy SAU already_running(): bản đang chạy thật thì không bị đụng tới."""
-    if os.name != "nt":
-        return
     pids = []
     try:
         d = json.load(open(os.path.join(USER, "running.json"), encoding="utf-8"))
         pids = [str(int(d[k])) for k in ("pid", "api_pid") if d.get(k)]
     except Exception:
         pass
-    script = ("$ids = @(\"$env:LUO_STALE_PIDS\".Split(',') | Where-Object { $_ }); $all = @(Get-CimInstance Win32_Process); $alive = @{}; "
+    if os.name != "nt":   # Linux: chỉ tắt đúng tiến trình đã ghi trong running.json nếu còn là python/uvicorn của LUO (tránh giết nhầm pid được tái sử dụng)
+        import signal
+        for p in pids:
+            if int(p) in (os.getpid(), os.getppid()):
+                continue
+            try:
+                cmd = open(f"/proc/{p}/cmdline", "rb").read().replace(b"\0", b" ").decode("utf-8", "replace")
+                if "launcher.py" in cmd or "uvicorn" in cmd:
+                    try:
+                        os.killpg(int(p), signal.SIGKILL)
+                    except OSError:
+                        os.kill(int(p), signal.SIGKILL)
+            except Exception:
+                pass
+        return
+    script =("$ids = @(\"$env:LUO_STALE_PIDS\".Split(',') | Where-Object { $_ }); $all = @(Get-CimInstance Win32_Process); $alive = @{}; "
               "foreach ($p in $all) { $alive[[int]$p.ProcessId] = 1 }; "
               "foreach ($p in $all) { if ($p.Name -notmatch '^pythonw?\\.exe$' -or [int]$p.ProcessId -eq $PID) { continue }; "
               "$orphan = $p.CommandLine -and $p.CommandLine -match 'uvicorn\\s+app:app\\s+--host\\s+127\\.0\\.0\\.1' -and -not $alive.ContainsKey([int]$p.ParentProcessId); "
@@ -245,10 +269,16 @@ def main():
     os.environ["MUSE2API_HOME"] = API_HOME
     os.environ["MUSE2API_ENV_FILE"] = os.path.join(API_HOME, ".env")
 
+    if os.name != "nt":   # systemd stop / kill: thoát êm để khối finally tắt LUO-API và trình duyệt con
+        import signal
+        signal.signal(signal.SIGTERM, lambda *_: sys.exit(0))
+        signal.signal(signal.SIGHUP, lambda *_: sys.exit(0))
+
     again = None if selftest else already_running()
     if again:
         say(f"LUO Studio đang chạy: {again}")
-        open_window(again)
+        if not is_headless():
+            open_window(again)
         return 0
 
     tie_children_to_launcher()
@@ -270,9 +300,9 @@ def main():
     py = sys.executable
     if os.name == "nt" and py.lower().endswith("pythonw.exe"):
         py = py[:-len("pythonw.exe")] + "python.exe"
+    popen_extra = {"creationflags": CREATE_NO_WINDOW} if os.name == "nt" else {"start_new_session": True}
     api = subprocess.Popen([py, "-m", "uvicorn", "app:app", "--host", "127.0.0.1", "--port", str(port), "--log-level", "warning"],
-                           cwd=API_DIR, stdout=api_log, stderr=api_log, creationflags=CREATE_NO_WINDOW,
-                           env=dict(os.environ, PYTHONIOENCODING="utf-8"))
+                           cwd=API_DIR, stdout=api_log, stderr=api_log, env=dict(os.environ, PYTHONIOENCODING="utf-8"), **popen_extra)
     try:
         say(f"Đang bật LUO-API (cổng {port})…")
         for _ in range(120):
@@ -289,7 +319,8 @@ def main():
         sys.path.insert(0, STUDIO_DIR)
         import server  # noqa: E402  (đọc biến môi trường ở trên khi import)
         server.seed()
-        srv = server.make_server(int(os.environ.get("LUO_STUDIO_PORT", "0")))
+        no_window = "--no-window" in sys.argv or is_headless()
+        srv = server.make_server(int(os.environ.get("LUO_STUDIO_PORT") or (8765 if no_window else 0)))   # không cửa sổ: cổng cố định để mở đường hầm SSH
         studio_port = srv.server_address[1]
         url = f"http://127.0.0.1:{studio_port}/"
         import threading
@@ -304,7 +335,10 @@ def main():
             m = json.load(urllib.request.urlopen(url + "api/muse/status", timeout=30))
             say("SELFTEST " + json.dumps({"api_port": port, "studio": url, "health": h, "tai_khoan": len(m.get("accounts", []))}, ensure_ascii=False))
             return 0
-        if "--no-window" in sys.argv:
+        if no_window:
+            if is_headless() and "--no-window" not in sys.argv:
+                say("Máy không có màn hình (không có DISPLAY): chạy nền, không mở cửa sổ.")
+            say(f"Từ máy của bạn mở đường hầm:  ssh -L {studio_port}:127.0.0.1:{studio_port} <người-dùng>@<máy-chủ>  rồi vào http://127.0.0.1:{studio_port}/")
             try:
                 while True:
                     time.sleep(3600)
@@ -320,6 +354,11 @@ def main():
             pass
 
 
+def is_headless():
+    """Linux không có màn hình (VPS chạy qua SSH): không mở được cửa sổ ứng dụng."""
+    return sys.platform.startswith("linux") and not (os.environ.get("DISPLAY") or os.environ.get("WAYLAND_DISPLAY"))
+
+
 def open_window(url):
     sys.path.insert(0, STUDIO_DIR)
     import app as studio_app  # noqa: E402
@@ -327,7 +366,11 @@ def open_window(url):
     if not exe:
         import webbrowser
         webbrowser.open(url)
-        input("Đã mở trình duyệt. Nhấn Enter để thoát và tắt LUO Studio… ")
+        try:
+            input("Đã mở trình duyệt. Nhấn Enter để thoát và tắt LUO Studio… ")
+        except EOFError:   # chạy nền (systemd/nohup) không có đầu vào
+            while True:
+                time.sleep(3600)
         return
     profile = os.path.join(STUDIO_DATA, "window-profile")
     proc = subprocess.Popen([exe, f"--app={url}", f"--user-data-dir={profile}", "--start-maximized", "--no-first-run",

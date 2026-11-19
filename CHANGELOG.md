@@ -5,6 +5,11 @@ Nguồn sự thật của số phiên bản: dòng đầu của `version.txt` (c
 
 ## [Chưa phát hành]
 
+## [1.4.0] - 2026-11-17
+
+- Tab **Video mới (Claude)**: giao video gốc cho Claude CLI phân tích, tự tạo kịch bản + biến thể, chạy thử, góp ý (chung/từng cảnh, kèm ảnh) rồi gen lại.
+- Thêm **version code** (dòng `code N` trong `version.txt`, hiện cạnh số phiên bản): tăng 1 sau mỗi lần commit + push, dùng `push.ps1`.
+
 ## [1.3.0] - 2026-11-08
 
 ### Hậu kỳ theo số nhân máy, trần luồng mở rộng (đo 07/11/2026 trên Ryzen 5 5500 / 16 GB, xem `SAMPLE/_chung/DO-HIEU-NANG.md`)

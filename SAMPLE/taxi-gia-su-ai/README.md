@@ -67,3 +67,35 @@ Trước khi chạy hết: xem `phan1/scene1_start.png` (A), clip cảnh 1–2 (
 | — | lệch còn lại: cảnh 22–25 điện thoại sang tay bố, màn hình tối (gốc con gái cầm, màn hình robot); video dài hơn gốc (mỗi cảnh +1–1,5 s) | chờ người dùng quyết |
 
 Quyết định thêm (11/11): KHÔNG tự đổi bố cục/vị trí nhân vật so với video gốc để né rủi ro Muse; mọi cảnh taxi dùng nguyên khung đầu cảnh 1.
+
+## Bản Ấn Độ: 20 biến thể (sheet X0061, 13/11/2026)
+Lời theo sheet (tiếng Anh + Hindi), bối cảnh Mumbai (taxi đen-vàng). Kịch bản riêng vì số lượt/người nói khác bản Mexico.
+| Phần | Cảnh | Nội dung |
+|---|---|---|
+| 1 | 1–6 (A), 7 câm (P) | khách NỮ bắt rẽ trái, tài xế không hiểu, khách chê qua điện thoại |
+| 1 | 8–9 (G), 10–11 câm (K, X), 12–13 (M), 14 câm (T) | sếp khen Arjun, trao xe mới; tài xế xin xe (Hindi), sếp: "Learn to talk to the customers first" |
+| 1 | 15–16 (L), 17–18 (L2), 19 câm (PH), 20 (L3) | Priya hỏi, bố kể (Hindi), Priya giới thiệu Ava AI |
+| 2 | 9 lượt ghép 2 lớp | Ava: "Where are you from?", "I am India" ❌ → "I am from India" ✅, hết tiền 💲, luyện câu đón khách sân bay |
+| 3 | 2 (A, T3) | tài xế tự tin chào khách bằng tiếng Anh; "अब मुझे English बोलने से डर नहीं लगता" |
+
+File: `KICH-BAN-TAXI-AN-DO.txt` (`cong-cu/tao_kich_ban_an_do.py`), `BIEN-THE-TAXI-AN-DO-20.json` (`cong-cu/tao_bien_the_an_do.py`), ảnh sếp + Priya `anh/an-do/` (`cong-cu/gen_anh_an_do.py`); tài xế + khách = link Drive trong sheet; Arjun `anh/ARJUN.png`; Ava `canh-sat-gia-su-ai/anh/DAY.png`.
+Biến thể 2 (tài xế Arjun Mehta): đồng nghiệp đổi thành Rahul. Phụ đề có chữ Devanagari tự dùng font Nirmala UI (`post.py`).
+Studio: loại `Taxi-An-Do-gia-su-AI-07ef`, dự án "Taxi Ấn Độ - 20 biến thể" (`Taxi-An-Do---20-bien-the-05ff`), chạy 4 luồng.
+
+## Bản Mexico: 40 biến thể (sheet X0060, 16/11/2026)
+- `cong-cu/tao_bien_the_x0060.py` -> `BIEN-THE-TAXI-X0060-40.json` (taxi-es-01-carlos ... taxi-es-40-adrian); ảnh tài xế/khách tải từ Drive về `anh/x0060/`. Chạy lại với `--khong-tai` để dùng link Drive thay ảnh đã tải.
+- Lời thoại giữ nguyên biến thể gốc; khách nữ (BT 11-20, 31-40) đặt `HIS_KHACH`/`HIM_KHACH` = "her" (kịch bản dùng token cho đại từ của khách).
+- Đã nhập vào dự án Studio "Taxi - Miguel" (Taxi---Miguel-9d63): gốc + 40 biến thể. Chưa chạy.
+
+## Bản toàn tiếng Anh (17/11/2026, chạy ngầm từ Studio)
+- Video tham chiếu `435d2a85-0510_cartoon-turn-car_015_1.mp4` trùng video mẫu của thể loại → chỉ thêm biến thể, không đổi kịch bản/code. Đo lại: 95,1 s, 4,12 từ/giây, 9 cảnh cắt, giọng 133 Hz / 225 Hz.
+- `cong-cu/tao_bien_the_tieng_anh.py` -> `BIEN-THE-TAXI-TIENG-ANH.json` (taxi-tieng-anh-01): lời cả gia đình và robot bằng tiếng Anh, không có dòng dịch Tây Ban Nha; cặp sửa lỗi "I am Mexico" -> "I am from Mexico" giữ nguyên.
+- Quyết định (chạy ngầm, không hỏi): giữ kịch bản và bố cục gốc (khuôn nhiều phần: cảnh thường + ghép 2 lớp, an toàn nhất, không đổi góc); người dùng không đưa ảnh nên dùng lại ảnh `anh/` của thể loại; KHÔNG gen thử.
+- Studio: loại `Taxi-gia-su-AI-a6ce`, dự án `Taxi---English-435d2a85-1800`, chưa chạy. Cần người dùng: chọn Thương hiệu (end card app), duyệt/bổ sung ảnh nhân vật nếu muốn khuôn mặt mới, tick biến thể rồi Thêm vào hàng đợi.
+
+## Bản Ấn Độ: 3 biến thể (17/11/2026, chạy ngầm từ Studio, video `f2be28b2-0510_cartoon-turn-car_015_1.mp4`)
+- Video trùng video mẫu của thể loại (đo lại: 95,1 s, 42 câu, 4,12 từ/giây, 9 cảnh cắt, giọng 133 / 225 Hz) → không viết thể loại mới, dùng lại `KICH-BAN-TAXI-AN-DO.txt` (khuôn nhiều phần, không đổi bố cục gốc).
+- `cong-cu/tao_bien_the_an_do_3.py` → `BIEN-THE-TAXI-AN-DO-3.json`: taxi-in-3-01-ravi (26 t, khách nữ 30 t), 02-gopal (51 t, khách 54 t), 03-sandeep (36 t, khách nữ doanh nhân 40 t). Lời Anh + Hindi như bản 20 biến thể; sếp, Priya, Arjun, Ava dùng ảnh có sẵn.
+- Ảnh tài xế/khách gen bằng Muse (`gen-anh-nhan-vat.py`, 6/6 đạt) vào `anh/an-do-3/` (HOC1-3, KHACH1-3); `tao_bien_the_an_do_3.py` tự gắn refs khi có ảnh. Muốn đổi ảnh: gen lại cùng tên rồi chạy lại script.
+- `kiem-tra`: 0 lỗi, 0 cảnh báo (P1 20 cảnh, P2 9 cảnh ghép 2 lớp, P3 2 cảnh). Studio: loại `Taxi-An-Do-gia-su-AI-07ef`, dự án `Taxi-An-Do---3-bien-the-f2be28b2-7236`. Chạy thử taxi-in-3-01-ravi: cảnh 1 ĐẠT (bố cục góc A giữ, khách nói điện thoại, tài xế nghe); các cảnh sau chưa kiểm.
+- Cần người dùng: Thương hiệu (end card), duyệt khung đầu/clip cảnh 1 và các cảnh sau của biến thể test, rồi chạy tiếp. Rủi ro như bản gốc (hai nam chung khung ở góc A/G/J).

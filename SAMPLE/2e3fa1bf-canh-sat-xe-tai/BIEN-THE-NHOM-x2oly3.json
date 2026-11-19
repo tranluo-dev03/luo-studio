@@ -1,0 +1,317 @@
+[
+  {
+    "name": "hook-hunger",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a Latino American man in his early thirties, short dark-brown hair with a neat side part, light stubble, warm brown eyes, a tan short-sleeved state-trooper uniform shirt with plain shoulder patches and a gold star badge, a plain fluorescent yellow-green safety vest without lettering, a black duty belt with holster and radio",
+    "GIONG_CANHSAT": "a relaxed, clear American man's baritone around 110–130 Hz, friendly and polite, warming up when he smiles",
+    "VAI_CANHSAT": "state trooper",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed by the belt",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "HIM_CANHSAT": "him",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a white American woman in her late fifties, a long oval face with fine wrinkles, hazel eyes, thin lips, chin-length light-brown hair with a few gray strands and side-swept bangs; an olive-khaki canvas work jacket with yellow-green reflective stripes on the sleeves over a navy work shirt",
+    "GIONG_HOC": "a warm, slightly husky American woman's voice in her late fifties, around 190–220 Hz, cheerful and a little loud when excited, slower and embarrassed after a mistake; a real person, not an actress",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "XE": "a big glossy blue American semi-truck cab with chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: a flat dry field with a few tall palm trees along the road, far-away cars standing still, a dramatic pink-and-orange sky with scattered clouds",
+    "SANG": "at sunset, warm golden-orange light",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/2e3fa1bf-canh-sat-xe-tai/anh/HOC.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/2e3fa1bf-canh-sat-xe-tai/anh/CANHSAT.png"
+      ]
+    },
+    "HOOK_TV": "the driver says the line in a plain, hopeful way, chin slightly lifted, an eager half-smile, sure that the line is right",
+    "HOOK_CS": "eyebrows raised, a small polite puzzled frown, the head tilted slightly, as if checking whether the driver means food",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "Officer, I have hunger!",
+        "emo": "proud, cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x",
+        "to": "have hunger"
+      },
+      {
+        "who": "canhsat",
+        "text": "Ma'am, you mean you are hungry?",
+        "emo": "confused, curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Oh no! Yes, I am hungry.",
+        "emo": "embarrassed, amused",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am hungry"
+      },
+      {
+        "who": "canhsat",
+        "text": "Perfect! Practice English every day with an AI tutor.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ]
+  },
+  {
+    "name": "hook-cold",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a Latino American man in his early thirties, short dark-brown hair with a neat side part, light stubble, warm brown eyes, a tan short-sleeved state-trooper uniform shirt with plain shoulder patches and a gold star badge, a plain fluorescent yellow-green safety vest without lettering, a black duty belt with holster and radio",
+    "GIONG_CANHSAT": "a relaxed, clear American man's baritone around 110–130 Hz, friendly and polite, warming up when he smiles",
+    "VAI_CANHSAT": "state trooper",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed by the belt",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "HIM_CANHSAT": "him",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a white American woman in her late fifties, a long oval face with fine wrinkles, hazel eyes, thin lips, chin-length light-brown hair with a few gray strands and side-swept bangs; an olive-khaki canvas work jacket with yellow-green reflective stripes on the sleeves over a navy work shirt",
+    "GIONG_HOC": "a warm, slightly husky American woman's voice in her late fifties, around 190–220 Hz, cheerful and a little loud when excited, slower and embarrassed after a mistake; a real person, not an actress",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "XE": "a big glossy blue American semi-truck cab with chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: a flat dry field with a few tall palm trees along the road, far-away cars standing still, a dramatic pink-and-orange sky with scattered clouds",
+    "SANG": "at sunset, warm golden-orange light",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/2e3fa1bf-canh-sat-xe-tai/anh/HOC.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/2e3fa1bf-canh-sat-xe-tai/anh/CANHSAT.png"
+      ]
+    },
+    "HOOK_TV": "the driver says the line in a cheerful, slightly shivery way, shoulders lifted a little, a wide confident smile",
+    "HOOK_CS": "eyebrows raised, the head tilted slightly, a small concerned frown, as if wondering about the weather",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "Officer, I have cold!",
+        "emo": "proud, cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x",
+        "to": "have cold"
+      },
+      {
+        "who": "canhsat",
+        "text": "Ma'am, you mean you are cold?",
+        "emo": "confused, curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Oh no! Yes, I am cold.",
+        "emo": "embarrassed, amused",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am cold"
+      },
+      {
+        "who": "canhsat",
+        "text": "Perfect! Practice English every day with an AI tutor.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ]
+  },
+  {
+    "name": "hook-agree",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a Latino American man in his early thirties, short dark-brown hair with a neat side part, light stubble, warm brown eyes, a tan short-sleeved state-trooper uniform shirt with plain shoulder patches and a gold star badge, a plain fluorescent yellow-green safety vest without lettering, a black duty belt with holster and radio",
+    "GIONG_CANHSAT": "a relaxed, clear American man's baritone around 110–130 Hz, friendly and polite, warming up when he smiles",
+    "VAI_CANHSAT": "state trooper",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed by the belt",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "HIM_CANHSAT": "him",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a white American woman in her late fifties, a long oval face with fine wrinkles, hazel eyes, thin lips, chin-length light-brown hair with a few gray strands and side-swept bangs; an olive-khaki canvas work jacket with yellow-green reflective stripes on the sleeves over a navy work shirt",
+    "GIONG_HOC": "a warm, slightly husky American woman's voice in her late fifties, around 190–220 Hz, cheerful and a little loud when excited, slower and embarrassed after a mistake; a real person, not an actress",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "XE": "a big glossy blue American semi-truck cab with chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: a flat dry field with a few tall palm trees along the road, far-away cars standing still, a dramatic pink-and-orange sky with scattered clouds",
+    "SANG": "at sunset, warm golden-orange light",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/2e3fa1bf-canh-sat-xe-tai/anh/HOC.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/2e3fa1bf-canh-sat-xe-tai/anh/CANHSAT.png"
+      ]
+    },
+    "HOOK_TV": "the driver says the line in a friendly, nodding, over-confident way, a broad smile, sure that the line is perfect",
+    "HOOK_CS": "eyebrows raised and a small polite puzzled frown, the head tilted slightly, as if trying to understand what the driver agrees with",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "Officer, I am agree!",
+        "emo": "proud, cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x",
+        "to": "am agree"
+      },
+      {
+        "who": "canhsat",
+        "text": "Ma'am, you mean you agree?",
+        "emo": "confused, curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Oh no! Yes, I agree.",
+        "emo": "embarrassed, amused",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I agree"
+      },
+      {
+        "who": "canhsat",
+        "text": "Perfect! Practice English every day with an AI tutor.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ]
+  },
+  {
+    "name": "hook-boring",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a Latino American man in his early thirties, short dark-brown hair with a neat side part, light stubble, warm brown eyes, a tan short-sleeved state-trooper uniform shirt with plain shoulder patches and a gold star badge, a plain fluorescent yellow-green safety vest without lettering, a black duty belt with holster and radio",
+    "GIONG_CANHSAT": "a relaxed, clear American man's baritone around 110–130 Hz, friendly and polite, warming up when he smiles",
+    "VAI_CANHSAT": "state trooper",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed by the belt",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "HIM_CANHSAT": "him",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a white American woman in her late fifties, a long oval face with fine wrinkles, hazel eyes, thin lips, chin-length light-brown hair with a few gray strands and side-swept bangs; an olive-khaki canvas work jacket with yellow-green reflective stripes on the sleeves over a navy work shirt",
+    "GIONG_HOC": "a warm, slightly husky American woman's voice in her late fifties, around 190–220 Hz, cheerful and a little loud when excited, slower and embarrassed after a mistake; a real person, not an actress",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "XE": "a big glossy blue American semi-truck cab with chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: a flat dry field with a few tall palm trees along the road, far-away cars standing still, a dramatic pink-and-orange sky with scattered clouds",
+    "SANG": "at sunset, warm golden-orange light",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/2e3fa1bf-canh-sat-xe-tai/anh/HOC.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/2e3fa1bf-canh-sat-xe-tai/anh/CANHSAT.png"
+      ]
+    },
+    "HOOK_TV": "the driver says the line in a sighing, easy-going way, a tired half-smile, completely sure of the line",
+    "HOOK_CS": "eyebrows raised, the lips pressed in an amused effort not to smile, the head tilted slightly, as if trying to work out the meaning",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "Officer, I am boring!",
+        "emo": "proud, cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x",
+        "to": "am boring"
+      },
+      {
+        "who": "canhsat",
+        "text": "Ma'am, you mean you are bored?",
+        "emo": "confused, curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Oh no! Yes, I am bored.",
+        "emo": "embarrassed, amused",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am bored"
+      },
+      {
+        "who": "canhsat",
+        "text": "Perfect! Practice English every day with an AI tutor.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ]
+  },
+  {
+    "name": "hook-thirty",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a Latino American man in his early thirties, short dark-brown hair with a neat side part, light stubble, warm brown eyes, a tan short-sleeved state-trooper uniform shirt with plain shoulder patches and a gold star badge, a plain fluorescent yellow-green safety vest without lettering, a black duty belt with holster and radio",
+    "GIONG_CANHSAT": "a relaxed, clear American man's baritone around 110–130 Hz, friendly and polite, warming up when he smiles",
+    "VAI_CANHSAT": "state trooper",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed by the belt",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "HIM_CANHSAT": "him",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a white American woman in her late fifties, a long oval face with fine wrinkles, hazel eyes, thin lips, chin-length light-brown hair with a few gray strands and side-swept bangs; an olive-khaki canvas work jacket with yellow-green reflective stripes on the sleeves over a navy work shirt",
+    "GIONG_HOC": "a warm, slightly husky American woman's voice in her late fifties, around 190–220 Hz, cheerful and a little loud when excited, slower and embarrassed after a mistake; a real person, not an actress",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "XE": "a big glossy blue American semi-truck cab with chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: a flat dry field with a few tall palm trees along the road, far-away cars standing still, a dramatic pink-and-orange sky with scattered clouds",
+    "SANG": "at sunset, warm golden-orange light",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/2e3fa1bf-canh-sat-xe-tai/anh/HOC.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/2e3fa1bf-canh-sat-xe-tai/anh/CANHSAT.png"
+      ]
+    },
+    "HOOK_TV": "the driver says the line in a bright, proud, confident way, a wide smile, completely sure of the line",
+    "HOOK_CS": "eyebrows raised and a small polite puzzled frown, the head tilted slightly, as if checking what was just said",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "Officer, I have thirty years!",
+        "emo": "proud, cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x",
+        "to": "have thirty years"
+      },
+      {
+        "who": "canhsat",
+        "text": "Ma'am, you mean you are thirty years old?",
+        "emo": "confused, curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Oh no! Yes, I am thirty years old.",
+        "emo": "embarrassed, amused",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am thirty years old"
+      },
+      {
+        "who": "canhsat",
+        "text": "Perfect! Practice English every day with an AI tutor.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ]
+  }
+]

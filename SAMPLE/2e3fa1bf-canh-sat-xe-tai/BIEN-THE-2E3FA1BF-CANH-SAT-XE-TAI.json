@@ -1,0 +1,63 @@
+[
+  {
+    "name": "bien-the-01-goc",
+    "TEN_CANHSAT": "the officer",
+    "NGUOI_CANHSAT": "a Latino American man in his early thirties, short dark-brown hair with a neat side part, light stubble, warm brown eyes, a tan short-sleeved state-trooper uniform shirt with plain shoulder patches and a gold star badge, a plain fluorescent yellow-green safety vest without lettering, a black duty belt with holster and radio",
+    "GIONG_CANHSAT": "a relaxed, clear American man's baritone around 110–130 Hz, friendly and polite, warming up when he smiles",
+    "VAI_CANHSAT": "state trooper",
+    "POS_CANHSAT": "RIGHT",
+    "NGHE_CANHSAT": "stands still on the road looking up at the driver with a calm attentive face, mouth closed, hands relaxed by the belt",
+    "NHIN_CANHSAT": "keeps looking up at the driver in the cab window, never into the lens",
+    "HIM_CANHSAT": "him",
+    "TEN_HOC": "the truck driver",
+    "NGUOI_HOC": "a white American woman in her late fifties, a long oval face with fine wrinkles, hazel eyes, thin lips, chin-length light-brown hair with a few gray strands and side-swept bangs; an olive-khaki canvas work jacket with yellow-green reflective stripes on the sleeves over a navy work shirt",
+    "GIONG_HOC": "a warm, slightly husky American woman's voice in her late fifties, around 190–220 Hz, cheerful and a little loud when excited, slower and embarrassed after a mistake; a real person, not an actress",
+    "VAI_HOC": "truck driver",
+    "POS_HOC": "LEFT",
+    "NGHE_HOC": "stays leaning on the window sill looking down at the officer with a friendly attentive face, mouth closed",
+    "NHIN_HOC": "keeps looking down at the officer standing below the window, never into the lens",
+    "XE": "a big glossy blue American semi-truck cab with chrome steps and tanks, a tall blue side mirror on a metal arm",
+    "NEN_DUONG": "the shoulder of a wide multi-lane highway at sunset: a flat dry field with a few tall palm trees along the road, far-away cars standing still, a dramatic pink-and-orange sky with scattered clouds",
+    "SANG": "at sunset, warm golden-orange light",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/2e3fa1bf-canh-sat-xe-tai/anh/HOC.png"
+      ],
+      "NGUOI_CANHSAT": [
+        "SAMPLE/2e3fa1bf-canh-sat-xe-tai/anh/CANHSAT.png"
+      ]
+    },
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "Officer, I have fifty years!",
+        "emo": "proud, cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x",
+        "to": "have fifty years"
+      },
+      {
+        "who": "canhsat",
+        "text": "Ma'am, you mean you are fifty years old?",
+        "emo": "confused, curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Oh no! Yes, I am fifty years old.",
+        "emo": "embarrassed, amused",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am fifty years old"
+      },
+      {
+        "who": "canhsat",
+        "text": "Perfect! Practice English every day with an AI tutor.",
+        "emo": "warm, encouraging",
+        "fx": "none"
+      }
+    ]
+  }
+]

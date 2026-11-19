@@ -44,20 +44,23 @@ document.addEventListener("keydown", e => { if (e.key === "Escape" && !window._m
 function nav() {
   const r = S.route.page, running = S.q && S.q.busy, queued = S.q ? S.q.items.filter(i => i.state === "queued").length : 0;
   const b = (h, ic, tip, on, dot, badge) => `<a data-go="#/${h}" class="nav-b ${on ? "on" : ""}">${ico(ic)}${dot ? '<span class="dot"></span>' : ""}${badge ? `<span class="nbadge">${badge}</span>` : ""}<span class="tip">${tip}</span></a>`;
-  $("#nav").innerHTML = `<div class="logo"><img src="logo.png" alt="LUO Studio"></div>${b("", "folder", "Dự án", r === "home" || r === "edit")}${b("run", "bolt", "Hàng đợi", r === "run", running, queued)}${b("results", "film", "Kết quả", r === "results")}${b("types", "layers", "Loại dự án", r === "types")}${b("api", "server", "API Muse", r === "api")}<div class="spacer"></div><div class="ver" style="font-size:10px;opacity:.55;padding:4px 0">${S.health && S.health.version ? "v" + S.health.version : ""}</div>${b("settings", "gear", "Cài đặt", r === "settings")}`;
+  $("#nav").innerHTML = `<div class="logo"><img src="logo.png" alt="LUO Studio"></div>${b("", "folder", "Dự án", r === "home" || r === "edit")}${b("run", "bolt", "Hàng đợi", r === "run", running, queued)}${b("results", "film", "Kết quả", r === "results")}${b("claude", "sparkle", "Video mới (Claude)", r === "claude", S.cjobs && S.cjobs.some(j => j.state === "running"))}${b("types", "layers", "Loại dự án", r === "types")}${b("kho", "users", "Kho nhân vật", r === "kho")}${b("api", "server", "API Muse", r === "api")}<div class="spacer"></div><div class="ver" style="font-size:10px;opacity:.55;padding:4px 0">${S.health && S.health.version ? "v" + S.health.version + (S.health.code ? " · " + S.health.code : "") : ""}</div>${b("settings", "gear", "Cài đặt", r === "settings")}`;
 }
 function setTop(title, extra = "") {
   const h = S.health, cls = h ? (h.ok ? "ok" : "bad") : "";
   $("#top").innerHTML = `${S.route.page === "edit" ? `<a class="ib" data-go="#/" title="Quay lại">${ico("back")}</a>` : ""}<h1>${title}</h1><div class="grow"></div>${extra}<span class="pill ${h && h.status === "no_account" ? "warn" : cls}" title="LUO-API" ${h && h.status === "no_account" ? 'data-go="#/api" style="cursor:pointer"' : ""}><i></i>${h ? (h.ok ? "API sẵn sàng" : h.status === "no_account" ? "Chưa có tài khoản Muse" : "API chưa kết nối") : "…"}</span>`;
 }
-async function refreshHealth() { try { S.health = await api("health"); } catch { S.health = { ok: false }; } const p = $("#top .pill"); if (p) { const na = S.health.status === "no_account"; p.className = "pill " + (S.health.ok ? "ok" : na ? "warn" : "bad"); p.lastChild.textContent = S.health.ok ? "API sẵn sàng" : na ? "Chưa có tài khoản Muse" : "API chưa kết nối"; } const vv = $("#nav .ver"); if (vv && S.health.version) vv.textContent = "v" + S.health.version; }
+async function refreshHealth() { try { S.health = await api("health"); } catch { S.health = { ok: false }; } const p = $("#top .pill"); if (p) { const na = S.health.status === "no_account"; p.className = "pill " + (S.health.ok ? "ok" : na ? "warn" : "bad"); p.lastChild.textContent = S.health.ok ? "API sẵn sàng" : na ? "Chưa có tài khoản Muse" : "API chưa kết nối"; } const vv = $("#nav .ver"); if (vv && S.health.version) vv.textContent = "v" + S.health.version + (S.health.code ? " · " + S.health.code : ""); }
 
 // ---------------------------------------------------------------- router
 async function route() {
   const h = location.hash.replace(/^#\/?/, "").split("/");
   const page = h[0] === "p" ? "edit" : h[0] || "home";
+  const prev = S.route || {};
   S.route = { page, id: h[1] ? decodeURIComponent(h[1]) : h[1] };
-  if (!S.boot) S.boot = await api("boot");
+  const tok = S.rtok = (S.rtok || 0) + 1;   // mỗi lần chuyển trang một số mới: trang cũ tải xong muộn thì không vẽ đè lên trang mới
+  if (prev.page !== page || prev.id !== S.route.id) { nav(); $("#view").innerHTML = '<div class="empty"><div class="spin"></div></div>'; }
+  if (!S.boot) { S.boot = await api("boot"); if (tok !== S.rtok) return; }
   nav();
   if (page === "home") return pageHome();
   if (page === "edit") return pageEditor(S.route.id);
@@ -66,6 +69,8 @@ async function route() {
   if (page === "types") return pageTypes();
   if (page === "settings") return pageSettings();
   if (page === "api") return pageApi();
+  if (page === "kho") return pageKho();
+  if (page === "claude") return S.route.id ? pageClaudeJob(S.route.id) : pageClaude();
 }
 try { if (!window.__fs) { window.__fs = 1; if (outerWidth < screen.availWidth - 40 || outerHeight < screen.availHeight - 40) { moveTo(0, 0); resizeTo(screen.availWidth, screen.availHeight); } } } catch (e) {}
 window.addEventListener("hashchange", route);
@@ -113,9 +118,16 @@ function fillVariant(v, T) {
   return o;
 }
 
-async function pageHome() {
-  S.boot = await api("boot");
+async function pageHome(cached) {
+  const tok = S.rtok;
   setTop("Dự án");
+  if (!cached) {   // có dữ liệu sẵn thì vẽ ngay, rồi tải lại ngầm và chỉ vẽ lại khi có thay đổi
+    if (S.boot && $("#view>.empty>.spin")) pageHome(true);   // chỉ khi vừa chuyển tab; làm mới tại chỗ (sau khi xoá/tạo) thì chờ dữ liệu mới
+    const had = S.boot && JSON.stringify(S.boot), b = await api("boot");
+    if (tok !== S.rtok) { S.boot = b; return; }
+    S.boot = b;
+    if (had === JSON.stringify(b) || $("#modal").innerHTML) return;
+  }
   const cards = S.boot.projects.map(p => `<div class="card click pcard" data-open="${p.id}">
     <button class="ib danger del" data-del="${p.id}" title="Xoá">${ico("trash")}</button>
     <div><h3>${esc(p.name)}</h3></div>
@@ -175,7 +187,13 @@ const charLabel = (v, c) => (v || {})["VAI_" + c.toUpperCase()] || (c === "day" 
 
 async function pageEditor(id) {
   if (!S.boot) S.boot = await api("boot");
-  if (!S.project || S.project.id !== id) { S.project = await api("projects/" + id); S.sel = 0; }
+  if (!S.kho) {   // danh mục kho nhân vật / kho bot cho ô "mã kho nhân vật"
+    S.kho = await api("kho").catch(() => []);
+    const dl = document.createElement("datalist"); dl.id = "kho-ds";
+    dl.innerHTML = S.kho.map(k => `<option value="${esc(k.ma)}">${esc(k.loai === "bot" ? [k.bot, k.loai_bot, k.thi_truong].join(" · ") : [k.gioi, k.tuoi, k.thi_truong].join(" · "))}</option>`).join("");
+    document.body.appendChild(dl);
+  }
+  if (!S.project || S.project.id !== id) { const tok = S.rtok, pr = await api("projects/" + id); if (tok !== S.rtok) return; S.project = pr; S.sel = 0; }
   const p = S.project, T = typ(p.template), ck = S.checked[id] || (S.checked[id] = new Set(p.variants.map(v => v.name)));
   const v = curV(), hasTurns = "LUOT" in (T.series || {}), need = (T.series || {}).LUOT || 0, n = (v.LUOT || []).length;
   setTop(`<input id="pname" class="input" style="width:280px;font-weight:650;font-size:16px;background:none;border-color:transparent" value="${esc(p.name)}">`,
@@ -208,7 +226,7 @@ async function pageEditor(id) {
     return `<div class="att">${L.map((a, j) => a.type === "audio"
       ? `<span class="chip"><audio controls preload="none" src="/asset/${encodeURIComponent(p.id)}/${a.file}"></audio><i title="${esc(a.name)}">${esc(a.name)}</i><button class="x" data-ratt="${key}" data-j="${j}">×</button></span>`
       : `<span class="chip img"><img src="/asset/${encodeURIComponent(p.id)}/${a.file}" title="${esc(a.name)}"><button class="x" data-ratt="${key}" data-j="${j}">×</button></span>`).join("")}
-      <label class="addatt" title="${key.startsWith("GIONG") ? "Đính kèm mp3 mẫu giọng của nhân vật này. Nên dùng hai giọng khác hẳn nhau (cao/sáng/nhanh và trầm/khàn/chậm). Chỉ dùng khi nhân vật này đang nói; Muse có thể bỏ qua." : "Đính kèm ảnh tham chiếu hoặc file mp3 (Muse có thể bỏ qua)"}">${ico("plus")}Ảnh / mp3<input type="file" hidden accept="image/*,audio/*" multiple data-att="${key}"></label></div>`; };
+      <label class="addatt" title="${key.startsWith("GIONG") ? "Đính kèm mp3 mẫu giọng của nhân vật này. Nên dùng hai giọng khác hẳn nhau (cao/sáng/nhanh và trầm/khàn/chậm). Chỉ dùng khi nhân vật này đang nói; Muse có thể bỏ qua." : "Đính kèm ảnh tham chiếu hoặc file mp3 (Muse có thể bỏ qua)"}">${ico("plus")}Ảnh / mp3<input type="file" hidden accept="image/*,audio/*" multiple data-att="${key}"></label>${!key.startsWith("NGUOI") || !(S.kho || []).length ? "" : `<input class="khoin" list="kho-ds" data-kho="${key}" placeholder="mã kho nhân vật" title="Gõ hoặc chọn mã trong kho nhân vật / kho bot (vd. NU-30-45-AUMY-05) rồi Enter: ảnh của mã đó được gắn làm ảnh tham chiếu.">`}</div>`; };
   const field = f => `<div class="f"><label>${esc(f.label)}${f.optional ? " <small style='opacity:.6'>(tuỳ chọn)</small>" : ""}</label>${f.kind === "short"
     ? `<input data-k="${f.key}" value="${esc(v[f.key] ?? "")}" placeholder="${esc(f.ph || "")}">`
     : `<textarea data-k="${f.key}" rows="${f.rows || 2}" placeholder="${esc(f.ph || "")}">${esc(v[f.key] ?? "")}</textarea>`}${attach(f.key)}</div>`;
@@ -251,8 +269,16 @@ async function pageEditor(id) {
       }
       await save(); pageEditor(p.id); return;
     }
+    if (el.dataset.kho) {   // gắn nhân vật theo mã kho: máy chủ lấy ảnh của kho khi lưu dự án
+      const code = el.value.trim().toUpperCase(); if (!code) return;
+      if (!(S.kho || []).some(k => k.ma === code)) { toast("Mã " + code + " không có trong kho nhân vật", 1); return; }
+      const V = curV(); V.refs = V.refs || {}; (V.refs[el.dataset.kho] = V.refs[el.dataset.kho] || []).push(code);
+      await save(); const sel = S.sel, pr = await api("projects/" + p.id); S.project = pr; S.sel = sel;
+      const bad = ((pr.variants[sel] || {}).refs || {})[el.dataset.kho] || []; const er = bad.find(x => x.error); if (er) toast("Không gắn được " + code + ": " + er.error, 1);
+      pageEditor(p.id); return;
+    }
     if (el.dataset.c !== undefined) { curV().LUOT[+el.dataset.i].c = el.value; touch(); drawTurns(); }
-    if (el.dataset.t === "who") drawTurns(); };
+    if (el.dataset.t === "who" || el.dataset.t === "fx") drawTurns(); };
   $("#view").onclick = e => editorClick(e);
   brandBind(p);
 }
@@ -295,7 +321,7 @@ function drawTurns() {
     ${whoCell(t, i)}
     <textarea data-t="text" data-i="${i}" rows="1" placeholder="Lời thoại">${esc(t.text || "")}</textarea>
     <input class="emo" list="emos" data-t="emo" data-i="${i}" value="${esc(t.emo || "")}" placeholder="cảm xúc người nói">
-    <select class="fxsel" data-t="fx" data-i="${i}" title="Hiệu ứng hậu kỳ: Sai = viền đỏ nháy + tiếng tè tè; Đúng = viền xanh lá nháy + tiếng tinh tinh. Để trống = tự động (người học nói đầu tiên là sai, câu AI sửa ngay sau là đúng)"><option value="" ${!t.fx ? "selected" : ""}>Hiệu ứng: tự động</option><option value="none" ${t.fx === "none" ? "selected" : ""}>Không</option><option value="wrong" ${t.fx === "wrong" ? "selected" : ""}>Sai (đỏ + tè tè)</option><option value="right" ${t.fx === "right" ? "selected" : ""}>Đúng (xanh + tinh)</option></select>
+    <div class="fxc"><select class="fxsel" data-t="fx" data-i="${i}" title="Hiệu ứng hậu kỳ: Sai = viền đỏ nháy + tiếng tè tè; Đúng = viền xanh lá nháy + tiếng tinh tinh. Để trống = tự động (người học nói đầu tiên là sai, câu AI sửa ngay sau là đúng)"><option value="" ${!t.fx ? "selected" : ""}>Hiệu ứng: tự động</option><option value="none" ${t.fx === "none" ? "selected" : ""}>Không</option><option value="wrong" ${t.fx === "wrong" ? "selected" : ""}>Sai (đỏ + tè tè)</option><option value="right" ${t.fx === "right" ? "selected" : ""}>Đúng (xanh + tinh)</option></select>${t.fx === "wrong" || t.fx === "right" ? `<input class="fxto" data-t="to" data-i="${i}" value="${esc(Array.isArray(t.to) ? t.to[0] || "" : t.to || "")}" placeholder="cụm ${t.fx === "wrong" ? "sai" : "đúng"} (nếu lượt có nhiều câu)" title="Lượt có nhiều câu: gõ cụm chữ ${t.fx === "wrong" ? "sai" : "đúng"} (vd. I have fifty years) để viền và tiếng rơi đúng vào câu chứa cụm đó. Để trống = câu đầu của lượt.">` : ""}</div>
     <div class="colr" title="Màu phụ đề"><i class="c-${t.c || "white"}"></i><select data-c data-i="${i}">${COLORS.map(([c, n]) => `<option value="${c}" ${(t.c || "white") === c ? "selected" : ""}>${n}</option>`).join("")}</select></div>
     <div class="acts"><button class="ib" data-mv="-1" data-i="${i}">${ico("up")}</button><button class="ib" data-mv="1" data-i="${i}">${ico("down")}</button><button class="ib danger" data-rm="${i}">${ico("x")}</button></div></div>`).join("");
   $("#turns").querySelectorAll("textarea").forEach(grow);
@@ -574,6 +600,7 @@ const itemThumb = it => { const sc = [...it.scenes].reverse().find(s => s.thumb)
 function drawRun() {
   const q = S.q, v = $("#view"); if (!q) return;
   if (S.qview && !q.items.find(i => i.id === S.qview)) S.qview = null;
+  if (S.qview && document.activeElement && document.activeElement.dataset && document.activeElement.dataset.qfb !== undefined) return;   // đang gõ góp ý cho Claude: không vẽ lại
   const keepY = v.scrollTop;
   if (S.qview) drawDetail(q.items.find(i => i.id === S.qview)); else drawQueue();
   v.scrollTop = keepY;
@@ -734,6 +761,7 @@ function redoModal(it, n) {
   };
 }
 function drawDetail(it) {
+  const cx = it.kind === "gen" && typeof claudeCtx === "function" ? claudeCtx(it) : null, hasC = !!(cx && cx.job);
   const q = S.q, v = $("#view"), running = it.state === "running", sc = it.scenes || [], done = sc.filter(s => s.state === "done").length, tot = it.total || sc.length;
   setTop(esc(it.variant), `<span class="tag ${it.state === "done" ? "ok" : it.state === "error" ? "bad" : it.state === "stopped" ? "warn" : ""}">${qstateText(it)}</span>`
     + (it.kind === "gen" && it.state !== "done" ? `<button class="btn" id="dacc" title="Chọn tài khoản Muse khác để gen video này">${ico("user")}${esc(accText(it))}</button>` : "")
@@ -752,18 +780,24 @@ function drawDetail(it) {
     const thumb = s.thumb ? `<img loading="lazy" src="${media(it.project, it.variant, s.thumb)}?t=${s.secs || s.pct || 0}">` : (act ? `<div class="spin"></div>` : ico("img"));
     const t = sceneSecs(s, it);
     return `<div class="sc ${st} ${act ? "active" : ""}"><div class="th">${thumb}<span class="num">${s.n}</span><span class="wh" style="background:${s.who === "hoc" ? "var(--hoc)" : !s.who || s.who === "day" ? "var(--day)" : CHAR_DOTS[0]}" title="${esc(s.who || "")}"></span>${s.clip ? `<div class="play" data-play="${s.clip}">${ico("play")}</div>` : ""}</div>
-      <div class="bd"><div class="tx">${esc(s.text)}</div>${s.account ? `<div class="acc" title="Tài khoản Muse đã gen cảnh này">${ico("user")}${esc(s.account)}</div>` : ""}<div class="mini"><div style="width:${pc}%"></div></div><div class="st"><span>${STATE[st] || st}${["image", "video"].includes(st) && s.pct ? " " + s.pct + "%" : ""}${s.note ? " · " + esc(s.note) : ""}</span><span class="tm">${st !== "wait" ? `<button class="trbtn" data-trace="${s.n}" title="Xem từng bước gen của cảnh này và thời gian mỗi bước">${ico("clock")}Các bước</button>` : ""}<b data-tm="scene:${it.id}:${s.n}">${t ? fmtDur(t) : ""}</b>${s.secs ? ` · ${s.secs}s` : ""}</span></div></div>
+      <div class="bd"><div class="tx">${esc(s.text)}</div>${s.account ? `<div class="acc" title="Tài khoản Muse đã gen cảnh này">${ico("user")}${esc(s.account)}</div>` : ""}<div class="mini"><div style="width:${pc}%"></div></div><div class="st"><span>${STATE[st] || st}${["image", "video"].includes(st) && s.pct ? " " + s.pct + "%" : ""}${s.note ? " · " + esc(s.note) : ""}</span><span class="tm">${st !== "wait" ? `<button class="trbtn" data-trace="${s.n}" title="Xem từng bước gen của cảnh này và thời gian mỗi bước">${ico("clock")}Các bước</button>` : ""}<b data-tm="scene:${it.id}:${s.n}">${t ? fmtDur(t) : ""}</b>${s.secs ? ` · ${s.secs}s` : ""}</span></div>${hasC ? claudeSceneBox(cx, s.n) : ""}</div>
       ${st === "done" || (st === "error" && !running) ? `<button class="ib redo" data-redo="${s.n}" title="${running ? "Dừng video đang chạy rồi gen lại cảnh này" : "Gen lại cảnh này: chỉ riêng cảnh này hoặc từ cảnh này trở đi (có thể thêm yêu cầu sửa)"}">${ico("redo")}</button>` : ""}</div>`;
   }).join("")}</div>` : "";
   const err = it.error ? `<div class="tag bad" style="margin-bottom:14px;white-space:normal">${esc(it.error)}</div>` : "";
   const logs = (it.log || []).slice(-60).map(l => `<div class="${l.level}">${l.t}  ${esc(l.msg)}</div>`).join("");
   const ol = $(".log"), logY = ol && ol.scrollHeight - ol.scrollTop - ol.clientHeight > 40 ? ol.scrollTop : null;   // đang cuộn lên đọc: giữ chỗ; đang ở cuối: theo dòng mới
-  v.innerHTML = `<div class="runhead"><button class="btn ghost" id="dback">${ico("back")}Hàng đợi</button><span class="tag mute">${esc(it.pname)}</span><div class="bar"><div style="width:${it.kind === "post" ? (running ? 60 : 100) : (tot ? Math.round(done / tot * 100) : 0)}%"></div></div>${it.kind === "gen" ? `<span class="tag">${done}/${tot}</span>` : ""}</div>${err}${res}${grid}
+  v.innerHTML = `<div class="runhead"><button class="btn ghost" id="dback">${ico("back")}Hàng đợi</button><span class="tag mute">${esc(it.pname)}</span><div class="bar"><div style="width:${it.kind === "post" ? (running ? 60 : 100) : (tot ? Math.round(done / tot * 100) : 0)}%"></div></div>${it.kind === "gen" ? `<span class="tag">${done}/${tot}</span>` : ""}</div>${err}${res}${hasC ? claudeTopCard(cx) : ""}${grid}${hasC ? claudeRegenCard(cx) : ""}
     <details ${S.logOpen ? "open" : ""} id="logd"><summary style="cursor:pointer;color:var(--mute);margin-top:20px">Nhật ký</summary><div class="log">${logs}</div></details>`;
   const nl = $(".log"); if (nl) nl.scrollTop = logY != null ? logY : nl.scrollHeight;
   $("#logd").ontoggle = e => { S.logOpen = e.target.open; };
+  if (hasC) { v.oninput = e => claudeFbInput(e, it); claudeWatch(); } else v.oninput = null;
   v.onclick = async e => {
     let x;
+    if ((x = e.target.closest("[data-fbopen]"))) return claudeOpenFb(it, x.dataset.fbopen);
+    if ((x = e.target.closest("[data-fbimg]"))) return claudePickImg(it, x.dataset.fbimg);
+    if ((x = e.target.closest("[data-fbrm]"))) return claudeRmImg(it, x.dataset.fbrm);
+    if (e.target.closest("#qregen")) return claudeRegen(it);
+    if (e.target.closest("#qself")) return claudeSelfCheck(it);
     if (e.target.closest("#dback")) { S.qview = null; return drawRun(); }
     if (e.target.closest("#dacc")) return accModal(it);
     if (e.target.closest("#dstop")) { toast("Đang dừng video này…"); await api("stop", { body: { id: it.id } }); return pollQueue(); }
@@ -796,9 +830,19 @@ async function postModal(pid, variant) {
 }
 
 // ---------------------------------------------------------------- Kết quả
-async function pageResults() {
+async function pageResults(cached) {
+  const tok = S.rtok;
   setTop("Kết quả");
-  S.results = await api("results");
+  if (!cached) {
+    if (S.resOk && $("#view>.empty>.spin")) pageResults(true);
+    const had = S.resOk && JSON.stringify(S.results), r = await api("results");
+    if (tok !== S.rtok || S.route.page !== "results") { S.results = r; S.resOk = true; return; }
+    // tự cập nhật ngay trong tab: video vừa gen / hậu kỳ xong hiện lên mà không cần chuyển tab (dữ liệu không đổi thì không vẽ lại)
+    clearTimeout(S.resT); S.resT = setTimeout(() => { if (S.route && S.route.page === "results") pageResults(); }, r.some(x => x.posting) ? 2000 : 5000);
+    if (S.resOk && $("#modal").innerHTML) return;   // đang mở hộp thoại (xem video): giữ nguyên, lần sau vẽ lại
+    S.results = r; S.resOk = true;
+    if (had === JSON.stringify(r)) return;
+  }
   if (!S.results.length) { $("#view").innerHTML = `<div class="empty"><div class="big">${ico("film")}</div><div>Chưa có video</div></div>`; return; }
   $("#view").innerHTML = `<div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(210px,1fr))">${S.results.map((r, i) => {
     const w = r.final ? "final" : "raw";
@@ -806,8 +850,6 @@ async function pageResults() {
       <div class="bd"><div><div class="nm" title="${esc(r.variant)}">${esc(r.variant)}</div><div class="sub">${esc(r.project_name)} · ${r.secs}s · ${(r.size / 1048576).toFixed(0)} MB · ${ago(r.mtime)}</div></div>
       <div class="row">${r.posting ? `<button class="btn sm" disabled><i class="spin sm"></i>Đang hậu kỳ…</button>` : `<button class="btn sm" data-post="${i}">${ico("wand")}${r.final ? "Xuất lại" : "Hậu kỳ"}</button>`}${r.post_error ? `<span class="tag bad" title="${esc(r.post_error)}" style="margin-left:6px">Hậu kỳ lỗi</span>` : ""}<span style="flex:1"></span><button class="ib" data-open="${i}" title="Mở thư mục">${ico("folderopen")}</button><button class="ib danger" data-del="${i}" title="Xoá">${ico("trash")}</button></div></div></div>`;
   }).join("")}</div>`;
-  clearTimeout(S.resT);
-  if (S.results.some(r => r.posting)) S.resT = setTimeout(() => { if (S.route && S.route.page === "results") pageResults(); }, 2000);  // đang hậu kỳ: tự cập nhật đến khi xong
   $("#view").onclick = async e => {
     let x;
     if ((x = e.target.closest("[data-play]"))) { const r = S.results[+x.dataset.play]; return playModal(media(r.project, r.variant, (r.final ? "final" : "raw") + ".mp4"), r.variant); }
@@ -823,13 +865,21 @@ const viNote = n => { for (const [re, t] of NOTE_VI) if (re.test(n || "")) retur
 const TASK_VI = { queued: "Đang chờ", processing: "Đang xử lý", completed: "Xong", failed: "Lỗi", succeeded: "Xong" };
 const VIDEO_LIMIT = 100, VIDEO_WARN = 80;   // Muse giới hạn ~100 video / ngày mỗi tài khoản: chỉ cảnh báo, không chặn gen
 const quotaPct = q => q.extra_used_pct ?? q.weekly_used_pct;   // hạn mức chính là token Extra; chưa có Extra thì lấy hạn mức tuần
-async function pageApi() {
+// auto = lần tự làm mới theo chu kỳ: dữ liệu không đổi thì không vẽ lại (không giật, không mất vị trí cuộn)
+async function pageApi(auto) {
   clearTimeout(S.apiT);
   setTop("API Muse", `<button class="btn" id="ap-ref">${ico("redo")}Làm mới</button><button class="btn" id="ap-ka" title="Gia hạn phiên đăng nhập của tất cả tài khoản">Giữ phiên tất cả</button><button class="btn" id="ap-batch" title="Thêm nhiều tài khoản cùng lúc từ một file .txt (mỗi dòng email|password|refresh_token|client_id)">${ico("plus")}Thêm theo lô</button><button class="btn primary" id="ap-add">${ico("plus")}Thêm tài khoản</button>`);
   const v = $("#view");
   let d, tk;
-  try { d = await api("muse/status"); tk = (await api("muse/tasks?limit=30")).tasks || d.tasks || []; }
+  const tok = S.rtok;
+  try { let t2; [d, t2] = await Promise.all([api("muse/status"), api("muse/tasks?limit=30").catch(() => ({}))]); tk = t2.tasks || d.tasks || []; if (tok !== S.rtok || S.route.page !== "api") return; }
   catch (e) { v.innerHTML = `<div class="empty"><div class="big">${ico("server")}</div><div>Không kết nối được LUO-API</div><div style="max-width:420px;font-size:13px;color:var(--mute)">${esc(e.message)}<br>Kiểm tra địa chỉ và khoá API ở Cài đặt, và LUO-API đã chạy chưa.</div><a class="btn primary" data-go="#/settings">Mở Cài đặt</a></div>`; S.apiT = setTimeout(() => { if (S.route.page === "api") pageApi(); }, 8000); return; }
+  // Tự làm mới mỗi 4 giây, kể cả khi đang mở hộp thoại (thêm tài khoản, thêm theo lô): tài khoản mới hiện ngay trong tab.
+  // (Trước đây hẹn giờ 10 giây chỉ chạy một lần và bỏ qua khi có hộp thoại, nên sau khi mở hộp thoại là hết tự cập nhật.)
+  const again = () => { clearTimeout(S.apiT); S.apiT = setTimeout(() => { if (S.route.page === "api") pageApi(true); }, 4000); };
+  const sig = JSON.stringify([d, tk, Math.floor(Date.now() / 60000)]);
+  if (auto && sig === S.apSig && $("#view .apsum")) return again();
+  S.apSig = sig;
   const accs = d.accounts || [], on = accs.filter(a => a.enabled), usable = on.filter(a => a.ok !== false && (quotaPct(a.quota || {}) ?? 0) < 100);
   const cnt = st => tk.filter(t => t.status === st).length, ago2 = t => t ? ago(t) : "—";
   const days = a => a.expires_at ? Math.max(0, Math.round((a.expires_at - Date.now() / 1000) / 86400)) : null;
@@ -840,7 +890,7 @@ async function pageApi() {
     return `<div class="apvid ${cls}" title="Số video gen thành công trên tài khoản này trong hôm nay, tính từ 00:00. Qua ngày mới thì về 0. Chỉ để cảnh báo, không chặn gen.">Số video: <b>${n}</b> / ~${VIDEO_LIMIT}${n >= VIDEO_LIMIT ? " · đã chạm giới hạn" : n >= VIDEO_WARN ? " · sắp chạm giới hạn" : ""}</div>`; };
   const acc = a => { const q = a.quota || {}, pct = quotaPct(q), extra = q.extra_used_pct != null, dd = days(a), bad = a.ok === false;
     return `<div class="card apacc ${a.enabled ? "" : "off"}" data-id="${a.id}">
-      <div class="aphead"><b>${esc(a.label || a.id)}</b><span class="tag mute">${a.id.slice(0, 6)}</span><span class="grow"></span>
+      <div class="aphead"><b title="${esc(a.label || a.id)}">${esc(a.label || a.id)}</b><span class="tag mute">${a.id.slice(0, 6)}</span><span class="grow"></span>
         <span class="tag ${bad ? "bad" : a.ok ? "ok" : "mute"}">${bad ? "Lỗi đăng nhập" : a.ok ? "Phiên ổn" : "Chưa kiểm tra"}</span><div class="sw2 ${a.enabled ? "on" : ""}" data-aptog="${a.id}" title="Bật / tắt tài khoản này"></div></div>
       <div class="apq">${pct == null ? `<span class="tag mute">Chưa đo hạn mức</span>` : `<div class="apbar"><div class="${pct >= 100 ? "full" : pct >= 80 ? "hi" : ""}" style="width:${Math.min(100, pct)}%"></div></div>${extra ? `<span>Extra: <b>${q.extra_used_pct}%</b>${q.extra_left ? " · còn " + esc(q.extra_left.replace(/\s*left$/i, "")) : ""}</span>` : ""}${q.weekly_used_pct != null ? `<span${extra ? ' class="mute"' : ""}>Tuần: ${extra ? q.weekly_used_pct + "%" : `<b>${q.weekly_used_pct}%</b>`}${q.weekly_reset ? " · reset " + esc(q.weekly_reset) : ""}</span>` : ""}<span class="mute">${esc(q.plan || "")}${q.checked_at ? " · đo " + ago(q.checked_at) : ""}</span>`}</div>
       ${vid(a)}
@@ -893,7 +943,7 @@ async function pageApi() {
           cancel(); closeModal(); toast("Đã lưu"); pageApi(); } catch (er) { toast(er.message, 1); } } }; };
   // Thêm nhiều tài khoản cùng lúc từ một file .txt (mỗi dòng email|password|refresh_token|client_id).
   // LUO đăng nhập LẦN LƯỢT từng dòng trong Chrome: tự điền email + tự lấy mã OTP từ hộp thư Outlook, lưu cookie, rồi sang dòng kế.
-  const batchModal = () => { let tok = null, timer = null, running = false;
+  const batchModal = () => { let tok = null, timer = null, running = false, seen = -1;
     const ST = { pending: ["Chờ", "mute"], running: ["Đang chạy", ""], done: ["Xong", "ok"], failed: ["Lỗi", "bad"], skipped: ["Bỏ qua", "mute"] };
     openModal(`<div class="mbox" style="max-width:640px"><h2>Thêm tài khoản theo lô <button class="ib" id="mx">${ico("x")}</button></h2>
       <p style="color:var(--dim);font-size:13px;line-height:1.6">Mỗi dòng một tài khoản dạng <code>email|password|refresh_token|client_id</code> (mail Outlook/Hotmail có refresh_token). LUO đăng nhập lần lượt từng dòng: tự điền email, tự lấy mã OTP trong hộp thư rồi lưu. Dòng trống hoặc bắt đầu bằng <code>#</code> được bỏ qua. Email đã có trong LUO thì đăng nhập lại chính tài khoản đó.</p>
@@ -912,6 +962,8 @@ async function pageApi() {
     const poll = async () => { if (!$("#bst")) return stop();
       let r; try { r = await api("muse/accounts/login-batch/" + tok); } catch (e) { stset(`<span style="color:var(--bad)">${esc(e.message)}</span>`); running = false; lock(false); return stop(); }
       render(r);
+      const fin = ((r.counts || {}).done || 0) + ((r.counts || {}).failed || 0);
+      if (r.state === "running" && fin !== seen) { seen = fin; pageApi(true); }
       if (r.state !== "running") { stop(); running = false; lock(false); const g = $("#bgo"); if (g) { g.disabled = false; g.lastChild.textContent = "Bắt đầu lại"; } pageApi(); } };
     $("#modal").onclick = async e => {
       if (e.target.closest("#mx, #bc")) { stop(); return closeModal(); }   // chỉ ẩn hộp thoại, lô (nếu đang chạy) vẫn chạy nền
@@ -941,13 +993,15 @@ async function pageApi() {
     if ((x = e.target.closest("[data-apren]"))) { const a = accs.find(z => z.id === x.dataset.apren), nn = prompt("Tên mới cho tài khoản", a.label || ""); if (nn != null) return run(null, () => api("muse/accounts/" + a.id, { method: "PUT", body: { label: nn.trim() } })); return; }
     if ((x = e.target.closest("[data-apdel]"))) { const a = accs.find(z => z.id === x.dataset.apdel); if (!confirm(`Xoá tài khoản "${a.label || a.id}"? Việc này không hoàn tác được.`)) return; return run(null, () => api("muse/accounts/" + a.id, { method: "DELETE" }), "Đã xoá tài khoản"); }
     if ((x = e.target.closest("[data-aptd]"))) return run(null, () => api("muse/tasks/" + x.dataset.aptd, { method: "DELETE" })); };
-  S.apiT = setTimeout(() => { if (S.route.page === "api" && !$("#modal").innerHTML) pageApi(); }, 10000);
+  again();
 }
 
 // ---------------------------------------------------------------- Cài đặt
 async function pageSettings() {
   setTop("Cài đặt");
-  const s = await api("settings"); await refreshHealth();
+  const tok = S.rtok;
+  const s = await api("settings"); if (tok !== S.rtok) return;
+  refreshHealth();   // không chờ: trạng thái LUO-API tự cập nhật trên thanh trên cùng
   const h = S.health || {};
   const pick = (k, label) => `<div class="f"><label>${label}</label><div class="pick"><input class="input" id="st-${k}" readonly value="${esc(s[k] || "")}" placeholder="Không dùng"><button class="btn sm" data-pick="${k}">Chọn</button><button class="ib" data-clr="${k}">${ico("x")}</button></div></div>`;
   $("#view").innerHTML = `<div class="set">
@@ -1010,12 +1064,19 @@ async function pageSettings() {
 }
 
 // ---------------------------------------------------------------- Loại dự án
-async function pageTypes() {
-  S.boot = await api("boot");
+async function pageTypes(cached) {
+  const tok = S.rtok;
+  if (!cached) {
+    if (S.boot && $("#view>.empty>.spin")) pageTypes(true);
+    const had = S.boot && JSON.stringify(S.boot), b = await api("boot");
+    if (tok !== S.rtok) { S.boot = b; return; }
+    S.boot = b;
+    if (had === JSON.stringify(b) && $("#view .grid")) return;
+  }
   setTop("Loại dự án", `<button class="btn primary" id="tnew">${ico("plus")}Loại mới</button>`);
   const used = t => S.boot.projects.filter(p => p.template === t.id).length;
   $("#view").innerHTML = `<div class="grid">${S.boot.types.map(t => `<div class="card pcard">
-      <div style="display:flex;justify-content:space-between;gap:10px"><h3>${esc(t.name)}</h3>${t.builtin ? '<span class="tag mute">Có sẵn</span>' : ""}</div>
+      <div style="display:flex;justify-content:space-between;gap:10px"><h3>${esc(t.name)}</h3>${t.builtin ? '<span class="tag mute">Có sẵn</span>' : t.saved ? `<span class="tag ok" style="white-space:nowrap;align-self:flex-start" title="Kịch bản đã được xác nhận dùng được (bấm Lưu kịch bản trong trang chi tiết phân tích)">Đã lưu${t.kind === "hook" ? " · đổi hook" : ""}</span>` : t.claude_job && t.saved === 0 ? `<a class="tag warn" style="white-space:nowrap;align-self:flex-start" data-go="#/claude/${t.claude_job}" title="Kịch bản Claude vừa viết, chưa xác nhận. Bấm để mở trang chi tiết và lưu khi đã test xong.">Đang thử</a>` : ""}</div>
       <div class="meta"><span>${t.split ? "Ghép 2 lớp" : t.scenes + " cảnh"}</span>·<span>${t.fields.length} trường</span>${Object.entries(t.series || {}).map(([k, n]) => `<span class="tag">${esc(k)} ×${n}</span>`).join("")}</div>
       <div class="meta"><span>${used(t)} dự án</span></div>
       <div class="row2" style="margin-top:auto"><button class="btn sm" data-edit="${t.id}">Sửa</button><button class="btn sm" data-dup="${t.id}">Nhân bản</button><span style="flex:1"></span><button class="ib danger" data-deltype="${t.id}" title="Xoá">${ico("trash")}</button></div></div>`).join("")}
@@ -1142,6 +1203,96 @@ async function typeWizard(existing, opts = {}) {
       } catch (er) { toast(er.message, 1); }
     }
   };
+}
+
+// ------------------------------------------------------------------ xem ảnh lớn
+// Bấm vào ảnh tham chiếu (ô ảnh nhỏ trong trình sửa biến thể) -> ảnh hiện lớn, đè lên trang đang xem. Esc / bấm ra ngoài để đóng, ← → chuyển ảnh.
+const LB = { list: [], i: 0 };
+function lbDraw() {
+  const im = LB.list[LB.i]; if (!im) return lbClose();
+  let el = $("#lb");
+  if (!el) { el = document.createElement("div"); el.id = "lb"; document.body.appendChild(el); }
+  const many = LB.list.length > 1;
+  el.innerHTML = `${many ? `<button class="lb-nav" data-lb="-1" title="Ảnh trước (←)">‹</button>` : ""}
+    <figure><img src="${esc(im.src)}" alt=""><figcaption>${esc(im.name)}${many ? ` <small>${LB.i + 1} / ${LB.list.length}</small>` : ""}</figcaption></figure>
+    ${many ? `<button class="lb-nav" data-lb="1" title="Ảnh sau (→)">›</button>` : ""}<button class="lb-x" data-lb="x" title="Đóng (Esc)">×</button>`;
+}
+function lbClose() { const el = $("#lb"); if (el) el.remove(); LB.list = []; }
+function lbStep(d) { LB.i = (LB.i + d + LB.list.length) % LB.list.length; lbDraw(); }
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-lb]");
+  if (b) { e.stopPropagation(); return b.dataset.lb === "x" ? lbClose() : lbStep(+b.dataset.lb); }
+  if (e.target.closest("#lb")) { if (!e.target.closest("#lb img")) lbClose(); return; }
+  const img = e.target.closest(".chip.img img, img[data-zoom]"); if (!img) return;
+  const all = [...document.querySelectorAll(img.matches("[data-zoom]") ? "img[data-zoom]" : ".chip.img img")];
+  LB.list = all.map(x => ({ src: x.dataset.full || x.currentSrc || x.src, name: x.title || "" })); LB.i = Math.max(0, all.indexOf(img)); lbDraw();
+});
+document.addEventListener("keydown", e => {
+  if (!$("#lb")) return;
+  if (e.key === "Escape") { e.stopImmediatePropagation(); lbClose(); }
+  else if (e.key === "ArrowLeft" && LB.list.length > 1) lbStep(-1);
+  else if (e.key === "ArrowRight" && LB.list.length > 1) lbStep(1);
+}, true);
+
+// ------------------------------------------------------------------ tab Kho nhân vật
+// Danh sách nhân vật + bot có sẵn (SAMPLE/_chung/kho-nhan-vat): lọc theo loại / giới / tuổi / thị trường / thương hiệu bot, tìm theo mã.
+// Bấm ảnh để xem lớn, bấm mã để chép (dán vào "refs" của biến thể hoặc ô mô tả nhóm biến thể).
+async function pageKho() {
+  setTop("Kho nhân vật");
+  const tok = S.rtok;
+  if (!S.kho) { S.kho = await api("kho").catch(() => []); if (tok !== S.rtok) return; }
+  const all = S.kho, F = S.khoF || (S.khoF = { loai: "", gioi: "", tuoi: "", tt: "", bot: "", lb: "", q: "" });
+  const TT = t => ({ "Âu Mỹ": "aumy", "Latinh": "latin", "India": "india" }[t] || t);   // người ghi "Latinh", bot cũng "Latinh": gom theo tên thị trường
+  const uniq = k => [...new Set(all.map(x => x[k]).filter(Boolean))];
+  const seg = (key, opts) => `<div class="seg" data-kf="${key}">${[["", "Tất cả"], ...opts].map(([v, n]) => `<button data-v="${esc(v)}" class="${F[key] === v ? "on" : ""}">${esc(n)}</button>`).join("")}</div>`;
+  const match = x => (!F.loai || x.loai === F.loai) && (!F.tt || x.thi_truong === F.tt)
+    && (x.loai === "bot" ? (!F.bot || x.bot === F.bot) && (!F.lb || x.loai_bot === F.lb) && !F.gioi && !F.tuoi
+                         : (!F.gioi || x.gioi === F.gioi) && (!F.tuoi || x.tuoi === F.tuoi) && !F.bot && !F.lb)
+    && (!F.q || F.q.toUpperCase().split(/[\s,;]+/).filter(Boolean).every(w => x.ma.includes(w)));
+  const card = x => `<div class="kh-card" data-ma="${esc(x.ma)}">
+      <div class="kh-img"><img loading="lazy" data-zoom data-full="/kho/${encodeURIComponent(x.ma)}" src="/kho-nho/${encodeURIComponent(x.ma)}" title="${esc(x.ma)}" alt="${esc(x.ma)}"></div>
+      <button class="kh-ma" data-copy="${esc(x.ma)}" title="Bấm để chép mã">${esc(x.ma)}</button>
+      <div class="kh-meta">${esc(x.loai === "bot" ? [x.bot, x.loai_bot, x.thi_truong].join(" · ") : [x.gioi, x.tuoi, x.thi_truong].join(" · "))}</div></div>`;
+  const draw = () => {
+    const list = all.filter(match), nNg = all.filter(x => x.loai === "nguoi").length, nBot = all.length - nNg;
+    const showNg = F.loai !== "bot", showBot = F.loai !== "nguoi";
+    $("#view").innerHTML = `<div class="kh">
+      <div class="kh-bar">
+        <input class="input" id="kh-q" placeholder="Tìm theo mã, vd: NU-30-45 hoặc AUMY 05" value="${esc(F.q)}" style="width:300px">
+        ${seg("loai", [["nguoi", `Người (${nNg})`], ["bot", `Bot (${nBot})`]])}
+        ${seg("tt", uniq("thi_truong").map(v => [v, v]))}
+        <span class="kh-n">${list.length} / ${all.length}</span>
+        ${Object.values(F).some(Boolean) ? `<button class="btn sm ghost" id="kh-clear">Bỏ lọc</button>` : ""}
+      </div>
+      <div class="kh-bar">
+        ${showNg ? `<label>Giới</label>${seg("gioi", uniq("gioi").map(v => [v, v]))}<label>Tuổi</label>${seg("tuoi", uniq("tuoi").map(v => [v, v]))}` : ""}
+        ${showBot ? `<label>Bot</label>${seg("bot", uniq("bot").map(v => [v, v]))}<label>Loại bot</label>${seg("lb", uniq("loai_bot").map(v => [v, v]))}` : ""}
+      </div>
+      ${all.length ? "" : `<div class="empty">Chưa có danh mục kho nhân vật (SAMPLE/_chung/kho-nhan-vat/danh-muc.json).</div>`}
+      ${all.length && !list.length ? `<div class="empty">Không có mã nào khớp bộ lọc.</div>` : ""}
+      <div class="kh-grid">${list.map(card).join("")}</div></div>`;
+    const q = $("#kh-q");
+    q.oninput = () => { F.q = q.value; const p = q.selectionStart; draw(); const n = $("#kh-q"); n.focus(); n.setSelectionRange(p, p); };
+  };
+  $("#view").onclick = e => {
+    if (S.route.page !== "kho") return;
+    const b = e.target.closest("[data-kf] button");
+    if (b) {
+      const k = b.parentElement.dataset.kf; F[k] = b.dataset.v;
+      if (k === "loai") { if (F.loai === "bot") F.gioi = F.tuoi = ""; if (F.loai === "nguoi") F.bot = F.lb = ""; }
+      if ((k === "gioi" || k === "tuoi") && F[k]) { F.bot = F.lb = ""; if (F.loai === "bot") F.loai = ""; }
+      if ((k === "bot" || k === "lb") && F[k]) { F.gioi = F.tuoi = ""; if (F.loai === "nguoi") F.loai = ""; }
+      return draw();
+    }
+    if (e.target.closest("#kh-clear")) { Object.keys(F).forEach(k => F[k] = ""); return draw(); }
+    const c = e.target.closest("[data-copy]");
+    if (c) {
+      const ma = c.dataset.copy, done = () => toast("Đã chép mã " + ma);
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(ma).then(done, () => toast("Không chép được, mã: " + ma, 1));
+      else { const t = document.createElement("textarea"); t.value = ma; document.body.appendChild(t); t.select(); document.execCommand("copy"); t.remove(); done(); }
+    }
+  };
+  draw();
 }
 
 (async function init() {
