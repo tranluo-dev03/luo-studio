@@ -130,7 +130,7 @@ V = {
 }
 
 ANH = {"HOC": "SAMPLE/taxi-gia-su-ai/anh/HOC.png", "KHACH": "SAMPLE/taxi-gia-su-ai/anh/KHACH.png", "QUANLY": "SAMPLE/taxi-gia-su-ai/anh/QUANLY.png",
-       "ARJUN": "SAMPLE/taxi-gia-su-ai/anh/ARJUN.png", "CON": "SAMPLE/taxi-gia-su-ai/anh/CON.png", "DAY": "SAMPLE/canh-sat-gia-su-ai/anh/DAY.png"}
+       "ARJUN": "SAMPLE/taxi-gia-su-ai/anh/ARJUN.png", "CON": "SAMPLE/taxi-gia-su-ai/anh/NGUOI-CON.png", "DAY": "SAMPLE/canh-sat-gia-su-ai/anh/DAY.png"}
 
 
 def main():

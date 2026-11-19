@@ -199,7 +199,7 @@ CHUNG = {
 }
 
 ANH_CHUNG = {"QUANLY": "SAMPLE/taxi-gia-su-ai/anh/an-do/QUANLY.png", "ARJUN": "SAMPLE/taxi-gia-su-ai/anh/ARJUN.png",
-             "CON": "SAMPLE/taxi-gia-su-ai/anh/an-do/CON.png", "DAY": "SAMPLE/canh-sat-gia-su-ai/anh/DAY.png"}
+             "CON": "SAMPLE/taxi-gia-su-ai/anh/an-do/NGUOI-CON.png", "DAY": "SAMPLE/canh-sat-gia-su-ai/anh/DAY.png"}
 
 
 def ten_slug(s):
