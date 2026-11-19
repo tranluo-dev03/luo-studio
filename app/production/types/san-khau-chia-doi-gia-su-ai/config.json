@@ -1,0 +1,81 @@
+{
+  "_doc": "Hậu kỳ 'diễn giả sân khấu + thẻ từ vựng chia đôi gia sư AI'. Toạ độ theo khung 1080x1920 (đo từ video mẫu 720x1280 nhân 1,5). phu_de: phụ đề chỉ ở phần 1 (chữ trắng viền đen giữa khung). the: thẻ từ vựng ở phần 2, đặt Ở DƯỚI khung để không che mặt (ô trắng viền xanh + vàng; nhãn hồng câu tiếng Bồ, câu tiếng Anh chữ xanh, phiên âm đỏ; từ đang đọc tô vàng).",
+  "nhoe": 1.0,
+  "phu_de": {
+    "co_chu": 64,
+    "y_theo_phan": {
+      "1": 1030
+    },
+    "kieu_theo_phan": {
+      "1": {
+        "*": {
+          "c": "white"
+        }
+      }
+    },
+    "whisper": "small"
+  },
+  "the": {
+    "x": 50,
+    "y": 1520,
+    "w": 980,
+    "h": 255,
+    "vien_ngoai": [
+      46,
+      117,
+      230
+    ],
+    "vien_trong": [
+      255,
+      208,
+      70
+    ],
+    "nen": [
+      255,
+      255,
+      255
+    ],
+    "nhan_nen": [
+      255,
+      205,
+      215
+    ],
+    "nhan_chu": [
+      70,
+      30,
+      55
+    ],
+    "co_nhan": 38,
+    "y_nhan": 66,
+    "chu_en": [
+      30,
+      72,
+      170
+    ],
+    "co_en": 76,
+    "y_en": 140,
+    "chu_ipa": [
+      214,
+      40,
+      50
+    ],
+    "co_ipa": 38,
+    "y_ipa": 212,
+    "to_vang": [
+      255,
+      226,
+      0
+    ],
+    "font": "C:\\Windows\\Fonts\\arialbd.ttf",
+    "font_ass": "Arial",
+    "hien_truoc": 0.05
+  },
+  "gach": {
+    "ngon_ngu": "en",
+    "co_chu": 62,
+    "x": 450,
+    "x_dau_x": 905,
+    "y": 1090,
+    "cach_dong": 118
+  }
+}

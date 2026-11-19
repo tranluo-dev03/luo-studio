@@ -1,0 +1,194 @@
+[
+  {
+    "name": "bien-the-01-dien-gia-goc",
+    "TEN_HOC": "Rafael",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a charismatic Brazilian man in his late fifties, a tanned face with warm laugh lines, swept-back silver-grey hair, a neat short grey beard, warm brown eyes and a confident smile; a cream linen blazer over a white open-collar shirt, beige chinos and a brown leather belt",
+    "GIONG_HOC": "a real Brazilian man in his late fifties, natural mid pitch around 140–160 Hz, warm, confident and charismatic like a conference speaker, native Brazilian Portuguese; speaks English clearly with a light Brazilian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone whose screen shows only a portrait of a sleek white humanoid robot (smooth white porcelain face with light-blue eyes, bald white head, white armour plates with thin glowing cyan seams) on a soft light-white background, filling the screen, no text, no letters, no UI",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Brazilian Portuguese accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "HE": "he",
+    "HE_C": "He",
+    "HIS": "his",
+    "HIM": "him",
+    "NGON_NGU": "Brazilian Portuguese",
+    "TU_OLHA": "olha só",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "Nunca, jamais responda “Me too” quando alguém disser “Nice to meet you”.",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thank you.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "Eu também já respondia assim.",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Mas aí comecei a praticar com o Talka AI.",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Em apenas três semanas, eu já estava falando inglês com fluência e confiança.",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "E é de graça, olha só!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Em apenas três semanas, você vai se surpreender com o quanto evoluiu. Como você diria?",
+        "emo": "persuasive, curious",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "Soa bem. Em inglês, Sounds good. Repita comigo.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Estou a caminho. Em inglês, I'm on my way. Repita comigo.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Espera um segundo. Em inglês, Give me a second. Repita comigo.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Não entendi. Em inglês, I didn't catch that. Repita comigo.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Aqui está. Em inglês, Here you go. Repita comigo.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "pt",
+      "the": [
+        {
+          "luot": 7,
+          "luot_hoc": 8,
+          "pt": "Soa bem",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 9,
+          "luot_hoc": 10,
+          "pt": "Estou a caminho",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 11,
+          "luot_hoc": 12,
+          "pt": "Espera um segundo",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 13,
+          "luot_hoc": 14,
+          "pt": "Não entendi",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 15,
+          "luot_hoc": 16,
+          "pt": "Aqui está",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-dien-gia.png"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ]
+    }
+  }
+]

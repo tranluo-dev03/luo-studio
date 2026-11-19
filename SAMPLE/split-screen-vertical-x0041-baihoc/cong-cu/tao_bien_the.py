@@ -1,15 +1,15 @@
-"""Sinh SAMPLE/split-screen-vertical-x0039-baihoc/BIEN-THE-X0039-BAI-HOC-20.json từ bảng X0039_20-bien-the-split-screen-BAI-HOC.csv (20 biến thể nhân vật Brazil, lời thoại tiếng Anh, bài học "Where are you from?").
+"""Sinh SAMPLE/split-screen-vertical-x0041-baihoc/BIEN-THE-X0041-BAI-HOC-20.json từ bảng X0041_20-bien-the-split-screen-BAI-HOC.csv (20 biến thể nhân vật Brazil, lời thoại tiếng Anh, bài học "Where are you from?").
 Sửa bảng BIEN_THE (nhân vật, giọng), PLACE hoặc luot() rồi chạy:
-    .venv/Scripts/python.exe SAMPLE/split-screen-vertical-x0039-baihoc/cong-cu/tao_bien_the.py
+    .venv/Scripts/python.exe SAMPLE/split-screen-vertical-x0041-baihoc/cong-cu/tao_bien_the.py
 Ảnh nhân vật: anh/nhan-vat/bien-the-NN.webp (tải từ link Drive trong CSV); ảnh robot: anh/robot-ai.webp.
-Tuổi trong tên/mô tả giữ theo bảng nhưng KHÔNG đưa vào lời thoại (kịch bản X0039 không có câu tuổi)."""
+Tuổi trong tên/mô tả giữ theo bảng nhưng KHÔNG đưa vào lời thoại (kịch bản X0041 không có câu tuổi)."""
 import json
 import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "..", "BIEN-THE-X0039-BAI-HOC-20.json")
-DU_AN = "SAMPLE/split-screen-vertical-x0039-baihoc"
+OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "..", "BIEN-THE-X0041-BAI-HOC-20.json")
+DU_AN = "SAMPLE/split-screen-vertical-x0041-baihoc"
 ROBOT = DU_AN + "/anh/robot-ai.webp"
 
 CHUNG = {
@@ -140,7 +140,7 @@ BIEN_THE = [
 
 
 def luot(place, gioi):
-    """15 lượt theo kịch bản CSV X0039 (tiếng Anh, bài học "Where are you from?"). Câu sai: chữ đỏ + viền đỏ; câu nói lại đúng: chữ xanh + viền xanh.
+    """15 lượt theo kịch bản CSV X0041 (tiếng Anh, bài học "Where are you from?"). Câu sai: chữ đỏ + viền đỏ; câu nói lại đúng: chữ xanh + viền xanh.
     Kịch bản CSV ghi quê "Mexico" cho mọi biến thể dù nhân vật gốc Brazil: đổi PLACE (và câu sai/đúng) ở đây nếu cần."""
     L = [
         ("day", "Hi! Are you ready to practice English?", "friendly"),

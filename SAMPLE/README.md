@@ -1,4 +1,4 @@
-# SAMPLE: kịch bản, biến thể và tài liệu theo thể loại video
+﻿# SAMPLE: kịch bản, biến thể và tài liệu theo thể loại video
 
 Mỗi **thể loại video** có một **mã** (chữ thường, không dấu, nối bằng gạch ngang, ví dụ `talka-bang-tu-vung`). Mã này dùng chung cho hai chỗ:
 
@@ -35,6 +35,7 @@ Thể loại không có hậu kỳ riêng thì dùng hậu kỳ chung (`app/prod
 | `phong-van-pho-malayalam` | Một dự án 2 phần theo video "1510_interview street hindi_005" (76,9 s, app Aiva AI), tiếng **Malayalam** xen tiếng Anh: phóng viên quay lưng (qua vai) đố từ tiếng Anh người phụ nữ bán hàng rong đeo găng sau xe đẩy inox (cảnh thường, MỘT góc, 11 cảnh) → robot gia sư AI (robot Talka) ô trên, người bán selfie ô dưới (ghép 2 lớp, 15 cảnh), sửa "I am Kannur"; phụ đề chữ đen ô trắng giữa khung, Nirmala UI | Có: gen + hậu kỳ (`app/production/types/phong-van-pho-malayalam/`, dùng `types/_chung/`) |
 | `phong-van-pho-tay-ban-nha` | Cùng khuôn video "1510_interview street hindi_005" như phong-van-pho-malayalam nhưng lời **tiếng Tây Ban Nha (Mexico)**: phóng viên quay lưng (qua vai) hỏi người bán hàng rong (cảnh thường, MỘT góc, 6 cảnh) → robot Aiva ô trên, người bán selfie ô dưới (ghép 2 lớp, 6 cảnh); 20 biến thể (người bán + phóng viên KHÁC GIỚI + bối cảnh theo ảnh Drive); phụ đề chữ đen ô trắng, Arial | Có: gen + hậu kỳ (`app/production/types/phong-van-pho-tay-ban-nha/`, dùng `types/_chung/`) |
 | `taxi-gia-su-ai` | Hoạt hình 3D kể chuyện theo video "0510_cartoon turn car_015_1" (95 s), tiếng Anh + Tây Ban Nha: tài xế taxi Mexico không hiểu khách, bị đánh giá tệ, mất xe mới vào tay Arjun, con gái chỉ app gia sư AI (cảnh thường, 25 cảnh gồm **5 cảnh không lời**, 11 góc máy, 5 nhân vật) → tài xế + robot gia sư AI ô ngang phía trên (ghép 2 lớp, 18 cảnh), sửa "I am Mexico"; cảnh không lời trong dự án nhiều phần bằng MARKER `[KHONG LOI]` (gen.py đổi thành rỗng) | Có: gen + hậu kỳ (`app/production/types/taxi-gia-su-ai/`, dùng `types/_chung/`) |
+| `san-khau-chia-doi-gia-su-ai` | Theo video "Lurnia" (YayTalk, tiếng Bồ Brazil xen Anh): diễn giả sân khấu nói thẳng ống kính (cảnh thường, 7 cảnh) → chia đôi dọc robot mũ + kính đen / diễn giả, 5 vòng đọc từ vựng, thẻ từ vựng phía trên do hậu kỳ vẽ (ghép 2 lớp, 10 lượt); đoạn dựng quảng cáo + end card không gen | Có: gen + hậu kỳ (`app/production/types/san-khau-chia-doi-gia-su-ai/`, thẻ từ vựng chưa chạy thử) |
 | `lam-vuon` | Biến thể mẫu chủ đề làm vườn (dùng kịch bản mẫu chung) | Không |
 
 `_chung/`: file dùng cho mọi thể loại (kịch bản/biến thể mẫu gia sư AI, prompt nhờ Claude viết kịch bản, hướng dẫn cho agent, công cụ `phan-tich-video.py`).
@@ -61,3 +62,4 @@ Tri thức nền và bảng chọn khuôn: **`_chung/SO-TAY-KY-THUAT.md`** (tổ
 3. `video-moi.py kiem-tra <kịch bản> <biến thể> --tai-anh`: kiểm bằng code Studio.
 4. `video-moi.py nhap <kịch bản> <biến thể> --ten-loai ... --ten-du-an ... --chay-thu`: tạo loại dự án + dự án trong Studio đang chạy và chạy thử biến thể đầu.
 5. Ghi lại trong `SAMPLE/<mã>/README.md` những gì đã thử và kết quả; kỹ thuật/lỗi mới thì bổ sung vào sổ tay.
+

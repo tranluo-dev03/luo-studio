@@ -1351,7 +1351,8 @@ def _orb_scale(frame, ref):
                                          method=cv2.RANSAC, ransacReprojThreshold=4.0)
     if A is None or inl is None or int(inl.sum()) < 12:
         return None
-    return float(np.hypot(A[0, 0], A[1, 0]))
+    c = A @ np.array([180.0, 320.0, 1.0])   # tâm khung sau phép đưa về ảnh gốc: nhân vật dời ngang/dọc (đo 12/11/2026 X0042 BT10: robot dạt phải, mất nửa đầu, cỡ vẫn 1,0)
+    return float(np.hypot(A[0, 0], A[1, 0])), float(np.hypot((c[0] - 180.0) / 360.0, (c[1] - 320.0) / 640.0))
 
 
 def size_dev(path, ref_png, ts=(0.1, 0.3, 0.5, 0.7, 0.9)):
@@ -1365,18 +1366,19 @@ def size_dev(path, ref_png, ts=(0.1, 0.3, 0.5, 0.7, 0.9)):
         if ref is None or n < 2:
             cap.release()
             return 1.0
-        vals = []
+        vals, shifts = [], []
         for t in ts:
             cap.set(cv2.CAP_PROP_POS_FRAMES, max(0, min(n - 1, int(t * (n - 1)))))
             ok, f = cap.read()
-            s = _orb_scale(f, ref) if ok else None
-            if s and 0.3 < s < 3.0:
-                vals.append(s)
+            r = _orb_scale(f, ref) if ok else None
+            if r and 0.3 < r[0] < 3.0:
+                vals.append(r[0])
+                shifts.append(r[1])
         cap.release()
         if len(vals) < 3:
             return 1.0
         s = float(np.median(vals))
-        return max(s, 1 / s)
+        return max(s, 1 / s, 1.0 + 1.25 * float(np.median(shifts)))   # dời 8% khung = lệch 1,10
     except Exception:  # noqa: BLE001 - không đo được: không chặn
         return 1.0
 

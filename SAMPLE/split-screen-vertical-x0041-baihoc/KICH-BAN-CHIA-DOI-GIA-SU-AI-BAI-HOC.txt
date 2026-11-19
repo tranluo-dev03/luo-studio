@@ -9,7 +9,7 @@ Thể loại "chia đôi màn hình + gia sư AI" (video mẫu: 2110_langlearn v
   Hậu kỳ riêng (app/production/types/chia-doi-gia-su-ai/post.py): phụ đề ô đen giữa khung (~68% chiều cao), lời AI chữ trắng, lời người dùng chữ vàng;
   câu sai chữ đỏ + viền đỏ nháy ở NỬA PHẢI cuối câu; câu nói lại đúng chữ xanh lá + viền xanh nháy ở nửa phải. Badge "Talka AI" góc dưới trái:
   Thương hiệu -> logo cố định của dự án (Studio không vẽ).
-  Gắn ảnh tham chiếu: NGUOI_DAY = ảnh robot (SAMPLE/split-screen-vertical-x0039-baihoc/anh/robot-ai.webp), NGUOI_HOC = ảnh nhân vật của từng biến thể.
+  Gắn ảnh tham chiếu: NGUOI_DAY = ảnh robot (SAMPLE/split-screen-vertical-x0041-baihoc/anh/robot-ai.webp), NGUOI_HOC = ảnh nhân vật của từng biến thể.
 
 [GHEP HAI LOP]:
 nen: HOC

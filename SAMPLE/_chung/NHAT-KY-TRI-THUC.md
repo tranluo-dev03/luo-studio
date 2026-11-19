@@ -881,3 +881,91 @@ Người dùng báo 6 lỗi; nguyên nhân đã chứng minh bằng số đo tr�
 - Sửa so với bảng lời: gộp câu liền cùng người (15 → 12 lượt), "Kannur" → "Puebla", "nativa/nativo" theo giới.
 - Kiểm tra: video-moi.py kiem-tra 0 lỗi / 0 cảnh báo. Chưa nhập Studio, chưa gen. Áp dụng riêng thể loại; quy tắc PV khác giới + token đại từ PV là chung (chưa chưng cất).
 - PHÁT HIỆN: kịch bản phong-van-pho-malayalam còn ghi cứng "his / beard / glasses / backpack" cho PV, trong khi 20 biến thể người bán nam đã đổi PV sang nữ (12/11) => mô tả mâu thuẫn trong prompt. CHƯA SỬA (cần loại dự án mới + gen lại).
+
+### 12/11/2026 san-khau-chia-doi-gia-su-ai: thẻ từ vựng bằng code
+- Hiện tượng: video Lurnia có thẻ từ vựng (nhãn Bồ + câu Anh + phiên âm, từ đang đọc tô vàng) phía trên khung chia đôi.
+- Cách làm: nền thẻ PNG (PIL) + chữ Anh và ô tô vàng bằng ASS theo mốc từ Whisper (pt); phụ đề chỉ phần 1. Whisper en nghe lời Bồ sai nên dùng pt+en.
+- Kết quả: CHỜ KIỂM CHỨNG (post.py chưa chạy thử; Studio chưa mở, chưa gen). Áp dụng: riêng thể loại. Chưa chưng cất.
+
+### 13/11/2026 san-khau-chia-doi-gia-su-ai: gen ảnh tham chiếu bằng Muse
+- Ảnh diễn giả (không ref) và robot (ref = robot trắng người dùng + mũ xám, kính đen, áo bomber) gen bằng cong-cu/gen_anh.py (cần MUSE2API_ENV_FILE=userdata\api\.env vì settings.api_key trống). Kết quả: ĐẠT ngay lần đầu, mũ/kính/áo rõ, giữ mặt sứ trắng. Áp dụng: dùng lại gen_anh.py cho thể loại khác.
+
+### 16/11/2026 san-khau-chia-doi-gia-su-ai: nhập Studio + chạy thử biến thể 01
+- Dự án Lurnia---dien-gia-san-khau-8a5e, loại San-khau-the-tu-vung-chia-doi-gia-su-AI-986e. scene1_start.png: mặt/áo/nền sân khấu ĐẠT (khối đỏ không chữ, khán giả mờ), nhưng khung NHẬN TOÀN THÂN tới giày (prompt ghi 'từ đùi trở lên') nên mặt nhỏ hơn video mẫu. CHƯA ĐẠT khổ khung; chờ quyết định gen lại ảnh đầu.
+
+### 16/11/2026 san-khau-chia-doi-gia-su-ai: phần 2 dùng `noi: cat` + ảnh gốc chuẩn
+- Hiện tượng: base_HOC.png (Muse tự gen) lệch phải, mặt xoay, quá to (đầu ~12%); clip sau trôi: kẹp 2 clicker, vệt ghép (scene4_spklast.png) do `noi: lien`.
+- Cách sửa: `noi: cat` (mọi clip xuất phát từ ảnh gốc cố định) + tự gen base_HOC/base_DAY chuẩn bằng cong-cu/gen_base.py (chính diện, giữa khung, đầu 22%, ref = ảnh AI người dùng) rồi đặt vào phan2/ trước khi chạy; câu NHAN VAT HOC thêm "STRAIGHT ON, nose on centre line". Bản lỗi cũ lưu ở phan2_truoc_khi_sua/.
+- Kết quả: CHỜ KIỂM CHỨNG (đang gen lại phần 2). Áp dụng: thể loại này; muốn áp cho thể loại khác thì thêm `noi: cat` vào khối [GHEP HAI LOP] của kịch bản đó.
+
+### 16/11/2026 san-khau-chia-doi-gia-su-ai: diễn giả nói "Sounds good" hai lần
+- Hiện tượng: scene9_cut.mp4 (lượt diễn giả) Whisper nghe "Sounds good! Sounds good!" vì lời viết "{en}. {en}." (theo video mẫu lặp hai lần).
+- Cách sửa: lượt diễn giả chỉ viết MỘT lần "{en}." (tao_bien_the.py), kịch bản dặn "repeats exactly ONCE, then stops"; Studio đọc lời từ biến thể nên 5 vòng đều đổi. Lời có hai lần thì Muse nói đủ hai lần: muốn lặp một lần thì chỉ ghi một lần.
+- Kết quả: CHỜ KIỂM CHỨNG (đang gen lại từ cảnh 9). Áp dụng chung: mọi thể loại "học viên lặp lại câu".
+
+### 16/11/2026 san-khau-chia-doi-gia-su-ai: đổi tên app + màn hình điện thoại cảnh 6
+- Yêu cầu: cảnh 4 nói "Talka AI" thay YayTalk (APP trong tao_bien_the.py); cảnh 6 điện thoại hiện robot Talka AI (DAO_DIENTHOAI mô tả robot trắng mặt sứ mắt xanh, ảnh gốc anh/robot-talka-ai.webp chỉ để tham chiếu, không gửi Muse vì token ảnh trung tính sẽ lọt sang phần 2).
+- Làm lại bằng "Chỉ làm lại cảnh này" (queue/redo only) cảnh 4 rồi 6. Kết quả: CHỜ KIỂM CHỨNG (Muse có thể vẽ robot trên màn hình chỉ gần giống; cảnh 5 nối từ khung cuối cảnh 4 nên không đổi).
+
+### 16/11/2026 san-khau-chia-doi-gia-su-ai: thẻ từ vựng chuyển xuống dưới
+- Hiện tượng: thẻ y 75–330 (đỉnh đầu ~20% = 384 px) che mặt trên ảnh split thực tế do khung cắt dải giữa.
+- Cách sửa: config.json the.y = 1520 (thẻ dưới, 1520–1775); kịch bản đổi ràng buộc "17% trên trống" thành "mặt/tay trên 17% dưới". Hậu kỳ chạy lại là thấy ngay, không cần gen lại clip.
+- Kết quả: CHỜ KIỂM CHỨNG (post.py chưa chạy thật lần nào; xem thẻ có che tay/clicker không). Áp dụng: riêng thể loại.
+
+### 16/11/2026 san-khau-chia-doi-gia-su-ai: hậu kỳ thẻ dưới chạy thật
+- post.py chạy trên bản gen đầy đủ (17 cảnh): thẻ ở dưới KHÔNG che mặt nào; ô tô vàng bám từ đang đọc (robot + diễn giả). Lỗi tìm thấy: khoảng cách từ/ô vàng rộng vì PP.text_width cộng ~14 px đệm và libass \fs = chiều cao dòng (~1,117 em). Sửa: đo bằng PIL arialbd ở cỡ fs/1,117. Kết quả: ĐẠT (xem 4 khung). Áp dụng: mọi nơi dùng ASS + đo chữ bằng PIL. Chưa chưng cất.
+
+### 16/11/2026 san-khau-chia-doi-gia-su-ai: cảnh 2 = cảnh tiệc + gạch ngang/X/tiếng sai
+- Video mẫu 5,8–8,8 s: diễn giả ở tiệc sang trọng (ly champagne, sảnh bokeh) nói "Me too / You're welcome / I'm fine, thank you", mỗi câu hiện chữ gạch ngang + X đỏ. Bản đầu của mình để cả cảnh ở sân khấu, thiếu hoàn cảnh.
+- Sửa: cảnh 2 có Prompt ảnh riêng (tiệc, ngực trở lên); cảnh 3 `Khung đầu từ cảnh: 1` để quay lại sân khấu (không thì nối từ khung tiệc); lượt 2 đặt "gach": true → post.py vẽ từng câu (trắng, gạch đỏ, X) theo mốc Whisper + buzz.
+- Kết quả: CHỜ KIỂM CHỨNG (đang gen lại cảnh 2; hậu kỳ gạch chưa chạy thật). Áp dụng: mọi cảnh "câu sai" đứng một mình ở phần thường.
+
+### 16/11/2026 san-khau-chia-doi-gia-su-ai: cảnh tiệc bị kéo về sân khấu
+- Hiện tượng: scene2_start.png đúng tiệc nhưng clip chuyển thành nền sân khấu (khối đỏ) cầm ly champagne. Nguyên nhân: gen_video.build_prompts LUÔN chèn SET LOCK + CHAR LOCK + STYLE LOCK vào Prompt video; khoá của phần 1 tả "sân khấu" (STYLE LOCK + SET LOCK + NEN_HOC) → ghi đè bối cảnh cảnh 2.
+- Sửa: STYLE LOCK/SET LOCK phần 1 trung tính về địa điểm ("giữ đúng nơi/khung như khung đầu"); địa điểm chỉ ghi trong Prompt ảnh/Khung đầu từng cảnh. Gen lại cảnh 2.
+- Kết quả: CHỜ KIỂM CHỨNG. Bài học chung: cảnh đổi bối cảnh giữa chừng thì khối khoá chung KHÔNG được nhắc địa điểm (khớp mục "Vật nền hiện dần" trong sổ tay).
+
+### 16/11/2026 san-khau-chia-doi-gia-su-ai: cảnh tiệc phải là tình huống thật
+- Yêu cầu người dùng: diễn giả nói chuyện với một người (không focus người đó), không nhìn ống kính. Sửa: Prompt ảnh/video cảnh 2 → mắt nhìn người ngoài khung bên trái, mép phải chỉ vai/gáy khách mờ nhoè; STYLE LOCK/CHAR LOCK EYE LINE đổi "nhìn ống kính" thành theo từng cảnh. Gen lại cảnh 2. Kết quả: CHỜ KIỂM CHỨNG.
+- Còn phải làm: cắt khoảng không thoại thừa của cảnh 2 (xem khoảng lặng đầu/cuối clip mới).
+
+### 16/11/2026 san-khau-chia-doi-gia-su-ai: cảnh tiệc ĐẠT + cắt khoảng lặng
+- scene2_start.png + clip mới ĐẠT: diễn giả nghiêng mặt nhìn người ngoài khung, khách quay lưng mờ nhoè ở mép phải, ly champagne, sảnh sang trọng; gạch ngang + X khớp từng câu (±0,2 s).
+- Cắt khoảng lặng: Whisper theo từ trên scene2_cut (4,58 s) cho lời 0–4,18 s, khoảng lặng giữa 1,70–2,62 s. Cắt bằng ffmpeg (bỏ 1,85–2,47 và đuôi sau 4,33, crossfade âm 50 ms) → 3,74 s; ghi đè phan1/scene2_cut.mp4 + scene2_cut.mp4 (bản gốc: phan1/scene2_cut_goc.mp4.bak) rồi POST /api/queue/start trên mục đã xong → Studio dựng lại raw từ các clip có sẵn (scenes.json cảnh 2 còn 3,74 s). Chạy tay, chưa thành tính năng: muốn cắt tự động thì giảm cut_margin ở Cài đặt.
+- Áp dụng chung: cách "sửa clip rồi start lại mục done" dùng được để dựng lại mà không gen.
+
+## 16/11/2026 — san-khau-chia-doi-gia-su-ai: cắt khoảng lặng cảnh 4, 7
+- Cảnh 7 (clip 8,27 s): 0,5 s đầu còn cầm điện thoại giơ lên (đã hạ trong clip) + quãng lặng 1,18 s giữa câu + đuôi 0,86 s → cắt còn 6,5 s (giữ 0,5–5,65 và 6,35–7,7, nối âm acrossfade 50 ms). Cảnh 4: đuôi lặng 1,16 s → cắt còn 4,2 s.
+- Quy trình: `silencedetect=n=-30dB:d=0.4` tìm lặng → sao lưu `sceneN_cut_goc.mp4.bak` → ffmpeg trim/concat → chép đè `phanX/sceneN_cut.mp4` và `sceneN_cut.mp4` → `POST /api/queue/start {"ids":[id]}` dựng lại raw + hậu kỳ (không gen lại). Phụ đề tự khớp lại theo Whisper.
+- Gốc lỗi: kịch bản cảnh 7 bảo "hạ điện thoại ở đầu câu" nên đầu clip luôn còn điện thoại; nên bắt đầu cảnh 7 từ khung đã hạ tay.
+
+## 16/11/2026 — san-khau-chia-doi-gia-su-ai: cắt khoảng lặng cảnh 8–17 (phần 2)
+- Quy tắc cắt tự động: lặng đầu ≥0,4 s → giữ 0,12 s; lặng cuối ≥0,4 s → giữ 0,2 s; lặng giữa ≥0,4 s → giữ 0,3 s (0,15 mỗi bên); lặng <0,4 s giữ nguyên (nhịp thở). Nối bằng concat + fade 20 ms. Cảnh 10, 14 không có lặng dài nên giữ.
+- Kết quả: video 79,7 → 72,4 s (-7,3 s). Thẻ từ vựng + tô vàng khớp lại theo Whisper, không phải sửa gì.
+- Lưu ý: file `sceneN_cut.mp4` ở gốc và `phan2/scene(N-7)_cut.mp4` là hard-link, chép đè phải bắt SameFileError. Bản gốc: `sceneN_cut_goc.mp4.bak`.
+- Chuyển động trong khoảng lặng chỉ là người nghe đứng im thở nhẹ (YAVG ~0,5–2), không có hành động; đoạn lặng ngắn thì giữ.
+
+## 16/11/2026 — san-khau-chia-doi-gia-su-ai: sửa vào KỊCH BẢN để lần sau khỏi phải cắt tay
+- Cảnh 7 thêm `Khung đầu từ cảnh: 5` (khung cuối cảnh 5: tay ngang bụng, không điện thoại) và bỏ ACTION "hạ điện thoại ở đầu clip" → không còn 0,5 s cầm điện thoại ở đầu cảnh 7 (hard cut từ cảnh 6). Đã chép sang `userdata/studio/types/`.
+- Chưa tự động hoá: cắt lặng GIỮA câu (≥0,4 s) và đuôi lặng cảnh 4/8–17 mới chỉ làm tay trên bản chạy này; "Cắt sát lời nói" của Studio chỉ lo hai đầu clip.
+
+## 16/11/2026 — san-khau-chia-doi-gia-su-ai: tiếng vỗ tay thừa + cắt lặng đầu/cuối mọi cảnh
+- Cảnh 15 (lượt người học "I didn't catch that"): 1,4 s đầu clip là nền tiếng vỗ tay (RMS ~1000 đều, không phải lời; silencedetect -32 dB KHÔNG bắt vì nó ồn hơn ngưỡng) → cắt từ 1,4 s. Cảnh 12, 14 có tiếng lạ sau lời (RMS 770–850 ở cuối) → cắt đuôi theo thời điểm hết lời. Cách phát hiện: in RMS mỗi 0,25 s, nền đều ~1000 trước lời = vỗ tay/ồn khán giả.
+- Cắt đầu/cuối cả 17 cảnh: giữ đầu 0,10 s, đuôi 0,15 s. Tổng 79,7 → 63,8 s. Thẻ từ vựng vẫn khớp.
+- Lần sau: thêm vào Negative prompt/âm thanh "no applause, no crowd noise" để Muse khỏi sinh vỗ tay (chưa thêm vào kịch bản).
+- Đã thêm 'applause, clapping, cheering, crowd noise, background music' vào mọi Negative prompt (phần 1 + khối [NEGATIVE] phần 2) và 'không vỗ tay, không tiếng khán giả' vào dòng Audio (16/11/2026).
+
+### 2026-11-16 · san-khau-chia-doi-gia-su-ai · 4 CSV X0056–X0059 → 4 file biến thể (nam/nữ, Brazil/Hindi/Mexico, robot mặc đồ) · loai: studio
+- CSV: Brazil 40, Hindi 20, Brazil+Robot 40 (thêm ảnh robot mặc theo từng người), Mexico 40; mọi ảnh Drive công khai tải được bằng `drive.google.com/uc?export=download&id=` (180 ảnh, 37 MB), phông xanh toàn thân.
+- Kịch bản gốc viết cứng "he/his/man", "Brazilian Portuguese", "olha só", "cap", "belt" → đổi sang token {{HE}}/{{HE_C}}/{{HIS}}/{{HIM}}, {{NGON_NGU}}, {{TU_OLHA}}, "top of the head", "waist". CSV Hindi/Mexico không có cảnh 7 ("Como você diria?": robot hỏi câu đầu) → kịch bản bản 6 cảnh riêng (`-6CANH.txt`, cắt khối CẢNH 7 bằng code); lời phần 1 chia nhỏ từ CSV (câu "Yo también contestaba así" tách khỏi "Pero todo cambió..." giữ nhịp cảnh 3/4). Robot vòng học lấy đúng lời CSV ("¿Cómo dirías “X” en inglés? Y. Repite conmigo: Y.").
+- Mô tả nhân vật chỉ gồm giới + quốc tịch + tuổi + "đúng như ảnh tham chiếu" (không dịch mô tả tiếng Việt: mặt/tóc/trang phục lấy từ ảnh). Giọng theo giới + tuổi. Robot CSV: "wearing exactly the outfit shown in the reference photo".
+- Hindi: `post.py` đổi font Nirmala UI (nhãn thẻ PIL + phụ đề phần 1 + shaping complex); chữ nữ/nam trong lời Hindi ("देती थी/देता था", "लगी/लगा") chọn theo giới.
+- Rủi ro chưa kiểm: Whisper `hi` có thể ghi từ tiếng Anh trong lượt Hindi thành chữ Devanagari → tô vàng từ có thể trượt; ảnh phông xanh toàn thân có thể làm Muse zoom ra toàn thân (đã có "thighs up" trong prompt); GIONG_DAY robot vẫn trầm nam cho mọi robot.
+- Kết quả: kiểm tra 0 lỗi cả 5 cặp (brazil, brazil-robot, hindi, mexico, bản gốc). CHƯA gen thử.
+
+### 2026-11-16 · san-khau-chia-doi-gia-su-ai · cảnh 3–6 chạy ra nền SẢNH TIỆC thay vì sân khấu (X0056, X0057) · loai: studio
+- Hiện tượng: chỉ cảnh 2 được có nền tiệc, nhưng cảnh 3 (khung đầu lấy lại từ cảnh 1, đúng sân khấu) clip vẫn trôi sang sảnh tiệc (đèn chùm, ly champagne), cảnh 4–6 nối khung cuối nên kế thừa nền tiệc.
+- Nguyên nhân: sau khi làm khoá STYLE/SET trung tính (không nêu địa điểm để cảnh 2 khác nền), prompt video các cảnh sân khấu không còn chỗ nào nói "sân khấu"; Muse giữ ngữ cảnh cảnh tiệc liền trước.
+- Cách sửa: mỗi Prompt video cảnh 1,3,4,5,6,7 có câu `SETTING: ... stays on the conference stage exactly as in the start frame ({{NEN_HOC}}); never a ballroom, reception ...`; Negative prompt các cảnh đó thêm "ballroom, reception hall, chandeliers, champagne glasses, banquet tables, ... a change of location"; cảnh 3 ghi rõ khung đầu là khung sân khấu cảnh 1 (không phải "khung cuối cảnh trước"). Cảnh tiệc chỉ cảnh 2.
+- Phải gen lại các dự án đã chạy: từ cảnh 3 trở đi (cảnh 4–6 đang bắt đầu từ khung cuối trôi nền).
+- Áp dụng chung?: CÓ: khoá trung tính địa điểm thì từng cảnh phải tự nêu địa điểm; cảnh xen (tiệc) rồi quay lại phải có câu địa điểm + negative của nền xen.
