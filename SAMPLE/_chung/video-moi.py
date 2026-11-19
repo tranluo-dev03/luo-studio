@@ -614,6 +614,11 @@ def cmd_kiem_tra(a):
             except Exception as ex:  # noqa: BLE001
                 c.w(f"parse_script: {ex}")
     # refs
+    try:
+        _dm = json.load(open(os.path.join(ROOT, "SAMPLE", "_chung", "kho-nhan-vat", "danh-muc.json"), encoding="utf-8"))
+        kho = {r["ma"].upper(): r for r in _dm.get("nguoi", []) + _dm.get("bot", [])}
+    except (OSError, ValueError):
+        kho = {}
     for v in variants:
         refs = v.get("refs")
         if refs is None:
@@ -624,7 +629,15 @@ def cmd_kiem_tra(a):
             if isinstance(items, (str, dict)):
                 items = [items]
             for it in items or []:
-                url = it if isinstance(it, str) else it.get("url", "")
+                url = it if isinstance(it, str) else (it.get("url") or it.get("ma") or "")
+                ma = str(url).strip().upper()
+                if re.fullmatch(r"[A-Z0-9]+(?:-[A-Z0-9]+)+", ma) and (ma in kho or re.match(r"(NAM|NU|BOT)-", ma)):   # mã kho nhân vật / kho bot
+                    if ma not in kho:
+                        c.e(f"[{v.get('name')}] refs.{k}: mã {ma} không có trong kho nhân vật (SAMPLE/_chung/kho-nhan-vat/danh-muc.json)")
+                    else:
+                        r = kho[ma]
+                        c.o(f"[{v.get('name')}] refs.{k}: kho {ma} ({' · '.join(str(r[x]) for x in ('gioi', 'tuoi', 'bot', 'loai_bot', 'thi_truong') if r.get(x))})")
+                    continue
                 if a.tai_anh:
                     ok, msg = _download_ok(url)
                     (c.o if ok else c.e)(f"[{v.get('name')}] refs.{k}: {msg} ({url[:70]})")

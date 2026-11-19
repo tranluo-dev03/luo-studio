@@ -186,6 +186,12 @@ const charLabel = (v, c) => (v || {})["VAI_" + c.toUpperCase()] || (c === "day" 
 
 async function pageEditor(id) {
   if (!S.boot) S.boot = await api("boot");
+  if (!S.kho) {   // danh mục kho nhân vật / kho bot cho ô "mã kho nhân vật"
+    S.kho = await api("kho").catch(() => []);
+    const dl = document.createElement("datalist"); dl.id = "kho-ds";
+    dl.innerHTML = S.kho.map(k => `<option value="${esc(k.ma)}">${esc(k.loai === "bot" ? [k.bot, k.loai_bot, k.thi_truong].join(" · ") : [k.gioi, k.tuoi, k.thi_truong].join(" · "))}</option>`).join("");
+    document.body.appendChild(dl);
+  }
   if (!S.project || S.project.id !== id) { const tok = S.rtok, pr = await api("projects/" + id); if (tok !== S.rtok) return; S.project = pr; S.sel = 0; }
   const p = S.project, T = typ(p.template), ck = S.checked[id] || (S.checked[id] = new Set(p.variants.map(v => v.name)));
   const v = curV(), hasTurns = "LUOT" in (T.series || {}), need = (T.series || {}).LUOT || 0, n = (v.LUOT || []).length;
@@ -219,7 +225,7 @@ async function pageEditor(id) {
     return `<div class="att">${L.map((a, j) => a.type === "audio"
       ? `<span class="chip"><audio controls preload="none" src="/asset/${encodeURIComponent(p.id)}/${a.file}"></audio><i title="${esc(a.name)}">${esc(a.name)}</i><button class="x" data-ratt="${key}" data-j="${j}">×</button></span>`
       : `<span class="chip img"><img src="/asset/${encodeURIComponent(p.id)}/${a.file}" title="${esc(a.name)}"><button class="x" data-ratt="${key}" data-j="${j}">×</button></span>`).join("")}
-      <label class="addatt" title="${key.startsWith("GIONG") ? "Đính kèm mp3 mẫu giọng của nhân vật này. Nên dùng hai giọng khác hẳn nhau (cao/sáng/nhanh và trầm/khàn/chậm). Chỉ dùng khi nhân vật này đang nói; Muse có thể bỏ qua." : "Đính kèm ảnh tham chiếu hoặc file mp3 (Muse có thể bỏ qua)"}">${ico("plus")}Ảnh / mp3<input type="file" hidden accept="image/*,audio/*" multiple data-att="${key}"></label></div>`; };
+      <label class="addatt" title="${key.startsWith("GIONG") ? "Đính kèm mp3 mẫu giọng của nhân vật này. Nên dùng hai giọng khác hẳn nhau (cao/sáng/nhanh và trầm/khàn/chậm). Chỉ dùng khi nhân vật này đang nói; Muse có thể bỏ qua." : "Đính kèm ảnh tham chiếu hoặc file mp3 (Muse có thể bỏ qua)"}">${ico("plus")}Ảnh / mp3<input type="file" hidden accept="image/*,audio/*" multiple data-att="${key}"></label>${!key.startsWith("NGUOI") || !(S.kho || []).length ? "" : `<input class="khoin" list="kho-ds" data-kho="${key}" placeholder="mã kho nhân vật" title="Gõ hoặc chọn mã trong kho nhân vật / kho bot (vd. NU-30-45-AUMY-05) rồi Enter: ảnh của mã đó được gắn làm ảnh tham chiếu.">`}</div>`; };
   const field = f => `<div class="f"><label>${esc(f.label)}${f.optional ? " <small style='opacity:.6'>(tuỳ chọn)</small>" : ""}</label>${f.kind === "short"
     ? `<input data-k="${f.key}" value="${esc(v[f.key] ?? "")}" placeholder="${esc(f.ph || "")}">`
     : `<textarea data-k="${f.key}" rows="${f.rows || 2}" placeholder="${esc(f.ph || "")}">${esc(v[f.key] ?? "")}</textarea>`}${attach(f.key)}</div>`;
@@ -261,6 +267,14 @@ async function pageEditor(id) {
         } catch (er) { toast(er.message, 1); }
       }
       await save(); pageEditor(p.id); return;
+    }
+    if (el.dataset.kho) {   // gắn nhân vật theo mã kho: máy chủ lấy ảnh của kho khi lưu dự án
+      const code = el.value.trim().toUpperCase(); if (!code) return;
+      if (!(S.kho || []).some(k => k.ma === code)) { toast("Mã " + code + " không có trong kho nhân vật", 1); return; }
+      const V = curV(); V.refs = V.refs || {}; (V.refs[el.dataset.kho] = V.refs[el.dataset.kho] || []).push(code);
+      await save(); const sel = S.sel, pr = await api("projects/" + p.id); S.project = pr; S.sel = sel;
+      const bad = ((pr.variants[sel] || {}).refs || {})[el.dataset.kho] || []; const er = bad.find(x => x.error); if (er) toast("Không gắn được " + code + ": " + er.error, 1);
+      pageEditor(p.id); return;
     }
     if (el.dataset.c !== undefined) { curV().LUOT[+el.dataset.i].c = el.value; touch(); drawTurns(); }
     if (el.dataset.t === "who" || el.dataset.t === "fx") drawTurns(); };
@@ -1189,6 +1203,35 @@ async function typeWizard(existing, opts = {}) {
     }
   };
 }
+
+// ------------------------------------------------------------------ xem ảnh lớn
+// Bấm vào ảnh tham chiếu (ô ảnh nhỏ trong trình sửa biến thể) -> ảnh hiện lớn, đè lên trang đang xem. Esc / bấm ra ngoài để đóng, ← → chuyển ảnh.
+const LB = { list: [], i: 0 };
+function lbDraw() {
+  const im = LB.list[LB.i]; if (!im) return lbClose();
+  let el = $("#lb");
+  if (!el) { el = document.createElement("div"); el.id = "lb"; document.body.appendChild(el); }
+  const many = LB.list.length > 1;
+  el.innerHTML = `${many ? `<button class="lb-nav" data-lb="-1" title="Ảnh trước (←)">‹</button>` : ""}
+    <figure><img src="${esc(im.src)}" alt=""><figcaption>${esc(im.name)}${many ? ` <small>${LB.i + 1} / ${LB.list.length}</small>` : ""}</figcaption></figure>
+    ${many ? `<button class="lb-nav" data-lb="1" title="Ảnh sau (→)">›</button>` : ""}<button class="lb-x" data-lb="x" title="Đóng (Esc)">×</button>`;
+}
+function lbClose() { const el = $("#lb"); if (el) el.remove(); LB.list = []; }
+function lbStep(d) { LB.i = (LB.i + d + LB.list.length) % LB.list.length; lbDraw(); }
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-lb]");
+  if (b) { e.stopPropagation(); return b.dataset.lb === "x" ? lbClose() : lbStep(+b.dataset.lb); }
+  if (e.target.closest("#lb")) { if (!e.target.closest("#lb img")) lbClose(); return; }
+  const img = e.target.closest(".chip.img img"); if (!img) return;
+  const all = [...document.querySelectorAll(".chip.img img")];
+  LB.list = all.map(x => ({ src: x.currentSrc || x.src, name: x.title || "" })); LB.i = Math.max(0, all.indexOf(img)); lbDraw();
+});
+document.addEventListener("keydown", e => {
+  if (!$("#lb")) return;
+  if (e.key === "Escape") { e.stopImmediatePropagation(); lbClose(); }
+  else if (e.key === "ArrowLeft" && LB.list.length > 1) lbStep(-1);
+  else if (e.key === "ArrowRight" && LB.list.length > 1) lbStep(1);
+}, true);
 
 (async function init() {
   S.boot = await api("boot");

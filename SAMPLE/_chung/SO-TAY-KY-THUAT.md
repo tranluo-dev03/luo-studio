@@ -9,6 +9,7 @@ Quy tắc làm việc (đã được người dùng chốt):
 - Tự làm trong phiên hiện tại, không giao session con.
 - Mỗi thể loại chỉ sửa file của chính nó (`SAMPLE/<mã>/`, `app/production/types/<mã>/`). Code dùng chung (`engine.py`, `split.py`, `nhieu_phan.py`) chỉ sửa khi nói rõ phạm vi ảnh hưởng và gắn điều kiện theo loại cảnh.
 - Ghi lại mọi quyết định và lần thử vào `SAMPLE/<mã>/README.md` để lần sau không lặp lại.
+- **Nhân vật lấy từ KHO CÓ SẴN, không gen bằng Muse (chốt 19/11/2026):** `SAMPLE/_chung/kho-nhan-vat/` có 180 người (Nam/Nữ × 5-10t / 20-30t / 30-45t × Âu Mỹ / Latinh / India, mỗi tổ hợp 10 người) và 36 bot gia sư AI (Aiva / Talka × người máy / AI avatar × 3 thị trường). Biến thể chỉ ghi MÃ: `"refs": {"NGUOI_HOC": "NU-30-45-AUMY-05", "NGUOI_DAY": "BOT-TALKA-AVA-AUMY-01"}`; Studio tự lấy ảnh `anh/<MÃ>.webp` (thiếu thì tự tải theo `danh-muc.json`). Xem `kho-nhan-vat/README.md`.
 - **Ảnh tham chiếu (`refs`) CHỈ dùng ảnh AI do người dùng cung cấp** (link hoặc tệp). KHÔNG cắt/chỉnh ảnh nhân vật từ video mẫu làm ảnh tham chiếu (chốt 05/11/2026). Chưa có ảnh → hỏi người dùng, chưa gen. Khung video mẫu chỉ dùng để so bố cục (`anh/khung-*-mau.png`), không gửi cho Muse.
 - Sau MỖI lượt gen và MỖI lần sửa: thêm một mục vào `NHAT-KY-TRI-THUC.md` (cùng thư mục; mẫu trong file). Mục đã kiểm chứng, dùng chung được → chưng cất vào sổ tay này (mục 3/6) và skill `luo-video-moi`.
 
@@ -162,7 +163,7 @@ Khi phân tích video mới: liệt kê từng thành phần trên hình (nhân 
 - `LUOT`: `{"who", "text" (3–12 từ, ≤ 20), "emo" (1–3 từ trong `EMO_CUES` của `app/production/prompt_parts.py`)}` + tuỳ hậu kỳ: `"phan"`, `"c"` (màu chữ), `"fx"` (`wrong`/`right`/`none`), `"icon"` (`x`/`check`/`dollar`), `"dich"`, `"nhan"`, `"to"`. Video không có nhịp sửa lỗi: `"fx": "none"` ở mọi lượt.
 - Nhịp sửa lỗi: câu sai của người dùng (`fx: wrong`, `c: red`, `icon: x`) → câu đúng (`fx: right`, `c: green`, `icon: check`) đặt ở lượt **như video mẫu** (san-bay: ở lượt AI; soi-hanh-ly/chia-doi: ở lượt người dùng nói lại đúng).
 - **Sinh bằng script** `SAMPLE/<mã>/cong-cu/tao_bien_the*.py` từ một bảng (tên, ngoại hình EN, giọng EN, link ảnh, tham số như tuổi), không sửa tay JSON: đổi tuổi thì câu sai/sửa/đúng cùng đổi; câu "visiting my ..." hợp tuổi.
-- `refs`: `{"NGUOI_HOC": ["<link>"]}`; nhận ảnh trực tiếp, prnt.sc, Google Drive chia sẻ, đường dẫn tệp tương đối từ gốc repo. Ảnh tham chiếu đứng nền xanh → kịch bản dặn bỏ nền và tư thế đứng.
+- `refs`: `{"NGUOI_HOC": "<MÃ kho nhân vật>"}` (ưu tiên) hoặc `{"NGUOI_HOC": ["<link>"]}`; nhận mã kho, ảnh trực tiếp, prnt.sc, Google Drive chia sẻ, đường dẫn tệp tương đối từ gốc repo. Ảnh tham chiếu đứng nền xanh → kịch bản dặn bỏ nền và tư thế đứng.
 - Cùng nhóm: khác rõ khuôn mặt (hình mặt, mắt, kính, râu, tóc, màu áo), cùng tuổi/giới/phong cách; giọng hai bên khác hẳn (cao độ, âm sắc, tốc độ).
 - Hậu kỳ theo phần/người nói: `app/production/types/<mã>/config.json` → `phu_de.kieu_theo_phan`, `y_theo_phan`, `co_chu`, `vien`, `whisper`.
 

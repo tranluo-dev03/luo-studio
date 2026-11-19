@@ -1,7 +1,7 @@
 "use strict";
 // Tab "Video mới (Claude)": bảng quản lý các việc phân tích. Thêm video bằng hộp thoại "Giao việc"; tab này chỉ hiện tiến trình các bước.
 // Xem kết quả và góp ý nằm trong dự án test (claudeEditorBind ở cuối file).
-const CSTEPS = ["Phân tích video, tách hook / tình huống", "Chọn khuôn thể loại", "Viết 2 kịch bản + biến thể mẫu", "Kiểm tra + gen ảnh nhân vật", "Nhập vào Studio + chạy thử", "Báo cáo"];
+const CSTEPS = ["Phân tích video, tách hook / tình huống", "Chọn khuôn thể loại", "Viết 2 kịch bản + biến thể mẫu", "Kiểm tra + chọn nhân vật trong kho", "Nhập vào Studio + chạy thử", "Báo cáo"];
 const CST = { gening: ["Đang gen video", "ok"], gen_bad: ["Gen dừng / lỗi", "bad"], queued: ["Đang chờ", ""], running: ["Đang chạy", "ok"], stopping: ["Đang dừng", "warn"], done: ["Xong", "ok"], needs_user: ["Cần bạn", "warn"], error: ["Lỗi", "bad"], stopped: ["Đã dừng", "mute"] };
 const CGROUP = { running: ["running", "stopping", "gening"], queued: ["queued"], attention: ["needs_user", "error", "stopped", "gen_bad"], done: ["done"] };
 // Trạng thái hiển thị: việc Claude đã xong nhưng video test còn đang gen thì CHƯA hoàn tất (gen xong mới sang "Xong"); gen lỗi/dừng thì báo riêng.
@@ -28,9 +28,11 @@ function claudeNewModal(st) {
   const pend = S.cpend, o = S.copts || (S.copts = { variants: 3, trial: true, lang: "", note: "" });
   const draw = () => {
     openModal(`<div class="mbox" style="max-width:620px"><h2>Giao việc cho Claude <button class="ib" id="mx">${ico("x")}</button></h2>
-      <p style="color:var(--mute);font-size:13px;line-height:1.55">Mỗi video là một việc riêng. Claude tự phân tích, tách <b>hook</b> và <b>tình huống</b>, viết 2 kịch bản (giữ nguyên video gốc / đổi hook) kèm 1 biến thể mẫu mỗi kịch bản, <b>tự gen ảnh nhân vật nền xanh</b> nếu bạn không đưa ảnh, nhập vào Studio và chạy thử. Các biến thể khác tạo sau trong trang chi tiết của thẻ.</p>
+      <p style="color:var(--mute);font-size:13px;line-height:1.55">Mỗi video là một việc riêng. Bạn ghi <b>insight</b> và chỉ rõ đâu là <b>hook</b>, đâu là <b>tình huống</b>; Claude theo đúng phần bạn ghi (không tự tách lại), viết 2 kịch bản (giữ nguyên video gốc / đổi hook) kèm 1 biến thể mẫu mỗi kịch bản, <b>tự chọn nhân vật trong kho có sẵn</b> nếu bạn không đưa ảnh, nhập vào Studio và chạy thử. Các biến thể khác tạo sau trong trang chi tiết của thẻ.</p>
       <div class="cn-list" id="cn-vids">${pend.videos.map((v, i) => `<div class="cn-item">🎬<span>${esc(cName(v))}</span><a data-rm="v${i}" title="Bỏ">✕</a></div>`).join("") || '<div class="cn-item" style="color:var(--dim)">Chưa có video</div>'}</div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px"><button class="btn sm" id="cn-addv">${ico("plus")}Thêm video</button><input type="file" id="cn-fv" multiple accept="video/*" style="display:none"></div>
+      <div class="f"><label>Insight / nội dung phân tích</label><textarea class="input" id="c-insight" rows="3" placeholder="Video này đánh vào ai, nỗi đau gì, thông điệp gì, vì sao hook giữ được người xem…">${esc(o.insight || "")}</textarea></div>
+      <div class="f"><label>Đâu là hook, đâu là tình huống <small style="color:var(--err)">(bắt buộc)</small></label><textarea class="input" id="c-struct" rows="4" placeholder="Hook: từ đầu đến câu … (lượt 1–2: người lái xe nói sai tuổi, cảnh sát hỏi lại)&#10;Tình huống: phần còn lại (nói lại đúng, cảnh sát khuyên học với gia sư AI)&#10;Quảng cáo / end card: nếu có">${esc(o.struct || "")}</textarea></div>
       <details class="cn-adv" ${pend.images.length || pend.extra.length || o.note || o.lang ? "open" : ""}><summary>Tuỳ chọn (không bắt buộc)</summary>
         <div class="f"><label>Yêu cầu thêm</label><textarea class="input" id="c-note" rows="2" placeholder="Mô tả điều bạn muốn. Có thể dán (Ctrl+V) ảnh vào đây.">${esc(o.note)}</textarea></div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px">
@@ -39,10 +41,10 @@ function claudeNewModal(st) {
           ${pend.extra.map((v, i) => `<span class="tag mute">🖼 ${esc(cName(v))} <a data-rm="x${i}" style="cursor:pointer;color:var(--err)">✕</a></span>`).join("")}
           ${pend.images.map((v, i) => `<span class="tag">👤 ${esc(cName(v))} <a data-rm="i${i}" style="cursor:pointer;color:var(--err)">✕</a></span>`).join("")}</div>
         <div class="f"><label>Ngôn ngữ lời thoại mới</label><input class="input" id="c-lang" value="${esc(o.lang)}" placeholder="vd: English, Español"></div>
-        <div class="lab"><div>Tự chạy thử 1 biến thể<br><small>Không có ảnh nhân vật thì Claude tự gen bằng Muse (nền xanh) rồi gắn vào.</small></div><div class="sw2 ${o.trial ? "on" : ""}" id="c-trial"></div></div>
+        <div class="lab"><div>Tự chạy thử 1 biến thể<br><small>Không có ảnh nhân vật thì Claude chọn nhân vật trong kho có sẵn rồi gắn vào.</small></div><div class="sw2 ${o.trial ? "on" : ""}" id="c-trial"></div></div>
       </details>
       <div class="row2" style="margin-top:14px;justify-content:flex-end"><button class="btn ghost" id="bc">Đóng</button><button class="btn primary" id="cgo" ${st.ok && pend.videos.length ? "" : "disabled"}>${ico("sparkle")}Bắt đầu${pend.videos.length > 1 ? " " + pend.videos.length + " video" : ""}</button></div></div>`);
-    const keep = () => { const g = id => $(id); if (g("#c-lang")) { o.variants = 1; o.lang = g("#c-lang").value; o.note = g("#c-note").value; } };
+    const keep = () => { const g = id => $(id); if (g("#c-lang")) { o.variants = 1; o.lang = g("#c-lang").value; o.note = g("#c-note").value; o.insight = g("#c-insight").value; o.struct = g("#c-struct").value; } };
     const upl = async (files, into) => { keep(); for (const f of files) { try { pend[into].push(await cUpload(f)); } catch (e) { toast(e.message, 1); } } draw(); };
     const imgs = fs => [...fs].filter(f => /^image\//.test(f.type));
     $("#cn-addv").onclick = () => $("#cn-fv").click(); $("#cn-fv").onchange = e => upl([...e.target.files], "videos");
@@ -54,8 +56,10 @@ function claudeNewModal(st) {
       if (e.target.closest("#mx, #bc")) { keep(); return closeModal(); }
       const rm = e.target.closest("[data-rm]"); if (rm) { keep(); const r = rm.dataset.rm; pend[{ v: "videos", x: "extra", i: "images" }[r[0]]].splice(+r.slice(1), 1); return draw(); }
       if (e.target.closest("#cgo")) {
-        keep(); const b = $("#cgo"); b.disabled = true;
-        try { await api("claude/jobs", { body: { videos: pend.videos, images: pend.images, extra: pend.extra, opts: o } }); pend.videos = []; pend.images = []; pend.extra = []; o.note = ""; closeModal(); toast("Đã giao cho Claude"); S.cfilter = "all"; pageClaude(); }
+        keep(); const b = $("#cgo");
+        if (!(o.struct || "").trim()) { toast("Hãy ghi đâu là hook, đâu là tình huống", 1); $("#c-struct").focus(); return; }
+        b.disabled = true;
+        try { await api("claude/jobs", { body: { videos: pend.videos, images: pend.images, extra: pend.extra, opts: o } }); pend.videos = []; pend.images = []; pend.extra = []; o.note = ""; o.insight = ""; o.struct = ""; closeModal(); toast("Đã giao cho Claude"); S.cfilter = "all"; pageClaude(); }
         catch (er) { toast(er.message, 1); b.disabled = false; }
       }
     };

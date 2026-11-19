@@ -234,6 +234,47 @@ def load_project(pid):
     return jread(project_path(pid))
 
 
+# ------------------------------------------------------------------ kho nhân vật / kho bot có sẵn
+# SAMPLE/_chung/kho-nhan-vat/danh-muc.json: mã -> ảnh (Google Drive). Biến thể chỉ cần ghi MÃ ở "refs" (vd. "NGUOI_HOC": "NU-30-45-AUMY-05"):
+# Studio lấy ảnh trong kho (anh/<MÃ>.webp; máy chưa có thì tự tải theo danh mục) và gắn làm ảnh tham chiếu của nhân vật đó.
+KHO_DIR = os.path.normpath(os.path.join(HERE, "..", "..", "SAMPLE", "_chung", "kho-nhan-vat"))
+_KHO = {"mt": 0, "items": {}, "mod": None}
+
+
+def kho_items():
+    f = os.path.join(KHO_DIR, "danh-muc.json")
+    try:
+        mt = os.path.getmtime(f)
+    except OSError:
+        return {}
+    if mt != _KHO["mt"]:
+        d = jread(f) or {}
+        _KHO.update(mt=mt, items={r["ma"].upper(): r for r in (d.get("nguoi") or []) + (d.get("bot") or [])})
+    return _KHO["items"]
+
+
+def kho_code(s):
+    """Chuỗi là một mã trong kho (không phân biệt hoa thường) -> mã chuẩn; không phải mã -> None. Chuỗi CÓ DẠNG mã (NAM-/NU-/BOT-...) mà không có trong kho -> ValueError."""
+    s = str(s or "").strip().upper()
+    if not re.fullmatch(r"[A-Z0-9]+(?:-[A-Z0-9]+)+", s):
+        return None
+    if s in kho_items():
+        return s
+    if re.match(r"(NAM|NU|BOT)-", s):
+        raise ValueError(f"mã {s} không có trong kho nhân vật")
+    return None
+
+
+def kho_file(code):
+    """Đường dẫn ảnh của một mã trong kho; chưa có trên máy thì tải về theo danh mục."""
+    if _KHO["mod"] is None:
+        import importlib.util
+        sp = importlib.util.spec_from_file_location("kho_tai_anh", os.path.join(KHO_DIR, "tai-anh.py"))
+        _KHO["mod"] = importlib.util.module_from_spec(sp)
+        sp.loader.exec_module(_KHO["mod"])
+    return _KHO["mod"].tai(kho_items()[code])
+
+
 def _download_image(url, dest_dir, cache):
     """Tải ảnh từ link (link ảnh trực tiếp, hoặc trang xem ảnh như prnt.sc: lấy og:image) vào dest_dir. Trả về (tên tệp, loại)."""
     orig = url
@@ -285,8 +326,16 @@ def attach_ref_links(p):
             for it in items or []:
                 if isinstance(it, str):
                     it = {"url": it}
+                if it.get("ma") and not it.get("url"):   # {"ma": "<mã kho>"}
+                    it = dict(it, url=it["ma"])
                 if it.get("url") and not it.get("file"):
                     try:
+                        code = kho_code(it["url"])
+                        if code:   # mã trong kho nhân vật / kho bot: lấy ảnh của kho, tên hiển thị = mã
+                            fn, typ = _download_image(kho_file(code), d, cache)
+                            it = {"type": typ, "file": fn, "name": code, "kho": code}
+                            out.append(it)
+                            continue
                         fn, typ = _download_image(it["url"], d, cache)
                         it = {"type": typ, "file": fn, "name": it.get("name") or it["url"].rstrip("/").rsplit("/", 1)[-1], "url": it["url"]}
                     except Exception as e:  # noqa: BLE001 - link hỏng không được làm hỏng cả dự án
@@ -1743,6 +1792,8 @@ class H(BaseHTTPRequestHandler):
             return self.send_json({"ok": True})
         if a == "results":
             return self.send_json(results())
+        if a == "kho" and m == "GET":   # danh mục kho nhân vật / kho bot (ô chọn mã trong trình sửa biến thể)
+            return self.send_json([{k: v for k, v in r.items() if k not in ("link", "drive_id")} for r in kho_items().values()])
         if a == "claude":
             return self.claude_api(m, parts[1:], q)
         if a == "pick" and m == "POST":
