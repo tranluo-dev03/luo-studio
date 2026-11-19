@@ -1,0 +1,959 @@
+[
+ {
+  "name": "taxi-in-3-01-ravi",
+  "VAI_HOC": "taxi driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "keeps the mouth closed and looks where the clip's EYE LINE says (at the road, at the floor or at whoever is speaking), small natural blinks, hands where the clip puts them",
+  "NHIN_HOC": "keeps the eyes where the clip's EYE LINE says while speaking, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "TEN_KHACH": "the passenger",
+  "VAI_KHACH": "taxi passenger",
+  "POS_KHACH": "back-seat",
+  "NGHE_KHACH": "keeps the mouth closed, the phone at her ear, looking out of the side window",
+  "NHIN_KHACH": "keeps the eyes where the clip's EYE LINE says while speaking, never into the lens",
+  "TEN_QUANLY": "the manager",
+  "NGUOI_QUANLY": "a stylized 3D-animated Indian taxi-company manager in his late fifties, neatly combed salt-and-pepper hair, a thick grey moustache, warm brown skin, a navy-blue Nehru jacket over a white shirt, dark trousers, a plain brown clipboard and a pen",
+  "GIONG_QUANLY": "a hearty, confident older Indian man's voice around 110-130 Hz, fluent English with a warm Indian accent",
+  "VAI_QUANLY": "taxi company manager",
+  "POS_QUANLY": "depot-centre",
+  "NGHE_QUANLY": "keeps the mouth closed and looks at whoever is speaking, holding his clipboard",
+  "NHIN_QUANLY": "keeps the eyes where the clip's EYE LINE says while speaking, never into the lens",
+  "NGUOI_ARJUN": "a stylized 3D-animated young Indian man in his mid-twenties, slim, short neat black hair, a trimmed black beard, a light-grey button-up shirt with rolled sleeves, dark jeans, a silver wristwatch",
+  "GIONG_ARJUN": "a smooth, light, smug young man's voice around 140-160 Hz",
+  "VAI_ARJUN": "young taxi driver",
+  "POS_ARJUN": "depot-right",
+  "NGHE_ARJUN": "keeps the mouth closed with a confident smile, looking at whoever is speaking",
+  "NHIN_ARJUN": "keeps the eyes where the clip's EYE LINE says while speaking, never into the lens",
+  "TEN_CON": "Priya",
+  "NGUOI_CON": "a stylized 3D-animated Indian teenage girl about fifteen, long black hair in a single neat braid, big warm brown eyes, warm brown skin, a mustard-yellow cotton kurta with small white printed flowers and white leggings, barefoot",
+  "GIONG_CON": "a bright, gentle, clear teenage girl's voice around 240-270 Hz, natural Hindi, caring and upbeat",
+  "VAI_CON": "daughter",
+  "POS_CON": "living-room",
+  "NGHE_CON": "keeps the mouth closed and looks at her father with a caring face",
+  "NHIN_CON": "keeps the eyes where the clip's EYE LINE says while speaking, never into the lens",
+  "TEN_DAY": "Ava",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and a softly human-like face, pale blue eyes, soft pale lips that open and move naturally with every word whenever it speaks, thin panel seams on the head, a black segmented mechanical neck, white armoured shoulders with thin glowing blue seams (copy the reference image); realistic 3D render",
+  "GIONG_DAY": "a calm, clear, friendly young woman's voice around 180-210 Hz with a very slight synthetic digital sheen, clear neutral English",
+  "VAI_DAY": "AI tutor",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "NEN_DAY": "a plain deep black background with one thin soft white glowing arc behind the head",
+  "NEN_HOC": "the inside of a black-and-yellow Mumbai taxi on a sunny afternoon: dark seats, and through the rear window a busy Mumbai street with black-and-yellow cabs and old apartment buildings, softly out of focus",
+  "XE": "a classic black-and-yellow Mumbai taxi (black body, yellow roof) with dark seats and no roof sign",
+  "NEN_PHO": "a sunny busy Mumbai street: colourful shop fronts, old apartment blocks with balconies, palm trees, other black-and-yellow cabs far behind",
+  "NEN_GARA": "a big Mumbai taxi depot: grey concrete floor, a high tin roof with long tube lights, metal lockers and a notice board on the wall, a wide open rolling shutter with black-and-yellow taxis and a street outside",
+  "NEN_NHA": "a cosy Indian apartment living room: a sofa with colourful cushions, a low wooden coffee table with an open book and a small glass of tea, a window with light cotton curtains, a potted plant",
+  "DAO_DIEN_THOAI_KH": "a gold-coloured smartphone",
+  "DAO_DIEN_THOAI_TX": "an old black smartphone with a glowing screen",
+  "DAO_CHIA_KHOA": "a set of two new silver car keys on a ring with a black key fob",
+  "DAO_COC": "a plain white ceramic cup",
+  "DAO_DIEN_THOAI": "a blue smartphone whose screen shows only a friendly white humanoid robot face on a plain blue background, with no text, no buttons and no icons",
+  "nguoi_theo_canh": true,
+  "TEN_HOC": "Ravi",
+  "NGUOI_HOC": "a stylized 3D-animated young Indian taxi driver of 26, short neat black hair, clean-shaven, warm brown skin, a friendly face, a clean sky-blue polo shirt, khaki trousers",
+  "GIONG_HOC": "a warm, friendly young Indian man's voice around 120-145 Hz; his English is slow and broken with a heavy Indian accent, his Hindi natural and fluent",
+  "NGUOI_KHACH": "a stylized 3D-animated elegant wealthy young Indian woman of 30, long straight black hair, a teal silk saree with a gold border, gold earrings, a haughty expression",
+  "GIONG_KHACH": "a crisp, quick, impatient young Indian woman's voice around 215-245 Hz, fluent English with a refined upper-class Indian accent, clearly higher than the driver",
+  "TEN_ARJUN": "Arjun",
+  "LUOT": [
+   {
+    "who": "khach",
+    "text": "Can you take a left on Fifth, so we can avoid the traffic?",
+    "emo": "decisive, skeptical",
+    "fx": "none",
+    "phan": 1,
+    "dich": "क्या आप फिफ्थ पर लेफ्ट ले सकते हैं, ताकि ट्रैफिक से बच सकें?"
+   },
+   {
+    "who": "hoc",
+    "text": "Fifth? Sorry... I don't understand.",
+    "emo": "confused, embarrassed",
+    "fx": "none",
+    "phan": 1,
+    "dich": "फिफ्थ? सॉरी... मुझे समझ नहीं आया।"
+   },
+   {
+    "who": "khach",
+    "text": "Take the left! You missed the turn.",
+    "emo": "decisive, surprised",
+    "fx": "none",
+    "phan": 1,
+    "dich": "लेफ्ट लो! आपने मोड़ छोड़ दिया।"
+   },
+   {
+    "who": "khach",
+    "text": "I just told you to take the left.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1,
+    "dich": "मैंने अभी कहा था लेफ्ट लेने को।"
+   },
+   {
+    "who": "khach",
+    "text": "Yeah, I'm in a cab. The driver barely speaks English.",
+    "emo": "skeptical",
+    "fx": "none",
+    "phan": 1,
+    "dich": "हाँ, मैं टैक्सी में हूँ। ड्राइवर मुश्किल से इंग्लिश बोलता है।"
+   },
+   {
+    "who": "khach",
+    "text": "I have to repeat everything I say.",
+    "emo": "skeptical, doubtful",
+    "fx": "none",
+    "phan": 1,
+    "dich": "मुझे हर बात दोहरानी पड़ती है।"
+   },
+   {
+    "who": "hoc",
+    "text": "[KHONG LOI]",
+    "emo": "",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "quanly",
+    "text": "Arjun, your ratings are the best we've got. Customers love your conversations.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1,
+    "dich": "अर्जुन, तुम्हारी रेटिंग सबसे अच्छी है। ग्राहकों को तुम्हारी बातें बहुत पसंद हैं।"
+   },
+   {
+    "who": "quanly",
+    "text": "You get our brand-new car!",
+    "emo": "excited",
+    "fx": "none",
+    "phan": 1,
+    "dich": "हमारी बिल्कुल नई कार तुम्हें मिलेगी!"
+   },
+   {
+    "who": "arjun",
+    "text": "[KHONG LOI]",
+    "emo": "",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "arjun",
+    "text": "[KHONG LOI]",
+    "emo": "",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "मुझे भी नई car चाहिए...",
+    "emo": "hopeful, hesitant",
+    "fx": "none",
+    "phan": 1,
+    "dich": "I want a new car too..."
+   },
+   {
+    "who": "quanly",
+    "text": "You want the new car? Learn to talk to the customers first.",
+    "emo": "playful, proud",
+    "fx": "none",
+    "phan": 1,
+    "dich": "नई कार चाहिए? पहले ग्राहकों से बात करना सीखो।"
+   },
+   {
+    "who": "hoc",
+    "text": "[KHONG LOI]",
+    "emo": "",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "con",
+    "text": "पापा, क्या हुआ?",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Dad, what happened?"
+   },
+   {
+    "who": "hoc",
+    "text": "कुछ नहीं... मैं customers की बात समझ ही नहीं पाता।",
+    "emo": "worried, embarrassed",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Nothing... I just can't understand the customers."
+   },
+   {
+    "who": "con",
+    "text": "पापा, आपको English आती तो है, बस practice की ज़रूरत है।",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Dad, you do know English, you just need practice."
+   },
+   {
+    "who": "con",
+    "text": "ये देखो, Ava AI, आपकी English AI tutor.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Look, Ava AI, your English AI tutor."
+   },
+   {
+    "who": "con",
+    "text": "[KHONG LOI]",
+    "emo": "",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "con",
+    "text": "इससे ऐसे बात करो जैसे असली teacher से बात कर रहे हो।",
+    "emo": "excited",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Talk to it like you're talking to a real teacher."
+   },
+   {
+    "who": "day",
+    "text": "Hi! Where are you from?",
+    "emo": "cheerful, curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am India.",
+    "emo": "hesitant",
+    "fx": "wrong",
+    "phan": 2,
+    "icon": "x",
+    "to": "I am India",
+    "c": "red"
+   },
+   {
+    "who": "day",
+    "text": "Almost! Say: I am FROM India.",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am from India!",
+    "emo": "proud",
+    "fx": "right",
+    "phan": 2,
+    "icon": "check",
+    "to": "from",
+    "c": "green"
+   },
+   {
+    "who": "hoc",
+    "text": "लेकिन English classes बहुत महंगी होती हैं... मेरे पास पैसे नहीं हैं।",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 2,
+    "icon": "dollar"
+   },
+   {
+    "who": "day",
+    "text": "No problem! No tricks. Just real conversation in English with your AI.",
+    "emo": "reassuring, cheerful",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I correct your grammar and pronunciation while you speak.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "Let's practice. A customer wants to go to the airport. What will you say?",
+    "emo": "cheerful, upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Hello sir, where would you like to go today?",
+    "emo": "hopeful, delighted",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Hello! Where would you like to go today?",
+    "emo": "cheerful, confident",
+    "fx": "none",
+    "phan": 3,
+    "dich": "नमस्ते! आज आप कहाँ जाना चाहेंगी?"
+   },
+   {
+    "who": "hoc",
+    "text": "अब मुझे English बोलने से डर नहीं लगता।",
+    "emo": "proud, delighted",
+    "fx": "none",
+    "phan": 3,
+    "dich": "Now I'm not afraid of speaking English."
+   }
+  ],
+  "refs": {
+   "NGUOI_HOC": [
+    "SAMPLE/taxi-gia-su-ai/anh/an-do-3/HOC1.png"
+   ],
+   "NGUOI_KHACH": [
+    "SAMPLE/taxi-gia-su-ai/anh/an-do-3/KHACH1.png"
+   ],
+   "NGUOI_QUANLY": [
+    "SAMPLE/taxi-gia-su-ai/anh/an-do/QUANLY.png"
+   ],
+   "NGUOI_ARJUN": [
+    "SAMPLE/taxi-gia-su-ai/anh/ARJUN.png"
+   ],
+   "NGUOI_CON": [
+    "SAMPLE/taxi-gia-su-ai/anh/an-do/CON.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY.png"
+   ]
+  }
+ },
+ {
+  "name": "taxi-in-3-02-gopal",
+  "VAI_HOC": "taxi driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "keeps the mouth closed and looks where the clip's EYE LINE says (at the road, at the floor or at whoever is speaking), small natural blinks, hands where the clip puts them",
+  "NHIN_HOC": "keeps the eyes where the clip's EYE LINE says while speaking, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "TEN_KHACH": "the passenger",
+  "VAI_KHACH": "taxi passenger",
+  "POS_KHACH": "back-seat",
+  "NGHE_KHACH": "keeps the mouth closed, the phone at her ear, looking out of the side window",
+  "NHIN_KHACH": "keeps the eyes where the clip's EYE LINE says while speaking, never into the lens",
+  "TEN_QUANLY": "the manager",
+  "NGUOI_QUANLY": "a stylized 3D-animated Indian taxi-company manager in his late fifties, neatly combed salt-and-pepper hair, a thick grey moustache, warm brown skin, a navy-blue Nehru jacket over a white shirt, dark trousers, a plain brown clipboard and a pen",
+  "GIONG_QUANLY": "a hearty, confident older Indian man's voice around 110-130 Hz, fluent English with a warm Indian accent",
+  "VAI_QUANLY": "taxi company manager",
+  "POS_QUANLY": "depot-centre",
+  "NGHE_QUANLY": "keeps the mouth closed and looks at whoever is speaking, holding his clipboard",
+  "NHIN_QUANLY": "keeps the eyes where the clip's EYE LINE says while speaking, never into the lens",
+  "NGUOI_ARJUN": "a stylized 3D-animated young Indian man in his mid-twenties, slim, short neat black hair, a trimmed black beard, a light-grey button-up shirt with rolled sleeves, dark jeans, a silver wristwatch",
+  "GIONG_ARJUN": "a smooth, light, smug young man's voice around 140-160 Hz",
+  "VAI_ARJUN": "young taxi driver",
+  "POS_ARJUN": "depot-right",
+  "NGHE_ARJUN": "keeps the mouth closed with a confident smile, looking at whoever is speaking",
+  "NHIN_ARJUN": "keeps the eyes where the clip's EYE LINE says while speaking, never into the lens",
+  "TEN_CON": "Priya",
+  "NGUOI_CON": "a stylized 3D-animated Indian teenage girl about fifteen, long black hair in a single neat braid, big warm brown eyes, warm brown skin, a mustard-yellow cotton kurta with small white printed flowers and white leggings, barefoot",
+  "GIONG_CON": "a bright, gentle, clear teenage girl's voice around 240-270 Hz, natural Hindi, caring and upbeat",
+  "VAI_CON": "daughter",
+  "POS_CON": "living-room",
+  "NGHE_CON": "keeps the mouth closed and looks at her father with a caring face",
+  "NHIN_CON": "keeps the eyes where the clip's EYE LINE says while speaking, never into the lens",
+  "TEN_DAY": "Ava",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and a softly human-like face, pale blue eyes, soft pale lips that open and move naturally with every word whenever it speaks, thin panel seams on the head, a black segmented mechanical neck, white armoured shoulders with thin glowing blue seams (copy the reference image); realistic 3D render",
+  "GIONG_DAY": "a calm, clear, friendly young woman's voice around 180-210 Hz with a very slight synthetic digital sheen, clear neutral English",
+  "VAI_DAY": "AI tutor",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "NEN_DAY": "a plain deep black background with one thin soft white glowing arc behind the head",
+  "NEN_HOC": "the inside of a black-and-yellow Mumbai taxi on a sunny afternoon: dark seats, and through the rear window a busy Mumbai street with black-and-yellow cabs and old apartment buildings, softly out of focus",
+  "XE": "a classic black-and-yellow Mumbai taxi (black body, yellow roof) with dark seats and no roof sign",
+  "NEN_PHO": "a sunny busy Mumbai street: colourful shop fronts, old apartment blocks with balconies, palm trees, other black-and-yellow cabs far behind",
+  "NEN_GARA": "a big Mumbai taxi depot: grey concrete floor, a high tin roof with long tube lights, metal lockers and a notice board on the wall, a wide open rolling shutter with black-and-yellow taxis and a street outside",
+  "NEN_NHA": "a cosy Indian apartment living room: a sofa with colourful cushions, a low wooden coffee table with an open book and a small glass of tea, a window with light cotton curtains, a potted plant",
+  "DAO_DIEN_THOAI_KH": "a gold-coloured smartphone",
+  "DAO_DIEN_THOAI_TX": "an old black smartphone with a glowing screen",
+  "DAO_CHIA_KHOA": "a set of two new silver car keys on a ring with a black key fob",
+  "DAO_COC": "a plain white ceramic cup",
+  "DAO_DIEN_THOAI": "a blue smartphone whose screen shows only a friendly white humanoid robot face on a plain blue background, with no text, no buttons and no icons",
+  "nguoi_theo_canh": true,
+  "TEN_HOC": "Gopal",
+  "NGUOI_HOC": "a stylized 3D-animated middle-aged Indian taxi driver of 51, salt-and-pepper hair, a thick grey-black moustache, warm brown skin, a clean beige shirt, brown trousers",
+  "GIONG_HOC": "a warm, slightly hoarse mature Indian man's baritone around 105-125 Hz; his English is slow and broken with a heavy Indian accent, his Hindi natural and fluent",
+  "NGUOI_KHACH": "a stylized 3D-animated wealthy middle-aged Indian woman of 54, her hair in a neat bun, a maroon silk saree, a pearl necklace, a stern expression",
+  "GIONG_KHACH": "a crisp, haughty, impatient mature Indian woman's voice around 190-220 Hz, fluent English with a refined upper-class Indian accent, clearly higher than the driver",
+  "TEN_ARJUN": "Arjun",
+  "LUOT": [
+   {
+    "who": "khach",
+    "text": "Can you take a left on Fifth, so we can avoid the traffic?",
+    "emo": "decisive, skeptical",
+    "fx": "none",
+    "phan": 1,
+    "dich": "क्या आप फिफ्थ पर लेफ्ट ले सकते हैं, ताकि ट्रैफिक से बच सकें?"
+   },
+   {
+    "who": "hoc",
+    "text": "Fifth? Sorry... I don't understand.",
+    "emo": "confused, embarrassed",
+    "fx": "none",
+    "phan": 1,
+    "dich": "फिफ्थ? सॉरी... मुझे समझ नहीं आया।"
+   },
+   {
+    "who": "khach",
+    "text": "Take the left! You missed the turn.",
+    "emo": "decisive, surprised",
+    "fx": "none",
+    "phan": 1,
+    "dich": "लेफ्ट लो! आपने मोड़ छोड़ दिया।"
+   },
+   {
+    "who": "khach",
+    "text": "I just told you to take the left.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1,
+    "dich": "मैंने अभी कहा था लेफ्ट लेने को।"
+   },
+   {
+    "who": "khach",
+    "text": "Yeah, I'm in a cab. The driver barely speaks English.",
+    "emo": "skeptical",
+    "fx": "none",
+    "phan": 1,
+    "dich": "हाँ, मैं टैक्सी में हूँ। ड्राइवर मुश्किल से इंग्लिश बोलता है।"
+   },
+   {
+    "who": "khach",
+    "text": "I have to repeat everything I say.",
+    "emo": "skeptical, doubtful",
+    "fx": "none",
+    "phan": 1,
+    "dich": "मुझे हर बात दोहरानी पड़ती है।"
+   },
+   {
+    "who": "hoc",
+    "text": "[KHONG LOI]",
+    "emo": "",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "quanly",
+    "text": "Arjun, your ratings are the best we've got. Customers love your conversations.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1,
+    "dich": "अर्जुन, तुम्हारी रेटिंग सबसे अच्छी है। ग्राहकों को तुम्हारी बातें बहुत पसंद हैं।"
+   },
+   {
+    "who": "quanly",
+    "text": "You get our brand-new car!",
+    "emo": "excited",
+    "fx": "none",
+    "phan": 1,
+    "dich": "हमारी बिल्कुल नई कार तुम्हें मिलेगी!"
+   },
+   {
+    "who": "arjun",
+    "text": "[KHONG LOI]",
+    "emo": "",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "arjun",
+    "text": "[KHONG LOI]",
+    "emo": "",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "मुझे भी नई car चाहिए...",
+    "emo": "hopeful, hesitant",
+    "fx": "none",
+    "phan": 1,
+    "dich": "I want a new car too..."
+   },
+   {
+    "who": "quanly",
+    "text": "You want the new car? Learn to talk to the customers first.",
+    "emo": "playful, proud",
+    "fx": "none",
+    "phan": 1,
+    "dich": "नई कार चाहिए? पहले ग्राहकों से बात करना सीखो।"
+   },
+   {
+    "who": "hoc",
+    "text": "[KHONG LOI]",
+    "emo": "",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "con",
+    "text": "पापा, क्या हुआ?",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Dad, what happened?"
+   },
+   {
+    "who": "hoc",
+    "text": "कुछ नहीं... मैं customers की बात समझ ही नहीं पाता।",
+    "emo": "worried, embarrassed",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Nothing... I just can't understand the customers."
+   },
+   {
+    "who": "con",
+    "text": "पापा, आपको English आती तो है, बस practice की ज़रूरत है।",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Dad, you do know English, you just need practice."
+   },
+   {
+    "who": "con",
+    "text": "ये देखो, Ava AI, आपकी English AI tutor.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Look, Ava AI, your English AI tutor."
+   },
+   {
+    "who": "con",
+    "text": "[KHONG LOI]",
+    "emo": "",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "con",
+    "text": "इससे ऐसे बात करो जैसे असली teacher से बात कर रहे हो।",
+    "emo": "excited",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Talk to it like you're talking to a real teacher."
+   },
+   {
+    "who": "day",
+    "text": "Hi! Where are you from?",
+    "emo": "cheerful, curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am India.",
+    "emo": "hesitant",
+    "fx": "wrong",
+    "phan": 2,
+    "icon": "x",
+    "to": "I am India",
+    "c": "red"
+   },
+   {
+    "who": "day",
+    "text": "Almost! Say: I am FROM India.",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am from India!",
+    "emo": "proud",
+    "fx": "right",
+    "phan": 2,
+    "icon": "check",
+    "to": "from",
+    "c": "green"
+   },
+   {
+    "who": "hoc",
+    "text": "लेकिन English classes बहुत महंगी होती हैं... मेरे पास पैसे नहीं हैं।",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 2,
+    "icon": "dollar"
+   },
+   {
+    "who": "day",
+    "text": "No problem! No tricks. Just real conversation in English with your AI.",
+    "emo": "reassuring, cheerful",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I correct your grammar and pronunciation while you speak.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "Let's practice. A customer wants to go to the airport. What will you say?",
+    "emo": "cheerful, upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Hello sir, where would you like to go today?",
+    "emo": "hopeful, delighted",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Hello! Where would you like to go today?",
+    "emo": "cheerful, confident",
+    "fx": "none",
+    "phan": 3,
+    "dich": "नमस्ते! आज आप कहाँ जाना चाहेंगी?"
+   },
+   {
+    "who": "hoc",
+    "text": "अब मुझे English बोलने से डर नहीं लगता।",
+    "emo": "proud, delighted",
+    "fx": "none",
+    "phan": 3,
+    "dich": "Now I'm not afraid of speaking English."
+   }
+  ],
+  "refs": {
+   "NGUOI_HOC": [
+    "SAMPLE/taxi-gia-su-ai/anh/an-do-3/HOC2.png"
+   ],
+   "NGUOI_KHACH": [
+    "SAMPLE/taxi-gia-su-ai/anh/an-do-3/KHACH2.png"
+   ],
+   "NGUOI_QUANLY": [
+    "SAMPLE/taxi-gia-su-ai/anh/an-do/QUANLY.png"
+   ],
+   "NGUOI_ARJUN": [
+    "SAMPLE/taxi-gia-su-ai/anh/ARJUN.png"
+   ],
+   "NGUOI_CON": [
+    "SAMPLE/taxi-gia-su-ai/anh/an-do/CON.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY.png"
+   ]
+  }
+ },
+ {
+  "name": "taxi-in-3-03-sandeep",
+  "VAI_HOC": "taxi driver",
+  "POS_HOC": "driver-seat",
+  "NGHE_HOC": "keeps the mouth closed and looks where the clip's EYE LINE says (at the road, at the floor or at whoever is speaking), small natural blinks, hands where the clip puts them",
+  "NHIN_HOC": "keeps the eyes where the clip's EYE LINE says while speaking, never into the lens",
+  "NHIN_HOC@2": "looks into the lens, as if talking to the AI tutor on the phone mounted on the dashboard",
+  "TEN_KHACH": "the passenger",
+  "VAI_KHACH": "taxi passenger",
+  "POS_KHACH": "back-seat",
+  "NGHE_KHACH": "keeps the mouth closed, the phone at her ear, looking out of the side window",
+  "NHIN_KHACH": "keeps the eyes where the clip's EYE LINE says while speaking, never into the lens",
+  "TEN_QUANLY": "the manager",
+  "NGUOI_QUANLY": "a stylized 3D-animated Indian taxi-company manager in his late fifties, neatly combed salt-and-pepper hair, a thick grey moustache, warm brown skin, a navy-blue Nehru jacket over a white shirt, dark trousers, a plain brown clipboard and a pen",
+  "GIONG_QUANLY": "a hearty, confident older Indian man's voice around 110-130 Hz, fluent English with a warm Indian accent",
+  "VAI_QUANLY": "taxi company manager",
+  "POS_QUANLY": "depot-centre",
+  "NGHE_QUANLY": "keeps the mouth closed and looks at whoever is speaking, holding his clipboard",
+  "NHIN_QUANLY": "keeps the eyes where the clip's EYE LINE says while speaking, never into the lens",
+  "NGUOI_ARJUN": "a stylized 3D-animated young Indian man in his mid-twenties, slim, short neat black hair, a trimmed black beard, a light-grey button-up shirt with rolled sleeves, dark jeans, a silver wristwatch",
+  "GIONG_ARJUN": "a smooth, light, smug young man's voice around 140-160 Hz",
+  "VAI_ARJUN": "young taxi driver",
+  "POS_ARJUN": "depot-right",
+  "NGHE_ARJUN": "keeps the mouth closed with a confident smile, looking at whoever is speaking",
+  "NHIN_ARJUN": "keeps the eyes where the clip's EYE LINE says while speaking, never into the lens",
+  "TEN_CON": "Priya",
+  "NGUOI_CON": "a stylized 3D-animated Indian teenage girl about fifteen, long black hair in a single neat braid, big warm brown eyes, warm brown skin, a mustard-yellow cotton kurta with small white printed flowers and white leggings, barefoot",
+  "GIONG_CON": "a bright, gentle, clear teenage girl's voice around 240-270 Hz, natural Hindi, caring and upbeat",
+  "VAI_CON": "daughter",
+  "POS_CON": "living-room",
+  "NGHE_CON": "keeps the mouth closed and looks at her father with a caring face",
+  "NHIN_CON": "keeps the eyes where the clip's EYE LINE says while speaking, never into the lens",
+  "TEN_DAY": "Ava",
+  "NGUOI_DAY": "a sleek feminine humanoid robot with a smooth glossy pearl-white bald head and a softly human-like face, pale blue eyes, soft pale lips that open and move naturally with every word whenever it speaks, thin panel seams on the head, a black segmented mechanical neck, white armoured shoulders with thin glowing blue seams (copy the reference image); realistic 3D render",
+  "GIONG_DAY": "a calm, clear, friendly young woman's voice around 180-210 Hz with a very slight synthetic digital sheen, clear neutral English",
+  "VAI_DAY": "AI tutor",
+  "NHIN_DAY": "looks straight into the lens, as if talking to the person on the call",
+  "NEN_DAY": "a plain deep black background with one thin soft white glowing arc behind the head",
+  "NEN_HOC": "the inside of a black-and-yellow Mumbai taxi on a sunny afternoon: dark seats, and through the rear window a busy Mumbai street with black-and-yellow cabs and old apartment buildings, softly out of focus",
+  "XE": "a classic black-and-yellow Mumbai taxi (black body, yellow roof) with dark seats and no roof sign",
+  "NEN_PHO": "a sunny busy Mumbai street: colourful shop fronts, old apartment blocks with balconies, palm trees, other black-and-yellow cabs far behind",
+  "NEN_GARA": "a big Mumbai taxi depot: grey concrete floor, a high tin roof with long tube lights, metal lockers and a notice board on the wall, a wide open rolling shutter with black-and-yellow taxis and a street outside",
+  "NEN_NHA": "a cosy Indian apartment living room: a sofa with colourful cushions, a low wooden coffee table with an open book and a small glass of tea, a window with light cotton curtains, a potted plant",
+  "DAO_DIEN_THOAI_KH": "a gold-coloured smartphone",
+  "DAO_DIEN_THOAI_TX": "an old black smartphone with a glowing screen",
+  "DAO_CHIA_KHOA": "a set of two new silver car keys on a ring with a black key fob",
+  "DAO_COC": "a plain white ceramic cup",
+  "DAO_DIEN_THOAI": "a blue smartphone whose screen shows only a friendly white humanoid robot face on a plain blue background, with no text, no buttons and no icons",
+  "nguoi_theo_canh": true,
+  "TEN_HOC": "Sandeep",
+  "NGUOI_HOC": "a stylized 3D-animated Indian taxi driver of 36, black wavy hair, round glasses, a short trimmed beard, warm brown skin, a clean white kurta, black trousers",
+  "GIONG_HOC": "a warm, slightly hoarse mature Indian man's baritone around 105-125 Hz; his English is slow and broken with a heavy Indian accent, his Hindi natural and fluent",
+  "NGUOI_KHACH": "a stylized 3D-animated stylish Indian businesswoman of 40, shoulder-length black hair, a navy-blue blazer and trousers, a laptop bag on her shoulder, an impatient expression",
+  "GIONG_KHACH": "a crisp, quick, impatient young Indian woman's voice around 215-245 Hz, fluent English with a refined upper-class Indian accent, clearly higher than the driver",
+  "TEN_ARJUN": "Arjun",
+  "LUOT": [
+   {
+    "who": "khach",
+    "text": "Can you take a left on Fifth, so we can avoid the traffic?",
+    "emo": "decisive, skeptical",
+    "fx": "none",
+    "phan": 1,
+    "dich": "क्या आप फिफ्थ पर लेफ्ट ले सकते हैं, ताकि ट्रैफिक से बच सकें?"
+   },
+   {
+    "who": "hoc",
+    "text": "Fifth? Sorry... I don't understand.",
+    "emo": "confused, embarrassed",
+    "fx": "none",
+    "phan": 1,
+    "dich": "फिफ्थ? सॉरी... मुझे समझ नहीं आया।"
+   },
+   {
+    "who": "khach",
+    "text": "Take the left! You missed the turn.",
+    "emo": "decisive, surprised",
+    "fx": "none",
+    "phan": 1,
+    "dich": "लेफ्ट लो! आपने मोड़ छोड़ दिया।"
+   },
+   {
+    "who": "khach",
+    "text": "I just told you to take the left.",
+    "emo": "decisive",
+    "fx": "none",
+    "phan": 1,
+    "dich": "मैंने अभी कहा था लेफ्ट लेने को।"
+   },
+   {
+    "who": "khach",
+    "text": "Yeah, I'm in a cab. The driver barely speaks English.",
+    "emo": "skeptical",
+    "fx": "none",
+    "phan": 1,
+    "dich": "हाँ, मैं टैक्सी में हूँ। ड्राइवर मुश्किल से इंग्लिश बोलता है।"
+   },
+   {
+    "who": "khach",
+    "text": "I have to repeat everything I say.",
+    "emo": "skeptical, doubtful",
+    "fx": "none",
+    "phan": 1,
+    "dich": "मुझे हर बात दोहरानी पड़ती है।"
+   },
+   {
+    "who": "hoc",
+    "text": "[KHONG LOI]",
+    "emo": "",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "quanly",
+    "text": "Arjun, your ratings are the best we've got. Customers love your conversations.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1,
+    "dich": "अर्जुन, तुम्हारी रेटिंग सबसे अच्छी है। ग्राहकों को तुम्हारी बातें बहुत पसंद हैं।"
+   },
+   {
+    "who": "quanly",
+    "text": "You get our brand-new car!",
+    "emo": "excited",
+    "fx": "none",
+    "phan": 1,
+    "dich": "हमारी बिल्कुल नई कार तुम्हें मिलेगी!"
+   },
+   {
+    "who": "arjun",
+    "text": "[KHONG LOI]",
+    "emo": "",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "arjun",
+    "text": "[KHONG LOI]",
+    "emo": "",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "hoc",
+    "text": "मुझे भी नई car चाहिए...",
+    "emo": "hopeful, hesitant",
+    "fx": "none",
+    "phan": 1,
+    "dich": "I want a new car too..."
+   },
+   {
+    "who": "quanly",
+    "text": "You want the new car? Learn to talk to the customers first.",
+    "emo": "playful, proud",
+    "fx": "none",
+    "phan": 1,
+    "dich": "नई कार चाहिए? पहले ग्राहकों से बात करना सीखो।"
+   },
+   {
+    "who": "hoc",
+    "text": "[KHONG LOI]",
+    "emo": "",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "con",
+    "text": "पापा, क्या हुआ?",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Dad, what happened?"
+   },
+   {
+    "who": "hoc",
+    "text": "कुछ नहीं... मैं customers की बात समझ ही नहीं पाता।",
+    "emo": "worried, embarrassed",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Nothing... I just can't understand the customers."
+   },
+   {
+    "who": "con",
+    "text": "पापा, आपको English आती तो है, बस practice की ज़रूरत है।",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Dad, you do know English, you just need practice."
+   },
+   {
+    "who": "con",
+    "text": "ये देखो, Ava AI, आपकी English AI tutor.",
+    "emo": "proud, cheerful",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Look, Ava AI, your English AI tutor."
+   },
+   {
+    "who": "con",
+    "text": "[KHONG LOI]",
+    "emo": "",
+    "fx": "none",
+    "phan": 1
+   },
+   {
+    "who": "con",
+    "text": "इससे ऐसे बात करो जैसे असली teacher से बात कर रहे हो।",
+    "emo": "excited",
+    "fx": "none",
+    "phan": 1,
+    "dich": "Talk to it like you're talking to a real teacher."
+   },
+   {
+    "who": "day",
+    "text": "Hi! Where are you from?",
+    "emo": "cheerful, curious",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am India.",
+    "emo": "hesitant",
+    "fx": "wrong",
+    "phan": 2,
+    "icon": "x",
+    "to": "I am India",
+    "c": "red"
+   },
+   {
+    "who": "day",
+    "text": "Almost! Say: I am FROM India.",
+    "emo": "warm, encouraging",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "I am from India!",
+    "emo": "proud",
+    "fx": "right",
+    "phan": 2,
+    "icon": "check",
+    "to": "from",
+    "c": "green"
+   },
+   {
+    "who": "hoc",
+    "text": "लेकिन English classes बहुत महंगी होती हैं... मेरे पास पैसे नहीं हैं।",
+    "emo": "worried",
+    "fx": "none",
+    "phan": 2,
+    "icon": "dollar"
+   },
+   {
+    "who": "day",
+    "text": "No problem! No tricks. Just real conversation in English with your AI.",
+    "emo": "reassuring, cheerful",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "I correct your grammar and pronunciation while you speak.",
+    "emo": "warm",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "day",
+    "text": "Let's practice. A customer wants to go to the airport. What will you say?",
+    "emo": "cheerful, upbeat",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Hello sir, where would you like to go today?",
+    "emo": "hopeful, delighted",
+    "fx": "none",
+    "phan": 2
+   },
+   {
+    "who": "hoc",
+    "text": "Hello! Where would you like to go today?",
+    "emo": "cheerful, confident",
+    "fx": "none",
+    "phan": 3,
+    "dich": "नमस्ते! आज आप कहाँ जाना चाहेंगी?"
+   },
+   {
+    "who": "hoc",
+    "text": "अब मुझे English बोलने से डर नहीं लगता।",
+    "emo": "proud, delighted",
+    "fx": "none",
+    "phan": 3,
+    "dich": "Now I'm not afraid of speaking English."
+   }
+  ],
+  "refs": {
+   "NGUOI_HOC": [
+    "SAMPLE/taxi-gia-su-ai/anh/an-do-3/HOC3.png"
+   ],
+   "NGUOI_KHACH": [
+    "SAMPLE/taxi-gia-su-ai/anh/an-do-3/KHACH3.png"
+   ],
+   "NGUOI_QUANLY": [
+    "SAMPLE/taxi-gia-su-ai/anh/an-do/QUANLY.png"
+   ],
+   "NGUOI_ARJUN": [
+    "SAMPLE/taxi-gia-su-ai/anh/ARJUN.png"
+   ],
+   "NGUOI_CON": [
+    "SAMPLE/taxi-gia-su-ai/anh/an-do/CON.png"
+   ],
+   "NGUOI_DAY": [
+    "SAMPLE/canh-sat-gia-su-ai/anh/DAY.png"
+   ]
+  }
+ }
+]

@@ -4,11 +4,31 @@
     "font": "Arial",
     "co_chu": 58,
     "co_chu_dich": 44,
-    "y_theo_phan": {"1": 1190, "2": 1290},
-    "kieu_theo_phan": {
-      "1": {"*": {"c": "black", "o": "white"}},
-      "2": {"*": {"c": "yellow"}}
+    "y_theo_phan": {
+      "1": 1190,
+      "2": 1290,
+      "3": 1190
     },
-    "whisper": "small"
+    "kieu_theo_phan": {
+      "1": {
+        "*": {
+          "c": "black",
+          "o": "white"
+        }
+      },
+      "2": {
+        "*": {
+          "c": "yellow"
+        }
+      },
+      "3": {
+        "*": {
+          "c": "black",
+          "o": "white"
+        }
+      }
+    },
+    "whisper": "small",
+    "font_devanagari": "Nirmala UI"
   }
 }

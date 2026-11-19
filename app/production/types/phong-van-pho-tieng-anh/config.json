@@ -1,0 +1,10 @@
+{
+  "phu_de": {
+    "font": "Arial",
+    "co_chu": 52,
+    "y_theo_phan": {"1": 1560, "2": 960},
+    "cum_tu_theo_phan": {"2": 3},
+    "kieu_theo_phan": {"1": {"*": {"c": "black", "o": "white"}}, "2": {"*": {"c": "black", "o": "white"}}},
+    "whisper": "small"
+  }
+}

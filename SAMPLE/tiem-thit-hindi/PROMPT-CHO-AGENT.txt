@@ -1,0 +1,5 @@
+PROMPT CHO AGENT: thể loại "tiem-thit-hindi" (bản Hindi của tiem-thit-tieng-anh)
+Đọc: ../tiem-thit-tieng-anh/PROMPT-CHO-AGENT.txt (quy tắc 50 cảnh, người nói theo cảnh, lỗi hay gặp) + README.md ở đây.
+Khác bản gốc: ngôn ngữ mẹ đẻ Hindi (Devanagari), tên Ấn Độ, "dich" bằng Hindi, hậu kỳ loai: tiem-thit-hindi (font Nirmala UI, shaping complex).
+Biến thể mới: thêm dict vào BT trong cong-cu/tao_bien_the.py (ky = A/B/C... đặt tên ảnh), chạy tao_bien_the.py, kiem-tra --tai-anh, nhập.
+Lượt Hindi 3-12 từ; câu lẫn Anh-Hindi không có dich. Ảnh TAVO_x/TIO_x gen nền xanh bằng SAMPLE/_chung/gen-anh-nhan-vat.py.

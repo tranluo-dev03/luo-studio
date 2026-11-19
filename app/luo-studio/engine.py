@@ -293,6 +293,18 @@ class assembly_slot:
         return False
 
 
+def _popen_retry(cmd, tries=8, **kw):
+    """Popen, thử lại khi Windows báo [WinError 32] lúc CreateProcess: file .exe (ffmpeg/ffprobe) bị tiến trình khác (thường là trình
+    diệt virus quét file mỗi lần mở) giữ thoáng qua khi nhiều luồng gọi liên tục. Trước đây lỗi này làm hỏng cả cảnh đang làm."""
+    for i in range(tries):
+        try:
+            return subprocess.Popen(cmd, **kw)
+        except PermissionError as e:
+            if getattr(e, "winerror", None) != 32 or i == tries - 1:
+                raise
+            time.sleep(0.3 * (i + 1))
+
+
 def crun(cmd, capture_output=False, text=False, encoding=None, errors=None, **kw):
     """subprocess.run có thể huỷ: nếu luồng hiện tại có cờ huỷ (set trong run_variant) thì kill tiến trình và ném Cancelled.
     ffmpeg mã hoá (libx264) đi qua cửa ENC_MAX (trừ khi đang trong assembly_slot) và chạy ở ưu tiên thấp."""
@@ -305,7 +317,7 @@ def crun(cmd, capture_output=False, text=False, encoding=None, errors=None, **kw
     if gate:
         _acquire(_ENC_SEM, cx)
     try:
-        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=text, encoding=encoding, errors=errors, **kw)
+        proc = _popen_retry(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=text, encoding=encoding, errors=errors, **kw)
         while True:
             try:
                 out, err = proc.communicate(timeout=0.3)

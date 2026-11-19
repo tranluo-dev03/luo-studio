@@ -1,0 +1,22 @@
+================================================================================
+  PROMPT CHO AGENT - THỂ LOẠI "PHỎNG VẤN ĐƯỜNG PHỐ RỒI CHIA TRÊN/DƯỚI + GIA SƯ AI, HINDI" (phong-van-pho-hindi)
+  Giống phong-van-pho-malayalam (đọc PROMPT-CHO-AGENT.txt của nó) nhưng lời Hindi chữ Devanagari xen từ tiếng Anh.
+  HAI phần: phần 1 cảnh thường (PV qua vai + người bán, MỘT góc, 11 cảnh), phần 2 ghép 2 lớp (robot Talka ô TRÊN, người bán selfie ô DƯỚI, 15 cảnh).
+  Code riêng: app/production/types/phong-van-pho-hindi/
+================================================================================
+
+QUY TẮC
+  1) Sửa bằng cong-cu\tao_bien_the.py (lời, nhân vật, quầy, refs) và cong-cu\tao_kich_ban.py (cảnh); KHÔNG sửa tay JSON/TXT.
+  2) 26 lượt: phần 1 = pv hoc pv hoc pv hoc pv hoc pv hoc hoc; phần 2 = day day day hoc day hoc day hoc day hoc day day day hoc day. Mỗi lượt <= 20 từ,
+     emo trong EMO_CUES, "fx": "none", mọi lượt có "phan".
+  3) Lời Hindi chữ Devanagari; từ tiếng Anh viết Latin; "I am <thành phố>" (lượt 17) và "I am from <thành phố>" (lượt 18) cùng đổi.
+     Người bán nữ: động từ giống cái ("दिखाती हूँ").
+  4) PV luôn nam quay lưng (kịch bản tả "his"); người bán luôn nữ (khác giới). Muốn người bán nam thì PV phải đổi nữ và sửa mọi "his/beard" trong kịch bản.
+  5) Ảnh refs: robot-talka.png + PV.png + V<n>.png (gen bằng cong-cu\gen_anh.py, photoreal, nền xanh). Kịch bản đã dặn "ảnh chỉ để lấy mặt/tóc/trang phục".
+  6) Giữ QUAY_LUNG_PV, NHIN_PV, NGHE_PV; `nen: DAY` là cố ý.
+
+KIỂM TRA: video-moi.py kiem-tra <kịch bản> <biến thể> --tai-anh: 0 lỗi; sau cảnh 1 xem phan1/scene1_start.png, nghe cảnh 1-3 (Hindi đúng?),
+  phan2/base_DAY.png, base_HOC.png.
+
+LỖI/GIỚI HẠN: Muse nói Hindi chưa kiểm chứng; câu Devanagari không kiểm lời từng chữ; phụ đề cần "shaping": "complex"; câu quá dài bị cụt nếu âm tiết đếm thiếu
+  (gen.py đã bọc spoken_syllables cho chữ Devanagari).

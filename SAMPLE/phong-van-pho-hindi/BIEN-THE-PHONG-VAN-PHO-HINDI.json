@@ -1,0 +1,851 @@
+[
+  {
+    "name": "bien-the-01-bam-sat-video",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Indian man about twenty-eight years old, short neat black hair, thin black-framed glasses, a short trimmed beard, a pink-and-white plaid cotton shirt with rolled sleeves, a black backpack on his back",
+    "GIONG_PV": "a real young north Indian man's voice, light baritone (around 150-180 Hz), friendly and playful like a street-interview host, native Hindi; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "NHIN_PV": "keeps his face pointed at the woman's face, to the right and slightly down, the camera seeing only the back and the right edge of his head; he never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the woman and keeps his face pointed at her, his head still, the camera seeing only the back of his head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "VAI_HOC": "street vendor",
+    "POS_HOC": "CENTRE-RIGHT, behind the cart",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "SHE_HOC": "she",
+    "HER_HOC": "her",
+    "HERO_HOC": "her",
+    "SELF_HOC": "herself",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek white humanoid AI robot teacher, exactly as in its reference photo: a smooth glossy white head with fine panel seams and no hair, a realistic young woman's face with pale light blue eyes, soft lips that open and move like a real person's whenever it speaks and a calm warm expression, a white over-ear headset with a thin microphone boom curving to its mouth, a black ribbed mechanical neck, white hexagon-plated armour on the shoulders and chest with black mechanical joints and thin glowing light blue accent lines",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Hindi, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "TEN_HOC": "the woman",
+    "DAO_GANG": "She wears thin clear disposable plastic gloves on both hands.",
+    "TAY_HOC": "her gloved hands resting above the pots",
+    "VIEC_HOC": "keeps gently shaping a small ball of filling between her gloved fingers above the pots",
+    "VIEC2_HOC": "puts the small ball of filling back into the pot",
+    "DAO_GIU": "Her gloved hands stay above the steel pots on the cart.",
+    "DAO_XE": "a stainless-steel street-food push cart with several round steel pots and bowls of spiced fillings, chutneys and fried snacks, a few steel ladles in the pots, a stack of small steel plates",
+    "NEN_PHO": "a quiet old street in a north Indian town on an overcast morning, slightly out of focus: weathered two-storey shophouses with balconies and closed rolling shutters, a faded blue awning, tall green trees, a grey asphalt road with no traffic; any signboards are blurred and unreadable",
+    "NEN_HOC": "her busy street-food stall at a crowded market street, out of focus: trays of colourful snacks and steel pots at the lower right, people walking far behind, shop fronts with blue awnings, overcast daylight",
+    "NGUOI_HOC": "a north Indian woman about fifty years old, warm brown skin, black hair with a few grey strands parted in the middle and tied in a low bun, a small red bindi, a kind round face; a magenta-pink short-sleeved blouse and a brown-and-grey checked cotton saree with a thin red border draped over her left shoulder; photorealistic skin and fabric",
+    "GIONG_HOC": "a real middle-aged north Indian woman's voice (around 200-230 Hz), warm, lively and a little husky, native Hindi, says the English words like a proud learner; a real person, not an actress",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, her gloved hands resting above the pots; she never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward her, her gloved hands resting above the pots",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "अचानक को अंग्रेज़ी में क्या कहते हैं?",
+        "emo": "playful, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Suddenly.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "तुरंत?",
+        "emo": "playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Immediately.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "अच्छा, ये बताइए... वरना?",
+        "emo": "playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Otherwise.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "इसलिए?",
+        "emo": "playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Therefore.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "आपने तो कहा था कि एक महीने पहले आपको अंग्रेज़ी का एक शब्द भी नहीं आता था!",
+        "emo": "impressed",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yeah, one month ago the only English I heard was from TV. And now I am talking fluently.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "फ़र्राटेदार अंग्रेज़ी बोलने का राज़ जानना है? पहले दिन से बोलना शुरू करो। आओ, मैं दिखाती हूँ।",
+        "emo": "cheerful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "सिर्फ़ एक महीने में आप native speakers की तरह अंग्रेज़ी बोल सकते हैं, पता है? ये कोई जादू नहीं है।",
+        "emo": "enthusiastic",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ये ऐसा ऐप है जो बोलते-बोलते आपकी ग़लतियाँ सुधारता है, और आपको सीखने का पता भी नहीं चलता।",
+        "emo": "warm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "चलिए, एक बार try करते हैं। क्या आपको अंग्रेज़ी बोलना आता है?",
+        "emo": "friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ा-थोड़ा।",
+        "emo": "hesitant",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I am Lucknow.",
+        "emo": "unsure",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही है। लेकिन I am from Lucknow कहें तो और भी अच्छा रहेगा।",
+        "emo": "encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "अरे, मुझे हमेशा यहीं पर confusion होता है।",
+        "emo": "embarrassed",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, आपको सही बोलना सिखाने के लिए।",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन ये तो बहुत expensive होगा ना?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल नहीं! आम English क्लास से ये सात गुना सस्ता है।",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "रोज़ सिर्फ़ पंद्रह से बीस मिनट practice करना काफ़ी है।",
+        "emo": "warm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "हिंदी में practice करने से आप धीरे-धीरे बहुत confident हो जाएँगे। ये AI टीचर के साथ असली English practice है।",
+        "emo": "enthusiastic",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "मतलब, एक real टीचर जैसा?",
+        "emo": "curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "हाँ, ये आपके grammar और pronunciation को सही करेगा और confidence के साथ बोलने में मदद करेगा।",
+        "emo": "confident, warm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-hindi/anh/robot-talka.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-hindi/anh/PV.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-hindi/anh/V1.png"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-02-nguoi-ban-tre-puri",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Indian man about twenty-eight years old, short neat black hair, thin black-framed glasses, a short trimmed beard, a pink-and-white plaid cotton shirt with rolled sleeves, a black backpack on his back",
+    "GIONG_PV": "a real young north Indian man's voice, light baritone (around 150-180 Hz), friendly and playful like a street-interview host, native Hindi; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "NHIN_PV": "keeps his face pointed at the woman's face, to the right and slightly down, the camera seeing only the back and the right edge of his head; he never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the woman and keeps his face pointed at her, his head still, the camera seeing only the back of his head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "VAI_HOC": "street vendor",
+    "POS_HOC": "CENTRE-RIGHT, behind the cart",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "SHE_HOC": "she",
+    "HER_HOC": "her",
+    "HERO_HOC": "her",
+    "SELF_HOC": "herself",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek white humanoid AI robot teacher, exactly as in its reference photo: a smooth glossy white head with fine panel seams and no hair, a realistic young woman's face with pale light blue eyes, soft lips that open and move like a real person's whenever it speaks and a calm warm expression, a white over-ear headset with a thin microphone boom curving to its mouth, a black ribbed mechanical neck, white hexagon-plated armour on the shoulders and chest with black mechanical joints and thin glowing light blue accent lines",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Hindi, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "TEN_HOC": "the woman",
+    "DAO_GANG": "She wears thin clear disposable plastic gloves on both hands.",
+    "TAY_HOC": "her gloved hands resting on the rim of a steel bowl",
+    "VIEC_HOC": "keeps gently tearing a small crisp puri into pieces over the steel bowl with her gloved fingers",
+    "VIEC2_HOC": "lets the puri pieces drop back into the steel bowl",
+    "DAO_GIU": "Her gloved hands stay on the rim of the steel bowl on the cart.",
+    "DAO_XE": "a bright street-snack cart with a large glass-fronted box of golden puris, a steel bowl of spiced potato filling, a big brass pot of tangy green water with a small steel ladle, and a stack of small leaf plates",
+    "NEN_PHO": "a busy but calm market lane in a north Indian city in the morning light, slightly out of focus: old pastel-coloured buildings with carved balconies, a few parked scooters far behind, a tall tree, no one close behind the stall; any signboards are blurred and unreadable",
+    "NEN_HOC": "her bright snack stall in a crowded market lane, out of focus: the glass box of golden puris and brass pots at the lower right, shoppers walking far behind, old pastel shop fronts, daylight",
+    "NGUOI_HOC": "a north Indian woman about twenty-eight years old, medium brown skin, long black hair in a single braid over her right shoulder, a small black bindi, a lively oval face; a mustard-yellow cotton kurta with white block print and a light green cotton dupatta draped over both shoulders; photorealistic skin and fabric",
+    "GIONG_HOC": "a real young north Indian woman's voice (around 220-250 Hz), bright, quick and cheerful, native Hindi, says the English words like an eager learner; a real person, not an actress",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, her gloved hands resting on the rim of a steel bowl; she never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward her, her gloved hands resting on the rim of a steel bowl",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "अचानक को अंग्रेज़ी में क्या कहते हैं?",
+        "emo": "playful, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Suddenly.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "तुरंत?",
+        "emo": "playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Immediately.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "अच्छा, ये बताइए... वरना?",
+        "emo": "playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Otherwise.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "इसलिए?",
+        "emo": "playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Therefore.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "आपने तो कहा था कि एक महीने पहले आपको अंग्रेज़ी का एक शब्द भी नहीं आता था!",
+        "emo": "impressed",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yeah, one month ago the only English I heard was from TV. And now I am talking fluently.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "फ़र्राटेदार अंग्रेज़ी बोलने का राज़ जानना है? पहले दिन से बोलना शुरू करो। आओ, मैं दिखाती हूँ।",
+        "emo": "cheerful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "सिर्फ़ एक महीने में आप native speakers की तरह अंग्रेज़ी बोल सकते हैं, पता है? ये कोई जादू नहीं है।",
+        "emo": "enthusiastic",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ये ऐसा ऐप है जो बोलते-बोलते आपकी ग़लतियाँ सुधारता है, और आपको सीखने का पता भी नहीं चलता।",
+        "emo": "warm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "चलिए, एक बार try करते हैं। क्या आपको अंग्रेज़ी बोलना आता है?",
+        "emo": "friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ा-थोड़ा।",
+        "emo": "hesitant",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I am Jaipur.",
+        "emo": "unsure",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही है। लेकिन I am from Jaipur कहें तो और भी अच्छा रहेगा।",
+        "emo": "encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "अरे, मुझे हमेशा यहीं पर confusion होता है।",
+        "emo": "embarrassed",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, आपको सही बोलना सिखाने के लिए।",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन ये तो बहुत expensive होगा ना?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल नहीं! आम English क्लास से ये सात गुना सस्ता है।",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "रोज़ सिर्फ़ पंद्रह से बीस मिनट practice करना काफ़ी है।",
+        "emo": "warm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "हिंदी में practice करने से आप धीरे-धीरे बहुत confident हो जाएँगे। ये AI टीचर के साथ असली English practice है।",
+        "emo": "enthusiastic",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "मतलब, एक real टीचर जैसा?",
+        "emo": "curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "हाँ, ये आपके grammar और pronunciation को सही करेगा और confidence के साथ बोलने में मदद करेगा।",
+        "emo": "confident, warm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-hindi/anh/robot-talka.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-hindi/anh/PV.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-hindi/anh/V2.png"
+      ]
+    }
+  },
+  {
+    "name": "bien-the-03-nguoi-ban-lon-tuoi-trai-cay",
+    "TEN_PV": "the interviewer",
+    "VAI_PV": "street interviewer",
+    "POS_PV": "LEFT foreground, seen from behind",
+    "NGUOI_PV": "a young Indian man about twenty-eight years old, short neat black hair, thin black-framed glasses, a short trimmed beard, a pink-and-white plaid cotton shirt with rolled sleeves, a black backpack on his back",
+    "GIONG_PV": "a real young north Indian man's voice, light baritone (around 150-180 Hz), friendly and playful like a street-interview host, native Hindi; a real person, not an announcer",
+    "QUAY_LUNG_PV": "1",
+    "NHIN_PV": "keeps his face pointed at the woman's face, to the right and slightly down, the camera seeing only the back and the right edge of his head; he never turns toward the camera",
+    "NGHE_PV": "holds the microphone still toward the woman and keeps his face pointed at her, his head still, the camera seeing only the back of his head",
+    "DAO_MIC": "a plain black handheld microphone with no logo",
+    "VAI_HOC": "street vendor",
+    "POS_HOC": "CENTRE-RIGHT, behind the cart",
+    "NHIN_HOC": "looks at the interviewer's face, to the left, in three-quarter view, and never looks at the camera",
+    "SHE_HOC": "she",
+    "HER_HOC": "her",
+    "HERO_HOC": "her",
+    "SELF_HOC": "herself",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek white humanoid AI robot teacher, exactly as in its reference photo: a smooth glossy white head with fine panel seams and no hair, a realistic young woman's face with pale light blue eyes, soft lips that open and move like a real person's whenever it speaks and a calm warm expression, a white over-ear headset with a thin microphone boom curving to its mouth, a black ribbed mechanical neck, white hexagon-plated armour on the shoulders and chest with black mechanical joints and thin glowing light blue accent lines",
+    "GIONG_DAY": "a bright, warm young woman's voice (around 210-230 Hz) with a light synthetic sheen, clear and lively like a friendly teacher, native Hindi, says the English words clearly with a light Indian English accent",
+    "NEN_DAY": "a deep navy-to-violet gradient backdrop with one thin glowing purple circular ring behind the head and a few tiny glowing dots along the ring, nothing else",
+    "TEN_HOC": "the woman",
+    "DAO_GANG": "She works with bare hands.",
+    "TAY_HOC": "her hands resting on the edge of a woven basket of fruit",
+    "VIEC_HOC": "keeps gently turning a guava in her hands and polishing it with the end of her saree",
+    "VIEC2_HOC": "puts the guava back on top of the pile in the basket",
+    "DAO_GIU": "Her hands stay on the woven baskets of fruit on the cart.",
+    "DAO_XE": "a wooden fruit cart with woven baskets piled with guavas, bananas and pomegranates, a hanging brass weighing scale, and a folded cotton cloth on the edge",
+    "NEN_PHO": "a quiet shaded road beside an old city market in north India in soft morning light, slightly out of focus: old stone arches, tall neem trees, a grey road with no traffic; any signboards are blurred and unreadable",
+    "NEN_HOC": "her fruit cart at a crowded market road, out of focus: baskets of colourful fruit at the lower right, people walking far behind, old stone arches, daylight",
+    "NGUOI_HOC": "an elderly north Indian woman about sixty-two years old, wheat-brown skin with laugh lines, grey hair pulled back in a tight bun, a round gold nose stud, a gentle weathered face; a plain teal-blue cotton saree with a thin orange border, the end draped over her left shoulder; photorealistic skin and fabric",
+    "GIONG_HOC": "a real elderly north Indian woman's voice (around 190-215 Hz), warm, a little husky and unhurried, native Hindi, says the English words carefully like a proud learner; a real person, not an actress",
+    "NGHE_HOC": "keeps the lips pressed together and looks at the interviewer's face with a friendly attentive face, her hands resting on the edge of a woven basket of fruit; she never looks at the camera",
+    "DAO_NGHI": "the interviewer holding the microphone toward her, her hands resting on the edge of a woven basket of fruit",
+    "LUOT": [
+      {
+        "who": "pv",
+        "text": "अचानक को अंग्रेज़ी में क्या कहते हैं?",
+        "emo": "playful, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Suddenly.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "तुरंत?",
+        "emo": "playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Immediately.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "अच्छा, ये बताइए... वरना?",
+        "emo": "playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Otherwise.",
+        "emo": "confident",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "इसलिए?",
+        "emo": "playful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Therefore.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "pv",
+        "text": "आपने तो कहा था कि एक महीने पहले आपको अंग्रेज़ी का एक शब्द भी नहीं आता था!",
+        "emo": "impressed",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Yeah, one month ago the only English I heard was from TV. And now I am talking fluently.",
+        "emo": "proud",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "फ़र्राटेदार अंग्रेज़ी बोलने का राज़ जानना है? पहले दिन से बोलना शुरू करो। आओ, मैं दिखाती हूँ।",
+        "emo": "cheerful",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "सिर्फ़ एक महीने में आप native speakers की तरह अंग्रेज़ी बोल सकते हैं, पता है? ये कोई जादू नहीं है।",
+        "emo": "enthusiastic",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "ये ऐसा ऐप है जो बोलते-बोलते आपकी ग़लतियाँ सुधारता है, और आपको सीखने का पता भी नहीं चलता।",
+        "emo": "warm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "चलिए, एक बार try करते हैं। क्या आपको अंग्रेज़ी बोलना आता है?",
+        "emo": "friendly",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "थोड़ा-थोड़ा।",
+        "emo": "hesitant",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "friendly, curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I am Patna.",
+        "emo": "unsure",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही है। लेकिन I am from Patna कहें तो और भी अच्छा रहेगा।",
+        "emo": "encouraging",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "अरे, मुझे हमेशा यहीं पर confusion होता है।",
+        "emo": "embarrassed",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, आपको सही बोलना सिखाने के लिए।",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन ये तो बहुत expensive होगा ना?",
+        "emo": "worried",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल नहीं! आम English क्लास से ये सात गुना सस्ता है।",
+        "emo": "reassuring",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "रोज़ सिर्फ़ पंद्रह से बीस मिनट practice करना काफ़ी है।",
+        "emo": "warm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "हिंदी में practice करने से आप धीरे-धीरे बहुत confident हो जाएँगे। ये AI टीचर के साथ असली English practice है।",
+        "emo": "enthusiastic",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "मतलब, एक real टीचर जैसा?",
+        "emo": "curious",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "हाँ, ये आपके grammar और pronunciation को सही करेगा और confidence के साथ बोलने में मदद करेगा।",
+        "emo": "confident, warm",
+        "c": "black",
+        "o": "white",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/phong-van-pho-hindi/anh/robot-talka.png"
+      ],
+      "NGUOI_PV": [
+        "SAMPLE/phong-van-pho-hindi/anh/PV.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/phong-van-pho-hindi/anh/V3.png"
+      ]
+    }
+  }
+]
