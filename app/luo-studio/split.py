@@ -12,7 +12,7 @@ Mỗi video:
 
 Script (loại dự án) có khối [GHEP HAI LOP] thay cho các khối CẢNH; mẫu: SAMPLE/ghep-hai-lop/KICH-BAN-GHEP-HAI-LOP.txt.
 """
-import os, re, shutil, time, unicodedata
+import os, re, shutil, threading, time, unicodedata
 
 import engine as E
 import gen_video as G
@@ -313,7 +313,37 @@ def shift_down(png, dy_frac):
 
 
 # ------------------------------------------------------------------ chạy một biến thể
+def _bg(fn, jobs):
+    """Chạy fn ở luồng phụ, mang theo các biến theo luồng của engine (huỷ, câu dẫn prompt, trace) để lệnh gen y hệt luồng chính.
+    Trả (thread, box); lỗi của fn nằm ở box["err"]."""
+    ctx = {k: getattr(E._TL, k) for k in ("cancel", "prompt_prefix", "trace") if hasattr(E._TL, k)}
+    box = {}
+
+    def run():
+        for k, v in ctx.items():
+            setattr(E._TL, k, v)
+        try:
+            fn()
+        except BaseException as ex:  # noqa: BLE001 - chuyển lỗi về luồng chính
+            box["err"] = ex
+    t = threading.Thread(target=run, daemon=True, name="split-listen")
+    t.start()
+    jobs.append(t)
+    return t, box
+
+
 def run_split(vdata, template, out_dir, opts, emit, cancel):
+    # Bật "listen_parallel": clip nghe gen ở luồng phụ song song với clip nói. Luôn chờ các luồng phụ xong trước khi trả về / báo lỗi,
+    # để lần chạy lại (tự thử lại, Chạy tiếp) không gen trùng cùng một file clip nghe.
+    jobs = []
+    try:
+        return _run_split(vdata, template, out_dir, opts, emit, cancel, jobs)
+    finally:
+        for t in jobs:
+            t.join()
+
+
+def _run_split(vdata, template, out_dir, opts, emit, cancel, jobs):
     try:
         text = G.fill_tokens(template, E.variant_values(vdata))
     except SystemExit as e:
@@ -485,6 +515,19 @@ def run_split(vdata, template, out_dir, opts, emit, cancel):
         if mode == "scene":
             raw = P(f"scene{n}_listen_{k}.mp4")
             fa, dev0 = P(f"scene{n}_listen_{k}_khop.mp4"), None
+            job = prefetched.pop((n, k), None)
+            if job:   # clip nghe đã gen song song với clip nói: chờ xong rồi kiểm tra đủ dài
+                job[0].join()
+                err = job[1].get("err")
+                if isinstance(err, (E.Cancelled, E.AccountError)):
+                    raise err
+                if err:
+                    emit("log", msg=f"Cảnh {n}: gen song song clip nghe {k} lỗi ({str(err)[:120]}), gen lại theo cách thường", level="warn")
+                    if os.path.exists(raw):
+                        os.remove(raw)
+                elif os.path.exists(raw) and E.duration(raw) + 0.15 < min(need + 0.3, E.ALLOWED[-1]):
+                    emit("log", msg=f"Cảnh {n}: clip nghe {k} gen song song dài {E.duration(raw):.1f}s, ngắn hơn cần ({need + 0.3:.1f}s), gen lại", level="warn")
+                    os.remove(raw)
             for rnd in range(2):
                 if not os.path.exists(raw):
                     dur = next((d for d in E.ALLOWED if d >= need + 0.3), E.ALLOWED[-1])
@@ -534,6 +577,27 @@ def run_split(vdata, template, out_dir, opts, emit, cancel):
         off = ((c // len(lib[k])) * 2.7) % room if room > 0.1 else 0.0   # cùng clip dùng lại thì lấy đoạn khác
         return f, off, room <= 0
 
+    prefetched = {}   # (cảnh, nhân vật) -> (thread, box) của clip nghe đang gen song song
+
+    def prefetch_listen(n, spk, spk_dur):
+        """Bật listen_parallel + "nghe: moi canh": bắt đầu gen clip nghe của mọi nhân vật không nói ở cảnh n NGAY, song song với clip nói
+        (cùng tài khoản ghim của video; LUO-API cho một tài khoản 2 việc cùng lúc). Chưa biết độ dài lời sau khi cắt nên gen dài hơn clip nói
+        một mức; listen_take kiểm tra lại và gen lại theo cách thường nếu vẫn thiếu (vd. clip nói bị gen lại dài hơn)."""
+        if mode != "scene" or not opts.get("listen_parallel"):
+            return
+        ldur = next((d for d in E.ALLOWED if d >= spk_dur + 0.3), E.ALLOWED[-1])
+        for k in keys:
+            raw = P(f"scene{n}_listen_{k}.mp4")
+            if k == spk or os.path.exists(raw):
+                continue
+            spare = next((p for m in range(n - 1, 0, -1) if os.path.exists(p := P(f"scene{m}_listen_{k}.mp4"))
+                          and _audio_db(p) > float("-inf") and not _talky(p)), None)
+            start = tail[k] if chain else base[k]
+            emit("log", msg=f"Cảnh {n}: gen clip nghe {k} ({ldur}s) song song với clip nói của {spk}")
+            prefetched[(n, k)] = _bg(lambda k=k, raw=raw, start=start, spare=spare: _gen_listen(
+                gen, blocks, k, vdata, cfg, start, raw, ldur, check and not _lock_on(cfg, k), emit, n=n, t_end=spk_dur + 0.3,
+                ident=base[k] if chain else None, spare=spare, orig=att[k][0]), jobs)
+
     # 3. từng cảnh
     clips, ref_stats = [], {}
     tail = dict(base)   # nối khung: ảnh gửi Muse làm khung đầu clip kế tiếp của từng nhân vật (khung cuối đã khử nhiễu, kéo màu về ảnh gốc)
@@ -565,6 +629,7 @@ def run_split(vdata, template, out_dir, opts, emit, cancel):
         fix = str((opts.get("scene_notes") or {}).get(str(n), "")).strip()
         spk_f, spk_cut, spk_last = P(f"scene{n}_spk.mp4"), P(f"scene{n}_spkcut.mp4"), P(f"scene{n}_spklast.png")
         dev0 = None
+        prefetch_listen(n, spk, dur)
         for rnd in range(2):
             if os.path.exists(spk_f) and not E.has_audio(spk_f):
                 os.remove(spk_f)

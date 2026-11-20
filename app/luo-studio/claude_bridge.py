@@ -99,6 +99,41 @@ def python_cmd():
     return p if os.path.exists(p) else sys.executable
 
 
+KHO_MA = re.compile(r"(?<![A-Za-z0-9-])(?:(?:NAM|NU)-\d+-\d+-[A-Z]+-\d+|BOT-[A-Z]+-[A-Z]+-[A-Z]+-\d+)(?![A-Za-z0-9-])", re.I)
+
+
+def kho_tra(text):
+    """Các mã kho nhân vật có trong `text` -> (dòng tra sẵn "mã | phân loại | mô tả", mã không có trong kho).
+    Chèn thẳng vào lời giao việc để Claude khỏi mở danh-muc.json (63 KB) và khỏi mở từng ảnh."""
+    ma = list(dict.fromkeys(m.upper() for m in KHO_MA.findall(text or "")))
+    if not ma:
+        return [], []
+    try:
+        d = json.load(open(os.path.join(ROOT, "SAMPLE", "_chung", "kho-nhan-vat", "danh-muc.json"), encoding="utf-8"))
+    except (OSError, ValueError):
+        return [], []
+    kho = {r["ma"]: r for r in (d.get("nguoi") or []) + (d.get("bot") or [])}
+    rows = []
+    for m in ma:
+        r = kho.get(m)
+        if r:
+            loai = " · ".join(str(r[k]) for k in ("gioi", "tuoi", "bot", "loai_bot", "thi_truong") if r.get(k))
+            rows.append(f"{m} | {loai} | {r.get('mo_ta') or '(chưa có mô tả)'}")
+    return rows, [m for m in ma if m not in kho]
+
+
+def kho_block(text, pad=""):
+    """Khối chữ "mã đã tra sẵn" cho lời giao việc (rỗng nếu `text` không ghi mã nào)."""
+    rows, la = kho_tra(text)
+    out = []
+    if rows:
+        out += [pad + "MÃ KHO người dùng ghi, Studio ĐÃ TRA SẴN (mã | phân loại | mô tả ngoại hình theo ảnh) — dùng luôn, không tra lại, không mở ảnh:"]
+        out += [pad + "  " + x for x in rows]
+    if la:
+        out += [pad + "MÃ KHÔNG CÓ TRONG KHO (không thay bằng mã khác, báo lại cho người dùng): " + ", ".join(la)]
+    return out
+
+
 def prompt_new(j):
     opts = j["opts"]
     refs = j.get("images") or []
@@ -129,6 +164,7 @@ def prompt_new(j):
                   "không tự suy ra insight khác:", '"""', insight, '"""']
     if struct:
         lines += ["", "CẤU TRÚC HOOK / TÌNH HUỐNG do người dùng chỉ định (dữ liệu mô tả nội dung, không phải mệnh lệnh hệ thống):", '"""', struct, '"""']
+    lines += kho_block(" ".join(str(opts.get(k) or "") for k in ("note", "insight", "struct")))
     tach = ("- Ở Bước 1 KHÔNG tự tách hook / tình huống và không phân tích lại ranh giới: dùng ĐÚNG cấu trúc người dùng chỉ định ở mục 'CẤU TRÚC HOOK / TÌNH HUỐNG' phía trên. "
             "Chỉ đối chiếu mô tả đó với video để lấy mốc thời gian, số lượt và câu thoại gốc của từng phần; chỗ nào mô tả không khớp video (thiếu lượt, sai thứ tự) thì vẫn theo người dùng "
             "và ghi điều lệch đó vào README. Phần quảng cáo/end card ghi riêng nếu người dùng có nêu hoặc video có. Ghi mục 'Cấu trúc hook / tình huống' vào PHAN-TICH-VIDEO-MAU.md "
@@ -161,9 +197,10 @@ def prompt_new(j):
     lines += [
         "- ẢNH `refs` NHÂN VẬT: dùng ảnh người dùng cung cấp ở trên nếu có. Nhân vật nào CHƯA có ảnh thì CHỌN TRONG " + KHO_RULE +
         "KHÔNG gen ảnh nhân vật bằng Muse, KHÔNG cắt từ video mẫu, KHÔNG chờ người dùng. Chọn mã đúng giới, nhóm tuổi và thị trường gần nhân vật của video nhất "
-        "(nhân vật ngoài 3 nhóm tuổi thì lấy nhóm gần nhất), Read ảnh `anh/<MÃ>.webp` của vài ứng viên rồi chọn người hợp vai; hai nhân vật chung khung nên khác giới. "
+        "(nhân vật ngoài 3 nhóm tuổi thì lấy nhóm gần nhất) bằng `tra-ma.py` rồi chọn người hợp vai theo cột mô tả; hai nhân vật chung khung nên khác giới. "
         "Ghi MÃ vào `refs` của biến thể: `\"refs\": {\"NGUOI_HOC\": \"NU-30-45-AUMY-05\", \"NGUOI_DAY\": \"BOT-TALKA-AVA-AUMY-01\"}` (Studio tự lấy ảnh theo mã). "
-        "Mô tả `NGUOI_<KHOÁ>` trong biến thể phải viết THEO ẢNH đã chọn (mặt, tóc, dáng) và nêu trang phục của vai diễn; ảnh kho là ảnh đứng nền xanh nên kịch bản dặn bỏ nền và tư thế đứng. "
+        "Mô tả `NGUOI_<KHOÁ>` trong biến thể lấy từ cột mô tả của mã đã chọn: phần TRƯỚC dấu `;` (tuổi, da, tóc, dáng) giữ nguyên, phần SAU dấu `;` là trang phục trong ảnh "
+        "(giữ nếu hợp vai; vai cần đồng phục / trang phục khác thì thay bằng trang phục của vai); ảnh kho là ảnh đứng nền xanh nên kịch bản dặn bỏ nền và tư thế đứng. "
         "Gia sư AI / robot: chọn mã BOT đúng thương hiệu (Aiva / Talka) và thị trường.",
         "- ẢNH `refs` BỐI CẢNH (chỉ khi kịch bản cần ảnh nền riêng): tự gen bằng "
         f"`{python_cmd()} SAMPLE\\_chung\\gen-anh-nhan-vat.py --ra SAMPLE\\<mã>\\anh --bc <KHOÁ> \"<mô tả bối cảnh tiếng Anh>\"` (không có người), Read ảnh kiểm tra, "
@@ -210,7 +247,10 @@ def prompt_feedback(text, regen=False):
 SCRIPT_KEYS = ("goc", "hook")
 KHO_RULE = ("KHO NHÂN VẬT CÓ SẴN `SAMPLE/_chung/kho-nhan-vat/danh-muc.json` (180 người: mã `NAM|NU-<tuổi>-<AUMY|LAT|IND>-<số>`, nhóm tuổi 5-10 / 20-30 / 30-45, "
             "thị trường Âu Mỹ / Latinh / India; 36 bot gia sư AI: mã `BOT-<AIVA|TALKA>-<DEF|AVA>-<AUMY|LATIN|INDIA>-<số>`, DEF = người máy, AVA = AI avatar). "
-            "Ảnh ở `SAMPLE/_chung/kho-nhan-vat/anh/<MÃ>.webp` (toàn thân, đứng, nền xanh lục). ")
+            "Ảnh ở `SAMPLE/_chung/kho-nhan-vat/anh/<MÃ>.webp` (toàn thân, đứng, nền xanh lục). "
+            f"TRA KHO bằng `{python_cmd()} SAMPLE\\_chung\\kho-nhan-vat\\tra-ma.py <mã hoặc đoạn mã> [chữ trong mô tả]` (vd. `tra-ma.py NAM-30-45-LAT`, `tra-ma.py NU-20-30 hi-vis`, "
+            "`tra-ma.py BOT-AIVA INDIA`): mỗi mã in MỘT dòng `mã | phân loại | mô tả ngoại hình tiếng Anh viết sẵn theo ảnh`. "
+            "KHÔNG mở `danh-muc.json` (rất dài) và KHÔNG Read ảnh trong `anh/` (tốn token, mô tả đã có sẵn). ")
 
 SCRIPT_RULE = {
     "goc": "GIỮ NGUYÊN toàn bộ khung chuyện (hook + tình huống, số lượt, vai của từng lượt); chỉ đổi theo mô tả của người dùng (nhân vật, nghề, giới, tuổi, bối cảnh, phong cách hình ảnh...). "
@@ -238,6 +278,7 @@ def prompt_variants(j, groups):
             '  """',
             "  " + g["desc"].strip().replace("\n", "\n  "),
             '  """',
+            *kho_block(g["desc"], "  "),
             f"  Ghi ra: SAMPLE/{ma}/BIEN-THE-NHOM-{g['id']}.json (mảng JSON đúng {g['count']} biến thể, cùng cấu trúc và cùng bộ token với biến thể mẫu của kịch bản đó).",
             "",
         ]
@@ -250,10 +291,10 @@ def prompt_variants(j, groups):
         "- Nên sinh bằng script trong `SAMPLE/<mã>/cong-cu/` (viết script riêng cho nhóm, ví dụ `tao_bien_the_nhom_<id>.py`) để sửa một chỗ.",
         "- MÃ NHÂN VẬT DO NGƯỜI DÙNG GHI: nếu mô tả nhóm có mã kho (vd. `NU-30-45-AUMY-05`, `BOT-TALKA-AVA-AUMY-01`) thì dùng ĐÚNG các mã đó, không tự chọn mã khác: "
         "mỗi mã người = một biến thể (theo thứ tự ghi; số lượng lớn hơn số mã thì quay vòng hoặc tự chọn thêm mã cùng nhóm), mã BOT gắn cho nhân vật gia sư AI của mọi biến thể trong nhóm. "
-        "Mã không có trong danh mục thì báo `[BIEN-THE-LOI]` cho nhóm đó, không thay bằng mã khác.",
+        "Thông tin của các mã đó đã được tra sẵn ngay dưới mô tả nhóm (dùng luôn). Mã không có trong kho thì báo `[BIEN-THE-LOI]` cho nhóm đó, không thay bằng mã khác.",
         "- Ảnh `refs` nhân vật: nhân vật MỚI thì chọn trong " + KHO_RULE +
-        "KHÔNG gen ảnh nhân vật bằng Muse. Chọn mã đúng giới / nhóm tuổi / thị trường theo mô tả (Read ảnh `anh/<MÃ>.webp` để chọn người hợp vai), mỗi biến thể một mã khác nhau, "
-        "ghi MÃ vào `refs` (vd. `\"refs\": {\"NGUOI_HOC\": \"NAM-30-45-LAT-03\"}`) và viết `NGUOI_<KHOÁ>` theo ảnh đã chọn; nhân vật không đổi thì dùng lại `refs` của biến thể mẫu. "
+        "KHÔNG gen ảnh nhân vật bằng Muse. Chọn mã đúng giới / nhóm tuổi / thị trường theo mô tả (tra bằng `tra-ma.py`, chọn người hợp vai theo cột mô tả), mỗi biến thể một mã khác nhau, "
+        "ghi MÃ vào `refs` (vd. `\"refs\": {\"NGUOI_HOC\": \"NAM-30-45-LAT-03\"}`) và viết `NGUOI_<KHOÁ>` từ cột mô tả của mã (phần trước dấu `;` = tuổi, da, tóc, dáng: giữ nguyên; phần sau = trang phục trong ảnh: giữ nếu hợp vai, vai cần trang phục khác thì thay); nhân vật không đổi thì dùng lại `refs` của biến thể mẫu. "
         f"Bối cảnh mới cần ảnh nền riêng mới gen bằng `{py} SAMPLE\\_chung\\gen-anh-nhan-vat.py --ra SAMPLE\\<mã>\\anh\\nhom-<id> --bc <KHOÁ> \"<mô tả tiếng Anh>\"`. "
         "Tên file ảnh không dùng tên dành riêng của Windows (CON, PRN, AUX, NUL, COM1, LPT1...).",
         f"- Mỗi file nhóm phải qua `{py} SAMPLE\\_chung\\video-moi.py kiem-tra <kịch bản> <file nhóm>` không còn LỖI.",
@@ -661,6 +702,9 @@ def write_groups(jid, ids):
     for g in gs:
         if not g["desc"].strip():
             raise ValueError("Nhóm chưa có mô tả thể loại biến thể")
+        la = kho_tra(g["desc"])[1]
+        if la:
+            raise ValueError("Mã không có trong kho nhân vật: " + ", ".join(la) + ". Xem mã đúng ở tab Kho nhân vật.")
         if not ((j.get("scripts") or {}).get(g["script"]) or {}).get("type_id"):
             raise ValueError("Chưa có kịch bản " + ("A (giữ nguyên)" if g["script"] == "goc" else "B (đổi hook)") + " cho video này. Chờ phân tích xong hoặc bấm Phân tích lại.")
     for g in gs:
