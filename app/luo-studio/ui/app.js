@@ -12,7 +12,7 @@ const P = {
   play: "M7 4.5v15l12-7.5z", film: "M4 4h16v16H4zM8 4v16M16 4v16M4 9h4M4 15h4M16 9h4M16 15h4",
   gear: "M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z",
   user: "M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0",
-  plus: "M12 5v14M5 12h14", stop: "M6 6h12v12H6z", trash: "M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v5M14 11v5",
+  plus: "M12 5v14M5 12h14", stop: "M6 6h12v12H6z", moon: "M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z", trash: "M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v5M14 11v5",
   redo: "M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.5 6.2L3 16M3 21v-5h5",
   back: "M15 5l-7 7 7 7", check: "M5 12l5 5 9-10", x: "M6 6l12 12M18 6L6 18", up: "M12 19V5M5 12l7-7 7 7", down: "M12 5v14M19 12l-7 7-7-7",
   users: "M16 11a4 4 0 1 0-8 0 4 4 0 0 0 8 0zM4 20a8 8 0 0 1 16 0M19 8a3 3 0 0 1 0 6M5 8a3 3 0 0 0 0 6", server: "M4 5h16v5H4zM4 14h16v5H4zM8 7.5h.01M8 16.5h.01", layers: "M12 3l9 5-9 5-9-5zM3 13l9 5 9-5M3 17l9 5 9-5", clock: "M12 7v5l3 2M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z", chev: "M9 5l7 7-7 7", wand: "M15 4l5 5L9 20l-5-5zM13 6l5 5", book: "M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19a2 2 0 0 1 2-2h13", sparkle: "M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z", dl: "M12 4v12M6 10l6 6 6-6M4 20h16", table: "M3 5h18v14H3zM3 10h18M3 15h18M9 5v14M15 5v14", list: "M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01", up2: "M12 16V4M6 10l6-6 6 6M4 20h16", copy: "M9 9h11v11H9zM5 15H4V4h11v1",
@@ -44,7 +44,30 @@ document.addEventListener("keydown", e => { if (e.key === "Escape" && !window._m
 function nav() {
   const r = S.route.page, running = S.q && S.q.busy, queued = S.q ? S.q.items.filter(i => i.state === "queued").length : 0;
   const b = (h, ic, tip, on, dot, badge) => `<a data-go="#/${h}" class="nav-b ${on ? "on" : ""}">${ico(ic)}${dot ? '<span class="dot"></span>' : ""}${badge ? `<span class="nbadge">${badge}</span>` : ""}<span class="tip">${tip}</span></a>`;
-  $("#nav").innerHTML = `<div class="logo"><img src="logo.png" alt="LUO Studio"></div>${b("", "folder", "Dự án", r === "home" || r === "edit")}${b("run", "bolt", "Hàng đợi", r === "run", running, queued)}${b("results", "film", "Kết quả", r === "results")}${b("claude", "sparkle", "Video mới (Claude)", r === "claude", S.cjobs && S.cjobs.some(j => j.state === "running"))}${b("types", "layers", "Loại dự án", r === "types")}${b("kho", "users", "Kho nhân vật", r === "kho")}${b("api", "server", "API Muse", r === "api")}<div class="spacer"></div><div class="ver" style="font-size:10px;opacity:.55;padding:4px 0">${S.health && S.health.version ? "v" + S.health.version + (S.health.code ? " · " + S.health.code : "") : ""}</div>${b("settings", "gear", "Cài đặt", r === "settings")}`;
+  $("#nav").innerHTML = `<div class="logo"><img src="logo.png" alt="LUO Studio"></div>${b("", "folder", "Dự án", r === "home" || r === "edit")}${b("run", "bolt", "Hàng đợi", r === "run", running, queued)}${b("results", "film", "Kết quả", r === "results")}${b("claude", "sparkle", "Video mới (Claude)", r === "claude", S.cjobs && S.cjobs.some(j => j.state === "running"))}${b("types", "layers", "Loại dự án", r === "types")}${b("kho", "users", "Kho nhân vật", r === "kho")}${b("api", "server", "API Muse", r === "api")}<div class="spacer"></div><div class="ver" style="font-size:10px;opacity:.55;padding:4px 0">${S.health && S.health.version ? "v" + S.health.version + (S.health.code ? " · " + S.health.code : "") : ""}</div><a class="nav-b" id="nav-bg">${ico("moon")}<span class="tip">Chạy nền (đóng cửa sổ, vẫn gen tiếp) / Tắt Studio</span></a>${b("settings", "gear", "Cài đặt", r === "settings")}`;
+}
+// Chạy nền: đóng cửa sổ ứng dụng nhưng Studio + LUO-API chạy tiếp (hàng đợi không bị ngắt); mở lại bằng biểu tượng LUO Studio.
+document.addEventListener("click", e => { if (e.target.closest("#nav-bg")) bgModal(); });
+async function bgModal() {
+  let st = {}; try { st = await api("window"); } catch { }
+  const busy = S.q && S.q.busy;
+  openModal(`<div class="mbox"><h2>Chạy nền <button class="ib" id="mx">${ico("x")}</button></h2>
+    <p><b>Chạy nền</b>: đóng cửa sổ này, Studio vẫn gen tiếp hàng đợi${busy ? " (đang có video chạy, không bị ngắt)" : ""} và không tốn CPU vẽ giao diện. Muốn xem lại: bấm đúp biểu tượng <b>LUO Studio</b> như bình thường.</p>
+    ${st.managed === false ? `<p style="color:var(--warn,#c80)">Cửa sổ này được mở thêm khi Studio đã chạy nền: chỉ cần đóng nó (Studio vẫn chạy tiếp).</p>` : ""}
+    <p><b>Tắt hẳn Studio</b>: dừng Studio và LUO-API${busy ? `, <b>ngắt video đang gen</b> (lần sau bấm Chạy tiếp)` : ""}. Dùng trước khi cập nhật.</p>
+    <div class="mact"><button class="btn" id="bgquit">${ico("stop")}Tắt hẳn Studio</button><button class="btn" id="mx2">Huỷ</button><button class="btn primary" id="bgok">${ico("moon")}Chạy nền</button></div></div>`);
+  $("#modal").onclick = async e => {
+    if (e.target.id === "modal" || e.target.closest("#mx") || e.target.id === "mx2") return closeModal();
+    const go = e.target.closest("#bgok") ? "background" : e.target.closest("#bgquit") ? "quit" : "";
+    if (!go) return;
+    if (go === "quit" && busy && !e.target.closest("#bgquit").dataset.sure) {
+      const b = e.target.closest("#bgquit"); b.dataset.sure = "1"; b.innerHTML = `${ico("stop")}Bấm lần nữa để tắt (ngắt video đang gen)`; return;
+    }
+    try { await api("window", { body: { action: go } }); } catch (err) { return toast(err.message, true); }
+    $("#modal .mbox").innerHTML = go === "quit" ? "<h2>Đang tắt LUO Studio…</h2><p>Có thể đóng cửa sổ này.</p>"
+      : "<h2>Studio đang chạy nền</h2><p>Cửa sổ sẽ tự đóng. Nếu không, cứ đóng nó: hàng đợi vẫn chạy tiếp. Mở lại bằng biểu tượng LUO Studio.</p>";
+    setTimeout(() => { try { window.close(); } catch { } }, 800);
+  };
 }
 function setTop(title, extra = "") {
   const h = S.health, cls = h ? (h.ok ? "ok" : "bad") : "";
@@ -1023,6 +1046,7 @@ async function pageSettings() {
       <div class="lab"><div>Viền xanh nháy + tiếng "tinh tinh"<br><small>Hậu kỳ: ở các câu khen (Great, Perfect, Exactly…) viền màn hình nháy xanh và có tiếng tinh tinh</small></div><div class="sw2 ${s.fx_ding ? "on" : ""}" id="st-ding"></div></div>
       <div class="lab"><div>Tiếng "tách" khi hiện phụ đề<br><small>Âm thanh nhẹ mỗi khi chữ mới xuất hiện</small></div><div class="sw2 ${s.fx_pop ? "on" : ""}" id="st-pop"></div></div>
       <div class="lab"><div>Tách giọng khi robot và người học cùng giới<br><small>Đo thực tế: người học nam lỗi nói chồng ~3%, người học nữ ~38% (vì hai giọng nữ nghe giống nhau). Bật thì tự mô tả robot cao/sáng/trẻ và người học trầm/khàn/chậm khi hai bên cùng giới, và giấu miệng người nghe ngay từ lần đầu</small></div><div class="sw2 ${s.voice_split !== false ? "on" : ""}" id="st-vsplit"></div></div>
+      <div class="lab"><div>Gen người nói và người nghe cùng lúc (ghép 2 lớp)<br><small>Video gọi điện có "nghe: moi canh": mỗi cảnh gen clip người nghe song song với clip người nói trên CÙNG tài khoản của video (dài hơn 1 mức rồi cắt), thay vì chờ người nói xong mới gen người nghe. Nhanh hơn mỗi cảnh, nhưng mỗi video dùng 2 tab Muse cùng lúc (tốn CPU hơn). Có hiệu lực từ video bắt đầu sau khi bật</small></div><div class="sw2 ${s.listen_parallel ? "on" : ""}" id="st-lpar"></div></div>
       <div class="lab"><div>Hiệu ứng sai / đúng ở phần mở đầu<br><small>Video gọi điện: người học nói sai thì viền đỏ nháy + tiếng "tè tè", AI sửa thì viền xanh lá nháy + tiếng "tinh tinh". Mặc định tự nhận câu đầu của người học và câu AI sửa ngay sau; chỉnh tay ở từng lượt thoại nếu cần</small></div><div class="sw2 ${s.fx_hook !== false ? "on" : ""}" id="st-hook"></div></div>
       <div class="lab"><div>Cắt sát lời nói<br><small>Dùng nhận dạng giọng để tìm từ đầu và từ cuối của lời thoại, bỏ tiếng cười, đoạn im lặng và ồn ở hai đầu clip, chỉ chừa một chút để đỡ liền mạch</small></div><div class="sw2 ${s.precise_cut !== false ? "on" : ""}" id="st-precise"></div></div>
       <div class="lab"><div>Chừa lại sau từ cuối<br><small>Càng nhỏ càng gọn, càng lớn càng tự nhiên</small></div><select id="st-cut_margin">${[0.15, 0.25, 0.3, 0.4, 0.5, 0.7].map(x => `<option value="${x}" ${Math.abs((s.cut_margin || 0.5) - x) < 0.001 ? "selected" : ""}>${String(x).replace(".", ",")} giây</option>`).join("")}</select></div>
@@ -1043,6 +1067,7 @@ async function pageSettings() {
     if (e.target.closest("#st-pop")) { const el = $("#st-pop"); el.classList.toggle("on"); return put({ fx_pop: el.classList.contains("on") }); }
     if (e.target.closest("#st-hook")) { const el = $("#st-hook"); el.classList.toggle("on"); return put({ fx_hook: el.classList.contains("on") }); }
     if (e.target.closest("#st-vsplit")) { const el = $("#st-vsplit"); el.classList.toggle("on"); return put({ voice_split: el.classList.contains("on") }); }
+    if (e.target.closest("#st-lpar")) { const el = $("#st-lpar"); el.classList.toggle("on"); return put({ listen_parallel: el.classList.contains("on") }); }
     if (e.target.closest("#st-vrefs")) { const el = $("#st-vrefs"); el.classList.toggle("on"); return put({ video_char_refs: el.classList.contains("on") }); }
     if (e.target.closest("#st-precise")) { const el = $("#st-precise"); el.classList.toggle("on"); return put({ precise_cut: el.classList.contains("on") }); }
     if (e.target.closest("#st-overlap")) {

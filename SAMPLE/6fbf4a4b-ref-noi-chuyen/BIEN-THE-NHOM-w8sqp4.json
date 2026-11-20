@@ -1,0 +1,2062 @@
+[
+  {
+    "name": "w8sqp4-nu203001",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured head with a smooth white face, softly glowing pale-blue eyes and small white ear-pieces, exposed black cables and white mechanical arms, wearing a maroon waistcoat over a cream kurta and white trousers, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm male-leaning synthetic-but-natural voice, a baritone around 130-150 Hz, speaking Hindi with English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the woman",
+    "NGUOI_HOC": "a real, photorealistic live-action Indian woman about 24, tan skin, dark hair in a long side braid, a dark teal-navy short-sleeved collared shirt and black trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real Indian woman's voice, around 215-230 Hz, native Hindi with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am India.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही! लेकिन इसे कहने का सही तरीका है, \"I am from India.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from India"
+      },
+      {
+        "who": "hoc",
+        "text": "आह, मुझसे हमेशा यही गलती हो जाती है।",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, ताकि आपकी अंग्रेज़ी बेहतर हो सके।",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "क्या? आपको पैसे देने की ज़रूरत ही नहीं है। महंगे ऐप्स और कोर्सेज़ के बजाय, Talka AI पर अंग्रेज़ी की प्रैक्टिस बिल्कुल फ्री है।",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल! कोई छिपी हुई शर्त नहीं है। बस अपने AI ट्यूटर के साथ असली अंग्रेज़ी बातचीत की प्रैक्टिस।",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "एक असली ट्यूटर की तरह?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ! Talka AI से आपकी ग्रामर और उच्चारण में सुधार होता है और आत्मविश्वास के साथ अंग्रेज़ी बोलने में मदद मिलती है।",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ठीक है, तो अभी Talka AI डाउनलोड कर लेते हैं।",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बहुत अच्छा फैसला! चलिए, साथ में अंग्रेज़ी बोलें।",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-20-30-IND-01",
+      "NGUOI_DAY": "BOT-TALKA-DEF-INDIA-02"
+    }
+  },
+  {
+    "name": "w8sqp4-nu203002",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured head with a smooth white face, softly glowing pale-blue eyes and small white ear-pieces, exposed black cables and white mechanical arms, wearing a maroon waistcoat over a cream kurta and white trousers, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm male-leaning synthetic-but-natural voice, a baritone around 130-150 Hz, speaking Hindi with English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the woman",
+    "NGUOI_HOC": "a real, photorealistic live-action Indian woman about 28, a fuller round face, dark hair tied back, a pink linen kurta over white salwar trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real Indian woman's voice, around 200-215 Hz, native Hindi with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am India.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही! लेकिन इसे कहने का सही तरीका है, \"I am from India.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from India"
+      },
+      {
+        "who": "hoc",
+        "text": "आह, मुझसे हमेशा यही गलती हो जाती है।",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, ताकि आपकी अंग्रेज़ी बेहतर हो सके।",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "क्या? आपको पैसे देने की ज़रूरत ही नहीं है। महंगे ऐप्स और कोर्सेज़ के बजाय, Talka AI पर अंग्रेज़ी की प्रैक्टिस बिल्कुल फ्री है।",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल! कोई छिपी हुई शर्त नहीं है। बस अपने AI ट्यूटर के साथ असली अंग्रेज़ी बातचीत की प्रैक्टिस।",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "एक असली ट्यूटर की तरह?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ! Talka AI से आपकी ग्रामर और उच्चारण में सुधार होता है और आत्मविश्वास के साथ अंग्रेज़ी बोलने में मदद मिलती है।",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ठीक है, तो अभी Talka AI डाउनलोड कर लेते हैं।",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बहुत अच्छा फैसला! चलिए, साथ में अंग्रेज़ी बोलें।",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-20-30-IND-02",
+      "NGUOI_DAY": "BOT-TALKA-DEF-INDIA-02"
+    }
+  },
+  {
+    "name": "w8sqp4-nu203003",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured head with a smooth white face, softly glowing pale-blue eyes and small white ear-pieces, exposed black cables and white mechanical arms, wearing a maroon waistcoat over a cream kurta and white trousers, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm male-leaning synthetic-but-natural voice, a baritone around 130-150 Hz, speaking Hindi with English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the woman",
+    "NGUOI_HOC": "a real, photorealistic live-action Indian woman about 23, slim, a very long dark braid, an orange kurta and blue jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real Indian woman's voice, around 220-235 Hz, native Hindi with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am India.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही! लेकिन इसे कहने का सही तरीका है, \"I am from India.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from India"
+      },
+      {
+        "who": "hoc",
+        "text": "आह, मुझसे हमेशा यही गलती हो जाती है।",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, ताकि आपकी अंग्रेज़ी बेहतर हो सके।",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "क्या? आपको पैसे देने की ज़रूरत ही नहीं है। महंगे ऐप्स और कोर्सेज़ के बजाय, Talka AI पर अंग्रेज़ी की प्रैक्टिस बिल्कुल फ्री है।",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल! कोई छिपी हुई शर्त नहीं है। बस अपने AI ट्यूटर के साथ असली अंग्रेज़ी बातचीत की प्रैक्टिस।",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "एक असली ट्यूटर की तरह?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ! Talka AI से आपकी ग्रामर और उच्चारण में सुधार होता है और आत्मविश्वास के साथ अंग्रेज़ी बोलने में मदद मिलती है।",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ठीक है, तो अभी Talka AI डाउनलोड कर लेते हैं।",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बहुत अच्छा फैसला! चलिए, साथ में अंग्रेज़ी बोलें।",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-20-30-IND-03",
+      "NGUOI_DAY": "BOT-TALKA-DEF-INDIA-02"
+    }
+  },
+  {
+    "name": "w8sqp4-nu203004",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured head with a smooth white face, softly glowing pale-blue eyes and small white ear-pieces, exposed black cables and white mechanical arms, wearing a maroon waistcoat over a cream kurta and white trousers, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm male-leaning synthetic-but-natural voice, a baritone around 130-150 Hz, speaking Hindi with English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the woman",
+    "NGUOI_HOC": "a real, photorealistic live-action Indian woman about 27, hair in a low braided ponytail, a purple kurta over dark grey trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real Indian woman's voice, around 205-220 Hz, native Hindi with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am India.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही! लेकिन इसे कहने का सही तरीका है, \"I am from India.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from India"
+      },
+      {
+        "who": "hoc",
+        "text": "आह, मुझसे हमेशा यही गलती हो जाती है।",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, ताकि आपकी अंग्रेज़ी बेहतर हो सके।",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "क्या? आपको पैसे देने की ज़रूरत ही नहीं है। महंगे ऐप्स और कोर्सेज़ के बजाय, Talka AI पर अंग्रेज़ी की प्रैक्टिस बिल्कुल फ्री है।",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल! कोई छिपी हुई शर्त नहीं है। बस अपने AI ट्यूटर के साथ असली अंग्रेज़ी बातचीत की प्रैक्टिस।",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "एक असली ट्यूटर की तरह?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ! Talka AI से आपकी ग्रामर और उच्चारण में सुधार होता है और आत्मविश्वास के साथ अंग्रेज़ी बोलने में मदद मिलती है।",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ठीक है, तो अभी Talka AI डाउनलोड कर लेते हैं।",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बहुत अच्छा फैसला! चलिए, साथ में अंग्रेज़ी बोलें।",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-20-30-IND-04",
+      "NGUOI_DAY": "BOT-TALKA-DEF-INDIA-02"
+    }
+  },
+  {
+    "name": "w8sqp4-nu203005",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured head with a smooth white face, softly glowing pale-blue eyes and small white ear-pieces, exposed black cables and white mechanical arms, wearing a maroon waistcoat over a cream kurta and white trousers, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm male-leaning synthetic-but-natural voice, a baritone around 130-150 Hz, speaking Hindi with English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the woman",
+    "NGUOI_HOC": "a real, photorealistic live-action Indian woman about 26, short curly dark hair, a yellow high-visibility vest over a navy t-shirt and black trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real Indian woman's voice, around 195-210 Hz, native Hindi with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am India.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही! लेकिन इसे कहने का सही तरीका है, \"I am from India.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from India"
+      },
+      {
+        "who": "hoc",
+        "text": "आह, मुझसे हमेशा यही गलती हो जाती है।",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, ताकि आपकी अंग्रेज़ी बेहतर हो सके।",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "क्या? आपको पैसे देने की ज़रूरत ही नहीं है। महंगे ऐप्स और कोर्सेज़ के बजाय, Talka AI पर अंग्रेज़ी की प्रैक्टिस बिल्कुल फ्री है।",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल! कोई छिपी हुई शर्त नहीं है। बस अपने AI ट्यूटर के साथ असली अंग्रेज़ी बातचीत की प्रैक्टिस।",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "एक असली ट्यूटर की तरह?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ! Talka AI से आपकी ग्रामर और उच्चारण में सुधार होता है और आत्मविश्वास के साथ अंग्रेज़ी बोलने में मदद मिलती है।",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ठीक है, तो अभी Talka AI डाउनलोड कर लेते हैं।",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बहुत अच्छा फैसला! चलिए, साथ में अंग्रेज़ी बोलें।",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-20-30-IND-05",
+      "NGUOI_DAY": "BOT-TALKA-DEF-INDIA-02"
+    }
+  },
+  {
+    "name": "w8sqp4-nu304501",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured head with a smooth white face, softly glowing pale-blue eyes and small white ear-pieces, exposed black cables and white mechanical arms, wearing a maroon waistcoat over a cream kurta and white trousers, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm male-leaning synthetic-but-natural voice, a baritone around 130-150 Hz, speaking Hindi with English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the woman",
+    "NGUOI_HOC": "a real, photorealistic live-action Indian woman about 38, hair neatly parted and pinned back, a long dark navy kurta over grey trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real Indian woman's voice, around 190-205 Hz, native Hindi with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am India.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही! लेकिन इसे कहने का सही तरीका है, \"I am from India.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from India"
+      },
+      {
+        "who": "hoc",
+        "text": "आह, मुझसे हमेशा यही गलती हो जाती है।",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, ताकि आपकी अंग्रेज़ी बेहतर हो सके।",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "क्या? आपको पैसे देने की ज़रूरत ही नहीं है। महंगे ऐप्स और कोर्सेज़ के बजाय, Talka AI पर अंग्रेज़ी की प्रैक्टिस बिल्कुल फ्री है।",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल! कोई छिपी हुई शर्त नहीं है। बस अपने AI ट्यूटर के साथ असली अंग्रेज़ी बातचीत की प्रैक्टिस।",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "एक असली ट्यूटर की तरह?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ! Talka AI से आपकी ग्रामर और उच्चारण में सुधार होता है और आत्मविश्वास के साथ अंग्रेज़ी बोलने में मदद मिलती है।",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ठीक है, तो अभी Talka AI डाउनलोड कर लेते हैं।",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बहुत अच्छा फैसला! चलिए, साथ में अंग्रेज़ी बोलें।",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-30-45-IND-01",
+      "NGUOI_DAY": "BOT-TALKA-DEF-INDIA-02"
+    }
+  },
+  {
+    "name": "w8sqp4-nu304502",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured head with a smooth white face, softly glowing pale-blue eyes and small white ear-pieces, exposed black cables and white mechanical arms, wearing a maroon waistcoat over a cream kurta and white trousers, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm male-leaning synthetic-but-natural voice, a baritone around 130-150 Hz, speaking Hindi with English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the woman",
+    "NGUOI_HOC": "a real, photorealistic live-action Indian woman about 42, a long dark braid, a yellow high-visibility vest over a teal t-shirt (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real Indian woman's voice, around 185-200 Hz, native Hindi with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am India.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही! लेकिन इसे कहने का सही तरीका है, \"I am from India.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from India"
+      },
+      {
+        "who": "hoc",
+        "text": "आह, मुझसे हमेशा यही गलती हो जाती है।",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, ताकि आपकी अंग्रेज़ी बेहतर हो सके।",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "क्या? आपको पैसे देने की ज़रूरत ही नहीं है। महंगे ऐप्स और कोर्सेज़ के बजाय, Talka AI पर अंग्रेज़ी की प्रैक्टिस बिल्कुल फ्री है।",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल! कोई छिपी हुई शर्त नहीं है। बस अपने AI ट्यूटर के साथ असली अंग्रेज़ी बातचीत की प्रैक्टिस।",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "एक असली ट्यूटर की तरह?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ! Talka AI से आपकी ग्रामर और उच्चारण में सुधार होता है और आत्मविश्वास के साथ अंग्रेज़ी बोलने में मदद मिलती है।",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ठीक है, तो अभी Talka AI डाउनलोड कर लेते हैं।",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बहुत अच्छा फैसला! चलिए, साथ में अंग्रेज़ी बोलें।",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-30-45-IND-02",
+      "NGUOI_DAY": "BOT-TALKA-DEF-INDIA-02"
+    }
+  },
+  {
+    "name": "w8sqp4-nu304503",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured head with a smooth white face, softly glowing pale-blue eyes and small white ear-pieces, exposed black cables and white mechanical arms, wearing a maroon waistcoat over a cream kurta and white trousers, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm male-leaning synthetic-but-natural voice, a baritone around 130-150 Hz, speaking Hindi with English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the woman",
+    "NGUOI_HOC": "a real, photorealistic live-action Indian woman about 36, hair pulled back, a mustard-yellow kurta over blue jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real Indian woman's voice, around 200-215 Hz, native Hindi with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am India.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही! लेकिन इसे कहने का सही तरीका है, \"I am from India.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from India"
+      },
+      {
+        "who": "hoc",
+        "text": "आह, मुझसे हमेशा यही गलती हो जाती है।",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, ताकि आपकी अंग्रेज़ी बेहतर हो सके।",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "क्या? आपको पैसे देने की ज़रूरत ही नहीं है। महंगे ऐप्स और कोर्सेज़ के बजाय, Talka AI पर अंग्रेज़ी की प्रैक्टिस बिल्कुल फ्री है।",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल! कोई छिपी हुई शर्त नहीं है। बस अपने AI ट्यूटर के साथ असली अंग्रेज़ी बातचीत की प्रैक्टिस।",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "एक असली ट्यूटर की तरह?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ! Talka AI से आपकी ग्रामर और उच्चारण में सुधार होता है और आत्मविश्वास के साथ अंग्रेज़ी बोलने में मदद मिलती है।",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ठीक है, तो अभी Talka AI डाउनलोड कर लेते हैं।",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बहुत अच्छा फैसला! चलिए, साथ में अंग्रेज़ी बोलें।",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-30-45-IND-03",
+      "NGUOI_DAY": "BOT-TALKA-DEF-INDIA-02"
+    }
+  },
+  {
+    "name": "w8sqp4-nu304504",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured head with a smooth white face, softly glowing pale-blue eyes and small white ear-pieces, exposed black cables and white mechanical arms, wearing a maroon waistcoat over a cream kurta and white trousers, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm male-leaning synthetic-but-natural voice, a baritone around 130-150 Hz, speaking Hindi with English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the woman",
+    "NGUOI_HOC": "a real, photorealistic live-action Indian woman about 44, short dark hair, a sage-green short-sleeved shirt and black trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real Indian woman's voice, around 180-195 Hz, native Hindi with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am India.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही! लेकिन इसे कहने का सही तरीका है, \"I am from India.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from India"
+      },
+      {
+        "who": "hoc",
+        "text": "आह, मुझसे हमेशा यही गलती हो जाती है।",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, ताकि आपकी अंग्रेज़ी बेहतर हो सके।",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "क्या? आपको पैसे देने की ज़रूरत ही नहीं है। महंगे ऐप्स और कोर्सेज़ के बजाय, Talka AI पर अंग्रेज़ी की प्रैक्टिस बिल्कुल फ्री है।",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल! कोई छिपी हुई शर्त नहीं है। बस अपने AI ट्यूटर के साथ असली अंग्रेज़ी बातचीत की प्रैक्टिस।",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "एक असली ट्यूटर की तरह?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ! Talka AI से आपकी ग्रामर और उच्चारण में सुधार होता है और आत्मविश्वास के साथ अंग्रेज़ी बोलने में मदद मिलती है।",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ठीक है, तो अभी Talka AI डाउनलोड कर लेते हैं।",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बहुत अच्छा फैसला! चलिए, साथ में अंग्रेज़ी बोलें।",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-30-45-IND-04",
+      "NGUOI_DAY": "BOT-TALKA-DEF-INDIA-02"
+    }
+  },
+  {
+    "name": "w8sqp4-nu304505",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured head with a smooth white face, softly glowing pale-blue eyes and small white ear-pieces, exposed black cables and white mechanical arms, wearing a maroon waistcoat over a cream kurta and white trousers, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm male-leaning synthetic-but-natural voice, a baritone around 130-150 Hz, speaking Hindi with English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the woman",
+    "NGUOI_HOC": "a real, photorealistic live-action Indian woman about 40, a long dark braid, a magenta kurta over white salwar trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real Indian woman's voice, around 195-210 Hz, native Hindi with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am India.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही! लेकिन इसे कहने का सही तरीका है, \"I am from India.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from India"
+      },
+      {
+        "who": "hoc",
+        "text": "आह, मुझसे हमेशा यही गलती हो जाती है।",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, ताकि आपकी अंग्रेज़ी बेहतर हो सके।",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "क्या? आपको पैसे देने की ज़रूरत ही नहीं है। महंगे ऐप्स और कोर्सेज़ के बजाय, Talka AI पर अंग्रेज़ी की प्रैक्टिस बिल्कुल फ्री है।",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल! कोई छिपी हुई शर्त नहीं है। बस अपने AI ट्यूटर के साथ असली अंग्रेज़ी बातचीत की प्रैक्टिस।",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "एक असली ट्यूटर की तरह?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ! Talka AI से आपकी ग्रामर और उच्चारण में सुधार होता है और आत्मविश्वास के साथ अंग्रेज़ी बोलने में मदद मिलती है।",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ठीक है, तो अभी Talka AI डाउनलोड कर लेते हैं।",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बहुत अच्छा फैसला! चलिए, साथ में अंग्रेज़ी बोलें।",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-30-45-IND-05",
+      "NGUOI_DAY": "BOT-TALKA-DEF-INDIA-02"
+    }
+  },
+  {
+    "name": "w8sqp4-nam203001",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured head with a smooth white face, softly glowing pale-blue eyes and small white ear-pieces, exposed black cables and white mechanical arms, wearing a pink silk saree with a gold border, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice, around 205-225 Hz, speaking Hindi with English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Indian man about 22, neat short black hair, clean-shaven, a cream kurta and black trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real Indian man's voice, around 125-140 Hz, native Hindi with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am India.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही! लेकिन इसे कहने का सही तरीका है, \"I am from India.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from India"
+      },
+      {
+        "who": "hoc",
+        "text": "आह, मुझसे हमेशा यही गलती हो जाती है।",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, ताकि आपकी अंग्रेज़ी बेहतर हो सके।",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "क्या? आपको पैसे देने की ज़रूरत ही नहीं है। महंगे ऐप्स और कोर्सेज़ के बजाय, Talka AI पर अंग्रेज़ी की प्रैक्टिस बिल्कुल फ्री है।",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल! कोई छिपी हुई शर्त नहीं है। बस अपने AI ट्यूटर के साथ असली अंग्रेज़ी बातचीत की प्रैक्टिस।",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "एक असली ट्यूटर की तरह?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ! Talka AI से आपकी ग्रामर और उच्चारण में सुधार होता है और आत्मविश्वास के साथ अंग्रेज़ी बोलने में मदद मिलती है।",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ठीक है, तो अभी Talka AI डाउनलोड कर लेते हैं।",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बहुत अच्छा फैसला! चलिए, साथ में अंग्रेज़ी बोलें।",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-20-30-IND-01",
+      "NGUOI_DAY": "BOT-TALKA-DEF-INDIA-01"
+    }
+  },
+  {
+    "name": "w8sqp4-nam203002",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured head with a smooth white face, softly glowing pale-blue eyes and small white ear-pieces, exposed black cables and white mechanical arms, wearing a pink silk saree with a gold border, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice, around 205-225 Hz, speaking Hindi with English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Indian man about 26, black hair, a thin moustache, a grey jacket over a yellow t-shirt and black jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real Indian man's voice, around 115-130 Hz, native Hindi with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am India.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही! लेकिन इसे कहने का सही तरीका है, \"I am from India.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from India"
+      },
+      {
+        "who": "hoc",
+        "text": "आह, मुझसे हमेशा यही गलती हो जाती है।",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, ताकि आपकी अंग्रेज़ी बेहतर हो सके।",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "क्या? आपको पैसे देने की ज़रूरत ही नहीं है। महंगे ऐप्स और कोर्सेज़ के बजाय, Talka AI पर अंग्रेज़ी की प्रैक्टिस बिल्कुल फ्री है।",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल! कोई छिपी हुई शर्त नहीं है। बस अपने AI ट्यूटर के साथ असली अंग्रेज़ी बातचीत की प्रैक्टिस।",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "एक असली ट्यूटर की तरह?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ! Talka AI से आपकी ग्रामर और उच्चारण में सुधार होता है और आत्मविश्वास के साथ अंग्रेज़ी बोलने में मदद मिलती है।",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ठीक है, तो अभी Talka AI डाउनलोड कर लेते हैं।",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बहुत अच्छा फैसला! चलिए, साथ में अंग्रेज़ी बोलें।",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-20-30-IND-02",
+      "NGUOI_DAY": "BOT-TALKA-DEF-INDIA-01"
+    }
+  },
+  {
+    "name": "w8sqp4-nam203003",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured head with a smooth white face, softly glowing pale-blue eyes and small white ear-pieces, exposed black cables and white mechanical arms, wearing a pink silk saree with a gold border, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice, around 205-225 Hz, speaking Hindi with English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Indian man about 21, slim, short black hair, clean-shaven, a dark-green t-shirt and black cargo trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real Indian man's voice, around 130-145 Hz, native Hindi with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am India.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही! लेकिन इसे कहने का सही तरीका है, \"I am from India.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from India"
+      },
+      {
+        "who": "hoc",
+        "text": "आह, मुझसे हमेशा यही गलती हो जाती है।",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, ताकि आपकी अंग्रेज़ी बेहतर हो सके।",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "क्या? आपको पैसे देने की ज़रूरत ही नहीं है। महंगे ऐप्स और कोर्सेज़ के बजाय, Talka AI पर अंग्रेज़ी की प्रैक्टिस बिल्कुल फ्री है।",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल! कोई छिपी हुई शर्त नहीं है। बस अपने AI ट्यूटर के साथ असली अंग्रेज़ी बातचीत की प्रैक्टिस।",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "एक असली ट्यूटर की तरह?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ! Talka AI से आपकी ग्रामर और उच्चारण में सुधार होता है और आत्मविश्वास के साथ अंग्रेज़ी बोलने में मदद मिलती है।",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ठीक है, तो अभी Talka AI डाउनलोड कर लेते हैं।",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बहुत अच्छा फैसला! चलिए, साथ में अंग्रेज़ी बोलें।",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-20-30-IND-03",
+      "NGUOI_DAY": "BOT-TALKA-DEF-INDIA-01"
+    }
+  },
+  {
+    "name": "w8sqp4-nam203004",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured head with a smooth white face, softly glowing pale-blue eyes and small white ear-pieces, exposed black cables and white mechanical arms, wearing a pink silk saree with a gold border, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice, around 205-225 Hz, speaking Hindi with English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Indian man about 29, heavy build, a thick black moustache, a red long-sleeved henley shirt and grey jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real Indian man's voice, around 100-115 Hz, native Hindi with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am India.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही! लेकिन इसे कहने का सही तरीका है, \"I am from India.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from India"
+      },
+      {
+        "who": "hoc",
+        "text": "आह, मुझसे हमेशा यही गलती हो जाती है।",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, ताकि आपकी अंग्रेज़ी बेहतर हो सके।",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "क्या? आपको पैसे देने की ज़रूरत ही नहीं है। महंगे ऐप्स और कोर्सेज़ के बजाय, Talka AI पर अंग्रेज़ी की प्रैक्टिस बिल्कुल फ्री है।",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल! कोई छिपी हुई शर्त नहीं है। बस अपने AI ट्यूटर के साथ असली अंग्रेज़ी बातचीत की प्रैक्टिस।",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "एक असली ट्यूटर की तरह?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ! Talka AI से आपकी ग्रामर और उच्चारण में सुधार होता है और आत्मविश्वास के साथ अंग्रेज़ी बोलने में मदद मिलती है।",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ठीक है, तो अभी Talka AI डाउनलोड कर लेते हैं।",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बहुत अच्छा फैसला! चलिए, साथ में अंग्रेज़ी बोलें।",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-20-30-IND-04",
+      "NGUOI_DAY": "BOT-TALKA-DEF-INDIA-01"
+    }
+  },
+  {
+    "name": "w8sqp4-nam203005",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured head with a smooth white face, softly glowing pale-blue eyes and small white ear-pieces, exposed black cables and white mechanical arms, wearing a pink silk saree with a gold border, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice, around 205-225 Hz, speaking Hindi with English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Indian man about 27, slim, wavy black hair, a black chef's jacket and white trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real Indian man's voice, around 120-135 Hz, native Hindi with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am India.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही! लेकिन इसे कहने का सही तरीका है, \"I am from India.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from India"
+      },
+      {
+        "who": "hoc",
+        "text": "आह, मुझसे हमेशा यही गलती हो जाती है।",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, ताकि आपकी अंग्रेज़ी बेहतर हो सके।",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "क्या? आपको पैसे देने की ज़रूरत ही नहीं है। महंगे ऐप्स और कोर्सेज़ के बजाय, Talka AI पर अंग्रेज़ी की प्रैक्टिस बिल्कुल फ्री है।",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल! कोई छिपी हुई शर्त नहीं है। बस अपने AI ट्यूटर के साथ असली अंग्रेज़ी बातचीत की प्रैक्टिस।",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "एक असली ट्यूटर की तरह?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ! Talka AI से आपकी ग्रामर और उच्चारण में सुधार होता है और आत्मविश्वास के साथ अंग्रेज़ी बोलने में मदद मिलती है।",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ठीक है, तो अभी Talka AI डाउनलोड कर लेते हैं।",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बहुत अच्छा फैसला! चलिए, साथ में अंग्रेज़ी बोलें।",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-20-30-IND-05",
+      "NGUOI_DAY": "BOT-TALKA-DEF-INDIA-01"
+    }
+  },
+  {
+    "name": "w8sqp4-nam304501",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured head with a smooth white face, softly glowing pale-blue eyes and small white ear-pieces, exposed black cables and white mechanical arms, wearing a pink silk saree with a gold border, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice, around 205-225 Hz, speaking Hindi with English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Indian man about 40, shaved head, a big handlebar moustache, a navy collared shirt and khaki trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real Indian man's voice, around 95-110 Hz, native Hindi with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am India.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही! लेकिन इसे कहने का सही तरीका है, \"I am from India.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from India"
+      },
+      {
+        "who": "hoc",
+        "text": "आह, मुझसे हमेशा यही गलती हो जाती है।",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, ताकि आपकी अंग्रेज़ी बेहतर हो सके।",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "क्या? आपको पैसे देने की ज़रूरत ही नहीं है। महंगे ऐप्स और कोर्सेज़ के बजाय, Talka AI पर अंग्रेज़ी की प्रैक्टिस बिल्कुल फ्री है।",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल! कोई छिपी हुई शर्त नहीं है। बस अपने AI ट्यूटर के साथ असली अंग्रेज़ी बातचीत की प्रैक्टिस।",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "एक असली ट्यूटर की तरह?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ! Talka AI से आपकी ग्रामर और उच्चारण में सुधार होता है और आत्मविश्वास के साथ अंग्रेज़ी बोलने में मदद मिलती है।",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ठीक है, तो अभी Talka AI डाउनलोड कर लेते हैं।",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बहुत अच्छा फैसला! चलिए, साथ में अंग्रेज़ी बोलें।",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-30-45-IND-01",
+      "NGUOI_DAY": "BOT-TALKA-DEF-INDIA-01"
+    }
+  },
+  {
+    "name": "w8sqp4-nam304502",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured head with a smooth white face, softly glowing pale-blue eyes and small white ear-pieces, exposed black cables and white mechanical arms, wearing a pink silk saree with a gold border, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice, around 205-225 Hz, speaking Hindi with English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Indian man about 38, thin, short black hair, a yellow high-visibility vest over a dark-green t-shirt (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real Indian man's voice, around 110-125 Hz, native Hindi with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am India.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही! लेकिन इसे कहने का सही तरीका है, \"I am from India.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from India"
+      },
+      {
+        "who": "hoc",
+        "text": "आह, मुझसे हमेशा यही गलती हो जाती है।",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, ताकि आपकी अंग्रेज़ी बेहतर हो सके।",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "क्या? आपको पैसे देने की ज़रूरत ही नहीं है। महंगे ऐप्स और कोर्सेज़ के बजाय, Talka AI पर अंग्रेज़ी की प्रैक्टिस बिल्कुल फ्री है।",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल! कोई छिपी हुई शर्त नहीं है। बस अपने AI ट्यूटर के साथ असली अंग्रेज़ी बातचीत की प्रैक्टिस।",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "एक असली ट्यूटर की तरह?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ! Talka AI से आपकी ग्रामर और उच्चारण में सुधार होता है और आत्मविश्वास के साथ अंग्रेज़ी बोलने में मदद मिलती है।",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ठीक है, तो अभी Talka AI डाउनलोड कर लेते हैं।",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बहुत अच्छा फैसला! चलिए, साथ में अंग्रेज़ी बोलें।",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-30-45-IND-02",
+      "NGUOI_DAY": "BOT-TALKA-DEF-INDIA-01"
+    }
+  },
+  {
+    "name": "w8sqp4-nam304503",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured head with a smooth white face, softly glowing pale-blue eyes and small white ear-pieces, exposed black cables and white mechanical arms, wearing a pink silk saree with a gold border, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice, around 205-225 Hz, speaking Hindi with English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Indian man about 42, stout, a trimmed moustache, a long dark-green kurta and brown trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real Indian man's voice, around 100-115 Hz, native Hindi with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am India.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही! लेकिन इसे कहने का सही तरीका है, \"I am from India.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from India"
+      },
+      {
+        "who": "hoc",
+        "text": "आह, मुझसे हमेशा यही गलती हो जाती है।",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, ताकि आपकी अंग्रेज़ी बेहतर हो सके।",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "क्या? आपको पैसे देने की ज़रूरत ही नहीं है। महंगे ऐप्स और कोर्सेज़ के बजाय, Talka AI पर अंग्रेज़ी की प्रैक्टिस बिल्कुल फ्री है।",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल! कोई छिपी हुई शर्त नहीं है। बस अपने AI ट्यूटर के साथ असली अंग्रेज़ी बातचीत की प्रैक्टिस।",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "एक असली ट्यूटर की तरह?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ! Talka AI से आपकी ग्रामर और उच्चारण में सुधार होता है और आत्मविश्वास के साथ अंग्रेज़ी बोलने में मदद मिलती है।",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ठीक है, तो अभी Talka AI डाउनलोड कर लेते हैं।",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बहुत अच्छा फैसला! चलिए, साथ में अंग्रेज़ी बोलें।",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-30-45-IND-03",
+      "NGUOI_DAY": "BOT-TALKA-DEF-INDIA-01"
+    }
+  },
+  {
+    "name": "w8sqp4-nam304504",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured head with a smooth white face, softly glowing pale-blue eyes and small white ear-pieces, exposed black cables and white mechanical arms, wearing a pink silk saree with a gold border, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice, around 205-225 Hz, speaking Hindi with English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Indian man about 44, grey-streaked short hair, a light-blue short-sleeved shirt and grey cargo trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real Indian man's voice, around 105-120 Hz, native Hindi with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am India.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही! लेकिन इसे कहने का सही तरीका है, \"I am from India.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from India"
+      },
+      {
+        "who": "hoc",
+        "text": "आह, मुझसे हमेशा यही गलती हो जाती है।",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, ताकि आपकी अंग्रेज़ी बेहतर हो सके।",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "क्या? आपको पैसे देने की ज़रूरत ही नहीं है। महंगे ऐप्स और कोर्सेज़ के बजाय, Talka AI पर अंग्रेज़ी की प्रैक्टिस बिल्कुल फ्री है।",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल! कोई छिपी हुई शर्त नहीं है। बस अपने AI ट्यूटर के साथ असली अंग्रेज़ी बातचीत की प्रैक्टिस।",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "एक असली ट्यूटर की तरह?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ! Talka AI से आपकी ग्रामर और उच्चारण में सुधार होता है और आत्मविश्वास के साथ अंग्रेज़ी बोलने में मदद मिलती है।",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ठीक है, तो अभी Talka AI डाउनलोड कर लेते हैं।",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बहुत अच्छा फैसला! चलिए, साथ में अंग्रेज़ी बोलें।",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-30-45-IND-04",
+      "NGUOI_DAY": "BOT-TALKA-DEF-INDIA-01"
+    }
+  },
+  {
+    "name": "w8sqp4-nam304505",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured head with a smooth white face, softly glowing pale-blue eyes and small white ear-pieces, exposed black cables and white mechanical arms, wearing a pink silk saree with a gold border, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice, around 205-225 Hz, speaking Hindi with English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Indian man about 35, slim, tousled black hair, a black short-sleeved shirt and dark jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real Indian man's voice, around 115-130 Hz, native Hindi with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am India.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "लगभग सही! लेकिन इसे कहने का सही तरीका है, \"I am from India.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from India"
+      },
+      {
+        "who": "hoc",
+        "text": "आह, मुझसे हमेशा यही गलती हो जाती है।",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "इसीलिए तो मैं यहाँ हूँ, ताकि आपकी अंग्रेज़ी बेहतर हो सके।",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन मेरे पास पैसे नहीं हैं।",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "क्या? आपको पैसे देने की ज़रूरत ही नहीं है। महंगे ऐप्स और कोर्सेज़ के बजाय, Talka AI पर अंग्रेज़ी की प्रैक्टिस बिल्कुल फ्री है।",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "सच में?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बिल्कुल! कोई छिपी हुई शर्त नहीं है। बस अपने AI ट्यूटर के साथ असली अंग्रेज़ी बातचीत की प्रैक्टिस।",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "एक असली ट्यूटर की तरह?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "हाँ! Talka AI से आपकी ग्रामर और उच्चारण में सुधार होता है और आत्मविश्वास के साथ अंग्रेज़ी बोलने में मदद मिलती है।",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "ठीक है, तो अभी Talka AI डाउनलोड कर लेते हैं।",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "बहुत अच्छा फैसला! चलिए, साथ में अंग्रेज़ी बोलें।",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-30-45-IND-05",
+      "NGUOI_DAY": "BOT-TALKA-DEF-INDIA-01"
+    }
+  }
+]

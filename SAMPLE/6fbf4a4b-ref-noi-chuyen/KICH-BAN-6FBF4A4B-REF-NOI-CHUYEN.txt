@@ -1,0 +1,36 @@
+[HAU KY]:
+loai: 6fbf4a4b-ref-noi-chuyen
+
+[GHI CHU]:
+Thể loại "quảng cáo app gia sư AI: robot trong ô ngang phía trên + người học (làm việc nhà) toàn khung phía dưới", 43,8 s, 13 lượt. Ghép 2 lớp, MỘT phần, không dùng khối CẢNH: lời nằm trong LUOT của biến thể, mỗi lượt một cảnh.
+  Nền: HOC (bếp, nhìn ống kính, mặt ở nửa dưới). Ô: DAY (robot, nền đen) khung 0.02, 0.01, 0.96, 0.32 -> 691x410 px, r = 1.69 -> gen 16:9.
+  HOOK = lượt 1-3 (robot hỏi, người học nói sai, robot sửa). TÌNH HUỐNG = lượt 4-13 (người học lo tiền, robot giới thiệu app, người học tải app).
+  Vòng sóng âm quanh robot và dải sóng nháy theo tiếng: Studio chưa làm, ô robot nền đen phẳng. Logo / end card: Thương hiệu của dự án.
+
+[GHEP HAI LOP]:
+nen: HOC
+khung DAY: 0.02, 0.01, 0.96, 0.32
+bo goc: 0.05
+vien: #FFFFFF, 3
+nghe: moi canh
+
+[STYLE LOCK]:
+Vertical 9:16 short-form social video look shot like real smartphone footage, soft natural indoor light, crisp focus on the face, photorealistic live-action look for the real person: natural skin texture, real camera footage, NOT animated, NOT cartoon, NOT 3D-render; the robot is a realistic glossy white humanoid robot. No text, captions, logos, icons or watermarks anywhere in the frame.
+
+[NHAN VAT DAY]:
+{{TEN_DAY}}: {{NGUOI_DAY}}. Framed for a wide call-window: head and shoulders centred in the middle of the frame, empty black space on both sides, in front of {{NEN_DAY}}. The camera is locked off and never moves: the robot's head and shoulders keep exactly the same size and position in the frame in every clip, no push-in, no zoom. The lips and jaw move naturally with every word. The robot looks identical in every clip: the same softly glowing pale-blue eyes (never another colour, never changing shape), the same face and head. VOICE: {{GIONG_DAY}}, the exact same voice in every clip (same timbre, pitch, speed and loudness; never a different voice).
+
+[NGHE DAY]:
+{{TEN_DAY}} waits calmly facing the camera: eyes softly lit, head steady, a faint friendly look. Lips stay sealed.
+
+[NHAN VAT HOC]:
+{{TEN_HOC}}: {{NGUOI_HOC}}. Fixed camera, waist-up and pulled back so the person looks smaller in the frame, facing the camera, the face in the LOWER half of the frame (the top of the hair at about 55% down from the top edge, the eyes at about 62%) and the whole upper half of the frame left as calm background with no part of the head in it (it is covered later by a call window and subtitles), in front of {{NEN_HOC}}. {{DONG_HOC}} Take only the face, hair and clothes from the reference photo; ignore its green background and standing pose. Between lines the head position, posture and hands return to the same relaxed rest pose, so every clip starts and ends in the same pose. The camera never moves. VOICE: {{GIONG_HOC}}, the same timbre, pitch and loudness in every clip.
+
+[NGHE HOC]:
+{{TEN_HOC}} listens to the tutor: eyes stay on the camera, friendly attentive expression, slow blinks, head and body completely steady in the same resting pose as every other clip, hands resting still. Lips stay sealed.
+
+[VIDEO SUFFIX]:
+Natural spontaneous conversational delivery, not text-to-speech, brisk and clear (about 3 words per second, short lines a little faster), light natural breaths, a smile audible in the voice when the line is positive. Clean voice only, no music, no background sound effects, no echo.
+
+[NEGATIVE]:
+text, letters, captions, subtitles, logos, icons, watermark, sound-wave graphics; camera cuts, zoom, push-in, shake; cartoon, animation, 3D render, illustration, painting, face morphing, outfit change, age or style drift; distorted face; extra or missing fingers; jerky or exaggerated gestures; slow, dragged or stretched speech; flat monotone voice; background music; echo or reverb

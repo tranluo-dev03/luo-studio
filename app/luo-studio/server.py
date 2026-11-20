@@ -27,7 +27,8 @@ import claude_bridge as CB  # noqa: E402
 
 LOCK = threading.RLock()
 DEFAULT_SETTINGS = {"api_url": os.environ.get("LUO_API_URL", "http://127.0.0.1:18610"), "api_key": "", "timeout": 900, "retries": 2, "cut": True, "speedfix": True, "normalize": True, "color_mode": "anchor", "color_strength": 1.0, "video_char_refs": True, "listen_mode": "idle", "check_overlap": True, "mouth_note": "", "overlap_retries": 2, "mouth_sens": "normal", "precise_cut": True, "muse_directive": True, "check_camera": True, "fx_hook": True, "cut_margin": 0.5, "voice_split": True, "export_dir": "", "speed_max": 1.25, "chat_every": 1, "parallel": 1, "fx_ding": False, "fx_pop": False, "auto_retry": 3,
-                    "logo": "", "endcard": "", "topbar": "", "whisper": "auto", "claude_path": "", "claude_model": "", "claude_parallel": 2}
+                    "logo": "", "endcard": "", "topbar": "", "whisper": "auto", "claude_path": "", "claude_model": "", "claude_parallel": 2,
+                    "listen_parallel": False}
 
 # ------------------------------------------------------------------ lưu trữ
 def jread(path, default=None):
@@ -575,7 +576,7 @@ def gen_item(it, cx):
         v.setdefault(k, val)
     s = settings()
     opts = {"api_url": s["api_url"], "api_key": api_key(), "timeout": int(s["timeout"]), "retries": int(s["retries"]), "cut": bool(s["cut"]),
-            "speedfix": bool(s.get("speedfix", True)), "speed_max": float(s.get("speed_max", 1.25)), "chat_every": int(s.get("chat_every", 1)), "normalize": bool(s.get("normalize", True)), "color_mode": str(s.get("color_mode", "anchor")), "color_strength": float(s.get("color_strength", 1.0)), "video_char_refs": bool(s.get("video_char_refs", True)), "listen_mode": str(s.get("listen_mode", "idle")), "check_overlap": effective_check_overlap(it, s), "overlap_retries": int(s.get("overlap_retries", 5)), "mouth_sens": str(s.get("mouth_sens", "normal")), "precise_cut": bool(s.get("precise_cut", True)), "muse_directive": bool(s.get("muse_directive", True)), "check_camera": bool(s.get("check_camera", True)), "voice_split": bool(s.get("voice_split", True)), "cut_margin": float(s.get("cut_margin", 0.5)),
+            "speedfix": bool(s.get("speedfix", True)), "speed_max": float(s.get("speed_max", 1.25)), "chat_every": int(s.get("chat_every", 1)), "normalize": bool(s.get("normalize", True)), "color_mode": str(s.get("color_mode", "anchor")), "color_strength": float(s.get("color_strength", 1.0)), "video_char_refs": bool(s.get("video_char_refs", True)), "listen_mode": str(s.get("listen_mode", "idle")), "check_overlap": effective_check_overlap(it, s), "overlap_retries": int(s.get("overlap_retries", 5)), "mouth_sens": str(s.get("mouth_sens", "normal")), "precise_cut": bool(s.get("precise_cut", True)), "muse_directive": bool(s.get("muse_directive", True)), "check_camera": bool(s.get("check_camera", True)), "voice_split": bool(s.get("voice_split", True)), "listen_parallel": bool(s.get("listen_parallel", False)),"cut_margin": float(s.get("cut_margin", 0.5)),
             "only": None, "scene_notes": dict(it.get("notes") or {}), "refs": p.get("refs", []), "field_labels": {f["key"]: f.get("label", f["key"]) for f in get_type(p["template"]).get("fields", [])}, "field_groups": {f["key"]: f.get("group", "other") for f in get_type(p["template"]).get("fields", [])}, "assets_dir": os.path.join(DATA, "assets", slug(it["project"]))}
     cp = custom_post(p)   # thể loại có wireframe bố cục riêng (types/<mã>/assets/layout.png) thì gửi kèm lệnh gen ảnh khung đầu
     if cp and os.path.exists(os.path.join(os.path.dirname(cp), "assets", "layout.png")):
@@ -946,6 +947,36 @@ def _fail_or_retry(it, e):
     it["_requeue"] = delay
     _discard_inflight(it, hint=False)
     qlog(it, f"Lỗi - {e}. Tự xếp lại hàng chờ, chạy lại sau {delay // 60} phút (lần {n + 1}/{maxn}); các video khác vẫn chạy tiếp", "warn")
+
+
+# Cửa sổ ứng dụng: launcher.py đặt "window_proc" = tiến trình cửa sổ nó mở và chờ; "on" = người dùng chọn Chạy nền -> launcher không tắt
+# Studio/LUO-API khi cửa sổ đóng mà chạy tiếp tới khi Tắt hẳn (SIGTERM) hoặc tắt máy.
+BG = {"on": False, "window_proc": None}
+
+
+def window_alive():
+    p = BG.get("window_proc")
+    return p is not None and p.poll() is None
+
+
+def window_action(action):
+    if action == "background":
+        BG["on"] = True
+        if window_alive():
+            threading.Timer(1.0, BG["window_proc"].terminate).start()   # để kịp trả lời trang trước khi đóng cửa sổ
+        return {"ok": True, "background": True}
+    if action == "quit":
+        if os.name == "nt":
+            return {"error": "Tắt từ giao diện chưa hỗ trợ trên Windows: đóng cửa sổ dòng lệnh LUO Studio"}
+        import signal
+
+        def bye():
+            if window_alive():   # đóng cả cửa sổ ứng dụng, không để lại cửa sổ trỏ vào Studio đã tắt (lần mở sau Chrome sẽ "mở trong phiên cũ" rồi thoát ngay)
+                BG["window_proc"].terminate()
+            os.kill(os.getpid(), signal.SIGTERM)   # launcher bắt SIGTERM -> thoát êm, tắt LUO-API + trình duyệt con
+        threading.Timer(1.0, bye).start()
+        return {"ok": True}
+    return {"error": "action phải là background hoặc quit"}
 
 
 # Trần số video chạy song song. 8 đủ cho máy 6 nhân; máy chủ nhiều nhân đặt LUO_MAX_PARALLEL (và MUSE2API_CONCURRENCY của LUO-API) cao hơn.
@@ -1673,6 +1704,11 @@ class H(BaseHTTPRequestHandler):
             if "parallel" in b:
                 schedule()  # tăng số luồng thì chạy ngay mục đang chờ
             return self.send_json({"ok": True})
+        if a == "window":
+            if m == "GET":
+                return self.send_json({"background": BG["on"], "managed": window_alive()})
+            r = window_action((self.body() or {}).get("action", ""))
+            return self.send_json(r, 400 if "error" in r else 200)
         if a == "mouthcheck":
             return self.send_json(mouth_status(force=True))
         if a == "health":

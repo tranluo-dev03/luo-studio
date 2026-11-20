@@ -1,0 +1,662 @@
+[
+  {
+    "name": "sa5mxj-nam1",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured body and a smooth white female-looking face with softly glowing pale-blue eyes, a white baseball cap, a blue denim vest over a red plaid shirt, exposed black cables at the neck and joints, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm male-leaning synthetic-but-natural voice, a baritone around 130-150 Hz, American English, patient and encouraging, speaking only English",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the young man",
+    "NGUOI_HOC": "a real, photorealistic live-action person (filmed on camera, not animated, not a cartoon): a young white European man about 25, short blond hair, light stubble, pale skin, blue eyes, a grey hoodie under a yellow high-visibility vest",
+    "GIONG_HOC": "a young man's voice, a light baritone around 115-130 Hz, bright and slightly hesitant at first, speaking only English, no words in any other language, a faint Portuguese accent",
+    "NEN_HOC": "a small apartment living room in the evening: an old grey fabric sofa, a plain white wall, a small TV and a blurred picture frame behind the sofa, warm yellow lamp light, nothing written anywhere",
+    "DONG_HOC": "He sits on the grey sofa facing the camera, relaxed, and uses natural hand gestures while talking like in everyday conversation (open palms, small pointing and counting movements), hands returning to the lap when still.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Portugal.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Almost. Better say: I am from Portugal.",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Portugal"
+      },
+      {
+        "who": "hoc",
+        "text": "I always mix that up.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "That's what I'm here for, to help you speak well.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "But I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What? You don't need money. LangLearn lets you practice English for free, unlike expensive apps and courses.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Of course, no tricks. Only real conversation practice with your AI tutor.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Like a real tutor?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes. I correct your grammar and pronunciation, and I help you speak with confidence.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Okay, so I'm going to download LangLearn right now.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Good decision. Let's speak English together.",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/6fbf4a4b-ref-noi-chuyen/anh/nhom-sa5mxj/BOT.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/6fbf4a4b-ref-noi-chuyen/anh/nhom-sa5mxj/NAM1.png"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/6fbf4a4b-ref-noi-chuyen/anh/nhom-sa5mxj/PHONGKHACH.png"
+      ]
+    }
+  },
+  {
+    "name": "sa5mxj-nam2",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured body and a smooth white female-looking face with softly glowing pale-blue eyes, a white baseball cap, a blue denim vest over a red plaid shirt, exposed black cables at the neck and joints, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm male-leaning synthetic-but-natural voice, a baritone around 130-150 Hz, American English, patient and encouraging, speaking only English",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the young man",
+    "NGUOI_HOC": "a real, photorealistic live-action person (filmed on camera, not animated, not a cartoon): a young Latino man about 27, short black hair, light brown skin, dark eyes, a worn grey work jacket over a black t-shirt",
+    "GIONG_HOC": "a young man's voice, a warm medium baritone around 105-120 Hz, steady and friendly, speaking only English, no words in any other language, a faint Portuguese accent",
+    "NEN_HOC": "a small apartment living room in the evening: an old grey fabric sofa, a plain white wall, a small TV and a blurred picture frame behind the sofa, warm yellow lamp light, nothing written anywhere",
+    "DONG_HOC": "He sits on the grey sofa facing the camera, relaxed, and uses natural hand gestures while talking like in everyday conversation (open palms, small pointing and counting movements), hands returning to the lap when still.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Portugal.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Almost. Better say: I am from Portugal.",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Portugal"
+      },
+      {
+        "who": "hoc",
+        "text": "I always mix that up.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "That's what I'm here for, to help you speak well.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "But I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What? You don't need money. LangLearn lets you practice English for free, unlike expensive apps and courses.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Of course, no tricks. Only real conversation practice with your AI tutor.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Like a real tutor?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes. I correct your grammar and pronunciation, and I help you speak with confidence.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Okay, so I'm going to download LangLearn right now.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Good decision. Let's speak English together.",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/6fbf4a4b-ref-noi-chuyen/anh/nhom-sa5mxj/BOT.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/6fbf4a4b-ref-noi-chuyen/anh/nhom-sa5mxj/NAM2.png"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/6fbf4a4b-ref-noi-chuyen/anh/nhom-sa5mxj/PHONGKHACH.png"
+      ]
+    }
+  },
+  {
+    "name": "sa5mxj-nam3",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured body and a smooth white female-looking face with softly glowing pale-blue eyes, a white baseball cap, a blue denim vest over a red plaid shirt, exposed black cables at the neck and joints, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm male-leaning synthetic-but-natural voice, a baritone around 130-150 Hz, American English, patient and encouraging, speaking only English",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the young man",
+    "NGUOI_HOC": "a real, photorealistic live-action person (filmed on camera, not animated, not a cartoon): a young Black man about 24, very short black hair, dark brown skin, a grey short-sleeved work shirt with a chest pocket",
+    "GIONG_HOC": "a young man's voice, a deep smooth baritone around 95-110 Hz, calm and a little shy at first, speaking only English, no words in any other language, a faint Portuguese accent",
+    "NEN_HOC": "a small apartment living room in the evening: an old grey fabric sofa, a plain white wall, a small TV and a blurred picture frame behind the sofa, warm yellow lamp light, nothing written anywhere",
+    "DONG_HOC": "He sits on the grey sofa facing the camera, relaxed, and uses natural hand gestures while talking like in everyday conversation (open palms, small pointing and counting movements), hands returning to the lap when still.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Portugal.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Almost. Better say: I am from Portugal.",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Portugal"
+      },
+      {
+        "who": "hoc",
+        "text": "I always mix that up.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "That's what I'm here for, to help you speak well.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "But I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What? You don't need money. LangLearn lets you practice English for free, unlike expensive apps and courses.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Of course, no tricks. Only real conversation practice with your AI tutor.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Like a real tutor?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes. I correct your grammar and pronunciation, and I help you speak with confidence.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Okay, so I'm going to download LangLearn right now.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Good decision. Let's speak English together.",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/6fbf4a4b-ref-noi-chuyen/anh/nhom-sa5mxj/BOT.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/6fbf4a4b-ref-noi-chuyen/anh/nhom-sa5mxj/NAM3.png"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/6fbf4a4b-ref-noi-chuyen/anh/nhom-sa5mxj/PHONGKHACH.png"
+      ]
+    }
+  },
+  {
+    "name": "sa5mxj-nu1",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured body and a smooth white female-looking face with softly glowing pale-blue eyes, a white baseball cap, a blue denim vest over a red plaid shirt, exposed black cables at the neck and joints, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm male-leaning synthetic-but-natural voice, a baritone around 130-150 Hz, American English, patient and encouraging, speaking only English",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the young woman",
+    "NGUOI_HOC": "a real, photorealistic live-action person (filmed on camera, not animated, not a cartoon): a young South-Asian-looking woman about 26, long dark wavy hair in a loose ponytail, brown skin, dark eyes, a white shirt under a black waistcoat",
+    "GIONG_HOC": "a young woman's voice, a clear light voice around 205-225 Hz, polite and a little nervous at first, speaking only English, no words in any other language, a faint Portuguese accent",
+    "NEN_HOC": "a small apartment living room in the evening: an old grey fabric sofa, a plain white wall, a small TV and a blurred picture frame behind the sofa, warm yellow lamp light, nothing written anywhere",
+    "DONG_HOC": "She sits on the grey sofa facing the camera, relaxed, and uses natural hand gestures while talking like in everyday conversation (open palms, small pointing and counting movements), hands returning to the lap when still.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Portugal.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Almost. Better say: I am from Portugal.",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Portugal"
+      },
+      {
+        "who": "hoc",
+        "text": "I always mix that up.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "That's what I'm here for, to help you speak well.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "But I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What? You don't need money. LangLearn lets you practice English for free, unlike expensive apps and courses.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Of course, no tricks. Only real conversation practice with your AI tutor.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Like a real tutor?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes. I correct your grammar and pronunciation, and I help you speak with confidence.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Okay, so I'm going to download LangLearn right now.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Good decision. Let's speak English together.",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/6fbf4a4b-ref-noi-chuyen/anh/nhom-sa5mxj/BOT.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/6fbf4a4b-ref-noi-chuyen/anh/nhom-sa5mxj/NU1.png"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/6fbf4a4b-ref-noi-chuyen/anh/nhom-sa5mxj/PHONGKHACH.png"
+      ]
+    }
+  },
+  {
+    "name": "sa5mxj-nu2",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured body and a smooth white female-looking face with softly glowing pale-blue eyes, a white baseball cap, a blue denim vest over a red plaid shirt, exposed black cables at the neck and joints, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm male-leaning synthetic-but-natural voice, a baritone around 130-150 Hz, American English, patient and encouraging, speaking only English",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the young woman",
+    "NGUOI_HOC": "a real, photorealistic live-action person (filmed on camera, not animated, not a cartoon): a young white woman about 22, short blond pixie haircut, fair skin, light blue eyes, a dark-green polo shirt",
+    "GIONG_HOC": "a young woman's voice, a bright voice around 215-235 Hz, quick and cheerful, speaking only English, no words in any other language, a faint Portuguese accent",
+    "NEN_HOC": "a small apartment living room in the evening: an old grey fabric sofa, a plain white wall, a small TV and a blurred picture frame behind the sofa, warm yellow lamp light, nothing written anywhere",
+    "DONG_HOC": "She sits on the grey sofa facing the camera, relaxed, and uses natural hand gestures while talking like in everyday conversation (open palms, small pointing and counting movements), hands returning to the lap when still.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Portugal.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Almost. Better say: I am from Portugal.",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Portugal"
+      },
+      {
+        "who": "hoc",
+        "text": "I always mix that up.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "That's what I'm here for, to help you speak well.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "But I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What? You don't need money. LangLearn lets you practice English for free, unlike expensive apps and courses.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Of course, no tricks. Only real conversation practice with your AI tutor.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Like a real tutor?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes. I correct your grammar and pronunciation, and I help you speak with confidence.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Okay, so I'm going to download LangLearn right now.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Good decision. Let's speak English together.",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/6fbf4a4b-ref-noi-chuyen/anh/nhom-sa5mxj/BOT.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/6fbf4a4b-ref-noi-chuyen/anh/nhom-sa5mxj/NU2.png"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/6fbf4a4b-ref-noi-chuyen/anh/nhom-sa5mxj/PHONGKHACH.png"
+      ]
+    }
+  },
+  {
+    "name": "sa5mxj-nu3",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white armoured body and a smooth white female-looking face with softly glowing pale-blue eyes, a white baseball cap, a blue denim vest over a red plaid shirt, exposed black cables at the neck and joints, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm male-leaning synthetic-but-natural voice, a baritone around 130-150 Hz, American English, patient and encouraging, speaking only English",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the young woman",
+    "NGUOI_HOC": "a real, photorealistic live-action person (filmed on camera, not animated, not a cartoon): a young Black woman about 28, short curly black hair, dark brown skin, a light grey polo shirt",
+    "GIONG_HOC": "a young woman's voice, a warm low-mid voice around 190-205 Hz, confident and relaxed, speaking only English, no words in any other language, a faint Portuguese accent",
+    "NEN_HOC": "a small apartment living room in the evening: an old grey fabric sofa, a plain white wall, a small TV and a blurred picture frame behind the sofa, warm yellow lamp light, nothing written anywhere",
+    "DONG_HOC": "She sits on the grey sofa facing the camera, relaxed, and uses natural hand gestures while talking like in everyday conversation (open palms, small pointing and counting movements), hands returning to the lap when still.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Portugal.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Almost. Better say: I am from Portugal.",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Portugal"
+      },
+      {
+        "who": "hoc",
+        "text": "I always mix that up.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "That's what I'm here for, to help you speak well.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "But I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What? You don't need money. LangLearn lets you practice English for free, unlike expensive apps and courses.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Of course, no tricks. Only real conversation practice with your AI tutor.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Like a real tutor?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes. I correct your grammar and pronunciation, and I help you speak with confidence.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Okay, so I'm going to download LangLearn right now.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Good decision. Let's speak English together.",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/6fbf4a4b-ref-noi-chuyen/anh/nhom-sa5mxj/BOT.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/6fbf4a4b-ref-noi-chuyen/anh/nhom-sa5mxj/NU3.png"
+      ],
+      "NEN_HOC": [
+        "SAMPLE/6fbf4a4b-ref-noi-chuyen/anh/nhom-sa5mxj/PHONGKHACH.png"
+      ]
+    }
+  }
+]
