@@ -30,14 +30,14 @@ function claudeNewModal(st) {
     openModal(`<div class="mbox" style="max-width:620px"><h2>Giao việc cho Claude <button class="ib" id="mx">${ico("x")}</button></h2>
       <p style="color:var(--mute);font-size:13px;line-height:1.55">Mỗi video là một việc riêng. Bạn ghi <b>insight</b> và chỉ rõ đâu là <b>hook</b>, đâu là <b>tình huống</b>; Claude theo đúng phần bạn ghi (không tự tách lại), viết 2 kịch bản (giữ nguyên video gốc / đổi hook) kèm 1 biến thể mẫu mỗi kịch bản, <b>tự chọn nhân vật trong kho có sẵn</b> nếu bạn không đưa ảnh, nhập vào Studio và chạy thử. Các biến thể khác tạo sau trong trang chi tiết của thẻ.</p>
       <div class="cn-list" id="cn-vids">${pend.videos.map((v, i) => `<div class="cn-item">🎬<span>${esc(cName(v))}</span><a data-rm="v${i}" title="Bỏ">✕</a></div>`).join("") || '<div class="cn-item" style="color:var(--dim)">Chưa có video</div>'}</div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px"><button class="btn sm" id="cn-addv">${ico("plus")}Thêm video</button><input type="file" id="cn-fv" multiple accept="video/*" style="display:none"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px"><button class="btn sm" id="cn-addv">${ico("plus")}Thêm video</button><input type="file" id="cn-fv" multiple accept=".mp4,.mov,.mkv,.webm,.m4v,.avi" style="display:none"></div>
       <div class="f"><label>Insight / nội dung phân tích</label><textarea class="input" id="c-insight" rows="3" placeholder="Video này đánh vào ai, nỗi đau gì, thông điệp gì, vì sao hook giữ được người xem…">${esc(o.insight || "")}</textarea></div>
       <div class="f"><label>Đâu là hook, đâu là tình huống <small style="color:var(--err)">(bắt buộc)</small></label><textarea class="input" id="c-struct" rows="4" placeholder="Hook: từ đầu đến câu … (lượt 1–2: người lái xe nói sai tuổi, cảnh sát hỏi lại)&#10;Tình huống: phần còn lại (nói lại đúng, cảnh sát khuyên học với gia sư AI)&#10;Quảng cáo / end card: nếu có">${esc(o.struct || "")}</textarea></div>
       <details class="cn-adv" ${pend.images.length || pend.extra.length || o.note || o.lang ? "open" : ""}><summary>Tuỳ chọn (không bắt buộc)</summary>
         <div class="f"><label>Yêu cầu thêm</label><textarea class="input" id="c-note" rows="2" placeholder="Mô tả điều bạn muốn. Có thể dán (Ctrl+V) ảnh vào đây.">${esc(o.note)}</textarea></div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px">
-          <button class="btn sm" id="cn-addx" type="button">${ico("img")}Ảnh tham chiếu thêm</button><input type="file" id="cn-fx" multiple accept="image/*" style="display:none">
-          <button class="btn sm" id="cn-addi" type="button">${ico("user")}Ảnh nhân vật AI có sẵn</button><input type="file" id="cn-fi" multiple accept="image/*" style="display:none">
+          <button class="btn sm" id="cn-addx" type="button">${ico("img")}Ảnh tham chiếu thêm</button><input type="file" id="cn-fx" multiple accept=".png,.jpg,.jpeg,.webp" style="display:none">
+          <button class="btn sm" id="cn-addi" type="button">${ico("user")}Ảnh nhân vật AI có sẵn</button><input type="file" id="cn-fi" multiple accept=".png,.jpg,.jpeg,.webp" style="display:none">
           ${pend.extra.map((v, i) => `<span class="tag mute">🖼 ${esc(cName(v))} <a data-rm="x${i}" style="cursor:pointer;color:var(--err)">✕</a></span>`).join("")}
           ${pend.images.map((v, i) => `<span class="tag">👤 ${esc(cName(v))} <a data-rm="i${i}" style="cursor:pointer;color:var(--err)">✕</a></span>`).join("")}</div>
         <div class="f"><label>Ngôn ngữ lời thoại mới</label><input class="input" id="c-lang" value="${esc(o.lang)}" placeholder="vd: English, Español"></div>
@@ -111,7 +111,7 @@ async function pageClaude() {
     for (const f of ims) { try { S.cpend.images.push(await cUpload(f)); } catch (e) { toast(e.message, 1); } }
     claudeNewModal(st);
   };
-  const fi = document.createElement("input"); fi.type = "file"; fi.multiple = true; fi.accept = "video/*,image/*"; fi.style.display = "none"; $("#view").appendChild(fi);
+  const fi = document.createElement("input"); fi.type = "file"; fi.multiple = true; fi.accept = ".mp4,.mov,.mkv,.webm,.m4v,.avi,.png,.jpg,.jpeg,.webp"; fi.style.display = "none"; $("#view").appendChild(fi);
   fi.onchange = () => { const fs = [...fi.files]; fi.value = ""; add(fs); };
 
   const draw = async () => {
@@ -257,7 +257,7 @@ function claudeImgRow(cx, key) {
 }
 function claudePickImg(it, key) {
   const cx = S.cctx[cKey(it)]; if (!cx || cx.busy) return;
-  const inp = document.createElement("input"); inp.type = "file"; inp.accept = "image/*"; inp.multiple = true;
+  const inp = document.createElement("input"); inp.type = "file"; inp.accept = ".png,.jpg,.jpeg,.webp"; inp.multiple = true;
   inp.onchange = async () => {
     for (const f of inp.files) {
       try {

@@ -1,0 +1,19 @@
+PROMPT CHO AGENT — thể loại 8eecbce1-dien-gia-hindi (diễn giả sân khấu Hindi + demo chia đôi Talka AI)
+
+Viết thêm biến thể:
+- KHÔNG sửa tay JSON. Sửa bảng trong cong-cu/tao_bien_the.py rồi chạy lại:
+  * Kịch bản A (goc) — đổi nhân vật: thêm dòng NHAN_VAT (ten, ma_hoc = mã kho NAM|NU-<tuổi>-IND-<số>, ma_day = BOT-TALKA-<DEF|AVA>-INDIA-<số>, gioi nam/nu,
+    NGUOI_HOC viết THEO ẢNH kho (mặt, tóc, dáng) + trang phục của vai (saree lụa viền vàng, anarkali, blazer, suit...), GIONG_HOC có Hz, DAO_HOC, NEN_*).
+    Đại từ và đuôi động từ Hindi (देता था/देती थी, लगा/लगी) tự đổi theo gioi.
+  * Kịch bản B (hook) — đổi hook: thêm dòng HOOKS (text cùng cấu trúc "जब कोई कहे “X”, तो कभी भी “Y” मत बोलिए।", ≤ 20 từ,
+    HOOK_HANH_DONG tiếng Anh, HOOK_DIEN_BIEN tiếng Việt, HOOK_CAM_XUC, HOOK_KHUNG_CUOI). Lấy tình huống từ insight trong PHAN-TICH-VIDEO-MAU.md.
+    Câu Y nên là câu sai có trong cảnh tiệc (Me too / You're welcome / I'm fine, thanks) để mạch nối; câu khác thì cân nhắc cả lượt 2.
+- Diễn giả và robot ở hai nửa riêng (ghép 2 lớp) nhưng vẫn ưu tiên robot khác giới để giọng tách hẳn.
+- Nhóm tuổi kho chỉ tới 30-45: vai 50+ thì chọn người trông già nhất và ghi tuổi trong NGUOI_HOC.
+
+Lỗi hay gặp / tự kiểm tra:
+- Chạy `video-moi.py kiem-tra <kịch bản> <biến thể> --tai-anh` cho CẢ HAI kịch bản sau khi sinh lại.
+- Mốc "Diễn biến" không được neo vào từ của ngôn ngữ khác (chỉ neo "देखिए" qua token TU_OLHA).
+- Điện thoại (DAO_DIENTHOAI) chỉ là ảnh robot, không chữ.
+- Cảnh 2 tiệc: nhân vật không nhìn ống kính; khách chỉ là vai mờ tiền cảnh.
+- Thẻ phần 2 lấy từ HAU_KY.the (luot 6/8/10/12/14 = lượt robot, đánh số từ 0).

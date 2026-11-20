@@ -11,15 +11,21 @@ BO = {  # bộ: (tên file csv, thư mục anh)
     "hindi": ("X0057+X0071_MC Nunca_20 biến thể Nhân vật HINDI.xlsx - 20 biến thể.csv", "hindi"),
     "brazil-robot": ("X0058+X0072_MC Nunca_40 biến thể Nhân vật Brazil + Robot.xlsx - 40 biến thể.csv", "brazil-robot"),
     "mexico": ("X0059+X0073_MC Nunca_40 biến thể Nhân vật Mexico.xlsx - 40 biến thể.csv", "mexico"),
+    # X0104 (lời Ả Rập) và X0105 (lời Hindi) dùng CHUNG 20 nhân vật (cùng link Drive; X0105 đánh số 21–40) → cùng một thư mục ảnh "arab".
+    # Hai file này nằm ngay trong NHIPTY (không trong "MC Nunca"); phần tử 3,4 = (thư mục gốc, số cần trừ khỏi STT).
+    "arab": ("X0104_MC Nunca_10 biến thể nhân vật HINDI_Arab.xlsx - 20 biến thể.csv", "arab", os.path.dirname(G), 0),
+    "hindi2": ("X0105_MC Nunca_20 biến thể nhân vật HINDI.xlsx - 20 biến thể.csv", "arab", os.path.dirname(G), 20),
 }
 
 def doc(bo):
     """Trả về danh sách dòng biến thể: (stt, mô tả, link nhân vật, mô tả robot|None, link robot|None)."""
-    rows = list(csv.reader(open(os.path.join(G, BO[bo][0]), encoding="utf-8-sig")))
+    e = BO[bo]
+    base, off = (e[2], e[3]) if len(e) > 2 else (G, 0)
+    rows = list(csv.reader(open(os.path.join(base, e[0]), encoding="utf-8-sig")))
     out = []
     for r in rows:
         if r and re.match(r"Biến thể \d+$", r[0].strip()):
-            out.append((int(r[0].split()[-1]), r[2], r[3], r[4] if len(r) > 5 else None, r[5] if len(r) > 5 else None))
+            out.append((int(r[0].split()[-1]) - off, r[2], r[3], r[4] if len(r) > 5 else None, r[5] if len(r) > 5 else None))
     return out
 
 def id_of(link):
@@ -40,7 +46,8 @@ def tai(job):
 
 def main():
     jobs = []
-    for bo, (_, d) in BO.items():
+    for bo, e in BO.items():
+        d = e[1]
         for stt, _, link, _, rlink in doc(bo):
             jobs.append((os.path.join(ANH, d, f"bien-the-{stt:02d}"), link))
             if rlink:

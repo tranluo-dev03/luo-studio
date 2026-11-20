@@ -1,0 +1,75 @@
+[
+  {
+    "name": "bien-the-01-hook-hows-it-going",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "an Indian man in his early fifties with the face, hair and slim build exactly as in the reference photo: a lean, lined face with deep-set dark eyes, grey hair combed straight back, a thick grey-white moustache and a clean-shaven chin; for this role he wears a crisp pale-pink dress shirt with buttoned cuffs, a dark charcoal tie, a buttoned grey pinstripe waistcoat and matching grey pinstripe trousers, polished and successful",
+    "GIONG_HOC": "a real Indian man in his early fifties, warm mid-low voice around 130–170 Hz that lifts to about 200 Hz on emphasis, confident and charismatic like a seasoned conference speaker, native Hindi; speaks the English words clearly with a light Indian accent; a real person, not an actor",
+    "DAO_LY": "a champagne flute of sparkling wine",
+    "NEN_HOC": "a dark TED-style conference stage: a deep navy-blue curtain backdrop, a round glossy red stage platform with a red ring of light, huge glowing red abstract 3D block shapes (no letters, no words) on the left and right, and the dark out-of-focus heads of an audience along the bottom edge",
+    "NEN_TIEC": "a grand ballroom with warm golden chandelier lights, tall white floral arrangements, candle-lit tables with champagne glasses and elegant guests far in the background",
+    "DAO_HOC": "A thin skin-tone headset microphone curves along his right cheek, and a small black presentation clicker rests in his right hand.",
+    "DAO_DIENTHOAI": "a modern smartphone whose screen shows only a portrait of a friendly white humanoid robot face on a soft light-blue background, filling the screen, no text, no letters, no app interface",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "HE": "he",
+    "HE_C": "He",
+    "HIS": "his",
+    "HIM": "him",
+    "HOOK_CAM_XUC": "knowing and a little teasing, eyebrows raised, a faint amused smile at the corners of the mouth",
+    "HOOK_HANH_DONG": "near the start of the line he tilts his head slightly and lifts his right hand (the hand holding the clicker) to chest height with the palm half open, as if asking a question; in the second half of the line he gives one small slow head shake and lowers the hand to the waist before the last word; the left hand stays low.",
+    "HOOK_DIEN_BIEN": "Đầu câu nghiêng đầu nhẹ, nhướng mày, tay phải (cầm bút bấm) đưa lên ngang ngực, lòng bàn tay hé mở như đang hỏi; nửa sau câu lắc đầu chậm một lần và hạ tay về ngang bụng trước từ cuối; tay trái buông.",
+    "HOOK_KHUNG_CUOI": "Diễn giả nhìn ống kính, nụ cười hiểu chuyện, tay phải đã hạ về ngang bụng cầm bút bấm, tay trái buông, miệng khép.",
+    "HAU_KY": {
+      "ngon_ngu": "hi"
+    },
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई पूछे “How’s it going?”, तो कभी भी “I’m fine, thank you” मत बोलिए।",
+        "emo": "decisive, knowing",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देता था।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ़्लुएंटली और कॉन्फ़िडेंस के साथ इंग्लिश बोलने लगा।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ़्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-30-45-IND-10"
+    }
+  }
+]

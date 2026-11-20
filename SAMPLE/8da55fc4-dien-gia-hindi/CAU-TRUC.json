@@ -1,0 +1,31 @@
+{
+  "hook": {
+    "tu": "0:00",
+    "den": "0:05",
+    "luot": "1",
+    "tom_tat": "Diễn giả nam ~50 tuổi (tóc muối tiêu, gi-lê kẻ sọc xám, sơ mi hồng, micro cài tai, bút bấm) đứng một mình trên sân khấu kiểu TED, nhìn ống kính, giơ ngón trỏ tay phải: khi ai đó nói \"Nice to meet you\" thì đừng bao giờ đáp \"Me too\".",
+    "loi": [
+      "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।"
+    ]
+  },
+  "tinh_huong": {
+    "tu": "0:05",
+    "den": "0:25.6",
+    "luot": "2-6",
+    "tom_tat": "Nỗi đau (0:05–0:14): cắt sang bữa tiệc sang trọng, diễn giả cầm ly champagne trò chuyện với vị khách (vai mờ tiền cảnh phải), đáp ba câu sách vở \"Me too / You're welcome / I'm fine, thanks\" (chữ gạch đỏ + dấu X đỏ hiện từng câu), mặt ngượng; quay lại sân khấu thú nhận \"trước đây tôi cũng trả lời y như vậy\". Giải pháp (0:14–0:25.6): \"rồi tôi bắt đầu luyện với Talka AI; chỉ ba tuần tôi đã nói tiếng Anh trôi chảy và tự tin; và nó hoàn toàn miễn phí, xem này!\" (giơ điện thoại có hình robot).",
+    "loi": [
+      "Me too. You’re welcome. I’m fine, thanks.",
+      "पहले मैं भी ऐसे ही जवाब देता था।",
+      "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+      "सिर्फ़ तीन हफ़्तों में मैं फ़्लुएंटली और कॉन्फ़िडेंस के साथ इंग्लिश बोलने लगा।",
+      "और ये बिल्कुल फ़्री है। देखिए!"
+    ]
+  },
+  "quang_cao": null,
+  "hook_moi": {
+    "tom_tat": "Hook mới của kịch bản B lấy tình huống 'hành lang công ty' trong insight: khi ai đó hỏi \"How's it going?\" thì đừng đáp như trả bài \"I'm fine, thank you\" (thay cho cặp \"Nice to meet you → Me too\"). Cùng cấu trúc câu \"Khi ai đó nói/hỏi X, đừng bao giờ đáp Y\", cùng độ dài (~13 từ), vẫn nối thẳng vào cảnh tiệc vì \"I'm fine, thanks\" là một trong ba câu bị gạch. Cử chỉ khác: nghiêng đầu, nhướng mày, tay phải hé mở như đang hỏi rồi lắc đầu chậm một lần; nét mặt hiểu chuyện hơi trêu. Lời, cử chỉ, nét mặt, khung cuối của hook đều là token (LUOT_1, HOOK_HANH_DONG, HOOK_DIEN_BIEN, HOOK_CAM_XUC, HOOK_KHUNG_CUOI); phần tình huống giữ y như kịch bản A.",
+    "loi": [
+      "जब कोई पूछे “How’s it going?”, तो कभी भी “I’m fine, thank you” मत बोलिए।"
+    ]
+  }
+}

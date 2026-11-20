@@ -30,7 +30,7 @@ def _sentences(text):
     """Các câu của một lượt (câu rất ngắn dưới 12 ký tự gộp với câu sau), như hậu kỳ chung."""
     out = []
     text = re.sub(r"\s+", " ", str(text or "").strip())
-    for p in (p.strip() for p in re.findall(r"[^.!?…]+[.!?…]*", text) if p.strip()):
+    for p in (p.strip() for p in re.findall(r"[^.!?…؟]+[.!?…؟]*", text) if p.strip()):
         if out and len(out[-1]) < 12:
             out[-1] = out[-1] + " " + p
         else:
@@ -61,7 +61,7 @@ def _parts(text, phrase):
 def _dich_by_sentence(dich, en):
     """Chia lời dịch theo các câu tiếng Anh `en` (danh sách câu): mỗi câu dịch (không gộp câu ngắn) đi với câu tiếng Anh nằm ở cùng vị trí tương đối
     tính theo số ký tự; câu tiếng Anh không nhận được câu dịch nào thì hiện câu dịch ở vị trí của nó (một câu dịch có thể kéo qua vài câu tiếng Anh)."""
-    d = [p.strip() for p in re.findall(r"[^.!?…]+[.!?…]*", re.sub(r"\s+", " ", str(dich or "").strip())) if p.strip()]
+    d = [p.strip() for p in re.findall(r"[^.!?…؟]+[.!?…؟]*", re.sub(r"\s+", " ", str(dich or "").strip())) if p.strip()]
     n = len(en)
     if not d or not n:
         return [""] * n

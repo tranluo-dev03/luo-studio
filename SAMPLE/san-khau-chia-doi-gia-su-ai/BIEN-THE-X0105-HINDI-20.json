@@ -1,0 +1,3802 @@
+[
+  {
+    "name": "X0105_Speaker Hindi Nam_01",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a Indian man of about 33 years old, with the face, hair, build and complete outfit exactly as in the reference photo",
+    "GIONG_HOC": "a real Indian man in their thirties, natural mid pitch around 120–150 Hz, warm, confident and charismatic like a conference speaker, native Hindi; speaks English clearly with a light Indian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone in a slim dark case, its screen lit and facing the lens",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Hindi accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देता था।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ्लुएंटली और कॉन्फिडेंस के साथ इंग्लिश बोलने लगा।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "“ठीक है” को इंग्लिश में कैसे बोलेंगे? Sounds good. मेरे साथ बोलिए: Sounds good.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मैं रास्ते में हूँ” को इंग्लिश में कैसे बोलेंगे? I'm on my way. मेरे साथ बोलिए: I'm on my way.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“एक सेकंड रुको” को इंग्लिश में कैसे बोलेंगे? Give me a second. मेरे साथ बोलिए: Give me a second.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मुझे समझ नहीं आया” को इंग्लिश में कैसे बोलेंगे? I didn't catch that. मेरे साथ बोलिए: I didn't catch that.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“ये लीजिए” को इंग्लिश में कैसे बोलेंगे? Here you go. मेरे साथ बोलिए: Here you go.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "hi",
+      "the": [
+        {
+          "luot": 6,
+          "luot_hoc": 7,
+          "pt": "ठीक है",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 8,
+          "luot_hoc": 9,
+          "pt": "मैं रास्ते में हूँ",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 10,
+          "luot_hoc": 11,
+          "pt": "एक सेकंड रुको",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 12,
+          "luot_hoc": 13,
+          "pt": "मुझे समझ नहीं आया",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 14,
+          "luot_hoc": 15,
+          "pt": "ये लीजिए",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "TEN_DT": "the Talka AI robot",
+    "NGUOI_DT": "a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background",
+    "HE": "he",
+    "HE_C": "He",
+    "HIS": "his",
+    "HIM": "him",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/arab/bien-the-01.webp"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ],
+      "NGUOI_DT": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+      ]
+    }
+  },
+  {
+    "name": "X0105_Speaker Hindi Nam_02",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a Indian man of about 26 years old, with the face, hair, build and complete outfit exactly as in the reference photo",
+    "GIONG_HOC": "a real Indian man in their twenties, natural mid pitch around 120–150 Hz, warm, confident and charismatic like a conference speaker, native Hindi; speaks English clearly with a light Indian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone in a slim dark case, its screen lit and facing the lens",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Hindi accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देता था।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ्लुएंटली और कॉन्फिडेंस के साथ इंग्लिश बोलने लगा।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "“ठीक है” को इंग्लिश में कैसे बोलेंगे? Sounds good. मेरे साथ बोलिए: Sounds good.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मैं रास्ते में हूँ” को इंग्लिश में कैसे बोलेंगे? I'm on my way. मेरे साथ बोलिए: I'm on my way.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“एक सेकंड रुको” को इंग्लिश में कैसे बोलेंगे? Give me a second. मेरे साथ बोलिए: Give me a second.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मुझे समझ नहीं आया” को इंग्लिश में कैसे बोलेंगे? I didn't catch that. मेरे साथ बोलिए: I didn't catch that.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“ये लीजिए” को इंग्लिश में कैसे बोलेंगे? Here you go. मेरे साथ बोलिए: Here you go.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "hi",
+      "the": [
+        {
+          "luot": 6,
+          "luot_hoc": 7,
+          "pt": "ठीक है",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 8,
+          "luot_hoc": 9,
+          "pt": "मैं रास्ते में हूँ",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 10,
+          "luot_hoc": 11,
+          "pt": "एक सेकंड रुको",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 12,
+          "luot_hoc": 13,
+          "pt": "मुझे समझ नहीं आया",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 14,
+          "luot_hoc": 15,
+          "pt": "ये लीजिए",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "TEN_DT": "the Talka AI robot",
+    "NGUOI_DT": "a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background",
+    "HE": "he",
+    "HE_C": "He",
+    "HIS": "his",
+    "HIM": "him",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/arab/bien-the-02.webp"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ],
+      "NGUOI_DT": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+      ]
+    }
+  },
+  {
+    "name": "X0105_Speaker Hindi Nam_03",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a Indian man of about 44 years old, with the face, hair, build and complete outfit exactly as in the reference photo",
+    "GIONG_HOC": "a real Indian man in their forties, natural mid pitch around 120–150 Hz, warm, confident and charismatic like a conference speaker, native Hindi; speaks English clearly with a light Indian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone in a slim dark case, its screen lit and facing the lens",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Hindi accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देता था।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ्लुएंटली और कॉन्फिडेंस के साथ इंग्लिश बोलने लगा।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "“ठीक है” को इंग्लिश में कैसे बोलेंगे? Sounds good. मेरे साथ बोलिए: Sounds good.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मैं रास्ते में हूँ” को इंग्लिश में कैसे बोलेंगे? I'm on my way. मेरे साथ बोलिए: I'm on my way.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“एक सेकंड रुको” को इंग्लिश में कैसे बोलेंगे? Give me a second. मेरे साथ बोलिए: Give me a second.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मुझे समझ नहीं आया” को इंग्लिश में कैसे बोलेंगे? I didn't catch that. मेरे साथ बोलिए: I didn't catch that.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“ये लीजिए” को इंग्लिश में कैसे बोलेंगे? Here you go. मेरे साथ बोलिए: Here you go.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "hi",
+      "the": [
+        {
+          "luot": 6,
+          "luot_hoc": 7,
+          "pt": "ठीक है",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 8,
+          "luot_hoc": 9,
+          "pt": "मैं रास्ते में हूँ",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 10,
+          "luot_hoc": 11,
+          "pt": "एक सेकंड रुको",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 12,
+          "luot_hoc": 13,
+          "pt": "मुझे समझ नहीं आया",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 14,
+          "luot_hoc": 15,
+          "pt": "ये लीजिए",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "TEN_DT": "the Talka AI robot",
+    "NGUOI_DT": "a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background",
+    "HE": "he",
+    "HE_C": "He",
+    "HIS": "his",
+    "HIM": "him",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/arab/bien-the-03.webp"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ],
+      "NGUOI_DT": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+      ]
+    }
+  },
+  {
+    "name": "X0105_Speaker Hindi Nam_04",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a Indian man of about 37 years old, with the face, hair, build and complete outfit exactly as in the reference photo",
+    "GIONG_HOC": "a real Indian man in their thirties, natural mid pitch around 120–150 Hz, warm, confident and charismatic like a conference speaker, native Hindi; speaks English clearly with a light Indian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone in a slim dark case, its screen lit and facing the lens",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Hindi accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देता था।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ्लुएंटली और कॉन्फिडेंस के साथ इंग्लिश बोलने लगा।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "“ठीक है” को इंग्लिश में कैसे बोलेंगे? Sounds good. मेरे साथ बोलिए: Sounds good.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मैं रास्ते में हूँ” को इंग्लिश में कैसे बोलेंगे? I'm on my way. मेरे साथ बोलिए: I'm on my way.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“एक सेकंड रुको” को इंग्लिश में कैसे बोलेंगे? Give me a second. मेरे साथ बोलिए: Give me a second.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मुझे समझ नहीं आया” को इंग्लिश में कैसे बोलेंगे? I didn't catch that. मेरे साथ बोलिए: I didn't catch that.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“ये लीजिए” को इंग्लिश में कैसे बोलेंगे? Here you go. मेरे साथ बोलिए: Here you go.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "hi",
+      "the": [
+        {
+          "luot": 6,
+          "luot_hoc": 7,
+          "pt": "ठीक है",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 8,
+          "luot_hoc": 9,
+          "pt": "मैं रास्ते में हूँ",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 10,
+          "luot_hoc": 11,
+          "pt": "एक सेकंड रुको",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 12,
+          "luot_hoc": 13,
+          "pt": "मुझे समझ नहीं आया",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 14,
+          "luot_hoc": 15,
+          "pt": "ये लीजिए",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "TEN_DT": "the Talka AI robot",
+    "NGUOI_DT": "a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background",
+    "HE": "he",
+    "HE_C": "He",
+    "HIS": "his",
+    "HIM": "him",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/arab/bien-the-04.webp"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ],
+      "NGUOI_DT": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+      ]
+    }
+  },
+  {
+    "name": "X0105_Speaker Hindi Nam_05",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a Indian man of about 50 years old, with the face, hair, build and complete outfit exactly as in the reference photo",
+    "GIONG_HOC": "a real Indian man in their fifties, natural mid pitch around 120–150 Hz, warm, confident and charismatic like a conference speaker, native Hindi; speaks English clearly with a light Indian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone in a slim dark case, its screen lit and facing the lens",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Hindi accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देता था।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ्लुएंटली और कॉन्फिडेंस के साथ इंग्लिश बोलने लगा।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "“ठीक है” को इंग्लिश में कैसे बोलेंगे? Sounds good. मेरे साथ बोलिए: Sounds good.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मैं रास्ते में हूँ” को इंग्लिश में कैसे बोलेंगे? I'm on my way. मेरे साथ बोलिए: I'm on my way.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“एक सेकंड रुको” को इंग्लिश में कैसे बोलेंगे? Give me a second. मेरे साथ बोलिए: Give me a second.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मुझे समझ नहीं आया” को इंग्लिश में कैसे बोलेंगे? I didn't catch that. मेरे साथ बोलिए: I didn't catch that.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“ये लीजिए” को इंग्लिश में कैसे बोलेंगे? Here you go. मेरे साथ बोलिए: Here you go.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "hi",
+      "the": [
+        {
+          "luot": 6,
+          "luot_hoc": 7,
+          "pt": "ठीक है",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 8,
+          "luot_hoc": 9,
+          "pt": "मैं रास्ते में हूँ",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 10,
+          "luot_hoc": 11,
+          "pt": "एक सेकंड रुको",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 12,
+          "luot_hoc": 13,
+          "pt": "मुझे समझ नहीं आया",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 14,
+          "luot_hoc": 15,
+          "pt": "ये लीजिए",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "TEN_DT": "the Talka AI robot",
+    "NGUOI_DT": "a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background",
+    "HE": "he",
+    "HE_C": "He",
+    "HIS": "his",
+    "HIM": "him",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/arab/bien-the-05.webp"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ],
+      "NGUOI_DT": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+      ]
+    }
+  },
+  {
+    "name": "X0105_Speaker Hindi Nam_06",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a Indian man of about 30 years old, with the face, hair, build and complete outfit exactly as in the reference photo",
+    "GIONG_HOC": "a real Indian man in their thirties, natural mid pitch around 120–150 Hz, warm, confident and charismatic like a conference speaker, native Hindi; speaks English clearly with a light Indian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone in a slim dark case, its screen lit and facing the lens",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Hindi accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देता था।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ्लुएंटली और कॉन्फिडेंस के साथ इंग्लिश बोलने लगा।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "“ठीक है” को इंग्लिश में कैसे बोलेंगे? Sounds good. मेरे साथ बोलिए: Sounds good.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मैं रास्ते में हूँ” को इंग्लिश में कैसे बोलेंगे? I'm on my way. मेरे साथ बोलिए: I'm on my way.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“एक सेकंड रुको” को इंग्लिश में कैसे बोलेंगे? Give me a second. मेरे साथ बोलिए: Give me a second.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मुझे समझ नहीं आया” को इंग्लिश में कैसे बोलेंगे? I didn't catch that. मेरे साथ बोलिए: I didn't catch that.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“ये लीजिए” को इंग्लिश में कैसे बोलेंगे? Here you go. मेरे साथ बोलिए: Here you go.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "hi",
+      "the": [
+        {
+          "luot": 6,
+          "luot_hoc": 7,
+          "pt": "ठीक है",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 8,
+          "luot_hoc": 9,
+          "pt": "मैं रास्ते में हूँ",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 10,
+          "luot_hoc": 11,
+          "pt": "एक सेकंड रुको",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 12,
+          "luot_hoc": 13,
+          "pt": "मुझे समझ नहीं आया",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 14,
+          "luot_hoc": 15,
+          "pt": "ये लीजिए",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "TEN_DT": "the Talka AI robot",
+    "NGUOI_DT": "a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background",
+    "HE": "he",
+    "HE_C": "He",
+    "HIS": "his",
+    "HIM": "him",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/arab/bien-the-06.webp"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ],
+      "NGUOI_DT": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+      ]
+    }
+  },
+  {
+    "name": "X0105_Speaker Hindi Nam_07",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a Indian man of about 56 years old, with the face, hair, build and complete outfit exactly as in the reference photo",
+    "GIONG_HOC": "a real Indian man in their fifties, natural mid pitch around 120–150 Hz, warm, confident and charismatic like a conference speaker, native Hindi; speaks English clearly with a light Indian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone in a slim dark case, its screen lit and facing the lens",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Hindi accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देता था।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ्लुएंटली और कॉन्फिडेंस के साथ इंग्लिश बोलने लगा।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "“ठीक है” को इंग्लिश में कैसे बोलेंगे? Sounds good. मेरे साथ बोलिए: Sounds good.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मैं रास्ते में हूँ” को इंग्लिश में कैसे बोलेंगे? I'm on my way. मेरे साथ बोलिए: I'm on my way.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“एक सेकंड रुको” को इंग्लिश में कैसे बोलेंगे? Give me a second. मेरे साथ बोलिए: Give me a second.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मुझे समझ नहीं आया” को इंग्लिश में कैसे बोलेंगे? I didn't catch that. मेरे साथ बोलिए: I didn't catch that.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“ये लीजिए” को इंग्लिश में कैसे बोलेंगे? Here you go. मेरे साथ बोलिए: Here you go.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "hi",
+      "the": [
+        {
+          "luot": 6,
+          "luot_hoc": 7,
+          "pt": "ठीक है",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 8,
+          "luot_hoc": 9,
+          "pt": "मैं रास्ते में हूँ",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 10,
+          "luot_hoc": 11,
+          "pt": "एक सेकंड रुको",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 12,
+          "luot_hoc": 13,
+          "pt": "मुझे समझ नहीं आया",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 14,
+          "luot_hoc": 15,
+          "pt": "ये लीजिए",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "TEN_DT": "the Talka AI robot",
+    "NGUOI_DT": "a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background",
+    "HE": "he",
+    "HE_C": "He",
+    "HIS": "his",
+    "HIM": "him",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/arab/bien-the-07.webp"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ],
+      "NGUOI_DT": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+      ]
+    }
+  },
+  {
+    "name": "X0105_Speaker Hindi Nam_08",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a Indian man of about 42 years old, with the face, hair, build and complete outfit exactly as in the reference photo",
+    "GIONG_HOC": "a real Indian man in their forties, natural mid pitch around 120–150 Hz, warm, confident and charismatic like a conference speaker, native Hindi; speaks English clearly with a light Indian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone in a slim dark case, its screen lit and facing the lens",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Hindi accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देता था।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ्लुएंटली और कॉन्फिडेंस के साथ इंग्लिश बोलने लगा।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "“ठीक है” को इंग्लिश में कैसे बोलेंगे? Sounds good. मेरे साथ बोलिए: Sounds good.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मैं रास्ते में हूँ” को इंग्लिश में कैसे बोलेंगे? I'm on my way. मेरे साथ बोलिए: I'm on my way.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“एक सेकंड रुको” को इंग्लिश में कैसे बोलेंगे? Give me a second. मेरे साथ बोलिए: Give me a second.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मुझे समझ नहीं आया” को इंग्लिश में कैसे बोलेंगे? I didn't catch that. मेरे साथ बोलिए: I didn't catch that.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“ये लीजिए” को इंग्लिश में कैसे बोलेंगे? Here you go. मेरे साथ बोलिए: Here you go.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "hi",
+      "the": [
+        {
+          "luot": 6,
+          "luot_hoc": 7,
+          "pt": "ठीक है",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 8,
+          "luot_hoc": 9,
+          "pt": "मैं रास्ते में हूँ",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 10,
+          "luot_hoc": 11,
+          "pt": "एक सेकंड रुको",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 12,
+          "luot_hoc": 13,
+          "pt": "मुझे समझ नहीं आया",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 14,
+          "luot_hoc": 15,
+          "pt": "ये लीजिए",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "TEN_DT": "the Talka AI robot",
+    "NGUOI_DT": "a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background",
+    "HE": "he",
+    "HE_C": "He",
+    "HIS": "his",
+    "HIM": "him",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/arab/bien-the-08.webp"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ],
+      "NGUOI_DT": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+      ]
+    }
+  },
+  {
+    "name": "X0105_Speaker Hindi Nam_09",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a Indian man of about 24 years old, with the face, hair, build and complete outfit exactly as in the reference photo",
+    "GIONG_HOC": "a real Indian man in their twenties, natural mid pitch around 120–150 Hz, warm, confident and charismatic like a conference speaker, native Hindi; speaks English clearly with a light Indian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone in a slim dark case, its screen lit and facing the lens",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Hindi accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देता था।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ्लुएंटली और कॉन्फिडेंस के साथ इंग्लिश बोलने लगा।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "“ठीक है” को इंग्लिश में कैसे बोलेंगे? Sounds good. मेरे साथ बोलिए: Sounds good.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मैं रास्ते में हूँ” को इंग्लिश में कैसे बोलेंगे? I'm on my way. मेरे साथ बोलिए: I'm on my way.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“एक सेकंड रुको” को इंग्लिश में कैसे बोलेंगे? Give me a second. मेरे साथ बोलिए: Give me a second.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मुझे समझ नहीं आया” को इंग्लिश में कैसे बोलेंगे? I didn't catch that. मेरे साथ बोलिए: I didn't catch that.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“ये लीजिए” को इंग्लिश में कैसे बोलेंगे? Here you go. मेरे साथ बोलिए: Here you go.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "hi",
+      "the": [
+        {
+          "luot": 6,
+          "luot_hoc": 7,
+          "pt": "ठीक है",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 8,
+          "luot_hoc": 9,
+          "pt": "मैं रास्ते में हूँ",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 10,
+          "luot_hoc": 11,
+          "pt": "एक सेकंड रुको",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 12,
+          "luot_hoc": 13,
+          "pt": "मुझे समझ नहीं आया",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 14,
+          "luot_hoc": 15,
+          "pt": "ये लीजिए",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "TEN_DT": "the Talka AI robot",
+    "NGUOI_DT": "a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background",
+    "HE": "he",
+    "HE_C": "He",
+    "HIS": "his",
+    "HIM": "him",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/arab/bien-the-09.webp"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ],
+      "NGUOI_DT": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+      ]
+    }
+  },
+  {
+    "name": "X0105_Speaker Hindi Nam_10",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a Indian man of about 48 years old, with the face, hair, build and complete outfit exactly as in the reference photo",
+    "GIONG_HOC": "a real Indian man in their forties, natural mid pitch around 120–150 Hz, warm, confident and charismatic like a conference speaker, native Hindi; speaks English clearly with a light Indian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone in a slim dark case, its screen lit and facing the lens",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Hindi accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देता था।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ्लुएंटली और कॉन्फिडेंस के साथ इंग्लिश बोलने लगा।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "“ठीक है” को इंग्लिश में कैसे बोलेंगे? Sounds good. मेरे साथ बोलिए: Sounds good.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मैं रास्ते में हूँ” को इंग्लिश में कैसे बोलेंगे? I'm on my way. मेरे साथ बोलिए: I'm on my way.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“एक सेकंड रुको” को इंग्लिश में कैसे बोलेंगे? Give me a second. मेरे साथ बोलिए: Give me a second.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मुझे समझ नहीं आया” को इंग्लिश में कैसे बोलेंगे? I didn't catch that. मेरे साथ बोलिए: I didn't catch that.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“ये लीजिए” को इंग्लिश में कैसे बोलेंगे? Here you go. मेरे साथ बोलिए: Here you go.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "hi",
+      "the": [
+        {
+          "luot": 6,
+          "luot_hoc": 7,
+          "pt": "ठीक है",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 8,
+          "luot_hoc": 9,
+          "pt": "मैं रास्ते में हूँ",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 10,
+          "luot_hoc": 11,
+          "pt": "एक सेकंड रुको",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 12,
+          "luot_hoc": 13,
+          "pt": "मुझे समझ नहीं आया",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 14,
+          "luot_hoc": 15,
+          "pt": "ये लीजिए",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "TEN_DT": "the Talka AI robot",
+    "NGUOI_DT": "a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background",
+    "HE": "he",
+    "HE_C": "He",
+    "HIS": "his",
+    "HIM": "him",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/arab/bien-the-10.webp"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ],
+      "NGUOI_DT": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+      ]
+    }
+  },
+  {
+    "name": "X0105_Speaker Hindi Nữ_11",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a Indian woman of about 27 years old, with the face, hair, build and complete outfit exactly as in the reference photo",
+    "GIONG_HOC": "a real Indian woman in their twenties, natural mid-high pitch around 190–220 Hz, warm, confident and charismatic like a conference speaker, native Hindi; speaks English clearly with a light Indian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone in a slim dark case, its screen lit and facing the lens",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Hindi accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देती थी।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ्लुएंटली और कॉन्फिडेंस के साथ इंग्लिश बोलने लगी।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "“ठीक है” को इंग्लिश में कैसे बोलेंगे? Sounds good. मेरे साथ बोलिए: Sounds good.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मैं रास्ते में हूँ” को इंग्लिश में कैसे बोलेंगे? I'm on my way. मेरे साथ बोलिए: I'm on my way.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“एक सेकंड रुको” को इंग्लिश में कैसे बोलेंगे? Give me a second. मेरे साथ बोलिए: Give me a second.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मुझे समझ नहीं आया” को इंग्लिश में कैसे बोलेंगे? I didn't catch that. मेरे साथ बोलिए: I didn't catch that.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“ये लीजिए” को इंग्लिश में कैसे बोलेंगे? Here you go. मेरे साथ बोलिए: Here you go.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "hi",
+      "the": [
+        {
+          "luot": 6,
+          "luot_hoc": 7,
+          "pt": "ठीक है",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 8,
+          "luot_hoc": 9,
+          "pt": "मैं रास्ते में हूँ",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 10,
+          "luot_hoc": 11,
+          "pt": "एक सेकंड रुको",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 12,
+          "luot_hoc": 13,
+          "pt": "मुझे समझ नहीं आया",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 14,
+          "luot_hoc": 15,
+          "pt": "ये लीजिए",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "TEN_DT": "the Talka AI robot",
+    "NGUOI_DT": "a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background",
+    "HE": "she",
+    "HE_C": "She",
+    "HIS": "her",
+    "HIM": "her",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/arab/bien-the-11.webp"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ],
+      "NGUOI_DT": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+      ]
+    }
+  },
+  {
+    "name": "X0105_Speaker Hindi Nữ_12",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a Indian woman of about 35 years old, with the face, hair, build and complete outfit exactly as in the reference photo",
+    "GIONG_HOC": "a real Indian woman in their thirties, natural mid-high pitch around 190–220 Hz, warm, confident and charismatic like a conference speaker, native Hindi; speaks English clearly with a light Indian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone in a slim dark case, its screen lit and facing the lens",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Hindi accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देती थी।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ्लुएंटली और कॉन्फिडेंस के साथ इंग्लिश बोलने लगी।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "“ठीक है” को इंग्लिश में कैसे बोलेंगे? Sounds good. मेरे साथ बोलिए: Sounds good.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मैं रास्ते में हूँ” को इंग्लिश में कैसे बोलेंगे? I'm on my way. मेरे साथ बोलिए: I'm on my way.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“एक सेकंड रुको” को इंग्लिश में कैसे बोलेंगे? Give me a second. मेरे साथ बोलिए: Give me a second.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मुझे समझ नहीं आया” को इंग्लिश में कैसे बोलेंगे? I didn't catch that. मेरे साथ बोलिए: I didn't catch that.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“ये लीजिए” को इंग्लिश में कैसे बोलेंगे? Here you go. मेरे साथ बोलिए: Here you go.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "hi",
+      "the": [
+        {
+          "luot": 6,
+          "luot_hoc": 7,
+          "pt": "ठीक है",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 8,
+          "luot_hoc": 9,
+          "pt": "मैं रास्ते में हूँ",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 10,
+          "luot_hoc": 11,
+          "pt": "एक सेकंड रुको",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 12,
+          "luot_hoc": 13,
+          "pt": "मुझे समझ नहीं आया",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 14,
+          "luot_hoc": 15,
+          "pt": "ये लीजिए",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "TEN_DT": "the Talka AI robot",
+    "NGUOI_DT": "a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background",
+    "HE": "she",
+    "HE_C": "She",
+    "HIS": "her",
+    "HIM": "her",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/arab/bien-the-12.webp"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ],
+      "NGUOI_DT": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+      ]
+    }
+  },
+  {
+    "name": "X0105_Speaker Hindi Nữ_13",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a Indian woman of about 31 years old, with the face, hair, build and complete outfit exactly as in the reference photo",
+    "GIONG_HOC": "a real Indian woman in their thirties, natural mid-high pitch around 190–220 Hz, warm, confident and charismatic like a conference speaker, native Hindi; speaks English clearly with a light Indian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone in a slim dark case, its screen lit and facing the lens",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Hindi accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देती थी।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ्लुएंटली और कॉन्फिडेंस के साथ इंग्लिश बोलने लगी।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "“ठीक है” को इंग्लिश में कैसे बोलेंगे? Sounds good. मेरे साथ बोलिए: Sounds good.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मैं रास्ते में हूँ” को इंग्लिश में कैसे बोलेंगे? I'm on my way. मेरे साथ बोलिए: I'm on my way.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“एक सेकंड रुको” को इंग्लिश में कैसे बोलेंगे? Give me a second. मेरे साथ बोलिए: Give me a second.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मुझे समझ नहीं आया” को इंग्लिश में कैसे बोलेंगे? I didn't catch that. मेरे साथ बोलिए: I didn't catch that.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“ये लीजिए” को इंग्लिश में कैसे बोलेंगे? Here you go. मेरे साथ बोलिए: Here you go.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "hi",
+      "the": [
+        {
+          "luot": 6,
+          "luot_hoc": 7,
+          "pt": "ठीक है",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 8,
+          "luot_hoc": 9,
+          "pt": "मैं रास्ते में हूँ",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 10,
+          "luot_hoc": 11,
+          "pt": "एक सेकंड रुको",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 12,
+          "luot_hoc": 13,
+          "pt": "मुझे समझ नहीं आया",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 14,
+          "luot_hoc": 15,
+          "pt": "ये लीजिए",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "TEN_DT": "the Talka AI robot",
+    "NGUOI_DT": "a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background",
+    "HE": "she",
+    "HE_C": "She",
+    "HIS": "her",
+    "HIM": "her",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/arab/bien-the-13.webp"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ],
+      "NGUOI_DT": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+      ]
+    }
+  },
+  {
+    "name": "X0105_Speaker Hindi Nữ_14",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a Indian woman of about 46 years old, with the face, hair, build and complete outfit exactly as in the reference photo",
+    "GIONG_HOC": "a real Indian woman in their forties, natural mid-high pitch around 190–220 Hz, warm, confident and charismatic like a conference speaker, native Hindi; speaks English clearly with a light Indian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone in a slim dark case, its screen lit and facing the lens",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Hindi accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देती थी।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ्लुएंटली और कॉन्फिडेंस के साथ इंग्लिश बोलने लगी।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "“ठीक है” को इंग्लिश में कैसे बोलेंगे? Sounds good. मेरे साथ बोलिए: Sounds good.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मैं रास्ते में हूँ” को इंग्लिश में कैसे बोलेंगे? I'm on my way. मेरे साथ बोलिए: I'm on my way.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“एक सेकंड रुको” को इंग्लिश में कैसे बोलेंगे? Give me a second. मेरे साथ बोलिए: Give me a second.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मुझे समझ नहीं आया” को इंग्लिश में कैसे बोलेंगे? I didn't catch that. मेरे साथ बोलिए: I didn't catch that.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“ये लीजिए” को इंग्लिश में कैसे बोलेंगे? Here you go. मेरे साथ बोलिए: Here you go.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "hi",
+      "the": [
+        {
+          "luot": 6,
+          "luot_hoc": 7,
+          "pt": "ठीक है",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 8,
+          "luot_hoc": 9,
+          "pt": "मैं रास्ते में हूँ",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 10,
+          "luot_hoc": 11,
+          "pt": "एक सेकंड रुको",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 12,
+          "luot_hoc": 13,
+          "pt": "मुझे समझ नहीं आया",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 14,
+          "luot_hoc": 15,
+          "pt": "ये लीजिए",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "TEN_DT": "the Talka AI robot",
+    "NGUOI_DT": "a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background",
+    "HE": "she",
+    "HE_C": "She",
+    "HIS": "her",
+    "HIM": "her",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/arab/bien-the-14.webp"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ],
+      "NGUOI_DT": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+      ]
+    }
+  },
+  {
+    "name": "X0105_Speaker Hindi Nữ_15",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a Indian woman of about 29 years old, with the face, hair, build and complete outfit exactly as in the reference photo",
+    "GIONG_HOC": "a real Indian woman in their twenties, natural mid-high pitch around 190–220 Hz, warm, confident and charismatic like a conference speaker, native Hindi; speaks English clearly with a light Indian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone in a slim dark case, its screen lit and facing the lens",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Hindi accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देती थी।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ्लुएंटली और कॉन्फिडेंस के साथ इंग्लिश बोलने लगी।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "“ठीक है” को इंग्लिश में कैसे बोलेंगे? Sounds good. मेरे साथ बोलिए: Sounds good.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मैं रास्ते में हूँ” को इंग्लिश में कैसे बोलेंगे? I'm on my way. मेरे साथ बोलिए: I'm on my way.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“एक सेकंड रुको” को इंग्लिश में कैसे बोलेंगे? Give me a second. मेरे साथ बोलिए: Give me a second.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मुझे समझ नहीं आया” को इंग्लिश में कैसे बोलेंगे? I didn't catch that. मेरे साथ बोलिए: I didn't catch that.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“ये लीजिए” को इंग्लिश में कैसे बोलेंगे? Here you go. मेरे साथ बोलिए: Here you go.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "hi",
+      "the": [
+        {
+          "luot": 6,
+          "luot_hoc": 7,
+          "pt": "ठीक है",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 8,
+          "luot_hoc": 9,
+          "pt": "मैं रास्ते में हूँ",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 10,
+          "luot_hoc": 11,
+          "pt": "एक सेकंड रुको",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 12,
+          "luot_hoc": 13,
+          "pt": "मुझे समझ नहीं आया",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 14,
+          "luot_hoc": 15,
+          "pt": "ये लीजिए",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "TEN_DT": "the Talka AI robot",
+    "NGUOI_DT": "a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background",
+    "HE": "she",
+    "HE_C": "She",
+    "HIS": "her",
+    "HIM": "her",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/arab/bien-the-15.webp"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ],
+      "NGUOI_DT": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+      ]
+    }
+  },
+  {
+    "name": "X0105_Speaker Hindi Nữ_16",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a Indian woman of about 40 years old, with the face, hair, build and complete outfit exactly as in the reference photo",
+    "GIONG_HOC": "a real Indian woman in their forties, natural mid-high pitch around 190–220 Hz, warm, confident and charismatic like a conference speaker, native Hindi; speaks English clearly with a light Indian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone in a slim dark case, its screen lit and facing the lens",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Hindi accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देती थी।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ्लुएंटली और कॉन्फिडेंस के साथ इंग्लिश बोलने लगी।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "“ठीक है” को इंग्लिश में कैसे बोलेंगे? Sounds good. मेरे साथ बोलिए: Sounds good.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मैं रास्ते में हूँ” को इंग्लिश में कैसे बोलेंगे? I'm on my way. मेरे साथ बोलिए: I'm on my way.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“एक सेकंड रुको” को इंग्लिश में कैसे बोलेंगे? Give me a second. मेरे साथ बोलिए: Give me a second.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मुझे समझ नहीं आया” को इंग्लिश में कैसे बोलेंगे? I didn't catch that. मेरे साथ बोलिए: I didn't catch that.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“ये लीजिए” को इंग्लिश में कैसे बोलेंगे? Here you go. मेरे साथ बोलिए: Here you go.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "hi",
+      "the": [
+        {
+          "luot": 6,
+          "luot_hoc": 7,
+          "pt": "ठीक है",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 8,
+          "luot_hoc": 9,
+          "pt": "मैं रास्ते में हूँ",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 10,
+          "luot_hoc": 11,
+          "pt": "एक सेकंड रुको",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 12,
+          "luot_hoc": 13,
+          "pt": "मुझे समझ नहीं आया",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 14,
+          "luot_hoc": 15,
+          "pt": "ये लीजिए",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "TEN_DT": "the Talka AI robot",
+    "NGUOI_DT": "a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background",
+    "HE": "she",
+    "HE_C": "She",
+    "HIS": "her",
+    "HIM": "her",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/arab/bien-the-16.webp"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ],
+      "NGUOI_DT": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+      ]
+    }
+  },
+  {
+    "name": "X0105_Speaker Hindi Nữ_17",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a Indian woman of about 52 years old, with the face, hair, build and complete outfit exactly as in the reference photo",
+    "GIONG_HOC": "a real Indian woman in their fifties, natural mid-high pitch around 190–220 Hz, warm, confident and charismatic like a conference speaker, native Hindi; speaks English clearly with a light Indian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone in a slim dark case, its screen lit and facing the lens",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Hindi accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देती थी।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ्लुएंटली और कॉन्फिडेंस के साथ इंग्लिश बोलने लगी।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "“ठीक है” को इंग्लिश में कैसे बोलेंगे? Sounds good. मेरे साथ बोलिए: Sounds good.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मैं रास्ते में हूँ” को इंग्लिश में कैसे बोलेंगे? I'm on my way. मेरे साथ बोलिए: I'm on my way.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“एक सेकंड रुको” को इंग्लिश में कैसे बोलेंगे? Give me a second. मेरे साथ बोलिए: Give me a second.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मुझे समझ नहीं आया” को इंग्लिश में कैसे बोलेंगे? I didn't catch that. मेरे साथ बोलिए: I didn't catch that.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“ये लीजिए” को इंग्लिश में कैसे बोलेंगे? Here you go. मेरे साथ बोलिए: Here you go.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "hi",
+      "the": [
+        {
+          "luot": 6,
+          "luot_hoc": 7,
+          "pt": "ठीक है",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 8,
+          "luot_hoc": 9,
+          "pt": "मैं रास्ते में हूँ",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 10,
+          "luot_hoc": 11,
+          "pt": "एक सेकंड रुको",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 12,
+          "luot_hoc": 13,
+          "pt": "मुझे समझ नहीं आया",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 14,
+          "luot_hoc": 15,
+          "pt": "ये लीजिए",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "TEN_DT": "the Talka AI robot",
+    "NGUOI_DT": "a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background",
+    "HE": "she",
+    "HE_C": "She",
+    "HIS": "her",
+    "HIM": "her",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/arab/bien-the-17.webp"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ],
+      "NGUOI_DT": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+      ]
+    }
+  },
+  {
+    "name": "X0105_Speaker Hindi Nữ_18",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a Indian woman of about 33 years old, with the face, hair, build and complete outfit exactly as in the reference photo",
+    "GIONG_HOC": "a real Indian woman in their thirties, natural mid-high pitch around 190–220 Hz, warm, confident and charismatic like a conference speaker, native Hindi; speaks English clearly with a light Indian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone in a slim dark case, its screen lit and facing the lens",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Hindi accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देती थी।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ्लुएंटली और कॉन्फिडेंस के साथ इंग्लिश बोलने लगी।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "“ठीक है” को इंग्लिश में कैसे बोलेंगे? Sounds good. मेरे साथ बोलिए: Sounds good.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मैं रास्ते में हूँ” को इंग्लिश में कैसे बोलेंगे? I'm on my way. मेरे साथ बोलिए: I'm on my way.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“एक सेकंड रुको” को इंग्लिश में कैसे बोलेंगे? Give me a second. मेरे साथ बोलिए: Give me a second.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मुझे समझ नहीं आया” को इंग्लिश में कैसे बोलेंगे? I didn't catch that. मेरे साथ बोलिए: I didn't catch that.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“ये लीजिए” को इंग्लिश में कैसे बोलेंगे? Here you go. मेरे साथ बोलिए: Here you go.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "hi",
+      "the": [
+        {
+          "luot": 6,
+          "luot_hoc": 7,
+          "pt": "ठीक है",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 8,
+          "luot_hoc": 9,
+          "pt": "मैं रास्ते में हूँ",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 10,
+          "luot_hoc": 11,
+          "pt": "एक सेकंड रुको",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 12,
+          "luot_hoc": 13,
+          "pt": "मुझे समझ नहीं आया",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 14,
+          "luot_hoc": 15,
+          "pt": "ये लीजिए",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "TEN_DT": "the Talka AI robot",
+    "NGUOI_DT": "a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background",
+    "HE": "she",
+    "HE_C": "She",
+    "HIS": "her",
+    "HIM": "her",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/arab/bien-the-18.webp"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ],
+      "NGUOI_DT": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+      ]
+    }
+  },
+  {
+    "name": "X0105_Speaker Hindi Nữ_19",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a Indian woman of about 60 years old, with the face, hair, build and complete outfit exactly as in the reference photo",
+    "GIONG_HOC": "a real Indian woman in their sixties, natural mid-high pitch around 190–220 Hz, warm, confident and charismatic like a conference speaker, native Hindi; speaks English clearly with a light Indian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone in a slim dark case, its screen lit and facing the lens",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Hindi accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देती थी।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ्लुएंटली और कॉन्फिडेंस के साथ इंग्लिश बोलने लगी।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "“ठीक है” को इंग्लिश में कैसे बोलेंगे? Sounds good. मेरे साथ बोलिए: Sounds good.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मैं रास्ते में हूँ” को इंग्लिश में कैसे बोलेंगे? I'm on my way. मेरे साथ बोलिए: I'm on my way.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“एक सेकंड रुको” को इंग्लिश में कैसे बोलेंगे? Give me a second. मेरे साथ बोलिए: Give me a second.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मुझे समझ नहीं आया” को इंग्लिश में कैसे बोलेंगे? I didn't catch that. मेरे साथ बोलिए: I didn't catch that.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“ये लीजिए” को इंग्लिश में कैसे बोलेंगे? Here you go. मेरे साथ बोलिए: Here you go.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "hi",
+      "the": [
+        {
+          "luot": 6,
+          "luot_hoc": 7,
+          "pt": "ठीक है",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 8,
+          "luot_hoc": 9,
+          "pt": "मैं रास्ते में हूँ",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 10,
+          "luot_hoc": 11,
+          "pt": "एक सेकंड रुको",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 12,
+          "luot_hoc": 13,
+          "pt": "मुझे समझ नहीं आया",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 14,
+          "luot_hoc": 15,
+          "pt": "ये लीजिए",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "TEN_DT": "the Talka AI robot",
+    "NGUOI_DT": "a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background",
+    "HE": "she",
+    "HE_C": "She",
+    "HIS": "her",
+    "HIM": "her",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/arab/bien-the-19.webp"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ],
+      "NGUOI_DT": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+      ]
+    }
+  },
+  {
+    "name": "X0105_Speaker Hindi Nữ_20",
+    "TEN_HOC": "the speaker",
+    "VAI_HOC": "keynote speaker",
+    "NGUOI_HOC": "a Indian woman of about 38 years old, with the face, hair, build and complete outfit exactly as in the reference photo",
+    "GIONG_HOC": "a real Indian woman in their thirties, natural mid-high pitch around 190–220 Hz, warm, confident and charismatic like a conference speaker, native Hindi; speaks English clearly with a light Indian accent; a real person, not an actor",
+    "DAO_HOC": "a small black presentation clicker held loosely in the right hand low at the waist, and a thin black headset microphone along the left cheek",
+    "DAO_DIENTHOAI": "a modern smartphone in a slim dark case, its screen lit and facing the lens",
+    "NEN_HOC": "a dark conference stage: a deep navy-blue curtain backdrop, a round glossy red stage carpet at his feet, a few huge glowing red abstract 3D block shapes (no letters, no words) behind him on the left and right, and the dark out-of-focus silhouettes of an audience along the bottom edge",
+    "NEN_HOC2": "a deep navy-blue stage curtain with soft vertical folds, plain dark and softly lit, nothing else",
+    "TEN_DAY": "the AI tutor",
+    "VAI_DAY": "AI robot tutor",
+    "NGUOI_DAY": "a sleek humanoid robot with a smooth white porcelain face, black wraparound sunglasses, a grey baseball cap on its bald head, a black-and-dark-grey zip-up bomber jacket with ribbed collar and cuffs worn open over glossy white hexagonal chest armour with thin glowing cyan seams, a black mechanical neck of bundled cables, white and black segmented mechanical hands; its soft porcelain lips open and move naturally with every word whenever the robot itself speaks",
+    "GIONG_DAY": "a deep calm male synthetic voice around 95–120 Hz with a light robotic sheen, natural Hindi accent, patient and clear like a kind language tutor; speaks English words with a clean neutral American accent",
+    "NEN_DAY": "a sunny city park: green trees with soft sunlight filtering through, a dark wooden railing the robot rests one forearm on, a faint blurred path and lamp post, all softly out of focus",
+    "NGON_NGU": "Hindi",
+    "TU_OLHA": "देखिए",
+    "LUOT": [
+      {
+        "who": "hoc",
+        "text": "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।",
+        "emo": "decisive, persuasive",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "Me too. You’re welcome. I’m fine, thanks.",
+        "emo": "doubtful",
+        "fx": "none",
+        "phan": 1,
+        "gach": true
+      },
+      {
+        "who": "hoc",
+        "text": "पहले मैं भी ऐसे ही जवाब देती थी।",
+        "emo": "playful, warm",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+        "emo": "upbeat, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "सिर्फ़ तीन हफ़्तों में मैं फ्लुएंटली और कॉन्फिडेंस के साथ इंग्लिश बोलने लगी।",
+        "emo": "confident, proud",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "hoc",
+        "text": "और ये बिल्कुल फ्री है। देखिए!",
+        "emo": "excited",
+        "fx": "none",
+        "phan": 1
+      },
+      {
+        "who": "day",
+        "text": "“ठीक है” को इंग्लिश में कैसे बोलेंगे? Sounds good. मेरे साथ बोलिए: Sounds good.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Sounds good.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मैं रास्ते में हूँ” को इंग्लिश में कैसे बोलेंगे? I'm on my way. मेरे साथ बोलिए: I'm on my way.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I'm on my way.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“एक सेकंड रुको” को इंग्लिश में कैसे बोलेंगे? Give me a second. मेरे साथ बोलिए: Give me a second.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Give me a second.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“मुझे समझ नहीं आया” को इंग्लिश में कैसे बोलेंगे? I didn't catch that. मेरे साथ बोलिए: I didn't catch that.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "I didn't catch that.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "day",
+        "text": "“ये लीजिए” को इंग्लिश में कैसे बोलेंगे? Here you go. मेरे साथ बोलिए: Here you go.",
+        "emo": "helpful, friendly",
+        "fx": "none",
+        "phan": 2
+      },
+      {
+        "who": "hoc",
+        "text": "Here you go.",
+        "emo": "cheerful, confident",
+        "fx": "none",
+        "phan": 2
+      }
+    ],
+    "HAU_KY": {
+      "ngon_ngu": "hi",
+      "the": [
+        {
+          "luot": 6,
+          "luot_hoc": 7,
+          "pt": "ठीक है",
+          "en": "Sounds good",
+          "ipa": "/saunz gud/"
+        },
+        {
+          "luot": 8,
+          "luot_hoc": 9,
+          "pt": "मैं रास्ते में हूँ",
+          "en": "I'm on my way",
+          "ipa": "/aim on mai wei/"
+        },
+        {
+          "luot": 10,
+          "luot_hoc": 11,
+          "pt": "एक सेकंड रुको",
+          "en": "Give me a second",
+          "ipa": "/giv mi a sekənd/"
+        },
+        {
+          "luot": 12,
+          "luot_hoc": 13,
+          "pt": "मुझे समझ नहीं आया",
+          "en": "I didn't catch that",
+          "ipa": "/ai didən kach dat/"
+        },
+        {
+          "luot": 14,
+          "luot_hoc": 15,
+          "pt": "ये लीजिए",
+          "en": "Here you go",
+          "ipa": "/hir yu gou/"
+        }
+      ]
+    },
+    "TEN_DT": "the Talka AI robot",
+    "NGUOI_DT": "a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background",
+    "HE": "she",
+    "HE_C": "She",
+    "HIS": "her",
+    "HIM": "her",
+    "refs": {
+      "NGUOI_HOC": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/arab/bien-the-20.webp"
+      ],
+      "NGUOI_DAY": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/ai-robot-mu-kinh.png"
+      ],
+      "NGUOI_DT": [
+        "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+      ]
+    }
+  }
+]

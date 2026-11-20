@@ -1,0 +1,36 @@
+{
+  "hook": {
+    "tu": "0:00",
+    "den": "0:05",
+    "luot": "1",
+    "tom_tat": "Diễn giả nam đứng một mình trên sân khấu kiểu TED/hội nghị, nhìn thẳng ống kính, giơ ngón trỏ nói nguyên tắc: nghe ai đó nói \"Nice to meet you\" thì đừng bao giờ đáp \"Me too\".",
+    "loi": [
+      "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।"
+    ]
+  },
+  "tinh_huong": {
+    "tu": "0:05",
+    "den": "0:59.7",
+    "luot": "2-16",
+    "tom_tat": "Nỗi đau: cắt sang cảnh tiệc sang trọng, diễn giả cầm ly champagne nói chuyện xã giao, lần lượt đáp ba câu sai \"Me too / You're welcome / I'm fine, thanks\" (chữ gạch ngang đỏ + dấu X + tiếng sai nổi lên từng câu); quay lại sân khấu, cười tự giễu thú nhận \"trước đây tôi cũng trả lời y như vậy\". Giải pháp: kể đã luyện với Talka AI, chỉ ba tuần nói tiếng Anh trôi chảy và tự tin, hoàn toàn miễn phí, giơ điện thoại lên khi nói \"देखिए\" (xem này). Demo: chuyển cảnh nhoè sang màn hình chia đôi dọc — robot gia sư Talka AI (mũ lưỡi trai, kính đen) bên trái, diễn giả bên phải; 5 vòng hỏi-đáp dạy 5 câu tiếng Anh (Sounds good / I'm on my way / Give me a second / I didn't catch that / Here you go), mỗi câu có thẻ hiện nghĩa tiếng Hindi + phiên âm đọc-sao-viết-vậy, từ đang đọc tô vàng.",
+    "loi": [
+      "Me too. You’re welcome. I’m fine, thanks.",
+      "पहले मैं भी ऐसे ही जवाब देता था।",
+      "लेकिन फिर मैंने Talka AI के साथ प्रैक्टिस करना शुरू किया।",
+      "सिर्फ़ तीन हफ्तों में मैं फ्लुएंटली और कॉन्फ़िडेंस के साथ इंग्लिश बोलने लगा।",
+      "और ये बिल्कुल फ्री है। देखिए!",
+      "Sounds good / I'm on my way / Give me a second / I didn't catch that / Here you go (mỗi câu: robot hỏi + đọc mẫu, diễn giả lặp lại một lần; thẻ hiện nghĩa Hindi + phiên âm)"
+    ]
+  },
+  "quang_cao": {
+    "tu": "0:59.7",
+    "den": "1:15",
+    "tom_tat": "Robot Talka AI (avatar trắng phát sáng) hiện giữa khung, màn hình cài đặt app \"Talka AI: Language Tutor\" (Cancel/Open, tiến trình tải), ảnh màn hình app (Practice Speaking, các chủ đề), rồi end card logo + nút \"GET IT ON Google Play\". Toàn bộ đoạn này KHÔNG gen — dùng Thương hiệu (logo, Video giới thiệu, Outro) của dự án trong Studio."
+  },
+  "hook_moi": {
+    "tom_tat": "Hook mới của kịch bản B (đổi hook, giữ nguyên tình huống): thay vì nói về lời chào \"Nice to meet you\", diễn giả nói về phản xạ gật đầu giả vờ hiểu khi không nghe kịp tiếng Anh — một nỗi đau khác lấy từ insight (họp online/thuyết trình, không dám hỏi lại, chỉ gật \"yes, yes\"). Cùng cấu trúc hình học (giơ ngón trỏ, nghiêm nghị, nhìn ống kính) và độ dài câu như hook gốc; cảnh 2 trở đi (nỗi đau tiệc, giải pháp, demo 5 câu) giữ y nguyên.",
+    "loi": [
+      "जब आपको अंग्रेज़ी में कुछ समझ न आए, तो कभी भी सिर हिलाकर \"yes, yes\" मत बोलिए।"
+    ]
+  }
+}

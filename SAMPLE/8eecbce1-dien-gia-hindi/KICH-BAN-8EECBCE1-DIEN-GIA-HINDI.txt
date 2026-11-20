@@ -1,0 +1,127 @@
+[HAU KY]:
+loai: san-khau-chia-doi-gia-su-ai
+
+[GHI CHU]:
+  Kịch bản A ("goc", bám sát video mẫu) của mã `8eecbce1-dien-gia-hindi`. Video gốc: `8eecbce1-Speaker-HINDI-sample.mp4` (25,6 s, 1440×2560, Hindi xen tiếng Anh, app Talka AI; xem PHAN-TICH-VIDEO-MAU.md).
+  DÙNG CHUNG code đã có của thể loại `san-khau-chia-doi-gia-su-ai` (gen.py + post.py; post.py tự bật Nirmala UI + shaping complex khi HAU_KY.ngon_ngu = "hi"). Không có code riêng.
+  Sao từ bản 6 cảnh Hindi (`SAMPLE/san-khau-x0071-hindi/`), sửa theo video này: diễn giả ~50 tuổi tóc muối tiêu, gi-lê kẻ sọc xám + sơ mi hồng; cảnh tiệc là khung RỘNG (từ đùi trở lên); ngón trỏ giơ bằng tay phải (tay cầm bút bấm); tốc độ nói ~3,4 từ/giây.
+  Video gốc CHỈ có phần sân khấu (0:00–0:25,6). PHẦN 2 (demo 5 câu, chia đôi robot/diễn giả) KHÔNG có trong video nhưng người dùng chỉ định trong cấu trúc hook/tình huống → giữ theo khuôn chia đôi đã kiểm chứng. CTA (cài app Google Play) không có trong video → Thương hiệu/Outro, không gen.
+  PHẦN 2 DÙNG `noi: cat`: mọi clip của mỗi nhân vật xuất phát từ MỘT ảnh gốc cố định (phan2/base_<KHOÁ>.png).
+  PHẦN 1 (cảnh thường, 6 cảnh): diễn giả (HOC) một mình trên sân khấu, nói thẳng ống kính: HOOK (cảnh 1) → cảnh TIỆC đáp sai "Me too / You're welcome / I'm fine, thanks" (gạch đỏ do hậu kỳ) → "tôi cũng từng đáp thế" → "rồi tôi luyện với Talka AI" → "3 tuần nói trôi chảy" → "hoàn toàn miễn phí, xem này" (giơ điện thoại).
+  PHẦN 2 (ghép 2 lớp, 10 lượt): robot gia sư Talka AI (DAY) nửa TRÁI, diễn giả (HOC) nửa PHẢI; 5 vòng robot đọc mẫu + mời lặp, diễn giả lặp MỘT lần. Thẻ từ vựng (nghĩa Hindi + tiếng Anh + phiên âm) do hậu kỳ vẽ từ HAU_KY.the. Vào phần 2: nhoè 0,5 giây.
+  Ảnh tham chiếu: chọn trong KHO NHÂN VẬT (mã ở `refs`); ảnh kho là ảnh đứng nền xanh, quần áo thường → kịch bản chỉ lấy MẶT/TÓC/DÁNG của người, trang phục theo vai (NGUOI_HOC). Robot lấy cả thiết kế lẫn trang phục từ ảnh.
+Các dòng "===== PHAN n: ... =====" chia phần; mọi thứ phía trên dòng chia phần đầu tiên không gửi cho Muse.
+
+===== PHAN 1: DIEN GIA TREN SAN KHAU (CANH THUONG) =====
+
+[STYLE LOCK]:
+Vertical 9:16 photorealistic cinematic video, one fixed static camera, a single frame (no split screen, no overlay, no inset window), {{TEN_HOC}} alone in the frame, the face large, clear and well lit by a warm key light with a soft rim light. Keep the framing, the place and the light exactly as in the start frame. {{HE_C}} looks into the lens, as the start frame shows. The reference photo gives only the face, hair and build: its green backdrop, standing pose and casual clothes are NOT part of the scene; the clothes are the ones described here. No text, no letters, no words, no logos, no captions anywhere in the frame.
+
+[CHAR LOCK]:
+The {{VAI_HOC}}, {{TEN_HOC}}: {{NGUOI_HOC}}. {{DAO_HOC}} Same face, hair and clothes in every clip. VOICE LOCK {{TEN_HOC}}: one single voice, {{GIONG_HOC}}, same timbre and pitch in every clip.
+EYE LINE: {{TEN_HOC}} looks into the lens. {{HE_C}} is ALONE in the frame: no other person, no shoulder, no head and no blur of anyone at any edge of the frame, and nothing in the hands except what the start frame shows.
+RULE: one speaker, one line per clip, clear lip-sync; {{HE}} is alone in the frame.
+
+[SET LOCK]:
+The place behind {{HIM}} stays exactly as in the start frame of each clip, still and out of focus; nobody else speaks or moves in the frame; the light is the same throughout the clip.
+
+[VIDEO SUFFIX]:
+Static camera, no zoom, no pan, no shake, no cut. {{TEN_HOC}} starts talking right away in natural {{NGON_NGU}} at an easy confident pace (about 3 words per second, short lines up to 3.7), saying the English words inside the line clearly with a clean American accent, and finishes the line promptly. After the last word {{HE}} keeps a calm closed-mouth face and stays still until the end of the clip in the pose reached at the end of the line. Real person caught on camera, not an actor. Soft room ambience only, no music. 9:16.
+
+[NEGATIVE]:
+text, captions, subtitles, logos, icons, watermark, letters, words, signs; split screen, overlay, inset window; green screen; a second person; audience in focus; handheld or moving camera, zoom, shake; face, hair, clothes or microphone changing; walking; big sweeping gestures, scratching the head, covering the face; background music; robotic text-to-speech voice; slow, dragged speech; movement during the final still; applause, clapping, cheering, laughter, crowd or audience noise, background music.
+
+CẢNH 1 (0:00–0:05): Lượt 1 — HOOK
+Bối cảnh: sân khấu hội nghị, một khung duy nhất, {{TEN_HOC}} đứng giữa nhìn ống kính; không chữ.
+Voice: ({{NGON_NGU}}, xen tiếng Anh, chỉ một người nói) {{LUOT_1}}
+Khung đầu: Khung hoàn chỉnh: {{TEN_HOC}} {{NGUOI_HOC}} đứng giữa sân khấu, từ đùi trở lên, nhìn ống kính, mỉm cười nhẹ, miệng khép; tay trái buông thả, tay phải giữ {{DAO_HOC}}; {{NEN_HOC}} phía sau.
+Khung cuối: {{TEN_HOC}} nhìn ống kính, ngón trỏ đã hạ xuống, hai tay ngang bụng, miệng khép; khung này là khung đầu của cảnh sau.
+Diễn biến: Nói luôn từ đầu clip, nghiêm nghị, giơ ngón trỏ tay phải (tay đang cầm bút bấm) lên ngang vai ngay từ các từ đầu câu, giữ trong lúc nói rồi hạ xuống trước từ cuối. Nói xong đứng im đến hết clip.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, photorealistic, a single frame with no split screen. {{TEN_HOC}}, {{NGUOI_HOC}}, stands in the middle of a conference stage, seen from the thighs up, looking straight into the lens with a soft smile, the mouth closed, the left arm relaxed and the right hand holding {{DAO_HOC}}. Behind {{HIM}}: {{NEN_HOC}}. The character reference photo gives only the face, hair and build (its green backdrop, standing pose and casual clothes are not part of the scene; the clothes are the ones described here). No text, no letters, no words, no logos anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the start-frame image. SETTING: the whole clip stays on the conference stage exactly as in the start frame ({{NEN_HOC}}); it is never a ballroom, reception or party. CHAR LOCK. In this clip: {{LUOT_1}} {{TEN_HOC}} speaks with clear lip-sync, serious and confident, looking into the lens. ACTION, done WHILE the line is spoken and complete before the last word: {{HE}} raises the index finger of {{HIS}} right hand (the hand holding the clicker) to shoulder height near the start of the line, holds it while making the point, then lowers it before the last word; the left hand stays low. After the line {{HE}} stays still until the end. VIDEO SUFFIX.
+Audio: Chỉ giọng {{TEN_HOC}}, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không vỗ tay, không tiếng khán giả.
+Negative prompt: a second voice; text or captions; split screen; camera movement; the finger staying raised after the line; another person at any edge of the frame, a guest's shoulder or the back of a head, a champagne glass or any drink in the hand; applause, clapping, cheering, laughter, crowd or audience noise, background music; ballroom, reception hall, chandeliers, champagne glasses, banquet tables, white flower arrangements, party guests, a change of location.
+
+CẢNH 2 (0:05–0:10): Lượt 2 — NỖI ĐAU (cảnh tiệc, đổi bối cảnh)
+Bối cảnh: bữa tiệc sang trọng; {{TEN_HOC}} đang NÓI CHUYỆN XÃ GIAO với một vị khách đứng ngay ngoài khung bên trái (không lộ mặt, không ai nhìn ống kính); khung trung (từ đùi trở lên), đứng, cầm ly champagne; không chữ (chữ gạch ngang + dấu X do hậu kỳ vẽ).
+Voice: (English, chỉ một người nói) {{LUOT_2}}
+Khung đầu: Khung mới hoàn chỉnh: {{TEN_HOC}} {{NGUOI_HOC}} đứng ở tiệc xa hoa, khung trung từ đùi trở lên, người hơi xoay sang trái khung, đầu hơi nghiêng, mắt nhìn sang trái ngoài khung về phía người đang trò chuyện, mỉm cười xã giao lịch sự, ly champagne flute trong tay trái, miệng khép; góc dưới bên phải khung thấp thoáng vai và gáy mờ nhoè của một vị khách quay lưng ở tiền cảnh, mất nét hoàn toàn; sảnh tiệc sang trọng mờ phía sau.
+Khung cuối: {{TEN_HOC}} vẫn nhìn người đối diện ngoài khung, nụ cười xã giao, ly champagne trong tay trái, miệng khép.
+Diễn biến: Nói ba câu xã giao liên tiếp (Me too / You're welcome / I'm fine, thank you) một cách tự nhiên như đáp lời người đối diện, giọng đều đều hơi gượng, gật nhẹ mỗi câu, tay giữ ly. Nói xong đứng im.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, photorealistic, a single frame with no split screen. A candid medium shot of {{TEN_HOC}}, {{NGUOI_HOC}}, standing, seen from the thighs up, at a luxury black-tie evening reception, the body turned slightly toward the left of the frame, caught mid-conversation: {{HIS}} head turned slightly and {{HIS}} eyes looking to the left, just out of frame, at someone {{HE}} is chatting with (that person is NOT visible), a polite social smile, the mouth closed, a champagne flute in the left hand. In the lower right corner of the frame, in the near foreground, only a small out-of-focus blur of a guest's dark-suited shoulder and the back of a head. Behind {{HIM}}, softly out of focus: a grand ballroom with warm golden chandelier lights, tall white floral arrangements, tables with champagne glasses and elegant guests far in the blurred background. Warm flattering light, shallow depth of field. {{HE_C}} does NOT look into the lens. The character reference photo gives only the face, hair and build (its green backdrop, standing pose and casual clothes are not part of the scene; the clothes are the ones described here). No text, no letters, no logos anywhere. Output only the image.
+Prompt video: Start exactly from the start-frame image: a candid medium shot of {{TEN_HOC}} standing at a luxury black-tie reception, seen from the thighs up, chatting with someone just out of frame on the left, a champagne flute in {{HIS}} left hand, a blurred guest's shoulder in the lower right foreground, a blurred ballroom behind. CHAR LOCK. RECEPTION CLIP ONLY: the EYE LINE and alone-in-frame rules above do not apply to this clip: {{HE}} looks at the person out of frame on the left and never into the lens, and the blurred shoulder and back of a head at the right edge stay as in the start frame. In this clip: {{LUOT_2}} {{TEN_HOC}} speaks with clear lip-sync, answering the person out of frame in a polite, flat, slightly forced social tone, small nods on each of the three replies, glass steady; {{HIS}} eyes stay on the person out of frame and never go to the lens. The out-of-focus guest in the foreground stays blurred and silent. Camera static, no zoom, no pan, no cut. After the line {{HE}} stays still with the polite smile until the end of the clip. VIDEO SUFFIX.
+Audio: Chỉ giọng {{TEN_HOC}}, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không vỗ tay; chỉ tiếng sảnh tiệc rất nhỏ.
+Negative prompt: a second voice; text or captions; split screen; camera movement; looking into the lens; the guest turning around, speaking or becoming sharp; the glass changing hands; applause, clapping, cheering, laughter, crowd or audience noise, background music.
+
+CẢNH 3 (0:10–0:14): Lượt 3 — NỖI ĐAU (thú nhận)
+Bối cảnh: quay lại sân khấu như cảnh 1 (cảnh 2 là cảnh tiệc); không chữ.
+Voice: ({{NGON_NGU}}, xen tiếng Anh, chỉ một người nói) {{LUOT_3}}
+Khung đầu từ cảnh: 1
+Khung cuối: {{TEN_HOC}} nhìn ống kính, mỉm cười thành khẩn, hai tay ngang bụng, miệng khép; khung này là khung đầu của cảnh sau.
+Diễn biến: Nói với nụ cười tự giễu, gật đầu nhẹ một lần ở nửa sau câu, hai tay giữ ngang bụng. Nói xong đứng im.
+Prompt ảnh: Generate exactly one still image now, vertical 9:16, photorealistic, a single frame with no split screen. {{TEN_HOC}}, {{NGUOI_HOC}}, stands in the middle of a conference stage, seen from the thighs up, looking straight into the lens with a soft smile, the mouth closed, the left arm relaxed and the right hand holding {{DAO_HOC}}. Behind {{HIM}}: {{NEN_HOC}}. The character reference photo gives only the face, hair and build (its green backdrop, standing pose and casual clothes are not part of the scene; the clothes are the ones described here). No text, no letters, no words, no logos anywhere. Output only the image.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the conference-stage frame from clip 1, NOT the reception) and continue from it with no cut or reset. SETTING: the whole clip stays on the conference stage exactly as in the start frame ({{NEN_HOC}}); it is never a ballroom, reception or party. CHAR LOCK. In this clip: {{LUOT_3}} {{TEN_HOC}} speaks with clear lip-sync and a rueful self-mocking smile; one small nod near the second half of the line, the hands stay at the waist. After the line {{HE}} stays still until the end. VIDEO SUFFIX.
+Audio: Chỉ giọng {{TEN_HOC}}, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không vỗ tay, không tiếng khán giả.
+Negative prompt: a second voice; text or captions; split screen; camera movement; another person at any edge of the frame, a guest's shoulder or the back of a head, a champagne glass or any drink in the hand; applause, clapping, cheering, laughter, crowd or audience noise, background music; ballroom, reception hall, chandeliers, champagne glasses, banquet tables, white flower arrangements, party guests, a change of location.
+
+CẢNH 4 (0:14–0:18): Lượt 4 — GIẢI PHÁP
+Bối cảnh: giữ nguyên bố cục, người và sân khấu; không chữ.
+Voice: ({{NGON_NGU}}, xen tiếng Anh, chỉ một người nói) {{LUOT_4}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: {{TEN_HOC}} nhìn ống kính, tươi cười, hai tay ngang bụng, miệng khép; khung này là khung đầu của cảnh sau.
+Diễn biến: Giọng sáng lên, tay trái đưa ra trước một chút như giới thiệu ở giữa câu, rồi hạ về ngang bụng. Nói xong đứng im.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. SETTING: the whole clip stays on the conference stage exactly as in the start frame ({{NEN_HOC}}); it is never a ballroom, reception or party. CHAR LOCK. In this clip: {{LUOT_4}} {{TEN_HOC}} speaks with clear lip-sync, {{HIS}} face brightening into a warm smile. ACTION, done WHILE the line is spoken and complete before the last word: the left hand moves slightly forward, palm up, as if presenting something, near the middle of the line, then returns to the waist. After the line {{HE}} stays still until the end. VIDEO SUFFIX.
+Audio: Chỉ giọng {{TEN_HOC}}, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không vỗ tay, không tiếng khán giả.
+Negative prompt: a second voice; text or captions; split screen; camera movement; another person at any edge of the frame, a guest's shoulder or the back of a head, a champagne glass or any drink in the hand; applause, clapping, cheering, laughter, crowd or audience noise, background music; ballroom, reception hall, chandeliers, champagne glasses, banquet tables, white flower arrangements, party guests, a change of location.
+
+CẢNH 5 (0:18–0:23): Lượt 5 — GIẢI PHÁP
+Bối cảnh: giữ nguyên bố cục, người và sân khấu; không chữ.
+Voice: ({{NGON_NGU}}, xen tiếng Anh, chỉ một người nói) {{LUOT_5}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: {{TEN_HOC}} nhìn ống kính, tự tin, hai tay ngang bụng, miệng khép; khung này là khung đầu của cảnh sau.
+Diễn biến: Nói tự tin, hai bàn tay mở nhẹ ở nửa sau câu, rồi về ngang bụng. Nói xong đứng im.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. SETTING: the whole clip stays on the conference stage exactly as in the start frame ({{NEN_HOC}}); it is never a ballroom, reception or party. CHAR LOCK. In this clip: {{LUOT_5}} {{TEN_HOC}} speaks with clear lip-sync, confident and proud. ACTION, done WHILE the line is spoken and complete before the last word: both hands open slightly outward at waist height near the second half of the line, then return to the waist. After the line {{HE}} stays still until the end. VIDEO SUFFIX.
+Audio: Chỉ giọng {{TEN_HOC}}, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không vỗ tay, không tiếng khán giả.
+Negative prompt: a second voice; text or captions; split screen; camera movement; another person at any edge of the frame, a guest's shoulder or the back of a head, a champagne glass or any drink in the hand; applause, clapping, cheering, laughter, crowd or audience noise, background music; ballroom, reception hall, chandeliers, champagne glasses, banquet tables, white flower arrangements, party guests, a change of location.
+
+CẢNH 6 (0:23–0:25,6): Lượt 6 — GIẢI PHÁP (giơ điện thoại)
+Bối cảnh: giữ nguyên bố cục, người và sân khấu; không chữ.
+Voice: ({{NGON_NGU}}, xen tiếng Anh, chỉ một người nói) {{LUOT_6}}
+Khung đầu: Chính là khung cuối của cảnh trước.
+Khung cuối: {{TEN_HOC}} nhìn ống kính, tươi cười, tay trái giơ {{DAO_DIENTHOAI}} ngang ngực với màn hình hướng ra ống kính, tay phải giữ {{DAO_HOC}}, miệng khép; khung này là khung đầu của cảnh sau.
+Diễn biến: Nói vui vẻ; ở chữ "{{TU_OLHA}}" giơ tay trái lên ngang ngực cầm {{DAO_DIENTHOAI}} hướng màn hình về ống kính. Điện thoại chỉ xuất hiện từ cảnh này. Nói xong đứng im, điện thoại vẫn giơ.
+Prompt video: STYLE LOCK, SET LOCK. Start exactly from the provided start frame (the last frame of the previous clip) and continue from it with no cut or reset. SETTING: the whole clip stays on the conference stage exactly as in the start frame ({{NEN_HOC}}); it is never a ballroom, reception or party. CHAR LOCK. In this clip: {{LUOT_6}} {{TEN_HOC}} speaks with clear lip-sync and a cheerful smile. ACTION, done WHILE the line is spoken and complete by the last word: at the words "{{TU_OLHA}}" the left hand lifts {{DAO_DIENTHOAI}} from below the frame edge up to chest height, the screen facing the lens, and holds it there. After the line {{HE}} stays still, the phone still raised, until the end. VIDEO SUFFIX.
+Audio: Chỉ giọng {{TEN_HOC}}, rõ, nói xong sớm; phần còn lại im lặng. Không nhạc, không vỗ tay, không tiếng khán giả.
+Negative prompt: a second voice; text or captions on the phone screen; split screen; camera movement; another person at any edge of the frame, a guest's shoulder or the back of a head, a champagne glass or any drink in the hand; applause, clapping, cheering, laughter, crowd or audience noise, background music; ballroom, reception hall, chandeliers, champagne glasses, banquet tables, white flower arrangements, party guests, a change of location.
+
+===== PHAN 2: THE TU VUNG VOI GIA SU AI (GHEP 2 LOP, CHIA DOI) | vao: nhoe 0.5 =====
+
+[GHEP HAI LOP]:
+nen: HOC
+khung HOC: 0.5, 0, 0.5, 1
+khung DAY: 0, 0, 0.5, 1
+bo goc: 0
+vien: khong
+noi: cat
+nghe: moi canh
+
+[STYLE LOCK]:
+Vertical short-form social video look, crisp focus on the faces, realistic skin, hair and fabric detail for the real person, glossy clean high-end CGI for the robot. The frame is later cut to a TALL NARROW SLICE: only the middle half of the width is kept, the left and right quarters are cropped away, so everything important stays inside the middle half of the width. The bottom 17% of the frame height holds only the lower part of the body or plain background, nothing important (a caption card is added there later). No text, captions, logos, icons or watermarks anywhere in the frame.
+
+[NHAN VAT HOC]:
+{{TEN_HOC}}: {{NGUOI_HOC}}. {{DAO_HOC}} The reference photo gives only the face, hair and build: its green backdrop, standing pose and casual clothes are NOT part of the scene; the clothes are the ones described here. Portrait frame, a medium shot, {{TEN_HOC}} faces the camera STRAIGHT ON (the nose points at the lens, shoulders square, never turned or leaning), perfectly centred left-right with the nose on the vertical centre line, framed from a small gap above the head down to just below the waist, the body about two thirds of the frame width: the head, shoulders and hands stay inside the middle half of the frame width. The top of the head is at about 20% of the frame height; the faces and hands stay above the bottom 17% of the frame. Behind {{HIM}}: {{NEN_HOC2}}. The camera is locked off and never moves. {{TEN_HOC}} looks straight into the lens. On the final call screen {{TEN_HOC}} is always the person on the RIGHT half and the AI tutor is on the LEFT half. While speaking: lively, warm facial expressions, raised eyebrows, small head nods, a friendly smile, repeating the English phrase ONCE, clearly and a little slowly, like a student repeating after a teacher, then closing the mouth. VOICE: {{GIONG_HOC}}, the same timbre, pitch and loudness in every clip.
+
+[NGHE HOC]:
+In this clip the AI tutor on the LEFT has the turn; {{TEN_HOC}}, the person on the RIGHT, sits completely still and quiet for the whole clip. {{TEN_HOC}} listens: friendly attentive smile, eyes on the lens, slow natural blinks, the head almost still. The lips stay gently pressed together the whole clip; the hands stay at the waist, the right hand holding {{DAO_HOC}}.
+
+[NHAN VAT DAY]:
+{{TEN_DAY}}: {{NGUOI_DAY}}. The reference photo shows the robot's design and outfit: its green backdrop and full-length standing pose are NOT part of the scene. Portrait frame, a medium shot: the robot faces the camera, perfectly centred left-right, seen from a small gap above the top of the head (or cap) down to the waist; the head is about one third of the frame width and the shoulders about the middle half of the width (the left and right quarters of the frame show only the background), the top of the head at about 20% of the frame height, the face and hands staying above the bottom 17% of the frame. The robot keeps exactly this size in the frame in every clip; never a close-up of the face. Behind it: {{NEN_DAY}}. The camera is locked off and never moves. The robot looks straight into the lens. On the final call screen the AI tutor is always on the LEFT half and {{TEN_HOC}} is on the RIGHT half. While speaking it moves its lips in clear sync with the words, with small head tilts and slow blinks, like a patient, friendly teacher, and it may lift one hand a little when inviting {{TEN_HOC}} to repeat. VOICE: {{GIONG_DAY}}, the same timbre, pitch and loudness in every clip.
+
+[NGHE DAY]:
+In this clip {{TEN_HOC}} on the RIGHT has the turn; {{TEN_DAY}}, on the LEFT, stays completely still and quiet for the whole clip. {{TEN_DAY}} listens calmly: looking into the lens, slow blinks, a tiny head tilt now and then. The lips stay gently pressed together the whole clip; the head stays mostly still apart from that small tilt.
+
+[VIDEO SUFFIX]:
+Natural spontaneous conversational delivery, not text-to-speech, not an announcer. The tutor speaks English clearly with a clean American accent and Hindi for the short invitation to repeat; the learner speaks natural Hindi and English. The tutor speaks calmly and clearly, about 2.5 words per second, with a short pause before inviting {{TEN_HOC}} to repeat; the learner repeats the English phrase exactly ONCE (never twice), a little slower and clearer, then stops. The line starts right away. Clean close voice like a video call in a quiet room, no music, no background sound, no echo.
+
+[NEGATIVE]:
+text, letters, words, captions, subtitles, logos, icons, watermark; phone or app interface in the frame; split screen or picture-in-picture inside the clip; a second person; hands or a phone coming into the frame; camera cuts, zoom, push-in, pan, shake; the subject drifting off-centre or toward the side edges; face morphing, outfit change, hair change, age drift; distorted face; extra fingers; jerky or exaggerated gestures; hands touching the face or hair; an extreme close-up of the robot's face; slow, dragged or stretched speech; flat monotone, robotic or announcer voice for the learner; background music; echo or reverb; applause, clapping, cheering, laughter, crowd or audience noise, background music.

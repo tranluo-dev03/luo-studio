@@ -1,0 +1,21 @@
+PROMPT CHO AGENT — thể loại 8da55fc4-dien-gia-hindi (diễn giả sân khấu Hindi "Nice to meet you / Me too", một phần, 6 cảnh, app Talka AI)
+
+Viết thêm biến thể:
+- KHÔNG sửa tay JSON. Sửa bảng trong cong-cu/tao_bien_the.py rồi chạy lại:
+  * Kịch bản A (goc) — ĐỔI NHÂN VẬT: thêm dòng NHAN_VAT (ten, ma_hoc = mã kho NAM|NU-<tuổi>-IND-<số>, gioi nam/nu,
+    NGUOI_HOC viết THEO ẢNH kho (mặt, tóc, dáng) + trang phục của vai (insight: saree lụa viền vàng, anarkali thêu, blazer + chân váy,
+    suit trắng/đỏ mận, kurta khoác blazer; bindi, trang sức vàng nhỏ), GIONG_HOC có Hz, DAO_HOC (câu hoàn chỉnh, có {his}), DAO_LY, NEN_HOC, NEN_TIEC).
+    Đại từ (HE/HIS/HIM) và đuôi động từ Hindi (देता था/देती थी, लगा/लगी) tự đổi theo gioi.
+  * Kịch bản B (hook) — ĐỔI HOOK: thêm dòng HOOKS (text cùng cấu trúc "जब कोई कहे/पूछे “X”, तो कभी भी “Y” मत बोलिए।", ≤ 20 từ,
+    HOOK_HANH_DONG tiếng Anh (có {he}/{his}), HOOK_DIEN_BIEN tiếng Việt, HOOK_CAM_XUC, HOOK_KHUNG_CUOI). Lấy tình huống từ insight trong PHAN-TICH-VIDEO-MAU.md.
+    Câu Y nên là một trong ba câu bị gạch ở cảnh tiệc (Me too / You're welcome / I'm fine, thanks) để mạch nối; câu khác thì cân nhắc đổi cả lượt 2.
+- Sửa kịch bản: chỉ sửa KICH-BAN-8DA55FC4-DIEN-GIA-HINDI.txt (A) rồi chạy cong-cu/tao_kich_ban_hook.py để sinh lại B (giữ hai bản khớp nhau từ cảnh 2).
+- Nhóm tuổi kho chỉ tới 30-45: vai 50+ chọn người trông già nhất và ghi tuổi trong NGUOI_HOC.
+
+Lỗi hay gặp / tự kiểm tra:
+- Chạy `video-moi.py kiem-tra <kịch bản> <biến thể> --tai-anh` cho CẢ HAI kịch bản sau khi sinh lại.
+- Mốc "Diễn biến" chỉ neo "देखिए" qua token TU_OLHA.
+- Điện thoại (DAO_DIENTHOAI) chỉ là mặt robot, không chữ, không giao diện.
+- Cảnh 2 tiệc: nhân vật nhìn sang PHẢI về vị khách (vai mờ góc dưới phải), không nhìn ống kính; cuối câu nhăn mặt ngượng nhẹ.
+- Cảnh 3 dùng `Khung đầu từ cảnh: 1` (về sân khấu); không cầm ly.
+- Hậu kỳ dùng chung types/san-khau-chia-doi-gia-su-ai (không sửa): lượt 2 phải có "gach": true; HAU_KY.ngon_ngu = "hi".

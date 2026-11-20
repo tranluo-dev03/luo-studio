@@ -1117,10 +1117,19 @@ def _run_generation_locked(prompt: str, kind: str, timeout: int,
     _notify(cur_acc)
     last_exc = None
     try:
-        for attempt in range(2):
+        # Lỗi tạm của Muse (dịch vụ gen 502/unavailable, "didn't generate", mất kết nối VM...) hay tự hết: thử lại tối đa
+        # MUSE_MAX_ATTEMPTS lần (mặc định 4), nghỉ tăng dần giữa các lần. Từ chối nội dung / hết hạn mức thì dừng ngay.
+        max_attempts = max(2, int(os.environ.get("MUSE_MAX_ATTEMPTS", "4") or 4))
+        for attempt in range(max_attempts):
             if deadline is not None and time.monotonic() >= deadline:
                 raise MuseGenerationError("任务总等待时限已到，停止重试")
             if attempt > 0:
+                if last_exc and "Muse báo gen thất bại" in str(last_exc):
+                    wait = min(30.0, 5.0 * attempt)
+                    if deadline is not None:
+                        wait = min(wait, max(0.0, deadline - time.monotonic() - 5))
+                    log.info("【retry】Muse gen thất bại tạm thời — nghỉ %.0fs rồi thử lại lần %d/%d", wait, attempt + 1, max_attempts)
+                    time.sleep(wait)
                 if last_exc and "仅返回文本" in str(last_exc) and REFUSAL_TEXT_RE.search(str(last_exc)):
                     break   # Muse từ chối hẳn (vd. tài khoản không được tạo video): thử lại chỉ tốn thêm một lượt
                 if last_exc and "未产出媒体附件，仅返回了文本回复" in str(last_exc):

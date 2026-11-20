@@ -18,7 +18,7 @@ import tempfile
 HERE = os.path.dirname(os.path.abspath(__file__))
 TYPES = os.path.dirname(HERE)
 PROD = os.path.dirname(TYPES)
-for _p in (os.path.join(TYPES, "_chung"), PROD):
+for _p in (os.path.join(TYPES, "_chung"), PROD, HERE):   # HERE: man_mau.py (python -I không tự thêm thư mục của script vào sys.path)
     if _p not in sys.path:
         sys.path.insert(0, _p)
 import phu_de as PD  # noqa: E402
@@ -59,7 +59,7 @@ def _font(path, size):
         return ImageFont.load_default()
 
 
-def render_card(cfg, pt, ipa, path):
+def render_card(cfg, pt, ipa, path, label=True):
     """Nền thẻ (không có chữ tiếng Anh): viền xanh + vàng, nhãn hồng câu tiếng Bồ gạch chân, phiên âm đỏ."""
     from PIL import Image, ImageDraw
     c = cfg["the"]
@@ -70,12 +70,13 @@ def render_card(cfg, pt, ipa, path):
     d.rounded_rectangle((x, y, x + w, y + h), radius=r, fill=rgb(c["vien_ngoai"]) + (255,))
     d.rounded_rectangle((x + 8, y + 8, x + w - 8, y + h - 8), radius=r - 6, fill=rgb(c["vien_trong"]) + (255,))
     d.rounded_rectangle((x + 14, y + 14, x + w - 14, y + h - 14), radius=r - 10, fill=rgb(c["nen"]) + (255,))
-    f = _font(c.get("font_nhan", c["font"]), c["co_nhan"])   # tiếng Hindi: font_nhan = Nirmala UI Bold (Arial không có chữ Devanagari)
-    tw = d.textlength(pt, font=f)
     px, py = W / 2, y + c["y_nhan"]
-    d.rounded_rectangle((px - tw / 2 - 30, py - 30, px + tw / 2 + 30, py + 30), radius=16, fill=rgb(c["nhan_nen"]) + (255,))
-    d.text((px, py - 2), pt, font=f, fill=rgb(c["nhan_chu"]) + (255,), anchor="mm")
-    d.line((px - tw / 2, py + 22, px + tw / 2, py + 22), fill=rgb(c["nhan_chu"]) + (255,), width=3)
+    if label:   # tiếng Ả Rập: nhãn do libass vẽ (PIL ở máy này không có raqm nên không nối chữ / đảo chiều phải-trái được) → label=False
+        f = _font(c.get("font_nhan", c["font"]), c["co_nhan"])   # tiếng Hindi: font_nhan = Nirmala UI Bold (Arial không có chữ Devanagari)
+        tw = d.textlength(pt, font=f)
+        d.rounded_rectangle((px - tw / 2 - 30, py - 30, px + tw / 2 + 30, py + 30), radius=16, fill=rgb(c["nhan_nen"]) + (255,))
+        d.text((px, py - 2), pt, font=f, fill=rgb(c["nhan_chu"]) + (255,), anchor="mm")
+        d.line((px - tw / 2, py + 22, px + tw / 2, py + 22), fill=rgb(c["nhan_chu"]) + (255,), width=3)
     f = _font(c["font"], c["co_ipa"])
     d.text((px, y + c["y_ipa"]), ipa, font=f, fill=rgb(c["chu_ipa"]) + (255,), anchor="mm")
     im.save(path)
@@ -98,7 +99,7 @@ def en_layout(cfg, en):
     return out
 
 
-def write_ass(cfg, rounds, path, extra=()):
+def write_ass(cfg, rounds, path, extra=(), nhan_ass=False):
     """rounds: [{en, t0, t1, hl: [(chỉ số từ, s, e)]}] → ASS: chữ tiếng Anh xanh cả thời gian thẻ hiện + ô vàng + chữ đè lên khi từ đang đọc."""
     c = cfg["the"]
     size, font = int(c["co_en"]), c.get("font_ass", "Arial")
@@ -113,6 +114,7 @@ WrapStyle: 2
 [V4+ Styles]
 Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
 Style: En,{font},{size},&H00{blue},&H00{blue},&H00FFFFFF,&H00FFFFFF,-1,0,0,0,100,100,0,0,1,0,0,4,0,0,0,1
+Style: Lbl,Arial,{int(c['co_nhan'])},&H00{bgr_hex(c['nhan_chu'])},&H00{bgr_hex(c['nhan_chu'])},&H00{bgr_hex(c['nhan_nen'])},&H00{bgr_hex(c['nhan_nen'])},-1,0,1,0,100,100,0,0,3,22,0,5,0,0,0,1
 Style: Cap,{font},64,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,7,2,5,40,40,0,1
 
 [Events]
@@ -120,6 +122,8 @@ Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
 """
     ts, lines = PP.ts, []
     for r in rounds:
+        if nhan_ass:   # nhãn câu tiếng Ả Rập: ô hồng (BorderStyle 3) + gạch chân, libass nối chữ và xử lý chiều phải-trái
+            lines.append(f"Dialogue: 1,{ts(r['t0'])},{ts(r['t1'])},Lbl,,0,0,0,,{{\\an5\\pos({W // 2},{c['y'] + c['y_nhan']})}}{r['pt']}")
         lay = en_layout(cfg, r["en"])
         for wd, x, w in lay:   # chữ xanh thường
             lines.append(f"Dialogue: 2,{ts(r['t0'])},{ts(r['t1'])},En,,0,0,0,,{{\\an4\\pos({x:.0f},{cy})}}{wd}")
@@ -206,6 +210,9 @@ def main(argv=None):
     hk = v.get("HAU_KY") or {}
     lang = str(hk.get("ngon_ngu") or "pt")
     model = cfg.get("phu_de", {}).get("whisper", "small")
+    if lang == "ar":   # chữ Ả Rập: phụ đề + nhãn thẻ do libass vẽ (Arial có chữ Ả Rập; shaping complex = HarfBuzz + FriBidi)
+        cfg.setdefault("phu_de", {})["font"] = "Arial"
+        cfg["phu_de"]["shaping"] = "complex"
     if lang == "hi":   # chữ Devanagari: font Nirmala UI + shaping complex (như robot-pho-tieng-long, chia-doi-gia-su-ai-hi)
         cfg["the"]["font_nhan"] = "C:\\Windows\\Fonts\\NirmalaB.ttf"
         cfg.setdefault("phu_de", {})["font"] = "Nirmala UI"
@@ -215,6 +222,21 @@ def main(argv=None):
     work = tempfile.mkdtemp(prefix="sk_pp_")
     try:
         cur = os.path.abspath(a.raw)
+        # ---- 0a. cân sắc màu các cảnh sân khấu phần 1 (trừ cảnh tiệc) về cảnh 1: engine chỉ kéo mỗi cảnh về khung đầu của chính nó nên cảnh 3–6 mỗi cảnh một tông
+        try:
+            pj0 = os.path.join(os.path.dirname(os.path.abspath(a.raw)), "phan.json")
+            plan0 = json.load(open(pj0, encoding="utf-8")) if os.path.exists(pj0) else []
+            p1 = sorted((s for s in plan0 if str(s.get("phan")) == "1" and s.get("turn") in by_turn), key=lambda s: s["scene"])
+            stage = [(s["scene"], by_turn[s["turn"]]["start"], by_turn[s["turn"]]["end"]) for s in p1
+                     if not (s["turn"] < len(luot) and luot[s["turn"]].get("gach"))]
+            if len(stage) >= 2:
+                import man_mau as MM
+                print(f"Cân màu về cảnh {stage[0][0]} (cảnh sân khấu phần 1, bỏ cảnh tiệc):")
+                out_mau = os.path.join(work, "mau.mp4")
+                if MM.can_mau(cur, out_mau, stage):
+                    cur = out_mau
+        except Exception as ex:  # noqa: BLE001
+            print(f"CẢNH BÁO: không cân màu về cảnh 1 được ({type(ex).__name__}: {ex}); giữ nguyên màu")
         # ---- 0. cảnh tiệc: chữ gạch ngang + X + tiếng sai
         R = _load_robot_post()
         extra, buzz_t, buzz_w = gach_lines(R, cfg, v, luot, by_turn, a.raw, model, work)
@@ -233,7 +255,7 @@ def main(argv=None):
                     print(f"  CẢNH BÁO: thẻ {n + 1} không có mốc từ của lượt {ti + 1}; bỏ thẻ")
                     continue
                 en = str(t["en"])
-                after = R.find_word(ws, "ingles")   # robot đọc "Em inglês, <en>.": tìm câu tiếng Anh sau chữ "inglês"
+                after = R.find_word(ws, "الانجليزية" if lang == "ar" else "ingles")   # robot đọc "Em inglês, <en>.": tìm câu tiếng Anh sau chữ "inglês"
                 hl, _ = highlights(R, ws, en, (after + 1) if after is not None else 0)
                 if th in tw:
                     pos = 0
@@ -245,12 +267,12 @@ def main(argv=None):
             for k, r in enumerate(rounds):
                 r["t1"] = rounds[k + 1]["t0"] if k + 1 < len(rounds) else min(total, r["last"] + 0.3)
                 p = os.path.join(work, f"card{k}.png")
-                render_card(cfg, r["pt"], r["ipa"], p)
+                render_card(cfg, r["pt"], r["ipa"], p, label=(lang != "ar"))
                 overlays.append((p, r["t0"], r["t1"]))
                 print(f"  thẻ {k + 1} {r['en']!r}: {r['t0']:.2f}-{r['t1']:.2f}s, {len(r['hl'])} lần tô từ")
         if rounds or extra:
             if True:
-                write_ass(cfg, rounds, os.path.join(work, "card.ass"), extra)
+                write_ass(cfg, rounds, os.path.join(work, "card.ass"), extra, nhan_ass=(lang == "ar"))
                 cmd = ["ffmpeg", "-y", "-v", "error", "-i", cur]
                 fc = f"[0:v]scale={W}:{H}:flags=lanczos,fps=30[v0]"
                 last = "v0"

@@ -25,7 +25,21 @@ BO = {
     "brazil-robot": dict(file="BIEN-THE-X0058-X0072-BRAZIL-ROBOT-40.json", nat="Brazilian", lang="pt", ngon="Brazilian Portuguese", tu_olha="olha só", robot=True),
     "hindi": dict(file="BIEN-THE-X0057-X0071-HINDI-20.json", nat="Indian", lang="hi", ngon="Hindi", tu_olha="देखिए"),
     "mexico": dict(file="BIEN-THE-X0059-X0073-MEXICO-40.json", nat="Mexican", lang="es", ngon="Mexican Spanish", tu_olha="Mira"),
+    # X0104: nhân vật Ấn Độ nói tiếng Ả Rập; X0105: cùng 20 nhân vật, lời Hindi. Cả hai: điện thoại ở cảnh 6 hiện robot AI của người dùng (nhân vật phụ DT: ảnh tham chiếu NGUOI_DT, Muse vẽ ngay lúc gen, KHÔNG đè hình ở hậu kỳ).
+    "arab": dict(file="BIEN-THE-X0104-ARAB-20.json", nat="Indian", lang="ar", ngon="Arabic", tu_olha="إليك الطريقة", dt=True, ma="X0104", ten="Arabic", stt0=0),
+    "hindi2": dict(file="BIEN-THE-X0105-HINDI-20.json", nat="Indian", lang="hi", ngon="Hindi", tu_olha="देखिए", dt=True, ma="X0105", ten="Hindi", stt0=0),
 }
+
+# Điện thoại cầm trong cảnh 6: màn hình = robot AI của người dùng (ảnh nền xanh dương) + chữ "Talka AI". Robot đi vào cảnh như một "nhân vật" DT
+# (TEN_DT / NGUOI_DT / refs.NGUOI_DT) để engine gửi ảnh kèm lệnh gen video cảnh 6 (video chỉ nhận ảnh của khoá NGUOI_*).
+DAO_DT = "a modern smartphone in a slim dark case, its screen lit and facing the lens"
+ROBOT_DT = ("a sleek humanoid AI robot shown only as a picture on the phone screen: smooth white porcelain face with calm grey-blue eyes, bald white domed head with "
+            "white ear discs, bundled black cables at the neck, white armour shoulder plates, on a saturated royal-blue background")
+ANH_ROBOT_DT = "SAMPLE/san-khau-chia-doi-gia-su-ai/anh/robot-talka-dien-thoai.webp"
+
+VONG_AR = [("حسنًا", "Sounds good", "/saunz gud/"), ("أنا في الطريق", "I'm on my way", "/aim on mai wei/"),
+           ("لحظة واحدة", "Give me a second", "/giv mi a sekənd/"),
+           ("لم أفهم", "I didn't catch that", "/ai didən kach dat/"), ("تفضل", "Here you go", "/hir yu gou/")]
 
 VONG_HI = [("ठीक है", "Sounds good", "/saunz gud/"), ("मैं रास्ते में हूँ", "I'm on my way", "/aim on mai wei/"),
            ("एक सेकंड रुको", "Give me a second", "/giv mi a sekənd/"),
@@ -39,7 +53,20 @@ def luot(lang, nu):
     """Danh sách lượt theo ngôn ngữ. Trả về (LUOT, VONG, số lượt phần 1)."""
     if lang == "pt":
         return T.luot("x"), T.VONG, 7
-    if lang == "hi":
+    if lang == "ar":
+        phan1 = [
+            ("hoc", 1, "عندما يقول لك أحدهم “Nice to meet you”، لا ترد أبدًا بعبارة “Me too”.", "decisive, persuasive"),
+            ("hoc", 1, "Me too. You’re welcome. I’m fine, thanks.", "doubtful", {"gach": True}),
+            ("hoc", 1, "في السابق، كانت هذه إجاباتي أيضًا.", "playful, warm"),
+            ("hoc", 1, f"لكن بعد ذلك، بدأت أتدرب مع {T.APP}.", "upbeat, proud"),
+            ("hoc", 1, "خلال ثلاثة أسابيع فقط، أصبحت أتحدث الإنجليزية بطلاقة وثقة.", "confident, proud"),
+            ("hoc", 1, "وكل هذا مجانًا تمامًا. إليك الطريقة!", "excited"),
+        ]
+        vong = VONG_AR
+
+        def rnd(pt, en):
+            return f"كيف نقول «{pt}» باللغة الإنجليزية؟ {en}. لنرددها معًا: {en}."
+    elif lang == "hi":
         phan1 = [
             ("hoc", 1, "जब कोई आपसे “Nice to meet you” कहे, तो कभी भी “Me too” मत बोलिए।", "decisive, persuasive"),
             ("hoc", 1, "Me too. You’re welcome. I’m fine, thanks.", "doubtful", {"gach": True}),
@@ -83,6 +110,7 @@ def giong(nat, lang, nu, tuoi):
     pitch = "natural mid-high pitch around 190–220 Hz, warm" if nu else "natural mid pitch around 120–150 Hz, warm"
     ngon = {"pt": "native Brazilian Portuguese; speaks English clearly with a light Brazilian accent",
             "hi": "native Hindi; speaks English clearly with a light Indian accent",
+            "ar": "speaks fluent Modern Standard Arabic; speaks English clearly with a light Arabic accent",
             "es": "native Mexican Spanish; speaks English clearly with a light Mexican accent"}[lang]
     return (f"a real {nat} {'woman' if nu else 'man'} {do_tuoi}, {pitch}, confident and charismatic like a conference speaker, "
             f"{ngon}; a real person, not an actor")
@@ -102,18 +130,22 @@ def anh_path(bo, kind, stt):
 
 def main():
     for bo, cfg in BO.items():
+        if sys.argv[1:] and bo not in sys.argv[1:]:   # python tao_bien_the_csv.py arab hindi2 → chỉ dựng các bộ nêu tên
+            continue
         res = []
         for stt, mo_ta, link, mo_ta_robot, link_robot in D.doc(bo):
             nu = mo_ta.lstrip().startswith("Người phụ nữ")
             tuoi = int(re.search(r"khoảng (\d+) tuổi", mo_ta).group(1))
             lt, vong, n1 = luot(cfg["lang"], nu)
             v = {
-                "name": f"bien-the-{stt:02d}-{'nu' if nu else 'nam'}-{tuoi}",
+                # X0104/X0105: tên theo yêu cầu "<mã>_Speaker <Hindi|Arabic> <Nam|Nữ>_<STT>" (STT 01–20 cho cả hai dự án)
+                "name": (f"{cfg['ma']}_Speaker {cfg['ten']} {'Nữ' if nu else 'Nam'}_{stt + cfg['stt0']:02d}" if cfg.get("ma")
+                         else f"bien-the-{stt:02d}-{'nu' if nu else 'nam'}-{tuoi}"),
                 "TEN_HOC": "the speaker", "VAI_HOC": "keynote speaker",
                 "NGUOI_HOC": (f"a {cfg['nat']} {'woman' if nu else 'man'} of about {tuoi} years old, with the face, hair, build "
                               f"and complete outfit exactly as in the reference photo"),
                 "GIONG_HOC": giong(cfg["nat"], cfg["lang"], nu, tuoi),
-                "DAO_HOC": T.DAO_HOC, "DAO_DIENTHOAI": T.DAO_DIENTHOAI,
+                "DAO_HOC": T.DAO_HOC, "DAO_DIENTHOAI": DAO_DT if cfg.get("dt") else T.DAO_DIENTHOAI,
                 "NEN_HOC": T.NEN_HOC1, "NEN_HOC2": T.NEN_HOC2,
                 "TEN_DAY": "the AI tutor", "VAI_DAY": "AI robot tutor",
                 "NGUOI_DAY": ROBOT_CSV if cfg.get("robot") else T.ROBOT,
@@ -124,9 +156,13 @@ def main():
                 "HAU_KY": {"ngon_ngu": cfg["lang"], "the": [
                     {"luot": n1 + 2 * k, "luot_hoc": n1 + 1 + 2 * k, "pt": pt, "en": en, "ipa": ipa} for k, (pt, en, ipa) in enumerate(vong)]},
             }
+            if cfg.get("dt"):
+                v["TEN_DT"], v["NGUOI_DT"] = "the Talka AI robot", ROBOT_DT
             v.update(gioi(nu))
             v["refs"] = {"NGUOI_HOC": [anh_path(bo, "bien-the", stt)],
                          "NGUOI_DAY": [anh_path(bo, "robot", stt) if cfg.get("robot") else T.ANH + "ai-robot-mu-kinh.png"]}
+            if cfg.get("dt"):
+                v["refs"]["NGUOI_DT"] = [ANH_ROBOT_DT]
             res.append(v)
         with open(os.path.join(OUT, cfg["file"]), "w", encoding="utf-8") as f:
             json.dump(res, f, ensure_ascii=False, indent=2)
