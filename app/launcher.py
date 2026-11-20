@@ -344,7 +344,14 @@ def main():
                     time.sleep(3600)
             except KeyboardInterrupt:
                 return 0
-        open_window(url)
+        open_window(url, holder=server.BG)
+        if server.BG.get("on"):   # người dùng bấm "Chạy nền": cửa sổ đóng nhưng Studio + LUO-API chạy tiếp (hàng đợi không bị ngắt)
+            say(f"Chạy nền: Studio vẫn chạy ở {url} (mở lại bằng biểu tượng LUO Studio; tắt bằng nút Tắt hẳn Studio).")
+            try:
+                while True:
+                    time.sleep(3600)
+            except KeyboardInterrupt:
+                return 0
         return 0
     finally:
         kill_tree(api)
@@ -359,7 +366,8 @@ def is_headless():
     return sys.platform.startswith("linux") and not (os.environ.get("DISPLAY") or os.environ.get("WAYLAND_DISPLAY"))
 
 
-def open_window(url):
+def open_window(url, holder=None):
+    """Mở cửa sổ ứng dụng và chờ tới khi nó đóng. holder (server.BG): ghi tiến trình cửa sổ vào holder["window_proc"] để nút Chạy nền đóng được nó."""
     sys.path.insert(0, STUDIO_DIR)
     import app as studio_app  # noqa: E402
     exe = studio_app.find_browser()
@@ -375,6 +383,8 @@ def open_window(url):
     profile = os.path.join(STUDIO_DATA, "window-profile")
     proc = subprocess.Popen([exe, f"--app={url}", f"--user-data-dir={profile}", "--start-maximized", "--no-first-run",
                              "--disable-features=Translate,TranslateUI,EdgeTranslate,msEdgeTranslate", "--disable-sync", "--lang=vi"])
+    if holder is not None:
+        holder["window_proc"] = proc
     proc.wait()
 
 

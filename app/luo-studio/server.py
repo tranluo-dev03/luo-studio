@@ -949,6 +949,36 @@ def _fail_or_retry(it, e):
     qlog(it, f"Lỗi - {e}. Tự xếp lại hàng chờ, chạy lại sau {delay // 60} phút (lần {n + 1}/{maxn}); các video khác vẫn chạy tiếp", "warn")
 
 
+# Cửa sổ ứng dụng: launcher.py đặt "window_proc" = tiến trình cửa sổ nó mở và chờ; "on" = người dùng chọn Chạy nền -> launcher không tắt
+# Studio/LUO-API khi cửa sổ đóng mà chạy tiếp tới khi Tắt hẳn (SIGTERM) hoặc tắt máy.
+BG = {"on": False, "window_proc": None}
+
+
+def window_alive():
+    p = BG.get("window_proc")
+    return p is not None and p.poll() is None
+
+
+def window_action(action):
+    if action == "background":
+        BG["on"] = True
+        if window_alive():
+            threading.Timer(1.0, BG["window_proc"].terminate).start()   # để kịp trả lời trang trước khi đóng cửa sổ
+        return {"ok": True, "background": True}
+    if action == "quit":
+        if os.name == "nt":
+            return {"error": "Tắt từ giao diện chưa hỗ trợ trên Windows: đóng cửa sổ dòng lệnh LUO Studio"}
+        import signal
+
+        def bye():
+            if window_alive():   # đóng cả cửa sổ ứng dụng, không để lại cửa sổ trỏ vào Studio đã tắt (lần mở sau Chrome sẽ "mở trong phiên cũ" rồi thoát ngay)
+                BG["window_proc"].terminate()
+            os.kill(os.getpid(), signal.SIGTERM)   # launcher bắt SIGTERM -> thoát êm, tắt LUO-API + trình duyệt con
+        threading.Timer(1.0, bye).start()
+        return {"ok": True}
+    return {"error": "action phải là background hoặc quit"}
+
+
 # Trần số video chạy song song. 8 đủ cho máy 6 nhân; máy chủ nhiều nhân đặt LUO_MAX_PARALLEL (và MUSE2API_CONCURRENCY của LUO-API) cao hơn.
 MAX_PARALLEL = max(1, int(os.environ.get("LUO_MAX_PARALLEL", "") or 32))
 
@@ -1674,6 +1704,11 @@ class H(BaseHTTPRequestHandler):
             if "parallel" in b:
                 schedule()  # tăng số luồng thì chạy ngay mục đang chờ
             return self.send_json({"ok": True})
+        if a == "window":
+            if m == "GET":
+                return self.send_json({"background": BG["on"], "managed": window_alive()})
+            r = window_action((self.body() or {}).get("action", ""))
+            return self.send_json(r, 400 if "error" in r else 200)
         if a == "mouthcheck":
             return self.send_json(mouth_status(force=True))
         if a == "health":
