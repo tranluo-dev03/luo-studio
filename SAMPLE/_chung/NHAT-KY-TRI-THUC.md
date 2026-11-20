@@ -979,3 +979,48 @@ Người dùng báo 6 lỗi; nguyên nhân đã chứng minh bằng số đo tr�
 ### 19/11/2026 - 2e3fa1bf-canh-sat-xe-tai: nhóm biến thể tx4wnb (5 cặp, goc) và x2oly3 (5 hook, hook)
 - Hiện tượng: gen 10 ảnh nền xanh bằng `gen-anh-nhan-vat-that.py`: 9 đạt lần đầu, TX_B lỗi Muse "fs.raw path not found" (gen lại một lần đạt). Cả 10 ảnh: một người, đúng giới/tuổi, không chữ.
 - Cách làm: tuổi trong lời thoại, `to`, cách gọi (Sir/Ma'am) và HIM_CANHSAT (him/her) sinh theo bảng; cặp luôn khác giới. `kiem-tra` cả hai nhóm 0 lỗi, 0 cảnh báo. Chưa gen video: CHỜ KIỂM CHỨNG (xe buýt/xe van cần xem khung đầu vì kịch bản tả "cabin window"). Riêng thể loại.
+
+## 19/11/2026 · bb327bac-ref-noi-chuyen (video mới, chạy ngầm)
+- Hiện tượng: video PiP robot trên + người học dưới, 1 phần, tiếng Tây Ban Nha → làm bản tiếng Anh. Khuôn ghép 2 lớp (mẫu ghep-hai-lop) + `post.py`/`config.json` riêng (không gen.py). Tạo 2 kịch bản (A giữ hook, B đổi hook với token `HOOK_TV`).
+- Ảnh: robot dùng lại `robot-talka.png`; người học gen Muse nền xanh (đạt, 1 lần). `base_HOC`/`base_DAY`/clip cảnh 1 đạt.
+- Kết quả: cảnh 1 ĐẠT; cả video CHỜ KIỂM CHỨNG. Áp dụng riêng thể loại; chưa chưng cất.
+
+## 19/11/2026 · 6fbf4a4b-ref-noi-chuyen (video mới, chạy ngầm, bản NGƯỜI THẬT của bb327bac-ref-noi-chuyen)
+- Hiện tượng: cùng video (md5 trùng bb327bac) nhưng người dùng đòi nhân vật + bối cảnh là người thật, không hoạt hình. Dùng lại phân tích; STYLE LOCK "photorealistic live-action", NEGATIVE thêm cartoon/3D render; ảnh người học gen bằng `cong-cu/gen_anh_that.py` (nạp `gen-anh-nhan-vat.py` rồi ghi đè STYLE/NEG, không sửa mã chung): đạt lần đầu, một người, nền xanh phẳng.
+- Chạy thử goc-01: `base_HOC.png` là người thật trong bếp thật, `base_DAY.png` robot nền đen; Studio gen lại cảnh 1 một lần do Muse phóng hình (`.zoom.mp4`), clip cuối robot nói, đạt.
+- Kết quả: cảnh 1 ĐẠT; cả video và kịch bản B CHỜ KIỂM CHỨNG. Riêng thể loại; gợi ý chưa chưng cất: thêm tuỳ chọn ảnh thật cho gen-anh-nhan-vat.py dùng chung.
+
+## 19/11/2026 · 6fbf4a4b-ref-noi-chuyen: nhóm biến thể sa5mxj (6 người học Âu Mỹ, phòng khách, robot BOT-TALKA)
+- Hiện tượng: kịch bản cứng "tay đặt ở bồn rửa" + "bếp" nên không đổi được hành động/bối cảnh. Sửa: thêm token `DONG_HOC` (tư thế/tay) và câu "chỉ lấy mặt, tóc, quần áo từ ảnh tham chiếu, bỏ nền xanh và tư thế đứng"; "kitchen" → "calm background"; NGHE_HOC bỏ "sink". Đã PUT vào loại dự án và thêm DONG_HOC cho biến thể mẫu (kịch bản B không đổi).
+- Ảnh: 7 ảnh người dùng tải từ Drive bằng link `drive.usercontent.google.com/download?id=..&export=download&confirm=t` (đổi webp → png), robot BOT-TALKA tả lại trong NGUOI_DAY; phòng khách gen bằng `cong-cu/gen_anh_that.py --bc` (đạt lần đầu) gắn `refs.NEN_HOC`. `kiem-tra` 0 lỗi.
+- Kết quả: CHỜ KIỂM CHỨNG (chưa gen video). Riêng thể loại.
+
+## 19/11/2026 · 6fbf4a4b-ref-noi-chuyen: sửa theo góp ý sau chạy thử goc-01
+- Hiện tượng (final.mp4): (1) robot đổi mắt/giọng giữa các clip; (2) mặt người học nằm ở 40-55% khung, ô robot (đáy 33%) + phụ đề ô trắng che nửa mặt; (3) mỗi chỗ đổi cảnh người học khựng: đo diff vùng dưới có 1-3 khung đứng yên tại 1.5, 3.2, 7.9, 9.9, 23.9, 32.3 s và nhảy mạnh tại 16.8, 25.8 s; (4) viền sai/đúng chỉ phủ nửa màn hình.
+- Nguyên nhân: (1) khối robot không khoá mắt/giọng; (2) kịch bản đặt đầu ở 40%, cỡ chest-up; (3) clip nghe có "liếc lên + gật" khác tư thế clip nói; (4) `config.json` chép `vien {x 0.5, rong 0.5}` của thể loại chia đôi dọc.
+- Sửa: (1) NHAN VAT DAY khoá mắt xanh nhạt + "exact same voice"; (2) NHAN VAT HOC: waist-up, lùi xa, tóc ở 55%, mắt 62%, nửa trên khung trống; phụ đề co_chu 50; (3) NGHE_HOC: mắt nhìn máy, đầu/người đứng yên đúng tư thế clip nói, thêm "trở về cùng tư thế nghỉ giữa các lượt"; (4) bỏ `vien` khỏi config.json (viền toàn màn hình). Áp cả hai kịch bản và PUT cả hai loại dự án.
+- Kết quả: CHỜ KIỂM CHỨNG (đợi gen lại). Khựng 1-3 khung ở chỗ nối là cơ chế nối clip chung của engine; nếu vẫn còn, cần xem xét engine (ngoài phạm vi thể loại). Chưa chưng cất.
+
+## 19/11/2026 · 6fbf4a4b-ref-noi-chuyen: lỗi "Script còn token chưa có giá trị: DONG_HOC"
+- Hiện tượng: Studio báo thiếu giá trị DONG_HOC khi chạy biến thể test của dự án 6fbf4a4b-ref-noi-chuyen-b36a.
+- Nguyên nhân: khi nhóm sa5mxj thêm token DONG_HOC vào kịch bản A và PUT loại dự án, tôi chỉ sửa file `BIEN-THE-*.json` mà quên cập nhật biến thể đã nằm trong dự án Studio (dự án giữ bản sao riêng).
+- Sửa: PUT `/api/projects/<id>` thêm DONG_HOC cho biến thể 6fbf4a4b-goc-01 (đúng giá trị trong file mẫu). Kịch bản B không dùng token này.
+- Bài học (chung): thêm token vào kịch bản của thể loại đã nhập thì phải cập nhật CẢ biến thể trong các dự án đang có, không chỉ file JSON. Kết quả: CHỜ KIỂM CHỨNG.
+
+## 19/11/2026 · 6fbf4a4b-ref-noi-chuyen: tự kiểm tra lượt chạy sau sửa (Bước 5)
+- Hiện tượng: lượt gen lại 18:43 của goc-01 báo lỗi "No such file ... scene1_spk.mp4(.zoom.mp4)" (18:47) và thư mục run không còn clip nào để xem (chỉ base_*.png, script.txt). Log có dòng "Ghép 2 lớp ..." in 2 lần cùng lúc và 2 lần "Cảnh 1: clip DAY lệch/tự phóng (1.41, 1.25), gen lại": hai worker cùng chạy một biến thể và đổi tên/xoá file của nhau (sau 2 lần tự xếp lại hàng vì lỗi DONG_HOC). Lỗi tương tự ở sa5mxj-nam1 (".dang-ghi" mất sau khi bấm dừng 18:29). Hàng đợi chung đang có 40 mục taxi chờ.
+- Nguyên nhân: đua file do chạy trùng/dừng giữa chừng (Studio), không phải kịch bản. Robot clip bị Muse phóng 1.25-1.41 (engine gen lại).
+- Sửa: kịch bản A và B thêm "đầu và vai robot giữ đúng cỡ/vị trí mọi clip, không đẩy máy/zoom" (PUT cả hai loại dự án); xếp lại ĐÚNG MỘT mục goc-01 (không có cảnh nào xong để "làm lại riêng cảnh").
+- Kết quả: CHỜ KIỂM CHỨNG; chưa có scene*_start/clip để đối chiếu bảng hành động. Riêng thể loại; lỗi đua file là của engine, chưa sửa (ngoài phạm vi).
+
+## 19/11/2026 · 6fbf4a4b-ref-noi-chuyen: nhóm biến thể 7jbjlc (cùng mô tả với sa5mxj)
+- Mô tả người dùng trùng nhóm sa5mxj nên dùng lại 7 ảnh (đã tải, sao sang `anh/nhom-7jbjlc/`) và script `cong-cu/tao_bien_the_nhom_7jbjlc.py` (bản sao đổi tiền tố tên `7jbjlc-*`); kịch bản đã có token DONG_HOC. `kiem-tra` 0 lỗi. CHỜ KIỂM CHỨNG, chưa gen. Riêng thể loại.
+
+## 20/11/2026 · 6fbf4a4b-ref-noi-chuyen: nhóm biến thể w8sqp4 (Hindi, 20 biến thể, mã kho nhân vật India)
+- Cách làm: lời Hindi Devanagari của người dùng (lượt 3, 4-13) xen "I am India." (wrong) / "I am from India." (right, `to` = "I am from India"), tên app Talka AI. 20 biến thể = 5 NU 20-30 + 5 NU 30-45 (bot BOT-TALKA-DEF-INDIA-02, kịch bản "danh sách A") + 5 NAM 20-30 + 5 NAM 30-45 (bot BOT-TALKA-DEF-INDIA-01, "danh sách B"); `refs` ghi MÃ kho, ngoại hình tả theo ảnh đã xem. Giọng robot A nam/baritone, robot B nữ.
+- `config.json` của thể loại: thêm font Nirmala UI, shaping complex, whisper "small" (phụ đề chữ Hindi, xem sổ tay mục 6); ảnh hưởng nhẹ các nhóm tiếng Anh (whisper đa ngôn ngữ).
+- `kiem-tra`: 0 lỗi; cảnh báo lượt 7 (24 từ) và 11 (22 từ) > 20 vì giữ nguyên lời người dùng; câu Devanagari Muse nói chưa kiểm chứng. CHỜ KIỂM CHỨNG, chưa gen. Riêng thể loại.
+
+## 20/11/2026 · 6fbf4a4b-ref-noi-chuyen: nhóm biến thể pq92tq (Hindi, 40 biến thể, đủ 40 mã kho India)
+- Cùng lời Hindi và cấu trúc với w8sqp4 nhưng dùng ĐỦ 20 mã nữ (bot BOT-TALKA-DEF-INDIA-02) + 20 mã nam (bot BOT-TALKA-DEF-INDIA-01) theo thứ tự người dùng ghi (20-30t 01-10 rồi 30-45t 01-10); script `cong-cu/tao_bien_the_nhom_pq92tq.py`. Đã xem ảnh 20 mã mới (06-10 mỗi nhóm) để tả ngoại hình; tên biến thể `pq92tq-<mã rút gọn>` duy nhất, 40 mã `refs` khác nhau.
+- `kiem-tra`: 0 lỗi, 80 cảnh báo (lượt 7 và 11 quá 20 từ vì giữ nguyên lời Hindi). CHỜ KIỂM CHỨNG, chưa gen. Riêng thể loại.

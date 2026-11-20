@@ -1,0 +1,109 @@
+[
+  {
+    "name": "bb327bac-hook-01",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a sleek humanoid AI robot with a glossy white armoured head and shoulders, a smooth white face, softly glowing pale-blue eyes, a slim neck of black cables and white shoulder plates with thin blue light lines, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm male-leaning synthetic-but-natural voice, a baritone around 130-150 Hz, American English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the housekeeper",
+    "NGUOI_HOC": "a stylized 3D-animated Mexican woman in her early fifties, warm brown skin, kind tired brown eyes, dark hair pulled back in a neat bun with a dark-blue patterned headband, a navy-blue short-sleeved housekeeping uniform shirt with a small collar and a white half-apron",
+    "GIONG_HOC": "a warm, friendly Mexican woman's voice, around 195-215 Hz, speaking English with a light Mexican accent, a little hesitant and halting at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of her",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "HOOK_TV": "she says her first line brightly and over-confidently, chin slightly up, sure it is perfect, then her smile softens when the tutor answers",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where do you live?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am live in Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "Almost. Better say: I live in Mexico.",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I live in Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "I always mix that up.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "That's what I'm here for, to help you speak well.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "But I don't have money.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "What? You don't need money. LangLearn lets you practice English for free, unlike expensive apps and courses.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Seriously?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Of course, no tricks. Only real conversation practice with your AI tutor.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Like a real tutor?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Yes. I correct your grammar and pronunciation, and I help you speak with confidence.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Okay, so I'm going to download LangLearn right now.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "Good decision. Let's speak English together.",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_DAY": [
+        "SAMPLE/bb327bac-ref-noi-chuyen/anh/DAY.png"
+      ],
+      "NGUOI_HOC": [
+        "SAMPLE/bb327bac-ref-noi-chuyen/anh/HOC.png"
+      ]
+    }
+  }
+]

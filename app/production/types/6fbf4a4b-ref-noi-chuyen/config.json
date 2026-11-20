@@ -1,0 +1,23 @@
+{
+ "phu_de": {
+  "co_chu": 50,
+  "y_theo_phan": {
+   "1": 680
+  },
+  "kieu_theo_phan": {
+   "1": {
+    "day": {
+     "c": "black",
+     "o": "white"
+    },
+    "hoc": {
+     "c": "black",
+     "o": "yellow"
+    }
+   }
+  },
+  "whisper": "small",
+  "font": "Nirmala UI",
+  "shaping": "complex"
+ }
+}
