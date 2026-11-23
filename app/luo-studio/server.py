@@ -726,6 +726,12 @@ def post_item(it, opts, cx):
     v = next(x for x in p["variants"] if x["name"] == it["variant"])
     d = run_dir(it["project"], it["variant"])
     raw, final = os.path.join(d, "raw.mp4"), os.path.join(d, "final.mp4")
+    body = os.path.join(d, "body.mp4")
+    if opts.get("rebrand") and os.path.exists(body) and os.path.getmtime(body) >= os.path.getmtime(raw):   # đã có bản hậu kỳ chưa gắn thương hiệu: chỉ ghép + gắn lại, không chạy lại phụ đề
+        qlog(it, "Dùng lại bản hậu kỳ đã có, chỉ ghép và gắn thương hiệu")
+        _relink(body, final)
+        _brand(it, p, final, cx)
+        return _finish_post(it, final)
     cp = custom_post(p)
     if cp:
         sc_file = scene_marks(d, raw)
@@ -778,15 +784,90 @@ def _branding(p):
     if not b.get("enabled"):
         return {}
     out = {k: (b.get(k) or "") for k in ("fly", "logo", "intro", "outro")}
-    out.update(logo_pos=b.get("logo_pos") or "tl", logo_size=b.get("logo_size") or 9, logo_text=b.get("logo_text") or "", fly_opacity=16 if b.get("fly_opacity") in (None, "") else b["fly_opacity"])
-    return out if any(out[k] and os.path.exists(out[k]) for k in ("fly", "logo", "intro", "outro")) else {}
+    out.update(logo_pos=b.get("logo_pos") or "tl", logo_size=b.get("logo_size") or 9, logo_text=b.get("logo_text") or "", fly_opacity=16 if b.get("fly_opacity") in (None, "") else b["fly_opacity"], extra_dir=b.get("extra_dir") or "")
+    return out if any(out[k] and os.path.exists(out[k]) for k in ("fly", "logo", "intro", "outro", "extra_dir")) else {}
+
+
+def _relink(src, dst):
+    """dst thành bản của src (hard link, khác ổ đĩa thì chép). Không đụng tới các file khác đang link tới dst cũ."""
+    if os.path.abspath(src) == os.path.abspath(dst):
+        return
+    tmp = dst + ".link"
+    if os.path.exists(tmp):
+        os.remove(tmp)
+    try:
+        os.link(src, tmp)
+    except OSError:
+        shutil.copy2(src, tmp)
+    os.replace(tmp, dst)
+
+
+def _natural(s):
+    return [int(x) if x.isdigit() else x.lower() for x in re.split(r"(\d+)", s)]
+
+
+def extra_pairs(p):
+    """Khớp video trong thư mục "Video ghép thêm" với biến thể: trùng tên trước, phần còn lại lần lượt theo thứ tự (biến thể theo dự án, file theo tên tự nhiên).
+    Trả về ({tên biến thể: {"file", "how"}}, [file không dùng tới])."""
+    folder = (p.get("branding") or {}).get("extra_dir") or ""
+    if not folder or not os.path.isdir(folder):
+        return {}, []
+    files = sorted((f for f in os.listdir(folder) if f.lower().endswith((".mp4", ".mov", ".m4v", ".webm")) and os.path.isfile(os.path.join(folder, f))), key=_natural)
+    by_name = {}
+    for f in files:
+        by_name.setdefault(slug(os.path.splitext(f)[0]).lower(), f)
+    names = [v["name"] for v in p.get("variants", [])]
+    out, used = {}, set()
+    for n in names:
+        f = by_name.get(slug(n).lower())
+        if f and f not in used:
+            out[n] = {"file": os.path.join(folder, f), "how": "tên"}
+            used.add(f)
+    rest = [f for f in files if f not in used]
+    for n in (x for x in names if x not in out):
+        if not rest:
+            break
+        f = rest.pop(0)
+        out[n] = {"file": os.path.join(folder, f), "how": "thứ tự"}
+    return out, rest
+
+
+def extra_preview(p):
+    pairs, unused = extra_pairs(p)
+    rows = []
+    for v in p.get("variants", []):
+        m = pairs.get(v["name"]) or {}
+        rows.append({"variant": v["name"], "file": os.path.basename(m.get("file", "")), "how": m.get("how", ""), "ready": os.path.exists(os.path.join(run_dir(p["id"], v["name"]), "raw.mp4"))})
+    return {"rows": rows, "unused": unused}
+
+
+def extra_run(p):
+    """Ghép lại cho mọi biến thể đã có video thô và có video khớp. Bản có body.mp4 chỉ ghép + gắn thương hiệu; bản cũ chưa có thì chạy lại hậu kỳ một lần (không gen lại, không tốn credit Muse)."""
+    pairs, _ = extra_pairs(p)
+    started, skipped = 0, []
+    for v in p.get("variants", []):
+        n = v["name"]
+        if n not in pairs or not os.path.exists(os.path.join(run_dir(p["id"], n), "raw.mp4")):
+            continue
+        try:
+            start_post(p["id"], n, {"rebrand": True})
+            started += 1
+        except RuntimeError as e:
+            skipped.append(f"{n}: {e}")
+    return {"started": started, "skipped": skipped}
 
 
 def _brand(it, p, final, cx):
-    """Bước cuối của hậu kỳ: logo bay (lặp đến hết video) + logo cố định phủ lên video, rồi nối video giới thiệu app + outro (production/branding.py)."""
+    """Bước cuối của hậu kỳ: [video ghép thêm], logo bay (lặp đến hết video) + logo cố định phủ lên video, rồi nối video giới thiệu app + outro (production/branding.py).
+    Giữ body.mp4 = bản hậu kỳ chưa gắn gì, để lần sau đổi video ghép / thương hiệu không phải chạy lại phụ đề và không ghép chồng lên intro, outro."""
     b = _branding(p)
     if not b:
         return
+    extra = ""
+    if b.get("extra_dir"):
+        extra = (extra_pairs(p)[0].get(it["variant"]) or {}).get("file", "")
+        if not extra:
+            qlog(it, "Không có video ghép thêm khớp với biến thể này, bỏ qua bước ghép", "warn")
     use = {}
     for k in ("fly", "logo", "intro", "outro"):
         f = b[k]
@@ -794,10 +875,14 @@ def _brand(it, p, final, cx):
             qlog(it, f"Không thấy file {k} của dự án, bỏ qua: {f}", "warn")
         elif f:
             use[k] = f
-    if not use:
+    if not use and not extra:
         return
+    _relink(final, os.path.join(os.path.dirname(final), "body.mp4"))
     tmp = final + ".brand.mp4"
     cmd = [sys.executable, "-I", os.path.join(PRODUCTION, "branding.py"), final, "--out", tmp]
+    if extra:
+        cmd += ["--extra", extra]
+        qlog(it, "Ghép thêm: " + os.path.basename(extra))
     for k, flag in (("fly", "--fly"), ("logo", "--logo"), ("intro", "--intro"), ("outro", "--outro")):
         if k in use:
             cmd += [flag, use[k]]
@@ -807,7 +892,8 @@ def _brand(it, p, final, cx):
         cmd += ["--logo-pos", str(b["logo_pos"]), "--logo-size", str(b["logo_size"])]
         if b["logo_text"]:
             cmd += ["--logo-text", b["logo_text"]]
-    qlog(it, "Thương hiệu: " + ", ".join({"fly": "logo bay", "logo": "logo cố định", "intro": "video giới thiệu", "outro": "outro"}[k] for k in use))
+    if use:
+        qlog(it, "Thương hiệu: " + ", ".join({"fly": "logo bay", "logo": "logo cố định", "intro": "video giới thiệu", "outro": "outro"}[k] for k in use))
     try:
         _run_post(it, cmd, tmp, cx)
         os.replace(tmp, final)
@@ -1134,7 +1220,7 @@ def start_post(pid, vname, opts):
     p = load_project(pid)
     gen = next((x for x in QUEUE if x["kind"] == "gen" and x["project"] == pid and x["variant"] == vname and x["state"] not in ("running", "waiting")), None)
     if gen:   # hậu kỳ lại ngay trong mục gen của video này (không tạo thẻ riêng)
-        gen["opts"] = {k: opts.get(k, "") for k in ("logo", "endcard", "topbar", "whisper")}
+        gen["opts"] = {k: opts.get(k, "") for k in ("logo", "endcard", "topbar", "whisper", "rebrand")}
         gen["only_post"] = True
         with LOCK:
             ACTIVE.add(gen["id"])
@@ -1145,7 +1231,7 @@ def start_post(pid, vname, opts):
         threading.Thread(target=_worker, args=(gen["id"],), daemon=True).start()
         return gen["id"]
     it = {"id": uuid.uuid4().hex[:8], "kind": "post", "project": pid, "pname": (p or {}).get("name", pid), "variant": vname, "state": "queued", "scenes": [], "total": 0,
-          "raw": "raw.mp4", "final": "", "error": "", "added": time.time(), "started": 0.0, "ended": 0.0, "elapsed": 0.0, "log": [], "opts": {k: opts.get(k, "") for k in ("logo", "endcard", "topbar", "whisper")}}
+          "raw": "raw.mp4", "final": "", "error": "", "added": time.time(), "started": 0.0, "ended": 0.0, "elapsed": 0.0, "log": [], "opts": {k: opts.get(k, "") for k in ("logo", "endcard", "topbar", "whisper", "rebrand")}}
     with LOCK:
         QUEUE[:] = [x for x in QUEUE if not (x["kind"] == "post" and x["project"] == pid and x["variant"] == vname and x["state"] != "running")]
         QUEUE.append(it)
@@ -1291,7 +1377,23 @@ def _pick_file_windows(kind):
     return r.stdout.strip()
 
 
+def pick_folder():
+    if os.name != "nt" and sys.platform != "darwin" and not (os.environ.get("DISPLAY") or os.environ.get("WAYLAND_DISPLAY")):
+        return ""
+    if os.name == "nt":
+        ps = ("Add-Type -AssemblyName System.Windows.Forms; $f = New-Object System.Windows.Forms.Form -Property @{TopMost=$true}; "
+              "$d = New-Object System.Windows.Forms.FolderBrowserDialog; "
+              "if ($d.ShowDialog($f) -eq 'OK') { [Console]::OutputEncoding = [Text.Encoding]::UTF8; Write-Output $d.SelectedPath }")
+        r = subprocess.run(["powershell", "-NoProfile", "-STA", "-Command", ps], capture_output=True, text=True, encoding="utf-8", errors="replace")
+        return r.stdout.strip()
+    code = "import tkinter as tk, tkinter.filedialog as fd; r=tk.Tk(); r.withdraw(); r.attributes('-topmost',True); print(fd.askdirectory() or '')"
+    r = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, encoding="utf-8", errors="replace", env=dict(os.environ, PYTHONIOENCODING="utf-8"))
+    return r.stdout.strip()
+
+
 def pick_file(kind):
+    if kind == "folder":
+        return pick_folder()
     if os.name == "nt":
         try:
             import tkinter  # noqa: F401
@@ -1864,6 +1966,11 @@ class H(BaseHTTPRequestHandler):
             return self.send_json([{k: v for k, v in r.items() if k not in ("link", "drive_id")} for r in kho_items().values()])
         if a == "claude":
             return self.claude_api(m, parts[1:], q)
+        if a in ("extra-preview", "extra-run") and m == "POST":
+            p = load_project(self.body().get("project", ""))
+            if not p:
+                return self.send_json({"error": "Không thấy dự án"}, 404)
+            return self.send_json(extra_preview(p) if a == "extra-preview" else extra_run(p))
         if a == "pick" and m == "POST":
             return self.send_json({"path": pick_file(self.body().get("kind", "file"))})
         if a == "open" and m == "POST":

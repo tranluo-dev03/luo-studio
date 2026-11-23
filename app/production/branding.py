@@ -1,12 +1,14 @@
 """Gắn thương hiệu lên video đã hậu kỳ: logo bay (lặp đến hết video), logo cố định, rồi nối video giới thiệu app + video outro.
 Thứ tự video cuối: [video gen từ tool (có logo bay + logo cố định)] + [video giới thiệu] + [video outro].
-  python branding.py MAIN.mp4 --out OUT.mp4 [--fly logo_bay.mov] [--logo logo.png --logo-pos tl|tr|bl|br --logo-size 9 --logo-text "Talka AI"] [--intro gioi_thieu.mp4] [--outro outro.mp4]
+  python branding.py MAIN.mp4 --out OUT.mp4 [--fly logo_bay.mov] [--logo logo.png --logo-pos tl|tr|bl|br --logo-size 9 --logo-text "Talka AI"] [--extra video_ghep.mp4] [--intro gioi_thieu.mp4] [--outro outro.mp4]
+- --extra: video ghép thêm ngay sau video chính (vd. phần video call), logo bay / logo cố định phủ xuyên suốt cả hai.
 - --fly: video logo bay nền trong suốt (mov/webm có alpha) cùng khung hình 9:16; lặp vô hạn, dừng theo video chính.
 - --logo: ảnh logo đặt cố định ở góc; --logo-size = % bề ngang video (mặc định 9%), --logo-text = tên app viết cạnh logo; cụm logo + chữ nằm ở góc cách mép như video mẫu.
 - Video giới thiệu / outro nối nguyên bản (không phủ logo), tự co về cùng khung hình, tần số 30fps, âm thanh 44.1kHz; clip không có tiếng được thêm tiếng lặng."""
 import argparse
 import json
 import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -116,22 +118,28 @@ def main():
     ap.add_argument("--logo-pos", default="tl", choices=["tl", "tr", "bl", "br"])
     ap.add_argument("--logo-size", type=float, default=9, help="cạnh logo, %% bề ngang video")
     ap.add_argument("--logo-text", default="", help="tên app viết cạnh logo (vd. Talka AI)")
+    ap.add_argument("--extra", help="video ghép thêm ngay sau video chính, TRƯỚC khi phủ logo (logo chạy xuyên suốt cả hai)")
     ap.add_argument("--intro")
     ap.add_argument("--outro")
     a = ap.parse_args()
     work = tempfile.mkdtemp(prefix="brand_")
     try:
         cur = a.main
+        if a.extra:
+            print("Ghép thêm video: " + os.path.basename(a.extra), flush=True)
+            cur = os.path.join(work, "joined.mp4")
+            concat([a.main, a.extra], cur)
         if a.fly or a.logo:
             print("Phủ logo" + (" bay (lặp)" if a.fly else "") + (" + logo cố định" if a.logo else "") + "…", flush=True)
-            cur = os.path.join(work, "over.mp4")
-            overlay(a.main, cur, a.fly, a.logo, a.logo_pos, a.logo_size, a.logo_text, min(100, max(0, a.fly_opacity)))
+            over = os.path.join(work, "over.mp4")
+            overlay(cur, over, a.fly, a.logo, a.logo_pos, a.logo_size, a.logo_text, min(100, max(0, a.fly_opacity)))
+            cur = over
         tail = [p for p in (a.intro, a.outro) if p]
         if tail:
             print("Nối " + " + ".join(n for n, p in (("video giới thiệu", a.intro), ("outro", a.outro)) if p) + "…", flush=True)
             concat([cur] + tail, a.out)
         else:
-            os.replace(cur, a.out) if cur != a.main else run(["ffmpeg", "-y", "-i", a.main, "-c", "copy", a.out])
+            shutil.move(cur, a.out) if cur != a.main else run(["ffmpeg", "-y", "-i", a.main, "-c", "copy", a.out])   # move: thư mục tạm có thể khác ổ đĩa
         print("XONG ->", a.out, f"({probe(a.out)[0]:.1f}s)")
     finally:
         for f in os.listdir(work):

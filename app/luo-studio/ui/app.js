@@ -310,8 +310,9 @@ const brandName = f => String(f || "").split(/[\\/]/).pop();
 function brandCard(p) {
   const b = p.branding || {}, on = !!b.enabled;
   return `<div class="card sec" id="brand"><h4>Logo & Outro của dự án <span class="tag ${on ? "ok" : "mute"}">${on ? "Đang bật" : "Tắt"}</span></h4>
-    <div class="lab" style="margin-bottom:10px"><div>Gắn vào mọi video của dự án<br><small>Thứ tự video cuối: video gen từ tool (có logo bay + logo cố định) → video giới thiệu → outro. Video giới thiệu và outro nối nguyên bản, không phủ logo. Khi bật, logo / end card mặc định ở Cài đặt không dùng cho dự án này.</small></div><div class="sw2 ${on ? "on" : ""}" id="br-on"></div></div>
+    <div class="lab" style="margin-bottom:10px"><div>Gắn vào mọi video của dự án<br><small>Thứ tự video cuối: video gen từ tool → video ghép thêm (logo bay + logo cố định chạy xuyên suốt hai phần này) → video giới thiệu → outro. Video giới thiệu và outro nối nguyên bản, không phủ logo. Khi bật, logo / end card mặc định ở Cài đặt không dùng cho dự án này.</small></div><div class="sw2 ${on ? "on" : ""}" id="br-on"></div></div>
     <div class="two">${BRAND_ROWS.map(([k, label]) => `<div class="f"><label>${label}</label><div class="pick"><input class="input" readonly title="${esc(b[k] || "")}" value="${esc(brandName(b[k]))}" placeholder="Không dùng"><button class="btn sm" data-bpick="${k}">Chọn</button><button class="ib" data-bclr="${k}">${ico("x")}</button></div></div>`).join("")}</div>
+    <div class="f"><label>Video ghép thêm <small style="opacity:.6">(chọn thư mục, vd. các video call; khớp theo tên biến thể, không trùng thì theo thứ tự)</small></label><div class="pick"><input class="input" readonly title="${esc(b.extra_dir || "")}" value="${esc(brandName(b.extra_dir))}" placeholder="Không dùng"><button class="btn sm" id="br-xpick">Chọn thư mục</button><button class="ib" data-bclr="extra_dir">${ico("x")}</button>${b.extra_dir ? `<button class="btn sm primary" id="br-xrun" ${on ? "" : "disabled title=\"Bật Logo & Outro trước\""}>Xem và ghép</button>` : ""}</div></div>
     <div class="f" style="max-width:340px"><label>Độ đậm logo bay <small style="opacity:.6">(100 = đặc, thấp hơn = mờ hơn)</small></label><div class="pick"><input class="input" id="br-fo" type="number" min="1" max="100" step="1" style="width:96px;flex:none;color:var(--text);cursor:text" value="${b.fly_opacity ?? 16}"><span style="align-self:center;color:var(--mute)">%</span></div></div>
     <div class="two"><div class="f"><label>Chữ cạnh logo cố định <small style="opacity:.6">(tuỳ chọn, vd. Talka AI)</small></label><input id="br-text" value="${esc(b.logo_text || "")}" placeholder="Tên app"></div>
       <div class="f"><label>Vị trí và cỡ logo cố định</label><div class="pick"><select class="input" id="br-pos" style="flex:1">${[["tl", "Trên trái"], ["tr", "Trên phải"], ["bl", "Dưới trái"], ["br", "Dưới phải"]].map(([v, n]) => `<option value="${v}" ${(b.logo_pos || "tl") === v ? "selected" : ""}>${n}</option>`).join("")}</select><input class="input" id="br-size" type="number" min="3" max="40" step="1" style="width:84px;flex:none;color:var(--text);cursor:text" value="${b.logo_size || 9}" title="Cạnh logo, % bề ngang video"><span style="align-self:center;color:var(--mute)">%</span></div></div></div></div>`;
@@ -324,6 +325,8 @@ function brandBind(p) {
     if (e.target.closest("#br-on")) { B().enabled = !B().enabled; touch(); return pageEditor(p.id); }
     if ((x = e.target.closest("[data-bpick]"))) { const r = await api("pick", { body: { kind: "file" } }); if (r.path) { B()[x.dataset.bpick] = r.path; touch(); pageEditor(p.id); } return; }
     if ((x = e.target.closest("[data-bclr]"))) { B()[x.dataset.bclr] = ""; touch(); pageEditor(p.id); }
+    if (e.target.closest("#br-xpick")) { const r = await api("pick", { body: { kind: "folder" } }); if (r.path) { B().extra_dir = r.path; touch(); await save(); pageEditor(p.id); } return; }
+    if (e.target.closest("#br-xrun")) { await save(); return extraModal(p); }
   };
   c.oninput = c.onchange = e => {
     if (e.target.id === "br-text") B().logo_text = e.target.value;
@@ -331,6 +334,27 @@ function brandBind(p) {
     if (e.target.id === "br-fo") B().fly_opacity = Math.min(100, Math.max(1, +e.target.value || 16));
     if (e.target.id === "br-size") B().logo_size = Math.min(40, Math.max(3, +e.target.value || 9));
     touch();
+  };
+}
+async function extraModal(p) {
+  let r;
+  try { r = await api("extra-preview", { body: { project: p.id } }); } catch (e) { return toast(e.message, 1); }
+  const go = r.rows.filter(x => x.file && x.ready).length, miss = r.rows.filter(x => !x.file).length, wait = r.rows.filter(x => x.file && !x.ready).length;
+  const note = [miss ? `${miss} biến thể thiếu video ghép` : "", wait ? `${wait} biến thể chưa gen xong` : "", r.unused.length ? `${r.unused.length} file trong thư mục không dùng tới` : ""].filter(Boolean).join(" · ");
+  openModal(`<div class="mbox" style="width:min(720px,100%)"><h2>Ghép thêm video <button class="ib" id="mx">${ico("x")}</button></h2>
+    <p style="color:var(--mute);margin-bottom:12px">Sẽ ghép ${go} video. Không gen lại, không tốn credit Muse.${note ? "<br>" + esc(note) : ""}</p>
+    <div style="max-height:50vh;overflow:auto"><table style="width:100%;border-collapse:collapse;font-size:13px"><tr style="text-align:left;color:var(--mute)"><th style="padding:4px 8px">Biến thể</th><th style="padding:4px 8px">Video ghép</th><th style="padding:4px 8px">Khớp theo</th></tr>
+    ${r.rows.map(x => `<tr><td style="padding:4px 8px">${esc(x.variant)}</td><td style="padding:4px 8px">${x.file ? esc(x.file) : "<span style='color:var(--mute)'>Không có</span>"}</td><td style="padding:4px 8px;color:var(--mute)">${esc(x.how)}${x.file && !x.ready ? " · chưa gen" : ""}</td></tr>`).join("")}</table></div>
+    <div class="mact"><button class="btn" id="mx2">Huỷ</button><button class="btn primary" id="xgo" ${go ? "" : "disabled"}>${ico("wand")}Ghép ${go} video</button></div></div>`);
+  $("#modal").onclick = async e => {
+    if (e.target.id === "modal" || e.target.closest("#mx") || e.target.id === "mx2") return closeModal();
+    if (e.target.closest("#xgo")) {
+      try {
+        const o = await api("extra-run", { body: { project: p.id } });
+        closeModal(); toast(`Đang ghép ${o.started} video` + (o.skipped.length ? `, bỏ qua ${o.skipped.length} video đang gen` : ""));
+        location.hash = "#/run";
+      } catch (er) { toast(er.message, 1); }
+    }
   };
 }
 function drawTurns() {
