@@ -57,7 +57,25 @@ QUOTA_TEXT_RE = re.compile(r"额度不足|积分不足|out of (?:credits|tokens)
                            r"try (?:again )?(?:later|tomorrow|in)|resets?|used up|maxed|exhausted|window)|"
                            r"(?:limit|quota|cap\b|allowance|used (?:up|all)|maxed out|limited to)[^.!?\n]{0,80}(?:24[ -]?h(?:ours?|rs?)?\b|24 giờ)|"
                            r"(?:cap|allowance|quota)\b[^.!?\n]{0,40}(?:reached|used up|exhausted|maxed|full|hit)|maxed out your|"
-                           r"(?:only|up to|maximum of|max\.?) [^.!?\n]{0,40}\b(?:per|every|each|a|in) (?:24[ -]?h(?:ours?|rs?)?\b|day\b)", re.I)
+                           r"(?:only|up to|maximum of|max\.?) [^.!?\n]{0,40}\b(?:per|every|each|a|in) (?:24[ -]?h(?:ours?|rs?)?\b|day\b)|"
+                           r"(?:credits?|balance)[^.!?\n]{0,30}(?:exhausted|used up|depleted|run out|ran out)|"
+                           r"(?:ran|run) out of (?:credits|tokens|usage)|subscription (?:limit|quota|credits)|budget (?:is |was |has been )?(?:still )?exhausted|"
+                           r"used (?:up )?all (?:of )?(?:your|the) [\w ]{0,20}(?:credits|tokens|quota|usage)", re.I)
+# Trong các lỗi limit ở trên: loại "HẾT GÓI" (hết sạch hạn mức của gói, Muse đòi nâng cấp / mua thêm) khác với limit tạm
+# (24 giờ / theo ngày / tốc độ: chờ là dùng lại). Hết gói = có dấu hiệu nâng cấp/hết credit VÀ không nhắc thời hạn chờ.
+PLAN_TEXT_RE = re.compile(r"upgrade (?:now|today|your (?:plan|account|subscription)|to (?:continue|keep|get|unlock|a higher|pro|plus|premium)|for more)|"
+                          r"out of (?:credits|tokens)|积分不足|no (?:more )?(?:credits|tokens) (?:left|remaining)|"
+                          r"(?:credits?|plan|subscription|balance)[^.!?\n]{0,30}(?:exhausted|used up|depleted|run out|ran out|expired)|"
+                          r"(?:ran|run) out of (?:credits|tokens|usage)|(?:monthly|plan|subscription) (?:limit|quota|allowance|credits)|"
+                          r"used (?:up )?all (?:of )?(?:your|the) [\w ]{0,20}(?:credits|tokens)|buy more|top up|purchase (?:more )?credits|renew your", re.I)
+TEMP_LIMIT_RE = re.compile(r"24[ -]?h|24 giờ|twenty-four|daily|today|tomorrow|hourly|per day|last 24|past 24|"
+                           r"in (?:\d+|a few|an?) (?:hours?|minutes?)|resets?\b|rate limit|too many requests", re.I)
+
+
+def is_plan_exhausted(msg: str) -> bool:
+    """Lỗi limit này là HẾT GÓI (cần nâng cấp / gia hạn) chứ không phải limit 24 giờ."""
+    msg = str(msg or "")
+    return bool(PLAN_TEXT_RE.search(msg)) and not TEMP_LIMIT_RE.search(msg)
 REFUSAL_TEXT_RE = re.compile(r"isn.t available|not available for|can.t (?:help|create|generate|make|do)|cannot (?:help|create|generate|make)|"
                              r"unable to (?:create|generate|make|help)|against (?:my|our|the) (?:policy|policies|guidelines)|"
                              r"not able to (?:create|generate|make)|i won.t|violat", re.I)

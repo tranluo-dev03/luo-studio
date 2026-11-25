@@ -45,7 +45,7 @@ from fastapi.responses import (FileResponse, HTMLResponse, JSONResponse,
 from pydantic import BaseModel, Field
 
 from config import CFG
-from engine import ESSENTIAL_COOKIES, QUOTA_TEXT_RE, REFUSAL_TEXT_RE, MuseAuthError, MuseEngine, MuseGenerationError
+from engine import ESSENTIAL_COOKIES, QUOTA_TEXT_RE, REFUSAL_TEXT_RE, is_plan_exhausted, MuseAuthError, MuseEngine, MuseGenerationError
 from store import Store, account_expiry, min_expiry
 
 import sys
@@ -208,12 +208,19 @@ def _quota_hit(aid: str, msg: str):
         return
     PINS.mark_exhausted(aid)
     acc = store.get_account(aid)
-    if not acc or (acc.get("quota_hit") and not acc.get("enabled", True)):
+    kind = "plan" if is_plan_exhausted(msg) else "limit"   # plan = hết sạch hạn mức gói (đòi nâng cấp), limit = limit 24h/tạm
+    old = (acc or {}).get("quota_hit") or {}
+    if not acc or (old and not acc.get("enabled", True) and (old.get("kind") or "limit") == kind):
         return   # đã tắt + đánh dấu rồi
     now = int(time.time())
-    store.update_account(aid, enabled=False, quota_hit={"at": now, "reopen_at": now + QUOTA_REOPEN_H * 3600, "msg": str(msg)[:200]})
-    store.mark(aid, True, f"Hết hạn mức Muse: tự tắt tài khoản, mở lại sau ~{QUOTA_REOPEN_H} giờ")
-    log.warning("【quota】tài khoản %s (%s) hết hạn mức: đã tự tắt", acc.get("label"), aid)
+    if kind == "plan":
+        store.update_account(aid, enabled=False, quota_hit={"at": now, "kind": "plan", "reopen_at": 0, "msg": str(msg)[:200]})
+        store.mark(aid, True, "Hết hạn mức GÓI Muse (đòi nâng cấp): tự tắt tài khoản, chờ không tự hồi")
+    else:
+        store.update_account(aid, enabled=False, quota_hit={"at": now, "kind": "limit", "reopen_at": now + QUOTA_REOPEN_H * 3600,
+                                                            "msg": str(msg)[:200]})
+        store.mark(aid, True, f"Hết hạn mức Muse: tự tắt tài khoản, mở lại sau ~{QUOTA_REOPEN_H} giờ")
+    log.warning("【quota】tài khoản %s (%s) %s: đã tự tắt", acc.get("label"), aid, "hết gói" if kind == "plan" else "hết hạn mức")
 
 
 def error_kind(exc) -> str:

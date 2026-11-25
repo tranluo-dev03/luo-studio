@@ -446,3 +446,4 @@ details.jd-card>summary{cursor:pointer;color:var(--mute);font-size:13px}
 .aptaccc{max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.aptacc{color:var(--mute);cursor:pointer}.aptacc:hover{color:var(--accent2);text-decoration:underline}.aptacc.bad{color:var(--err);font-weight:600}
 @keyframes apflash{0%,60%{box-shadow:0 0 0 2px var(--accent)}100%{box-shadow:none}}.apacc.apflash{animation:apflash 1.6s ease-out}
 .apqhit{margin-top:8px;padding:7px 10px;border-radius:8px;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.35);color:var(--warn);font-size:12.5px;line-height:1.45}.apqhit .ok{color:var(--ok)}
+.apqhit.plan{background:rgba(248,113,113,.1);border-color:rgba(248,113,113,.4);color:var(--err)}
