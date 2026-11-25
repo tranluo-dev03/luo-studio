@@ -44,9 +44,20 @@ OPTIONAL_SESSION_COOKIES = ("hatch_gw", "hatch_vml")
 NEW_THREAD_URL = "https://muse.ai/thread/new"
 TERMINAL_STATUS = {"completed", "complete", "idle", "done", "failed", "error", "errored", "cancelled", "canceled",
                    "stopped", "interrupted"}
-QUOTA_TEXT_RE = re.compile(r"额度不足|积分不足|out of credits|usage limit|limit reached|token limit|24-hour limit|"
-                           r"budget is (?:still )?exhausted|video budget|quota (?:is )?exhausted|"
-                           r"limit for the (?:last|past) 24 hours|(?:video|daily|generation) limit (?:is |has been )?reached", re.I)
+# Mọi kiểu Muse báo hết hạn mức / chạm giới hạn ("limit"): nhiều câu khác nhau, bắt rộng. Dùng chung với app.QUOTA_RE.
+# Đã gặp: "You've reached your usage limit. Upgrade now…" (tuần), "Your video limit for the last 24 hours has been reached",
+# "No file was made — the video limit…", "Failed to create 6-second video due to budget limit".
+QUOTA_TEXT_RE = re.compile(r"额度不足|积分不足|out of (?:credits|tokens)|(?:usage|budget|token|video|daily|weekly|monthly|generation|rate|"
+                           r"24-hour|hourly|plan) limit|limit (?:is |has been |was )?(?:reached|exceeded|hit)|"
+                           r"(?:reached|hit|exceeded|exceed|over) (?:your|the|my|its) [\w -]{0,30}limit|"
+                           r"budget is (?:still )?exhausted|video budget|quota (?:is |has been )?(?:exhausted|exceeded|reached)|"
+                           r"limit for the (?:last|past) 24 hours|too many requests|no (?:more )?(?:credits|tokens) (?:left|remaining)|"
+                           # Kiểu "24 giờ": có 24h / 24 hours / 24-hour gần một từ chỉ giới hạn (cùng một câu, trong ~80 ký tự)
+                           r"(?:24[ -]?h(?:ours?|rs?)?\b|24 giờ|twenty-four hours?)[^.!?\n]{0,80}(?:(?<!speed )limit|quota|cap\b|allowance|"
+                           r"try (?:again )?(?:later|tomorrow|in)|resets?|used up|maxed|exhausted|window)|"
+                           r"(?:limit|quota|cap\b|allowance|used (?:up|all)|maxed out|limited to)[^.!?\n]{0,80}(?:24[ -]?h(?:ours?|rs?)?\b|24 giờ)|"
+                           r"(?:cap|allowance|quota)\b[^.!?\n]{0,40}(?:reached|used up|exhausted|maxed|full|hit)|maxed out your|"
+                           r"(?:only|up to|maximum of|max\.?) [^.!?\n]{0,40}\b(?:per|every|each|a|in) (?:24[ -]?h(?:ours?|rs?)?\b|day\b)", re.I)
 REFUSAL_TEXT_RE = re.compile(r"isn.t available|not available for|can.t (?:help|create|generate|make|do)|cannot (?:help|create|generate|make)|"
                              r"unable to (?:create|generate|make|help)|against (?:my|our|the) (?:policy|policies|guidelines)|"
                              r"not able to (?:create|generate|make)|i won.t|violat", re.I)

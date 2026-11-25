@@ -45,7 +45,7 @@ from fastapi.responses import (FileResponse, HTMLResponse, JSONResponse,
 from pydantic import BaseModel, Field
 
 from config import CFG
-from engine import ESSENTIAL_COOKIES, REFUSAL_TEXT_RE, MuseAuthError, MuseEngine, MuseGenerationError
+from engine import ESSENTIAL_COOKIES, QUOTA_TEXT_RE, REFUSAL_TEXT_RE, MuseAuthError, MuseEngine, MuseGenerationError
 from store import Store, account_expiry, min_expiry
 
 import sys
@@ -192,10 +192,28 @@ class AccountPoolManager:
 GEN_LOCK = ConcurrencyLock(limit=CFG.max_concurrency)
 ACCOUNT_POOL = AccountPoolManager(store, per_account=CFG.account_parallel)
 API_VERSION = "1.3.1"
-QUOTA_RE = re.compile(r"24-hour limit|budget is (?:still )?exhausted|video budget|quota (?:is )?exhausted|limit for the (?:last|past) 24 hours|(?:video|daily|generation) limit (?:is |has been )?reached", re.I)
+QUOTA_RE = QUOTA_TEXT_RE   # mọi kiểu lỗi "limit" của Muse (xem engine.QUOTA_TEXT_RE): đổi tài khoản + tự tắt tài khoản đó
 
 
 ACCOUNT_REFUSAL_RE = re.compile(r"isn.t available|not available for|not enabled for|upgrade|subscription|waitlist", re.I)
+
+
+QUOTA_REOPEN_H = 12   # gợi ý: mở lại tài khoản hết hạn mức sau ~12 giờ (người dùng tự bật lại)
+
+
+def _quota_hit(aid: str, msg: str):
+    """Tài khoản báo hết hạn mức: TẮT ngay (không nhận việc mới) và đánh dấu để tab Tài khoản hiện "Hết hạn mức".
+    Người dùng tự bật lại (thường sau ~12 giờ); bật lại thì dấu được xoá (patch_account)."""
+    if not aid:
+        return
+    PINS.mark_exhausted(aid)
+    acc = store.get_account(aid)
+    if not acc or (acc.get("quota_hit") and not acc.get("enabled", True)):
+        return   # đã tắt + đánh dấu rồi
+    now = int(time.time())
+    store.update_account(aid, enabled=False, quota_hit={"at": now, "reopen_at": now + QUOTA_REOPEN_H * 3600, "msg": str(msg)[:200]})
+    store.mark(aid, True, f"Hết hạn mức Muse: tự tắt tài khoản, mở lại sau ~{QUOTA_REOPEN_H} giờ")
+    log.warning("【quota】tài khoản %s (%s) hết hạn mức: đã tự tắt", acc.get("label"), aid)
 
 
 def error_kind(exc) -> str:
@@ -1187,7 +1205,7 @@ def _run_generation_locked(prompt: str, kind: str, timeout: int,
                 last_exc = exc
                 store.mark(cur_acc["id"], True, f"任务异常: {str(exc)[:60]}")
                 if QUOTA_RE.search(str(exc)):
-                    PINS.mark_exhausted(cur_acc["id"])
+                    _quota_hit(cur_acc["id"], str(exc))
                 if session:
                     engine.finish_session(session, keep=False)  # chat lỗi: bỏ, lần sau mở chat mới
                     same_acc_retry = attempt == 0 and bool(re.search(r"media handle|invalid media|提示词未发出", str(exc), re.I))
@@ -1200,6 +1218,8 @@ def _run_generation_locked(prompt: str, kind: str, timeout: int,
                 engine.close_current_page()
                 if session:
                     engine.drop_session(session)
+                if cur_acc and QUOTA_RE.search(str(exc)):
+                    _quota_hit(cur_acc["id"], str(exc))
                 last_exc = MuseGenerationError(f"生成失败: {exc}")
         raise last_exc
     finally:
@@ -1984,7 +2004,8 @@ def patch_account(aid: str, req: AccountPatch, _=Depends(auth)):
     mail = None
     if req.mail is not None:
         mail = parse_mail_line(req.mail) if req.mail.strip() else {}
-    acc = store.update_account(aid, label=req.label, enabled=req.enabled, mail=mail)
+    acc = store.update_account(aid, label=req.label, enabled=req.enabled, mail=mail,
+                               quota_hit={} if req.enabled else None)   # bật lại tay: bỏ dấu "hết hạn mức"
     if not acc:
         raise HTTPException(404, "账号不存在")
     return {k: v for k, v in acc.items() if k not in ("cookies", "mail")} | {
