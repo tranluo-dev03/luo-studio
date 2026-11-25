@@ -1052,13 +1052,16 @@ def window_action(action):
             threading.Timer(1.0, BG["window_proc"].terminate).start()   # để kịp trả lời trang trước khi đóng cửa sổ
         return {"ok": True, "background": True}
     if action == "quit":
-        if os.name == "nt":
+        quit_all = BG.get("quit")   # launcher đặt: tắt LUO-API + trình duyệt con, xoá running.json, thoát
+        if os.name == "nt" and not quit_all:
             return {"error": "Tắt từ giao diện chưa hỗ trợ trên Windows: đóng cửa sổ dòng lệnh LUO Studio"}
         import signal
 
         def bye():
             if window_alive():   # đóng cả cửa sổ ứng dụng, không để lại cửa sổ trỏ vào Studio đã tắt (lần mở sau Chrome sẽ "mở trong phiên cũ" rồi thoát ngay)
                 BG["window_proc"].terminate()
+            if os.name == "nt":   # Windows: SIGTERM = TerminateProcess, khối finally của launcher không chạy -> gọi thẳng bước dọn của launcher
+                quit_all()
             os.kill(os.getpid(), signal.SIGTERM)   # launcher bắt SIGTERM -> thoát êm, tắt LUO-API + trình duyệt con
         threading.Timer(1.0, bye).start()
         return {"ok": True}

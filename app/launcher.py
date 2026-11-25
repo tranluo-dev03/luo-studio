@@ -344,6 +344,14 @@ def main():
                     time.sleep(3600)
             except KeyboardInterrupt:
                 return 0
+        def quit_all():   # nút "Tắt hẳn Studio" trên Windows (không gửi SIGTERM êm được): dọn như khối finally rồi thoát
+            kill_tree(api)
+            try:
+                os.remove(os.path.join(USER, "running.json"))
+            except OSError:
+                pass
+            os._exit(0)   # Job Object tắt nốt các tiến trình con còn lại
+        server.BG["quit"] = quit_all
         open_window(url, holder=server.BG)
         if server.BG.get("on"):   # người dùng bấm "Chạy nền": cửa sổ đóng nhưng Studio + LUO-API chạy tiếp (hàng đợi không bị ngắt)
             say(f"Chạy nền: Studio vẫn chạy ở {url} (mở lại bằng biểu tượng LUO Studio; tắt bằng nút Tắt hẳn Studio).")
