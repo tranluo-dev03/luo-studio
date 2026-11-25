@@ -30,6 +30,7 @@ import uuid
 
 import dom
 from cdp import CDP, CDPError, http_json
+from vpn import AccountBrowsers, Vpn
 
 log = logging.getLogger("muse2api")
 
@@ -69,11 +70,17 @@ class _RpcUnavailable(Exception):
     """RPC nội bộ của trang không dùng được -> chuyển sang đường DOM."""
 
 
-class _Tab:
-    __slots__ = ("acc", "ctx", "target", "cdp", "busy", "session", "thread", "last", "broken", "owner", "stale", "uses")
+# Context giả của tài khoản chạy Touch VPN: tab nằm ở context mặc định của trình duyệt RIÊNG của tài khoản đó
+# (tiện ích không chạy trong context tạo bằng Target.createBrowserContext).
+VPN_CTX = "vpn"
 
-    def __init__(self, acc: str, ctx: str, target: str, cdp: CDP):
+
+class _Tab:
+    __slots__ = ("acc", "ctx", "target", "cdp", "busy", "session", "thread", "last", "broken", "owner", "stale", "uses", "bro")
+
+    def __init__(self, acc: str, ctx: str, target: str, cdp: CDP, bro: CDP | None = None):
         self.acc, self.ctx, self.target, self.cdp = acc, ctx, target, cdp
+        self.bro = bro       # CDP cấp trình duyệt chứa tab (None = trình duyệt chung)
         self.busy = False
         self.uses = 0        # số lượt gen đã phục vụ; đủ RECYCLE_AFTER thì đóng tab, mở tab mới (trang SPA phình bộ nhớ)
         self.stale = False   # cookie của tài khoản vừa đổi: tải lại trang trước khi dùng
@@ -113,6 +120,8 @@ class MuseEngine:
         self._local = threading.local()
         self._last_http_renew: dict[str, float] = {}
         os.makedirs(cfg.profile_dir, exist_ok=True)
+        self.vpn = Vpn(cfg)                          # Touch VPN: mỗi tài khoản một trình duyệt riêng (bật/tắt ở tab Tài khoản)
+        self.vbro = AccountBrowsers(cfg, self.vpn)
 
     # ---------------- thread-local: tab mà luồng hiện tại đang giữ ----------------
     @property
@@ -234,12 +243,13 @@ class MuseEngine:
     def stop(self):
         with self._start_lock:
             if self.browser and self.browser.alive:
-                for ctx in list(self._ctx.values()):
+                for ctx in [c for c in self._ctx.values() if c != VPN_CTX]:
                     try:
                         self.browser.send("Target.disposeBrowserContext", {"browserContextId": ctx}, timeout=10)
                     except Exception:  # noqa: BLE001
                         pass
             self._reset_pool()
+            self.vbro.close_all()
             if self.proc and self.proc.poll() is None:
                 self.proc.terminate()
                 try:
@@ -270,10 +280,49 @@ class MuseEngine:
             out.append(p)
         return out
 
+    def _retire_tabs(self, acc: str):
+        """Tab cũ của tài khoản thuộc trình duyệt/context không còn dùng (bật/tắt VPN, trình duyệt VPN mở lại):
+        tab rảnh bị bỏ ngay ở lần mượn sau, tab đang bận chạy nốt rồi đóng khi trả."""
+        with self._cond:
+            for t in self._tabs.get(acc, []):
+                t.broken = True
+            self._cond.notify_all()
+
+    def _vpn_context(self, acc: str, cookies: dict, expires: dict | None, sig: str) -> str:
+        b, new = self.vbro.get(acc)   # mở trình duyệt + bật Touch VPN (vài giây) — ngoài _ctx_lock
+        with self._ctx_lock:
+            if new or self._ctx.get(acc) != VPN_CTX:
+                old = self._ctx.get(acc)
+                if old and old != VPN_CTX and self._browser_alive():
+                    try:
+                        self.browser.send("Target.disposeBrowserContext", {"browserContextId": old}, timeout=10)
+                    except Exception:  # noqa: BLE001
+                        pass
+                self._retire_tabs(acc)
+                self._ctx[acc] = VPN_CTX
+                self._ctx_sig.pop(acc, None)
+            if self._ctx_sig.get(acc) != sig and cookies:
+                b.cdp.send("Storage.setCookies", {"cookies": self._cookie_params(cookies, expires)}, timeout=30)
+                renewed = acc in self._ctx_sig
+                self._ctx_sig[acc] = sig
+                if self._session_cookie_changed(acc, cookies) and renewed:
+                    with self._cond:
+                        for t in self._tabs.get(acc, []):
+                            t.stale = True
+            return VPN_CTX
+
     def _context(self, acc: str, cookies: dict, expires: dict | None) -> str:
         sig = hashlib.sha1(json.dumps(cookies or {}, sort_keys=True).encode()).hexdigest()
+        if self.vpn.enabled:
+            return self._vpn_context(acc, cookies, expires, sig)
         with self._ctx_lock:
             ctx = self._ctx.get(acc)
+            if ctx == VPN_CTX:   # vừa tắt VPN: bỏ trình duyệt riêng, quay về context trong trình duyệt chung
+                self._retire_tabs(acc)
+                self._ctx.pop(acc, None)
+                self._ctx_sig.pop(acc, None)
+                threading.Thread(target=self.vbro.close, args=(acc,), daemon=True).start()
+                ctx = None
             if not ctx:
                 res = self.browser.send("Target.createBrowserContext", {"disposeOnDetach": False})
                 ctx = res.get("result", {}).get("browserContextId")
@@ -313,11 +362,18 @@ class MuseEngine:
 
     # ---------------- tab pool ----------------
     def _open_tab(self, acc: str, ctx: str) -> _Tab:
-        res = self.browser.send("Target.createTarget", {"url": "about:blank", "browserContextId": ctx, "newWindow": True})
+        if ctx == VPN_CTX:
+            vb = self.vbro.peek(acc)
+            if vb is None:
+                raise MuseGenerationError("Trình duyệt VPN của tài khoản đã đóng, thử lại")
+            bro, port, params = vb.cdp, vb.port, {"url": "about:blank", "newWindow": True}
+        else:
+            bro, port, params = self.browser, self.cfg.cdp_port, {"url": "about:blank", "browserContextId": ctx, "newWindow": True}
+        res = bro.send("Target.createTarget", params)
         target = res.get("result", {}).get("targetId")
         if not target:
             raise MuseGenerationError("Target.createTarget 失败")
-        cdp = CDP(f"ws://127.0.0.1:{self.cfg.cdp_port}/devtools/page/{target}", timeout=180)
+        cdp = CDP(f"ws://127.0.0.1:{port}/devtools/page/{target}", timeout=180)
         # Không bật Network/Runtime/Page domain: kênh Noise bắn hàng nghìn sự kiện WebSocket mà mỗi lệnh CDP phải đọc bỏ.
         for method, params in (("Emulation.setFocusEmulationEnabled", {"enabled": True}),
                                ("Page.setWebLifecycleState", {"state": "active"}),
@@ -326,7 +382,7 @@ class MuseEngine:
                 cdp.send(method, params, timeout=10)
             except Exception:  # noqa: BLE001
                 pass
-        return _Tab(acc, ctx, target, cdp)
+        return _Tab(acc, ctx, target, cdp, bro if ctx == VPN_CTX else None)
 
     def _dispose_tab(self, t: _Tab):
         t.broken = True
@@ -334,9 +390,10 @@ class MuseEngine:
             t.cdp.close()
         except Exception:  # noqa: BLE001
             pass
-        if self.browser and self.browser.alive:
+        bro = t.bro or self.browser
+        if bro and bro.alive:
             try:
-                self.browser.send("Target.closeTarget", {"targetId": t.target}, timeout=10)
+                bro.send("Target.closeTarget", {"targetId": t.target}, timeout=10)
             except Exception:  # noqa: BLE001
                 pass
 
@@ -489,6 +546,25 @@ class MuseEngine:
                 t.session = None
             self._sessions.clear()
 
+    def close_vpn_idle(self):
+        """Vừa tắt VPN: đóng trình duyệt VPN của các tài khoản không có tab đang bận (tài khoản đang gen thì để
+        reap_idle_tabs đóng sau khi xong)."""
+        for acc in self.vbro.accounts():
+            with self._cond:
+                tabs = self._tabs.get(acc, [])
+                if any(t.busy for t in tabs) or self._opening.get(acc, 0) > 0:
+                    continue
+                for t in tabs:
+                    t.broken = True
+                self._tabs.pop(acc, None)
+            with self._ctx_lock:
+                if self._ctx.get(acc) == VPN_CTX:
+                    self._ctx.pop(acc, None)
+                    self._ctx_sig.pop(acc, None)
+            for t in tabs:
+                self._dispose_tab(t)
+            self.vbro.close(acc)
+
     def reap_idle_tabs(self, keep: set, idle_s: float) -> int:
         """Đóng tab rảnh quá idle_s giây của tài khoản KHÔNG nằm trong keep (không ghim video, không đang gen), trả RAM.
         Tab đang bận hoặc của tài khoản trong keep giữ nguyên. Trả về số tab đã đóng."""
@@ -512,6 +588,16 @@ class MuseEngine:
         for t in victims:
             self._dispose_tab(t)
             log.info("【tab】đóng tab rảnh %.0f phút của tài khoản %s", (now - t.last) / 60, t.acc)
+        for acc in self.vbro.accounts():   # trình duyệt VPN của tài khoản không còn tab nào: tắt để trả RAM
+            with self._cond:
+                busy = bool(self._tabs.get(acc)) or self._opening.get(acc, 0) > 0
+            if not busy and acc not in keep:
+                with self._ctx_lock:
+                    if self._ctx.get(acc) == VPN_CTX:
+                        self._ctx.pop(acc, None)
+                        self._ctx_sig.pop(acc, None)
+                self.vbro.close(acc)
+                log.info("【vpn】tắt trình duyệt VPN rảnh của tài khoản %s", acc)
         return len(victims)
 
     def pool_status(self) -> dict:
@@ -840,10 +926,14 @@ class MuseEngine:
     def read_cookies(self) -> dict[str, dict]:
         """Cookie hiện tại của context tài khoản đang giữ (gồm cả httpOnly)."""
         t = self._tab
-        if not t or not self.browser:
+        bro = t.bro if t else None
+        if not t or not (bro or self.browser):
             return {}
         try:
-            msg = self.browser.send("Storage.getCookies", {"browserContextId": t.ctx}, timeout=20)
+            if bro is not None:
+                msg = bro.send("Storage.getCookies", {}, timeout=20)
+            else:
+                msg = self.browser.send("Storage.getCookies", {"browserContextId": t.ctx}, timeout=20)
         except Exception:  # noqa: BLE001
             return {}
         out: dict[str, dict] = {}

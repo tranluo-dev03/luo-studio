@@ -1994,12 +1994,59 @@ def patch_account(aid: str, req: AccountPatch, _=Depends(auth)):
 @app.delete("/admin/accounts/{aid}")
 def del_account(aid: str, _=Depends(auth)):
     logins.close_account(aid)
+    engine.vbro.close(aid)
+    engine.vpn.forget(aid)
     ok = store.delete_account(aid)
     if ok:
         threading.Timer(5, lambda: __import__("shutil").rmtree(logins.account_profile(aid), ignore_errors=True)).start()
     if not ok:
         raise HTTPException(404, "账号不存在")
     return {"deleted": True, "id": aid}
+
+
+# ------------------------- Touch VPN: mỗi tài khoản một trình duyệt riêng, một IP riêng -------------------------
+class VpnPatch(BaseModel):
+    enabled: bool | None = None
+    region: str | None = None
+
+
+def _vpn_status() -> dict:
+    d = engine.vpn.settings()
+    d["running"] = engine.vbro.accounts()
+    return d
+
+
+@app.get("/admin/vpn")
+def vpn_status(_=Depends(auth)):
+    return _vpn_status()
+
+
+@app.post("/admin/vpn")
+def vpn_set(req: VpnPatch, _=Depends(auth)):
+    if req.enabled:
+        if not engine.vpn.browser_exe():
+            raise HTTPException(400, "Bật Touch VPN cần Microsoft Edge hoặc Chromium (Google Chrome 137+ không nạp được tiện ích)")
+        try:
+            engine.vpn.ensure_extension()   # tải Touch VPN lần đầu (~2 MB) để báo lỗi ngay nếu không tải được
+        except Exception as exc:  # noqa: BLE001  (VpnError, mạng, giải nén)
+            raise HTTPException(502, f"Không tải được Touch VPN: {exc}") from None
+    engine.vpn.set(enabled=req.enabled, region=req.region)
+    if req.enabled is False:   # tắt: đóng các trình duyệt VPN rảnh; tài khoản đang gen chạy nốt rồi về trình duyệt chung
+        threading.Thread(target=engine.close_vpn_idle, daemon=True).start()
+    return _vpn_status()
+
+
+@app.post("/admin/accounts/{aid}/vpn")
+def vpn_reroll(aid: str, _=Depends(auth)):
+    """Đổi IP: chọn vị trí khác trong vùng; trình duyệt VPN của tài khoản đang mở thì nối lại ngay."""
+    if not store.get_account(aid):
+        raise HTTPException(404, "账号不存在")
+    loc = engine.vpn.reroll(aid)
+    try:
+        info = engine.vbro.reconnect(aid)
+    except Exception as exc:  # noqa: BLE001
+        raise HTTPException(502, f"Không nối lại được Touch VPN: {exc}") from None
+    return {"id": aid, "loc": loc, "ip": (info or {}).get("ip") or "", "applied": info is not None}
 
 
 @app.post("/admin/accounts/{aid}/test")

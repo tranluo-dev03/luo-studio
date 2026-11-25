@@ -104,6 +104,11 @@ class LoginBrowsers:
 
     # ---------------- Chrome ----------------
     def _launch(self, s: _Sess, url: str):
+        vpn = self.engine.vpn if self.engine.vpn.enabled else None
+        if vpn and s.mode == "view":
+            # Edge tắt tiện ích nạp bằng --load-extension khi mở lại hồ sơ cũ: mỗi lần xem dùng hồ sơ mới (cookie nạp lại)
+            from vpn import fresh_profile
+            s.profile = fresh_profile(s.profile)
         os.makedirs(s.profile, exist_ok=True)
         for lock_name in ("SingletonLock", "SingletonSocket", "SingletonCookie"):
             try:
@@ -111,11 +116,16 @@ class LoginBrowsers:
             except OSError:
                 pass
         s.port = _free_port()
-        args = [_browser_exe(self.cfg),
+        exe = _browser_exe(self.cfg)
+        if vpn:
+            exe = vpn.browser_exe()
+            if not exe:
+                raise RuntimeError("Bật Touch VPN cần Microsoft Edge hoặc Chromium (Google Chrome 137+ không nạp được tiện ích)")
+        args = [exe,
                 f"--remote-debugging-port={s.port}", "--remote-allow-origins=*",
                 f"--user-data-dir={s.profile}",
                 "--no-first-run", "--no-default-browser-check", "--disable-sync",
-                "--window-size=1280,900", "--new-window", url]
+                "--window-size=1280,900"] + (vpn.ext_args() if vpn else []) + ["--new-window", "about:blank" if vpn else url]
         flags = getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0)
         s.proc = subprocess.Popen(args, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=flags)
         last = None
@@ -125,11 +135,29 @@ class LoginBrowsers:
             try:
                 v = http_json(f"http://127.0.0.1:{s.port}/json/version", timeout=2)
                 s.browser = CDP(v["webSocketDebuggerUrl"], timeout=30)
-                return
+                break
             except Exception as exc:  # noqa: BLE001
                 last = exc
                 time.sleep(0.5)
-        raise RuntimeError(f"Không kết nối được Chrome: {last}")
+        else:
+            raise RuntimeError(f"Không kết nối được Chrome: {last}")
+        if vpn:
+            s.message = "Đang bật Touch VPN…"
+            info = vpn.connect(s.browser, s.port, self.vpn_key(s))
+            s.message = f"Touch VPN: {info.get('loc')} ({info.get('ip') or '?'})"
+            if url != "about:blank":   # vào trang sau khi VPN đã bật; đóng tab trống / tab chào của Touch VPN
+                old = [t["id"] for t in http_json(f"http://127.0.0.1:{s.port}/json/list", timeout=3) if t.get("type") == "page"]
+                s.browser.send("Target.createTarget", {"url": url}, timeout=15)
+                for tid in old:
+                    try:
+                        s.browser.send("Target.closeTarget", {"targetId": tid}, timeout=5)
+                    except Exception:  # noqa: BLE001
+                        pass
+
+    @staticmethod
+    def vpn_key(s: _Sess) -> str:
+        """Khoá vị trí VPN: id tài khoản; cửa sổ đăng nhập tài khoản mới dùng khoá tạm, gán cho tài khoản khi lưu."""
+        return s.account_id or f"login~{s.token}"
 
     def _alive(self, s: _Sess) -> bool:
         return bool(s.proc and s.proc.poll() is None and s.browser and s.browser.alive)
@@ -210,6 +238,7 @@ class LoginBrowsers:
             self._launch(tmp, self.cfg.site_url)
         except Exception as exc:  # noqa: BLE001
             tmp.state, tmp.message = "error", str(exc)[:300]
+            self._close(tmp)   # VPN không bật được: không để cửa sổ chạy IP thật
             shutil.rmtree(tmp.profile, ignore_errors=True)
             return tmp.public()
         tmp.state = "waiting"
@@ -589,7 +618,12 @@ class LoginBrowsers:
             self.store.mark(acc["id"], True, "Đăng nhập bằng Chrome")
             if s.mail:
                 self.store.update_account(acc["id"], mail=s.mail)
+            tmp_key = self.vpn_key(s)
             s.account_id = acc["id"]
+            loc = (self.engine.vpn.settings().get("loc") or {}).get(tmp_key)
+            if loc:   # tài khoản mới giữ vị trí VPN đã dùng khi đăng nhập
+                self.engine.vpn.assign(acc["id"], loc)
+                self.engine.vpn.forget(tmp_key)
             s.message = f"Đã thêm tài khoản {acc.get('label') or acc['id']}."
         s.state = "done"
 

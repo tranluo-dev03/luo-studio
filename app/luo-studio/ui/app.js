@@ -917,14 +917,14 @@ async function pageApi(auto) {
   clearTimeout(S.apiT);
   setTop("API Muse", `<button class="btn" id="ap-ref">${ico("redo")}Làm mới</button><button class="btn" id="ap-ka" title="Gia hạn phiên đăng nhập của tất cả tài khoản">Giữ phiên tất cả</button><button class="btn" id="ap-batch" title="Thêm nhiều tài khoản cùng lúc từ một file .txt (mỗi dòng email|password|refresh_token|client_id)">${ico("plus")}Thêm theo lô</button><button class="btn primary" id="ap-add">${ico("plus")}Thêm tài khoản</button>`);
   const v = $("#view");
-  let d, tk;
+  let d, tk, vp;
   const tok = S.rtok;
-  try { let t2; [d, t2] = await Promise.all([api("muse/status"), api("muse/tasks?limit=30").catch(() => ({}))]); tk = t2.tasks || d.tasks || []; if (tok !== S.rtok || S.route.page !== "api") return; }
+  try { let t2; [d, t2, vp] = await Promise.all([api("muse/status"), api("muse/tasks?limit=30").catch(() => ({})), api("muse/vpn").catch(() => null)]); tk = t2.tasks || d.tasks || []; if (tok !== S.rtok || S.route.page !== "api") return; }
   catch (e) { v.innerHTML = `<div class="empty"><div class="big">${ico("server")}</div><div>Không kết nối được LUO-API</div><div style="max-width:420px;font-size:13px;color:var(--mute)">${esc(e.message)}<br>Kiểm tra địa chỉ và khoá API ở Cài đặt, và LUO-API đã chạy chưa.</div><a class="btn primary" data-go="#/settings">Mở Cài đặt</a></div>`; S.apiT = setTimeout(() => { if (S.route.page === "api") pageApi(); }, 8000); return; }
   // Tự làm mới mỗi 4 giây, kể cả khi đang mở hộp thoại (thêm tài khoản, thêm theo lô): tài khoản mới hiện ngay trong tab.
   // (Trước đây hẹn giờ 10 giây chỉ chạy một lần và bỏ qua khi có hộp thoại, nên sau khi mở hộp thoại là hết tự cập nhật.)
   const again = () => { clearTimeout(S.apiT); S.apiT = setTimeout(() => { if (S.route.page === "api") pageApi(true); }, 4000); };
-  const sig = JSON.stringify([d, tk, Math.floor(Date.now() / 60000)]);
+  const sig = JSON.stringify([d, tk, vp, Math.floor(Date.now() / 60000)]);
   if (auto && sig === S.apSig && $("#view .apsum")) return again();
   S.apSig = sig;
   const accs = d.accounts || [], on = accs.filter(a => a.enabled), usable = on.filter(a => a.ok !== false && (quotaPct(a.quota || {}) ?? 0) < 100);
@@ -935,6 +935,13 @@ async function pageApi(auto) {
   const vwarn = hot.length ? `<div class="card sec apwarn"><b>Sắp chạm giới hạn ~${VIDEO_LIMIT} video:</b> ${hot.map(a => `${esc(a.label || a.id)} (${a.video_count})`).join(", ")}. Muse có thể từ chối gen video trên các tài khoản này. Đây chỉ là cảnh báo, Studio vẫn gen bình thường.</div>` : "";
   const vid = a => { const n = a.video_count || 0, cls = n >= VIDEO_LIMIT ? "bad" : n >= VIDEO_WARN ? "warn" : "";
     return `<div class="apvid ${cls}" title="Số video gen thành công trên tài khoản này trong hôm nay, tính từ 00:00. Qua ngày mới thì về 0. Chỉ để cảnh báo, không chặn gen.">Số video: <b>${n}</b> / ~${VIDEO_LIMIT}${n >= VIDEO_LIMIT ? " · đã chạm giới hạn" : n >= VIDEO_WARN ? " · sắp chạm giới hạn" : ""}</div>`; };
+  // Touch VPN: mỗi tài khoản một trình duyệt riêng có Touch VPN, một nơi cố định (chọn ngẫu nhiên theo vùng) -> một IP riêng.
+  const vpnLine = a => { if (!vp || !vp.enabled) return "";
+    const loc = (vp.loc || {})[a.id], ipi = (vp.ips || {})[a.id], run = (vp.running || []).includes(a.id);
+    return `<div class="apvpnl" title="Nơi Touch VPN cố định của tài khoản này. IP đo lúc bật VPN gần nhất; mỗi lần trình duyệt VPN mở lại có thể ra IP khác trong cùng nơi.">${ico("server")}<span>VPN: <b>${esc(loc || "chọn khi dùng lần đầu")}</b>${ipi && ipi.ip ? ` · ${esc(ipi.ip)}` : ""}${run ? ` · <span class="ok">đang bật</span>` : ""}</span><button class="btn sm ghost" data-apvpn="${a.id}" title="Chọn nơi khác trong vùng và nối lại VPN">Đổi IP</button></div>`; };
+  const vpnBox = !vp ? "" : `<div class="card sec apvpn"><label class="chk"><input type="checkbox" id="vpn-on" ${vp.enabled ? "checked" : ""}> Bật Touch VPN trong trình duyệt tài khoản</label>
+      <select class="input" id="vpn-reg" ${vp.enabled ? "" : "disabled"}>${Object.entries(vp.regions || {}).map(([k, t]) => `<option value="${k}" ${k === vp.region ? "selected" : ""}>${esc(t)}</option>`).join("")}</select>
+      <div class="apvpnh">Tự tải tiện ích Touch VPN, mỗi tài khoản chạy trong một trình duyệt riêng có Touch VPN và kết nối trước khi mở Muse, kể cả cửa sổ Đăng nhập / Xem. Mỗi tài khoản giữ một nơi cố định để Muse không thấy IP nhảy liên tục. Mỗi trình duyệt tốn thêm ~0,3–0,5 GB RAM, tự tắt khi tài khoản rảnh.${vp.enabled && !vp.browser ? ` <b style="color:var(--bad)">Không tìm thấy Microsoft Edge / Chromium.</b>` : ""}</div></div>`;
   const acc = a => { const q = a.quota || {}, pct = quotaPct(q), extra = q.extra_used_pct != null, dd = days(a), bad = a.ok === false;
     return `<div class="card apacc ${a.enabled ? "" : "off"}" data-id="${a.id}">
       <div class="aphead"><b title="${esc(a.label || a.id)}">${esc(a.label || a.id)}</b><span class="tag mute">${a.id.slice(0, 6)}</span><span class="grow"></span>
@@ -943,12 +950,13 @@ async function pageApi(auto) {
       ${vid(a)}
       <div class="apmeta">Dùng ${a.use_count || 0} lần · lần cuối ${ago2(a.last_used)}${dd != null ? ` · cookie còn ~${dd} ngày` : ""}${a.mail_email ? ` · <span title="Đăng nhập lại sẽ tự điền email và tự lấy mã OTP từ hộp thư này">tự lấy mã: ${esc(a.mail_email)}</span>` : ""}</div>
       ${a.note ? `<div class="apnote ${bad ? "bad" : ""}" title="${esc(a.note)}">${esc(viNote(a.note))}</div>` : ""}
+      ${vpnLine(a)}
       <div class="apact"><button class="btn sm" data-aptest="${a.id}">Kiểm tra phiên</button><button class="btn sm" data-apq="${a.id}">Đo hạn mức</button><button class="btn sm primary" data-apview="${a.id}" title="Mở Chrome đã đăng nhập tài khoản này để xem trực tiếp Muse, các đoạn chat">Xem trên Chrome</button><button class="btn sm" data-apck="${a.id}" title="Mở Chrome sạch để đăng nhập lại tài khoản này, LUO tự lấy cookie mới">Đăng nhập lại</button><button class="btn sm ghost" data-apren="${a.id}">Đổi tên</button><button class="ib danger" data-apdel="${a.id}" title="Xoá tài khoản">${ico("trash")}</button></div></div>`; };
   const task = t => `<tr><td>${ago(t.created_at)}</td><td>${esc(t.kind || "")}</td><td><span class="tag ${t.status === "completed" || t.status === "succeeded" ? "ok" : t.status === "failed" ? "bad" : t.status === "processing" ? "" : "mute"}">${TASK_VI[t.status] || esc(t.status)}</span></td><td>${t.elapsed ? Math.round(t.elapsed) + "s" : "—"}</td><td class="aperr" title="${esc(String(t.error || ""))}">${esc(String(t.error || "").slice(0, 90))}</td><td><button class="ib" data-aptd="${t.id}" title="Xoá khỏi danh sách">${ico("x")}</button></td></tr>`;
   v.innerHTML = `${warn}${vwarn}<div class="apsum"><div class="card"><small>Tài khoản dùng được</small><b>${usable.length}<span>/ ${accs.length}</span></b></div><div class="card"><small>Đang bật</small><b>${on.length}</b></div>
       <div class="card"><small>Task đang chờ / xử lý</small><b>${cnt("queued")}<span>/ ${cnt("processing")}</span></b></div><div class="card"><small>Task lỗi gần đây</small><b>${cnt("failed")}</b></div>
       <div class="card"><small>Trình duyệt API</small><b style="font-size:16px">${d.browser_running ? "Đang chạy" : "Chưa mở"}</b></div></div>
-    <h3 class="aph">Tài khoản Muse</h3><div class="apgrid">${accs.map(acc).join("") || `<div class="empty" style="grid-column:1/-1"><div>Chưa có tài khoản. Bấm "Thêm tài khoản", đặt tên rồi bấm Đăng nhập.</div></div>`}</div>
+    <h3 class="aph">Tài khoản Muse</h3>${vpnBox}<div class="apgrid">${accs.map(acc).join("") || `<div class="empty" style="grid-column:1/-1"><div>Chưa có tài khoản. Bấm "Thêm tài khoản", đặt tên rồi bấm Đăng nhập.</div></div>`}</div>
     <h3 class="aph">Task gần đây</h3><div class="card" style="padding:0"><table class="gt" style="width:100%"><thead><tr><th>Lúc</th><th>Loại</th><th>Trạng thái</th><th>Thời gian</th><th>Lỗi</th><th></th></tr></thead><tbody>${tk.map(task).join("") || `<tr><td colspan="6" style="padding:18px;color:var(--mute)">Chưa có task</td></tr>`}</tbody></table></div>`;
   const run = async (btn, fn, ok) => { if (btn) btn.disabled = true; try { const r = await fn(); if (ok) toast(typeof ok === "function" ? ok(r) : ok); } catch (e) { toast(e.message, 1); } await pageApi(); };
   // Thêm / đăng nhập lại tài khoản: LUO-API mở một cửa sổ Chrome sạch ở muse.ai, người dùng tự đăng nhập, LUO tự lấy cookie, lưu rồi đóng cửa sổ.
@@ -1030,11 +1038,16 @@ async function pageApi(auto) {
   $("#ap-ref").onclick = () => pageApi();
   $("#ap-add").onclick = () => cookieModal();
   $("#ap-batch").onclick = () => batchModal();
+  if ($("#vpn-on")) {
+    $("#vpn-on").onchange = e => { const on = e.target.checked; if (on) toast("Đang bật Touch VPN (lần đầu tải tiện ích)…");
+      run(null, () => api("muse/vpn", { body: { enabled: on } }), on ? "Đã bật Touch VPN. Tài khoản sẽ chạy qua VPN từ lần gen / mở Chrome tiếp theo" : "Đã tắt Touch VPN"); };
+    $("#vpn-reg").onchange = e => run(null, () => api("muse/vpn", { body: { region: e.target.value } }), "Đã đổi vùng. Mỗi tài khoản chọn lại nơi mới khi mở trình duyệt VPN lần sau"); }
   $("#ap-ka").onclick = e => run(e.target.closest("button"), () => api("muse/accounts/keepalive", { body: {} }), "Đã gia hạn phiên các tài khoản");
   v.onclick = async e => { let x; const btn = e.target.closest("button, .sw2");
     if ((x = e.target.closest("[data-aptog]"))) return run(null, () => api("muse/accounts/" + x.dataset.aptog, { method: "PUT", body: { enabled: !x.classList.contains("on") } }));
     if ((x = e.target.closest("[data-aptest]"))) { toast("Đang kiểm tra phiên (mở Muse, có thể mất 1 phút)…"); return run(btn, () => api(`muse/accounts/${x.dataset.aptest}/test`, { body: {} }), r => r.ok ? "Phiên còn hạn" : "Phiên lỗi: " + viNote(r.message)); }
     if ((x = e.target.closest("[data-apq]"))) { toast("Đang đo hạn mức…"); return run(btn, () => api(`muse/accounts/${x.dataset.apq}/quota`, { body: {} }), r => r.extra_used_pct != null ? `Token Extra đã dùng ${r.extra_used_pct}%${r.extra_left ? ", còn " + r.extra_left.replace(/\s*left$/i, "") : ""}` : `Hạn mức tuần ${r.weekly_used_pct ?? "?"}%`); }
+    if ((x = e.target.closest("[data-apvpn]"))) { toast("Đang đổi IP…"); return run(btn, () => api(`muse/accounts/${x.dataset.apvpn}/vpn`, { body: {} }), r => r.applied ? `Đã nối VPN ở ${r.loc}${r.ip ? " (" + r.ip + ")" : ""}` : `Đã đổi sang ${r.loc}, áp dụng khi tài khoản dùng lần sau`); }
     if ((x = e.target.closest("[data-apview]"))) { toast("Đang mở Chrome của tài khoản…"); return run(btn, () => api(`muse/accounts/${x.dataset.apview}/view`, { body: {} }), r => r.state === "error" ? "Không mở được Chrome: " + r.message : "Đã mở Muse trên Chrome. Đóng cửa sổ khi xem xong."); }
     if ((x = e.target.closest("[data-apck]"))) { const a = accs.find(z => z.id === x.dataset.apck); return cookieModal(a.id, a.label || a.id, a.mail_email); }
     if ((x = e.target.closest("[data-apren]"))) { const a = accs.find(z => z.id === x.dataset.apren), nn = prompt("Tên mới cho tài khoản", a.label || ""); if (nn != null) return run(null, () => api("muse/accounts/" + a.id, { method: "PUT", body: { label: nn.trim() } })); return; }
