@@ -209,7 +209,7 @@ class MuseEngine:
                 self.cfg.chromium,
                 "--headless=new", "--no-sandbox", "--disable-gpu",
                 "--disable-dev-shm-usage", "--disable-background-networking",
-                "--no-first-run", "--no-default-browser-check",
+                "--no-first-run", "--no-default-browser-check", "--password-store=basic",
                 "--autoplay-policy=no-user-gesture-required",
                 # Không cho Chromium bóp tốc tab/cửa sổ nền: các việc song song trên cùng tài khoản chạy song song thật.
                 "--disable-backgrounding-occluded-windows", "--disable-renderer-backgrounding",

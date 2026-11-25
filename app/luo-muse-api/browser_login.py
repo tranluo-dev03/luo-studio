@@ -122,7 +122,7 @@ class LoginBrowsers:
         args = [exe,
                 f"--remote-debugging-port={s.port}", "--remote-allow-origins=*",
                 f"--user-data-dir={s.profile}",
-                "--no-first-run", "--no-default-browser-check", "--disable-sync",
+                "--no-first-run", "--no-default-browser-check", "--disable-sync", "--password-store=basic",
                 "--window-size=1280,900"] + (vpn.ext_args() if vpn else []) + ["--new-window", "about:blank" if vpn else url]
         if os.name != "nt" and not exe.startswith("/opt/google/"):
             # Ubuntu 23.10+ (AppArmor chặn user namespace): Chrome for Testing / Chromium tự tải không có hồ sơ AppArmor nên

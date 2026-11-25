@@ -52,7 +52,7 @@ def main():
         input("Đã mở trình duyệt. Nhấn Enter để thoát…")
         return
     profile = os.path.join(server.DATA, "window-profile")
-    proc = subprocess.Popen([exe, f"--app={url}", f"--user-data-dir={profile}", "--start-maximized", "--no-first-run",
+    proc = subprocess.Popen([exe, f"--app={url}", f"--user-data-dir={profile}", "--start-maximized", "--no-first-run", "--password-store=basic",
                              "--disable-features=Translate,TranslateUI,EdgeTranslate,msEdgeTranslate", "--disable-sync", "--lang=vi"])
     proc.wait()
 

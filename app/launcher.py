@@ -389,7 +389,7 @@ def open_window(url, holder=None):
                 time.sleep(3600)
         return
     profile = os.path.join(STUDIO_DATA, "window-profile")
-    proc = subprocess.Popen([exe, f"--app={url}", f"--user-data-dir={profile}", "--start-maximized", "--no-first-run",
+    proc = subprocess.Popen([exe, f"--app={url}", f"--user-data-dir={profile}", "--start-maximized", "--no-first-run", "--password-store=basic",
                              "--disable-features=Translate,TranslateUI,EdgeTranslate,msEdgeTranslate", "--disable-sync", "--lang=vi"])
     if holder is not None:
         holder["window_proc"] = proc

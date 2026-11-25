@@ -565,7 +565,7 @@ class AccountBrowsers:
         prof = fresh_profile(self.profile(acc))
         port = _free_port()
         args = [exe, "--headless=new", "--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage",
-                "--no-first-run", "--no-default-browser-check", "--disable-sync",
+                "--no-first-run", "--no-default-browser-check", "--disable-sync", "--password-store=basic",
                 "--autoplay-policy=no-user-gesture-required",
                 "--disable-backgrounding-occluded-windows", "--disable-renderer-backgrounding",
                 "--disable-background-timer-throttling",
