@@ -118,9 +118,7 @@ class LoginBrowsers:
         s.port = _free_port()
         exe = _browser_exe(self.cfg)
         if vpn:
-            exe = vpn.browser_exe()
-            if not exe:
-                raise RuntimeError("Bật Touch VPN cần Microsoft Edge hoặc Chromium (Google Chrome 137+ không nạp được tiện ích)")
+            exe = vpn.ensure_browser()
         args = [exe,
                 f"--remote-debugging-port={s.port}", "--remote-allow-origins=*",
                 f"--user-data-dir={s.profile}",

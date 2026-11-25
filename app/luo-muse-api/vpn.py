@@ -19,6 +19,7 @@ import random
 import shutil
 import socket
 import struct
+import sys
 import subprocess
 import threading
 import time
@@ -266,9 +267,33 @@ class Vpn:
             log.info("【vpn】đã cài Touch VPN %s", man.get("version"))
             return self.ext_dir
 
-    @staticmethod
-    def browser_exe() -> str | None:
-        """Trình duyệt còn nhận --load-extension: Edge (Windows), Chromium; Google Chrome 137+ thì không."""
+    # Chrome for Testing: bản Chrome chính thức của Google cho tự động hoá, VẪN nhận --load-extension (Chrome thường 137+
+    # thì không). Máy Linux chỉ có Google Chrome (setup.sh cài .deb) thì tự tải bản này một lần vào data/chrome-for-testing.
+    CFT_INDEX = "https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions-with-downloads.json"
+
+    def _cft_platform(self) -> str | None:
+        import platform
+        m = platform.machine().lower()
+        if sys.platform.startswith("linux") and m in ("x86_64", "amd64"):
+            return "linux64"
+        if os.name == "nt":
+            return "win64" if m in ("amd64", "x86_64") else None
+        if sys.platform == "darwin":
+            return "mac-arm64" if m == "arm64" else "mac-x64"
+        return None
+
+    def _cft_exe(self) -> str | None:
+        plat = self._cft_platform()
+        if not plat:
+            return None
+        root = os.path.join(self.cfg.data_dir, "chrome-for-testing", f"chrome-{plat}")
+        name = {"linux64": "chrome", "win64": "chrome.exe"}.get(plat,
+               os.path.join("Google Chrome for Testing.app", "Contents", "MacOS", "Google Chrome for Testing"))
+        p = os.path.join(root, name)
+        return p if os.path.isfile(p) else None
+
+    def browser_exe(self) -> str | None:
+        """Trình duyệt còn nhận --load-extension: Edge (Windows), Chromium, Chrome for Testing đã tải; Google Chrome 137+ thì không."""
         env = os.environ.get("LUO_VPN_BROWSER", "").strip()
         if env and (os.path.isfile(env) or shutil.which(env)):
             return env
@@ -279,12 +304,58 @@ class Vpn:
                     p = os.path.join(r, "Microsoft", "Edge", "Application", "msedge.exe")
                     if os.path.isfile(p):
                         return p
-        for n in ("/usr/bin/chromium", "/usr/bin/chromium-browser", "chromium", "chromium-browser",
+        for n in ("/usr/bin/chromium", "/usr/bin/chromium-browser", "/snap/bin/chromium", "chromium", "chromium-browser",
                   "microsoft-edge", "microsoft-edge-stable"):
             w = n if os.path.isfile(n) else shutil.which(n)
             if w:
                 return w
-        return None
+        return self._cft_exe()
+
+    def ensure_browser(self) -> str:
+        """Trình duyệt cho Touch VPN; không có thì tải Chrome for Testing (~150 MB, một lần) từ kho chính thức của Google."""
+        exe = self.browser_exe()
+        if exe:
+            return exe
+        plat = self._cft_platform()
+        if not plat:
+            raise VpnError("Bật Touch VPN cần Microsoft Edge hoặc Chromium (Google Chrome 137+ không nạp được tiện ích)")
+        with self._dl_lock:
+            exe = self._cft_exe()
+            if exe:
+                return exe
+            idx = requests.get(self.CFT_INDEX, timeout=30).json()
+            st = idx["channels"]["Stable"]
+            url = next((d["url"] for d in st["downloads"]["chrome"] if d.get("platform") == plat), None)
+            if not url or not url.startswith("https://storage.googleapis.com/chrome-for-testing-public/"):
+                raise VpnError(f"Không tìm thấy Chrome for Testing cho {plat}")
+            log.info("【vpn】tải Chrome for Testing %s (%s) cho Touch VPN", st.get("version"), plat)
+            base = os.path.join(self.cfg.data_dir, "chrome-for-testing")
+            tmp = base + ".tmp"
+            shutil.rmtree(tmp, ignore_errors=True)
+            os.makedirs(tmp, exist_ok=True)
+            zp = os.path.join(tmp, "chrome.zip")
+            with requests.get(url, stream=True, timeout=60) as r:
+                r.raise_for_status()
+                with open(zp, "wb") as f:
+                    for chunk in r.iter_content(1 << 20):
+                        f.write(chunk)
+            with zipfile.ZipFile(zp) as z:
+                for info in z.infolist():
+                    n = info.filename
+                    if n.startswith(("/", "\\")) or ".." in n.replace("\\", "/").split("/"):
+                        raise VpnError("Gói Chrome for Testing có đường dẫn lạ, bỏ qua")
+                    z.extract(info, tmp)
+                    mode = (info.external_attr >> 16) & 0o777   # zipfile bỏ quyền chạy: đặt lại theo gói
+                    if mode and os.name != "nt":
+                        os.chmod(os.path.join(tmp, n), mode)
+            os.unlink(zp)
+            shutil.rmtree(base, ignore_errors=True)
+            os.replace(tmp, base)
+            exe = self._cft_exe()
+            if not exe:
+                raise VpnError("Giải nén Chrome for Testing xong nhưng không thấy tệp chạy")
+            log.info("【vpn】đã cài Chrome for Testing: %s", exe)
+            return exe
 
     def ext_args(self) -> list[str]:
         ext = self.ensure_extension()
@@ -453,9 +524,7 @@ class AccountBrowsers:
             return b, True
 
     def _launch(self, acc: str) -> _AccBrowser:
-        exe = self.vpn.browser_exe()
-        if not exe:
-            raise VpnError("Không tìm thấy Microsoft Edge / Chromium để chạy Touch VPN")
+        exe = self.vpn.ensure_browser()
         prof = fresh_profile(self.profile(acc))
         port = _free_port()
         args = [exe, "--headless=new", "--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage",

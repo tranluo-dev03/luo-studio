@@ -2024,8 +2024,10 @@ def vpn_status(_=Depends(auth)):
 @app.post("/admin/vpn")
 def vpn_set(req: VpnPatch, _=Depends(auth)):
     if req.enabled:
-        if not engine.vpn.browser_exe():
-            raise HTTPException(400, "Bật Touch VPN cần Microsoft Edge hoặc Chromium (Google Chrome 137+ không nạp được tiện ích)")
+        try:   # máy chỉ có Google Chrome 137+ (Linux): tự tải Chrome for Testing (~150 MB, một lần)
+            engine.vpn.ensure_browser()
+        except Exception as exc:  # noqa: BLE001
+            raise HTTPException(502, f"Không có trình duyệt chạy được Touch VPN: {exc}") from None
         try:
             engine.vpn.ensure_extension()   # tải Touch VPN lần đầu (~2 MB) để báo lỗi ngay nếu không tải được
         except Exception as exc:  # noqa: BLE001  (VpnError, mạng, giải nén)

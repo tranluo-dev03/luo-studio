@@ -1039,7 +1039,7 @@ async function pageApi(auto) {
   $("#ap-add").onclick = () => cookieModal();
   $("#ap-batch").onclick = () => batchModal();
   if ($("#vpn-on")) {
-    $("#vpn-on").onchange = e => { const on = e.target.checked; if (on) toast("Đang bật Touch VPN (lần đầu tải tiện ích)…");
+    $("#vpn-on").onchange = e => { const on = e.target.checked; if (on) toast("Đang bật Touch VPN (lần đầu tải tiện ích; máy chỉ có Google Chrome thì tải thêm Chrome for Testing ~150 MB, có thể mất 1–2 phút)…");
       run(null, () => api("muse/vpn", { body: { enabled: on } }), on ? "Đã bật Touch VPN. Tài khoản sẽ chạy qua VPN từ lần gen / mở Chrome tiếp theo" : "Đã tắt Touch VPN"); };
     $("#vpn-reg").onchange = e => run(null, () => api("muse/vpn", { body: { region: e.target.value } }), "Đã đổi vùng. Mỗi tài khoản chọn lại nơi mới khi mở trình duyệt VPN lần sau"); }
   $("#ap-ka").onclick = e => run(e.target.closest("button"), () => api("muse/accounts/keepalive", { body: {} }), "Đã gia hạn phiên các tài khoản");
