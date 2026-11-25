@@ -124,6 +124,10 @@ class LoginBrowsers:
                 f"--user-data-dir={s.profile}",
                 "--no-first-run", "--no-default-browser-check", "--disable-sync",
                 "--window-size=1280,900"] + (vpn.ext_args() if vpn else []) + ["--new-window", "about:blank" if vpn else url]
+        if os.name != "nt" and not exe.startswith("/opt/google/"):
+            # Ubuntu 23.10+ (AppArmor chặn user namespace): Chrome for Testing / Chromium tự tải không có hồ sơ AppArmor nên
+            # chết ngay với "No usable sandbox!"; Google Chrome cài .deb (/opt/google) có hồ sơ riêng nên giữ sandbox (25/11/2026)
+            args.insert(1, "--no-sandbox")
         flags = getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0)
         s.proc = subprocess.Popen(args, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=flags)
         last = None
