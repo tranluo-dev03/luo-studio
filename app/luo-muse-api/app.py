@@ -2008,6 +2008,7 @@ def del_account(aid: str, _=Depends(auth)):
 class VpnPatch(BaseModel):
     enabled: bool | None = None
     region: str | None = None
+    daily: bool | None = None
 
 
 def _vpn_status() -> dict:
@@ -2032,10 +2033,57 @@ def vpn_set(req: VpnPatch, _=Depends(auth)):
             engine.vpn.ensure_extension()   # tải Touch VPN lần đầu (~2 MB) để báo lỗi ngay nếu không tải được
         except Exception as exc:  # noqa: BLE001  (VpnError, mạng, giải nén)
             raise HTTPException(502, f"Không tải được Touch VPN: {exc}") from None
-    engine.vpn.set(enabled=req.enabled, region=req.region)
+    engine.vpn.set(enabled=req.enabled, region=req.region, daily=req.daily)
     if req.enabled is False:   # tắt: đóng các trình duyệt VPN rảnh; tài khoản đang gen chạy nốt rồi về trình duyệt chung
         threading.Thread(target=engine.close_vpn_idle, daemon=True).start()
     return _vpn_status()
+
+
+VPN_DAILY_PENDING: set = set()   # tài khoản đến lượt đổi IP hằng ngày nhưng đang gen: đổi khi rảnh
+
+
+def _vpn_daily_tick():
+    """Tự đổi IP mọi tài khoản mỗi 24 giờ (bật ở tab Tài khoản). Tài khoản đang mở trình duyệt VPN: đổi nơi + nối lại ngay
+    (đảm bảo ra IP khác); chưa mở: đổi nơi đã lưu, IP mới có khi dùng lần sau. Tài khoản đang gen thì để tới khi rảnh."""
+    vpn = engine.vpn
+    if not vpn.enabled:
+        VPN_DAILY_PENDING.clear()
+        return
+    if vpn.daily_due():
+        vpn.mark_daily(start=True)
+        VPN_DAILY_PENDING.clear()
+        VPN_DAILY_PENDING.update(a["id"] for a in store.accounts if a.get("enabled", True))
+        log.info("【vpn】đến hạn đổi IP hằng ngày cho %d tài khoản", len(VPN_DAILY_PENDING))
+    if not VPN_DAILY_PENDING:
+        return
+    pool = engine.pool_status()
+    done = failed = 0
+    for aid in list(VPN_DAILY_PENDING):
+        if (pool.get(aid) or {}).get("busy") or ACCOUNT_POOL.load.get(aid):
+            continue   # đang gen: lượt sau
+        try:
+            if engine.vbro.peek(aid):
+                engine.vbro.change_ip(aid)
+            else:
+                vpn.reroll(aid)
+            done += 1
+        except Exception as exc:  # noqa: BLE001
+            failed += 1
+            log.warning("【vpn】đổi IP hằng ngày cho %s lỗi: %s", aid, exc)
+        VPN_DAILY_PENDING.discard(aid)
+    prev = (vpn.settings().get("daily_result") or {})
+    same_round = prev.get("at") == vpn.settings().get("last_daily")
+    vpn.mark_daily({"at": vpn.settings().get("last_daily"), "done": done + (prev.get("done", 0) if same_round else 0),
+                    "failed": failed + (prev.get("failed", 0) if same_round else 0), "waiting": len(VPN_DAILY_PENDING)})
+
+
+def _vpn_daily_loop():
+    while True:
+        time.sleep(300)
+        try:
+            _vpn_daily_tick()
+        except Exception as exc:  # noqa: BLE001
+            log.warning("【vpn】vòng đổi IP hằng ngày lỗi: %s", exc)
 
 
 @app.post("/admin/accounts/{aid}/vpn")
@@ -2043,12 +2091,17 @@ def vpn_reroll(aid: str, _=Depends(auth)):
     """Đổi IP: chọn vị trí khác trong vùng; trình duyệt VPN của tài khoản đang mở thì nối lại ngay."""
     if not store.get_account(aid):
         raise HTTPException(404, "账号不存在")
-    loc = engine.vpn.reroll(aid)
+    if not engine.vpn.enabled:
+        raise HTTPException(400, "Touch VPN đang tắt")
+    if (engine.pool_status().get(aid) or {}).get("busy"):
+        raise HTTPException(409, "Tài khoản đang gen video: đổi IP giữa chừng sẽ làm hỏng lượt gen, đợi xong rồi bấm lại")
     try:
-        info = engine.vbro.reconnect(aid)
+        engine.vpn.ensure_browser()
+        info = engine.vbro.change_ip(aid)
     except Exception as exc:  # noqa: BLE001
-        raise HTTPException(502, f"Không nối lại được Touch VPN: {exc}") from None
-    return {"id": aid, "loc": loc, "ip": (info or {}).get("ip") or "", "applied": info is not None}
+        raise HTTPException(502, f"Không đổi được IP: {exc}") from None
+    return {"id": aid, "loc": info.get("loc"), "ip": info.get("ip") or "", "old_ip": info.get("old_ip") or "",
+            "tries": info.get("tries"), "same": info.get("same"), "applied": True}
 
 
 @app.post("/admin/accounts/{aid}/test")
@@ -2940,6 +2993,7 @@ async def _startup():
         _persist_env("MUSE2API_KEY", new_key)
         log.info("🔑 未检测到 MUSE2API_KEY，已自动生成初始密钥: %s", new_key)
     asyncio.create_task(_keepalive_loop())
+    threading.Thread(target=_vpn_daily_loop, daemon=True, name="vpn-daily").start()
 
 
 @app.on_event("shutdown")

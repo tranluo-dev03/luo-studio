@@ -148,6 +148,9 @@ class Vpn:
         d.setdefault("enabled", False)
         d.setdefault("region", "us")
         d.setdefault("loc", {})
+        d.setdefault("daily", False)       # tự đổi IP mọi tài khoản mỗi 24 giờ
+        d.setdefault("last_daily", 0)
+        d.setdefault("daily_result", {})
         return d
 
     def _save(self):
@@ -169,10 +172,32 @@ class Vpn:
         with self._lock:
             return {"enabled": self.enabled, "region": self.region, "regions": REGION_LABELS,
                     "installed": self.installed(), "browser": self.browser_exe() or "",
-                    "loc": dict(self._data.get("loc") or {}), "ips": dict(self.ips)}
+                    "loc": dict(self._data.get("loc") or {}), "ips": dict(self.ips),
+                    "daily": bool(self._data.get("daily")), "last_daily": int(self._data.get("last_daily") or 0),
+                    "next_daily": int((self._data.get("last_daily") or 0) + self.DAILY) if self._data.get("daily") else 0,
+                    "daily_result": dict(self._data.get("daily_result") or {})}
 
-    def set(self, enabled: bool | None = None, region: str | None = None) -> dict:
+    DAILY = 86400
+
+    def daily_due(self) -> bool:
         with self._lock:
+            return (self.enabled and bool(self._data.get("daily"))
+                    and time.time() - float(self._data.get("last_daily") or 0) >= self.DAILY)
+
+    def mark_daily(self, result: dict | None = None, start: bool = False):
+        with self._lock:
+            if start:
+                self._data["last_daily"] = int(time.time())
+            if result is not None:
+                self._data["daily_result"] = result
+            self._save()
+
+    def set(self, enabled: bool | None = None, region: str | None = None, daily: bool | None = None) -> dict:
+        with self._lock:
+            if daily is not None and bool(daily) != bool(self._data.get("daily")):
+                self._data["daily"] = bool(daily)
+                if daily:   # vừa bật: lần đổi đầu sau 24 giờ (đổi ngay thì bấm "Đổi IP" từng tài khoản)
+                    self._data["last_daily"] = int(time.time())
             if enabled is not None:
                 self._data["enabled"] = bool(enabled)
             if region is not None and region in REGIONS and region != self._data.get("region"):
@@ -208,12 +233,13 @@ class Vpn:
             self._save()
             return cur
 
-    def reroll(self, key: str) -> str:
-        """Đổi sang một vị trí khác trong vùng (nút "Đổi IP")."""
+    def reroll(self, key: str, exclude: set | None = None) -> str:
+        """Đổi sang một vị trí khác trong vùng (nút "Đổi IP"), tránh các nơi trong `exclude` (đã thử, ra IP trùng)."""
         with self._lock:
             locs = self._data.setdefault("loc", {})
             old = locs.get(key)
-            pool = [p for p in self._pool() if p != old] or self._pool()
+            skip = set(exclude or ()) | {old}
+            pool = [p for p in self._pool() if p not in skip] or [p for p in self._pool() if p != old] or self._pool()
             locs[key] = random.choice(pool)
             self._save()
             return locs[key]
@@ -470,11 +496,11 @@ class Vpn:
 
 
 class _AccBrowser:
-    __slots__ = ("acc", "proc", "port", "cdp", "profile", "checked")
+    __slots__ = ("acc", "proc", "port", "cdp", "profile", "checked", "started")
 
     def __init__(self, acc, proc, port, cdp, profile):
         self.acc, self.proc, self.port, self.cdp, self.profile = acc, proc, port, cdp, profile
-        self.checked = time.time()
+        self.checked = self.started = time.time()
 
     def alive(self) -> bool:
         return bool(self.proc and self.proc.poll() is None and self.cdp and self.cdp.alive)
@@ -572,6 +598,41 @@ class AccountBrowsers:
                 b.proc.wait(timeout=8)
             except Exception:  # noqa: BLE001
                 b.proc.kill()
+
+    def change_ip(self, acc: str, tries: int = 5) -> dict:
+        """Nút "Đổi IP": chọn nơi khác trong vùng, nối lại và đo IP; IP trùng IP cũ (hoặc IP tài khoản khác đang dùng)
+        thì thử nơi khác (vd. New York / Newark chung dải IP). Trình duyệt VPN chưa mở thì mở luôn để IP mới có hiệu lực ngay."""
+        old_ip = (self.vpn.ips.get(acc) or {}).get("ip") or ""
+        others = {v.get("ip") for k, v in self.vpn.ips.items() if k != acc and k in self._b and v.get("ip")}
+        with self._acc_lock(acc):
+            b = self._b.get(acc)
+            if not b or not b.alive():
+                if b:
+                    self._kill(b)
+                b = self._launch(acc)
+                self._b[acc] = b
+            tried: set = set()
+            info: dict = {}
+            fallback: dict | None = None
+            for i in range(max(1, tries)):
+                tried.add(self.vpn.reroll(acc, exclude=tried))
+                info = self.vpn.connect(b.cdp, b.port, acc)
+                ip = info.get("ip") or ""
+                if ip and ip != old_ip and ip not in others:
+                    break
+                if ip and ip != old_ip and fallback is None:
+                    fallback = dict(info)   # khác IP cũ nhưng trùng tài khoản khác: giữ làm phương án cuối
+                log.info("【vpn】%s: %s ra IP %s trùng, thử nơi khác (%d/%d)", acc, info.get("loc"), ip or "?", i + 1, tries)
+            else:
+                if fallback:   # không tìm được IP "riêng": quay về nơi cho IP khác IP cũ
+                    self.vpn.assign(acc, fallback["loc"])
+                    info = self.vpn.connect(b.cdp, b.port, acc)
+            b.checked = time.time()
+            return dict(info, old_ip=old_ip, tries=len(tried), same=bool(old_ip) and info.get("ip") == old_ip)
+
+    def idle_since(self, acc: str) -> float:
+        b = self._b.get(acc)
+        return max(b.started, b.checked) if b else 0.0
 
     def reconnect(self, acc: str) -> dict | None:
         """Nối lại VPN theo vị trí đang lưu (sau "Đổi IP"). Trình duyệt chưa mở thì vị trí mới dùng ở lần mở sau."""

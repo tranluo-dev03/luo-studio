@@ -591,7 +591,7 @@ class MuseEngine:
         for acc in self.vbro.accounts():   # trình duyệt VPN của tài khoản không còn tab nào: tắt để trả RAM
             with self._cond:
                 busy = bool(self._tabs.get(acc)) or self._opening.get(acc, 0) > 0
-            if not busy and acc not in keep:
+            if not busy and acc not in keep and now - self.vbro.idle_since(acc) > idle_s:
                 with self._ctx_lock:
                     if self._ctx.get(acc) == VPN_CTX:
                         self._ctx.pop(acc, None)
