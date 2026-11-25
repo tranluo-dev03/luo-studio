@@ -2037,6 +2037,7 @@ class VpnPatch(BaseModel):
     enabled: bool | None = None
     region: str | None = None
     daily: bool | None = None
+    daily_hours: int | None = None   # chu kỳ tự đổi IP (giờ, 1..168)
 
 
 def _vpn_status() -> dict:
@@ -2061,7 +2062,7 @@ def vpn_set(req: VpnPatch, _=Depends(auth)):
             engine.vpn.ensure_extension()   # tải Touch VPN lần đầu (~2 MB) để báo lỗi ngay nếu không tải được
         except Exception as exc:  # noqa: BLE001  (VpnError, mạng, giải nén)
             raise HTTPException(502, f"Không tải được Touch VPN: {exc}") from None
-    engine.vpn.set(enabled=req.enabled, region=req.region, daily=req.daily)
+    engine.vpn.set(enabled=req.enabled, region=req.region, daily=req.daily, daily_hours=req.daily_hours)
     if req.enabled is False:   # tắt: đóng các trình duyệt VPN rảnh; tài khoản đang gen chạy nốt rồi về trình duyệt chung
         threading.Thread(target=engine.close_vpn_idle, daemon=True).start()
     return _vpn_status()

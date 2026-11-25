@@ -148,7 +148,8 @@ class Vpn:
         d.setdefault("enabled", False)
         d.setdefault("region", "us")
         d.setdefault("loc", {})
-        d.setdefault("daily", False)       # tự đổi IP mọi tài khoản mỗi 24 giờ
+        d.setdefault("daily", False)       # tự đổi IP mọi tài khoản mỗi `daily_hours` giờ
+        d.setdefault("daily_hours", 24)
         d.setdefault("last_daily", 0)
         d.setdefault("daily_result", {})
         return d
@@ -174,15 +175,22 @@ class Vpn:
                     "installed": self.installed(), "browser": self.browser_exe() or "",
                     "loc": dict(self._data.get("loc") or {}), "ips": dict(self.ips),
                     "daily": bool(self._data.get("daily")), "last_daily": int(self._data.get("last_daily") or 0),
-                    "next_daily": int((self._data.get("last_daily") or 0) + self.DAILY) if self._data.get("daily") else 0,
+                    "daily_hours": self._hours(),
+                    "next_daily": int((self._data.get("last_daily") or 0) + self._hours() * 3600) if self._data.get("daily") else 0,
                     "daily_result": dict(self._data.get("daily_result") or {})}
 
-    DAILY = 86400
+    HOURS_MIN, HOURS_MAX = 1, 168   # chu kỳ tự đổi IP: 1 giờ .. 7 ngày (mặc định 24 giờ)
+
+    def _hours(self) -> int:
+        try:
+            return max(self.HOURS_MIN, min(self.HOURS_MAX, int(self._data.get("daily_hours") or 24)))
+        except (TypeError, ValueError):
+            return 24
 
     def daily_due(self) -> bool:
         with self._lock:
             return (self.enabled and bool(self._data.get("daily"))
-                    and time.time() - float(self._data.get("last_daily") or 0) >= self.DAILY)
+                    and time.time() - float(self._data.get("last_daily") or 0) >= self._hours() * 3600)
 
     def mark_daily(self, result: dict | None = None, start: bool = False):
         with self._lock:
@@ -192,11 +200,14 @@ class Vpn:
                 self._data["daily_result"] = result
             self._save()
 
-    def set(self, enabled: bool | None = None, region: str | None = None, daily: bool | None = None) -> dict:
+    def set(self, enabled: bool | None = None, region: str | None = None, daily: bool | None = None,
+            daily_hours: int | None = None) -> dict:
         with self._lock:
+            if daily_hours is not None:   # đổi chu kỳ: lần đổi tiếp = lần đổi trước + số giờ mới
+                self._data["daily_hours"] = max(self.HOURS_MIN, min(self.HOURS_MAX, int(daily_hours)))
             if daily is not None and bool(daily) != bool(self._data.get("daily")):
                 self._data["daily"] = bool(daily)
-                if daily:   # vừa bật: lần đổi đầu sau 24 giờ (đổi ngay thì bấm "Đổi IP" từng tài khoản)
+                if daily:   # vừa bật: lần đổi đầu sau một chu kỳ (đổi ngay thì bấm "Đổi IP" từng tài khoản)
                     self._data["last_daily"] = int(time.time())
             if enabled is not None:
                 self._data["enabled"] = bool(enabled)
