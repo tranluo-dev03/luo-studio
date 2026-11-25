@@ -1,0 +1,4122 @@
+[
+  {
+    "name": "kb3lqv-nam51001",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young woman's face, fair skin and a very long auburn braid, exposed black cables and white mechanical arms and hands, wearing a rust-orange ruffled dress, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young woman's voice around 205-225 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the boy",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino boy about 7, curly black hair, a red t-shirt and jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real child boy's voice, around 250-270 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest on the edge of the kitchen counter, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-5-10-LAT-01",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-03"
+    }
+  },
+  {
+    "name": "kb3lqv-nam51002",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young woman's face, fair skin and a very long auburn braid, exposed black cables and white mechanical arms and hands, wearing a rust-orange ruffled dress, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young woman's voice around 205-225 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the boy",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino boy about 9, wavy dark hair, a blue hoodie and grey trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real child boy's voice, around 240-260 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest on the edge of the kitchen counter, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-5-10-LAT-02",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-03"
+    }
+  },
+  {
+    "name": "kb3lqv-nam51003",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young woman's face, fair skin and a very long auburn braid, exposed black cables and white mechanical arms and hands, wearing a rust-orange ruffled dress, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young woman's voice around 205-225 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the boy",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino boy about 8, curly dark hair, a white polo shirt and khaki trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real child boy's voice, around 245-265 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest on the edge of the kitchen counter, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-5-10-LAT-03",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-03"
+    }
+  },
+  {
+    "name": "kb3lqv-nam203001",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young woman's face, fair skin and a very long auburn braid, exposed black cables and white mechanical arms and hands, wearing a rust-orange ruffled dress, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young woman's voice around 205-225 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino man about 24, short black hair, a yellow high-visibility vest over a navy t-shirt, black trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult man's voice, around 120-135 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-20-30-LAT-01",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-03"
+    }
+  },
+  {
+    "name": "kb3lqv-nam203002",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young woman's face, fair skin and a very long auburn braid, exposed black cables and white mechanical arms and hands, wearing a rust-orange ruffled dress, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young woman's voice around 205-225 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino man about 25, short black hair, a dark-brown polo shirt and grey cargo trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult man's voice, around 115-130 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-20-30-LAT-02",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-03"
+    }
+  },
+  {
+    "name": "kb3lqv-nam203003",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young woman's face, fair skin and a very long auburn braid, exposed black cables and white mechanical arms and hands, wearing a rust-orange ruffled dress, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young woman's voice around 205-225 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino man about 24, slim, black hair, a light-blue polo shirt and dark jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult man's voice, around 125-140 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-20-30-LAT-03",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-03"
+    }
+  },
+  {
+    "name": "kb3lqv-nam203004",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young woman's face, fair skin and a very long auburn braid, exposed black cables and white mechanical arms and hands, wearing a rust-orange ruffled dress, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young woman's voice around 205-225 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino man about 28, long black hair tied back, a brown plaid flannel shirt and blue jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult man's voice, around 110-125 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-20-30-LAT-04",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-03"
+    }
+  },
+  {
+    "name": "kb3lqv-nam203005",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young woman's face, fair skin and a very long auburn braid, exposed black cables and white mechanical arms and hands, wearing a rust-orange ruffled dress, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young woman's voice around 205-225 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino man about 22, wavy dark hair, a grey chef's jacket and black trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult man's voice, around 125-140 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-20-30-LAT-05",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-03"
+    }
+  },
+  {
+    "name": "kb3lqv-nam304501",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young woman's face, fair skin and a very long auburn braid, exposed black cables and white mechanical arms and hands, wearing a rust-orange ruffled dress, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young woman's voice around 205-225 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino man about 40, short black hair, a denim jacket over a white t-shirt and black jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult man's voice, around 105-120 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-30-45-LAT-01",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-03"
+    }
+  },
+  {
+    "name": "kb3lqv-nam304502",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young woman's face, fair skin and a very long auburn braid, exposed black cables and white mechanical arms and hands, wearing a rust-orange ruffled dress, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young woman's voice around 205-225 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino man about 34, wavy dark hair, a grey button shirt with rolled sleeves and black jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult man's voice, around 110-125 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-30-45-LAT-02",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-03"
+    }
+  },
+  {
+    "name": "kb3lqv-nam304503",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young woman's face, fair skin and a very long auburn braid, exposed black cables and white mechanical arms and hands, wearing a rust-orange ruffled dress, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young woman's voice around 205-225 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino Black man about 38, short curly hair, a black-and-grey striped long-sleeved top and jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult man's voice, around 100-115 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-30-45-LAT-03",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-03"
+    }
+  },
+  {
+    "name": "kb3lqv-nam304504",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young woman's face, fair skin and a very long auburn braid, exposed black cables and white mechanical arms and hands, wearing a rust-orange ruffled dress, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young woman's voice around 205-225 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino stocky Black man about 42, short hair, a black short-sleeved shirt and dark jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult man's voice, around 95-110 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-30-45-LAT-04",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-03"
+    }
+  },
+  {
+    "name": "kb3lqv-nam304505",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young woman's face, fair skin and a very long auburn braid, exposed black cables and white mechanical arms and hands, wearing a rust-orange ruffled dress, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young woman's voice around 205-225 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino light-skinned man about 44, light-brown hair, a blue denim shirt and white trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult man's voice, around 105-120 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-30-45-LAT-05",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-03"
+    }
+  },
+  {
+    "name": "kb3lqv-nam51006",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white head with a smooth white face and softly glowing pale-blue eyes, exposed black cables and white mechanical arms and hands, wearing a coral ruffle-sleeved blouse and blue jeans, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice around 195-215 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the boy",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino boy about 7, curly dark hair, an orange t-shirt and jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real child boy's voice, around 250-270 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest on the edge of the kitchen counter, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-5-10-LAT-06",
+      "NGUOI_DAY": "BOT-TALKA-DEF-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nam51007",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white head with a smooth white face and softly glowing pale-blue eyes, exposed black cables and white mechanical arms and hands, wearing a coral ruffle-sleeved blouse and blue jeans, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice around 195-215 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the boy",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino boy about 8, curly dark hair, a navy sweater and jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real child boy's voice, around 245-265 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest on the edge of the kitchen counter, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-5-10-LAT-07",
+      "NGUOI_DAY": "BOT-TALKA-DEF-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nam51008",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white head with a smooth white face and softly glowing pale-blue eyes, exposed black cables and white mechanical arms and hands, wearing a coral ruffle-sleeved blouse and blue jeans, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice around 195-215 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the boy",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino boy about 8, black hair, a colourful striped serape-pattern shirt and jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real child boy's voice, around 245-265 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest on the edge of the kitchen counter, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-5-10-LAT-08",
+      "NGUOI_DAY": "BOT-TALKA-DEF-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nam203006",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white head with a smooth white face and softly glowing pale-blue eyes, exposed black cables and white mechanical arms and hands, wearing a coral ruffle-sleeved blouse and blue jeans, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice around 195-215 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino man about 26, short black hair, a light-blue short-sleeved work shirt and black trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult man's voice, around 115-130 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-20-30-LAT-06",
+      "NGUOI_DAY": "BOT-TALKA-DEF-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nam203007",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white head with a smooth white face and softly glowing pale-blue eyes, exposed black cables and white mechanical arms and hands, wearing a coral ruffle-sleeved blouse and blue jeans, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice around 195-215 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino stocky man about 22, dark hair, an orange long-sleeved shirt and grey trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult man's voice, around 110-125 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-20-30-LAT-07",
+      "NGUOI_DAY": "BOT-TALKA-DEF-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nam203008",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white head with a smooth white face and softly glowing pale-blue eyes, exposed black cables and white mechanical arms and hands, wearing a coral ruffle-sleeved blouse and blue jeans, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice around 195-215 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino slim man about 23, wavy brown hair, a yellow polo shirt and black trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult man's voice, around 125-140 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-20-30-LAT-08",
+      "NGUOI_DAY": "BOT-TALKA-DEF-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nam203009",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white head with a smooth white face and softly glowing pale-blue eyes, exposed black cables and white mechanical arms and hands, wearing a coral ruffle-sleeved blouse and blue jeans, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice around 195-215 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino man about 29, dark hair tied back, a black overshirt and grey trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult man's voice, around 105-120 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-20-30-LAT-09",
+      "NGUOI_DAY": "BOT-TALKA-DEF-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nam203010",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white head with a smooth white face and softly glowing pale-blue eyes, exposed black cables and white mechanical arms and hands, wearing a coral ruffle-sleeved blouse and blue jeans, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice around 195-215 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino man about 27, long dark hair, a beige short-sleeved shirt and olive trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult man's voice, around 115-130 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-20-30-LAT-10",
+      "NGUOI_DAY": "BOT-TALKA-DEF-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nam304506",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white head with a smooth white face and softly glowing pale-blue eyes, exposed black cables and white mechanical arms and hands, wearing a coral ruffle-sleeved blouse and blue jeans, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice around 195-215 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino slim dark-skinned man about 33, short black hair, a teal polo shirt and grey cargo trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult man's voice, around 110-125 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-30-45-LAT-06",
+      "NGUOI_DAY": "BOT-TALKA-DEF-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nam304507",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white head with a smooth white face and softly glowing pale-blue eyes, exposed black cables and white mechanical arms and hands, wearing a coral ruffle-sleeved blouse and blue jeans, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice around 195-215 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino man about 45, long black hair tied back, a white guayabera shirt and dark trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult man's voice, around 95-110 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-30-45-LAT-07",
+      "NGUOI_DAY": "BOT-TALKA-DEF-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nam304508",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white head with a smooth white face and softly glowing pale-blue eyes, exposed black cables and white mechanical arms and hands, wearing a coral ruffle-sleeved blouse and blue jeans, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice around 195-215 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino man about 35, wavy brown hair, a red plaid shirt and blue jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult man's voice, around 110-125 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-30-45-LAT-08",
+      "NGUOI_DAY": "BOT-TALKA-DEF-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nam304509",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white head with a smooth white face and softly glowing pale-blue eyes, exposed black cables and white mechanical arms and hands, wearing a coral ruffle-sleeved blouse and blue jeans, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice around 195-215 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino stout man about 42, black hair, a rust-orange short-sleeved shirt and dark grey trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult man's voice, around 95-110 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-30-45-LAT-09",
+      "NGUOI_DAY": "BOT-TALKA-DEF-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nam304510",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI robot with a glossy white head with a smooth white face and softly glowing pale-blue eyes, exposed black cables and white mechanical arms and hands, wearing a coral ruffle-sleeved blouse and blue jeans, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm female-leaning synthetic-but-natural voice around 195-215 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the man",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino man about 40, black hair, a beige utility vest over a light-blue t-shirt and green trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult man's voice, around 105-120 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NAM-30-45-LAT-10",
+      "NGUOI_DAY": "BOT-TALKA-DEF-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nu51001",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young Latino man's face and short black hair, exposed black cables and white mechanical arms and hands, wearing a grey suit waistcoat over a white shirt, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young man's voice, a baritone around 125-145 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the girl",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino girl about 8, brown hair in a ponytail, a white t-shirt and jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real child girl's voice, around 270-290 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest on the edge of the kitchen counter, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-5-10-LAT-01",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nu51002",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young Latino man's face and short black hair, exposed black cables and white mechanical arms and hands, wearing a grey suit waistcoat over a white shirt, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young man's voice, a baritone around 125-145 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the girl",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino girl about 9, two long dark braids, a yellow t-shirt and jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real child girl's voice, around 260-280 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest on the edge of the kitchen counter, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-5-10-LAT-02",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nu51003",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young Latino man's face and short black hair, exposed black cables and white mechanical arms and hands, wearing a grey suit waistcoat over a white shirt, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young man's voice, a baritone around 125-145 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the girl",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino girl about 7, black curly hair in afro puffs, a red t-shirt and jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real child girl's voice, around 275-295 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest on the edge of the kitchen counter, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-5-10-LAT-03",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nu51004",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young Latino man's face and short black hair, exposed black cables and white mechanical arms and hands, wearing a grey suit waistcoat over a white shirt, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young man's voice, a baritone around 125-145 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the girl",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino girl about 8, blond bob haircut, a blue short-sleeved dress (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real child girl's voice, around 265-285 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest on the edge of the kitchen counter, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-5-10-LAT-04",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nu203001",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young Latino man's face and short black hair, exposed black cables and white mechanical arms and hands, wearing a grey suit waistcoat over a white shirt, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young man's voice, a baritone around 125-145 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the woman",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino woman about 23, dark hair tied back, a white embroidered blouse and blue jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult woman's voice, around 205-225 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-20-30-LAT-01",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nu203002",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young Latino man's face and short black hair, exposed black cables and white mechanical arms and hands, wearing a grey suit waistcoat over a white shirt, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young man's voice, a baritone around 125-145 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the woman",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino woman about 26, curly dark hair in an updo, a yellow floral blouse, jeans and white sneakers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult woman's voice, around 210-230 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-20-30-LAT-02",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nu203003",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young Latino man's face and short black hair, exposed black cables and white mechanical arms and hands, wearing a grey suit waistcoat over a white shirt, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young man's voice, a baritone around 125-145 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the woman",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino woman about 25, a long black braid, a red short-sleeved shirt and dark jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult woman's voice, around 210-230 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-20-30-LAT-03",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nu203004",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young Latino man's face and short black hair, exposed black cables and white mechanical arms and hands, wearing a grey suit waistcoat over a white shirt, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young man's voice, a baritone around 125-145 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the woman",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino woman about 29, a long braid, a worn denim shirt and brown trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult woman's voice, around 195-215 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-20-30-LAT-04",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nu203005",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young Latino man's face and short black hair, exposed black cables and white mechanical arms and hands, wearing a grey suit waistcoat over a white shirt, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young man's voice, a baritone around 125-145 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the woman",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino woman about 28, short curly dark hair, a turquoise short-sleeved shirt and blue jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult woman's voice, around 200-220 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-20-30-LAT-05",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nu304501",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young Latino man's face and short black hair, exposed black cables and white mechanical arms and hands, wearing a grey suit waistcoat over a white shirt, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young man's voice, a baritone around 125-145 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the woman",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino woman about 35, dark hair pulled back, a grey-and-black short-sleeved shirt and black trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult woman's voice, around 195-210 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-30-45-LAT-01",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nu304502",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young Latino man's face and short black hair, exposed black cables and white mechanical arms and hands, wearing a grey suit waistcoat over a white shirt, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young man's voice, a baritone around 125-145 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the woman",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino Black woman about 38, small braided hair, a white chef's jacket and checkered trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult woman's voice, around 190-205 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-30-45-LAT-02",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nu304503",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young Latino man's face and short black hair, exposed black cables and white mechanical arms and hands, wearing a grey suit waistcoat over a white shirt, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young man's voice, a baritone around 125-145 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the woman",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino woman about 42, wavy dark hair, a green jacket over a black top with a blue neckerchief, and jeans (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult woman's voice, around 185-200 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-30-45-LAT-03",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nu304504",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young Latino man's face and short black hair, exposed black cables and white mechanical arms and hands, wearing a grey suit waistcoat over a white shirt, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young man's voice, a baritone around 125-145 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the woman",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino woman about 40, a long dark braid, a white work coat and white trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult woman's voice, around 190-205 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-30-45-LAT-04",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-02"
+    }
+  },
+  {
+    "name": "kb3lqv-nu304505",
+    "TEN_DAY": "the AI tutor",
+    "NGUOI_DAY": "a humanoid AI avatar with a human-looking young Latino man's face and short black hair, exposed black cables and white mechanical arms and hands, wearing a grey suit waistcoat over a white shirt, calm friendly expression",
+    "GIONG_DAY": "a calm, clear, warm young man's voice, a baritone around 125-145 Hz, speaking Spanish with the English words kept in English, patient and encouraging",
+    "NEN_DAY": "a plain pure black background",
+    "TEN_HOC": "the woman",
+    "NGUOI_HOC": "a real, photorealistic live-action Latino woman about 33, long wavy dark hair, a yellow high-visibility vest over a navy shirt and khaki trousers (a real person filmed on camera, not animated, not a cartoon)",
+    "GIONG_HOC": "a real adult woman's voice, around 200-215 Hz, native Mexican Spanish with English words kept in English, a little hesitant at first, brighter and more confident later",
+    "NEN_HOC": "a bright cream-coloured kitchen with wooden cabinets and a granite counter, a sink in front of the person",
+    "DONG_HOC": "Their hands rest at the sink on a plate, only a tiny natural movement.",
+    "POS_DAY": "TOP",
+    "POS_HOC": "BOTTOM",
+    "LUOT": [
+      {
+        "who": "day",
+        "text": "Where are you from?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "I am Mexico.",
+        "emo": "cheerful",
+        "fx": "wrong",
+        "c": "red",
+        "icon": "x"
+      },
+      {
+        "who": "day",
+        "text": "¡Casi! Pero la forma correcta de decirlo es: \"I am from Mexico.\"",
+        "emo": "warm",
+        "fx": "right",
+        "c": "green",
+        "icon": "check",
+        "to": "I am from Mexico"
+      },
+      {
+        "who": "hoc",
+        "text": "Ay, siempre cometo ese mismo error.",
+        "emo": "embarrassed",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Para eso estoy aquí! Para ayudarte a mejorar tu inglés.",
+        "emo": "warm",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "Pero no tengo dinero.",
+        "emo": "worried",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¿Dinero? ¡No tienes que pagar nada! Olvídate de las apps y los cursos caros. Con Talka AI puedes practicar inglés totalmente gratis.",
+        "emo": "reassuring",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿En serio?",
+        "emo": "surprised",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Claro! Sin condiciones ocultas. Solo conversaciones reales en inglés con tu tutor de inteligencia artificial.",
+        "emo": "friendly",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¿Como si fuera un tutor de verdad?",
+        "emo": "curious",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Exacto! Talka AI te ayuda a mejorar tu gramática, tu pronunciación y a hablar inglés con más confianza.",
+        "emo": "encouraging",
+        "fx": "none"
+      },
+      {
+        "who": "hoc",
+        "text": "¡Perfecto! Entonces voy a descargar Talka AI ahora mismo.",
+        "emo": "confident",
+        "fx": "none"
+      },
+      {
+        "who": "day",
+        "text": "¡Excelente decisión! ¡Vamos a practicar inglés juntos!",
+        "emo": "upbeat",
+        "fx": "none"
+      }
+    ],
+    "refs": {
+      "NGUOI_HOC": "NU-30-45-LAT-05",
+      "NGUOI_DAY": "BOT-TALKA-AVA-LATIN-02"
+    }
+  }
+]

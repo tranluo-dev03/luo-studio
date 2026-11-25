@@ -54,7 +54,7 @@ HOOK_MOI = [
 
 
 def ghi(ten, file, hook, them=None):
-    v = dict({"name": ten}, **{k: x for k, x in NHAN_VAT.items() if k != "refs" and not (k == "DONG_HOC" and "HOOK" in file)})
+    v = dict({"name": ten}, **{k: x for k, x in NHAN_VAT.items() if k != "refs"})
     v.update(them or {})
     v["LUOT"] = hook + TINH_HUONG
     v["refs"] = NHAN_VAT["refs"]
