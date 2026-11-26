@@ -2507,7 +2507,53 @@ def _probe_account_sync(aid: str, check_quota: bool = False) -> dict:
         return {"ok": False, "id": aid, "label": acc.get("label", aid), "error": str(exc)}
     except Exception as exc:  # noqa: BLE001
         store.touch_keepalive(aid, None, f"保活未确认（保留账号状态）: {str(exc)[:200]}")
+        if UNASSIGNED_MARK in str(exc) and not getattr(_UNASSIGNED_TLS, "on", False):
+            return _fix_unassigned(aid, str(exc))
         return {"ok": False, "id": aid, "label": acc.get("label", aid), "error": str(exc)}
+
+
+UNASSIGNED_MARK = "未返回 assigned"   # /api/session 200 nhưng không có phiên "assigned" (thường đổi IP 1-2 lần là hết)
+UNASSIGNED_IP_TRIES = 3
+_UNASSIGNED_TLS = threading.local()   # .on: đang kiểm tra lại bên trong _fix_unassigned, không lồng thêm vòng sửa
+
+
+def _fix_unassigned(aid: str, msg: str) -> dict:
+    """Lỗi "未返回 assigned": đổi IP (Touch VPN) rồi kiểm tra lại, tối đa UNASSIGNED_IP_TRIES lần; vẫn lỗi thì TẮT tài khoản.
+    Tài khoản đang gen thì không đổi IP giữa chừng (hỏng lượt gen): để lượt kiểm tra sau. VPN tắt: chỉ thử kiểm tra lại."""
+    acc = store.get_account(aid) or {}
+    label = acc.get("label", aid)
+    if not acc.get("enabled", True):
+        return {"ok": False, "id": aid, "label": label, "error": msg}
+    if (engine.pool_status().get(aid) or {}).get("busy") or ACCOUNT_POOL.load.get(aid):
+        log.info("【assigned】%s (%s) đang gen: để lượt kiểm tra sau mới đổi IP", label, aid)
+        return {"ok": False, "id": aid, "label": label, "error": msg}
+    res: dict = {}
+    for i in range(1, UNASSIGNED_IP_TRIES + 1):
+        ip_info = ""
+        if engine.vpn.enabled:
+            try:
+                engine.vpn.ensure_browser()
+                info = engine.vbro.change_ip(aid)
+                ip_info = f"{info.get('loc')} ({info.get('ip') or '?'})"
+            except Exception as exc:  # noqa: BLE001
+                ip_info = f"đổi IP lỗi: {exc}"
+        log.warning("【assigned】%s (%s): không có phiên assigned, đổi IP lần %d/%d -> %s", label, aid, i, UNASSIGNED_IP_TRIES, ip_info)
+        time.sleep(5)
+        _UNASSIGNED_TLS.on = True
+        try:
+            res = _probe_account_sync(aid, False)
+        finally:
+            _UNASSIGNED_TLS.on = False
+        if res.get("ok"):
+            log.info("【assigned】%s (%s): đã có phiên sau %d lần đổi IP", label, aid, i)
+            return res
+        if UNASSIGNED_MARK not in str(res.get("error") or ""):
+            return res   # lỗi khác (401, mạng...): để luồng xử lý thường lo
+    store.update_account(aid, enabled=False)
+    store.mark(aid, False, f"Không có phiên assigned sau {UNASSIGNED_IP_TRIES} lần đổi IP: tự tắt tài khoản "
+                           f"(vào muse.ai kiểm tra tài khoản/workspace rồi bật lại). {msg[:120]}")
+    log.warning("【assigned】%s (%s): vẫn lỗi sau %d lần đổi IP: đã tự tắt", label, aid, UNASSIGNED_IP_TRIES)
+    return res or {"ok": False, "id": aid, "label": label, "error": msg}
 
 
 async def run_keepalive_all(force: bool = False) -> dict:

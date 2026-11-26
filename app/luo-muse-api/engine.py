@@ -920,7 +920,8 @@ class MuseEngine:
         except ValueError:
             raise MuseGenerationError("/api/session HTTP 200 返回非 JSON；会话状态未确认") from None
         if not isinstance(sj, dict) or sj.get("status") != "assigned":
-            raise MuseGenerationError("/api/session HTTP 200 未返回 assigned 会话；请在官网检查账号/工作区状态")
+            st = sj.get("status") if isinstance(sj, dict) else type(sj).__name__
+            raise MuseGenerationError(f"/api/session HTTP 200 未返回 assigned 会话 (status={str(st)[:40]})；请在官网检查账号/工作区状态")
         merge(r)
         vm_id, vm_state = sj.get("vm_id"), sj.get("vm_state")
         wake_ok = None
